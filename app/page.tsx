@@ -431,6 +431,12 @@ type,
 result,
 date,
 link
+}: {
+title: string;
+type: string;
+result: string;
+date: string;
+link?: string;
 }) {
 
 const content = (
@@ -524,7 +530,15 @@ return content;
    UPCOMING RACE
 =============================== */
 
-function UpcomingRace({ title, subtitle, date }) {
+function UpcomingRace({
+title,
+subtitle,
+date,
+}: {
+title: string;
+subtitle: string;
+date: string;
+}) {
 
 return (
 
@@ -573,7 +587,7 @@ opacity: 0.5
    POLL LINK
 =============================== */
 
-function PollLink({ title, link, comingSoon, data, tracker }) {
+function PollLink({ title, link, comingSoon, data, tracker }: { title: string; link?: string; comingSoon?: boolean; data?: any; tracker?: string }) {
 
 const content = (
 
