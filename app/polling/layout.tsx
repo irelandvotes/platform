@@ -108,8 +108,6 @@ overflow: "auto"
 
 }
 
-
-
 /* ===============================
    POLL LINK
 =============================== */
@@ -147,7 +145,7 @@ dynamicTyping: true,
 skipEmptyLines: true
 });
 
-const parsed = result.data
+const parsed = (result.data as any[])
 .filter(p => p.date)
 .map(p => ({
 ...p,
@@ -237,7 +235,7 @@ AP: "#fdd835",
    SIDEBAR PREVIEW
 =============================== */
 
-function SidebarPreview({ data, tracker }) {
+function SidebarPreview({ data, tracker }: { data?: any[]; tracker?: string }) {
 
 if (!data || !data.length) return null;
 
