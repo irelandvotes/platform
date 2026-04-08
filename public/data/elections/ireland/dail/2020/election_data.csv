@@ -1,0 +1,105 @@
+constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,turnout,tvp,spoilt,electorate
+Carlow-Kilkenny,,,,,,,,5,,,,,
+Cavan-Monaghan,,,,,,,,5,,,,,
+Clare,,,,,,,,4,,,,,
+Cork East,,,,,,,,4,,,,,
+Cork North-Central,,,,,,,,4,,,,,
+Cork North-West,,,,,,,,3,,,,,
+Cork South-Central,,,,,,,,4,,,,,
+Cork South-West,,,,,,,,3,,,,,
+Donegal,,,,,,,,5,,,,,
+Dublin Bay North,,,,,,,,5,,,,,
+Dublin Bay South,,,,,,,,4,,,,,
+Dublin Central,,,,,,,,4,,,,,
+Dublin Fingal,,,,,,,,5,,,,,
+Dublin Mid-West,,,,,,,,4,,,,,
+Dublin North-West,,,,,,,,3,,,,,
+Dublin Rathdown,,,,,,,,3,,,,,
+Dublin South-Central,,,,,,,,4,,,,,
+Dublin South-West,,,,,,,,5,,,,,
+Dublin West,,,,,,,,4,,,,,
+Dún Laoghaire,,,,,,,,4,,,,,
+Galway East,,,,,,,,3,,,,,
+Galway West,,,,,,,,5,,,,,
+Kerry,,,,,,,,5,,,,,
+Kildare North,,,,,,,,4,,,,,
+Kildare South,,,,,,,,4,,,,,
+Laois-Offaly,,,,,,,,5,,,,,
+Limerick City,,,,,,,,4,,,,,
+Limerick County,,,,,,,,3,,,,,
+Longford-Westmeath,,,,,,,,4,,,,,
+Louth,,,,,,,,5,,,,,
+Mayo,,,,,,,,4,,,,,
+Meath East,,,,,,,,3,,,,,
+Meath West,,,,,,,,3,,,,,
+Roscommon-Galway,1,michael fitzmaurice,Michael Fitzmaurice,TRUE,IND,13077,elected,3,11404,45942,45612,330,69598
+Roscommon-Galway,1,denis naughten,Denis Naughten,TRUE,IND,8422,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,1,claire kerrane,Claire Kerrane,FALSE,SF,8003,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,1,aisling dolan,Aisling Dolan,FALSE,FG,5466,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,1,eugene murphy,Eugene Murphy,TRUE,FF,4945,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,1,orla leyden,Orla Leyden,FALSE,FF,2953,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,1,julie odonoghue,Julie O'Donoghue,FALSE,GP,1413,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,1,james hope,James Hope,FALSE,AON,504,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,1,kenny tynan,Kenny Tynan,FALSE,PBPS,422,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,1,paul hanley,Paul Hanley,FALSE,NP,319,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,1,thomas fallon,Thomas Fallon,FALSE,IND,88,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,2,michael fitzmaurice,Michael Fitzmaurice,TRUE,IND,,elected,3,11404,45942,45612,330,69598
+Roscommon-Galway,2,denis naughten,Denis Naughten,TRUE,IND,9057,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,2,claire kerrane,Claire Kerrane,FALSE,SF,8322,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,2,aisling dolan,Aisling Dolan,FALSE,FG,5635,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,2,eugene murphy,Eugene Murphy,TRUE,FF,5201,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,2,orla leyden,Orla Leyden,FALSE,FF,3124,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,2,julie odonoghue,Julie O'Donoghue,FALSE,GP,1445,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,2,james hope,James Hope,FALSE,AON,542,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,2,kenny tynan,Kenny Tynan,FALSE,PBPS,442,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,2,paul hanley,Paul Hanley,FALSE,NP,331,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,2,thomas fallon,Thomas Fallon,FALSE,IND,109,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,3,michael fitzmaurice,Michael Fitzmaurice,TRUE,IND,,elected,3,11404,45942,45612,330,69598
+Roscommon-Galway,3,denis naughten,Denis Naughten,TRUE,IND,9419,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,3,claire kerrane,Claire Kerrane,FALSE,SF,8690,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,3,aisling dolan,Aisling Dolan,FALSE,FG,5710,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,3,eugene murphy,Eugene Murphy,TRUE,FF,5381,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,3,orla leyden,Orla Leyden,FALSE,FF,3197,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,3,julie odonoghue,Julie O'Donoghue,FALSE,GP,1610,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,3,james hope,James Hope,FALSE,AON,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,3,kenny tynan,Kenny Tynan,FALSE,PBPS,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,3,paul hanley,Paul Hanley,FALSE,NP,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,3,thomas fallon,Thomas Fallon,FALSE,IND,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,4,michael fitzmaurice,Michael Fitzmaurice,TRUE,IND,,elected,3,11404,45942,45612,330,69598
+Roscommon-Galway,4,denis naughten,Denis Naughten,TRUE,IND,10866,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,4,claire kerrane,Claire Kerrane,FALSE,SF,9402,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,4,aisling dolan,Aisling Dolan,FALSE,FG,6162,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,4,eugene murphy,Eugene Murphy,TRUE,FF,7242,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,4,orla leyden,Orla Leyden,FALSE,FF,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,4,julie odonoghue,Julie O'Donoghue,FALSE,GP,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,4,james hope,James Hope,FALSE,AON,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,4,kenny tynan,Kenny Tynan,FALSE,PBPS,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,4,paul hanley,Paul Hanley,FALSE,NP,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,4,thomas fallon,Thomas Fallon,FALSE,IND,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,5,michael fitzmaurice,Michael Fitzmaurice,TRUE,IND,,elected,3,11404,45942,45612,330,69598
+Roscommon-Galway,5,denis naughten,Denis Naughten,TRUE,IND,14683,elected,3,11404,45942,45612,330,69598
+Roscommon-Galway,5,claire kerrane,Claire Kerrane,FALSE,SF,10082,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,5,aisling dolan,Aisling Dolan,FALSE,FG,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,5,eugene murphy,Eugene Murphy,TRUE,FF,8058,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,5,orla leyden,Orla Leyden,FALSE,FF,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,5,julie odonoghue,Julie O'Donoghue,FALSE,GP,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,5,james hope,James Hope,FALSE,AON,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,5,kenny tynan,Kenny Tynan,FALSE,PBPS,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,5,paul hanley,Paul Hanley,FALSE,NP,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,5,thomas fallon,Thomas Fallon,FALSE,IND,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,6,michael fitzmaurice,Michael Fitzmaurice,TRUE,IND,,elected,3,11404,45942,45612,330,69598
+Roscommon-Galway,6,denis naughten,Denis Naughten,TRUE,IND,,elected,3,11404,45942,45612,330,69598
+Roscommon-Galway,6,claire kerrane,Claire Kerrane,FALSE,SF,10545,elected,3,11404,45942,45612,330,69598
+Roscommon-Galway,6,aisling dolan,Aisling Dolan,FALSE,FG,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,6,eugene murphy,Eugene Murphy,TRUE,FF,9204,running,3,11404,45942,45612,330,69598
+Roscommon-Galway,6,orla leyden,Orla Leyden,FALSE,FF,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,6,julie odonoghue,Julie O'Donoghue,FALSE,GP,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,6,james hope,James Hope,FALSE,AON,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,6,kenny tynan,Kenny Tynan,FALSE,PBPS,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,6,paul hanley,Paul Hanley,FALSE,NP,,eliminated,3,11404,45942,45612,330,69598
+Roscommon-Galway,6,thomas fallon,Thomas Fallon,FALSE,IND,,eliminated,3,11404,45942,45612,330,69598
+Sligo-Leitrim,,,,,,,,4,,,,,
+Tipperary,,,,,,,,5,,,,,
+Waterford,,,,,,,,4,,,,,
+Wexford,,,,,,,,5,,,,,
+Wicklow,,,,,,,,5,,,,,

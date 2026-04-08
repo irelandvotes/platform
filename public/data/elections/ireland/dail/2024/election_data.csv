@@ -1,0 +1,426 @@
+constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,turnout,tvp,spoilt,electorate
+Carlow-Kilkenny,,,,,,,,5,,,,,119730
+Cavan-Monaghan,,,,,,,,5,,,,,109152
+Clare,,,,,,,,4,,,,,96398
+Cork East,,,,,,,,4,,,,,83545
+Cork North-Central,,,,,,,,5,,,,,103250
+Cork North-West,,,,,,,,3,,,,,67255
+Cork South-Central,,,,,,,,5,,,,,105076
+Cork South-West,,,,,,,,3,,,,,74634
+Donegal,,,,,,,,5,,,,,131306
+Dublin Bay North,,,,,,,,5,,,,,107370
+Dublin Bay South,,,,,,,,4,,,,,77894
+Dublin Central,,,,,,,,4,,,,,60478
+Dublin Fingal East,,,,,,,,3,,,,,62465
+Dublin Fingal West,,,,,,,,3,,,,,51455
+Dublin Mid-West,1,colm quinn,Colm Quinn,FALSE,AON,1492,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,1,shane moynihan,Shane Moynihan,FALSE,FF,4746,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,1,lynda prendergast,Lynda Prendergast,FALSE,FF,850,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,1,emer higgins,Emer Higgins,TRUE,FG,4798,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,1,vicki casserly,Vicki Casserly,FALSE,FG,3723,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,1,karla doran,Karla Doran,FALSE,GP,637,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,1,linda de courcey,Linda de Courcey,FALSE,INDIRL,1823,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,1,glen moore,Glen Moore,FALSE,IFP,1435,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,1,francis timmons,Francis Timmons,FALSE,LAB,2270,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,1,gino kenny,Gino Kenny,TRUE,PBPS,2608,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,1,eoin obroin_sf,Eoin Ó Broin,TRUE,SF,9892,elected,5,7913,47930,47476,454,85769
+Dublin Mid-West,1,mark ward,Mark Ward,TRUE,SF,5323,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,1,eoin obroin_sd,Eoin Ó Broin,FALSE,SD,2907,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,1,robert coyle,Robert Coyle,FALSE,IPP,348,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,1,paul gogarty,Paul Gogarty,FALSE,IND,3646,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,1,alan hayes,Alan Hayes,FALSE,IND,855,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,1,seanan ocoistin,Seanán Ó Coistín,FALSE,IND,123,eliminated,5,7913,47930,47476,454,85769
+Dublin Mid-West,2,colm quinn,Colm Quinn,FALSE,AON,1527,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,2,shane moynihan,Shane Moynihan,FALSE,FF,4767,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,2,lynda prendergast,Lynda Prendergast,FALSE,FF,858,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,2,emer higgins,Emer Higgins,TRUE,FG,4817,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,2,vicki casserly,Vicki Casserly,FALSE,FG,3740,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,2,karla doran,Karla Doran,FALSE,GP,643,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,2,linda de courcey,Linda de Courcey,FALSE,INDIRL,1846,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,2,glen moore,Glen Moore,FALSE,IFP,1448,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,2,francis timmons,Francis Timmons,FALSE,LAB,2322,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,2,gino kenny,Gino Kenny,TRUE,PBPS,2730,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,2,eoin obroin_sf,Eoin Ó Broin,TRUE,SF,,elected,5,7913,47930,47476,454,85769
+Dublin Mid-West,2,mark ward,Mark Ward,TRUE,SF,6817,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,2,eoin obroin_sd,Eoin Ó Broin,FALSE,SD,3017,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,2,robert coyle,Robert Coyle,FALSE,IPP,356,eliminated,5,7913,47930,47476,454,85769
+Dublin Mid-West,2,paul gogarty,Paul Gogarty,FALSE,IND,3683,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,2,alan hayes,Alan Hayes,FALSE,IND,865,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,2,seanan ocoistin,Seanán Ó Coistín,FALSE,IND,,eliminated,5,7913,47930,47476,454,85769
+Dublin Mid-West,3,colm quinn,Colm Quinn,FALSE,AON,1552,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,3,shane moynihan,Shane Moynihan,FALSE,FF,4775,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,3,lynda prendergast,Lynda Prendergast,FALSE,FF,858,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,3,emer higgins,Emer Higgins,TRUE,FG,4820,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,3,vicki casserly,Vicki Casserly,FALSE,FG,3750,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,3,karla doran,Karla Doran,FALSE,GP,650,eliminated,5,7913,47930,47476,454,85769
+Dublin Mid-West,3,linda de courcey,Linda de Courcey,FALSE,INDIRL,1968,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,3,glen moore,Glen Moore,FALSE,IFP,1566,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,3,francis timmons,Francis Timmons,FALSE,LAB,2345,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,3,gino kenny,Gino Kenny,TRUE,PBPS,2748,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,3,eoin obroin_sf,Eoin Ó Broin,TRUE,SF,,elected,5,7913,47930,47476,454,85769
+Dublin Mid-West,3,mark ward,Mark Ward,TRUE,SF,6853,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,3,eoin obroin_sd,Eoin Ó Broin,FALSE,SD,3025,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,3,robert coyle,Robert Coyle,FALSE,IPP,,eliminated,5,7913,47930,47476,454,85769
+Dublin Mid-West,3,paul gogarty,Paul Gogarty,FALSE,IND,3739,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,3,alan hayes,Alan Hayes,FALSE,IND,899,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,3,seanan ocoistin,Seanán Ó Coistín,FALSE,IND,,eliminated,5,7913,47930,47476,454,85769
+Dublin Mid-West,4,colm quinn,Colm Quinn,FALSE,AON,1561,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,4,shane moynihan,Shane Moynihan,FALSE,FF,4822,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,4,lynda prendergast,Lynda Prendergast,FALSE,FF,879,eliminated,5,7913,47930,47476,454,85769
+Dublin Mid-West,4,emer higgins,Emer Higgins,TRUE,FG,4884,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,4,vicki casserly,Vicki Casserly,FALSE,FG,3822,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,4,karla doran,Karla Doran,FALSE,GP,,eliminated,5,7913,47930,47476,454,85769
+Dublin Mid-West,4,linda de courcey,Linda de Courcey,FALSE,INDIRL,1984,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,4,glen moore,Glen Moore,FALSE,IFP,1573,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,4,francis timmons,Francis Timmons,FALSE,LAB,2451,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,4,gino kenny,Gino Kenny,TRUE,PBPS,2784,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,4,eoin obroin_sf,Eoin Ó Broin,TRUE,SF,,elected,5,7913,47930,47476,454,85769
+Dublin Mid-West,4,mark ward,Mark Ward,TRUE,SF,6871,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,4,eoin obroin_sd,Eoin Ó Broin,FALSE,SD,3151,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,4,robert coyle,Robert Coyle,FALSE,IPP,,eliminated,5,7913,47930,47476,454,85769
+Dublin Mid-West,4,paul gogarty,Paul Gogarty,FALSE,IND,3837,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,4,alan hayes,Alan Hayes,FALSE,IND,920,running,5,7913,47930,47476,454,85769
+Dublin Mid-West,4,seanan ocoistin,Seanán Ó Coistín,FALSE,IND,,eliminated,5,7913,47930,47476,454,85769
+Dublin North-West,,,,,,,,3,,,,,56712
+Dublin Rathdown,,,,,,,,4,,,,,80852
+Dublin South-Central,,,,,,,,4,,,,,77072
+Dublin South-West,,,,,,,,5,,,,,114832
+Dublin West,,,,,,,,5,,,,,78034
+Dún Laoghaire,,,,,,,,4,,,,,95462
+Galway East,,,,,,,,4,,,,,87791
+Galway West,,,,,,,,5,,,,,103713
+Kerry,,,,,,,,5,,,,,120868
+Kildare North,,,,,,,,5,,,,,95055
+Kildare South,,,,,,,,4,,,,,74243
+Laois,,,,,,,,3,,,,,65873
+Limerick City,,,,,,,,4,,,,,77735
+Limerick County,,,,,,,,3,,,,,75018
+Longford-Westmeath,,,,,,,,5,,,,,106814
+Louth,,,,,,,,5,,,,,104799
+Mayo,,,,,,,,5,,,,,111494
+Meath East,,,,,,,,4,,,,,83719
+Meath West,,,,,,,,3,,,,,65145
+Offaly,,,,,,,,3,,,,,62931
+Roscommon-Galway,1,cormac oconarain,Cormac Ó Conaráin,FALSE,AON,789,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,1,martin daly,Martin Daly,FALSE,FF,7283,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,1,aisling dolan,Aisling Dolan,FALSE,FG,4843,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,1,dympna dfinn,Dympna D. Finn,FALSE,FG,2164,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,1,martina oconnor,Martina O'Connor,FALSE,GP,441,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,1,michael fiztmaurice,Michael Fitzmaurice,TRUE,INDIRL,12002,elected,3,10282,41332,41128,204,62703
+Roscommon-Galway,1,andrew mannion,Andrew Mannion,FALSE,PBPS,814,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,1,claire kerrane,Claire Kerrane,TRUE,SF,8039,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,1,alan sweeney,Alan Sweeney,FALSE,IPP,224,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,1,eugene murphy,Eugene Murphy,FALSE,IND,4327,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,1,vincent beirne,Vincent Beirne,FALSE,IND,202,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,2,cormac oconarain,Cormac Ó Conaráin,FALSE,AON,868,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,2,martin daly,Martin Daly,FALSE,FF,7705,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,2,aisling dolan,Aisling Dolan,FALSE,FG,5012,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,2,dympna dfinn,Dympna D. Finn,FALSE,FG,2252,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,2,martina oconnor,Martina O'Connor,FALSE,GP,449,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,2,michael fiztmaurice,Michael Fitzmaurice,TRUE,INDIRL,0,elected,3,10282,41332,41128,204,62703
+Roscommon-Galway,2,andrew mannion,Andrew Mannion,FALSE,PBPS,848,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,2,claire kerrane,Claire Kerrane,TRUE,SF,8449,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,2,alan sweeney,Alan Sweeney,FALSE,IPP,246,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,2,eugene murphy,Eugene Murphy,FALSE,IND,4782,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,2,vincent beirne,Vincent Beirne,FALSE,IND,234,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,3,cormac oconarain,Cormac Ó Conaráin,FALSE,AON,909,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,3,martin daly,Martin Daly,FALSE,FF,7715,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,3,aisling dolan,Aisling Dolan,FALSE,FG,5017,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,3,dympna dfinn,Dympna D. Finn,FALSE,FG,2262,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,3,martina oconnor,Martina O'Connor,FALSE,GP,449,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,3,michael fiztmaurice,Michael Fitzmaurice,TRUE,INDIRL,,elected,3,10282,41332,41128,204,62703
+Roscommon-Galway,3,andrew mannion,Andrew Mannion,FALSE,PBPS,889,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,3,claire kerrane,Claire Kerrane,TRUE,SF,8469,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,3,alan sweeney,Alan Sweeney,FALSE,IPP,306,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,3,eugene murphy,Eugene Murphy,FALSE,IND,4848,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,3,vincent beirne,Vincent Beirne,FALSE,IND,0,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,4,cormac oconarain,Cormac Ó Conaráin,FALSE,AON,1031,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,4,martin daly,Martin Daly,FALSE,FF,7811,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,4,aisling dolan,Aisling Dolan,FALSE,FG,5097,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,4,dympna dfinn,Dympna D. Finn,FALSE,FG,2325,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,4,martina oconnor,Martina O'Connor,FALSE,GP,0,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,4,michael fiztmaurice,Michael Fitzmaurice,TRUE,INDIRL,,elected,3,10282,41332,41128,204,62703
+Roscommon-Galway,4,andrew mannion,Andrew Mannion,FALSE,PBPS,1033,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,4,claire kerrane,Claire Kerrane,TRUE,SF,8540,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,4,alan sweeney,Alan Sweeney,FALSE,IPP,,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,4,eugene murphy,Eugene Murphy,FALSE,IND,4954,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,4,vincent beirne,Vincent Beirne,FALSE,IND,,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,5,cormac oconarain,Cormac Ó Conaráin,FALSE,AON,0,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,5,martin daly,Martin Daly,FALSE,FF,8010,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,5,aisling dolan,Aisling Dolan,FALSE,FG,5228,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,5,dympna dfinn,Dympna D. Finn,FALSE,FG,2425,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,5,martina oconnor,Martina O'Connor,FALSE,GP,,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,5,michael fiztmaurice,Michael Fitzmaurice,TRUE,INDIRL,,elected,3,10282,41332,41128,204,62703
+Roscommon-Galway,5,andrew mannion,Andrew Mannion,FALSE,PBPS,0,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,5,claire kerrane,Claire Kerrane,TRUE,SF,9331,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,5,alan sweeney,Alan Sweeney,FALSE,IPP,,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,5,eugene murphy,Eugene Murphy,FALSE,IND,5441,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,5,vincent beirne,Vincent Beirne,FALSE,IND,,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,6,cormac oconarain,Cormac Ó Conaráin,FALSE,AON,,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,6,martin daly,Martin Daly,FALSE,FF,8372,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,6,aisling dolan,Aisling Dolan,FALSE,FG,6625,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,6,dympna dfinn,Dympna D. Finn,FALSE,FG,0,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,6,martina oconnor,Martina O'Connor,FALSE,GP,,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,6,michael fiztmaurice,Michael Fitzmaurice,TRUE,INDIRL,,elected,3,10282,41332,41128,204,62703
+Roscommon-Galway,6,andrew mannion,Andrew Mannion,FALSE,PBPS,,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,6,claire kerrane,Claire Kerrane,TRUE,SF,9551,running,3,10282,41332,41128,204,62703
+Roscommon-Galway,6,alan sweeney,Alan Sweeney,FALSE,IPP,,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,6,eugene murphy,Eugene Murphy,FALSE,IND,5779,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,6,vincent beirne,Vincent Beirne,FALSE,IND,,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,7,cormac oconarain,Cormac Ó Conaráin,FALSE,AON,,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,7,martin daly,Martin Daly,FALSE,FF,10234,elected,3,10282,41332,41128,204,62703
+Roscommon-Galway,7,aisling dolan,Aisling Dolan,FALSE,FG,7593,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,7,dympna dfinn,Dympna D. Finn,FALSE,FG,,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,7,martina oconnor,Martina O'Connor,FALSE,GP,,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,7,michael fiztmaurice,Michael Fitzmaurice,TRUE,INDIRL,,elected,3,10282,41332,41128,204,62703
+Roscommon-Galway,7,andrew mannion,Andrew Mannion,FALSE,PBPS,,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,7,claire kerrane,Claire Kerrane,TRUE,SF,11087,elected,3,10282,41332,41128,204,62703
+Roscommon-Galway,7,alan sweeney,Alan Sweeney,FALSE,IPP,,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,7,eugene murphy,Eugene Murphy,FALSE,IND,0,eliminated,3,10282,41332,41128,204,62703
+Roscommon-Galway,7,vincent beirne,Vincent Beirne,FALSE,IND,,eliminated,3,10282,41332,41128,204,62703
+Sligo-Leitrim,,,,,,,,4,,,,,94116
+Tipperary North,,,,,,,,3,,,,,70214
+Tipperary South,,,,,,,,3,,,,,68247
+Waterford,,,,,,,,4,,,,,93226
+Waterford,1,ronan cleary,Ronan Cleary,FALSE,AON,1664,running,4,10731,54013,53650,363,93226
+Waterford,1,mary butler,Mary Butler,TRUE,FF,9962,running,4,10731,54013,53650,363,93226
+Waterford,1,joan cummins,John Cummins,FALSE,FG,10376,running,4,10731,54013,53650,363,93226
+Waterford,1,marc ocathasaigh,Marc Ó Cathasaigh,TRUE,GP,1671,running,4,10731,54013,53650,363,93226
+Waterford,1,sadhbh oneill,Sadhbh O'Neill,FALSE,LAB,1500,running,4,10731,54013,53650,363,93226
+Waterford,1,patrick curtain,Patrick Curtain,FALSE,PBPS,643,running,4,10731,54013,53650,363,93226
+Waterford,1,david cullinane,David Cullinane,TRUE,SF,11936,elected,4,10731,54013,53650,363,93226
+Waterford,1,conor dmcguinness,Conor D. McGuinness,FALSE,SF,5791,running,4,10731,54013,53650,363,93226
+Waterford,1,mary roche,Mary Roche,FALSE,SD,2717,running,4,10731,54013,53650,363,93226
+Waterford,1,john walsh,John Walsh,FALSE,IPP,482,running,4,10731,54013,53650,363,93226
+Waterford,1,matt shanahan,Matt Shanahan,TRUE,IND,5355,running,4,10731,54013,53650,363,93226
+Waterford,1,killian mangan,Killian Mangan,FALSE,IND,620,running,4,10731,54013,53650,363,93226
+Waterford,1,frank conway,Frank Conway,FALSE,IND,715,running,4,10731,54013,53650,363,93226
+Waterford,1,mark oneill,Mark O'Neill,FALSE,IND,56,running,4,10731,54013,53650,363,93226
+Waterford,1,aaron joyce,Aaron Joyce,FALSE,IND,162,running,4,10731,54013,53650,363,93226
+Waterford,2,ronan cleary,Ronan Cleary,FALSE,AON,1680,running,4,10731,54013,53650,363,93226
+Waterford,2,mary butler,Mary Butler,TRUE,FF,10004,running,4,10731,54013,53650,363,93226
+Waterford,2,joan cummins,John Cummins,FALSE,FG,10428,running,4,10731,54013,53650,363,93226
+Waterford,2,marc ocathasaigh,Marc Ó Cathasaigh,TRUE,GP,1683,running,4,10731,54013,53650,363,93226
+Waterford,2,sadhbh oneill,Sadhbh O'Neill,FALSE,LAB,1518,running,4,10731,54013,53650,363,93226
+Waterford,2,patrick curtain,Patrick Curtain,FALSE,PBPS,669,running,4,10731,54013,53650,363,93226
+Waterford,2,david cullinane,David Cullinane,TRUE,SF,,elected,4,10731,54013,53650,363,93226
+Waterford,2,conor dmcguinness,Conor D. McGuinness,FALSE,SF,6692,running,4,10731,54013,53650,363,93226
+Waterford,2,mary roche,Mary Roche,FALSE,SD,2765,running,4,10731,54013,53650,363,93226
+Waterford,2,john walsh,John Walsh,FALSE,IPP,485,running,4,10731,54013,53650,363,93226
+Waterford,2,matt shanahan,Matt Shanahan,TRUE,IND,5425,running,4,10731,54013,53650,363,93226
+Waterford,2,killian mangan,Killian Mangan,FALSE,IND,627,running,4,10731,54013,53650,363,93226
+Waterford,2,frank conway,Frank Conway,FALSE,IND,722,running,4,10731,54013,53650,363,93226
+Waterford,2,mark oneill,Mark O'Neill,FALSE,IND,57,eliminated,4,10731,54013,53650,363,93226
+Waterford,2,aaron joyce,Aaron Joyce,FALSE,IND,164,eliminated,4,10731,54013,53650,363,93226
+Waterford,3,ronan cleary,Ronan Cleary,FALSE,AON,1693,running,4,10731,54013,53650,363,93226
+Waterford,3,mary butler,Mary Butler,TRUE,FF,10011,running,4,10731,54013,53650,363,93226
+Waterford,3,joan cummins,John Cummins,FALSE,FG,10432,running,4,10731,54013,53650,363,93226
+Waterford,3,marc ocathasaigh,Marc Ó Cathasaigh,TRUE,GP,1686,running,4,10731,54013,53650,363,93226
+Waterford,3,sadhbh oneill,Sadhbh O'Neill,FALSE,LAB,1525,running,4,10731,54013,53650,363,93226
+Waterford,3,patrick curtain,Patrick Curtain,FALSE,PBPS,672,running,4,10731,54013,53650,363,93226
+Waterford,3,david cullinane,David Cullinane,TRUE,SF,,elected,4,10731,54013,53650,363,93226
+Waterford,3,conor dmcguinness,Conor D. McGuinness,FALSE,SF,6716,running,4,10731,54013,53650,363,93226
+Waterford,3,mary roche,Mary Roche,FALSE,SD,2770,running,4,10731,54013,53650,363,93226
+Waterford,3,john walsh,John Walsh,FALSE,IPP,514,eliminated,4,10731,54013,53650,363,93226
+Waterford,3,matt shanahan,Matt Shanahan,TRUE,IND,5443,running,4,10731,54013,53650,363,93226
+Waterford,3,killian mangan,Killian Mangan,FALSE,IND,668,running,4,10731,54013,53650,363,93226
+Waterford,3,frank conway,Frank Conway,FALSE,IND,771,running,4,10731,54013,53650,363,93226
+Waterford,3,mark oneill,Mark O'Neill,FALSE,IND,0,eliminated,4,10731,54013,53650,363,93226
+Waterford,3,aaron joyce,Aaron Joyce,FALSE,IND,0,eliminated,4,10731,54013,53650,363,93226
+Waterford,4,ronan cleary,Ronan Cleary,FALSE,AON,1822,running,4,10731,54013,53650,363,93226
+Waterford,4,mary butler,Mary Butler,TRUE,FF,10027,running,4,10731,54013,53650,363,93226
+Waterford,4,joan cummins,John Cummins,FALSE,FG,10441,running,4,10731,54013,53650,363,93226
+Waterford,4,marc ocathasaigh,Marc Ó Cathasaigh,TRUE,GP,1690,running,4,10731,54013,53650,363,93226
+Waterford,4,sadhbh oneill,Sadhbh O'Neill,FALSE,LAB,1534,running,4,10731,54013,53650,363,93226
+Waterford,4,patrick curtain,Patrick Curtain,FALSE,PBPS,688,eliminated,4,10731,54013,53650,363,93226
+Waterford,4,david cullinane,David Cullinane,TRUE,SF,,elected,4,10731,54013,53650,363,93226
+Waterford,4,conor dmcguinness,Conor D. McGuinness,FALSE,SF,6735,running,4,10731,54013,53650,363,93226
+Waterford,4,mary roche,Mary Roche,FALSE,SD,2780,running,4,10731,54013,53650,363,93226
+Waterford,4,john walsh,John Walsh,FALSE,IPP,0,eliminated,4,10731,54013,53650,363,93226
+Waterford,4,matt shanahan,Matt Shanahan,TRUE,IND,5515,running,4,10731,54013,53650,363,93226
+Waterford,4,killian mangan,Killian Mangan,FALSE,IND,695,running,4,10731,54013,53650,363,93226
+Waterford,4,frank conway,Frank Conway,FALSE,IND,942,running,4,10731,54013,53650,363,93226
+Waterford,4,mark oneill,Mark O'Neill,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,4,aaron joyce,Aaron Joyce,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,5,ronan cleary,Ronan Cleary,FALSE,AON,1858,running,4,10731,54013,53650,363,93226
+Waterford,5,mary butler,Mary Butler,TRUE,FF,10043,running,4,10731,54013,53650,363,93226
+Waterford,5,joan cummins,John Cummins,FALSE,FG,10453,running,4,10731,54013,53650,363,93226
+Waterford,5,marc ocathasaigh,Marc Ó Cathasaigh,TRUE,GP,1719,running,4,10731,54013,53650,363,93226
+Waterford,5,sadhbh oneill,Sadhbh O'Neill,FALSE,LAB,1591,running,4,10731,54013,53650,363,93226
+Waterford,5,patrick curtain,Patrick Curtain,FALSE,PBPS,0,eliminated,4,10731,54013,53650,363,93226
+Waterford,5,david cullinane,David Cullinane,TRUE,SF,,elected,4,10731,54013,53650,363,93226
+Waterford,5,conor dmcguinness,Conor D. McGuinness,FALSE,SF,6882,running,4,10731,54013,53650,363,93226
+Waterford,5,mary roche,Mary Roche,FALSE,SD,2973,running,4,10731,54013,53650,363,93226
+Waterford,5,john walsh,John Walsh,FALSE,IPP,,eliminated,4,10731,54013,53650,363,93226
+Waterford,5,matt shanahan,Matt Shanahan,TRUE,IND,5545,running,4,10731,54013,53650,363,93226
+Waterford,5,killian mangan,Killian Mangan,FALSE,IND,798,eliminated,4,10731,54013,53650,363,93226
+Waterford,5,frank conway,Frank Conway,FALSE,IND,967,running,4,10731,54013,53650,363,93226
+Waterford,5,mark oneill,Mark O'Neill,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,5,aaron joyce,Aaron Joyce,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,6,ronan cleary,Ronan Cleary,FALSE,AON,1879,running,4,10731,54013,53650,363,93226
+Waterford,6,mary butler,Mary Butler,TRUE,FF,10064,running,4,10731,54013,53650,363,93226
+Waterford,6,joan cummins,John Cummins,FALSE,FG,10482,running,4,10731,54013,53650,363,93226
+Waterford,6,marc ocathasaigh,Marc Ó Cathasaigh,TRUE,GP,1787,running,4,10731,54013,53650,363,93226
+Waterford,6,sadhbh oneill,Sadhbh O'Neill,FALSE,LAB,1673,running,4,10731,54013,53650,363,93226
+Waterford,6,patrick curtain,Patrick Curtain,FALSE,PBPS,,eliminated,4,10731,54013,53650,363,93226
+Waterford,6,david cullinane,David Cullinane,TRUE,SF,,elected,4,10731,54013,53650,363,93226
+Waterford,6,conor dmcguinness,Conor D. McGuinness,FALSE,SF,7013,running,4,10731,54013,53650,363,93226
+Waterford,6,mary roche,Mary Roche,FALSE,SD,3184,running,4,10731,54013,53650,363,93226
+Waterford,6,john walsh,John Walsh,FALSE,IPP,,eliminated,4,10731,54013,53650,363,93226
+Waterford,6,matt shanahan,Matt Shanahan,TRUE,IND,5640,running,4,10731,54013,53650,363,93226
+Waterford,6,killian mangan,Killian Mangan,FALSE,IND,0,eliminated,4,10731,54013,53650,363,93226
+Waterford,6,frank conway,Frank Conway,FALSE,IND,1038,eliminated,4,10731,54013,53650,363,93226
+Waterford,6,mark oneill,Mark O'Neill,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,6,aaron joyce,Aaron Joyce,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,7,ronan cleary,Ronan Cleary,FALSE,AON,2149,running,4,10731,54013,53650,363,93226
+Waterford,7,mary butler,Mary Butler,TRUE,FF,10104,running,4,10731,54013,53650,363,93226
+Waterford,7,joan cummins,John Cummins,FALSE,FG,10526,running,4,10731,54013,53650,363,93226
+Waterford,7,marc ocathasaigh,Marc Ó Cathasaigh,TRUE,GP,1797,running,4,10731,54013,53650,363,93226
+Waterford,7,sadhbh oneill,Sadhbh O'Neill,FALSE,LAB,1701,eliminated,4,10731,54013,53650,363,93226
+Waterford,7,patrick curtain,Patrick Curtain,FALSE,PBPS,,eliminated,4,10731,54013,53650,363,93226
+Waterford,7,david cullinane,David Cullinane,TRUE,SF,,elected,4,10731,54013,53650,363,93226
+Waterford,7,conor dmcguinness,Conor D. McGuinness,FALSE,SF,7123,running,4,10731,54013,53650,363,93226
+Waterford,7,mary roche,Mary Roche,FALSE,SD,3216,running,4,10731,54013,53650,363,93226
+Waterford,7,john walsh,John Walsh,FALSE,IPP,,eliminated,4,10731,54013,53650,363,93226
+Waterford,7,matt shanahan,Matt Shanahan,TRUE,IND,5913,running,4,10731,54013,53650,363,93226
+Waterford,7,killian mangan,Killian Mangan,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,7,frank conway,Frank Conway,FALSE,IND,0,eliminated,4,10731,54013,53650,363,93226
+Waterford,7,mark oneill,Mark O'Neill,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,7,aaron joyce,Aaron Joyce,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,8,ronan cleary,Ronan Cleary,FALSE,AON,2207,running,4,10731,54013,53650,363,93226
+Waterford,8,mary butler,Mary Butler,TRUE,FF,10274,running,4,10731,54013,53650,363,93226
+Waterford,8,joan cummins,John Cummins,FALSE,FG,10719,running,4,10731,54013,53650,363,93226
+Waterford,8,marc ocathasaigh,Marc Ó Cathasaigh,TRUE,GP,2085,eliminated,4,10731,54013,53650,363,93226
+Waterford,8,sadhbh oneill,Sadhbh O'Neill,FALSE,LAB,0,eliminated,4,10731,54013,53650,363,93226
+Waterford,8,patrick curtain,Patrick Curtain,FALSE,PBPS,,eliminated,4,10731,54013,53650,363,93226
+Waterford,8,david cullinane,David Cullinane,TRUE,SF,,elected,4,10731,54013,53650,363,93226
+Waterford,8,conor dmcguinness,Conor D. McGuinness,FALSE,SF,7259,running,4,10731,54013,53650,363,93226
+Waterford,8,mary roche,Mary Roche,FALSE,SD,3806,running,4,10731,54013,53650,363,93226
+Waterford,8,john walsh,John Walsh,FALSE,IPP,,eliminated,4,10731,54013,53650,363,93226
+Waterford,8,matt shanahan,Matt Shanahan,TRUE,IND,6079,running,4,10731,54013,53650,363,93226
+Waterford,8,killian mangan,Killian Mangan,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,8,frank conway,Frank Conway,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,8,mark oneill,Mark O'Neill,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,8,aaron joyce,Aaron Joyce,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,9,ronan cleary,Ronan Cleary,FALSE,AON,2257,running,4,10731,54013,53650,363,93226
+Waterford,9,mary butler,Mary Butler,TRUE,FF,10626,running,4,10731,54013,53650,363,93226
+Waterford,9,joan cummins,John Cummins,FALSE,FG,11159,elected,4,10731,54013,53650,363,93226
+Waterford,9,marc ocathasaigh,Marc Ó Cathasaigh,TRUE,GP,0,eliminated,4,10731,54013,53650,363,93226
+Waterford,9,sadhbh oneill,Sadhbh O'Neill,FALSE,LAB,,eliminated,4,10731,54013,53650,363,93226
+Waterford,9,patrick curtain,Patrick Curtain,FALSE,PBPS,,eliminated,4,10731,54013,53650,363,93226
+Waterford,9,david cullinane,David Cullinane,TRUE,SF,,elected,4,10731,54013,53650,363,93226
+Waterford,9,conor dmcguinness,Conor D. McGuinness,FALSE,SF,7396,running,4,10731,54013,53650,363,93226
+Waterford,9,mary roche,Mary Roche,FALSE,SD,4528,running,4,10731,54013,53650,363,93226
+Waterford,9,john walsh,John Walsh,FALSE,IPP,,eliminated,4,10731,54013,53650,363,93226
+Waterford,9,matt shanahan,Matt Shanahan,TRUE,IND,6314,running,4,10731,54013,53650,363,93226
+Waterford,9,killian mangan,Killian Mangan,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,9,frank conway,Frank Conway,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,9,mark oneill,Mark O'Neill,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,9,aaron joyce,Aaron Joyce,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,10,ronan cleary,Ronan Cleary,FALSE,AON,2262,eliminated,4,10731,54013,53650,363,93226
+Waterford,10,mary butler,Mary Butler,TRUE,FF,10830,elected,4,10731,54013,53650,363,93226
+Waterford,10,joan cummins,John Cummins,FALSE,FG,0,elected,4,10731,54013,53650,363,93226
+Waterford,10,marc ocathasaigh,Marc Ó Cathasaigh,TRUE,GP,,eliminated,4,10731,54013,53650,363,93226
+Waterford,10,sadhbh oneill,Sadhbh O'Neill,FALSE,LAB,,eliminated,4,10731,54013,53650,363,93226
+Waterford,10,patrick curtain,Patrick Curtain,FALSE,PBPS,,eliminated,4,10731,54013,53650,363,93226
+Waterford,10,david cullinane,David Cullinane,TRUE,SF,,elected,4,10731,54013,53650,363,93226
+Waterford,10,conor dmcguinness,Conor D. McGuinness,FALSE,SF,7414,running,4,10731,54013,53650,363,93226
+Waterford,10,mary roche,Mary Roche,FALSE,SD,4633,running,4,10731,54013,53650,363,93226
+Waterford,10,john walsh,John Walsh,FALSE,IPP,,eliminated,4,10731,54013,53650,363,93226
+Waterford,10,matt shanahan,Matt Shanahan,TRUE,IND,6366,running,4,10731,54013,53650,363,93226
+Waterford,10,killian mangan,Killian Mangan,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,10,frank conway,Frank Conway,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,10,mark oneill,Mark O'Neill,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,10,aaron joyce,Aaron Joyce,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,11,ronan cleary,Ronan Cleary,FALSE,AON,0,eliminated,4,10731,54013,53650,363,93226
+Waterford,11,mary butler,Mary Butler,TRUE,FF,,elected,4,10731,54013,53650,363,93226
+Waterford,11,joan cummins,John Cummins,FALSE,FG,,elected,4,10731,54013,53650,363,93226
+Waterford,11,marc ocathasaigh,Marc Ó Cathasaigh,TRUE,GP,,eliminated,4,10731,54013,53650,363,93226
+Waterford,11,sadhbh oneill,Sadhbh O'Neill,FALSE,LAB,,eliminated,4,10731,54013,53650,363,93226
+Waterford,11,patrick curtain,Patrick Curtain,FALSE,PBPS,,eliminated,4,10731,54013,53650,363,93226
+Waterford,11,david cullinane,David Cullinane,TRUE,SF,,elected,4,10731,54013,53650,363,93226
+Waterford,11,conor dmcguinness,Conor D. McGuinness,FALSE,SF,7825,running,4,10731,54013,53650,363,93226
+Waterford,11,mary roche,Mary Roche,FALSE,SD,4887,eliminated,4,10731,54013,53650,363,93226
+Waterford,11,john walsh,John Walsh,FALSE,IPP,,eliminated,4,10731,54013,53650,363,93226
+Waterford,11,matt shanahan,Matt Shanahan,TRUE,IND,7186,running,4,10731,54013,53650,363,93226
+Waterford,11,killian mangan,Killian Mangan,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,11,frank conway,Frank Conway,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,11,mark oneill,Mark O'Neill,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,11,aaron joyce,Aaron Joyce,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,12,ronan cleary,Ronan Cleary,FALSE,AON,,eliminated,4,10731,54013,53650,363,93226
+Waterford,12,mary butler,Mary Butler,TRUE,FF,,elected,4,10731,54013,53650,363,93226
+Waterford,12,joan cummins,John Cummins,FALSE,FG,,elected,4,10731,54013,53650,363,93226
+Waterford,12,marc ocathasaigh,Marc Ó Cathasaigh,TRUE,GP,,eliminated,4,10731,54013,53650,363,93226
+Waterford,12,sadhbh oneill,Sadhbh O'Neill,FALSE,LAB,,eliminated,4,10731,54013,53650,363,93226
+Waterford,12,patrick curtain,Patrick Curtain,FALSE,PBPS,,eliminated,4,10731,54013,53650,363,93226
+Waterford,12,david cullinane,David Cullinane,TRUE,SF,,elected,4,10731,54013,53650,363,93226
+Waterford,12,conor dmcguinness,Conor D. McGuinness,FALSE,SF,9519,elected,4,10731,54013,53650,363,93226
+Waterford,12,mary roche,Mary Roche,FALSE,SD,0,eliminated,4,10731,54013,53650,363,93226
+Waterford,12,john walsh,John Walsh,FALSE,IPP,,eliminated,4,10731,54013,53650,363,93226
+Waterford,12,matt shanahan,Matt Shanahan,TRUE,IND,8526,eliminated,4,10731,54013,53650,363,93226
+Waterford,12,killian mangan,Killian Mangan,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,12,frank conway,Frank Conway,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,12,mark oneill,Mark O'Neill,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Waterford,12,aaron joyce,Aaron Joyce,FALSE,IND,,eliminated,4,10731,54013,53650,363,93226
+Wexford,,,,,,,,4,,,,,85744
+Wicklow,,,,,,,,5,,,,,84646
+Wicklow-Wexford,1,sinead bolan,Sinéad Bolan,FALSE,AON,1350,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,1,malcolm byrne,Malcolm Byrne,FALSE,FF,8311,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,1,pat kennedy,Pat Kennedy,FALSE,FF,5478,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,1,brian brennan,Brian Brennan,FALSE,FG,8820,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,1,ann walsh,Ann Walsh,FALSE,GP,897,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,1,frances lawlor,Frances Lawlor,FALSE,INDIRL,648,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,1,aislinn okeeffe,Aislinn O'Keeffe,FALSE,PBPS,1021,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,1,fionntan osuilleabhain,Fionntán Ó Súilleabháin,FALSE,SF,7719,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,1,peir leonard,Peir Leonard,FALSE,IND,3824,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,1,ilsamaria nolan,Ilsa-Maria Nolan,FALSE,IND,168,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,2,sinead bolan,Sinéad Bolan,FALSE,AON,1545,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,2,malcolm byrne,Malcolm Byrne,FALSE,FF,8344,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,2,pat kennedy,Pat Kennedy,FALSE,FF,5493,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,2,brian brennan,Brian Brennan,FALSE,FG,8856,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,2,ann walsh,Ann Walsh,FALSE,GP,910,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,2,frances lawlor,Frances Lawlor,FALSE,INDIRL,0,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,2,aislinn okeeffe,Aislinn O'Keeffe,FALSE,PBPS,1089,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,2,fionntan osuilleabhain,Fionntán Ó Súilleabháin,FALSE,SF,7790,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,2,peir leonard,Peir Leonard,FALSE,IND,4134,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,2,ilsa-maria nolan,Ilsa-Maria Nolan,FALSE,IND,0,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,3,sinead bolan,Sinéad Bolan,FALSE,AON,1576,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,3,malcolm byrne,Malcolm Byrne,FALSE,FF,8492,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,3,pat kennedy,Pat Kennedy,FALSE,FF,5559,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,3,brian brennan,Brian Brennan,FALSE,FG,9040,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,3,ann walsh,Ann Walsh,FALSE,GP,0,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,3,frances lawlor,Frances Lawlor,FALSE,INDIRL,,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,3,aislinn okeeffe,Aislinn O'Keeffe,FALSE,PBPS,1294,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,3,fionntan osuilleabhain,Fionntán Ó Súilleabháin,FALSE,SF,7882,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,3,peir leonard,Peir Leonard,FALSE,IND,4284,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,3,ilsamaria nolan,Ilsa-Maria Nolan,FALSE,IND,,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,4,sinead bolan,Sinéad Bolan,FALSE,AON,1667,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,4,malcolm byrne,Malcolm Byrne,FALSE,FF,8577,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,4,pat kennedy,Pat Kennedy,FALSE,FF,5597,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,4,brian brennan,Brian Brennan,FALSE,FG,9112,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,4,ann walsh,Ann Walsh,FALSE,GP,,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,4,frances lawlor,Frances Lawlor,FALSE,INDIRL,,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,4,aislinn okeeffe,Aislinn O'Keeffe,FALSE,PBPS,0,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,4,fionntan osuilleabhain,Fionntán Ó Súilleabháin,FALSE,SF,8475,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,4,peir leonard,Peir Leonard,FALSE,IND,4606,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,4,ilsamaria nolan,Ilsa-Maria Nolan,FALSE,IND,,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,5,sinead bolan,Sinéad Bolan,FALSE,AON,0,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,5,malcolm byrne,Malcolm Byrne,FALSE,FF,8727,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,5,pat kennedy,Pat Kennedy,FALSE,FF,5743,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,5,brian brennan,Brian Brennan,FALSE,FG,9266,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,5,ann walsh,Ann Walsh,FALSE,GP,,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,5,frances lawlor,Frances Lawlor,FALSE,INDIRL,,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,5,aislinn okeeffe,Aislinn O'Keeffe,FALSE,PBPS,,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,5,fionntan osuilleabhain,Fionntán Ó Súilleabháin,FALSE,SF,8769,running,3,9559,38537,38236,301,63003
+Wicklow-Wexford,5,peir leonard,Peir Leonard,FALSE,IND,5192,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,5,ilsamaria nolan,Ilsa-Maria Nolan,FALSE,IND,,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,6,sinead bolan,Sinéad Bolan,FALSE,AON,,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,6,malcolm byrne,Malcolm Byrne,FALSE,FF,9156,elected,3,9559,38537,38236,301,63003
+Wicklow-Wexford,6,pat kennedy,Pat Kennedy,FALSE,FF,6609,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,6,brian brennan,Brian Brennan,FALSE,FG,10339,elected,3,9559,38537,38236,301,63003
+Wicklow-Wexford,6,ann walsh,Ann Walsh,FALSE,GP,,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,6,frances lawlor,Frances Lawlor,FALSE,INDIRL,,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,6,aislinn okeeffe,Aislinn O'Keeffe,FALSE,PBPS,,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,6,fionntan osuilleabhain,Fionntán Ó Súilleabháin,FALSE,SF,10222,elected,3,9559,38537,38236,301,63003
+Wicklow-Wexford,6,peir leonard,Peir Leonard,FALSE,IND,0,eliminated,3,9559,38537,38236,301,63003
+Wicklow-Wexford,6,ilsamaria nolan,Ilsa-Maria Nolan,FALSE,IND,,eliminated,3,9559,38537,38236,301,63003

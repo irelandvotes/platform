@@ -1,0 +1,130 @@
+constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,turnout,tvp,spoilt,electorate
+Carlow-Kilkenny,1,catherine connolly,Catherine Connolly,FALSE,IND,27697,elected,1,721350,51909,45416,6493,116732
+Carlow-Kilkenny,1,heather humphreys,Heather Humphreys,FALSE,FG,14357,running,1,721350,51909,45416,6493,116732
+Carlow-Kilkenny,1,jim gavin,Jim Gavin,FALSE,FF,3362,running,1,721350,51909,45416,6493,116732
+Cavan-Monaghan,1,catherine connolly,Catherine Connolly,FALSE,IND,20273,elected,1,721350,59317,52894,6423,107048
+Cavan-Monaghan,1,heather humphreys,Heather Humphreys,FALSE,FG,31075,running,1,721350,59317,52894,6423,107048
+Cavan-Monaghan,1,jim gavin,Jim Gavin,FALSE,FF,1546,running,1,721350,59317,52894,6423,107048
+Clare,1,catherine connolly,Catherine Connolly,FALSE,IND,24372,elected,1,721350,44911,40145,4766,94054
+Clare,1,heather humphreys,Heather Humphreys,FALSE,FG,10726,running,1,721350,44911,40145,4766,94054
+Clare,1,jim gavin,Jim Gavin,FALSE,FF,5047,running,1,721350,44911,40145,4766,94054
+Cork East,1,catherine connolly,Catherine Connolly,FALSE,IND,20123,elected,1,721350,35543,30871,4672,82499
+Cork East,1,heather humphreys,Heather Humphreys,FALSE,FG,8717,running,1,721350,35543,30871,4672,82499
+Cork East,1,jim gavin,Jim Gavin,FALSE,FF,2031,running,1,721350,35543,30871,4672,82499
+Cork North-Central,1,catherine connolly,Catherine Connolly,FALSE,IND,25402,elected,1,721350,43686,37471,6215,102072
+Cork North-Central,1,heather humphreys,Heather Humphreys,FALSE,FG,9678,running,1,721350,43686,37471,6215,102072
+Cork North-Central,1,jim gavin,Jim Gavin,FALSE,FF,2391,running,1,721350,43686,37471,6215,102072
+Cork North-West,1,catherine connolly,Catherine Connolly,FALSE,IND,15610,elected,1,721350,31597,27620,3977,66805
+Cork North-West,1,heather humphreys,Heather Humphreys,FALSE,FG,9565,running,1,721350,31597,27620,3977,66805
+Cork North-West,1,jim gavin,Jim Gavin,FALSE,FF,2445,running,1,721350,31597,27620,3977,66805
+Cork South-Central,1,catherine connolly,Catherine Connolly,FALSE,IND,27750,elected,1,721350,47840,42905,4935,103337
+Cork South-Central,1,heather humphreys,Heather Humphreys,FALSE,FG,12111,running,1,721350,47840,42905,4935,103337
+Cork South-Central,1,jim gavin,Jim Gavin,FALSE,FF,3044,running,1,721350,47840,42905,4935,103337
+Cork South-West,1,catherine connolly,Catherine Connolly,FALSE,IND,18350,elected,1,721350,34328,30766,3562,71354
+Cork South-West,1,heather humphreys,Heather Humphreys,FALSE,FG,10120,running,1,721350,34328,30766,3562,71354
+Cork South-West,1,jim gavin,Jim Gavin,FALSE,FF,2296,running,1,721350,34328,30766,3562,71354
+Donegal,1,catherine connolly,Catherine Connolly,FALSE,IND,33286,elected,1,721350,50810,44376,6434,127789
+Donegal,1,heather humphreys,Heather Humphreys,FALSE,FG,9316,running,1,721350,50810,44376,6434,127789
+Donegal,1,jim gavin,Jim Gavin,FALSE,FF,1774,running,1,721350,50810,44376,6434,127789
+Dublin Bay North,1,catherine connolly,Catherine Connolly,FALSE,IND,28501,elected,1,721350,51231,44131,7100,105627
+Dublin Bay North,1,heather humphreys,Heather Humphreys,FALSE,FG,11815,running,1,721350,51231,44131,7100,105627
+Dublin Bay North,1,jim gavin,Jim Gavin,FALSE,FF,3815,running,1,721350,51231,44131,7100,105627
+Dublin Bay South,1,catherine connolly,Catherine Connolly,FALSE,IND,15810,elected,1,721350,31757,29167,2590,75857
+Dublin Bay South,1,heather humphreys,Heather Humphreys,FALSE,FG,11259,running,1,721350,31757,29167,2590,75857
+Dublin Bay South,1,jim gavin,Jim Gavin,FALSE,FF,2098,running,1,721350,31757,29167,2590,75857
+Dublin Central,1,catherine connolly,Catherine Connolly,FALSE,IND,15848,elected,1,721350,25062,21308,3754,59051
+Dublin Central,1,heather humphreys,Heather Humphreys,FALSE,FG,4176,running,1,721350,25062,21308,3754,59051
+Dublin Central,1,jim gavin,Jim Gavin,FALSE,FF,1284,running,1,721350,25062,21308,3754,59051
+Dublin Fingal East,1,catherine connolly,Catherine Connolly,FALSE,IND,15851,elected,1,721350,28979,25881,3098,61216
+Dublin Fingal East,1,heather humphreys,Heather Humphreys,FALSE,FG,7424,running,1,721350,28979,25881,3098,61216
+Dublin Fingal East,1,jim gavin,Jim Gavin,FALSE,FF,2606,running,1,721350,28979,25881,3098,61216
+Dublin Fingal West,1,catherine connolly,Catherine Connolly,FALSE,IND,13853,elected,1,721350,23504,20385,3119,50512
+Dublin Fingal West,1,heather humphreys,Heather Humphreys,FALSE,FG,4659,running,1,721350,23504,20385,3119,50512
+Dublin Fingal West,1,jim gavin,Jim Gavin,FALSE,FF,1873,running,1,721350,23504,20385,3119,50512
+Dublin Mid-West,1,catherine connolly,Catherine Connolly,FALSE,IND,20412,elected,1,721350,36106,28819,7287,85112
+Dublin Mid-West,1,heather humphreys,Heather Humphreys,FALSE,FG,5724,running,1,721350,36106,28819,7287,85112
+Dublin Mid-West,1,jim gavin,Jim Gavin,FALSE,FF,2683,running,1,721350,36106,28819,7287,85112
+Dublin North-West,1,catherine connolly,Catherine Connolly,FALSE,IND,14351,elected,1,721350,24609,19576,5033,55840
+Dublin North-West,1,heather humphreys,Heather Humphreys,FALSE,FG,3695,running,1,721350,24609,19576,5033,55840
+Dublin North-West,1,jim gavin,Jim Gavin,FALSE,FF,1530,running,1,721350,24609,19576,5033,55840
+Dublin Rathdown,1,catherine connolly,Catherine Connolly,FALSE,IND,18523,elected,1,721350,39152,36501,2651,79835
+Dublin Rathdown,1,heather humphreys,Heather Humphreys,FALSE,FG,14619,running,1,721350,39152,36501,2651,79835
+Dublin Rathdown,1,jim gavin,Jim Gavin,FALSE,FF,3359,running,1,721350,39152,36501,2651,79835
+Dublin South-Central,1,catherine connolly,Catherine Connolly,FALSE,IND,18750,elected,1,721350,29324,23739,5585,71834
+Dublin South-Central,1,heather humphreys,Heather Humphreys,FALSE,FG,3723,running,1,721350,29324,23739,5585,71834
+Dublin South-Central,1,jim gavin,Jim Gavin,FALSE,FF,1266,running,1,721350,29324,23739,5585,71834
+Dublin South-West,1,catherine connolly,Catherine Connolly,FALSE,IND,28079,elected,1,721350,52075,44538,7537,113193
+Dublin South-West,1,heather humphreys,Heather Humphreys,FALSE,FG,12375,running,1,721350,52075,44538,7537,113193
+Dublin South-West,1,jim gavin,Jim Gavin,FALSE,FF,4084,running,1,721350,52075,44538,7537,113193
+Dublin West,1,catherine connolly,Catherine Connolly,FALSE,IND,18528,elected,1,721350,33398,28960,4438,77068
+Dublin West,1,heather humphreys,Heather Humphreys,FALSE,FG,7756,running,1,721350,33398,28960,4438,77068
+Dublin West,1,jim gavin,Jim Gavin,FALSE,FF,2676,running,1,721350,33398,28960,4438,77068
+Dún Laoghaire,1,catherine connolly,Catherine Connolly,FALSE,IND,21138,elected,1,721350,44289,40821,3468,93083
+Dún Laoghaire,1,heather humphreys,Heather Humphreys,FALSE,FG,16358,running,1,721350,44289,40821,3468,93083
+Dún Laoghaire,1,jim gavin,Jim Gavin,FALSE,FF,3325,running,1,721350,44289,40821,3468,93083
+Galway East,1,catherine connolly,Catherine Connolly,FALSE,IND,26631,elected,1,721350,41855,36605,5250,86497
+Galway East,1,heather humphreys,Heather Humphreys,FALSE,FG,7858,running,1,721350,41855,36605,5250,86497
+Galway East,1,jim gavin,Jim Gavin,FALSE,FF,2116,running,1,721350,41855,36605,5250,86497
+Galway West,1,catherine connolly,Catherine Connolly,FALSE,IND,35441,elected,1,721350,50544,46124,4420,103170
+Galway West,1,heather humphreys,Heather Humphreys,FALSE,FG,8475,running,1,721350,50544,46124,4420,103170
+Galway West,1,jim gavin,Jim Gavin,FALSE,FF,2208,running,1,721350,50544,46124,4420,103170
+Kerry,1,catherine connolly,Catherine Connolly,FALSE,IND,28807,elected,1,721350,52840,45739,7101,117875
+Kerry,1,heather humphreys,Heather Humphreys,FALSE,FG,13568,running,1,721350,52840,45739,7101,117875
+Kerry,1,jim gavin,Jim Gavin,FALSE,FF,3364,running,1,721350,52840,45739,7101,117875
+Kildare North,1,catherine connolly,Catherine Connolly,FALSE,IND,25748,elected,1,721350,46012,41104,4908,94741
+Kildare North,1,heather humphreys,Heather Humphreys,FALSE,FG,11840,running,1,721350,46012,41104,4908,94741
+Kildare North,1,jim gavin,Jim Gavin,FALSE,FF,3516,running,1,721350,46012,41104,4908,94741
+Kildare South,1,catherine connolly,Catherine Connolly,FALSE,IND,18048,elected,1,721350,32359,27455,4904,73868
+Kildare South,1,heather humphreys,Heather Humphreys,FALSE,FG,7266,running,1,721350,32359,27455,4904,73868
+Kildare South,1,jim gavin,Jim Gavin,FALSE,FF,2141,running,1,721350,32359,27455,4904,73868
+Laois,1,catherine connolly,Catherine Connolly,FALSE,IND,15814,elected,1,721350,28439,24283,4156,64816
+Laois,1,heather humphreys,Heather Humphreys,FALSE,FG,6775,running,1,721350,28439,24283,4156,64816
+Laois,1,jim gavin,Jim Gavin,FALSE,FF,1694,running,1,721350,28439,24283,4156,64816
+Limerick City,1,catherine connolly,Catherine Connolly,FALSE,IND,17659,elected,1,721350,31038,26989,4049,75889
+Limerick City,1,heather humphreys,Heather Humphreys,FALSE,FG,7797,running,1,721350,31038,26989,4049,75889
+Limerick City,1,jim gavin,Jim Gavin,FALSE,FF,1533,running,1,721350,31038,26989,4049,75889
+Limerick County,1,catherine connolly,Catherine Connolly,FALSE,IND,16520,elected,1,721350,32812,28529,4283,73273
+Limerick County,1,heather humphreys,Heather Humphreys,FALSE,FG,9987,running,1,721350,32812,28529,4283,73273
+Limerick County,1,jim gavin,Jim Gavin,FALSE,FF,2022,running,1,721350,32812,28529,4283,73273
+Longford-Westmeath,1,catherine connolly,Catherine Connolly,FALSE,IND,22656,elected,1,721350,45394,38584,6810,103609
+Longford-Westmeath,1,heather humphreys,Heather Humphreys,FALSE,FG,13162,running,1,721350,45394,38584,6810,103609
+Longford-Westmeath,1,jim gavin,Jim Gavin,FALSE,FF,2766,running,1,721350,45394,38584,6810,103609
+Louth,1,catherine connolly,Catherine Connolly,FALSE,IND,28006,elected,1,721350,48577,40795,7782,103143
+Louth,1,heather humphreys,Heather Humphreys,FALSE,FG,10711,running,1,721350,48577,40795,7782,103143
+Louth,1,jim gavin,Jim Gavin,FALSE,FF,2078,running,1,721350,48577,40795,7782,103143
+Mayo,1,catherine connolly,Catherine Connolly,FALSE,IND,28039,elected,1,721350,48903,42592,6311,107496
+Mayo,1,heather humphreys,Heather Humphreys,FALSE,FG,11957,running,1,721350,48903,42592,6311,107496
+Mayo,1,jim gavin,Jim Gavin,FALSE,FF,2596,running,1,721350,48903,42592,6311,107496
+Meath East,1,catherine connolly,Catherine Connolly,FALSE,IND,20772,elected,1,721350,38678,33166,5512,83326
+Meath East,1,heather humphreys,Heather Humphreys,FALSE,FG,9896,running,1,721350,38678,33166,5512,83326
+Meath East,1,jim gavin,Jim Gavin,FALSE,FF,2498,running,1,721350,38678,33166,5512,83326
+Meath West,1,catherine connolly,Catherine Connolly,FALSE,IND,15477,elected,1,721350,28736,24176,4560,64923
+Meath West,1,heather humphreys,Heather Humphreys,FALSE,FG,7015,running,1,721350,28736,24176,4560,64923
+Meath West,1,jim gavin,Jim Gavin,FALSE,FF,1684,running,1,721350,28736,24176,4560,64923
+Offaly,1,catherine connolly,Catherine Connolly,FALSE,IND,14240,elected,1,721350,27632,22762,4870,61882
+Offaly,1,heather humphreys,Heather Humphreys,FALSE,FG,6593,running,1,721350,27632,22762,4870,61882
+Offaly,1,jim gavin,Jim Gavin,FALSE,FF,1929,running,1,721350,27632,22762,4870,61882
+Roscommon-Galway,1,catherine connolly,Catherine Connolly,FALSE,IND,17258,elected,1,721350,30892,27147,3745,60278
+Roscommon-Galway,1,heather humphreys,Heather Humphreys,FALSE,FG,8129,running,1,721350,30892,27147,3745,60278
+Roscommon-Galway,1,jim gavin,Jim Gavin,FALSE,FF,1760,running,1,721350,30892,27147,3745,60278
+Sligo-Leitrim,1,catherine connolly,Catherine Connolly,FALSE,IND,24331,elected,1,721350,43168,38340,4828,87743
+Sligo-Leitrim,1,heather humphreys,Heather Humphreys,FALSE,FG,12024,running,1,721350,43168,38340,4828,87743
+Sligo-Leitrim,1,jim gavin,Jim Gavin,FALSE,FF,1985,running,1,721350,43168,38340,4828,87743
+Tipperary North,1,catherine connolly,Catherine Connolly,FALSE,IND,16259,elected,1,721350,32026,28027,3999,68163
+Tipperary North,1,heather humphreys,Heather Humphreys,FALSE,FG,9217,running,1,721350,32026,28027,3999,68163
+Tipperary North,1,jim gavin,Jim Gavin,FALSE,FF,2551,running,1,721350,32026,28027,3999,68163
+Tipperary South,1,catherine connolly,Catherine Connolly,FALSE,IND,15563,elected,1,721350,29128,25239,3889,65957
+Tipperary South,1,heather humphreys,Heather Humphreys,FALSE,FG,7793,running,1,721350,29128,25239,3889,65957
+Tipperary South,1,jim gavin,Jim Gavin,FALSE,FF,1883,running,1,721350,29128,25239,3889,65957
+Waterford,1,catherine connolly,Catherine Connolly,FALSE,IND,23191,elected,1,721350,39486,34658,4828,90411
+Waterford,1,heather humphreys,Heather Humphreys,FALSE,FG,9358,running,1,721350,39486,34658,4828,90411
+Waterford,1,jim gavin,Jim Gavin,FALSE,FF,2109,running,1,721350,39486,34658,4828,90411
+Wexford,1,catherine connolly,Catherine Connolly,FALSE,IND,21667,elected,1,721350,37052,32481,4571,84392
+Wexford,1,heather humphreys,Heather Humphreys,FALSE,FG,8733,running,1,721350,37052,32481,4571,84392
+Wexford,1,jim gavin,Jim Gavin,FALSE,FF,2081,running,1,721350,37052,32481,4571,84392
+Wicklow,1,catherine connolly,Catherine Connolly,FALSE,IND,23701,elected,1,721350,42767,37086,5681,82799
+Wicklow,1,heather humphreys,Heather Humphreys,FALSE,FG,10658,running,1,721350,42767,37086,5681,82799
+Wicklow,1,jim gavin,Jim Gavin,FALSE,FF,2727,running,1,721350,42767,37086,5681,82799
+Wicklow-Wexford,1,catherine connolly,Catherine Connolly,FALSE,IND,15808,elected,1,721350,28671,24527,4144,60731
+Wicklow-Wexford,1,heather humphreys,Heather Humphreys,FALSE,FG,6927,running,1,721350,28671,24527,4144,60731
+Wicklow-Wexford,1,jim gavin,Jim Gavin,FALSE,FF,1792,running,1,721350,28671,24527,4144,60731
