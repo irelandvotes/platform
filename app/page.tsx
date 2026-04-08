@@ -10,7 +10,7 @@ import { buildPollingAverage } from "@/lib/pollingAggregate";
 export default function Home() {
 const [dailData, setDailData] = useState([]);
 const [niData, setNiData] = useState([]);
-const carouselRef = useRef(null);
+const carouselRef = useRef<HTMLDivElement | null>(null);
 
 const scrollLeft = () => {
 carouselRef.current?.scrollBy({
