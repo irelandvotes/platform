@@ -45,7 +45,7 @@ previousValue: number;
 
     const duration = 700;
 
-    function animate(time) {
+    function animate(time: number) {
       if (!startTime) startTime = time;
       const progress = Math.min((time - startTime) / duration, 1);
 
