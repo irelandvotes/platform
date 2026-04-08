@@ -41,7 +41,7 @@ previousValue: number;
   useEffect(() => {
     let start = previousValue;
     let end = value;
-    let startTime = null;
+    let startTime: number | null = null;
 
     const duration = 700;
 
@@ -152,7 +152,9 @@ export default function ElectionPage({
   // 👇 THIS is "inside the component"
   const [selected, setSelected] = useState(null);
   const [total, setTotal] = useState(null);
-  const [resetTrigger, setResetTrigger] = useState(0);
+  const [resetTrigger, setResetTrigger] = useState
+  
+  (0);
   const [search, setSearch] = useState("");
   const [list, setList] = useState([]);
   const [results, setResults] = useState({});
