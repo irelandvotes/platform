@@ -80,7 +80,7 @@ quotaPercent: string; showSurplus: string; party: string;  status: string; justE
   useEffect(() => {
   let start = previous.current;
   let end = percent;
-  let startTime = null;
+  let startTime: number | null = null;
 
   const duration = 800;
 
