@@ -1,6 +1,9 @@
 export default function NationalScene({
-title,
-results
+  title,
+  results,
+}: {
+  title: string;
+  results: string;
 }) {
 
 return (

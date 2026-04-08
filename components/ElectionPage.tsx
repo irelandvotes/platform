@@ -148,6 +148,11 @@ export default function ElectionPage({
   year,
   country,
   type
+}: {
+  title: string;
+  year: number | string;
+  country: string;
+  type: string;
 }) {
   // 👇 THIS is "inside the component"
   const [selected, setSelected] = useState(null);

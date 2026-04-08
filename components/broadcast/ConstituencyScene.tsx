@@ -17,11 +17,16 @@ const PARTY_COLORS: Record<string, string> = {
   IPP: "#0e9775"
 };
 
-export default function ConstituencyScene({
+  export default function ConstituencyScene({
   name,
   results,
   previousResults,
   onComplete
+}: {
+  name: string;
+  results: string;
+  previousResults: string;
+  onComplete: string;
 }) {
 
 const [step, setStep] = useState(0);

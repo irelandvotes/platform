@@ -11,6 +11,11 @@ export default function BroadcastChannel({
   year,
   country,
   type
+}: {
+  title: string;
+  year: number;
+  country: string;
+  type: string;
 }) {
 
 const [results, setResults] = useState({});

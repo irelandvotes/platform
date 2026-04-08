@@ -13,9 +13,12 @@ const PARTY_COLORS: Record<string, string> = {
   IND: "#7a7a7a"
 };
 
-export default function BroadcastTopBar({
+  export default function BroadcastTipBar({
   name,
-  results
+  results,
+}: {
+  name: string;
+  results: string;
 }) {
 
 /* Get First Count Data */

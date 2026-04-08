@@ -38,8 +38,15 @@ AP: "#fdd835",
 
 };
 
-
-export default function PollPage({ country, election, tracker = "dail" }) {
+export default function PollPage({
+  country,
+  election,
+  tracker = "dail",
+}: {
+  country: string;
+  election: string;
+  tracker: number | string;
+}) {
 
 const [polls, setPolls] = useState([]);
 const [range, setRange] = useState("all");
