@@ -8,8 +8,8 @@ import SidebarPreview from "@/components/SidebarPreview";
 import { buildPollingAverage } from "@/lib/pollingAggregate";
 
 export default function Home() {
-const [dailData, setDailData] = useState([]);
-const [niData, setNiData] = useState([]);
+const [dailData, setDailData] = useState<any[]>([]);
+const [niData, setNiData] = useState<any[]>([]);
 const carouselRef = useRef<HTMLDivElement | null>(null);
 
 const scrollLeft = () => {
