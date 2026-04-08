@@ -334,7 +334,7 @@ let topGainer = null;
 
 if (current?.data?.counts?.[count]) {
   const data = current.data.counts[count];
-  const prevData = current.data.counts[count - 1] || [];
+  const prevData: any[] = current.data.counts[count - 1] || [];
 
   const candidates = [...data];
 
