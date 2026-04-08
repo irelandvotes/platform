@@ -66,9 +66,9 @@ dynamicTyping: true,
 skipEmptyLines: true
 });
 
-const parsed = result.data
-.filter(p => p.date)
-.map(p => ({
+const parsed = (result.data as any[])
+.filter((p) => p.date)
+.map((p) => ({
 ...p,
 date: new Date(p.date)
 }));
