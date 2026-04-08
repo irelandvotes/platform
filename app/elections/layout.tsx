@@ -41,8 +41,12 @@ href: "/elections/ireland/dail/2020"
 ];
 
 
-export default function ElectionsLayout({ children }) {
-
+export default function ElectionsLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  
 const pathname = usePathname();
 const isMobile = useIsMobile();
 

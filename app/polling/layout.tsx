@@ -31,7 +31,11 @@ tracker: "ni"
 }
 ];
 
-export default function PollingLayout({ children }) {
+export default function ElectionsLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
 
 const pathname = usePathname();
 
