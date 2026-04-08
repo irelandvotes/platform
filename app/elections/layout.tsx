@@ -46,7 +46,7 @@ export default function ElectionsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  
+
 const pathname = usePathname();
 const isMobile = useIsMobile();
 
@@ -128,9 +128,13 @@ width: "100%"
 =============================== */
 
 function ElectionLink({
-href,
-label,
-pathname
+  href,
+  label,
+  pathname
+}: {
+  href: string;
+  label: string;
+  pathname: string;
 }) {
 
 const active = pathname.startsWith(href);

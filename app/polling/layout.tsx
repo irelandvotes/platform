@@ -114,11 +114,16 @@ overflow: "auto"
    POLL LINK
 =============================== */
 
-function PollLink({
-href,
-label,
-pathname,
-tracker
+ function PollLink({
+  href,
+  label,
+  pathname,
+  tracker
+}: {
+  href: string;
+  label: string;
+  pathname: string;
+   tracker: string;
 }) {
 
 const active = pathname.startsWith(href);
