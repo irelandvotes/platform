@@ -435,7 +435,7 @@ const nationalResults = (() => {
       if (!previous) return;
 
       Object.entries(previous).forEach(
-        ([party, data]) => {
+        ([party, data]: [string, any]) => {
 
           if (!previousPartySeats[party]) {
             previousPartySeats[party] = 0;
@@ -607,7 +607,7 @@ const constituencyParties = (() => {
     .reduce((sum, p) => sum + (p.votes || 0), 0);
 
   return Object.entries(totals)
-    .map(([party, votes]) => {
+    .map(([party, votes]: [string, any]) => {
 
       const percent = totalVotes
         ? (votes / totalVotes) * 100
@@ -753,7 +753,7 @@ const transferMatrix = (() => {
     .reduce((a, b) => a + b, 0);
 
   return Object.entries(matrix)
-    .map(([party, votes]) => ({
+    .map(([party, votes]: [string, any]) => ({
       party,
       votes,
       percent: total
