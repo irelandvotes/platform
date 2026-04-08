@@ -13,7 +13,7 @@ export default function BroadcastChannel({
   type
 }: {
   title: string;
-  year: number;
+  year: number | string;
   country: string;
   type: string;
 }) {
