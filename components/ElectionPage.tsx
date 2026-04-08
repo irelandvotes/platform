@@ -318,7 +318,8 @@ const nationalResults = (() => {
   const totalConstituencies = Object.keys(results || {}).length;
 
   Object.entries(results || {}).forEach(([constituency, constituencyData]) => {
-    const counts = constituencyData?.counts;
+  const data = constituencyData as any;
+    const counts = (constituencyData as any)?.counts;
     if (!counts) return;
 
     const firstCount = counts[1] || [];
@@ -420,7 +421,7 @@ const parties = Object.keys(partyVotes).map((party) => {
   Object.entries(results || {}).forEach(
     ([constituency, constituencyData]) => {
 
-      const counts = constituencyData?.counts;
+      const counts = (constituencyData as any)?.counts;
       if (!counts) return;
 
       const lastCount = Math.max(...Object.keys(counts).map(Number));
