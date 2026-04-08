@@ -189,7 +189,7 @@ const toggleStyle = {
   zIndex: 1
 };
 
-const HelpTooltip = ({ text }) => {
+const HelpTooltip = ({ text }: { text: string }) => {
   return (
     <span
       style={{
@@ -204,7 +204,7 @@ const HelpTooltip = ({ text }) => {
   );
 };
 
-const LeakageTooltip = ({ active, payload, label }) => {
+const LeakageTooltip = ({ active, payload, label }: { active: string; payload: string; label: string }) => {
   if (!active || !payload || !payload.length) return null;
 
   return (
