@@ -84,7 +84,7 @@ quotaPercent: string; showSurplus: string; party: string;  status: string; justE
 
   const duration = 800;
 
-  function animate(time) {
+  function animate(time: number) {
     if (!startTime) startTime = time;
     const progress = Math.min((time - startTime) / duration, 1);
 
