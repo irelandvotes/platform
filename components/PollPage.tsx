@@ -45,7 +45,7 @@ export default function PollPage({
 }: {
   country: string;
   election: string;
-  tracker: number | string;
+  tracker?: string;
 }) {
 
 const [polls, setPolls] = useState([]);
