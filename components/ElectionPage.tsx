@@ -39,8 +39,8 @@ previousValue: number;
   const [display, setDisplay] = useState(previousValue);
 
   useEffect(() => {
-    let start = previousValue;
-    let end = value;
+    let start: number = previousValue;
+    let end: number = value;
     let startTime: number | null = null;
 
     const duration = 700;
@@ -69,8 +69,8 @@ function AnimatedBar({
 percent,
 quotaPercent,showSurplus,party,status,justEliminated
 }: {
-percent: string;
-quotaPercent: string; showSurplus: string; party: string;  status: string; justEliminated: boolean;
+percent: number;
+quotaPercent: number; showSurplus: number; party: number;  status: number; justEliminated: number;
 }) {
 
 

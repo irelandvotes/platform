@@ -71,8 +71,8 @@ function AnimatedBar({
 percent,
 quotaPercent,showSurplus,party,status,justEliminated
 }: {
-percent: string;
-quotaPercent: string; showSurplus: string; party: string;  status: string; justEliminated: boolean;
+percent: number;
+quotaPercent: number; showSurplus: number; party: number;  status: number; justEliminated: number;
 }) {
 
   
@@ -80,9 +80,9 @@ quotaPercent: string; showSurplus: string; party: string;  status: string; justE
   const previous = useRef(percent);
 
   useEffect(() => {
-  let start = previous.current;
+   let start = previous.current;
   let end = percent;
-  let startTime = null;
+  let startTime: number | null = null;
 
   const duration = 800;
 
