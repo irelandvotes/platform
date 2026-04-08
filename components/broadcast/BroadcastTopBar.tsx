@@ -1,6 +1,6 @@
 "use client";
 
-const PARTY_COLORS = {
+const PARTY_COLORS: Record<string, string> = {
   FF: "#66bb6a",
   FG: "#5c6bc0",
   SF: "#124940",

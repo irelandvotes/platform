@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-const PARTY_COLORS = {
+const PARTY_COLORS: Record<string, string> = {
   FF: "#66bb6a",
   FG: "#5c6bc0",
   SF: "#124940",
@@ -138,7 +138,13 @@ swing:p.percent-prevPercent
 
 /* STATUS */
 
-function getStatus(candidate, prev){
+function getStatus({
+candidate,
+prev,
+}: {
+candidate: string;
+prev: string;
+}) {
 
 if(candidate.status==="elected"){
 return "elected";

@@ -14,7 +14,7 @@ import {
   CartesianGrid
 } from "recharts";
 
- const PARTY_COLORS = {
+ const PARTY_COLORS: Record<string, string> = {
   FF: "#66bb6a",
   FG: "#5c6bc0",
   SF: "#124940",
@@ -29,7 +29,14 @@ import {
   IPP: "#0e9775"
 };
 
-function AnimatedNumber({ value, previousValue }) {
+function AnimatedNumber({
+value,
+previousValue
+}: {
+value: number;
+previousValue: number;
+}) {
+
   const [display, setDisplay] = useState(previousValue);
 
   useEffect(() => {
@@ -40,6 +47,7 @@ function AnimatedNumber({ value, previousValue }) {
     const duration = 700;
 
     function animate(time) {
+      
       if (!startTime) startTime = time;
       const progress = Math.min((time - startTime) / duration, 1);
 
@@ -60,13 +68,14 @@ function AnimatedNumber({ value, previousValue }) {
 }
 
 function AnimatedBar({
-  percent,
-  quotaPercent,
-  showSurplus,
-  party,
-  status,
-  justEliminated
+percent,
+quotaPercent,showSurplus,party,status,justEliminated
+}: {
+percent: string;
+quotaPercent: string; showSurplus: string; party: string;  status: string; justEliminated: boolean;
 }) {
+
+  
   const [width, setWidth] = useState(percent);
   const previous = useRef(percent);
 
