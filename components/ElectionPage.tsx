@@ -155,20 +155,25 @@ export default function ElectionPage({
   type: string;
 }) {
   // 👇 THIS is "inside the component"
-  const [selected, setSelected] = useState(null);
-  const [total, setTotal] = useState(null);
-  const [resetTrigger, setResetTrigger] = useState
-  
-  (0);
-  const [search, setSearch] = useState("");
-  const [list, setList] = useState([]);
-  const [results, setResults] = useState({});
-  const [count, setCount] = useState(1);
-  const [highlighted, setHighlighted] = useState(null);
-  const [view, setView] = useState("count");
-  const [mapView, setMapView] = useState("party");
-  const [analysis, setAnalysis] = useState("basic");
-  const [previousResults, setPreviousResults] = useState({});
+// 👇 inside component
+
+const [selected, setSelected] = useState<any>(null);
+const [total, setTotal] = useState<any>(null);
+const [resetTrigger, setResetTrigger] = useState<number>(0);
+
+const [search, setSearch] = useState<string>("");
+const [list, setList] = useState<any[]>([]);
+const [results, setResults] = useState<any>({});
+
+const [count, setCount] = useState<number>(1);
+
+const [highlighted, setHighlighted] = useState<any>(null);
+
+const [view, setView] = useState<string>("count");
+const [mapView, setMapView] = useState<string>("party");
+const [analysis, setAnalysis] = useState<string>("basic");
+
+const [previousResults, setPreviousResults] = useState<any>({});
 
 /* RESET COUNT WHEN CONSTITUENCY CHANGES */
 useEffect(() => {
