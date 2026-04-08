@@ -309,8 +309,8 @@ const filtered = list.filter((name) =>
 );
 
 const nationalResults = (() => {
-  const partySeats = {};
-  const partyVotes = {};
+  const partySeats: Record<string, number> = {};
+  const partyVotes: Record<string, number> = {};
 
   let constituenciesReporting = 0;
   let totalSeatsDeclared = 0;
@@ -334,7 +334,7 @@ const nationalResults = (() => {
     const finalData = counts[lastCount] || [];
 
     // Seats from FINAL count
-    finalData.forEach((c) => {
+    finalData.forEach((c: any) => {
       if (c.status === "elected") {
         if (!partySeats[c.party]) partySeats[c.party] = 0;
         partySeats[c.party]++;
@@ -343,7 +343,7 @@ const nationalResults = (() => {
     });
 
     // Votes from FIRST count
-    firstCount.forEach((c) => {
+    firstCount.forEach((c: any) => {
       if (!partyVotes[c.party]) partyVotes[c.party] = 0;
       partyVotes[c.party] += c.votes;
     });
@@ -357,8 +357,8 @@ const nationalResults = (() => {
      PREVIOUS RESULTS (REPORTING ONLY)
   ============================= */
 
-  const previousPartySeats = {};
-  const previousPartyVotes = {};
+  const previousPartySeats: Record<string, number> = {};
+  const previousPartyVotes: Record<string, number> = {};
 
   Object.entries(results || {}).forEach(
     ([constituency]) => {
@@ -433,11 +433,11 @@ const parties = Object.keys(partyVotes).map((party) => {
         0;
 
       const elected = finalData.filter(
-        c => c.status === "elected" && c.party === party
+        (c: any) => c.status === "elected" && c.party === party
       ).length;
 
       const running = finalData.filter(
-        c =>
+        (c: any) =>
           c.party === party &&
           c.status !== "elected" &&
           c.status !== "eliminated"
@@ -447,7 +447,7 @@ const parties = Object.keys(partyVotes).map((party) => {
         previousResults?.[constituency]?.[party]?.seats || 0;
 
       const constituencyComplete =
-        finalData.filter(c => c.status === "elected").length === seats;
+        finalData.filter((c: any) => c.status === "elected").length === seats;
 
       if (constituencyComplete) {
         confirmedGain += (elected - previousSeats);
@@ -560,7 +560,7 @@ const constituencyParties = (() => {
 
   const totals = {};
 
-  data.forEach((c) => {
+  data.forEach((c: any) => {
     const party = c.party || "IND";
 
     if (!totals[party]) {
@@ -625,7 +625,7 @@ const transferData = (() => {
 
   /* Count 2 special case */
   if (count === 2) {
-    prevData.forEach((c) => {
+    prevData.forEach((c: any) => {
 
       /* Eliminated */
       if (c.status === "eliminated") {
@@ -647,10 +647,10 @@ const transferData = (() => {
 
   } else {
 
-    prevData.forEach((c) => {
+    prevData.forEach((c: any) => {
 
       const prevPrev = prevPrevData.find(
-        (p) => p.name === c.name && p.party === c.party
+        (p: any) => p.name === c.name && p.party === c.party
       );
 
       /* Eliminated */
@@ -684,9 +684,9 @@ const transferData = (() => {
 
   const transfers = [];
 
-  currentData.forEach((c) => {
+  currentData.forEach((c: any) => {
     const prev = prevData.find(
-      (p) => p.name === c.name && p.party === c.party
+      (p: any) => p.name === c.name && p.party === c.party
     );
 
     const gain = prev ? c.votes - prev.votes : 0;
@@ -813,10 +813,10 @@ const leakageHistory = (() => {
     let transferableVotes = 0;
     let totalGain = 0;
 
-    prev.forEach((p) => {
+    prev.forEach((p: any) => {
 
       const curr = data.find(
-        d => d.name === p.name && d.party === p.party
+        (d: any) => d.name === p.name && d.party === p.party
       );
 
       if (!curr) return;
@@ -938,10 +938,10 @@ const advancedMetrics = (() => {
 
   const quota = data?.[0]?.quota || 0;
 
-  const candidates = data.map((c) => {
+  const candidates = data.map((c: any) => {
 
     const first = firstCount.find(
-      p => p.name === c.name && p.party === c.party
+      (p: any) => p.name === c.name && p.party === c.party
     );
 
     const firstVotes = first?.votes || 0;
@@ -965,11 +965,11 @@ const advancedMetrics = (() => {
       const curr = counts[n];
 
       const prevCandidate = prev?.find(
-        p => p.name === c.name && p.party === c.party
+        (p: any) => p.name === c.name && p.party === c.party
       );
 
       const currCandidate = curr?.find(
-        p => p.name === c.name && p.party === c.party
+        (p: any) => p.name === c.name && p.party === c.party
       );
 
       if (!prevCandidate || !currCandidate) return;
@@ -984,7 +984,7 @@ const advancedMetrics = (() => {
       }
 
       /* Transfer source analysis */
-      prev.forEach((p) => {
+      prev.forEach((p: any) => {
 
         const transferring =
           p.status === "eliminated" ||
@@ -1051,7 +1051,7 @@ const advancedMetrics = (() => {
   });
 
   return candidates
-    .map((c) => ({
+    .map((c: any) => ({
 
       ...c,
 
@@ -1070,7 +1070,7 @@ const advancedMetrics = (() => {
       ) * 100
 
     }))
-    .sort((a, b) => b.votes - a.votes);
+    .sort((a: any, b: any) => b.votes - a.votes);
 
 })();
 
@@ -1305,7 +1305,7 @@ Advanced
   finalData?.[0]?.seats ||
   0;
     const filled = finalData.filter(
-      (c) => c.status === "elected"
+      (c: any) => c.status === "elected"
     ).length;
 
     const complete = filled === seats;
@@ -1351,7 +1351,7 @@ Advanced
   finalData?.[0]?.seats ||
   0;
   const filled = finalData.filter(
-    (c) => c.status === "elected"
+    (c: any) => c.status === "elected"
   ).length;
 
   return (
@@ -1409,15 +1409,15 @@ Advanced
   0;
 
   const elected = finalData
-    .filter((c) => c.status === "elected")
-    .map((c) => {
+    .filter((c: any) => c.status === "elected")
+    .map((c: any) => {
       let electedOn = null;
 
       for (let i = 1; i <= lastCount; i++) {
         const countData = counts[i] || [];
 
         const found = countData.find(
-          (p) => p.name === c.name && p.party === c.party
+          (p: any) => p.name === c.name && p.party === c.party
         );
 
         if (found?.status === "elected") {
@@ -1469,7 +1469,7 @@ return (
 ))}
 
 {/* ELECTED CANDIDATES */}
-{elected.map((c) => (
+{elected.map((c: any) => (
 <div
   key={c.id}
   style={{
@@ -2138,7 +2138,7 @@ if (!data.length) return <p>Awaiting results...</p>;
 const firstCount = current?.data?.counts?.[1] || [];
 
 const firstTotalVotes = firstCount.reduce(
-  (sum, c) => sum + (c.votes || 0),
+  (sum: any, c: any) => sum + (c.votes || 0),
   0
 );
 
@@ -2149,7 +2149,7 @@ const electedMap = new globalThis.Map();
 for (let i = 1; i <= count; i++) {
   const countData = current?.data?.counts?.[i] || [];
 
-  countData.forEach((c) => {
+  countData.forEach((c: any) => {
     if (c.status === "elected") {
       const key = `${c.name}-${c.party}`;
 
@@ -2178,7 +2178,7 @@ const running = candidates.filter(c => {
 
   const prevData = current?.data?.counts?.[count - 1] || [];
   const prev = prevData.find(
-    (p) => p.name === c.name && p.party === c.party
+    (p: any) => p.name === c.name && p.party === c.party
   );
 
   // still show in running area on elimination count
@@ -2190,7 +2190,7 @@ const eliminated = candidates.filter(c => {
 
   const prevData = current?.data?.counts?.[count - 1] || [];
   const prev = prevData.find(
-    (p) => p.name === c.name && p.party === c.party
+    (p: any) => p.name === c.name && p.party === c.party
   );
 
   // only move AFTER redistribution
@@ -2208,7 +2208,7 @@ const eliminatedWithOrder = eliminated.map((c) => {
 
   for (let i = 1; i <= count; i++) {
     const found = (counts[i] || []).find(
-      (p) => p.name === c.name && p.party === c.party
+      (p: any) => p.name === c.name && p.party === c.party
     );
 
     if (found?.status === "eliminated") {
@@ -2236,7 +2236,7 @@ const orderedCandidates = [
 
   const gains = candidates.map((c) => {
     const prev = prevData.find(
-      (p) => p.name === c.name && p.party === c.party
+      (p: any) => p.name === c.name && p.party === c.party
     );
     return prev ? c.votes - prev.votes : 0;
   });
@@ -2301,7 +2301,7 @@ let justEliminated = false;
 
 if (count > 1) {
   const prev = prevData.find(
-    (p) => p.name === c.name && p.party === c.party
+    (p: any) => p.name === c.name && p.party === c.party
   );
 
   // 👇 candidate was eliminated LAST count
@@ -2311,7 +2311,7 @@ if (count > 1) {
 }
     
 const prev = prevData.find(
-  (p) => p.name === c.name && p.party === c.party
+  (p: any) => p.name === c.name && p.party === c.party
 );
 
 const prevEffectiveVotes =
@@ -2593,7 +2593,7 @@ Quota
     value={quota}
     previousValue={
       prevData.find(
-        (p) => p.name === c.name && p.party === c.party
+        (p: any) => p.name === c.name && p.party === c.party
       )?.votes || 0
     }
   />
@@ -2602,7 +2602,7 @@ Quota
     value={c.votes}
     previousValue={
       prevData.find(
-        (p) => p.name === c.name && p.party === c.party
+        (p: any) => p.name === c.name && p.party === c.party
       )?.votes || 0
     }
   />
@@ -2613,7 +2613,7 @@ Quota
     value={c.votes}
     previousValue={
       prevData.find(
-        (p) => p.name === c.name && p.party === c.party
+        (p: any) => p.name === c.name && p.party === c.party
       )?.votes || 0
     }
   />
@@ -3326,10 +3326,10 @@ Efficiency
 </div>
 </div>
 
-{advancedMetrics.map((c) => {
+{advancedMetrics.map((c: any) => {
 
 const prev = current?.data?.counts?.[count - 1]
-  ?.find(p => p.name === c.name && p.party === c.party);
+  ?.find((p: any) => p.name === c.name && p.party === c.party);
 
 const disableScores =
   prev?.status === "elected" ||
@@ -3373,7 +3373,7 @@ return (
     color: "#aaa"
   }}
 >
-{c.name.split(" ").map(n => n[0]).slice(0,2).join("")}
+{c.name.split(" ").map((n: any) => n[0]).slice(0,2).join("")}
 </div>
 
 {/* Name + Party + Status */}
