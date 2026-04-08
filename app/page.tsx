@@ -38,7 +38,7 @@ dynamicTyping: true,
 skipEmptyLines: true
 });
 
-const parsed = result.data
+const parsed = (result.data as any[])
 .filter(p => p.date)
 .map(p => ({
 ...p,
