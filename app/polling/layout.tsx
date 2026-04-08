@@ -126,7 +126,7 @@ overflow: "auto"
 
 const active = pathname.startsWith(href);
 
-const [data, setData] = useState([]);
+const [data, setData] = useState<any[]>([]);
 
 useEffect(() => {
 
