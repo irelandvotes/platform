@@ -1899,7 +1899,7 @@ return (
 Vote Share
 </div>
 
-{constituencyParties.map((p) => (
+{constituencyParties.map((p: any) => (
 
 <div
 key={p.party}
