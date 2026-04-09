@@ -2097,7 +2097,10 @@ strokeDasharray="3 3"
 dataKey="date"
 type="number"
 scale="time"
-domain={[coalitionStartDate, coalitionEndDate]}
+domain={[
+  coalitionStartDate ?? 0,
+  coalitionEndDate ?? Date.now()
+]}
 ticks={coalitionTicks}
 stroke="#aaa"
 tick={{ fontSize: 10 }}

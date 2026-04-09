@@ -18,11 +18,11 @@ export default function BroadcastChannel({
   type: string;
 }) {
 
-const [results, setResults] = useState({});
-const [list, setList] = useState([]);
-const [total, setTotal] = useState(null);
-const [previousResults, setPreviousResults] = useState({});
-const [sceneIndex, setSceneIndex] = useState(0);
+const [results, setResults] = useState<any>({});
+const [list, setList] = useState<any[]>([]);
+const [total, setTotal] = useState<any>(null);
+const [previousResults, setPreviousResults] = useState<any>({});
+const [sceneIndex, setSceneIndex] = useState<number>(0);
 
 
 /* ===============================
@@ -33,7 +33,7 @@ const constituenciesWithResults = useMemo(() => {
 
 return list.filter(name => {
 
-const counts = results?.[name]?.counts;
+const counts: = results?.[name]?.counts;
 
 if (!counts) return false;
 
