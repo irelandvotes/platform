@@ -612,7 +612,7 @@ const constituencyParties = (() => {
 
 })();
 
-const transferData = (() => {
+const transferData: = (() => {
   if (!current?.data?.counts || count <= 1) return null;
 
   const counts = current.data.counts;
@@ -714,7 +714,7 @@ const transferMatrix = (() => {
 
   const matrix: Record<string, number> = {};
 
-  transferData.transfers.forEach((t) => {
+  transferData.transfers.forEach((t: any) => {
     if (!matrix[t.party]) {
       matrix[t.party] = 0;
     }
@@ -743,7 +743,7 @@ const voteLeakage = (() => {
   if (!transferData) return null;
 
 const totalEliminated = transferData.sources
-  .reduce((sum, c) => {
+  .reduce((sum: number, c: any) => {
 
     /* elected candidates — use surplus only */
     if (
@@ -764,7 +764,7 @@ const totalEliminated = transferData.sources
   }, 0);
 
   const totalTransferred = transferData.transfers
-    .reduce((sum, t) => sum + (t.gain || 0), 0);
+    .reduce((sum: number, t: any) => sum + (t.gain || 0), 0);
 
   const leakage = Math.max(0, totalEliminated - totalTransferred);
 
