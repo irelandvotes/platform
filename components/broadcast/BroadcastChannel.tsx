@@ -143,6 +143,9 @@ onLoadPreviousResults={setPreviousResults}
 selected={null}
 view="count"
 results={results}
+onSelect={() => {}}
+resetTrigger={0}
+count={1}
 />
 </div>
 
@@ -179,6 +182,7 @@ results={results}
 name={scene.name}
 results={results}
 previousResults={previousResults}
+onComplete={onComplete}
 />
 
 </div>
