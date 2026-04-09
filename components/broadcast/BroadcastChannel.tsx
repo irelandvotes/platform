@@ -33,12 +33,12 @@ const constituenciesWithResults = useMemo(() => {
 
 return list.filter(name => {
 
-const counts: = results?.[name]?.counts;
+const counts: any = results?.[name]?.counts;
 
 if (!counts) return false;
 
 return Object.values(counts).some(
-rows => rows && rows.length > 0
+(rows: any) => rows && rows.length > 0
 );
 
 });
