@@ -587,7 +587,7 @@ opacity: 0.5
    POLL LINK
 =============================== */
 
-function PollLink({ title, link, comingSoon, data, tracker }: { title: string; link?: string; comingSoon?: boolean; data?: any; tracker?: string }) {
+function PollLink({ title, link, comingSoon, data, tracker }: { title: string; link?: string; comingSoon?: boolean; data?: any; tracker?: any }) {
 
 const content = (
 

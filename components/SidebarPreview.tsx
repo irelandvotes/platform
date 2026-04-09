@@ -7,7 +7,7 @@ Line,
 YAxis
 } from "recharts";
 
-const PARTY_COLORS = {
+const PARTY_COLORS: Record<string, string> = {
 FF: "#66bb6a",
 FG: "#5c6bc0",
 SF: "#124940",
@@ -29,7 +29,7 @@ TUV: "#061730",
 AP: "#fdd835",
 };
 
-export default function SidebarPreview({ data, tracker }) {
+export default function SidebarPreview({ data, tracker }: { data: any[]; tracker: string }) {
 
 if (!data || !data.length) return null;
 
@@ -89,7 +89,7 @@ day: "2-digit",
 month: "short"
 });
 
-const values = data.flatMap(d =>
+const values = data.flatMap((d: any) =>
 topThree.map(p => d[p]).filter(v => v !== null)
 );
 

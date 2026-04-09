@@ -38,7 +38,7 @@ Object.keys(counts).length > 0;
 
 /* STEP ROTATION */
 
-const steps = [
+const steps: any = [
 "firstPreference",
 "swing",
 "firstCount",
@@ -115,7 +115,7 @@ totalVotes
 
 /* SWING */
 
-const previous =
+const previous: any =
 previousResults?.[name] || {};
 
 const partySwing =
@@ -124,9 +124,9 @@ partyShare.map(p=>{
 const prevVotes =
 previous?.[p.party]?.votes || 0;
 
-const prevTotal =
+const prevTotal: any =
 Object.values(previous)
-.reduce((a,b)=>a+(b.votes||0),0);
+.reduce((a: any,b: any)=>a+(b.votes||0),0);
 
 const prevPercent =
 prevTotal
@@ -147,8 +147,8 @@ function getStatus({
 candidate,
 prev,
 }: {
-candidate: string;
-prev: string;
+candidate: any;
+prev: any;
 }) {
 
 if(candidate.status==="elected"){
