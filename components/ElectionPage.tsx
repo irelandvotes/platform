@@ -181,7 +181,7 @@ useEffect(() => {
   setHighlighted(null);
 }, [selected])
 
-const toggleStyle = {
+const toggleStyle: React.CSSProperties = {
   flex: 1,
   padding: "6px 8px",
   border: "none",

@@ -98,9 +98,9 @@ dynamicTyping: true,
 skipEmptyLines: true
 });
 
-const cleaned = result.data
-.filter(p => p.date)
-.map(p => {
+const cleaned: any = result.data
+.filter((p:any) => p.date)
+.map((p: any) => {
 
 const parsed = {
 ...p,
@@ -125,7 +125,7 @@ value === "" || value === null || value === undefined
 return parsed;
 
 })
-.filter(p => !isNaN(p.date));
+.filter((p: any) => !isNaN(p.date));
 
 setPolls(cleaned);
 
@@ -139,7 +139,7 @@ setPolls(cleaned);
 =============================== */
 
 const sortedPolls = [...polls].sort(
-(a, b) => a.date - b.date
+(a: any, b: any) => a.date - b.date
 );
 
 
@@ -180,7 +180,7 @@ tracker === "ni"
 "IND"
 ];
 
-const data = [];
+const data: any[] = [];
 
 for (let i = 0; i < sortedPolls.length; i++) {
 
@@ -195,13 +195,13 @@ const avg = {
 date: currentDate
 };
 
-parties.forEach((party) => {
+parties.forEach((party: any) => {
 
 let weightedSum = 0;
 let weightTotal = 0;
 const weightedValues: any[] = [];
 
-slice.forEach(p => {
+slice.forEach((p: any) => {
 
 const days =
 (currentDate - p.date) / (1000 * 60 * 60 * 24);
@@ -405,11 +405,11 @@ const cutoff = getCutoff();
 
 
 const filteredData = cutoff
-? smoothedAverage.filter(d => new Date(d.date) > cutoff)
+? smoothedAverage.filter((d: any) => new Date(d.date) > cutoff)
 : smoothedAverage;
 
 const filteredPolls = cutoff
-? sortedPolls.filter(d => d.date > cutoff)
+? sortedPolls.filter((d: any) => d.date > cutoff)
 : sortedPolls;
 
 /* ===============================
@@ -458,8 +458,8 @@ const nonAlignedParties = [
 =============================== */
 
 const coalitionData = filteredData
-.filter(row => new Date(row.date) >= coalitionStart)
-.map(row => {
+.filter((row: any) => new Date(row.date) >= coalitionStart)
+.map((row: any) => {
 
 const Coalition = coalitionParties.reduce(
 (sum, party) => sum + (row[party] || 0),
@@ -486,7 +486,7 @@ Independents
    NI BLOC DATA
 =============================== */
 
-const blocData = filteredData.map(row => {
+const blocData = filteredData.map((row: any) => {
 
 const nationalist = nationalistParties.reduce(
 (sum, party) => sum + (row[party] || 0),
@@ -557,7 +557,7 @@ return ticks;
 const chartData = filteredData.map(row => {
 
 const poll = filteredPolls.find(
-p => p.date.getTime() === new Date(row.date).getTime()
+(p: any) => p.date.getTime() === new Date(row.date).getTime()
 );
 
 return {
@@ -625,10 +625,10 @@ tracker === "ni"
 ];
 
 const PollTooltip = ({ active, payload, label, visible }: {
-    active: any;
-    payload: any;
-    label: any;
-    visible: any;
+    active?: any;
+    payload?: any;
+    label?: any;
+    visible?: any;
 }) => {
 
 if (!active || !payload || !payload.length) return null;
@@ -779,17 +779,17 @@ const dailParties = ["FF","FG","SF","SD","LAB","PBPS","GP","AON","INDIRL","IND"]
 const niParties = ["DUP","UUP","TUV","SF","SDLP","AON","PBP","GP","AP","IND"];
 
 const tableData = [...polls]
-.filter(p => {
+.filter((p: any) => {
 
 const parties =
 tracker === "ni"
 ? niParties
 : dailParties;
 
-return parties.some(party => p[party] !== undefined);
+return parties.some((party: any) => p[party] !== undefined);
 
 })
-.sort((a,b) => b.date - a.date);
+.sort((a: any, b: any) => b.date - a.date);
 
 /* ===============================
    PARTY TOGGLE ORDER
@@ -878,8 +878,8 @@ previous: previous?.[party],
 lower: latest[`${party}_lower`],
 upper: latest[`${party}_upper`]
 }))
-.filter(p => p.value !== null && p.value !== undefined)
-.sort((a, b) => b.value - a.value)
+.filter((p: any) => p.value !== null && p.value !== undefined)
+.sort((a: any, b: any) => b.value - a.value)
 : [];
 
 /* ===============================
@@ -887,13 +887,13 @@ upper: latest[`${party}_upper`]
 =============================== */
 
 const visibleParties = Object.keys(visible).filter(
-(p) => visible[p]
+(p: any) => visible[p]
 );
 
-const visibleValues = chartData.flatMap((row) =>
+const visibleValues = chartData.flatMap((row: any) =>
 visibleParties
-.map((party) => row[party])
-.filter((v) => v !== null && v !== undefined)
+.map((party: any) => row[party])
+.filter((v: any) => v !== null && v !== undefined)
 );
 
 const maxY = visibleValues.length
@@ -974,7 +974,7 @@ year: "numeric"
    COALITION TOOLTIP
 =============================== */
 
-const CoalitionTooltip = ({ active, payload, label }: { active: any; payload: any; label: any }) => {
+const CoalitionTooltip = ({ active, payload, label }: { active?: any; payload?: any; label?: any }) => {
 
 if (!active || !payload || !payload.length) return null;
 
@@ -1336,7 +1336,7 @@ fontWeight: "600"
 }}
 >
 
-{latestParties.map(({ party, value, previous, lower, upper }) => {
+{latestParties.map(({ party, value, previous, lower, upper }: any) => {
 
 const change =
 previous !== undefined && previous !== null
