@@ -612,7 +612,7 @@ const constituencyParties = (() => {
 
 })();
 
-const transferData: = (() => {
+const transferData: any = (() => {
   if (!current?.data?.counts || count <= 1) return null;
 
   const counts = current.data.counts;
