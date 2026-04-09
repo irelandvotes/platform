@@ -48,8 +48,8 @@ export default function PollPage({
   tracker?: string;
 }) {
 
-const [polls, setPolls] = useState([]);
-const [range, setRange] = useState("all");
+const [polls, setPolls] = useState<any[]>([]);
+const [range, setRange] = useState<string>("all");
 const defaultVisible =
 tracker === "ni"
 ? {
@@ -77,8 +77,8 @@ PBPS: true,
 IND: true
 };
 
-const [visible, setVisible] = useState(defaultVisible);
-const [hovered, setHovered] = useState(null);
+const [visible, setVisible] = useState<Record<string, any>>(defaultVisible);
+const [hovered, setHovered] = useState<any>(null);
 const [showConfidence, setShowConfidence] = useState(false);
 const [showAllPolls, setShowAllPolls] = useState(false);
 
