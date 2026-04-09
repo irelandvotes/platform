@@ -520,7 +520,7 @@ const nationalMeta = (() => {
   let quota = 0;
   let quotaCount = 0;
 
-  Object.values(results || {}).forEach((constituency) => {
+  Object.values(results || {}).forEach((constituency: any) => {
     const counts = constituency?.counts;
     if (!counts) return;
 
@@ -558,7 +558,7 @@ const constituencyParties = (() => {
   const data = current?.data?.counts?.[1];
   if (!data) return [];
 
-  const totals = {};
+  const totals: Record<string, number> = {};
 
   data.forEach((c: any) => {
     const party = c.party || "IND";
@@ -577,7 +577,7 @@ const constituencyParties = (() => {
   const previous = previousResults?.[constituencyName] || {};
 
   const previousTotalVotes = Object.values(previous)
-    .reduce((sum, p) => sum + (p.votes || 0), 0);
+    .reduce((sum: number, p: any) => sum + (p.votes || 0), 0);
 
   return Object.entries(totals)
     .map(([party, votes]: [string, any]) => {
@@ -621,7 +621,7 @@ const transferData = (() => {
   const prevData = counts[count - 1] || [];
   const prevPrevData = counts[count - 2] || [];
 
-  const sources = [];
+  const sources: any[] = [];
 
   /* Count 2 special case */
   if (count === 2) {
@@ -682,7 +682,7 @@ const transferData = (() => {
 
   if (!sources.length) return null;
 
-  const transfers = [];
+  const transfers: any[] = [];
 
   currentData.forEach((c: any) => {
     const prev = prevData.find(
@@ -712,7 +712,7 @@ const transferData = (() => {
 const transferMatrix = (() => {
   if (!transferData) return null;
 
-  const matrix = {};
+  const matrix: Record<string, number> = {};
 
   transferData.transfers.forEach((t) => {
     if (!matrix[t.party]) {
@@ -785,7 +785,7 @@ const leakageHistory = (() => {
   if (!current?.data?.counts) return [];
 
   const counts = current.data.counts;
-  const history = [];
+  const history: any[] = [];
 
   Object.keys(counts).forEach((c) => {
 
@@ -1079,8 +1079,8 @@ const advancedMetrics = (() => {
 const sankeyData = (() => {
   if (!transferData) return null;
 
-  const nodes = [];
-  const links = [];
+  const nodes: any[] = [];
+  const links: any[] = [];
 
   /* Combined eliminated node */
 const sourceLabel = transferData.sources

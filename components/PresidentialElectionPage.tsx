@@ -40,13 +40,13 @@ previousValue: number;
   const [display, setDisplay] = useState(previousValue);
 
   useEffect(() => {
-    let start = previousValue;
-    let end = value;
-    let startTime = null;
+    let start: any = previousValue;
+    let end: any = value;
+    let startTime: any = null;
 
     const duration = 700;
 
-    function animate(time) {
+    function animate(time: any) {
       
       if (!startTime) startTime = time;
       const progress = Math.min((time - startTime) / duration, 1);
@@ -82,11 +82,11 @@ quotaPercent: number; showSurplus: number; party: number;  status: number; justE
   useEffect(() => {
    let start = previous.current;
   let end = percent;
-  let startTime: number | null = null;
+  let startTime: any | null = null;
 
   const duration = 800;
 
-  function animate(time) {
+  function animate(time: any) {
     if (!startTime) startTime = time;
     const progress = Math.min((time - startTime) / duration, 1);
 
@@ -193,7 +193,7 @@ useEffect(() => {
   setHighlighted(null);
 }, [selected])
 
-const HelpTooltip = ({ text }) => {
+const HelpTooltip = ({ text }: { text: string }) => {
   return (
     <span
       style={{
@@ -208,7 +208,7 @@ const HelpTooltip = ({ text }) => {
   );
 };
 
-const LeakageTooltip = ({ active, payload, label }) => {
+const LeakageTooltip = ({ active, payload, label }: { active: boolean; payload: any[]; label: string }) => {
   if (!active || !payload || !payload.length) return null;
 
   return (
@@ -237,7 +237,7 @@ const LeakageTooltip = ({ active, payload, label }) => {
   );
 };
 
-function aggregateNationalMeta(results, count) {
+function aggregateNationalMeta(results: Record<string, any>, count: number) {
   let electorate = 0;
   let turnout = 0;
   let tvp = 0;
@@ -286,14 +286,14 @@ return {
 };
 }
 
-function aggregateNational(results) {
-  const counts = {};
+function aggregateNational(results: any) {
+  const counts: Record<string, any[]> = {};
 
-  Object.values(results).forEach((constituency) => {
-    Object.entries(constituency.counts || {}).forEach(([count, data]) => {
+  Object.values(results).forEach((constituency: any) => {
+    Object.entries(constituency.counts || {}).forEach(([count, data]: [string, any]) => {
       if (!counts[count]) counts[count] = [];
 
-      data.forEach((candidate) => {
+      data.forEach((candidate: any) => {
         const existing = counts[count].find(
           c =>
             c.name === candidate.name &&
@@ -312,7 +312,7 @@ function aggregateNational(results) {
   return { counts };
 }
 
-function getCandidateImage(name) {
+function getCandidateImage(name: any) {
   const slug = name
     .toLowerCase()
     .replace(/\./g, "")
@@ -585,7 +585,7 @@ const constituencyParties = (() => {
   const data = current?.data?.counts?.[1];
   if (!data) return [];
 
-  const totals = {};
+  const totals: Record<string, number> = {};
 
   data.forEach((c: any) => {
     const party = c.party || "IND";
@@ -598,13 +598,13 @@ const constituencyParties = (() => {
   });
 
   const totalVotes = Object.values(totals)
-    .reduce((sum, v) => sum + v, 0);
+    .reduce((sum: number, v: any) => sum + v, 0);
 
   const constituencyName = current?.name;
   const previous = previousResults?.[constituencyName] || {};
 
   const previousTotalVotes = Object.values(previous)
-    .reduce((sum, p) => sum + (p.votes || 0), 0);
+    .reduce((sum: number, p: any) => sum + (p.votes || 0), 0);
 
   return Object.entries(totals)
     .map(([party, votes]: [string, any]) => {
@@ -648,7 +648,7 @@ const transferData = (() => {
   const prevData = counts[count - 1] || [];
   const prevPrevData = counts[count - 2] || [];
 
-  const sources = [];
+  const sources: any[] = [];
 
   /* Count 2 special case */
   if (count === 2) {
@@ -709,7 +709,7 @@ const transferData = (() => {
 
   if (!sources.length) return null;
 
-  const transfers = [];
+  const transfers: any[] = [];
 
   currentData.forEach((c: any) => {
     const prev = prevData.find(
@@ -739,9 +739,9 @@ const transferData = (() => {
 const transferMatrix = (() => {
   if (!transferData) return null;
 
-  const matrix = {};
+  const matrix: Record<string, number> = {};
 
-  transferData.transfers.forEach((t) => {
+  transferData.transfers.forEach((t: any) => {
     if (!matrix[t.party]) {
       matrix[t.party] = 0;
     }
@@ -812,7 +812,7 @@ const leakageHistory = (() => {
   if (!current?.data?.counts) return [];
 
   const counts = current.data.counts;
-  const history = [];
+  const history: any[] = [];
 
   Object.keys(counts).forEach((c) => {
 
@@ -1106,8 +1106,8 @@ const advancedMetrics = (() => {
 const sankeyData = (() => {
   if (!transferData) return null;
 
-  const nodes = [];
-  const links = [];
+  const nodes: any[] = [];
+  const links: any[] = [];
 
   /* Combined eliminated node */
 const sourceLabel = transferData.sources
@@ -1815,7 +1815,7 @@ if (!data.length) return <p>Awaiting results...</p>;
 const firstCount = current?.data?.counts?.[1] || [];
 
 const firstTotalVotes = firstCount.reduce(
-  (sum, c: any) => sum + (c.votes || 0),
+  (sum: number, c: any) => sum + (c.votes || 0),
   0
 );
 

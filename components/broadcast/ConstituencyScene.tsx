@@ -23,10 +23,10 @@ const PARTY_COLORS: Record<string, string> = {
   previousResults,
   onComplete
 }: {
-  name: string;
-  results: string;
+  name: any;
+  results: any;
   previousResults: string;
-  onComplete: string;
+  onComplete: any;
 }) {
 
 const [step, setStep] = useState(0);
@@ -89,9 +89,9 @@ counts[latestCountNumber - 1] || [];
 
 /* PARTY SHARE */
 
-const partyTotals = {};
+const partyTotals: Record<string, number> = {};
 
-firstCount.forEach(c => {
+firstCount.forEach((c: any) => {
 const party = c.party || "IND";
 partyTotals[party] =
 (partyTotals[party] || 0) + c.votes;
@@ -158,7 +158,7 @@ return "elected";
 if(
 candidate.status==="eliminated" &&
 prev?.find(
-p=>p.name===candidate.name &&
+(p: any) => p.name===candidate.name &&
 p.status==="eliminated"
 )
 ){
@@ -449,7 +449,7 @@ steps[step]==="firstCount"
 : latestCount;
 
 const candidates =
-data.map(c => {
+data.map((c: any) => {
 
 const status =
 getStatus(
@@ -467,13 +467,13 @@ status
 });
 
 const elected =
-candidates.filter(c=>c.status==="elected");
+candidates.filter((c: any)=>c.status==="elected");
 
 const running =
-candidates.filter(c=>c.status==="running");
+candidates.filter((c: any)=>c.status==="running");
 
 const eliminated =
-candidates.filter(c=>c.status==="eliminated");
+candidates.filter((c: any)=>c.status==="eliminated");
 
 const ordered = [
 ...elected,

@@ -18,7 +18,7 @@ const PARTY_COLORS: Record<string, string> = {
   results,
 }: {
   name: string;
-  results: string;
+  results: any;
 }) {
 
 /* Get First Count Data */
@@ -27,9 +27,9 @@ const data = results?.[name]?.counts?.[1] || [];
 
 /* Calculate Leading Party */
 
-const totals = {};
+const totals: Record<string, number> = {};
 
-data.forEach(c => {
+data.forEach((c: any) => {
 const party = c.party || "IND";
 totals[party] = (totals[party] || 0) + (c.votes || 0);
 });
@@ -37,7 +37,7 @@ totals[party] = (totals[party] || 0) + (c.votes || 0);
 const leader =
 Object.keys(totals).length
 ? Object.entries(totals)
-.sort((a,b) => b[1] - a[1])[0][0]
+.sort((a: any, b: any) => b[1] - a[1])[0][0]
 : null;
 
 const seats = data?.[0]?.seats || "";

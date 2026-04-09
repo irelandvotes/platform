@@ -199,7 +199,7 @@ parties.forEach((party) => {
 
 let weightedSum = 0;
 let weightTotal = 0;
-const weightedValues = [];
+const weightedValues: any[] = [];
 
 slice.forEach(p => {
 
@@ -624,7 +624,12 @@ tracker === "ni"
 { date: "2024-11-29", label: "2024 Election" }
 ];
 
-const PollTooltip = ({ active, payload, label, visible }) => {
+const PollTooltip = ({ active, payload, label, visible }: {
+    active: any;
+    payload: any;
+    label: any;
+    visible: any;
+}) => {
 
 if (!active || !payload || !payload.length) return null;
 
@@ -658,17 +663,17 @@ tracker === "ni"
 
 /* Filter rolling averages only */
 const rolling = payload.filter(
-p => rollingParties.includes(p.dataKey)
+(p: any) => rollingParties.includes(p.dataKey)
 );
 
-const allVisible = Object.values(visible || {}).every(v => v === true);
+const allVisible = Object.values(visible || {}).every((v: any) => v === true);
 
 const combined = rolling
-.filter(entry => visible?.[entry.dataKey])
-.reduce((sum, entry) => sum + (entry.value || 0), 0);
+.filter((entry: any) => visible?.[entry.dataKey])
+.reduce((sum: number, entry: any) => sum + (entry.value || 0), 0);
 
 /* Sort highest → lowest */
-rolling.sort((a, b) => b.value - a.value);
+rolling.sort((a: any, b: any) => b.value - a.value);
 
 return (
 
@@ -699,7 +704,7 @@ year: "numeric"
 </div>
 
 {/* PARTY VALUES */}
-{rolling.map((entry) => (
+{rolling.map((entry: any) => (
 
 <div
 key={entry.dataKey}
@@ -760,7 +765,7 @@ fontWeight: 600
    RAW POLL CHART DATA
 =============================== */
 
-const chartPolls = filteredPolls.map(p => ({
+const chartPolls = filteredPolls.map((p: any) => ({
 ...p,
 date: p.timestamp
 }));
@@ -903,7 +908,7 @@ const minY = visibleValues.length
    HEATMAP HELPERS
 =============================== */
 
-const getHeatColor = (value) => {
+const getHeatColor = (value: any) => {
 
 if (value === null || value === undefined) return "transparent";
 
@@ -922,7 +927,7 @@ return `rgba(${shade}, ${shade}, ${shade}, 0.35)`;
    LEADER HELPER
 =============================== */
 
-const getLeader = (poll) => {
+const getLeader = (poll: any) => {
 
 const parties = Object.keys(PARTY_COLORS)
 .filter(p => p !== "IND"); // Exclude IND
@@ -955,7 +960,7 @@ party: leader.party
 
 };
 
-const formatDate = (date) => {
+const formatDate = (date: any) => {
 
 return new Date(date).toLocaleDateString("en-IE", {
 day: "2-digit",
@@ -969,12 +974,12 @@ year: "numeric"
    COALITION TOOLTIP
 =============================== */
 
-const CoalitionTooltip = ({ active, payload, label }) => {
+const CoalitionTooltip = ({ active, payload, label }: { active: any; payload: any; label: any }) => {
 
 if (!active || !payload || !payload.length) return null;
 
 const sorted = [...payload].sort(
-(a, b) => b.value - a.value
+(a: any, b: any) => b.value - a.value
 );
 
 return (
