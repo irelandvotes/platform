@@ -321,7 +321,7 @@ function getCandidateImage(name: any) {
   return `/candidates/ireland-president-2025/${slug}.jpg`;
 }
 
-const current = selected
+const current: any = selected
   ? { name: selected.name, data: results[selected.name] }
   : Object.keys(results).length
   ? { name: "National", data: aggregateNational(results) }
@@ -1425,9 +1425,9 @@ return (
     height: "100%",
     objectFit: "cover"
   }}
-  onError={(e) => {
-    e.target.style.display = "none";
-  }}
+onError={(e) => {
+  (e.target as HTMLImageElement).style.display = "none";
+}}
 />
 </div>
 
@@ -2169,9 +2169,9 @@ return (
     height: "100%",
     objectFit: "cover"
   }}
-  onError={(e) => {
-    e.target.style.display = "none";
-  }}
+onError={(e) => {
+  (e.target as HTMLImageElement).style.display = "none";
+}}
 />
 </div>
 
