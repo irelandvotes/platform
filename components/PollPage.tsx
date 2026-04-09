@@ -191,7 +191,7 @@ Math.max(0, i - 30),
 i + 1
 );
 
-const avg = {
+const avg: any = {
 date: currentDate
 };
 
@@ -310,7 +310,7 @@ Math.max(0, i - window),
 Math.min(rollingAverage.length, i + window)
 );
 
-const smoothed = {
+const smoothed: any = {
 date: row.date
 };
 
