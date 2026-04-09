@@ -23,6 +23,7 @@ const [list, setList] = useState<any[]>([]);
 const [total, setTotal] = useState<any>(null);
 const [previousResults, setPreviousResults] = useState<any>({});
 const [sceneIndex, setSceneIndex] = useState<number>(0);
+const [onComplete, setOnComplete] = useState<any>(null);
 
 
 /* ===============================
