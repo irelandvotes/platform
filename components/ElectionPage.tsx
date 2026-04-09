@@ -209,7 +209,7 @@ const HelpTooltip = ({ text }: { text: string }) => {
   );
 };
 
-const LeakageTooltip = ({ active, payload, label }: { active: string; payload: any[]; label: string }) => {
+const LeakageTooltip = ({ active, payload, label }: { active?: string; payload?: any[]; label?: string }) => {
   if (!active || !payload || !payload.length) return null;
 
   return (
