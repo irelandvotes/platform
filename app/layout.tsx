@@ -30,7 +30,7 @@ export default function RootLayout({
         <Navbar />
 
 {/* MAIN CONTENT */}
-<div className="flex-1 flex overflow-hidden">
+<div className="flex-1 flex overflow-hidden text-white">
   {children}
 </div>
 
