@@ -72,7 +72,7 @@ percent,
 quotaPercent,showSurplus,party,status,justEliminated
 }: {
 percent: number;
-quotaPercent: number; showSurplus: number; party: number;  status: number; justEliminated: number;
+quotaPercent: number; showSurplus: any; party: number;  status: number; justEliminated: any;
 }) {
 
   
