@@ -452,12 +452,13 @@ const candidates =
 data.map((c: any) => {
 
 const status =
-getStatus(
-c,
-steps[step]==="firstCount"
-? firstCount
-: prevCount
-);
+getStatus({
+  candidate: c,
+  prev:
+    steps[step] === "firstCount"
+      ? firstCount
+      : prevCount
+});
 
 return {
 ...c,
