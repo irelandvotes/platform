@@ -867,7 +867,7 @@ if (
 
 /* PARTY IDEOLOGY MAP */
 
-const partyIdeology = {
+const partyIdeology: Record<string, string> = {
 
   /* Far Left */
   "PBPS": "far-left",
@@ -902,7 +902,7 @@ const partyIdeology = {
 
 /* IDEOLOGY DISTANCE */
 
-const ideologyDistance = {
+const ideologyDistance: Record<string, number> = {
   "far-left": 0,
   "left": 1,
   "centre-left": 2,
@@ -915,7 +915,7 @@ const ideologyDistance = {
 
 /* LIKE-MINDED CHECK */
 
-const isLikeMinded = (partyA, partyB) => {
+const isLikeMinded = (partyA: string, partyB: string) => {
   const a = ideologyDistance[
     partyIdeology[partyA] || "centre"
   ];
@@ -1084,7 +1084,7 @@ const sankeyData = (() => {
 
   /* Combined eliminated node */
 const sourceLabel = transferData.sources
-  .map(s =>
+  .map((s: any) =>
     s.type === "surplus"
       ? `${s.name} (${s.party}) Surplus`
       : `${s.name} (${s.party})`
@@ -1096,7 +1096,7 @@ const sourceLabel = transferData.sources
   });
 
   /* Receiving candidates */
-  transferData.transfers.forEach((t) => {
+  transferData.transfers.forEach((t: any) => {
     nodes.push({
       name: `${t.name} (${t.party}) +${t.gain.toLocaleString()}`,
       gain: t.gain,
@@ -1105,7 +1105,7 @@ const sourceLabel = transferData.sources
   });
 
   /* Links */
-  transferData.transfers.forEach((t, i) => {
+  transferData.transfers.forEach((t: any, i: number) => {
     links.push({
       source: 0,
       target: i + 1,
