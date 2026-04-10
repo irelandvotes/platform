@@ -2,7 +2,12 @@
 
 import { useState, useEffect, useRef, Fragment } from "react";
 import ElectionMetaPanel from "./ElectionMetaPanel";
-import Map from "./Map";
+import dynamic from "next/dynamic";
+
+const Map = dynamic(
+  () => import("@/components/Map"),
+  { ssr: false }
+) as any;
 import TransferFlow from "./TransferFlow";
 import {
   LineChart,

@@ -701,14 +701,32 @@ const displayCount =
   return "transparent";
 }
 
+const [isClient, setIsClient] = useState(false);
+
+useEffect(() => {
+  setIsClient(true);
+}, []);
 
   /* =============================
      Map Render
   ============================= */
 
-  return (
-    <div style={{ position: "relative", height: "100%", width: "100%" }}>
+return (
+  <div
+    key={`${country}-${type}-${year}`}
+    style={{
+      position: "relative",
+      height: "100%",
+      width: "100%"
+    }}
+  >
 <MapContainer
+  whenCreated={(map) => {
+    if (mapRef.current) {
+      mapRef.current.remove();
+    }
+    mapRef.current = map;
+  }}
   center={[53.5, -8]}
   zoom={7.25}
   minZoom={6.8}

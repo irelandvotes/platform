@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Papa from "papaparse";
+import TimeSeriesChart from "@/components/charts/TimeSeriesChart";
 
 import {
 ComposedChart,
@@ -50,6 +51,11 @@ export default function PollPage({
 
 const [polls, setPolls] = useState<any[]>([]);
 const [range, setRange] = useState<string>("all");
+
+useEffect(() => {
+setRange("all");
+}, [tracker]);
+
 const defaultVisible =
 tracker === "ni"
 ? {
@@ -104,7 +110,7 @@ const cleaned: any = result.data
 
 const parsed = {
 ...p,
-date: new Date(p.date)
+date: new Date(p.date).getTime()
 };
 
 Object.keys(parsed).forEach(key => {
@@ -139,7 +145,7 @@ setPolls(cleaned);
 =============================== */
 
 const sortedPolls = [...polls].sort(
-(a: any, b: any) => a.date - b.date
+(a, b) => a.date - b.date
 );
 
 
@@ -402,21 +408,26 @@ return null;
 };
 
 const cutoff = getCutoff();
-
+const cutoffTime = cutoff ? cutoff.getTime() : null;
 
 const filteredData = cutoff
-? smoothedAverage.filter((d: any) => new Date(d.date) > cutoff)
-: smoothedAverage;
+  ? smoothedAverage.filter((d: any) => d.date > cutoff.getTime())
+  : smoothedAverage;
+
+console.log("Filtered data length:", filteredData.length);
+console.log("First date:", filteredData[0]?.date);
+console.log("Last date:", filteredData[filteredData.length - 1]?.date);
 
 const filteredPolls = cutoff
-? sortedPolls.filter((d: any) => d.date > cutoff)
-: sortedPolls;
+  ? sortedPolls.filter((d: any) => d.date > cutoff.getTime())
+  : sortedPolls;
+
 
 /* ===============================
    COALITION CONFIG
 =============================== */
 
-const coalitionStart = new Date("2024-11-29");
+const coalitionStart = new Date("2024-11-29").getTime();
 
 const coalitionParties = ["FF", "FG"];
 
@@ -457,60 +468,116 @@ const nonAlignedParties = [
    COALITION DATA
 =============================== */
 
-const coalitionData = filteredData
-.filter((row: any) => new Date(row.date) >= coalitionStart)
+const coalitionData = useMemo(() => {
+
+return filteredData
+.filter((row: any) => row.date >= coalitionStart)
 .map((row: any) => {
 
 const Coalition = coalitionParties.reduce(
-(sum, party) => sum + (row[party] || 0),
+(sum, party) => {
+const value = row[party];
+return sum + (typeof value === "number" ? value : 0);
+},
 0
 );
 
 const Opposition = oppositionParties.reduce(
-(sum, party) => sum + (row[party] || 0),
+(sum, party) => {
+const value = row[party];
+return sum + (typeof value === "number" ? value : 0);
+},
 0
 );
 
-const Independents = row["IND"] || 0;
+const Independents = Number(row["IND"]) || 0;
 
 return {
-date: new Date(row.date).getTime(),
+date: row.date,
 Coalition,
 Opposition,
 Independents
 };
 
-});
+})
+
+}, [filteredData]);
 
 /* ===============================
    NI BLOC DATA
 =============================== */
 
-const blocData = filteredData.map((row: any) => {
+const blocData = useMemo(() => {
+
+return filteredData.map((row: any) => {
 
 const nationalist = nationalistParties.reduce(
-(sum, party) => sum + (row[party] || 0),
+(sum, party) => {
+const value = row[party];
+return sum + (typeof value === "number" ? value : 0);
+},
 0
 );
 
 const unionist = unionistParties.reduce(
-(sum, party) => sum + (row[party] || 0),
+(sum, party) => {
+const value = row[party];
+return sum + (typeof value === "number" ? value : 0);
+},
 0
 );
 
 const nonAligned = nonAlignedParties.reduce(
-(sum, party) => sum + (row[party] || 0),
+(sum, party) => {
+const value = row[party];
+return sum + (typeof value === "number" ? value : 0);
+},
 0
 );
 
 return {
-date: new Date(row.date).getTime(),
+date: row.date,
 nationalist,
 unionist,
 nonAligned
 };
 
 });
+
+}, [filteredData]);
+
+const sortedCoalitionData = [...coalitionData].sort(
+(a: any, b: any) => a.date - b.date
+);
+
+console.log("sortedCoalitionData sample:", sortedCoalitionData.slice(0,5));
+console.log("coalitionData length:", coalitionData.length);
+
+const sortedBlocData = [...blocData].sort(
+(a: any, b: any) => a.date - b.date
+);
+
+console.log("sortedBlocData sample:", sortedBlocData.slice(0,5));
+
+/* ===============================
+   COALITION Y AXIS
+=============================== */
+
+const coalitionValues =
+tracker === "ni"
+? sortedBlocData.flatMap(d => [
+d.nationalist,
+d.unionist,
+d.nonAligned
+])
+: sortedCoalitionData.flatMap(d => [
+d.Coalition,
+d.Opposition,
+d.Independents
+]);
+
+const coalitionMax = Math.ceil(Math.max(...coalitionValues) / 5) * 5;
+const coalitionMin = Math.floor(Math.min(...coalitionValues) / 5) * 5;
 
 /* ===============================
    COALITION DATE RANGE
@@ -532,7 +599,7 @@ if (!coalitionStartDate || !coalitionEndDate) return [];
 const start = new Date(coalitionStartDate);
 const end = new Date(coalitionEndDate);
 
-const ticks = [];
+const ticks = [coalitionStartDate];
 
 const d = new Date(start);
 d.setMonth(d.getMonth() < 6 ? 0 : 6);
@@ -541,12 +608,11 @@ d.setDate(1);
 while (d <= end) {
 
 ticks.push(new Date(d).getTime());
-
 d.setMonth(d.getMonth() + 6);
 
 }
 
-return ticks;
+return ticks.filter(t => t >= coalitionStartDate);
 
 })();
 
@@ -554,10 +620,12 @@ return ticks;
    COMBINED CHART DATA
 =============================== */
 
-const chartData = filteredData.map(row => {
+const chartData = [...filteredData]
+.sort((a, b) => a.date - b.date)
+.map(row => {
 
 const poll = filteredPolls.find(
-(p: any) => p.date.getTime() === new Date(row.date).getTime()
+(p: any) => p.date === row.date
 );
 
 return {
@@ -572,20 +640,29 @@ GP_poll: poll?.GP ?? null,
 PBPS_poll: poll?.PBPS ?? null,
 AON_poll: poll?.AON ?? null,
 INDIRL_poll: poll?.INDIRL ?? null,
-IND_poll: poll?.IND ?? null
+IND_poll: poll?.IND ?? null,
+DUP_poll: poll?.DUP ?? null,
+UUP_poll: poll?.UUP ?? null,
+TUV_poll: poll?.TUV ?? null,
+AP_poll: poll?.AP ?? null,
+SDLP_poll: poll?.SDLP ?? null,
+PBP_poll: poll?.PBP ?? null,
 
 };
 
 });
 
+console.log("CoalitionData for chart:", coalitionData);
+
 const xTicks = (() => {
 
 if (!filteredData.length) return [];
 
-const start = new Date(filteredData[0].date);
+const startDate = filteredData[0].date;
+const start = new Date(startDate);
 const end = new Date(filteredData[filteredData.length - 1].date);
 
-const ticks = [];
+const ticks = [startDate];
 
 const d = new Date(start);
 d.setMonth(d.getMonth() < 6 ? 0 : 6);
@@ -599,7 +676,7 @@ d.setMonth(d.getMonth() + 6);
 
 }
 
-return ticks;
+return ticks.filter(t => t >= startDate);
 
 })();
 
@@ -898,7 +975,7 @@ visibleParties
 
 const maxY = visibleValues.length
 ? Math.ceil(Math.max(...visibleValues) / 5) * 5
-: 40;
+: 60;
 
 const minY = visibleValues.length
 ? Math.floor(Math.min(...visibleValues) / 5) * 5
@@ -1427,7 +1504,7 @@ fontWeight: 500
 
 <div
 style={{
-height: "460px",
+height: "420px",
 width: "100%",
 display: "flex",
 flexDirection: "column"
@@ -1944,6 +2021,7 @@ fontSize: 10
 dataKey="date"
 type="number"
 scale="time"
+domain={["dataMin", "dataMax"]}
 ticks={xTicks}
 stroke="#aaa"
 tick={{ fontSize: 10 }}
@@ -2077,124 +2155,25 @@ marginBottom: "8px"
 
 <ResponsiveContainer width="100%" height="100%">
 
-<ComposedChart
-data={
-tracker === "ni"
-? blocData
-: coalitionData
-}
->
-
-<CartesianGrid stroke="#2a2a2a" strokeDasharray="3 3" />
-
-<ReferenceLine
-y={50}
-stroke="#666"
-strokeDasharray="3 3"
-/>
-
-<XAxis
-dataKey="date"
-type="number"
-scale="time"
-domain={[
-  coalitionStartDate ?? 0,
-  coalitionEndDate ?? Date.now()
-]}
+<TimeSeriesChart
+data={tracker === "ni" ? sortedBlocData : sortedCoalitionData}
 ticks={coalitionTicks}
-stroke="#aaa"
-tick={{ fontSize: 10 }}
-tickFormatter={(value) => {
-
-const d = new Date(value);
-const month = d.getMonth();
-const year = d.getFullYear();
-
-return month === 0
-? `Jan ${year}`
-: `Jul ${year}`;
-
-}}
+referenceLine={50}
+tooltip={<CoalitionTooltip />}
+lines={
+tracker === "ni"
+? [
+{ key: "nationalist", color: "#0c4257" },
+{ key: "unionist", color: "#d65f30" },
+{ key: "nonAligned", color: "#e4ad15", dashed: true }
+]
+: [
+{ key: "Coalition", color: "#4caf50" },
+{ key: "Opposition", color: "#f44336" },
+{ key: "Independents", color: "#9e9e9e", dashed: true }
+]
+}
 />
-
-<YAxis
-stroke="#aaa"
-tick={{ fontSize: 10 }}
-allowDecimals={false}
-/>
-
-<Tooltip content={<CoalitionTooltip />} />
-
-{tracker === "dail" && (
-
-<>
-
-<Line
-type="monotone"
-dataKey="Coalition"
-stroke="#4caf50"
-strokeWidth={3}
-dot={false}
-/>
-
-<Line
-type="monotone"
-dataKey="Opposition"
-stroke="#f44336"
-strokeWidth={3}
-dot={false}
-/>
-
-<Line
-type="monotone"
-dataKey="Independents"
-stroke="#9e9e9e"
-strokeWidth={2}
-strokeDasharray="4 4"
-dot={false}
-/>
-
-</>
-
-)}
-
-{tracker === "ni" && (
-
-<>
-
-<Line
-type="monotone"
-dataKey="nationalist"
-name="Nationalist"
-stroke="#0c4257"
-strokeWidth={3}
-dot={false}
-/>
-
-<Line
-type="monotone"
-dataKey="unionist"
-name="Unionist"
-stroke="#d65f30"
-strokeWidth={3}
-dot={false}
-/>
-
-<Line
-type="monotone"
-dataKey="nonAligned"
-name="Non-Aligned"
-stroke="#e4ad15"
-strokeWidth={2}
-strokeDasharray="4 4"
-dot={false}
-/>
-
-</>
-
-)}
-
-</ComposedChart>
 
 </ResponsiveContainer>
 
