@@ -733,8 +733,8 @@ return (
     }, 0);
   }}
   center={[53.5, -8]}
-  zoom={7}
-  minZoom={6.6}
+  zoom={6.5}
+  minZoom={6.5}
   maxZoom={10}
   maxBounds={[
     [51.2, -11.5],  // Southwest Ireland

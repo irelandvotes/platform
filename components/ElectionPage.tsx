@@ -3513,7 +3513,7 @@ Eliminated
     borderRadius: "10px",
     padding: "2px",
     border: "1px solid #333",
-    width: "420px"
+    width: "340px"
   }}
 >
 
@@ -3539,7 +3539,7 @@ Eliminated
   onClick={() => setMapView("party")}
   style={toggleStyle}
 >
-Largest Party
+Party
 </button>
 
 <button
@@ -3560,7 +3560,7 @@ Turnout
   onClick={() => setMapView("spoilt")}
   style={toggleStyle}
 >
-Spoilt Ballots
+Spoilt
 </button>
 
 </div>
