@@ -187,7 +187,7 @@ const toggleStyle: React.CSSProperties = {
   border: "none",
   background: "transparent",
   color: "#fff",
-  fontSize: "12px",
+  fontSize: "11px",
   fontWeight: "600",
   cursor: "pointer",
   position: "relative",
@@ -3511,9 +3511,9 @@ Eliminated
     display: "flex",
     background: "#2a2a2a",
     borderRadius: "10px",
-    padding: "3px",
+    padding: "2px",
     border: "1px solid #333",
-    width: "520px"
+    width: "420px"
   }}
 >
 
