@@ -55,11 +55,11 @@
 }
 
 :root {
-  --logo-filter: invert(0);
+  --logo-filter: invert(1);
 }
 
 .dark {
-  --logo-filter: invert(1);
+  --logo-filter: invert(0);
 }
 
 @theme inline {
