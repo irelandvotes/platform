@@ -1439,57 +1439,70 @@ return (
 
 <>
 
-{/* INFO PANEL */}
-<ElectionMetaPanel meta={meta} />
-
-{/* ELECTED */}
+{/* ELECTED PANEL */}
 <div
   style={{
-    display: "flex",
-    gap: "10px",
-    justifyContent: "flex-end",
-    alignItems: "flex-start",
-    margin: "10px 0"
+    marginTop: "10px",
+    marginBottom: "16px",
+    marginLeft: "-20px",
+    marginRight: "-20px",
+    borderTop: "1px solid #333",
+    borderBottom: "1px solid #333",
+    background: "#1f1f1f"
   }}
 >
 
-{/* EMPTY SEATS */}
-{Array.from({ length: emptySeats }).map((_, i) => (
 <div
-  key={`empty-${i}`}
   style={{
-    width: "110px",
-    height: "135px",
-    borderRadius: "15px",
-    background: "rgba(255,255,255,0.02)",
-    border: "1px dashed rgba(255,255,255,0.08)",
-    opacity: 0.4
+    display: "flex",
+    width: "100%",
+    alignItems: "stretch",
+    minHeight: "78px"
   }}
-/>
-))}
+>
+{[...elected, ...Array(emptySeats).fill(null)].map((c: any, i, arr) => {
 
-{/* ELECTED CANDIDATES */}
-{elected.map((c: any) => (
+if (!c) {
+  return (
+    <div
+      key={`empty-${i}`}
+      style={{
+        flex: 1,
+        background: "rgba(255,255,255,0.02)",
+        borderRight:
+          i < arr.length - 1
+            ? "1px solid #333"
+            : "none"
+      }}
+    />
+  );
+}
+
+return (
+
 <div
   key={c.id}
   style={{
-    width: "110px",
-    height: "135px",
-    borderRadius: "15px",
-    overflow: "hidden",
-    background: "#2a2a2a",
+    flex: 1,
+    background: PARTY_COLORS[c.party] || "#444",
+    color: "white",
     display: "flex",
-    flexDirection: "column"
+    alignItems: "stretch",
+    borderRight:
+      i < arr.length - 1
+        ? "1px solid rgba(0,0,0,0.25)"
+        : "none"
   }}
 >
 
 {/* AVATAR */}
 <div
   style={{
-    height: "65px",
-    background: `${PARTY_COLORS[c.party]}33`,
+    width: "64px",
+    background: "rgba(0,0,0,0.15)",
     position: "relative",
-    overflow: "hidden"
+    overflow: "hidden",
+    flexShrink: 0
   }}
 >
 <svg
@@ -1497,14 +1510,14 @@ return (
   preserveAspectRatio="xMidYMid slice"
   style={{
     position: "absolute",
-    width: "110%",
-    height: "110%",
+    width: "140%",
+    height: "140%",
     top: "50%",
     left: "50%",
-    transform: "translate(-50%, -50%)",
+    transform: "translate(-50%, -45%)",
     opacity: 0.35
   }}
-  fill={PARTY_COLORS[c.party] || "#fff"}
+  fill="white"
 >
 <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
 </svg>
@@ -1514,105 +1527,106 @@ return (
 <div
   style={{
     flex: 1,
-    padding: "8px",
-    fontSize: "11px",
-    background: PARTY_COLORS[c.party] || "#444",
-    color: "white",
+    padding: "8px 10px",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "flex-start",
-    gap: "6px"
+    justifyContent: "center",
+    minWidth: 0
   }}
 >
 
 {/* NAME */}
-<div style={{ minHeight: "32px"}}>
-
 <div
   style={{
-    fontWeight: "600",
     display: "flex",
     alignItems: "center",
-    gap: "4px"
+    gap: "5px",
+    fontWeight: "600",
+    fontSize: "12.5px",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    letterSpacing: "-0.1px"
   }}
 >
+
+{/* CHECK */}
 <div
   style={{
-    width: "10px",
-    height: "10px",
+    width: "13px",
+    height: "13px",
     borderRadius: "50%",
-    background: "#fff",
+    background: "white",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     flexShrink: 0
   }}
 >
-  <svg
-    width="8"
-    height="8"
-    viewBox="0 0 16 16"
-    fill="none"
-  >
-    <path
-      d="M3.5 8.5L7 11.5L12.5 5"
-      stroke={PARTY_COLORS[c.party] || "#1f1f1f"}
-      strokeWidth="3"
-      strokeLinecap="square"
-      strokeLinejoin="miter"
-    />
-  </svg>
+<svg
+  width="9"
+  height="9"
+  viewBox="0 0 24 24"
+  fill="none"
+>
+<path
+  d="M5 12.5L10 17L19 7"
+  stroke={PARTY_COLORS[c.party] || "#1f1f1f"}
+  strokeWidth="3"
+  strokeLinecap="round"
+  strokeLinejoin="round"
+/>
+</svg>
 </div>
 
-<span>
+<span
+  style={{
+    overflow: "hidden",
+    textOverflow: "ellipsis"
+  }}
+>
 {c.name.split(" ").slice(1).join(" ") || c.name}
 </span>
 
 </div>
 
-{c.incumbent && (
+{/* INCUMBENT */}
 <div
   style={{
-    fontSize: "10px",
-    opacity: c.incumbent ? 0.9 : 0,
-    height: "14px"
+    fontSize: "10.5px",
+    opacity: c.incumbent ? 0.85 : 0,
+    minHeight: "13px",
+    marginTop: "1px"
   }}
 >
-  ★ Incumbent
-</div>
-)}
-
+★ Incumbent
 </div>
 
 {/* PARTY + COUNT */}
 <div
   style={{
-    fontSize: "10px",
-    opacity: 0.9,
-    display: "flex",
-    alignItems: "center",
-    gap: "6px",
-    marginTop: "2px"
+    fontSize: "11px",
+    opacity: 0.9
   }}
 >
-
-<span style={{ fontWeight: 600 }}>
-  {c.party}
-</span>
-
-<span style={{ opacity: 0.4 }}>•</span>
-
-<span style={{ opacity: 0.85 }}>
-  Count {c.electedOn}
-</span>
-
+{c.party} • Count {c.electedOn}
 </div>
 
 </div>
 
 </div>
-))}
 
+);
+
+})}
+
+</div>
+
+</div>
+
+{/* INFO PANEL */}
+<div style={{ marginBottom: "14px" }}>
+  <ElectionMetaPanel meta={nationalMeta} />
 </div>
 
 </>
