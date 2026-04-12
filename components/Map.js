@@ -725,7 +725,12 @@ return (
     if (mapRef.current) {
       mapRef.current.remove();
     }
+
     mapRef.current = map;
+
+    setTimeout(() => {
+      map.invalidateSize();
+    }, 0);
   }}
   center={[53.5, -8]}
   zoom={7.25}

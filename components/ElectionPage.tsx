@@ -1253,7 +1253,7 @@ Advanced
 
       {/* LEFT PANEL */}
 <div style={{
-  width: "55%",
+  width: "65%",
   height: "100%",
   padding: "20px",
   borderRight: "1px solid #333",
@@ -3488,7 +3488,7 @@ Eliminated
 
       {/* RIGHT MAP */}
       <div style={{
-  width: "45%",
+  width: "35%",
   height: "100%",
   position: "relative"
 }}>
