@@ -1373,16 +1373,11 @@ return (
 
 <>
 
-    {/* INFO LIST */}
-
-<ElectionMetaPanel meta={nationalMeta} />
-
 {/* WINNER BANNER */}
 {elected.slice(0, 1).map((c: any) => (
 <div
   key={c.id}
   style={{
-    marginTop: "10px",
     marginBottom: "16px",
     marginLeft: "-20px",
     marginRight: "-20px",
@@ -1498,12 +1493,16 @@ onError={(e) => {
 {projection && (
 <div
   style={{
-    marginTop: "6px",
-    display: "flex",
+    marginTop: "8px",
+    display: "inline-flex",
     alignItems: "center",
     gap: "6px",
     fontSize: "11px",
-    opacity: 0.85
+    background: "rgba(0,0,0,0.18)",
+    padding: "4px 8px",
+    borderRadius: "6px",
+    border: "1px solid rgba(255,255,255,0.15)",
+    width: "fit-content"
   }}
 >
 
@@ -1528,6 +1527,12 @@ onError={(e) => {
 
 </div>
 ))}
+
+    {/* INFO LIST */}
+
+<div style={{ marginBottom: "14px" }}>
+  <ElectionMetaPanel meta={nationalMeta} />
+</div>
 
 </>
   );
