@@ -9,7 +9,7 @@ export default function BroadcastLayout({
         style={{
           margin: 0,
           padding: 0,
-          background: "#111",
+          background: "var(--panel)",
           overflow: "hidden"
         }}
       >

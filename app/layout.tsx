@@ -20,17 +20,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} h-full antialiased`}
-    >
-      <body className="h-screen flex flex-col overflow-hidden bg-[#1f1f1f] text-white">
+<html
+  lang="en"
+  className={`${inter.variable} h-full antialiased`}
+  suppressHydrationWarning
+>
+<body
+className="h-screen flex flex-col overflow-hidden"
+style={{
+  background: "var(--bg)",
+  color: "var(--text)"
+}}
+>
 
         {/* NAVBAR */}
         <Navbar />
 
 {/* MAIN CONTENT */}
-<div className="flex-1 flex overflow-hidden text-white">
+<div className="flex-1 flex overflow-hidden">
   {children}
 </div>
 

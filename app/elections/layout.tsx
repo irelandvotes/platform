@@ -68,8 +68,8 @@ flexDirection: "row"
 style={{
 width: "260px",
 flexShrink: 0,
-borderRight: "1px solid #333",
-background: "#1a1a1a",
+borderRight: "1px solid var(--border)",
+background: "var(--panel)",
 padding: "12px",
 overflowY: "auto"
 }}
@@ -148,8 +148,8 @@ display: "block",
 padding: "12px",
 borderRadius: "10px",
 marginBottom: "8px",
-background: active ? "#2a2a2a" : "#1f1f1f",
-border: "1px solid #333",
+background: active ? "var(--panel-2)" : "var(--panel)",
+border: "1px solid var(--border)",
 fontSize: "13px",
 fontWeight: active ? "600" : "500",
 cursor: "pointer",

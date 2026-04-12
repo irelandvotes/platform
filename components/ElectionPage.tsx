@@ -186,7 +186,7 @@ const toggleStyle: React.CSSProperties = {
   padding: "6px 8px",
   border: "none",
   background: "transparent",
-  color: "#fff",
+  color: "var(--text)",
   fontSize: "11px",
   fontWeight: "600",
   cursor: "pointer",
@@ -215,8 +215,8 @@ const LeakageTooltip = ({ active, payload, label }: { active?: string; payload?:
   return (
     <div
       style={{
-        background: "#1f1f1f",
-        border: "1px solid #333",
+        background: "var(--panel)",
+        border: "1px solid var(--border)",
         borderRadius: "8px",
         padding: "8px",
         fontSize: "11px"
@@ -1137,8 +1137,8 @@ return (
   style={{
     flexShrink: 0,
     padding: "12px 20px",
-    borderBottom: "1px solid #333",
-    background: "#1f1f1f",
+    borderBottom: "1px solid var(--border)",
+    background: "var(--panel)",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
@@ -1175,10 +1175,10 @@ return (
   style={{
     position: "relative",
     display: "flex",
-    background: "#2a2a2a",
+    background: "var(--panel-2)",
     borderRadius: "10px",
     padding: "3px",
-    border: "1px solid #333",
+    border: "1px solid var(--border)",
     width: "200px"
   }}
 >
@@ -1193,7 +1193,7 @@ return (
       : "calc(50% + 1px)",
     width: "calc(50% - 4px)",
     height: "calc(100% - 6px)",
-    background: "#444",
+    background: "var(--panel)",
     borderRadius: "8px",
     transition: "all 0.25s ease"
   }}
@@ -1206,7 +1206,7 @@ return (
     padding: "6px 12px",
     border: "none",
     background: "transparent",
-    color: "#fff",
+    color: "var(--text)",
     fontSize: "12px",
     fontWeight: "600",
     cursor: "pointer",
@@ -1224,7 +1224,7 @@ Basic
     padding: "6px 12px",
     border: "none",
     background: "transparent",
-    color: "#fff",
+    color: "var(--text)",
     fontSize: "12px",
     fontWeight: "600",
     cursor: "pointer",
@@ -1256,8 +1256,8 @@ Advanced
   width: "65%",
   height: "100%",
   padding: "20px",
-  borderRight: "1px solid #333",
-  background: "#1f1f1f",
+  background: "var(--panel)",
+borderRight: "1px solid var(--border)",
   overflowY: "auto",
   transition: "opacity 0.2s ease"
 }}>
@@ -1383,10 +1383,10 @@ Advanced
     padding: "5px 7px",
     borderRadius: "12px",
     background: "transparent",
-    border: "2px solid #333",
+    border: "1px solid var(--border)",
     boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
     fontSize: "12px",
-    color: "#aaa",
+    color: "var(--text-muted)",
     cursor: "pointer"
   }}
 >
@@ -1446,9 +1446,9 @@ return (
     marginBottom: "16px",
     marginLeft: "-20px",
     marginRight: "-20px",
-    borderTop: "1px solid #333",
-    borderBottom: "1px solid #333",
-    background: "#1f1f1f"
+    borderTop: "1px solid var(--border)",
+    borderBottom: "1px solid var(--border)",
+    background: "var(--panel)"
   }}
 >
 
@@ -1641,7 +1641,7 @@ return (
   marginBottom: "15px",
   padding: "8px 12px",
   borderRadius: "8px",
-  background: "#2a2a2a",
+  background: "var(--panel-2)",
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between"
@@ -1666,7 +1666,7 @@ return (
       LIVE
     </span>
 
-    <span style={{ color: "#aaa", fontWeight: "600" }}>
+    <span style={{ color: "var(--text-muted)", fontWeight: "600" }}>
       TALLY:
     </span>
   </div>
@@ -1721,7 +1721,7 @@ return (
   {/* RIGHT: % IN */}
   <div style={{
     fontSize: "12px",
-    color: "#aaa",
+    color: "var(--text-muted)",
     fontWeight: "600",
     whiteSpace: "nowrap"
   }}>
@@ -1746,10 +1746,10 @@ return (
   style={{
     position: "relative",
     display: "flex",
-    background: "#2a2a2a",
+    background: "var(--panel-2)",
     borderRadius: "10px",
     padding: "3px",
-    border: "1px solid #333",
+    border: "1px solid var(--border)",
     width: "200px"
   }}
 >
@@ -1762,7 +1762,7 @@ return (
     left: view === "party" ? "3px" : "calc(50% + 1px)",
     width: "calc(50% - 4px)",
     height: "calc(100% - 6px)",
-    background: "#444",
+    background: "var(--panel)",
     borderRadius: "8px",
     transition: "all 0.25s cubic-bezier(.4,0,.2,1)"
   }}
@@ -1776,7 +1776,7 @@ return (
     borderRadius: "8px",
     border: "none",
     background: "transparent",
-    color: "#fff",
+    color: "var(--text)",
     cursor: "pointer",
     fontSize: "12px",
     fontWeight: "600",
@@ -1795,7 +1795,7 @@ return (
     borderRadius: "8px",
     border: "none",
     background: "transparent",
-    color: "#fff",
+    color: "var(--text)",
     cursor: "pointer",
     fontSize: "12px",
     fontWeight: "600",
@@ -1825,9 +1825,9 @@ return (
   style={{
     padding: "6px 10px",
     borderRadius: "8px",
-    border: "1px solid #333",
+    border: "1px solid var(--border)",
     background: "transparent",
-    color: "#fff",
+    color: "var(--text)",
     opacity: count === 1 ? 0.3 : 1
   }}
 >
@@ -1838,8 +1838,8 @@ return (
   style={{
     padding: "6px 12px",
     borderRadius: "8px",
-    border: "1px solid #333",
-    background: "#2a2a2a",
+    border: "1px solid var(--border)",
+    background: "var(--panel-2)",
     fontWeight: "600"
   }}
 >
@@ -1852,9 +1852,9 @@ return (
   style={{
     padding: "6px 10px",
     borderRadius: "8px",
-    border: "1px solid #333",
+    border: "1px solid var(--border)",
     background: "transparent",
-    color: "#fff",
+    color: "var(--text)",
     opacity: count === latestCount ? 0.3 : 1
   }}
 >
@@ -1866,9 +1866,9 @@ return (
   style={{
     padding: "6px 10px",
     borderRadius: "8px",
-    border: "1px solid #333",
-    background: count === latestCount ? "#444" : "transparent",
-    color: "#fff",
+    border: "1px solid var(--border)",
+    background: count === latestCount ? "var(--panel-2)" : "transparent",
+    color: "var(--text)",
     fontSize: "12px"
   }}
 >
@@ -1887,7 +1887,7 @@ return (
   style={{
     marginTop: "20px",
     display: "flex",
-    gap: "20px"
+    gap: "14px"
   }}
 >
 
@@ -1895,62 +1895,126 @@ return (
 <div
   style={{
     flex: 2,
-    padding: "15px",
+    padding: "12px",
     borderRadius: "12px",
-    background: "#1f1f1f",
-    border: "1px solid #333"
+    background: "var(--panel)",
+    border: "1px solid var(--border)"
   }}
 >
 
 <div
   style={{
-    fontSize: "12px",
+    fontSize: "11px",
     fontWeight: "600",
-    marginBottom: "10px",
-    opacity: 0.7
+    marginBottom: "8px",
+    color: "var(--text-subtle)"
   }}
 >
 Vote Share
 </div>
 
-{constituencyParties.map((p: any) => (
+{constituencyParties.map((p: any, index: number) => (
 
 <div
-key={p.party}
-style={{
-display: "flex",
-alignItems: "center",
-padding: "8px 0"
-}}
+  key={p.party}
+  style={{
+    position: "relative",
+    padding: "6px 10px",
+    marginBottom: "4px",
+    borderRadius: "6px",
+    overflow: "hidden",
+    background: "rgba(255,255,255,0.02)",
+    transition: "background 0.15s ease"
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.background = "rgba(255,255,255,0.02)";
+  }}
 >
 
-<div style={{ width: "60px", fontWeight: "600" }}>
+{/* FULL ROW BAR */}
+<div
+  style={{
+    position: "absolute",
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: `${Math.min(p.percent * 1.8, 100)}%`,
+    background: PARTY_COLORS[p.party] || "#888",
+    opacity: 0.25
+  }}
+/>
+
+{/* CONTENT */}
+<div
+  style={{
+    position: "relative",
+    display: "flex",
+    alignItems: "center"
+  }}
+>
+
+{/* RANK */}
+<div
+  style={{
+    width: "22px",
+    fontSize: "11px",
+    opacity: 0.4
+  }}
+>
+{index + 1}
+</div>
+
+{/* PARTY STRIP */}
+<div
+  style={{
+    width: "3px",
+    height: "16px",
+    background: PARTY_COLORS[p.party] || "#888",
+    marginRight: "8px",
+    borderRadius: "2px"
+  }}
+/>
+
+{/* PARTY */}
+<div
+  style={{
+    width: "60px",
+    fontWeight: "600",
+    fontSize: "12px"
+  }}
+>
 {p.party}
 </div>
 
-<div style={{
-flex: 1,
-height: "12px",
-background: "#333",
-marginRight: "10px",
-borderRadius: "4px"
-}}>
-<div
-style={{
-width: `${Math.min(p.percent * 1.8, 100)}%`,
-height: "100%",
-borderRadius: "4px",
-background: PARTY_COLORS[p.party] || "#888"
-}}
-/>
-</div>
+<div style={{ flex: 1 }} />
 
-<div style={{ width: "80px", textAlign: "right" }}>
+{/* VOTES */}
+<div
+  style={{
+    width: "80px",
+    textAlign: "right",
+    fontSize: "12px",
+    fontWeight: "500"
+  }}
+>
 {p.votes.toLocaleString()}
 </div>
 
-<div style={{ width: "60px", textAlign: "right" }}>
+{/* PERCENT */}
+<div
+  style={{
+    width: "60px",
+    textAlign: "right",
+    fontSize: "12px",
+    opacity: 0.8
+  }}
+>
 {p.percent}%
+</div>
+
 </div>
 
 </div>
@@ -1964,99 +2028,119 @@ background: PARTY_COLORS[p.party] || "#888"
 <div
   style={{
     flex: 1,
-    padding: "15px",
+    padding: "12px",
     borderRadius: "12px",
-    background: "#1f1f1f",
-    border: "1px solid #333"
+    background: "var(--panel)",
+    border: "1px solid var(--border)"
   }}
 >
 
 <div
   style={{
-    fontSize: "12px",
+    fontSize: "11px",
     fontWeight: "600",
-    marginBottom: "10px",
-    opacity: 0.7
+    marginBottom: "8px",
+    color: "var(--text-subtle)"
   }}
 >
 Swing
 </div>
 
-{constituencyParties.map((p) => (
+{constituencyParties.map((p: any) => (
 
 <div
-key={p.party}
-style={{
-display: "flex",
-alignItems: "center",
-padding: "8px 0"
-}}
+  key={p.party}
+  style={{
+    position: "relative",
+    padding: "6px 10px",
+    marginBottom: "4px",
+    borderRadius: "6px",
+    overflow: "hidden",
+    background: "rgba(255,255,255,0.02)",
+    transition: "background 0.15s ease"
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.background = "rgba(255,255,255,0.02)";
+  }}
 >
 
-<div style={{ width: "60px", fontWeight: "600" }}>
+{/* ZERO LINE */}
+<div
+  style={{
+    position: "absolute",
+    left: "50%",
+    top: 0,
+    bottom: 0,
+    width: "1px",
+    background: "#555",
+    zIndex: 1
+  }}
+/>
+
+{/* SWING BAR */}
+<div
+  style={{
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    left: p.swing > 0
+      ? "50%"
+      : `${50 + p.swing * 4}%`,
+    width: `${Math.abs(p.swing) * 4}%`,
+    background: PARTY_COLORS[p.party] || "#888",
+    opacity: 0.25
+  }}
+/>
+
+{/* CONTENT */}
+<div
+  style={{
+    position: "relative",
+    display: "flex",
+    alignItems: "center"
+  }}
+>
+
+{/* PARTY STRIP */}
+<div
+  style={{
+    width: "3px",
+    height: "16px",
+    background: PARTY_COLORS[p.party] || "#888",
+    marginRight: "8px",
+    borderRadius: "2px"
+  }}
+/>
+
+{/* PARTY */}
+<div
+  style={{
+    width: "60px",
+    fontWeight: "600",
+    fontSize: "12px"
+  }}
+>
 {p.party}
 </div>
 
+<div style={{ flex: 1 }} />
+
+{/* SWING VALUE */}
 <div
-style={{
-flex: 1,
-height: "12px",
-background: "#333",
-marginRight: "10px",
-borderRadius: "4px",
-position: "relative",
-overflow: "hidden"
-}}
->
-
-<div
-style={{
-position: "absolute",
-left: "50%",
-top: 0,
-bottom: 0,
-width: "1px",
-background: "#666"
-}}
-/>
-
-<div
-style={{
-position: "absolute",
-left: p.swing > 0
-? "50%"
-: `${50 + p.swing * 4}%`,
-width: `${Math.abs(p.swing) * 4}%`,
-height: "100%",
-background: PARTY_COLORS[p.party] || "#888",
-
-borderTopLeftRadius:
-p.swing < 0 ? "4px" : "0px",
-
-borderBottomLeftRadius:
-p.swing < 0 ? "4px" : "0px",
-
-borderTopRightRadius:
-p.swing > 0 ? "4px" : "0px",
-
-borderBottomRightRadius:
-p.swing > 0 ? "4px" : "0px"
-}}
-/>
-
-</div>
-
-<div style={{ width: "60px", textAlign: "right" }}>
-<span
-style={{
-fontWeight: "400",
-fontSize: "12px",
-color: "#888"
-}}
+  style={{
+    width: "60px",
+    textAlign: "right",
+    fontSize: "12px",
+    color: "var(--text-muted)"
+  }}
 >
 {p.swing > 0 ? "+" : ""}
 {p.swing.toFixed(1)}
-</span>
+</div>
+
 </div>
 
 </div>
@@ -2079,8 +2163,8 @@ color: "#888"
   marginTop: "20px",
   padding: "15px",
   borderRadius: "12px",
-  background: "#1f1f1f",
-  border: "1px solid #333",
+  background: "var(--panel)",
+  border: "1px solid var(--border)",
   boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
   position: "relative",
   maxHeight: "calc(100vh - 420px)",
@@ -2095,7 +2179,7 @@ color: "#888"
   fontSize: "11px",
   fontWeight: "600",
   letterSpacing: "0.5px",
-  color: "#aaa"
+  color: "var(--text-muted)"
 }}>
   {/* CHECKMARK SPACE */}
   <div style={{ width: "20px" }} />
@@ -2356,303 +2440,350 @@ const surplusWidth =
     
 return (
   <Fragment key={c.id}>
-  {showDivider && (
-  <div style={{ margin: "15px 0 10px 0" }}>
-    <div
-      style={{
-        borderTop: "2px dotted #555",
-        marginBottom: "6px"
-      }}
-    />
 
-    <div
-      style={{
-        fontSize: "11px",
-        fontWeight: "600",
-        letterSpacing: "1px",
-        color: "#777",
-        textTransform: "uppercase"
-      }}
-    >
-      Eliminated
-    </div>
-  </div>
+{showDivider && (
+<div style={{ margin: "12px 0 8px 0" }}>
+<div
+style={{
+borderTop: "2px dotted #555",
+marginBottom: "6px"
+}}
+/>
+
+<div
+style={{
+fontSize: "10px",
+fontWeight: "600",
+letterSpacing: "1px",
+color: "#777",
+textTransform: "uppercase"
+}}
+>
+Eliminated
+</div>
+</div>
 )}
 
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        minWidth: 0,
-        padding: "10px",
-        marginBottom: "10px",
-        borderRadius: "10px",
-        background: c.status === "elected" ? "#2a2a2a" : "transparent",
-        color: "white",
-        position: "relative",
-        overflow: "hidden"
-      }}
-    >
+<div
+style={{
+display: "flex",
+alignItems: "center",
+minWidth: 0,
+padding: "6px 10px",
+marginBottom: "4px",
+borderRadius: "6px",
+color: "white",
+position: "relative",
+overflow: "hidden",
+background: "rgba(255,255,255,0.02)",
+transition: "background 0.15s ease"
+}}
+onMouseEnter={(e) => {
+e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+}}
+onMouseLeave={(e) => {
+e.currentTarget.style.background = "rgba(255,255,255,0.02)";
+}}
+>
 
-      {/* FLASH */}
-      {highlighted === c.id && (
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: "-100%",
-            width: "100%",
-            height: "100%",
-            background: "linear-gradient(90deg, transparent, rgba(18, 73, 20, 0.81), transparent)",
-            animation: "flashSweep 1s ease-out",
-            zIndex: 2
-          }}
-        />
-      )}
+{/* FULL ROW VOTE BACKGROUND */}
+<div
+style={{
+position: "absolute",
+left: 0,
+top: 0,
+bottom: 0,
+width: `${scaledPercent}%`,
+background: PARTY_COLORS[c.party] || "#888",
+opacity: c.status === "elected" ? 0.35 : 0.22,
+zIndex: 1
+}}
+/>
 
-      {/* LABEL */}
-      {highlighted === c.id && (
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "25px",
-            fontWeight: "700",
-            fontStyle: "italic",
-            color: "rgba(255, 255, 255, 0.81)",
-            background: "rgba(0,0,0,0)",
-            backdropFilter: "blur(3px)",
-            animation: "fadeOverlay 1.0s ease-in-out forwards",
-            zIndex: 3,
-            pointerEvents: "none",
-            letterSpacing: "2px"
-          }}
-        >
-          MOST TRANSFERS RECEIVED
-        </div>
-      )}
+{/* SURPLUS */}
+{showSurplus && (
+<div
+style={{
+position: "absolute",
+left: `${scaledQuotaPercent}%`,
+top: 0,
+bottom: 0,
+width: `${Math.max(0, scaledPercent - scaledQuotaPercent)}%`,
+background:
+"repeating-linear-gradient(45deg, rgba(255,255,255,0.35), rgba(255,255,255,0.35) 4px, transparent 4px, transparent 8px)",
+zIndex: 2
+}}
+/>
+)}
+
+{/* ELIMINATED */}
+{justEliminated && (
+<div
+style={{
+position: "absolute",
+inset: 0,
+background:
+"repeating-linear-gradient(45deg, rgba(255,82,82,0.25), rgba(255,82,82,0.25) 6px, transparent 6px, transparent 12px)",
+zIndex: 2
+}}
+/>
+)}
+
+{/* QUOTA LINE */}
+<div
+style={{
+position: "absolute",
+left: `${scaledQuotaPercent}%`,
+top: 0,
+bottom: 0,
+width: "0px",
+borderLeft: "2px dotted rgba(255,255,255,0.5)",
+pointerEvents: "none",
+zIndex: 6
+}}
+/>
+
+{/* FLASH */}
+{highlighted === c.id && (
+<div
+style={{
+position: "absolute",
+top: 0,
+left: "-100%",
+width: "100%",
+height: "100%",
+background:
+"linear-gradient(90deg, transparent, rgba(18,73,20,0.81), transparent)",
+animation: "flashSweep 1s ease-out",
+zIndex: 8
+}}
+/>
+)}
+
+{/* LABEL */}
+{highlighted === c.id && (
+<div
+style={{
+position: "absolute",
+top: 0,
+left: 0,
+width: "100%",
+height: "100%",
+display: "flex",
+alignItems: "center",
+justifyContent: "center",
+fontSize: "25px",
+fontWeight: "700",
+fontStyle: "italic",
+color: "rgba(255,255,255,0.81)",
+backdropFilter: "blur(3px)",
+animation: "fadeOverlay 1s ease-in-out forwards",
+zIndex: 9,
+pointerEvents: "none",
+letterSpacing: "2px"
+}}
+>
+MOST TRANSFERS RECEIVED
+</div>
+)}
 
 {/* ELECTED STRIP */}
 {c.status === "elected" && (
-  <div
-    style={{
-      position: "absolute",
-      left: 0,
-      top: 0,
-      bottom: 0,
-      width: "26px",
-      background: "#ffffff",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      zIndex: 1
-    }}
-  >
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 16 16"
-      fill="none"
-    >
-      <path
-        d="M4 8.5L7 11.5L12 5"
-        stroke="#1f1f1f"
-        strokeWidth="2.8"
-        strokeLinecap="square"
-      />
-    </svg>
-  </div>
+<div
+style={{
+position: "absolute",
+left: 0,
+top: 0,
+bottom: 0,
+width: "26px",
+background: "#ffffff",
+display: "flex",
+alignItems: "center",
+justifyContent: "center",
+zIndex: 7
+}}
+>
+<svg
+width="12"
+height="12"
+viewBox="0 0 16 16"
+fill="none"
+>
+<path
+d="M4 8.5L7 11.5L12 5"
+stroke="#1f1f1f"
+strokeWidth="2.8"
+/>
+</svg>
+</div>
 )}
 
 {/* Spacer */}
-<div style={{ width: "26px" }} />
+<div style={{ width: "26px", flexShrink: 0 }} />
 
-{/* IMAGE / AVATAR */}
+{/* PARTY STRIP */}
+<div
+style={{
+width: "3px",
+alignSelf: "stretch",
+background: PARTY_COLORS[c.party] || "#888",
+marginRight: "8px",
+borderRadius: "2px",
+zIndex: 7
+}}
+/>
+
+{/* AVATAR */}
 <div
   style={{
     width: "32px",
     height: "32px",
     borderRadius: "50%",
     background: PARTY_COLORS[c.party] || "#444",
-    border: "2px solid #1f1f1f",
-    marginRight: "10px",
+    border: "1px solid var(--border)",
+    marginRight: "8px",
     flexShrink: 0,
     overflow: "hidden",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
+    position: "relative",
+    zIndex: 7
   }}
 >
-  <svg
-    viewBox="0 0 24 24"
-    style={{
-      width: "120%",
-      height: "120%",
-      opacity: 0.25,
-      transform: "translateY(2px)"
-    }}
-    fill="white"
-  >
-    <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
-  </svg>
+<svg
+  viewBox="0 0 24 24"
+  preserveAspectRatio="xMidYMid slice"
+  style={{
+    position: "absolute",
+    width: "110%",
+    height: "110%",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    opacity: 0.35
+  }}
+  fill="white"
+>
+<path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+</svg>
 </div>
 
-      {/* NAME */}
-      <div style={{ width: "220px" }}>
-        <div style={{ fontWeight: "600" }}>
-          {c.name}
-          {c.incumbent && (
-            <span style={{ marginLeft: "6px", fontSize: "10px" }}>★</span>
-          )}
-        </div>
-        <div style={{ fontSize: "12px", opacity: 0.7 }}>
-          {c.party}
-        </div>
-      </div>
-
-{/* BAR */}
-<div style={{
-  width: "calc(100% - 420px)",
-  height: "15px",
-  background: "#333",
-  marginRight: "10px",
-  borderRadius: "4px",
-  position: "relative",
-  overflow: "hidden"
-}}>
-
-{/* MAIN BAR */}
+{/* NAME */}
 <div
-  style={{
-    position: "absolute",
-    left: 0,
-    top: 0,
-    height: "100%",
-    width: `${scaledPercent}%`,
-    background: PARTY_COLORS[c.party] || "#888",
-    borderRadius: "4px"
-  }}
+style={{
+flex: 1,
+minWidth: 0,
+zIndex: 7
+}}
 >
 
+<div
+style={{
+display: "flex",
+alignItems: "center",
+gap: "6px",
+minWidth: 0
+}}
+>
+
+{/* CANDIDATE NAME */}
+<div
+style={{
+fontWeight: "600",
+fontSize: "13px",
+whiteSpace: "nowrap",
+overflow: "hidden",
+textOverflow: "ellipsis"
+}}
+>
+{c.name}
 </div>
 
-{/* QUOTA LINE */}
+{/* INCUMBENT */}
+{c.incumbent && (
 <div
-  style={{
-    position: "absolute",
-    left: `${scaledQuotaPercent}%`,
-    top: "-2000px",
-    bottom: "-2000px",
-    width: "0px",
-    borderLeft: "2px dotted white",
-    opacity: 0.5,
-    pointerEvents: "none",
-    zIndex: 3
-  }}
-/>
-
-{/* QUOTA LABEL */}
-{index === 0 && (
-<div
-  style={{
-    position: "absolute",
-    left: `${scaledQuotaPercent}%`,
-    top: "-22px",
-    transform: "translateX(30%)",
-    fontSize: "10px",
-    fontWeight: "600",
-    color: "white",
-    opacity: 0.8,
-    pointerEvents: "none",
-    zIndex: 3
-  }}
+style={{
+fontSize: "10px",
+opacity: 0.85,
+whiteSpace: "nowrap"
+}}
 >
-Quota
+★
 </div>
 )}
 
-<AnimatedBar
-  percent={scaledPercent}
-  quotaPercent={scaledQuotaPercent}
-  showSurplus={showSurplus}
-  party={c.party}
-  status={c.status}
-  justEliminated={justEliminated}
-/>
-
 </div>
 
-      {/* % */}
+{/* PARTY */}
 <div
-  style={{
-    width: "60px",
-    textAlign: "right",
-    opacity: count === 1 ? 1 : 0
-  }}
+style={{
+fontSize: "11px",
+color: "var(--text-subtle)"
+}}
 >
-  {percent.toFixed(1)}%
+{c.party}
 </div>
 
-      {/* VOTES + GAIN */}
-      <div style={{ width: "110px", textAlign: "right" }}>
-        <div>
-{freezeAtQuota ? (
-  <AnimatedNumber
-    value={quota}
-    previousValue={
-      prevData.find(
-        (p: any) => p.name === c.name && p.party === c.party
-      )?.votes || 0
-    }
-  />
-) : showSurplus ? (
-  <AnimatedNumber
-    value={c.votes}
-    previousValue={
-      prevData.find(
-        (p: any) => p.name === c.name && p.party === c.party
-      )?.votes || 0
-    }
-  />
-) : count > c.electedOn ? (
-  <span style={{ opacity: 0.5 }}>—</span>
-) : (
-  <AnimatedNumber
-    value={c.votes}
-    previousValue={
-      prevData.find(
-        (p: any) => p.name === c.name && p.party === c.party
-      )?.votes || 0
-    }
-  />
-)}
-        </div>
+</div>
 
+{/* PERCENT (FIRST COUNT ONLY) */}
+{count === 1 && (
+<div
+style={{
+width: "60px",
+textAlign: "right",
+fontSize: "12px",
+opacity: 0.8,
+zIndex: 7
+}}
+>
+{percent.toFixed(1)}%
+</div>
+)}
+
+{/* VOTES */}
+<div
+style={{
+width: "90px",
+textAlign: "right",
+fontSize: "13px",
+fontWeight: "500",
+zIndex: 7
+}}
+>
+<AnimatedNumber
+value={c.votes}
+previousValue={
+prevData.find(
+(p: any) =>
+p.name === c.name &&
+p.party === c.party
+)?.votes || 0
+}
+/>
+</div>
+
+{/* GAIN */}
 {count > 1 && (
-  <div
-    style={{
-      fontSize: "11px",
-      fontWeight: isTopGainer ? "700" : "500",
-      color:
-        gain > 0 ? "#4caf50" :
-        gain < 0 ? "#f44336" :
-        "#aaa",
-    }}
-  >
-    {gain > 0 ? "↑ " : gain < 0 ? "↓ " : "→ "}
-    {gain > 0 ? `+${gain}` : gain}
-  </div>
+<div
+style={{
+width: "60px",
+textAlign: "right",
+fontSize: "11px",
+fontWeight: isTopGainer ? "700" : "500",
+color:
+gain > 0 ? "#4caf50" :
+gain < 0 ? "#f44336" :
+"#aaa",
+zIndex: 7
+}}
+>
+{gain > 0 ? "↑ " : gain < 0 ? "↓ " : "→ "}
+{gain > 0 ? `+${gain}` : gain}
+</div>
 )}
-      </div>
 
-    </div>
-  </Fragment>
+</div>
+
+</Fragment>
 );
 });
 })()}
@@ -2787,7 +2918,7 @@ Seats Declared:{" "}
   style={{
     marginTop: "20px",
     display: "flex",
-    gap: "20px"
+    gap: "14px"
   }}
 >
 
@@ -2795,64 +2926,126 @@ Seats Declared:{" "}
 <div
   style={{
     flex: 2,
-    padding: "15px",
+    padding: "12px",
     borderRadius: "12px",
-    background: "#1f1f1f",
-    border: "1px solid #333"
+    background: "var(--panel)",
+    border: "1px solid var(--border)"
   }}
 >
 
 <div
   style={{
-    fontSize: "12px",
+    fontSize: "11px",
     fontWeight: "600",
-    marginBottom: "10px",
-    opacity: 0.7
+    marginBottom: "8px",
+    color: "var(--text-subtle)"
   }}
 >
 Vote Share
 </div>
 
-{nationalResults.parties.map((p: any) => (
+{nationalResults.parties.map((p: any, index: number) => (
 
 <div
   key={p.party}
   style={{
-    display: "flex",
-    alignItems: "center",
-    padding: "8px 0"
+    position: "relative",
+    padding: "6px 10px",
+    marginBottom: "4px",
+    borderRadius: "6px",
+    overflow: "hidden",
+    background: "rgba(255,255,255,0.02)",
+    transition: "background 0.15s ease"
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.background = "rgba(255,255,255,0.02)";
   }}
 >
 
-<div style={{ width: "60px", fontWeight: "600" }}>
+{/* FULL ROW BAR */}
+<div
+  style={{
+    position: "absolute",
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: `${Math.min(p.percent * 2, 100)}%`,
+    background: PARTY_COLORS[p.party] || "#888",
+    opacity: 0.25
+  }}
+/>
+
+{/* CONTENT */}
+<div
+  style={{
+    position: "relative",
+    display: "flex",
+    alignItems: "center"
+  }}
+>
+
+{/* RANK */}
+<div
+  style={{
+    width: "22px",
+    fontSize: "11px",
+    opacity: 0.4
+  }}
+>
+{index + 1}
+</div>
+
+{/* PARTY COLOUR STRIP */}
+<div
+  style={{
+    width: "3px",
+    height: "16px",
+    background: PARTY_COLORS[p.party] || "#888",
+    marginRight: "8px",
+    borderRadius: "2px"
+  }}
+/>
+
+{/* PARTY */}
+<div
+  style={{
+    width: "60px",
+    fontWeight: "600",
+    fontSize: "12px"
+  }}
+>
 {p.party}
 </div>
 
+<div style={{ flex: 1 }} />
+
+{/* VOTES */}
 <div
   style={{
-    flex: 1,
-    height: "12px",
-    background: "#333",
-    borderRadius: "4px",
-    marginRight: "10px"
+    width: "90px",
+    textAlign: "right",
+    fontSize: "12px",
+    fontWeight: "500"
   }}
 >
-<div
-  style={{
-    width: `${Math.min(p.percent * 2, 100)}%`,
-    height: "100%",
-    borderRadius: "4px",
-    background: PARTY_COLORS[p.party] || "#888"
-  }}
-/>
-</div>
-
-<div style={{ width: "80px", textAlign: "right" }}>
 {p.votes.toLocaleString()}
 </div>
 
-<div style={{ width: "60px", textAlign: "right" }}>
+{/* PERCENT */}
+<div
+  style={{
+    width: "60px",
+    textAlign: "right",
+    fontSize: "12px",
+    opacity: 0.8
+  }}
+>
 {p.percent}%
+</div>
+
 </div>
 
 </div>
@@ -2866,48 +3059,42 @@ Vote Share
 <div
   style={{
     flex: 1,
-    padding: "15px",
+    padding: "12px",
     borderRadius: "12px",
-    background: "#1f1f1f",
-    border: "1px solid #333"
+    background: "var(--panel)",
+    border: "1px solid var(--border)"
   }}
 >
 
 <div
   style={{
-    fontSize: "12px",
+    fontSize: "11px",
     fontWeight: "600",
-    marginBottom: "10px",
-    opacity: 0.7
+    marginBottom: "8px",
+    color: "var(--text-subtle)"
   }}
 >
 Swing
 </div>
 
-{nationalResults.parties.map((p) => (
+{nationalResults.parties.map((p: any) => (
 
 <div
   key={p.party}
   style={{
-    display: "flex",
-    alignItems: "center",
-    padding: "8px 0"
-  }}
->
-
-<div style={{ width: "60px", fontWeight: "600" }}>
-{p.party}
-</div>
-
-<div
-  style={{
-    flex: 1,
-    height: "12px",
-    background: "#333",
-    borderRadius: "4px",
-    marginRight: "10px",
     position: "relative",
-    overflow: "hidden"
+    padding: "6px 10px",
+    marginBottom: "4px",
+    borderRadius: "6px",
+    overflow: "hidden",
+    background: "rgba(255,255,255,0.02)",
+    transition: "background 0.15s ease"
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.background = "rgba(255,255,255,0.02)";
   }}
 >
 
@@ -2919,8 +3106,8 @@ Swing
     top: 0,
     bottom: 0,
     width: "1px",
-    background: "#666",
-    zIndex: 2
+    background: "#555",
+    zIndex: 1
   }}
 />
 
@@ -2928,40 +3115,63 @@ Swing
 <div
   style={{
     position: "absolute",
+    top: 0,
+    bottom: 0,
     left: p.voteChange > 0
       ? "50%"
       : `${50 + p.voteChange * 4}%`,
     width: `${Math.abs(p.voteChange) * 4}%`,
-    height: "100%",
     background: PARTY_COLORS[p.party] || "#888",
-
-    borderTopLeftRadius:
-      p.voteChange < 0 ? "4px" : "0px",
-
-    borderBottomLeftRadius:
-      p.voteChange < 0 ? "4px" : "0px",
-
-    borderTopRightRadius:
-      p.voteChange > 0 ? "4px" : "0px",
-
-    borderBottomRightRadius:
-      p.voteChange > 0 ? "4px" : "0px"
+    opacity: 0.25
   }}
 />
 
+{/* CONTENT */}
+<div
+  style={{
+    position: "relative",
+    display: "flex",
+    alignItems: "center"
+  }}
+>
+
+{/* PARTY COLOUR STRIP */}
+<div
+  style={{
+    width: "3px",
+    height: "16px",
+    background: PARTY_COLORS[p.party] || "#888",
+    marginRight: "8px",
+    borderRadius: "2px"
+  }}
+/>
+
+{/* PARTY */}
+<div
+  style={{
+    width: "60px",
+    fontWeight: "600",
+    fontSize: "12px"
+  }}
+>
+{p.party}
 </div>
 
-<div style={{ width: "60px", textAlign: "right" }}>
-<span
+<div style={{ flex: 1 }} />
+
+{/* SWING VALUE */}
+<div
   style={{
-    fontWeight: "400",
+    width: "60px",
+    textAlign: "right",
     fontSize: "12px",
-    color: "#888"
+    color: "var(--text-muted)"
   }}
 >
 {p.voteChange > 0 ? "+" : ""}
 {p.voteChange.toFixed(1)}
-</span>
+</div>
+
 </div>
 
 </div>
@@ -3003,9 +3213,9 @@ Swing
   style={{
     padding: "6px 10px",
     borderRadius: "8px",
-    border: "1px solid #333",
+    border: "1px solid var(--border)",
     background: "transparent",
-    color: "#fff",
+    color: "var(--text)",
     opacity: count === 1 ? 0.3 : 1
   }}
 >
@@ -3016,8 +3226,8 @@ Swing
   style={{
     padding: "6px 12px",
     borderRadius: "8px",
-    border: "1px solid #333",
-    background: "#2a2a2a",
+    border: "1px solid var(--border)",
+    background: "var(--panel-2)",
     fontWeight: "600"
   }}
 >
@@ -3030,9 +3240,9 @@ Swing
   style={{
     padding: "6px 10px",
     borderRadius: "8px",
-    border: "1px solid #333",
+    border: "1px solid var(--border)",
     background: "transparent",
-    color: "#fff",
+    color: "var(--text)",
     opacity: count === latestCount ? 0.3 : 1
   }}
 >
@@ -3044,9 +3254,9 @@ Swing
   style={{
     padding: "6px 10px",
     borderRadius: "8px",
-    border: "1px solid #333",
-    background: count === latestCount ? "#444" : "transparent",
-    color: "#fff",
+    border: "1px solid var(--border)",
+    background: count === latestCount ? "var(--panel-2)" : "transparent",
+    color: "var(--text)",
     fontSize: "12px"
   }}
 >
@@ -3064,8 +3274,8 @@ Swing
   marginTop: "20px",
   padding: "15px",
   borderRadius: "12px",
-  background: "#1f1f1f",
-  border: "1px solid #333",
+  background: "var(--panel)",
+  border: "1px solid var(--border)",
   boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
   position: "relative",
   maxHeight: "calc(100vh - 420px)",
@@ -3077,8 +3287,8 @@ Swing
     marginTop: "12px",
     padding: "12px",
     borderRadius: "12px",
-    background: "#1f1f1f",
-    border: "1px solid #333"
+    background: "var(--panel)",
+    border: "1px solid var(--border)"
   }}
 >
 
@@ -3112,7 +3322,7 @@ Transfer Flow — Count {count}
   style={{
     padding: "10px",
     borderRadius: "10px",
-    background: "#2a2a2a",
+    background: "var(--panel-2)",
     height: "100%"
   }}
 >
@@ -3199,8 +3409,8 @@ Transfer Friendliness
     marginTop: "12px",
     padding: "12px",
     borderRadius: "12px",
-    background: "#1f1f1f",
-    border: "1px solid #333"
+    background: "var(--panel)",
+    border: "1px solid var(--border)"
   }}
 >
 
@@ -3301,8 +3511,8 @@ Vote Leakage
     marginTop: "12px",
     padding: "12px",
     borderRadius: "12px",
-    background: "#1f1f1f",
-    border: "1px solid #333"
+    background: "var(--panel)",
+    border: "1px solid var(--border)"
   }}
 >
 
@@ -3321,7 +3531,7 @@ Candidate Performance
   style={{
     display: "flex",
     fontSize: "11px",
-    opacity: 0.7,
+    color: "var(--text-subtle)",
     marginBottom: "6px"
   }}
 >
@@ -3357,7 +3567,7 @@ return (
     display: "flex",
     alignItems: "center",
     padding: "6px 0",
-    borderTop: "1px solid #2a2a2a",
+    borderTop: "1px solid var(--border)",
     fontSize: "11px"
   }}
 >
@@ -3377,14 +3587,14 @@ return (
     width: "26px",
     height: "26px",
     borderRadius: "50%",
-    background: "#2a2a2a",
-    border: "1px solid #444",
+    background: "var(--panel-2)",
+    border: "1px solid var(--border)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontSize: "10px",
     fontWeight: "600",
-    color: "#aaa"
+    color: "var(--text-muted)"
   }}
 >
 {c.name.split(" ").map((n: any) => n[0]).slice(0,2).join("")}
@@ -3509,10 +3719,10 @@ Eliminated
   style={{
     position: "relative",
     display: "flex",
-    background: "#2a2a2a",
+    background: "var(--panel-2)",
     borderRadius: "10px",
     padding: "2px",
-    border: "1px solid #333",
+    border: "1px solid var(--border)",
     width: "340px"
   }}
 >
@@ -3529,7 +3739,7 @@ Eliminated
       "calc(75% + 1px)",
     width: "calc(25% - 4px)",
     height: "calc(100% - 6px)",
-    background: "#444",
+    background: "var(--panel)",
     borderRadius: "8px",
     transition: "all 0.25s ease"
   }}

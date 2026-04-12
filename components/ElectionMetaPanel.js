@@ -29,7 +29,7 @@ export default function ElectionMetaPanel({ meta, showQuota = true }) {
   style={{
     minWidth: "180px",
     flex: 1,
-    background: "#2a2a2a",
+    background: "var(--panel-2)",
     borderRadius: "10px",
     padding: "8px",
     fontSize: "11px"
@@ -85,7 +85,7 @@ of {meta.electorate?.toLocaleString()}
   style={{
     minWidth: "220px",
     flex: 1,
-    background: "#2a2a2a",
+    background: "var(--panel-2)",
     borderRadius: "10px",
     padding: "8px",
     fontSize: "11px"
@@ -155,7 +155,7 @@ Spoilt <b>{meta.spoilt?.toLocaleString()}</b>{" "}
 <div
   style={{
     minWidth: "120px",
-    background: "#2a2a2a",
+    background: "var(--panel-2)",
     borderRadius: "10px",
     padding: "8px",
     fontSize: "11px"
