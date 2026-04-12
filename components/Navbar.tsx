@@ -87,13 +87,6 @@ className={linkStyle("/elections")}
 Elections
 </Link>
 
-<Link 
-href="/elections/ireland/dail/2024" 
-className={linkStyle("/elections")}
->
-Store
-</Link>
-
 </div>
 
 

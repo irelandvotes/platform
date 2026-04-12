@@ -1377,49 +1377,30 @@ return (
 
 <ElectionMetaPanel meta={nationalMeta} />
 
-<div
-  style={{
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    margin: "10px 0"
-  }}
->
-
-{/* WINNER */}
-<div
-  style={{
-    display: "flex",
-    gap: "10px",
-    justifyContent: "flex-end",
-    alignItems: "flex-start",
-    flex: 1
-  }}
->
-
-{/* WINNING CANDIDATE */}
+{/* WINNER BANNER */}
 {elected.slice(0, 1).map((c: any) => (
 <div
   key={c.id}
   style={{
-    width: "320px",
-    height: "130px",
-    borderRadius: "15px",
+    marginTop: "10px",
+    marginBottom: "16px",
+    marginLeft: "-20px",
+    marginRight: "-20px",
+    borderRadius: "0px",
     overflow: "hidden",
+    background: PARTY_COLORS[c.party] || "#444",
+    color: "white",
     display: "flex",
-    background: "#2a2a2a"
+    alignItems: "stretch",
+    position: "relative"
   }}
 >
 
-{/* LEFT — IMAGE */}
+{/* IMAGE */}
 <div
   style={{
-    width: "95px",
-    background: `${PARTY_COLORS[c.party]}33`,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    position: "relative"
+    width: "110px",
+    background: "#00000033"
   }}
 >
 <img
@@ -1436,34 +1417,34 @@ onError={(e) => {
 />
 </div>
 
-{/* RIGHT — PARTY COLOUR */}
+{/* CONTENT */}
 <div
   style={{
     flex: 1,
-    background: PARTY_COLORS[c.party] || "#444",
-    color: "white",
-    padding: "10px 12px",
+    padding: "14px 16px",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
-    opacity: 0.8
+    justifyContent: "center"
   }}
 >
 
-{/* WINNER + NAME */}
+{/* NAME + CHECKMARK */}
 <div
   style={{
     display: "flex",
     alignItems: "center",
-    gap: "6px",
-    fontSize: "17px",
-    fontWeight: "700"
+    gap: "8px",
+    fontSize: "22px",
+    fontWeight: "700",
+    marginTop: "2px"
   }}
 >
+
+{/* CHECKMARK */}
 <div
   style={{
-    width: "16px",
-    height: "16px",
+    width: "18px",
+    height: "18px",
     borderRadius: "50%",
     background: "#fff",
     display: "flex",
@@ -1486,9 +1467,9 @@ onError={(e) => {
     />
   </svg>
 </div>
-<span>
-{c.name}
-</span>
+
+<span>{c.name}</span>
+
 </div>
 
 {/* INCUMBENT */}
@@ -1506,29 +1487,15 @@ onError={(e) => {
 {/* PARTY + COUNT */}
 <div
   style={{
-    fontSize: "12px",
-    opacity: 0.9,
-    marginTop: "2px"
+    fontSize: "13px",
+    opacity: 0.9
   }}
 >
 {c.party} • Count {c.electedOn}
 </div>
 
-</div>
-
-</div>
-))}
-
-</div>
-
-</div>
-
-</>
-  );
-  
-})()}
-
-{current?.name === "National" && projection && (
+{/* PROJECTION */}
+{projection && (
 <div
   style={{
     marginTop: "6px",
@@ -1536,12 +1503,10 @@ onError={(e) => {
     alignItems: "center",
     gap: "6px",
     fontSize: "11px",
-    color: "#aaa",
-    justifyContent: "right"
+    opacity: 0.85
   }}
 >
 
-{/* GREEN DOT */}
 <span
   style={{
     width: "6px",
@@ -1552,13 +1517,22 @@ onError={(e) => {
   }}
 />
 
-{/* TEXT */}
 <span>
-<b>#Projected</b> by Ireland Votes at {projection.note} IST.
+<b>#Projected</b> by Ireland Votes — {projection.note}
 </span>
 
 </div>
 )}
+
+</div>
+
+</div>
+))}
+
+</>
+  );
+  
+})()}
 
 {/* TALLY BAR */}
 {!hasResults && (
@@ -2353,6 +2327,7 @@ Quota
 }}>
 
 <Map
+key="election_map"
   election={{
     country,
     type,
