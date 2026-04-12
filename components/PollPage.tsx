@@ -756,8 +756,8 @@ return (
 
 <div
 style={{
-background: "#1f1f1f",
-border: "1px solid #333",
+background: "var(--panel)",
+border: "1px solid var(--border)",
 borderRadius: "8px",
 padding: "10px",
 fontSize: "12px",
@@ -1063,8 +1063,8 @@ return (
 
 <div
 style={{
-background: "#1f1f1f",
-border: "1px solid #333",
+background: "var(--panel)",
+border: "1px solid var(--border)",
 borderRadius: "8px",
 padding: "8px 10px",
 fontSize: "12px",
@@ -1128,7 +1128,7 @@ height: "100%",
 display: "flex",
 flexDirection: "column",
 overflow: "hidden",
-background: "#171717"
+background: "var(--panel)"
 }}
 >
 
@@ -1171,8 +1171,8 @@ Since 2007 — {polls.length} polls available
 
 <div
 style={{
-background: "#1a1a1a",
-border: "1px solid #333",
+background: "var(--panel)",
+border: "1px solid var(--border)",
 borderRadius: "10px",
 padding: "12px 14px",
 marginBottom: "14px"
@@ -1226,9 +1226,9 @@ onClick={() => setRange(btn.value)}
 style={{
 padding: "3px 8px",
 borderRadius: "6px",
-border: "1px solid #333",
-background: range === btn.value ? "#444" : "transparent",
-color: "#fff",
+border: "1px solid var(--border)",
+background: range === btn.value ? "var(--panel-2)" : "transparent",
+color: "var(--text)",
 fontSize: "11px",
 cursor: "pointer"
 }}
@@ -1279,9 +1279,9 @@ setVisible({
 style={{
 padding: "3px 7px",
 borderRadius: "6px",
-border: "1px solid #333",
-background: visible[party] ? "#2a2a2a" : "transparent",
-color: visible[party] ? "#fff" : "#666",
+border: "1px solid var(--border)",
+background: visible[party] ? "var(--panel-2)" : "transparent",
+color: visible[party] ? "var(--text)" : "var(--text-muted)",
 fontSize: "10px",
 cursor: "pointer"
 }}
@@ -1317,8 +1317,8 @@ onClick={() => setShowConfidence(!showConfidence)}
 style={{
 padding: "3px 8px",
 borderRadius: "6px",
-border: "1px solid #333",
-background: showConfidence ? "#444" : "transparent",
+border: "1px solid var(--border)",
+background: showConfidence ? "var(--panel-2)" : "transparent",
 fontSize: "11px",
 cursor: "pointer"
 }}
@@ -1339,8 +1339,8 @@ style={{
 marginBottom: "20px",
 padding: "15px",
 borderRadius: "12px",
-background: "#1f1f1f",
-border: "1px solid #333",
+background: "var(--panel)",
+border: "1px solid var(--border)",
 width: "100%"
 }}
 >
@@ -1371,8 +1371,8 @@ flexDirection: "column"
 style={{
 marginBottom: "14px",
 padding: "10px 12px",
-background: "#1f1f1f",
-border: "1px solid #333",
+background: "var(--panel)",
+border: "1px solid var(--border)",
 borderRadius: "10px"
 }}
 >
@@ -2119,8 +2119,8 @@ marginTop: "16px"
 
 <div
 style={{
-background: "#1f1f1f",
-border: "1px solid #333",
+background: "var(--panel)",
+border: "1px solid var(--border)",
 borderRadius: "12px",
 padding: "14px"
 }}
@@ -2185,8 +2185,8 @@ tracker === "ni"
 
 <div
 style={{
-background: "#1f1f1f",
-border: "1px solid #333",
+background: "var(--panel)",
+border: "1px solid var(--border)",
 borderRadius: "12px",
 padding: "14px"
 }}
@@ -2224,8 +2224,8 @@ Regional and demographic polling coming soon
 <div
 style={{
 marginTop: "20px",
-background: "#1f1f1f",
-border: "1px solid #333",
+background: "var(--panel)",
+border: "1px solid var(--border)",
 borderRadius: "12px",
 overflow: "hidden",
 width: "100%"
@@ -2247,8 +2247,8 @@ display: "grid",
 position: "sticky",
 top: 0,
 zIndex: 5,
-background: "#1f1f1f",
-borderBottom: "1px solid #333",
+background: "var(--panel)",
+borderBottom: "1px solid var(--border)",
 boxShadow: "0 2px 4px rgba(0,0,0,0.4)",
 width: "100%",
 gridTemplateColumns:
@@ -2379,7 +2379,7 @@ background: leader?.party
 style={{
 padding: "12px",
 textAlign: "center",
-borderTop: "1px solid #333"
+borderTop: "1px solid var(--border)"
 }}
 >
 
@@ -2388,9 +2388,9 @@ onClick={() => setShowAllPolls(!showAllPolls)}
 style={{
 padding: "6px 14px",
 borderRadius: "8px",
-border: "1px solid #333",
-background: "#2a2a2a",
-color: "#fff",
+border: "1px solid var(--border)",
+background: "var(--panel)",
+color: "var(--text)",
 fontSize: "12px",
 cursor: "pointer"
 }}

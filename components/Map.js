@@ -30,7 +30,6 @@ import "leaflet/dist/leaflet.css";
 import { useMap } from "react-leaflet";
 import "./map.css";
 
-
 /* =============================
    Dynamic Leaflet Imports (Next.js SSR Safe)
 ============================= */
@@ -97,10 +96,10 @@ style={{
   left: "20px",
   zIndex: 1000,
   padding: "8px 12px",
-  background: "#1f1f1f",
-  border: "1px solid #333",
+  background: "var(--panel)",
+  border: "1px solid var(--border)",
   cursor: "pointer",
-  color: "#fff",
+  color: "var(--text)",
   borderRadius: "8px",
   fontSize: "12px",
 }}
@@ -198,6 +197,27 @@ export default function Map({
   const year = election?.year || "2024";
 
   const dataPath = `/data/elections/${country}/${type}/${year}`;
+
+const [isDark, setIsDark] = useState(true);
+
+useEffect(() => {
+  const updateTheme = () => {
+    setIsDark(
+      document.documentElement.classList.contains("dark")
+    );
+  };
+
+  updateTheme();
+
+  const observer = new MutationObserver(updateTheme);
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"]
+  });
+
+  return () => observer.disconnect();
+}, []);
 
   /* =============================
      Load GeoJSON Boundary Data
@@ -744,7 +764,7 @@ return (
   style={{
     height: "100%",
     width: "100%",
-    background: "#1f1f1f"
+    background: "var(--panel)"
   }}
   scrollWheelZoom
   onClick={() => onSelect(null)}
@@ -752,8 +772,12 @@ return (
 
 <TileLayer
   attribution='&copy; OpenStreetMap &copy; CartoDB'
-  url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
-  opacity={0.25}
+  url={
+  isDark
+    ? "https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
+    : "https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png"
+}
+  opacity={isDark ? 0.25 : 1}
   noWrap={true}
   bounds={[
     [51.2, -11.5],
@@ -789,9 +813,11 @@ return (
 
               const isSelected = selected?.name === key;
 
-              return {
-                color: isSelected ? "#fff" : "#9c9c9c",
-                weight: isSelected ? 4 : 1,
+return {
+  color: isSelected
+    ? "var(--map-outline-selected)"
+    : "var(--map-outline)",
+  weight: isSelected ? 4 : 1,
                 fillColor: getColor(key),
                 fillOpacity: getColor(key) === "transparent"
                 ? 0
@@ -814,10 +840,11 @@ layer.on({
     const isSelected = selected?.name === key;
 
     if (!isSelected) {
-      layer.setStyle({
-        weight: 2,
-        fillOpacity: 0.75
-      });
+layer.setStyle({
+  weight: 2,
+  color: "var(--map-outline-hover)",
+  fillOpacity: isDark ? 0.75 : 0.65
+});
     }
   },
 

@@ -219,8 +219,8 @@ const LeakageTooltip = ({ active, payload, label }: { active: boolean; payload: 
   return (
     <div
       style={{
-        background: "#1f1f1f",
-        border: "1px solid #333",
+        background: "var(--panel)",
+        border: "1px solid var(--border)",
         borderRadius: "8px",
         padding: "8px",
         fontSize: "11px"
@@ -1189,8 +1189,8 @@ return (
   style={{
     flexShrink: 0,
     padding: "12px 20px",
-    borderBottom: "1px solid #333",
-    background: "#1f1f1f",
+    borderBottom: "1px solid var(--border)",
+    background: "var(--panel)",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
@@ -1231,8 +1231,8 @@ return (
   width: "65%",
   height: "100%",
   padding: "20px",
-  borderRight: "1px solid #333",
-  background: "#1f1f1f",
+  borderRight: "1px solid var(--border)",
+  background: "var(--panel)",
   overflowY: "auto",
   transition: "opacity 0.2s ease"
 }}>
@@ -1320,10 +1320,10 @@ return (
     padding: "5px 7px",
     borderRadius: "12px",
     background: "transparent",
-    border: "2px solid #333",
+    border: "1px solid var(--border)",
     boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
     fontSize: "12px",
-    color: "#aaa",
+    color: "var(--text-muted)",
     cursor: "pointer"
   }}
 >
@@ -1545,7 +1545,7 @@ onError={(e) => {
   marginBottom: "15px",
   padding: "8px 12px",
   borderRadius: "8px",
-  background: "#2a2a2a",
+  background: "var(--panel-2)",
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between"
@@ -1570,7 +1570,7 @@ onError={(e) => {
       LIVE
     </span>
 
-    <span style={{ color: "#aaa", fontWeight: "600" }}>
+    <span style={{ color: "var(--text-muted)", fontWeight: "600" }}>
       TALLY:
     </span>
   </div>
@@ -1625,7 +1625,7 @@ onError={(e) => {
   {/* RIGHT: % IN */}
   <div style={{
     fontSize: "12px",
-    color: "#aaa",
+    color: "var(--text-muted)",
     fontWeight: "600",
     whiteSpace: "nowrap"
   }}>
@@ -1661,9 +1661,9 @@ onError={(e) => {
   style={{
     padding: "6px 10px",
     borderRadius: "8px",
-    border: "1px solid #333",
+    border: "1px solid var(--border)",
     background: "transparent",
-    color: "#fff",
+    color: "var(--text)",
     opacity: count === 1 ? 0.3 : 1
   }}
 >
@@ -1674,8 +1674,8 @@ onError={(e) => {
   style={{
     padding: "6px 12px",
     borderRadius: "8px",
-    border: "1px solid #333",
-    background: "#2a2a2a",
+    border: "1px solid var(--border)",
+    background: "var(--panel-2)",
     fontWeight: "600"
   }}
 >
@@ -1688,9 +1688,9 @@ onError={(e) => {
   style={{
     padding: "6px 10px",
     borderRadius: "8px",
-    border: "1px solid #333",
+    border: "1px solid var(--border)",
     background: "transparent",
-    color: "#fff",
+    color: "var(--text)",
     opacity: count === latestCount ? 0.3 : 1
   }}
 >
@@ -1702,9 +1702,9 @@ onError={(e) => {
   style={{
     padding: "6px 10px",
     borderRadius: "8px",
-    border: "1px solid #333",
-    background: count === latestCount ? "#444" : "transparent",
-    color: "#fff",
+    border: "1px solid var(--border)",
+    background: count === latestCount ? "var(--panel-2)" : "transparent",
+    color: "var(--text)",
     fontSize: "12px"
   }}
 >
@@ -1726,8 +1726,8 @@ onError={(e) => {
   marginTop: "20px",
   padding: "15px",
   borderRadius: "12px",
-  background: "#1f1f1f",
-  border: "1px solid #333",
+  background: "var(--panel)",
+  border: "1px solid var(--border)",
   boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
   position: "relative",
   maxHeight: "calc(100vh - 420px)",
@@ -1742,7 +1742,7 @@ onError={(e) => {
   fontSize: "11px",
   fontWeight: "600",
   letterSpacing: "0.5px",
-  color: "#aaa"
+  color: "var(--text-muted)"
 }}>
   {/* CHECKMARK SPACE */}
   <div style={{ width: "20px" }} />
@@ -2012,131 +2012,209 @@ const surplusWidth =
     
 return (
   <Fragment key={c.id}>
+  
   {showDivider && (
-  <div style={{ margin: "15px 0 10px 0" }}>
-    <div
-      style={{
-        borderTop: "2px dotted #555",
-        marginBottom: "6px"
-      }}
-    />
-
-    <div
-      style={{
-        fontSize: "11px",
-        fontWeight: "600",
-        letterSpacing: "1px",
-        color: "#777",
-        textTransform: "uppercase"
-      }}
-    >
-      Eliminated
-    </div>
-  </div>
-)}
-
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        minWidth: 0,
-        padding: "10px",
-        marginBottom: "10px",
-        borderRadius: "10px",
-        background: c.status === "elected" ? "#2a2a2a" : "transparent",
-        color: "white",
-        position: "relative",
-        overflow: "hidden"
-      }}
-    >
-
-      {/* FLASH */}
-      {highlighted === c.id && (
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: "-100%",
-            width: "100%",
-            height: "100%",
-            background: "linear-gradient(90deg, transparent, rgba(18, 73, 20, 0.81), transparent)",
-            animation: "flashSweep 1s ease-out",
-            zIndex: 2
-          }}
-        />
-      )}
-
-      {/* LABEL */}
-      {highlighted === c.id && (
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "25px",
-            fontWeight: "700",
-            fontStyle: "italic",
-            color: "rgba(255, 255, 255, 0.81)",
-            background: "rgba(0,0,0,0)",
-            backdropFilter: "blur(3px)",
-            animation: "fadeOverlay 1.0s ease-in-out forwards",
-            zIndex: 3,
-            pointerEvents: "none",
-            letterSpacing: "2px"
-          }}
-        >
-          MOST TRANSFERS RECEIVED
-        </div>
-      )}
-
-{/* ELECTED STRIP */}
-{c.status === "elected" && (
+  <div style={{ margin: "12px 0 8px 0" }}>
   <div
-    style={{
-      position: "absolute",
-      left: 0,
-      top: 0,
-      bottom: 0,
-      width: "26px",
-      background: "#ffffff",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      zIndex: 1
-    }}
+  style={{
+  borderTop: "2px dotted var(--border)",
+  marginBottom: "6px"
+  }}
+  />
+  
+  <div
+  style={{
+  fontSize: "10px",
+  fontWeight: "600",
+  letterSpacing: "1px",
+  color: "#777",
+  textTransform: "uppercase"
+  }}
   >
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 16 16"
-      fill="none"
-    >
-      <path
-        d="M4 8.5L7 11.5L12 5"
-        stroke="#1f1f1f"
-        strokeWidth="2.8"
-        strokeLinecap="square"
-      />
-    </svg>
+  Eliminated
   </div>
+  </div>
+  )}
+  
+  <div
+  style={{
+  display: "flex",
+  alignItems: "center",
+  minWidth: 0,
+  padding: "6px 10px",
+  marginBottom: "4px",
+  borderRadius: "6px",
+  color: "var(--text)",
+  position: "relative",
+  overflow: "hidden",
+  background: "var(--panel-2)",
+  transition: "background 0.15s ease"
+  }}
+  onMouseEnter={(e) => {
+  e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+  }}
+  onMouseLeave={(e) => {
+  e.currentTarget.style.background = "var(--panel-2)";
+  }}
+  >
+  
+  {/* FULL ROW VOTE BACKGROUND */}
+  <div
+  style={{
+  position: "absolute",
+  left: 0,
+  top: 0,
+  bottom: 0,
+  width: `${scaledPercent}%`,
+  background: PARTY_COLORS[c.party] || "#888",
+  opacity: c.status === "elected" ? 0.35 : 0.22,
+  zIndex: 1
+  }}
+  />
+  
+  {/* SURPLUS */}
+  {showSurplus && (
+  <div
+  style={{
+  position: "absolute",
+  left: `${scaledQuotaPercent}%`,
+  top: 0,
+  bottom: 0,
+  width: `${Math.max(0, scaledPercent - scaledQuotaPercent)}%`,
+  background:
+  "repeating-linear-gradient(45deg, rgba(255,255,255,0.35), rgba(255,255,255,0.35) 4px, transparent 4px, transparent 8px)",
+  zIndex: 2
+  }}
+  />
+  )}
+  
+  {/* ELIMINATED */}
+  {justEliminated && (
+  <div
+  style={{
+  position: "absolute",
+  inset: 0,
+  background:
+  "repeating-linear-gradient(45deg, rgba(255,82,82,0.25), rgba(255,82,82,0.25) 6px, transparent 6px, transparent 12px)",
+  zIndex: 2
+  }}
+  />
+  )}
+  
+  {/* QUOTA LINE */}
+{!selected && (
+<div
+style={{
+position: "absolute",
+left: `${scaledQuotaPercent}%`,
+top: 0,
+bottom: 0,
+width: "0px",
+borderLeft: "2px dotted var(--quota-line)",
+pointerEvents: "none",
+zIndex: 6
+}}
+/>
 )}
-
-{/* Spacer */}
-<div style={{ width: "26px" }} />
-
-{/* IMAGE / AVATAR */}
+  
+  {/* FLASH */}
+  {highlighted === c.id && (
+  <div
+  style={{
+  position: "absolute",
+  top: 0,
+  left: "-100%",
+  width: "100%",
+  height: "100%",
+  background:
+  "linear-gradient(90deg, transparent, rgba(18,73,20,0.81), transparent)",
+  animation: "flashSweep 1s ease-out",
+  zIndex: 8
+  }}
+  />
+  )}
+  
+  {/* LABEL */}
+  {highlighted === c.id && (
+  <div
+  style={{
+  position: "absolute",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontSize: "25px",
+  fontWeight: "700",
+  fontStyle: "italic",
+  color: "rgba(255,255,255,0.81)",
+  backdropFilter: "blur(3px)",
+  animation: "fadeOverlay 1s ease-in-out forwards",
+  zIndex: 9,
+  pointerEvents: "none",
+  letterSpacing: "2px"
+  }}
+  >
+  MOST TRANSFERS RECEIVED
+  </div>
+  )}
+  
+  {/* ELECTED STRIP */}
+  {c.status === "elected" && (
+  <div
+  style={{
+  position: "absolute",
+  left: 0,
+  top: 0,
+  bottom: 0,
+  width: "26px",
+  background: "var(--elected-strip)",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  zIndex: 7
+  }}
+  >
+  <svg
+  width="12"
+  height="12"
+  viewBox="0 0 16 16"
+  fill="none"
+  >
+  <path
+  d="M4 8.5L7 11.5L12 5"
+  stroke="var(--elected-check)"
+  strokeWidth="2.8"
+  />
+  </svg>
+  </div>
+  )}
+  
+  {/* Spacer */}
+  <div style={{ width: "26px", flexShrink: 0 }} />
+  
+  {/* PARTY STRIP */}
+  <div
+  style={{
+  width: "3px",
+  alignSelf: "stretch",
+  background: PARTY_COLORS[c.party] || "#888",
+  marginRight: "8px",
+  borderRadius: "2px",
+  zIndex: 7
+  }}
+  />
+  
+  {/* IMAGE / AVATAR */}
 <div
   style={{
     width: "32px",
     height: "32px",
     borderRadius: "50%",
     background: PARTY_COLORS[c.party] || "#444",
-    border: "2px solid #1f1f1f",
+    border: "1px solid var(--border)",
     marginRight: "10px",
     flexShrink: 0,
     overflow: "hidden",
@@ -2158,159 +2236,124 @@ onError={(e) => {
 }}
 />
 </div>
-
-      {/* NAME */}
-      <div style={{ width: "220px" }}>
-        <div style={{ fontWeight: "600" }}>
-          {c.name}
-          {c.incumbent && (
-            <span style={{ marginLeft: "6px", fontSize: "10px" }}>★</span>
-          )}
-        </div>
-        <div style={{ fontSize: "12px", opacity: 0.7 }}>
-          {c.party}
-        </div>
-      </div>
-
-{/* BAR */}
-<div style={{
-  width: "calc(100% - 420px)",
-  height: "15px",
-  background: "#333",
-  marginRight: "10px",
-  borderRadius: "4px",
-  position: "relative",
-  overflow: "hidden"
-}}>
-
-{/* MAIN BAR */}
-<div
-  style={{
-    position: "absolute",
-    left: 0,
-    top: 0,
-    height: "100%",
-    width: `${scaledPercent}%`,
-    background: PARTY_COLORS[c.party] || "#888",
-    borderRadius: "4px"
-  }}
->
-
-</div>
-
-{/* QUOTA LINE */}
-
-{current?.name === "National" && (
-<div
-  style={{
-    position: "absolute",
-    left: `${scaledQuotaPercent}%`,
-    top: "-2000px",
-    bottom: "-2000px",
-    width: "0px",
-    borderLeft: "2px dotted white",
-    opacity: 0.5,
-    pointerEvents: "none",
-    zIndex: 3
-  }}
-/>
-)}
-
-{/* QUOTA LABEL */}
-{current?.name === "National" && index === 0 && (
-<div
-  style={{
-    position: "absolute",
-    left: `${scaledQuotaPercent}%`,
-    top: "-22px",
-    transform: "translateX(30%)",
-    fontSize: "10px",
-    fontWeight: "600",
-    color: "white",
-    opacity: 0.8,
-    pointerEvents: "none",
-    zIndex: 3
-  }}
->
-Quota
-</div>
-)}
-
-<AnimatedBar
-  percent={scaledPercent}
-  quotaPercent={scaledQuotaPercent}
-  showSurplus={showSurplus}
-  party={c.party}
-  status={c.status}
-  justEliminated={justEliminated}
-/>
-
-</div>
-
-      {/* % */}
-<div
-  style={{
-    width: "60px",
-    textAlign: "right",
-    opacity: count === 1 ? 1 : 0
-  }}
->
-  {percent.toFixed(1)}%
-</div>
-
-      {/* VOTES + GAIN */}
-      <div style={{ width: "110px", textAlign: "right" }}>
-        <div>
-{freezeAtQuota ? (
-  <AnimatedNumber
-    value={quota}
-    previousValue={
-      prevData.find(
-        (p: any) => p.name === c.name && p.party === c.party
-      )?.votes || 0
-    }
-  />
-) : showSurplus ? (
-  <AnimatedNumber
-    value={c.votes}
-    previousValue={
-      prevData.find(
-        (p: any) => p.name === c.name && p.party === c.party
-      )?.votes || 0
-    }
-  />
-) : count > c.electedOn ? (
-  <span style={{ opacity: 0.5 }}>—</span>
-) : (
-  <AnimatedNumber
-    value={c.votes}
-    previousValue={
-      prevData.find(
-        (p: any) => p.name === c.name && p.party === c.party
-      )?.votes || 0
-    }
-  />
-)}
-        </div>
-
-{count > 1 && (
+  
+  {/* NAME */}
   <div
-    style={{
-      fontSize: "11px",
-      fontWeight: isTopGainer ? "700" : "500",
-      color:
-        gain > 0 ? "#4caf50" :
-        gain < 0 ? "#f44336" :
-        "#aaa",
-    }}
+  style={{
+  flex: 1,
+  minWidth: 0,
+  zIndex: 7
+  }}
   >
-    {gain > 0 ? "↑ " : gain < 0 ? "↓ " : "→ "}
-    {gain > 0 ? `+${gain}` : gain}
+  
+  <div
+  style={{
+  display: "flex",
+  alignItems: "center",
+  gap: "6px",
+  minWidth: 0
+  }}
+  >
+  
+  {/* CANDIDATE NAME */}
+  <div
+  style={{
+  fontWeight: "600",
+  fontSize: "13px",
+  whiteSpace: "nowrap",
+  overflow: "hidden",
+  textOverflow: "ellipsis"
+  }}
+  >
+  {c.name}
   </div>
-)}
-      </div>
-
-    </div>
+  
+  {/* INCUMBENT */}
+  {c.incumbent && (
+  <div
+  style={{
+  fontSize: "10px",
+  opacity: 0.85,
+  whiteSpace: "nowrap"
+  }}
+  >
+  ★
+  </div>
+  )}
+  
+  </div>
+  
+  {/* PARTY */}
+  <div
+  style={{
+  fontSize: "11px",
+  color: "var(--text-subtle)"
+  }}
+  >
+  {c.party}
+  </div>
+  
+  </div>
+  
+  {/* PERCENT (FIRST COUNT ONLY) */}
+  {count === 1 && (
+  <div
+  style={{
+  width: "60px",
+  textAlign: "right",
+  fontSize: "12px",
+  opacity: 0.8,
+  zIndex: 7
+  }}
+  >
+  {percent.toFixed(1)}%
+  </div>
+  )}
+  
+  {/* VOTES */}
+  <div
+  style={{
+  width: "90px",
+  textAlign: "right",
+  fontSize: "13px",
+  fontWeight: "500",
+  zIndex: 7
+  }}
+  >
+  <AnimatedNumber
+  value={c.votes}
+  previousValue={
+  prevData.find(
+  (p: any) =>
+  p.name === c.name &&
+  p.party === c.party
+  )?.votes || 0
+  }
+  />
+  </div>
+  
+  {/* GAIN */}
+  {count > 1 && (
+  <div
+  style={{
+  width: "60px",
+  textAlign: "right",
+  fontSize: "11px",
+  fontWeight: isTopGainer ? "700" : "500",
+  color:
+  gain > 0 ? "#4caf50" :
+  gain < 0 ? "#f44336" :
+  "#aaa",
+  zIndex: 7
+  }}
+  >
+  {gain > 0 ? "↑ " : gain < 0 ? "↓ " : "→ "}
+  {gain > 0 ? `+${gain}` : gain}
+  </div>
+  )}
+  
+  </div>
+  
   </Fragment>
 );
 });

@@ -1923,16 +1923,16 @@ Vote Share
     marginBottom: "4px",
     borderRadius: "6px",
     overflow: "hidden",
-    background: "rgba(255,255,255,0.02)",
+    background: "var(--panel-2)",
     transition: "background 0.15s ease"
-  }}
-  onMouseEnter={(e) => {
+    }}
+    onMouseEnter={(e) => {
     e.currentTarget.style.background = "rgba(255,255,255,0.04)";
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.background = "rgba(255,255,255,0.02)";
-  }}
->
+    }}
+    onMouseLeave={(e) => {
+    e.currentTarget.style.background = "var(--panel-2)";
+    }}
+    >
 
 {/* FULL ROW BAR */}
 <div
@@ -2056,16 +2056,16 @@ Swing
     marginBottom: "4px",
     borderRadius: "6px",
     overflow: "hidden",
-    background: "rgba(255,255,255,0.02)",
+    background: "var(--panel-2)",
     transition: "background 0.15s ease"
-  }}
-  onMouseEnter={(e) => {
+    }}
+    onMouseEnter={(e) => {
     e.currentTarget.style.background = "rgba(255,255,255,0.04)";
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.background = "rgba(255,255,255,0.02)";
-  }}
->
+    }}
+    onMouseLeave={(e) => {
+    e.currentTarget.style.background = "var(--panel-2)";
+    }}
+    >
 
 {/* ZERO LINE */}
 <div
@@ -2175,7 +2175,7 @@ Swing
   alignItems: "center",
   marginBottom: "10px",
   paddingBottom: "6px",
-  borderBottom: "1px solid #333",
+  borderBottom: "1px solid var(--border)",
   fontSize: "11px",
   fontWeight: "600",
   letterSpacing: "0.5px",
@@ -2445,7 +2445,7 @@ return (
 <div style={{ margin: "12px 0 8px 0" }}>
 <div
 style={{
-borderTop: "2px dotted #555",
+borderTop: "2px dotted var(--border)",
 marginBottom: "6px"
 }}
 />
@@ -2472,17 +2472,17 @@ minWidth: 0,
 padding: "6px 10px",
 marginBottom: "4px",
 borderRadius: "6px",
-color: "white",
+color: "var(--text)",
 position: "relative",
 overflow: "hidden",
-background: "rgba(255,255,255,0.02)",
+background: "var(--panel-2)",
 transition: "background 0.15s ease"
 }}
 onMouseEnter={(e) => {
 e.currentTarget.style.background = "rgba(255,255,255,0.04)";
 }}
 onMouseLeave={(e) => {
-e.currentTarget.style.background = "rgba(255,255,255,0.02)";
+e.currentTarget.style.background = "var(--panel-2)";
 }}
 >
 
@@ -2537,7 +2537,7 @@ left: `${scaledQuotaPercent}%`,
 top: 0,
 bottom: 0,
 width: "0px",
-borderLeft: "2px dotted rgba(255,255,255,0.5)",
+borderLeft: "2px dotted var(--quota-line)",
 pointerEvents: "none",
 zIndex: 6
 }}
@@ -2596,7 +2596,7 @@ left: 0,
 top: 0,
 bottom: 0,
 width: "26px",
-background: "#ffffff",
+background: "var(--elected-strip)",
 display: "flex",
 alignItems: "center",
 justifyContent: "center",
@@ -2611,7 +2611,7 @@ fill="none"
 >
 <path
 d="M4 8.5L7 11.5L12 5"
-stroke="#1f1f1f"
+stroke="var(--elected-check)"
 strokeWidth="2.8"
 />
 </svg>
@@ -2954,16 +2954,16 @@ Vote Share
     marginBottom: "4px",
     borderRadius: "6px",
     overflow: "hidden",
-    background: "rgba(255,255,255,0.02)",
+    background: "var(--panel-2)",
     transition: "background 0.15s ease"
-  }}
-  onMouseEnter={(e) => {
+    }}
+    onMouseEnter={(e) => {
     e.currentTarget.style.background = "rgba(255,255,255,0.04)";
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.background = "rgba(255,255,255,0.02)";
-  }}
->
+    }}
+    onMouseLeave={(e) => {
+    e.currentTarget.style.background = "var(--panel-2)";
+    }}
+    >
 
 {/* FULL ROW BAR */}
 <div
@@ -3087,16 +3087,16 @@ Swing
     marginBottom: "4px",
     borderRadius: "6px",
     overflow: "hidden",
-    background: "rgba(255,255,255,0.02)",
+    background: "var(--panel-2)",
     transition: "background 0.15s ease"
-  }}
-  onMouseEnter={(e) => {
+    }}
+    onMouseEnter={(e) => {
     e.currentTarget.style.background = "rgba(255,255,255,0.04)";
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.background = "rgba(255,255,255,0.02)";
-  }}
->
+    }}
+    onMouseLeave={(e) => {
+    e.currentTarget.style.background = "var(--panel-2)";
+    }}
+    >
 
 {/* ZERO LINE */}
 <div

@@ -73,7 +73,8 @@ src="/landscape.png"
 alt="Ireland Votes"
 style={{
 height: "45px",
-width: "auto"
+width: "auto",
+filter: "var(--logo-filter)"
 }}
 />
 

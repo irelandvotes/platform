@@ -4,13 +4,25 @@
 
 :root {
   --bg: #ffffff;
-  --panel: #f5f5f5;
+  --panel: #f8f8f8;
   --panel-2: #ffffff;
   --border: #e5e5e5;
 
   --text: #111111;
   --text-muted: #666666;
   --text-subtle: #888888;
+}
+
+:root {
+  --map-outline: #555;
+  --map-outline-hover: #111;
+  --map-outline-selected: #111;
+}
+
+.dark {
+  --map-outline: #9c9c9c;
+  --map-outline-hover: #ffffff;
+  --map-outline-selected: #ffffff;
 }
 
 .dark {
@@ -22,6 +34,32 @@
   --text: #ffffff;
   --text-muted: #aaaaaa;
   --text-subtle: #777777;
+}
+
+:root {
+  --quota-line: #444;
+}
+
+.dark {
+  --quota-line: rgba(255,255,255,0.6);
+}
+
+:root {
+  --elected-strip: #111;
+  --elected-check: #fff;
+}
+
+.dark {
+  --elected-strip: #fff;
+  --elected-check: #111;
+}
+
+:root {
+  --logo-filter: invert(0);
+}
+
+.dark {
+  --logo-filter: invert(1);
 }
 
 @theme inline {

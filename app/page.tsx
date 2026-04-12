@@ -91,7 +91,7 @@ flexDirection: "column",
 height: "100%",
 width: "100%",
 overflow: "auto",
-background: "#171717"
+background: "var(--panel)"
 }}
 >
 
@@ -103,7 +103,7 @@ background: "#171717"
 <div
 style={{
 padding: "20px",
-borderBottom: "1px solid #333"
+borderBottom: "1px solid var(--border)"
 }}
 >
 
@@ -138,7 +138,7 @@ gap: "8px"
 onClick={scrollLeft}
 style={{
 background: "transparent",
-border: "1px solid #333",
+border: "1px solid var(--border)",
 borderRadius: "6px",
 padding: "4px 8px",
 cursor: "pointer"
@@ -151,7 +151,7 @@ cursor: "pointer"
 onClick={scrollRight}
 style={{
 background: "transparent",
-border: "1px solid #333",
+border: "1px solid var(--border)",
 borderRadius: "6px",
 padding: "4px 8px",
 cursor: "pointer"
@@ -288,7 +288,7 @@ height: "100%"
 <div
 style={{
 padding: "20px",
-borderRight: "1px solid #333"
+borderRight: "1px solid var(--border)"
 }}
 >
 
@@ -446,8 +446,8 @@ style={{
 minWidth: "260px",
 padding: "14px",
 borderRadius: "8px",
-border: "1px solid #333",
-background: "#1a1a1a",
+border: "1px solid var(--border)",
+background: "var(--panel)",
 cursor: "pointer",
 position: "relative",
 display: "flex",
@@ -545,7 +545,7 @@ return (
 <div
 style={{
 padding: "12px 0",
-borderBottom: "1px solid #2a2a2a"
+borderBottom: "1px solid var(--border)"
 }}
 >
 
@@ -594,7 +594,7 @@ const content = (
 <div
 style={{
 padding: "12px 0",
-borderBottom: "1px solid #2a2a2a"
+borderBottom: "1px solid var(--border)"
 }}
 >
 
