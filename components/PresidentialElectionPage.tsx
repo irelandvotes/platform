@@ -1231,7 +1231,6 @@ return (
   width: "65%",
   height: "100%",
   padding: "20px",
-  borderRight: "1px solid var(--border)",
   background: "var(--panel)",
   overflowY: "auto",
   transition: "opacity 0.2s ease"
@@ -2371,7 +2370,8 @@ onError={(e) => {
       <div style={{
   width: "35%",
   height: "100%",
-  position: "relative"
+  position: "relative",
+  background: "var(--panel)"
 }}>
 
 <Map

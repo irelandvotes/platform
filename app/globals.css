@@ -2,93 +2,105 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* =========================
+   Theme Variables — Light Mode
+   ========================= */
+
 :root {
+
+  /* Layout */
   --bg: #ffffff;
   --panel: #f8f8f8;
   --panel-2: #ffffff;
   --border: #e5e5e5;
 
+  /* Text */
   --text: #111111;
   --text-muted: #666666;
   --text-subtle: #888888;
-}
 
-:root {
+  /* Map */
   --map-outline: #555;
   --map-outline-hover: #111;
   --map-outline-selected: #111;
+
+  /* Quota */
+  --quota-line: #444;
+
+  /* Elected strip */
+  --elected-strip: #111;
+  --elected-check: #fff;
+
+  /* Logo */
+  --logo-filter: invert(1);
+
 }
 
-.dark {
-  --map-outline: #9c9c9c;
-  --map-outline-hover: #ffffff;
-  --map-outline-selected: #ffffff;
-}
+
+/* =========================
+   Theme Variables — Dark Mode
+   ========================= */
 
 .dark {
+
+  /* Layout */
   --bg: #121212;
   --panel: #1f1f1f;
   --panel-2: #2a2a2a;
   --border: #333;
 
+  /* Text */
   --text: #ffffff;
   --text-muted: #aaaaaa;
   --text-subtle: #777777;
-}
 
-:root {
-  --quota-line: #444;
-}
+  /* Map */
+  --map-outline: #9c9c9c;
+  --map-outline-hover: #ffffff;
+  --map-outline-selected: #ffffff;
 
-.dark {
+  /* Quota */
   --quota-line: rgba(255,255,255,0.6);
-}
 
-:root {
-  --elected-strip: #111;
-  --elected-check: #fff;
-}
-
-.dark {
+  /* Elected strip */
   --elected-strip: #fff;
   --elected-check: #111;
-}
 
-:root {
-  --logo-filter: invert(1);
-}
-
-.dark {
+  /* Logo */
   --logo-filter: invert(0);
+
 }
+
+
+/* =========================
+   Tailwind Theme Mapping
+   ========================= */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-html.dark {
-  --background: #121212;
-  --foreground: #ffffff;
 
-  --panel: #1f1f1f;
-  --panel-2: #2a2a2a;
-
-  --border: #333;
-  --muted: #aaa;
-
-  --hover: rgba(255,255,255,0.04);
-}
+/* =========================
+   Body Styling
+   ========================= */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Remove Leaflet focus outlines completely */
+
+/* =========================
+   Leaflet Styling
+   ========================= */
+
+/* Remove focus outlines */
+
 .leaflet-container:focus {
   outline: none !important;
 }
@@ -105,19 +117,50 @@ body {
   outline: none !important;
 }
 
-/* Remove blue/black tap highlight (mobile + some browsers) */
+
+/* Remove tap highlight */
+
 .leaflet-container * {
   -webkit-tap-highlight-color: transparent;
 }
 
+
+/* Match map background to theme */
+
+.leaflet-container,
+.leaflet-map-pane,
+.leaflet-pane,
+.leaflet-overlay-pane {
+  background: var(--panel) !important;
+}
+
+/* =========================
+   Leaflet Background Fix
+   ========================= */
+
+.leaflet-container {
+  background-color: var(--panel) !important;
+}
+
+.leaflet-container svg {
+  background-color: var(--panel) !important;
+}
+
+/* Map Controls Layer */
+
 .leaflet-control {
-  z-index: 10 !important;
+  z-index: 1000 !important;
 }
 
 .leaflet-top,
 .leaflet-bottom {
-  z-index: 10 !important;
+  z-index: 1000 !important;
 }
+
+
+/* =========================
+   Animations
+   ========================= */
 
 @keyframes blink {
   0%   { opacity: 1; transform: scale(1); }
@@ -126,24 +169,14 @@ body {
 }
 
 @keyframes scroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }
 
 @keyframes flashSweep {
-  0% {
-    left: -100%;
-  }
-  50% {
-    left: 0%;
-  }
-  100% {
-    left: 100%;
-  }
+  0% { left: -100%; }
+  50% { left: 0%; }
+  100% { left: 100%; }
 }
 
 @keyframes fadeOverlay {
@@ -180,11 +213,13 @@ body {
   }
 }
 
+
 /* =========================
    Ultra-Thin Auto-Hide Scrollbar
    ========================= */
 
 /* Firefox */
+
 * {
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
@@ -193,6 +228,7 @@ body {
 *:hover {
   scrollbar-color: rgba(255, 255, 255, 0.034) transparent;
 }
+
 
 /* Chrome / Edge / Safari */
 
@@ -211,20 +247,22 @@ body {
   transition: background 0.2s ease;
 }
 
-/* Show on hover */
 *:hover::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.034);
 }
 
-/* Hover stronger */
 *:hover::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.034);
 }
 
-/* Remove scrollbar corner */
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
+
+
+/* =========================
+   Responsive Font Scaling
+   ========================= */
 
 @media (max-width: 1400px) {
   html {
@@ -236,4 +274,29 @@ body {
   html {
     font-size: 14px;
   }
+}
+
+/* =========================
+   Force Leaflet Background
+   ========================= */
+
+.leaflet-container {
+  background: var(--panel) !important;
+}
+
+.dark .leaflet-container {
+  background: var(--panel) !important;
+}
+
+/* Leaflet zoom controls */
+.leaflet-control-zoom a {
+  color: var(--text) !important;
+}
+
+/* Leaflet zoom buttons */
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+  background-image: none !important;
+  background: var(--panel) !important;
+  color: var(--text) !important;
 }

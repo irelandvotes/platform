@@ -77,6 +77,63 @@ function parseConstituency(name) {
   };
 }
 
+function ZoomControls() {
+  const map = useMap();
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: "20px",
+        left: "20px",
+        zIndex: 1000,
+        display: "flex",
+        flexDirection: "column",
+        gap: "4px"
+      }}
+    >
+<button
+  onClick={() => map.zoomIn()}
+  style={zoomStyle}
+  onMouseEnter={(e) =>
+    (e.currentTarget.style.background = "var(--panel-2)")
+  }
+  onMouseLeave={(e) =>
+    (e.currentTarget.style.background = "var(--panel)")
+  }
+>
+  +
+</button>
+
+<button
+  onClick={() => map.zoomOut()}
+  style={zoomStyle}
+  onMouseEnter={(e) =>
+    (e.currentTarget.style.background = "var(--panel-2)")
+  }
+  onMouseLeave={(e) =>
+    (e.currentTarget.style.background = "var(--panel)")
+  }
+>
+  −
+</button>
+    </div>
+  );
+}
+
+const zoomStyle = {
+  width: "32px",
+  height: "32px",
+  background: "var(--panel)",
+  border: "1px solid var(--border)",
+  color: "var(--text)",
+  borderRadius: "8px",
+  cursor: "pointer",
+  fontSize: "16px",
+  fontWeight: "600",
+  transition: "background 0.15s ease"
+};
+
 /* =============================
    Reset Map Button
 ============================= */
@@ -199,6 +256,16 @@ export default function Map({
   const dataPath = `/data/elections/${country}/${type}/${year}`;
 
 const [isDark, setIsDark] = useState(true);
+
+useEffect(() => {
+  const panes = document.querySelectorAll(".leaflet-pane");
+
+  panes.forEach((pane) => {
+    pane.style.background =
+      isDark ? "#1f1f1f" : "#f8f8f8";
+  });
+
+}, [isDark]);
 
 useEffect(() => {
   const updateTheme = () => {
@@ -737,7 +804,8 @@ return (
     style={{
       position: "relative",
       height: "100%",
-      width: "100%"
+      width: "100%",
+      background: isDark ? "#1f1f1f" : "#f8f8f8"
     }}
   >
 <MapContainer
@@ -756,6 +824,7 @@ return (
   zoom={6.5}
   minZoom={6.5}
   maxZoom={10}
+  zoomControl={false}
   maxBounds={[
     [51.2, -11.5],  // Southwest Ireland
     [55.8, -5.0]    // Northeast Ireland
@@ -764,28 +833,15 @@ return (
   style={{
     height: "100%",
     width: "100%",
-    background: "var(--panel)"
+    background: isDark ? "#1f1f1f" : "#f8f8f8"
   }}
   scrollWheelZoom
   onClick={() => onSelect(null)}
 >
 
-<TileLayer
-  attribution='&copy; OpenStreetMap &copy; CartoDB'
-  url={
-  isDark
-    ? "https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
-    : "https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png"
-}
-  opacity={isDark ? 0.25 : 1}
-  noWrap={true}
-  bounds={[
-    [51.2, -11.5],
-    [55.8, -5.0]
-  ]}
-/>
-
         <ResetOnTrigger resetTrigger={resetTrigger} />
+
+<ZoomControls />
 
         {/* Reset Button */}
         <ResetButton
@@ -800,10 +856,37 @@ return (
           resetTrigger={resetTrigger}
         />
 
+{/* IRELAND MASK */}
+{geoData && (
+<GeoJSON
+data={geoData}
+style={{
+fillColor: isDark ? "#1f1f1f" : "#f8f8f8",
+fillOpacity: 1,
+stroke: false,
+interactive: false
+}}
+/>
+)}
+
+{/* LEFT FADE GRADIENT */}
+<div
+style={{
+position: "absolute",
+top: 0,
+bottom: 0,
+left: 0,
+width: "120px",
+background: "linear-gradient(to right, var(--panel) 0%, rgba(0,0,0,0) 100%)",
+pointerEvents: "none",
+zIndex: 500
+}}
+/>
+
         {/* Constituency Boundaries */}
         {geoData && (
           <GeoJSON
-           key={selected?.name || "national"}
+           key={`${selected?.name || "national"}-${view}`}
           ref={geoJsonRef}
             data={geoData}
             style={(feature) => {
@@ -848,19 +931,33 @@ layer.setStyle({
     }
   },
 
-  mouseout: (e) => {
-    const layer = e.target;
+mouseout: (e) => {
+  const layer = e.target;
 
-    const key = cleanName(
-      layer.feature.properties.ENG_NAME_VALUE
-    );
+  const key = cleanName(
+    layer.feature.properties.ENG_NAME_VALUE
+  );
 
-    const isSelected = selected?.name === key;
+  const isSelected = selected?.name === key;
 
-    if (!isSelected) {
-      geoJsonRef.current.resetStyle(layer);
-    }
-  },
+  if (!isSelected) {
+
+    const color = getColor(key);
+
+    layer.setStyle({
+      color: isSelected
+        ? "var(--map-outline-selected)"
+        : "var(--map-outline)",
+      weight: isSelected ? 4 : 1,
+      fillColor: color,
+      fillOpacity:
+        color === "transparent"
+          ? 0
+          : isSelected ? 1 : 0.5
+    });
+
+  }
+},
 
   click: (e) => {
     e.originalEvent.stopPropagation();

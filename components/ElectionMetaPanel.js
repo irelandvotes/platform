@@ -3,7 +3,10 @@
 export default function ElectionMetaPanel({ meta, showQuota = true }) {
   if (!meta) return null;
 
-  const turnoutPercent = meta.turnoutPercent || 0;
+  const turnoutPercent =
+  meta.electorate
+    ? (meta.turnout / meta.electorate) * 100
+    : 0;
 
   const validPercent =
     meta.turnout

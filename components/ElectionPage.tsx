@@ -550,6 +550,10 @@ const nationalMeta = (() => {
   };
 })();
 
+const constituencyMeta = selected
+  ? results?.[selected.name]?.counts?.[1]?.[0]
+  : null;
+
 /* CONSTITUENCY PARTY TOTALS + SWING */
 
 const constituencyParties = (() => {
@@ -1257,7 +1261,6 @@ Advanced
   height: "100%",
   padding: "20px",
   background: "var(--panel)",
-borderRight: "1px solid var(--border)",
   overflowY: "auto",
   transition: "opacity 0.2s ease"
 }}>
@@ -1626,7 +1629,9 @@ return (
 
 {/* INFO PANEL */}
 <div style={{ marginBottom: "14px" }}>
-  <ElectionMetaPanel meta={nationalMeta} />
+<ElectionMetaPanel
+meta={selected ? constituencyMeta : nationalMeta}
+/>
 </div>
 
 </>
@@ -3700,7 +3705,8 @@ Eliminated
       <div style={{
   width: "35%",
   height: "100%",
-  position: "relative"
+  position: "relative",
+  background: "var(--panel)"
 }}>
 
 {/* MAP TOGGLE */}
