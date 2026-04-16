@@ -248,6 +248,7 @@ export default function Map({
   const geoJsonRef = useRef();
   const mapRef = useRef(null);
   const [previousResults, setPreviousResults] = useState([]);
+  const [containerWidth, setContainerWidth] = useState(0);
 
   const country = election?.country || "ireland";
   const type = election?.type || "dail";
@@ -257,17 +258,19 @@ export default function Map({
 
 const [isDark, setIsDark] = useState(true);
 
-const [isLaptop, setIsLaptop] = useState(false);
-
 useEffect(() => {
-  const check = () => {
-    setIsLaptop(window.innerWidth < 1200);
+  if (!containerRef.current) return;
+
+  const updateSize = () => {
+    setContainerWidth(containerRef.current.offsetWidth);
   };
 
-  check();
-  window.addEventListener("resize", check);
+  updateSize();
 
-  return () => window.removeEventListener("resize", check);
+  const observer = new ResizeObserver(updateSize);
+  observer.observe(containerRef.current);
+
+  return () => observer.disconnect();
 }, []);
 
 useEffect(() => {
@@ -807,12 +810,22 @@ useEffect(() => {
   setIsClient(true);
 }, []);
 
+// 👇 ADD THIS EXACTLY HERE
+let dynamicZoom = 6.5;
+
+if (containerWidth < 500) dynamicZoom = 6.0;
+else if (containerWidth < 700) dynamicZoom = 6.2;
+else dynamicZoom = 6.5;
+
   /* =============================
      Map Render
   ============================= */
 
+const containerRef = useRef(null);
+
 return (
   <div
+    ref={containerRef}
     key={`${country}-${type}-${year}`}
     style={{
       position: "relative",
@@ -834,8 +847,8 @@ return (
     }, 0);
   }}
   center={[53.5, -8]}
-zoom={isLaptop ? 6.2 : 6.5}
-minZoom={isLaptop ? 6.2 : 6.5}
+  zoom={dynamicZoom}
+  minZoom={dynamicZoom}
   zoomControl={false}
   maxBounds={[
     [51.2, -11.5],  // Southwest Ireland
@@ -871,14 +884,13 @@ minZoom={isLaptop ? 6.2 : 6.5}
 {/* IRELAND MASK */}
 {geoData && (
 <GeoJSON
-  data={geoData}
-  style={{
-    fillColor: isDark ? "#1f1f1f" : "#f8f8f8",
-    fillOpacity: 1,
-    color: isDark ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.2)",
-    weight: 1.5,
-    interactive: false
-  }}
+data={geoData}
+style={{
+fillColor: isDark ? "#1f1f1f" : "#f8f8f8",
+fillOpacity: 1,
+stroke: false,
+interactive: false
+}}
 />
 )}
 

@@ -1132,7 +1132,6 @@ return (
       flexDirection: "column",
       width: "100%",
       height: "100%",
-      minHeight: 0,
       overflow: "hidden"
     }}
   >
@@ -3703,12 +3702,11 @@ Eliminated
 {/* END OF LEFT PANEL */}
 
       {/* RIGHT MAP */}
-<div style={{
+      <div style={{
   width: "35%",
   height: "100%",
   position: "relative",
-  background: "var(--panel)",
-  minHeight: 0
+  background: "var(--panel)"
 }}>
 
 {/* MAP TOGGLE */}
