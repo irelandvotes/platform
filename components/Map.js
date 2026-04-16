@@ -811,11 +811,11 @@ useEffect(() => {
 }, []);
 
 // 👇 ADD THIS EXACTLY HERE
-let dynamicZoom = 6.5;
+let dynamicZoom = 6.8;
 
-if (containerWidth < 500) dynamicZoom = 6.0;
-else if (containerWidth < 700) dynamicZoom = 6.2;
-else dynamicZoom = 6.5;
+if (containerWidth < 500) dynamicZoom = 6.5;
+else if (containerWidth < 700) dynamicZoom = 6.7;
+else dynamicZoom = 6.8;
 
   /* =============================
      Map Render
