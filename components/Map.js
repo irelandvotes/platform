@@ -257,6 +257,19 @@ export default function Map({
 
 const [isDark, setIsDark] = useState(true);
 
+const [isLaptop, setIsLaptop] = useState(false);
+
+useEffect(() => {
+  const check = () => {
+    setIsLaptop(window.innerWidth < 1200);
+  };
+
+  check();
+  window.addEventListener("resize", check);
+
+  return () => window.removeEventListener("resize", check);
+}, []);
+
 useEffect(() => {
   const panes = document.querySelectorAll(".leaflet-pane");
 
@@ -821,9 +834,8 @@ return (
     }, 0);
   }}
   center={[53.5, -8]}
-  zoom={6.5}
-  minZoom={6.5}
-  maxZoom={10}
+zoom={isLaptop ? 6.2 : 6.5}
+minZoom={isLaptop ? 6.2 : 6.5}
   zoomControl={false}
   maxBounds={[
     [51.2, -11.5],  // Southwest Ireland
@@ -859,13 +871,14 @@ return (
 {/* IRELAND MASK */}
 {geoData && (
 <GeoJSON
-data={geoData}
-style={{
-fillColor: isDark ? "#1f1f1f" : "#f8f8f8",
-fillOpacity: 1,
-stroke: false,
-interactive: false
-}}
+  data={geoData}
+  style={{
+    fillColor: isDark ? "#1f1f1f" : "#f8f8f8",
+    fillOpacity: 1,
+    color: isDark ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.2)",
+    weight: 1.5,
+    interactive: false
+  }}
 />
 )}
 
