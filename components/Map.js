@@ -248,7 +248,6 @@ export default function Map({
   const geoJsonRef = useRef();
   const mapRef = useRef(null);
   const [previousResults, setPreviousResults] = useState([]);
-  const [containerWidth, setContainerWidth] = useState(0);
 
   const country = election?.country || "ireland";
   const type = election?.type || "dail";
@@ -258,20 +257,47 @@ export default function Map({
 
 const [isDark, setIsDark] = useState(true);
 
-useEffect(() => {
-  if (!containerRef.current) return;
+function ResponsiveFit({ geoData }) {
+  const map = useMap();
 
-  const updateSize = () => {
-    setContainerWidth(containerRef.current.offsetWidth);
-  };
+  useEffect(() => {
+    if (!geoData) return;
 
-  updateSize();
+    const layer = L.geoJSON(geoData);
+    const bounds = layer.getBounds();
 
-  const observer = new ResizeObserver(updateSize);
-  observer.observe(containerRef.current);
+    let timeout;
 
-  return () => observer.disconnect();
-}, []);
+const fit = () => {
+  map.fitBounds(bounds, {
+    padding: [20, 20],
+    animate: true,
+    duration: 0.3
+  });
+};
+
+    // run once
+    fit();
+
+    const handleResize = () => {
+      clearTimeout(timeout);
+
+      // 👇 only run AFTER resize stops
+      timeout = setTimeout(() => {
+        fit();
+      }, 150); // tweak this (100–250ms sweet spot)
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(timeout);
+    };
+  }, [geoData, map]);
+
+  return null;
+}
 
 useEffect(() => {
   const panes = document.querySelectorAll(".leaflet-pane");
@@ -810,22 +836,12 @@ useEffect(() => {
   setIsClient(true);
 }, []);
 
-// 👇 ADD THIS EXACTLY HERE
-let dynamicZoom = 6.8;
-
-if (containerWidth < 500) dynamicZoom = 6.5;
-else if (containerWidth < 700) dynamicZoom = 6.7;
-else dynamicZoom = 6.8;
-
   /* =============================
      Map Render
   ============================= */
 
-const containerRef = useRef(null);
-
 return (
   <div
-    ref={containerRef}
     key={`${country}-${type}-${year}`}
     style={{
       position: "relative",
@@ -847,8 +863,8 @@ return (
     }, 0);
   }}
   center={[53.5, -8]}
-  zoom={dynamicZoom}
-  minZoom={dynamicZoom}
+ zoom={7}
+  maxZoom={10}
   zoomControl={false}
   maxBounds={[
     [51.2, -11.5],  // Southwest Ireland
@@ -863,6 +879,8 @@ return (
   scrollWheelZoom
   onClick={() => onSelect(null)}
 >
+
+<ResponsiveFit geoData={geoData} />
 
         <ResetOnTrigger resetTrigger={resetTrigger} />
 
