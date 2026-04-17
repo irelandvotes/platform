@@ -77,6 +77,11 @@ function parseConstituency(name) {
   };
 }
 
+function getIrelandBounds(geoData) {
+  const layer = L.geoJSON(geoData);
+  return layer.getBounds();
+}
+
 function ZoomControls() {
   const map = useMap();
 
@@ -144,7 +149,13 @@ function ResetButton({ onReset, geoJsonRef }) {
   return (
     <button
       onClick={() => {
-        map.setView([53.5, -8], 7.25);
+        const bounds = getIrelandBounds(window.geoData);
+
+map.fitBounds(bounds, {
+  padding: window.innerWidth < 1200 ? [20, 80] : [20, 40],
+  animate: true,
+  duration: 0.4
+});
         onReset?.();
       }}
 style={{
@@ -221,7 +232,13 @@ function ResetOnTrigger({ resetTrigger }) {
   useEffect(() => {
     if (!resetTrigger) return;
 
-    map.setView([53.5, -8], 7.25);
+const bounds = getIrelandBounds(window.geoData);
+
+map.fitBounds(bounds, {
+  padding: window.innerWidth < 1200 ? [20, 80] : [20, 40],
+  animate: true,
+  duration: 0.4
+});
   }, [resetTrigger, map]);
 
   return null;
@@ -257,35 +274,58 @@ export default function Map({
 
 const [isDark, setIsDark] = useState(true);
 
-function ResponsiveFit({ geoData }) {
+function ResponsiveFit({ geoData, selected }) {
   const map = useMap();
 
   useEffect(() => {
     if (!geoData) return;
+      if (selected) return; //
 
     const layer = L.geoJSON(geoData);
     const bounds = layer.getBounds();
 
     let timeout;
+    let lastSize = map.getSize();
 
-const fit = () => {
-  map.fitBounds(bounds, {
-    padding: [20, 20],
-    animate: true,
-    duration: 0.3
-  });
-};
+    const fit = () => {
+      const newSize = map.getSize();
 
-    // run once
+      const widthChange = Math.abs(newSize.x - lastSize.x);
+      const heightChange = Math.abs(newSize.y - lastSize.y);
+
+      const bigChange = widthChange > 80 || heightChange > 80;
+
+      const isNarrow = window.innerWidth < 1400;
+
+let padding;
+
+if (window.innerWidth > 1600) {
+  padding = [20, 20]; // desktop full
+} else if (window.innerWidth > 1200) {
+  padding = [20, 40]; // medium screens
+} else {
+  padding = [20, 80]; // small screens → force tighter zoom
+}
+
+      map.fitBounds(bounds, {
+        padding,
+        maxZoom: 7.8, // 👈 KEY FIX: prevents zooming too far out
+        animate: bigChange,
+        duration: bigChange ? 0.3 : 0
+      });
+
+      lastSize = newSize;
+    };
+
+    // initial fit
     fit();
 
     const handleResize = () => {
       clearTimeout(timeout);
 
-      // 👇 only run AFTER resize stops
       timeout = setTimeout(() => {
         fit();
-      }, 150); // tweak this (100–250ms sweet spot)
+      }, 150);
     };
 
     window.addEventListener("resize", handleResize);
@@ -351,7 +391,8 @@ useEffect(() => {
 
       window.seatMap = seatMap;
 
-      setGeoData(data);
+setGeoData(data);
+window.geoData = data; // 👈 add this
     });
 }, [dataPath]);
 
@@ -863,8 +904,11 @@ return (
     }, 0);
   }}
   center={[53.5, -8]}
- zoom={7}
+  zoom={7}
+  minZoom={6.5}
   maxZoom={10}
+  zoomSnap={0}       // 👈 allows fractional zoom (CRITICAL)
+  zoomDelta={0.25}   // 👈 smaller zoom steps
   zoomControl={false}
   maxBounds={[
     [51.2, -11.5],  // Southwest Ireland
@@ -880,7 +924,7 @@ return (
   onClick={() => onSelect(null)}
 >
 
-<ResponsiveFit geoData={geoData} />
+<ResponsiveFit geoData={geoData} selected={selected} />
 
         <ResetOnTrigger resetTrigger={resetTrigger} />
 
