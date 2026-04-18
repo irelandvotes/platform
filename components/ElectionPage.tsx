@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, Fragment } from "react";
 import ElectionMetaPanel from "./ElectionMetaPanel";
 import Map from "./Map";
+import MapViewToggle from "./MapViewToggle";
 import TransferFlow from "./TransferFlow";
 import {
   LineChart,
@@ -3717,72 +3718,20 @@ Eliminated
   style={{
     position: "absolute",
     top: "10px",
-    left: "50%",
-    transform: "translateX(-50%)",
+    right: "10px",
     zIndex: 1000
   }}
 >
-
-<div
-  style={{
-    position: "relative",
-    display: "flex",
-    background: "var(--panel-2)",
-    borderRadius: "10px",
-    padding: "2px",
-    border: "1px solid var(--border)",
-    width: "340px"
-  }}
->
-
-{/* Sliding Background */}
-<div
-  style={{
-    position: "absolute",
-    top: "3px",
-    left:
-      mapView === "party" ? "3px" :
-      mapView === "count" ? "calc(25% + 1px)" :
-      mapView === "turnout" ? "calc(50% + 1px)" :
-      "calc(75% + 1px)",
-    width: "calc(25% - 4px)",
-    height: "calc(100% - 6px)",
-    background: "var(--panel)",
-    borderRadius: "8px",
-    transition: "all 0.25s ease"
-  }}
+<MapViewToggle
+  value={mapView}
+  onChange={setMapView}
+  options={[
+    { label: "Party", value: "party" },
+    { label: "Poll-topper", value: "count" },
+    { label: "Turnout", value: "turnout" },
+    { label: "Spoilt", value: "spoilt" }
+  ]}
 />
-
-<button
-  onClick={() => setMapView("party")}
-  style={toggleStyle}
->
-Party
-</button>
-
-<button
-  onClick={() => setMapView("count")}
-  style={toggleStyle}
->
-Poll-topper
-</button>
-
-<button
-  onClick={() => setMapView("turnout")}
-  style={toggleStyle}
->
-Turnout
-</button>
-
-<button
-  onClick={() => setMapView("spoilt")}
-  style={toggleStyle}
->
-Spoilt
-</button>
-
-</div>
-
 </div>
 )}
 

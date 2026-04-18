@@ -61,6 +61,24 @@ function cleanName(name) {
   return name.replace(/\s*\(\d+\)/, "").trim();
 }
 
+function getTintedScale(hex, value, min, max) {
+  let t =
+    max > min
+      ? (value - min) / (max - min)
+      : 0.5;
+
+  t = Math.max(0, Math.min(1, t));
+
+  const rgb = hexToRgb(hex);
+  const light = [245, 245, 245];
+
+  const r = light[0] + (rgb[0] - light[0]) * t;
+  const g = light[1] + (rgb[1] - light[1]) * t;
+  const b = light[2] + (rgb[2] - light[2]) * t;
+
+  return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
+}
+
 function getReferendumMarginRange(results) {
   const margins = [];
 
@@ -138,6 +156,88 @@ function getReferendumColor(counts, range) {
   }
 
   return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
+}
+
+function getPresidentialMarginRange(results) {
+  const margins = [];
+
+  Object.values(results || {}).forEach((c) => {
+    const first = c?.counts?.[1];
+    if (!first || first.length < 2) return;
+
+    const sorted = [...first].sort((a, b) => b.votes - a.votes);
+
+    const winner = sorted[0];
+    const runner = sorted[1];
+
+    const total = first.reduce(
+      (sum, x) => sum + (x.votes || 0),
+      0
+    );
+
+    if (!total) return;
+
+    const margin =
+      (winner.votes - runner.votes) / total;
+
+    margins.push(margin);
+  });
+
+  if (!margins.length) return { min: 0, max: 1 };
+
+  return {
+    min: Math.min(...margins),
+    max: Math.max(...margins)
+  };
+}
+
+function getPresidentialColor(counts, range) {
+  const first = counts?.[1];
+  if (!first || first.length < 2) return "transparent";
+
+  const sorted = [...first].sort((a, b) => b.votes - a.votes);
+
+  const winner = sorted[0];
+  const runner = sorted[1];
+
+  const total = first.reduce(
+    (sum, c) => sum + (c.votes || 0),
+    0
+  );
+
+  if (!total) return "transparent";
+
+  const margin =
+    (winner.votes - runner.votes) / total;
+
+  const { min, max } = range;
+
+  let t = max > 0 ? margin / max : 0;
+
+  t = Math.max(0, Math.min(1, t));
+
+  const light = [245, 245, 245];
+
+  const hex =
+    PARTY_COLORS[winner.party] || "#777";
+
+  const rgb = hexToRgb(hex);
+
+  const r = light[0] + (rgb[0] - light[0]) * t;
+  const g = light[1] + (rgb[1] - light[1]) * t;
+  const b = light[2] + (rgb[2] - light[2]) * t;
+
+  return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
+}
+
+function hexToRgb(hex) {
+  const num = parseInt(hex.replace("#", ""), 16);
+
+  return [
+    (num >> 16) & 255,
+    (num >> 8) & 255,
+    num & 255
+  ];
 }
 
 function parseNumber(value) {
@@ -783,7 +883,9 @@ function getRanges(results) {
     turnoutMin: Math.min(...turnout),
     turnoutMax: Math.max(...turnout),
     spoiltMin: Math.min(...spoilt),
-    spoiltMax: Math.max(...spoilt)
+    spoiltMax: Math.max(...spoilt),
+    referendumMargin: getReferendumMarginRange(results),
+    presidentialMargin: getPresidentialMarginRange(results)
   };
 }
 
@@ -917,6 +1019,43 @@ function getTooltip(name, results, view, ranges) {
     `;
   }
 
+/* =============================
+   Margin
+============================= */
+
+if (view === "margin") {
+  const sorted = [...first].sort((a, b) => b.votes - a.votes);
+
+  const winner = sorted[0];
+  const runner = sorted[1];
+
+  if (!winner) return `<b>${name}</b>`;
+
+  const totalVotes = sorted.reduce(
+    (sum, c) => sum + c.votes,
+    0
+  );
+
+  const winnerPercent =
+    totalVotes
+      ? (winner.votes / totalVotes) * 100
+      : 0;
+
+  const runnerPercent =
+    runner && totalVotes
+      ? (runner.votes / totalVotes) * 100
+      : 0;
+
+  const margin = winnerPercent - runnerPercent;
+
+  return `
+    <b>${name}</b><br/>
+    Margin<br/>
+    ${winner.party || winner.name}<br/>
+    +${margin.toFixed(1)}%
+  `;
+}
+
   return `<b>${name}</b>`;
 }
 
@@ -974,7 +1113,80 @@ function getColor(name) {
   const counts = constituency.counts;
 
 if (type?.startsWith("referendum")) {
-  return getReferendumColor(counts, marginRange);
+  if (view === "margin") {
+    return getReferendumColor(counts, marginRange);
+  }
+
+if (type?.startsWith("president")) {
+
+  if (view === "margin") {
+    return getPresidentialColor(
+      counts,
+      ranges.presidentialMargin
+    );
+  }
+
+}
+
+if (view === "party") {
+  const first = counts[1];
+  if (!first?.length) return "transparent";
+
+  let yesVotes = 0;
+  let noVotes = 0;
+
+  first.forEach((c) => {
+    if (c.party === "Yes") yesVotes += c.votes || 0;
+    if (c.party === "No") noVotes += c.votes || 0;
+  });
+
+  return yesVotes >= noVotes
+    ? PARTY_COLORS["Yes"]
+    : PARTY_COLORS["No"];
+}
+
+if (view === "turnout") {
+  const first = counts[1]?.[0];
+  if (!first) return "transparent";
+
+  const percent =
+    first.turnout / first.electorate;
+
+  return getTintedScale(
+    "#4caf50",
+    percent,
+    ranges.turnoutMin,
+    ranges.turnoutMax
+  );
+}
+
+if (view === "spoilt") {
+  const first = counts[1]?.[0];
+  if (!first) return "transparent";
+
+  const percent =
+    first.spoilt / first.turnout;
+
+  return getTintedScale(
+    "#ff5252",
+    percent,
+    ranges.spoiltMin,
+    ranges.spoiltMax
+  );
+}
+
+  return "transparent";
+}
+
+if (type?.startsWith("president")) {
+
+  if (view === "margin") {
+    return getPresidentialColor(
+      counts,
+      ranges.presidentialMargin
+    );
+  }
+
 }
 
   // NATIONAL VIEW
@@ -1009,7 +1221,38 @@ if (type?.startsWith("referendum")) {
       return PARTY_COLORS[leader?.party] || "transparent";
     }
 
-// Turnout
+if (view === "margin" && type?.startsWith("president")) {
+  const first = counts[1];
+  if (!first?.length) return "transparent";
+
+  const sorted = [...first].sort((a, b) => b.votes - a.votes);
+
+  const winner = sorted[0];
+  const runner = sorted[1];
+
+  if (!winner) return "transparent";
+
+  const totalVotes = sorted.reduce((sum, c) => sum + c.votes, 0);
+
+  const margin =
+    totalVotes && runner
+      ? (winner.votes - runner.votes) / totalVotes
+      : 1;
+
+const base =
+  PARTY_COLORS[winner.party] || "#666";
+
+const rgb = hexToRgb(base);
+
+const light = [245, 245, 245];
+
+const r = light[0] + (rgb[0] - light[0]) * t;
+const g = light[1] + (rgb[1] - light[1]) * t;
+const b = light[2] + (rgb[2] - light[2]) * t;
+
+return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
+}
+
 if (view === "turnout") {
   const first = counts[1]?.[0];
   if (!first) return "transparent";
@@ -1017,14 +1260,14 @@ if (view === "turnout") {
   const percent =
     first.turnout / first.electorate;
 
-  return getGreyScale(
+  return getTintedScale(
+    "#4caf50",
     percent,
     ranges.turnoutMin,
     ranges.turnoutMax
   );
 }
 
-// Spoilt
 if (view === "spoilt") {
   const first = counts[1]?.[0];
   if (!first) return "transparent";
@@ -1032,7 +1275,8 @@ if (view === "spoilt") {
   const percent =
     first.spoilt / first.turnout;
 
-  return getGreyScale(
+  return getTintedScale(
+    "#ff5252",
     percent,
     ranges.spoiltMin,
     ranges.spoiltMax

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, Fragment } from "react";
 import ElectionMetaPanel from "./ElectionMetaPanel";
 import dynamic from "next/dynamic";
+import MapViewToggle from "./MapViewToggle";
 
 const Map = dynamic(
   () => import("@/components/Map"),
@@ -183,7 +184,7 @@ const [view, setView] = useState<string>("count");
 const [analysis, setAnalysis] = useState<string>("basic");
 
 const [previousResults, setPreviousResults] = useState<any>({});
-
+const [mapView, setMapView] = useState<string>("party");
 const [projection, setProjection] = useState<any>(null);
 
 /* RESET COUNT WHEN CONSTITUENCY CHANGES */
@@ -2280,6 +2281,29 @@ onError={(e) => {
   background: "var(--panel)"
 }}>
 
+{/* MAP TOGGLE */}
+{!selected && (
+<div
+  style={{
+    position: "absolute",
+    top: "10px",
+    right: "10px",
+    zIndex: 1000
+  }}
+>
+<MapViewToggle
+  value={mapView}
+  onChange={setMapView}
+  options={[
+    { label: "Winner", value: "party" },
+    { label: "Margin", value: "margin" },
+    { label: "Turnout", value: "turnout" },
+    { label: "Spoilt", value: "spoilt" }
+  ]}
+/>
+</div>
+)}
+
 <Map
 key="election_map"
   election={{
@@ -2288,7 +2312,7 @@ key="election_map"
     year
   }}
   selected={selected}
-  view="count"
+  view={mapView}
   onSelect={setSelected}
   onLoadTotal={setTotal}
   onLoadList={setList}
