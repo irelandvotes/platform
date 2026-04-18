@@ -24,6 +24,7 @@ const [total, setTotal] = useState<any>(null);
 const [previousResults, setPreviousResults] = useState<any>({});
 const [sceneIndex, setSceneIndex] = useState<number>(0);
 const [onComplete, setOnComplete] = useState<any>(null);
+const [projection, setProjection] = useState<any>(null);
 
 
 /* ===============================
@@ -147,6 +148,7 @@ results={results}
 onSelect={() => {}}
 resetTrigger={0}
 count={1}
+onLoadProjection={setProjection}
 />
 </div>
 
