@@ -175,6 +175,8 @@ const [analysis, setAnalysis] = useState<string>("basic");
 
 const [previousResults, setPreviousResults] = useState<any>({});
 
+const [projection, setProjection] = useState<any>(null);
+
 /* RESET COUNT WHEN CONSTITUENCY CHANGES */
 useEffect(() => {
   setCount(1);
@@ -3800,6 +3802,7 @@ Spoilt
   results={results}
   count={count}
   onLoadPreviousResults={setPreviousResults}
+  onLoadProjection={setProjection}
 />
       </div>
 
