@@ -16,7 +16,9 @@ const PARTY_COLORS = {
   IFP: "#0b5a1c",
   INDIRL: "#9be736",
   IND: "#7a7a7a",
-  IPP: "#0e9775"
+  IPP: "#0e9775",
+  Yes: "#0a1f94",
+  No: "#d4950d"
 };
 
 /* =============================
@@ -57,6 +59,185 @@ const GeoJSON = dynamic(
 function cleanName(name) {
   if (!name) return "";
   return name.replace(/\s*\(\d+\)/, "").trim();
+}
+
+function getReferendumMarginRange(results) {
+  const margins = [];
+
+  Object.values(results || {}).forEach((c) => {
+    const first = c?.counts?.[1];
+    if (!first) return;
+
+    const yes = first.find(x => x.party === "Yes")?.votes || 0;
+    const no = first.find(x => x.party === "No")?.votes || 0;
+
+    const total = yes + no;
+    if (!total) return;
+
+    const margin = (yes - no) / total;
+    margins.push(margin);
+  });
+
+  if (!margins.length) return { min: -1, max: 1 };
+
+  return {
+    min: Math.min(...margins),
+    max: Math.max(...margins)
+  };
+}
+
+function getReferendumColor(counts, range) {
+  const first = counts?.[1];
+  if (!first || first.length < 2) return "transparent";
+
+  const yes = first.find(c => c.party === "Yes")?.votes || 0;
+  const no = first.find(c => c.party === "No")?.votes || 0;
+
+  const total = yes + no;
+  if (!total) return "transparent";
+
+  const margin = (yes - no) / total;
+
+  // =============================
+  // NORMALISE WITHIN DATA RANGE
+  // =============================
+  const { min, max } = range;
+
+  let t = 0.5;
+
+  if (margin >= 0) {
+    // Yes side
+    t = max > 0 ? margin / max : 0;
+  } else {
+    // No side
+    t = min < 0 ? margin / min : 0;
+  }
+
+  // Clamp 0 → 1
+  t = Math.max(0, Math.min(1, Math.abs(t)));
+
+  // =============================
+  // COLOUR SCALE
+  // =============================
+  const blue = [0, 90, 255];
+  const gold = [255, 170, 0];
+  const light = [245, 245, 245];
+
+  let r, g, b;
+
+  if (margin >= 0) {
+    // Yes → light → blue
+    r = light[0] + (blue[0] - light[0]) * t;
+    g = light[1] + (blue[1] - light[1]) * t;
+    b = light[2] + (blue[2] - light[2]) * t;
+  } else {
+    // No → light → gold
+    r = light[0] + (gold[0] - light[0]) * t;
+    g = light[1] + (gold[1] - light[1]) * t;
+    b = light[2] + (gold[2] - light[2]) * t;
+  }
+
+  return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
+}
+
+function parseNumber(value) {
+  if (!value) return 0;
+  return Number(String(value).replace(/,/g, ""));
+}
+
+function ReferendumLegend({ range }) {
+  if (!range) return null;
+
+  const { min, max } = range;
+
+  // 👉 detect what actually exists in data
+  const hasYes = max > 0;
+  const hasNo = min < 0;
+
+  const format = (v) => `${(v * 100).toFixed(0)}%`;
+
+  // 👉 dynamic gradient
+  let gradient;
+
+  if (hasYes && hasNo) {
+    gradient =
+      "linear-gradient(to right, rgb(255,170,0), rgb(245,245,245), rgb(0,90,255))";
+  } else if (hasNo) {
+    gradient =
+      "linear-gradient(to right, rgb(255,170,0), rgb(245,245,245))";
+  } else {
+    gradient =
+      "linear-gradient(to right, rgb(245,245,245), rgb(0,90,255))";
+  }
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        bottom: "20px",
+        right: "20px",
+        zIndex: 1000,
+        padding: "10px 12px",
+        background: "var(--panel)",
+        border: "1px solid var(--border)",
+        borderRadius: "10px",
+        fontSize: "11px",
+        color: "var(--text)",
+        width: "200px"
+      }}
+    >
+
+      {/* TITLE */}
+      <div style={{ marginBottom: "6px", fontWeight: 600 }}>
+        {hasYes && hasNo
+          ? "Margin"
+          : hasNo
+          ? "No Majority"
+          : "Yes Majority"}
+      </div>
+
+      {/* GRADIENT */}
+      <div
+        style={{
+          height: "10px",
+          borderRadius: "6px",
+          marginBottom: "6px",
+          background: gradient
+        }}
+      />
+
+      {/* VALUE LABELS */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          fontSize: "10px",
+          opacity: 0.8
+        }}
+      >
+        {hasNo && <span>{format(min)}</span>}
+
+        {hasYes && hasNo && <span>0%</span>}
+
+        {hasYes && <span>{format(max)}</span>}
+      </div>
+
+      {/* SIDE LABELS */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: "4px",
+          fontSize: "10px",
+          opacity: 0.6
+        }}
+      >
+        {hasNo && <span>No</span>}
+        {hasYes && <span style={{ marginLeft: "auto" }}>Yes</span>}
+      </div>
+
+    </div>
+  );
 }
 
 function parseConstituency(name) {
@@ -259,7 +440,8 @@ export default function Map({
   resetTrigger,
   results,
   count,
-  onLoadPreviousResults
+  onLoadPreviousResults,
+  onLoadProjection
 }) {
   const [geoData, setGeoData] = useState(null);
   const geoJsonRef = useRef();
@@ -401,6 +583,22 @@ window.geoData = data; // 👈 add this
      Load Election CSV Data
   ============================= */
 
+useEffect(() => {
+  fetch(`${dataPath}/projection.json`)
+    .then((res) => res.json())
+    .then((data) => {
+      if (onLoadProjection) {
+        onLoadProjection(data);
+      }
+    })
+    .catch(() => {
+      // fail silently if no projection exists
+      if (onLoadProjection) {
+        onLoadProjection(null);
+      }
+    });
+}, [dataPath]);
+
   useEffect(() => {
     fetch(`${dataPath}/election_data.csv`)
       .then((res) => res.text())
@@ -444,20 +642,23 @@ if (constituency && seats) {
   grouped[constituency].seats = Number(row.seats);
 }
 
-          grouped[constituency].counts[count].push({
-            id: `${name}-${row.party}-${count}`,
-            name,
-            party: row.party,
-            votes: Number(row.votes) || 0,
-            status: row.status?.toLowerCase() || "running",
-            incumbent: row.incumbent === "TRUE",
-            seats: Number(row.seats),
-            quota: Number(row.quota),
-            electorate: Number(row.electorate),
-            turnout: Number(row.turnout),
-            tvp: Number(row.tvp),
-            spoilt: Number(row.spoilt),
-          });
+grouped[constituency].counts[count].push({
+  id: `${name}-${row.party}-${count}`,
+  name,
+  party: row.party,
+
+  votes: parseNumber(row.votes),
+
+  status: row.status?.toLowerCase() || "running",
+  incumbent: row.incumbent === "TRUE",
+
+  seats: parseNumber(row.seats),
+  quota: parseNumber(row.quota),
+  electorate: parseNumber(row.electorate),
+  turnout: parseNumber(row.turnout),
+  tvp: parseNumber(row.tvp),
+  spoilt: parseNumber(row.spoilt),
+});
         });
 
         console.log("GROUPED:", grouped);
@@ -557,6 +758,8 @@ function getGreyScale(value, min, max) {
 /* =============================
    Turnout / Spoilt Ranges
 ============================= */
+
+const marginRange = getReferendumMarginRange(results);
 
 function getRanges(results) {
   const turnout = [];
@@ -770,6 +973,10 @@ function getColor(name) {
 
   const counts = constituency.counts;
 
+if (type?.startsWith("referendum")) {
+  return getReferendumColor(counts, marginRange);
+}
+
   // NATIONAL VIEW
   if (!selected) {
 
@@ -891,6 +1098,7 @@ return (
       background: isDark ? "#1f1f1f" : "#f8f8f8"
     }}
   >
+    
 <MapContainer
   whenCreated={(map) => {
     if (mapRef.current) {
@@ -1060,6 +1268,10 @@ mouseout: (e) => {
 }}
           />
         )}
+
+{type?.startsWith("referendum") && (
+  <ReferendumLegend range={marginRange} />
+)}
 
       </MapContainer>
     </div>

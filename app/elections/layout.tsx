@@ -37,6 +37,14 @@ href: "/elections/ireland/dail/2024"
 {
 label: "Dáil Éireann 2020",
 href: "/elections/ireland/dail/2020"
+},
+{
+label: "40th Amendment Referendum",
+href: "/elections/ireland/referendums/40th"
+},
+{
+label: "39th Amendment Referendum",
+href: "/elections/ireland/referendums/39th"
 }
 ];
 

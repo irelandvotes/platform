@@ -31,7 +31,9 @@ import {
   IFP: "#0b5a1c",
   INDIRL: "#9be736",
   IND: "#7a7a7a",
-  IPP: "#0e9775"
+  IPP: "#0e9775",
+  Yes: "#0a1f94",
+  No: "#d4950d"
 };
 
 function AnimatedNumber({
@@ -150,7 +152,7 @@ quotaPercent: number; showSurplus: any; party: number;  status: number; justElim
   );
 }
 
-export default function PresidentialElectionPage({
+export default function ReferendumPage({
   title,
   year,
   country,
@@ -315,7 +317,7 @@ function getCandidateImage(name: any) {
     .replace(/\./g, "")
     .replace(/\s+/g, "-");
 
-  return `/candidates/ireland-president-2025/${slug}.jpg`;
+  return `/candidates/ireland-referendums/${slug}.png`;
 }
 
 const current: any = selected
@@ -1470,16 +1472,6 @@ onError={(e) => {
 </div>
 )}
 
-{/* PARTY + COUNT */}
-<div
-  style={{
-    fontSize: "13px",
-    opacity: 0.9
-  }}
->
-{c.party} • Count {c.electedOn}
-</div>
-
 {/* PROJECTION */}
 {projection && (
 <div
@@ -1635,75 +1627,6 @@ onError={(e) => {
     marginBottom: "14px"
   }}
 >
-
-{/* Count Controls */}
-{view === "count" && (
-<div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    gap: "8px"
-  }}
->
-
-<button
-  disabled={count === 1}
-  onClick={() => setCount(count - 1)}
-  style={{
-    padding: "6px 10px",
-    borderRadius: "8px",
-    border: "1px solid var(--border)",
-    background: "transparent",
-    color: "var(--text)",
-    opacity: count === 1 ? 0.3 : 1
-  }}
->
-  ‹
-</button>
-
-<div
-  style={{
-    padding: "6px 12px",
-    borderRadius: "8px",
-    border: "1px solid var(--border)",
-    background: "var(--panel-2)",
-    fontWeight: "600"
-  }}
->
-  Count {count}
-</div>
-
-<button
-  disabled={count === latestCount}
-  onClick={() => setCount(count + 1)}
-  style={{
-    padding: "6px 10px",
-    borderRadius: "8px",
-    border: "1px solid var(--border)",
-    background: "transparent",
-    color: "var(--text)",
-    opacity: count === latestCount ? 0.3 : 1
-  }}
->
-  ›
-</button>
-
-<button
-  onClick={() => setCount(latestCount)}
-  style={{
-    padding: "6px 10px",
-    borderRadius: "8px",
-    border: "1px solid var(--border)",
-    background: count === latestCount ? "var(--panel-2)" : "transparent",
-    color: "var(--text)",
-    fontSize: "12px"
-  }}
->
-  Jump to Latest
-</button>
-
-</div>
-)}
 
 </div>
 
@@ -2250,7 +2173,7 @@ onError={(e) => {
   <div
   style={{
   fontWeight: "600",
-  fontSize: "13px",
+  fontSize: "20px",
   whiteSpace: "nowrap",
   overflow: "hidden",
   textOverflow: "ellipsis"
@@ -2273,16 +2196,7 @@ onError={(e) => {
   )}
   
   </div>
-  
-  {/* PARTY */}
-  <div
-  style={{
-  fontSize: "11px",
-  color: "var(--text-subtle)"
-  }}
-  >
-  {c.party}
-  </div>
+
   
   </div>
   
