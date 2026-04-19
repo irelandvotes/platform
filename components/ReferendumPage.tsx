@@ -184,7 +184,7 @@ const [view, setView] = useState<string>("count");
 const [analysis, setAnalysis] = useState<string>("basic");
 
 const [previousResults, setPreviousResults] = useState<any>({});
-const [mapView, setMapView] = useState<string>("party");
+const [mapView, setMapView] = useState<string>("winner");
 const [projection, setProjection] = useState<any>(null);
 
 /* RESET COUNT WHEN CONSTITUENCY CHANGES */
@@ -2295,7 +2295,7 @@ onError={(e) => {
   value={mapView}
   onChange={setMapView}
   options={[
-    { label: "Winner", value: "party" },
+    { label: "Winner", value: "winner" },
     { label: "Margin", value: "margin" },
     { label: "Turnout", value: "turnout" },
     { label: "Spoilt", value: "spoilt" }

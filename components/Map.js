@@ -31,6 +31,8 @@ import Papa from "papaparse";
 import "leaflet/dist/leaflet.css";
 import { useMap } from "react-leaflet";
 import "./map.css";
+import { renderToString } from "react-dom/server";
+import MapTooltip from "./MapTooltip";
 
 /* =============================
    Dynamic Leaflet Imports (Next.js SSR Safe)
@@ -906,7 +908,7 @@ function getTooltip(name, results, view, ranges) {
      Largest Party
   ============================= */
 
-  if (view === "party") {
+ if (view === "party" || view === "winner") {
     const partyTotals = {};
 
     first.forEach((c) => {
@@ -1071,15 +1073,22 @@ useEffect(() => {
       layer.feature.properties.ENG_NAME_VALUE
     );
 
-    layer.bindTooltip(
-      getTooltip(key, results, view, ranges),
-      {
-        sticky: true,
-        direction: "top",
-        opacity: 0.95,
-        className: "map-tooltip"
-      }
-    );
+layer.bindTooltip(
+  renderToString(
+    <MapTooltip
+      name={key}
+      constituency={results?.[key]}
+      view={view}
+      count={count}
+    />
+  ),
+  {
+    sticky: true,
+    direction: "top",
+    opacity: 0.98,
+    className: "map-tooltip"
+  }
+);
   });
 
 }, [view, results]);
@@ -1128,7 +1137,7 @@ if (type?.startsWith("president")) {
 
 }
 
-if (view === "party") {
+if (view === "party" || view === "winner") {
   const first = counts[1];
   if (!first?.length) return "transparent";
 
@@ -1193,7 +1202,7 @@ if (type?.startsWith("president")) {
   if (!selected) {
 
     // Largest Party
-    if (view === "party") {
+    if (view === "party" || view === "winner") {
       const first = counts[1];
       if (!first?.length) return "transparent";
 
@@ -1287,7 +1296,7 @@ if (view === "spoilt") {
 
   // CONSTITUENCY VIEW
 
-  if (view === "party") {
+  if (view === "party" || view === "winner") {
     const first = counts[1];
     if (!first?.length) return "transparent";
 
@@ -1451,64 +1460,78 @@ onEachFeature={(feature, layer) => {
     feature.properties.ENG_NAME_VALUE
   );
 
-layer.on({
-  mouseover: (e) => {
-    const layer = e.target;
+  layer.on({
+    mouseover: (e) => {
+      const hoveredLayer = e.target;
 
-    const key = cleanName(
-      layer.feature.properties.ENG_NAME_VALUE
-    );
+      const hoveredKey = cleanName(
+        hoveredLayer.feature.properties.ENG_NAME_VALUE
+      );
 
-    const isSelected = selected?.name === key;
+      geoJsonRef.current.eachLayer((l) => {
+        const layerKey = cleanName(
+          l.feature.properties.ENG_NAME_VALUE
+        );
 
-    if (!isSelected) {
-layer.setStyle({
-  weight: 2,
-  color: "var(--map-outline-hover)",
-  fillOpacity: isDark ? 0.75 : 0.65
-});
-    }
-  },
+        if (layerKey === hoveredKey) {
+          const isSelected =
+            selected?.name === layerKey;
 
-mouseout: (e) => {
-  const layer = e.target;
-
-  const key = cleanName(
-    layer.feature.properties.ENG_NAME_VALUE
-  );
-
-  const isSelected = selected?.name === key;
-
-  if (!isSelected) {
-
-    const color = getColor(key);
-
-    layer.setStyle({
-      color: isSelected
-        ? "var(--map-outline-selected)"
-        : "var(--map-outline)",
-      weight: isSelected ? 4 : 1,
-      fillColor: color,
-      fillOpacity:
-        color === "transparent"
-          ? 0
-          : isSelected ? 1 : 0.5
-    });
-
-  }
-},
-
-  click: (e) => {
-    e.originalEvent.stopPropagation();
-
-    setTimeout(() => {
-      onSelect({
-        name: key,
-        data: undefined,
+          if (!isSelected) {
+            l.setStyle({
+              weight: 2,
+              color: "var(--map-outline-hover)",
+              fillOpacity: isDark ? 0.75 : 0.65
+            });
+          }
+        }
       });
-    }, 100);
-  },
-});
+    },
+
+    mouseout: (e) => {
+      const hoveredLayer = e.target;
+
+      const hoveredKey = cleanName(
+        hoveredLayer.feature.properties.ENG_NAME_VALUE
+      );
+
+      geoJsonRef.current.eachLayer((l) => {
+        const layerKey = cleanName(
+          l.feature.properties.ENG_NAME_VALUE
+        );
+
+        if (layerKey === hoveredKey) {
+          const isSelected =
+            selected?.name === layerKey;
+
+          if (!isSelected) {
+            const color = getColor(layerKey);
+
+            l.setStyle({
+              color: "var(--map-outline)",
+              weight: 1,
+              fillColor: color,
+              fillOpacity:
+                color === "transparent"
+                  ? 0
+                  : 0.5
+            });
+          }
+        }
+      });
+    },
+
+    click: (e) => {
+      e.originalEvent.stopPropagation();
+
+      setTimeout(() => {
+        onSelect({
+          name: key,
+          data: undefined
+        });
+      }, 100);
+    }
+  });
 }}
           />
         )}

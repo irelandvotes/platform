@@ -304,3 +304,16 @@ body {
   background: var(--panel) !important;
   color: var(--text) !important;
 }
+
+.map-tooltip {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: inherit !important;
+}
+
+.map-tooltip::before {
+  display: none !important;
+}
