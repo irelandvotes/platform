@@ -3,12 +3,36 @@
 import fs from "fs";
 import path from "path";
 
+function parseCSVLine(line: string) {
+  const matches =
+    line.match(
+      /(".*?"|[^",]+)(?=\s*,|\s*$)/g
+    ) || [];
+
+  return matches.map((value) =>
+    value
+      .replace(/^"|"$/g, "")
+      .replace(/,/g, "")
+      .trim()
+  );
+}
+
 export type ElectionRow = {
   date: string;
   area: string;
   institution: string;
   type: string;
   href: string;
+  preview?: {
+    leaders: {
+      name: string;
+      percent: string;
+    }[];
+    seatLeaders: {
+      name: string;
+      value: number;
+    }[];
+  } | null;
 };
 
 type ElectionFolder = {
@@ -44,7 +68,7 @@ function parseUniqueAreas(
   filePath: string
 ): string[] {
   if (!fs.existsSync(filePath)) {
-    return ["National"];
+    return [];
   }
 
   const raw = fs.readFileSync(
@@ -57,11 +81,11 @@ function parseUniqueAreas(
     .filter(Boolean);
 
   if (lines.length < 2) {
-    return ["National"];
+    return [];
   }
 
   const headers =
-    lines[0].split(",");
+    parseCSVLine(lines[0]);
 
   const constituencyIndex =
     headers.findIndex(
@@ -73,14 +97,14 @@ function parseUniqueAreas(
     );
 
   if (constituencyIndex === -1) {
-    return ["National"];
+    return [];
   }
 
   const areas = new Set<string>();
 
   for (let i = 1; i < lines.length; i++) {
     const cols =
-      lines[i].split(",");
+      parseCSVLine(lines[i]);
 
     const area =
       cols[
@@ -92,15 +116,231 @@ function parseUniqueAreas(
     }
   }
 
-  const list = Array.from(
+  return Array.from(
     areas
   ).sort((a, b) =>
     a.localeCompare(b)
   );
+}
 
-  return list.length
-    ? list
-    : ["National"];
+/* ===================================
+   PREVIEW DATA
+=================================== */
+
+function buildPreview(
+  filePath: string,
+  area: string
+) {
+  if (!fs.existsSync(filePath)) {
+    return null;
+  }
+
+  const raw = fs.readFileSync(
+    filePath,
+    "utf8"
+  );
+
+  const lines = raw
+    .split(/\r?\n/)
+    .filter(Boolean);
+
+  if (lines.length < 2) {
+    return null;
+  }
+
+  const headers =
+    parseCSVLine(lines[0]);
+
+  const index = (
+    name: string
+  ) =>
+    headers.findIndex(
+      (h) =>
+        h
+          .trim()
+          .toLowerCase() === name
+    );
+
+  const constituencyIndex =
+    index("constituency");
+  const countIndex =
+    index("count");
+  const partyIndex =
+    index("party");
+  const candidateIndex =
+    index("candidate");
+  const votesIndex =
+    index("votes");
+  const statusIndex =
+    index("status");
+
+  const data = lines
+    .slice(1)
+    .map((line) =>
+      parseCSVLine(line)
+    );
+
+  const relevant =
+    area === "National"
+      ? data
+      : data.filter(
+          (row) =>
+            row[
+              constituencyIndex
+            ]?.trim() === area
+        );
+
+  if (!relevant.length) {
+    return null;
+  }
+
+  /* -------------------
+     Vote Share
+  ------------------- */
+
+  const firstCount =
+    countIndex === -1
+      ? relevant
+      : relevant.filter(
+          (row) =>
+            row[countIndex] === "1"
+        );
+
+  const totals: Record<
+    string,
+    number
+  > = {};
+
+  firstCount.forEach((row) => {
+    const party =
+      row[
+        partyIndex
+      ]?.trim();
+
+    const candidate =
+      row[
+        candidateIndex
+      ]?.trim();
+
+    const fallback =
+      row.find(
+        (cell) =>
+          cell?.trim() &&
+          cell.trim() !== "1"
+      ) || "Other";
+
+    const key =
+      party ||
+      candidate ||
+      fallback;
+
+    const votes = Number(
+      row[votesIndex] || 0
+    );
+
+    totals[key] =
+      (totals[key] || 0) +
+      votes;
+  });
+
+  const totalVotes =
+    Object.values(totals).reduce(
+      (a, b) => a + b,
+      0
+    );
+
+  const leaders = Object.entries(
+    totals
+  )
+    .map(
+      ([name, votes]) => ({
+        name,
+        percent:
+          totalVotes > 0
+            ? (
+                (votes /
+                  totalVotes) *
+                100
+              ).toFixed(1)
+            : "0.0"
+      })
+    )
+    .sort(
+      (a, b) =>
+        Number(b.percent) -
+        Number(a.percent)
+    );
+
+  /* -------------------
+     Seats by Party
+  ------------------- */
+
+  const seatMap: Record<
+    string,
+    number
+  > = {};
+
+  const electedSeen =
+    new Set<string>();
+
+  relevant.forEach((row) => {
+    if (
+      statusIndex === -1 ||
+      row[
+        statusIndex
+      ] !== "elected"
+    ) {
+      return;
+    }
+
+    const candidate =
+      row[
+        candidateIndex
+      ] || "";
+
+    const party =
+      row[
+        partyIndex
+      ] || "Other";
+
+    const key =
+      candidate +
+      "|" +
+      party;
+
+    if (
+      electedSeen.has(key)
+    ) {
+      return;
+    }
+
+    electedSeen.add(key);
+
+    seatMap[party] =
+      (seatMap[party] || 0) +
+      1;
+  });
+
+  const seatLeaders =
+    Object.entries(
+      seatMap
+    )
+      .map(
+        ([name, value]) => ({
+          name,
+          value
+        })
+      )
+      .sort(
+        (a, b) =>
+          b.value -
+          a.value
+      );
+
+  return {
+    leaders,
+    seatLeaders
+  };
 }
 
 /* ===================================
@@ -112,7 +352,10 @@ function getDate(slug: string) {
     return slug;
   }
 
-  const knownDates: Record<string, string> = {
+  const knownDates: Record<
+    string,
+    string
+  > = {
     "39th": "2024",
     "40th": "2024"
   };
@@ -125,19 +368,35 @@ function getInstitution(
   category: string,
   slug: string
 ) {
-  if (country === "ireland" && category === "dail") {
+  if (
+    country === "ireland" &&
+    category === "dail"
+  ) {
     return "Dáil Éireann";
   }
 
-  if (country === "ireland" && category === "president") {
+  if (
+    country === "ireland" &&
+    category ===
+      "president"
+  ) {
     return "President of Ireland";
   }
 
-  if (country === "ireland" && category === "referendums") {
+  if (
+    country === "ireland" &&
+    category ===
+      "referendums"
+  ) {
     return `${slug} Amendment`;
   }
 
-  if (country === "northern-ireland" && category === "assembly") {
+  if (
+    country ===
+      "northern-ireland" &&
+    category ===
+      "assembly"
+  ) {
     return "NI Assembly";
   }
 
@@ -151,15 +410,24 @@ function getType(
     return "General Election";
   }
 
-  if (category === "president") {
+  if (
+    category ===
+    "president"
+  ) {
     return "Presidential Election";
   }
 
-  if (category === "referendums") {
+  if (
+    category ===
+    "referendums"
+  ) {
     return "Referendum";
   }
 
-  if (category === "assembly") {
+  if (
+    category ===
+    "assembly"
+  ) {
     return "Assembly Election";
   }
 
@@ -167,7 +435,7 @@ function getType(
 }
 
 /* ===================================
-   AUTO DISCOVER ELECTIONS
+   DISCOVER
 =================================== */
 
 function discoverElections(): ElectionFolder[] {
@@ -181,7 +449,8 @@ function discoverElections(): ElectionFolder[] {
   const countries =
     safeReadDirs(root);
 
-  const rows: ElectionFolder[] = [];
+  const rows: ElectionFolder[] =
+    [];
 
   countries.forEach(
     (country) => {
@@ -234,7 +503,8 @@ export function buildElectionRows(): ElectionRow[] {
   const elections =
     discoverElections();
 
-  const rows: ElectionRow[] = [];
+  const rows: ElectionRow[] =
+    [];
 
   elections.forEach(
     ({
@@ -270,46 +540,46 @@ export function buildElectionRows(): ElectionRow[] {
       const date =
         getDate(slug);
 
-const institution = getInstitution(
-  country,
-  category,
-  slug
-);
+      const institution =
+        getInstitution(
+          country,
+          category,
+          slug
+        );
 
-const type = getType(
-  category
-);
+      const type =
+        getType(category);
 
-      // National row
       rows.push({
         date,
         area: "National",
         institution,
         type,
-        href: hrefBase
+        href: hrefBase,
+        preview:
+          buildPreview(
+            filePath,
+            "National"
+          )
       });
 
-      // Constituency rows
-      areas
-        .filter(
-          (area) =>
-            area !==
-            "National"
-        )
-        .forEach(
-          (area) => {
-            rows.push({
-              date,
-              area,
-              institution,
-              type,
-              href:
-                `${hrefBase}?c=${slugify(
-                  area
-                )}`
-            });
-          }
-        );
+      areas.forEach((area) => {
+        rows.push({
+          date,
+          area,
+          institution,
+          type,
+          href:
+            `${hrefBase}?c=${slugify(
+              area
+            )}`,
+          preview:
+            buildPreview(
+              filePath,
+              area
+            )
+        });
+      });
     }
   );
 
