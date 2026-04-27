@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, Fragment } from "react";
+import { useSearchParams } from "next/navigation";
 import ElectionMetaPanel from "./ElectionMetaPanel";
 import Map from "./Map";
 import MapViewToggle from "./MapViewToggle";
@@ -178,11 +179,37 @@ const [previousResults, setPreviousResults] = useState<any>({});
 
 const [projection, setProjection] = useState<any>(null);
 
+const searchParams = useSearchParams();
+
+function normalizeSlug(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 /* RESET COUNT WHEN CONSTITUENCY CHANGES */
 useEffect(() => {
   setCount(1);
   setHighlighted(null);
 }, [selected])
+
+useEffect(() => {
+  const slug = searchParams.get("c");
+
+  if (!slug) return;
+  if (!list.length) return;
+  if (selected) return;
+
+  const match = list.find(
+    (name) => normalizeSlug(name) === slug
+  );
+
+  if (match) {
+    setSelected({ name: match });
+  }
+}, [searchParams, list, selected]);
 
 const toggleStyle: React.CSSProperties = {
   flex: 1,
