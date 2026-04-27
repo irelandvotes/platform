@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef, Fragment } from "react";
-import { useSearchParams } from "next/navigation";
 import ElectionMetaPanel from "./ElectionMetaPanel";
 import dynamic from "next/dynamic";
 import MapViewToggle from "./MapViewToggle";
@@ -186,8 +185,6 @@ const [previousResults, setPreviousResults] = useState<any>({});
 const [mapView, setMapView] = useState<string>("winner");
 const [projection, setProjection] = useState<any>(null);
 
-const searchParams = useSearchParams();
-
 function normalizeSlug(value: string) {
   return value
     .toLowerCase()
@@ -203,7 +200,13 @@ useEffect(() => {
 }, [selected])
 
 useEffect(() => {
-  const slug = searchParams.get("c");
+  if (typeof window === "undefined") return;
+
+  const params = new URLSearchParams(
+    window.location.search
+  );
+
+  const slug = params.get("c");
 
   if (!slug) return;
   if (!list.length) return;
@@ -216,7 +219,7 @@ useEffect(() => {
   if (match) {
     setSelected({ name: match });
   }
-}, [searchParams, list, selected]);
+}, [list, selected]);
 
 const HelpTooltip = ({ text }: { text: string }) => {
   return (
