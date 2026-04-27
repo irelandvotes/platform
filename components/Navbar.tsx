@@ -117,7 +117,7 @@ Polling
 </Link>
 
 <Link 
-href="/elections/ireland/dail/2024" 
+href="/elections" 
 className={linkStyle("/elections")}
 >
 Elections

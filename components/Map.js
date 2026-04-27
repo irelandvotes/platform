@@ -1084,14 +1084,15 @@ layer.bindTooltip(
   ),
   {
     sticky: true,
-    direction: "top",
+    direction: "auto",
+    offset: [0, -8],
     opacity: 0.98,
     className: "map-tooltip"
   }
 );
   });
 
-}, [view, results]);
+}, [view, results, count, geoData]);
 
 useEffect(() => {
   if (!geoJsonRef.current || !selected) return;
@@ -1461,32 +1462,39 @@ onEachFeature={(feature, layer) => {
   );
 
   layer.on({
-    mouseover: (e) => {
-      const hoveredLayer = e.target;
+mouseover: (e) => {
+  const hoveredLayer = e.target;
 
-      const hoveredKey = cleanName(
-        hoveredLayer.feature.properties.ENG_NAME_VALUE
-      );
+  const hoveredKey = cleanName(
+    hoveredLayer.feature.properties.ENG_NAME_VALUE
+  );
 
-      geoJsonRef.current.eachLayer((l) => {
-        const layerKey = cleanName(
-          l.feature.properties.ENG_NAME_VALUE
-        );
+  geoJsonRef.current.eachLayer((l) => {
+    const layerKey = cleanName(
+      l.feature.properties.ENG_NAME_VALUE
+    );
 
-        if (layerKey === hoveredKey) {
-          const isSelected =
-            selected?.name === layerKey;
+    if (layerKey === hoveredKey) {
+      const isSelected =
+        selected?.name === layerKey;
 
-          if (!isSelected) {
-            l.setStyle({
-              weight: 2,
-              color: "var(--map-outline-hover)",
-              fillOpacity: isDark ? 0.75 : 0.65
-            });
-          }
-        }
-      });
-    },
+      if (!isSelected) {
+const fill =
+  l.options.fillColor ||
+  l._savedFillColor ||
+  "#999";
+
+        l.setStyle({
+          weight: 2,
+          color: "var(--map-outline-hover)",
+          fillColor: fill,
+          fillOpacity:
+            isDark ? 0.75 : 0.65
+        });
+      }
+    }
+  });
+},
 
     mouseout: (e) => {
       const hoveredLayer = e.target;
@@ -1505,17 +1513,20 @@ onEachFeature={(feature, layer) => {
             selected?.name === layerKey;
 
           if (!isSelected) {
-            const color = getColor(layerKey);
+const color =
+  l.options.fillColor ||
+  l._savedFillColor ||
+  getColor(layerKey);
 
-            l.setStyle({
-              color: "var(--map-outline)",
-              weight: 1,
-              fillColor: color,
-              fillOpacity:
-                color === "transparent"
-                  ? 0
-                  : 0.5
-            });
+l.setStyle({
+  color: "var(--map-outline)",
+  weight: 1,
+  fillColor: color,
+  fillOpacity:
+    color === "transparent"
+      ? 0
+      : 0.5
+});
           }
         }
       });

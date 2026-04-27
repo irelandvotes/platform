@@ -717,16 +717,31 @@ function MarginTooltip({
         Margin
       </div>
 
-      <div
-        style={{
-          fontSize: 16,
-          fontWeight: 800,
-          lineHeight: 1.1,
-          marginBottom: 2
-        }}
-      >
-        {formatWinnerLabel(winner)} +{margin.toFixed(1)}
-      </div>
+<div
+  style={{
+    fontSize: 16,
+    lineHeight: 1.1,
+    marginBottom: 2
+  }}
+>
+  <span
+    style={{
+      fontWeight: 500,
+      opacity: 0.92
+    }}
+  >
+    {formatWinnerLabel(winner)}
+  </span>{" "}
+
+  <span
+    style={{
+      fontWeight: 800,
+      letterSpacing: "-0.2px"
+    }}
+  >
+    +{margin.toFixed(1)}
+  </span>
+</div>
 
       <div
         style={{

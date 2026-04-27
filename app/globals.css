@@ -312,8 +312,32 @@ body {
   padding: 0 !important;
   margin: 0 !important;
   color: inherit !important;
+  max-width: min(320px, calc(100vw - 24px));
 }
 
 .map-tooltip::before {
   display: none !important;
+}
+
+.map-tooltip > div {
+  transform: scale(0.84);
+  transform-origin: top left;
+}
+
+/* Right of cursor */
+.leaflet-tooltip-right.map-tooltip > div {
+  transform: translateX(8px) scale(0.84);
+  transform-origin: top left;
+}
+
+/* Left of cursor */
+.leaflet-tooltip-left.map-tooltip > div {
+  transform: translateX(-8px) scale(0.84);
+  transform-origin: top right;
+}
+
+.leaflet-tooltip-top.map-tooltip > div,
+.leaflet-tooltip-bottom.map-tooltip > div {
+  transform: scale(0.84);
+  transform-origin: top left;
 }
