@@ -172,16 +172,29 @@ const [count, setCount] = useState<number>(1);
 const [highlighted, setHighlighted] = useState<any>(null);
 
 const [view, setView] = useState<string>("count");
+const [hoveredSeat, setHoveredSeat] = useState<any>(null);
+const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
 const [mapView, setMapView] = useState<string>("party");
 const [analysis, setAnalysis] = useState<string>("basic");
 
 const [previousResults, setPreviousResults] = useState<any>({});
 
 const [projection, setProjection] = useState<any>(null);
+const [showSeats, setShowSeats] = useState(false);
 
 const router = useRouter();
 const searchParams = useSearchParams();
 const selectedSlug = searchParams.get("c");
+
+function seatStyle(color: string) {
+  return {
+    width: "100%",
+    aspectRatio: "1 / 1",
+    borderRadius: "1.5px",
+    background: color,
+    boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.25)"
+  };
+}
 
 function normalizeSlug(value: string) {
   return value
@@ -228,6 +241,13 @@ useEffect(() => {
   setCount(1);
   setHighlighted(null);
 }, [selected])
+
+useEffect(() => {
+  setResults({});
+  setTotal(null);
+  setList([]);
+  setPreviousResults({});
+}, [year, country, type]);
 
 const toggleStyle: React.CSSProperties = {
   flex: 1,
@@ -559,6 +579,81 @@ const seatSorted = [...parties]
   };
 
 })();
+
+const TOTAL_SEATS = Object.values(results || {}).reduce(
+  (sum: number, constituency: any) => {
+    return sum + (constituency?.seats || 0);
+  },
+  0
+);
+
+const declaredSeats = Object.entries(results || {}).flatMap(
+  ([constituency, data]: any) => {
+    const counts = data?.counts;
+    if (!counts) return [];
+
+    const lastCount = Math.max(...Object.keys(counts).map(Number));
+    const finalData = counts[lastCount] || [];
+
+    return finalData
+      .filter((c: any) => c.status === "elected")
+      .map((c: any) => {
+        let electedOn = null;
+
+        for (let i = 1; i <= lastCount; i++) {
+          const found = (counts[i] || []).find(
+            (p: any) => p.name === c.name && p.party === c.party
+          );
+
+          if (found?.status === "elected") {
+            electedOn = i;
+            break;
+          }
+        }
+
+        return {
+          type: "declared",
+          party: c.party,
+          color: PARTY_COLORS[c.party] || "#444",
+          candidate: c.name,
+          constituency,
+          electedOn
+        };
+      });
+  }
+);
+
+const groupedByParty: Record<string, any[]> = {};
+
+declaredSeats.forEach((seat) => {
+  if (!groupedByParty[seat.party]) {
+    groupedByParty[seat.party] = [];
+  }
+  groupedByParty[seat.party].push(seat);
+});
+
+const sortedParties = Object.entries(groupedByParty).sort(
+  (a, b) => b[1].length - a[1].length
+);
+
+const orderedDeclaredSeats = sortedParties.flatMap(
+  ([_, seats]) => seats
+);
+
+const remainingSeats = Math.max(
+  0,
+  TOTAL_SEATS - declaredSeats.length
+);
+
+const seatBlocks = [
+  ...orderedDeclaredSeats,
+
+  ...Array.from({ length: remainingSeats }).map(() => ({
+    type: "undetermined",
+    party: null,
+    color: "#2a2a2a"
+  }))
+];
 
 const nationalMeta = (() => {
   let electorate = 0;
@@ -2873,68 +2968,246 @@ National Results
 {/* SEATS CARDS */}
 <div
   style={{
-    marginTop: "15px",
+    marginTop: "10px",
+    padding: "10px",
+    background: "var(--panel)"
+  }}
+>
+
+  {/* HEADER */}
+<div
+  style={{
     display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: "8px"
+  }}
+>
+  <div style={{ fontSize: "11px", fontWeight: 600, opacity: 0.6 }}>
+    Seats
+  </div>
+
+  <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+
+    <div style={{ fontSize: "11px", opacity: 0.6 }}>
+      {nationalResults.totalSeatsDeclared} / {TOTAL_SEATS} declared
+    </div>
+
+    {/* TOGGLE */}
+    <button
+      onClick={() => setShowSeats(prev => !prev)}
+      style={{
+        fontSize: "11px",
+        fontWeight: 600,
+        background: "transparent",
+        border: "none",
+        color: "var(--text)",
+        cursor: "pointer",
+        opacity: 0.8
+      }}
+    >
+      {showSeats ? "− Collapse" : "+ Expand"}
+    </button>
+
+  </div>
+</div>
+
+{/* PARTY SUMMARY */}
+<div
+  style={{
+    display: "flex",
+    flexWrap: "wrap",
     gap: "8px",
-    flexWrap: "wrap"
+    marginBottom: "10px"
   }}
 >
+  {nationalResults.seats.map((p) => {
+    const color = PARTY_COLORS[p.party] || "#444";
 
-{nationalResults.seats.map((p) => (
+    return (
+      <div
+        key={p.party}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          padding: "8px 12px",
+          borderRadius: "10px",
+          background: `${color}1A`, // ~10% opacity,
+          border: `0px solid ${color}33`,
+          position: "relative",
+          overflow: "hidden",
+          fontSize: "12px",
+          fontWeight: 600,
+          minWidth: "110px",
+          transition: "transform 0.15s ease"
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "translateY(-2px)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = "translateY(0)";
+        }}
+      >
 
+        {/* ANGLED PARTY COLOUR */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: color,
+            clipPath: "polygon(0 0, 70% 0, 55% 100%, 0% 100%)"
+          }}
+        />
+
+        {/* CONTENT */}
+        <div
+          style={{
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+            zIndex: 1
+          }}
+        >
+
+          {/* LEFT: PARTY + SEATS */}
 <div
-  key={p.party}
   style={{
-    padding: "8px 10px",
-    borderRadius: "10px",
-    background: `${PARTY_COLORS[p.party]}22`,
-    border: `1px solid ${PARTY_COLORS[p.party] || "#444"}`,
-    minWidth: "60px",
-    textAlign: "center"
+    display: "flex",
+    flexDirection: "column",
+    lineHeight: 1,
+    color: "white"
   }}
 >
 
-{/* PARTY */}
-<div
-  style={{
-    fontSize: "11px",
-    opacity: 0.8
-  }}
->
-{p.party}
+  {/* PARTY — SECONDARY */}
+  <div
+    style={{
+      fontSize: "10px",
+      fontWeight: 600,
+      letterSpacing: "-0.3px"
+    }}
+  >
+    {p.party}
+  </div>
+
+  {/* SEATS — PRIMARY */}
+  <div
+    style={{
+      fontSize: "20px",
+      fontWeight: 800,
+      letterSpacing: "-0.3px"
+    }}
+  >
+    {p.seats}
+  </div>
 </div>
 
-{/* SEATS */}
-<div
-  style={{
-    fontWeight: "700",
-    fontSize: "16px"
-  }}
->
-{p.seats}
+          <div style={{ flex: 1 }} />
+
+          {/* RIGHT: CHANGE */}
+          {p.seatChange !== 0 && (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                fontSize: "11px",
+                fontWeight: 700,
+                color:
+                  p.seatChange > 0
+                    ? "#4caf50"
+                    : "#f44336"
+              }}
+            >
+              {p.seatChange > 0 ? "▲" : "▼"}{" "}
+              {Math.abs(p.seatChange)}
+            </div>
+          )}
+
+        </div>
+
+      </div>
+    );
+  })}
 </div>
 
-{/* CHANGE */}
-{p.seatChange !== 0 && (
-<div
-  style={{
-    fontSize: "10px",
-    fontWeight: "600",
-    color:
-      p.seatChange > 0
-        ? "#4caf50"
-        : "#f44336"
-  }}
->
-{p.seatChange > 0 ? "+" : ""}
-{p.seatChange}
-</div>
+ {/* SEAT GRID */}
+ {showSeats && (
+<div style={{ marginTop: "16px", position: "relative" }}>
+
+  <div
+    style={{
+      display: "grid",
+gridTemplateColumns: "repeat(auto-fill, 20px)",
+gap: "1px"
+    }}
+  >
+    {seatBlocks.map((seat, i) => (
+      <div
+        key={i}
+onMouseEnter={(e) => {
+  setHoveredSeat(seat);
+  setTooltipPos({ x: e.clientX, y: e.clientY });
+}}
+onMouseMove={(e) => {
+  setTooltipPos({ x: e.clientX, y: e.clientY });
+}}
+onMouseLeave={() => setHoveredSeat(null)}
+        style={{
+          ...seatStyle(seat.color),
+          opacity: seat.type === "undetermined" ? 0.25 : 1,
+          transform:
+            hoveredSeat === seat
+              ? "scale(1.25)"
+              : "scale(1)",
+          zIndex: hoveredSeat === seat ? 5 : 1,
+        }}
+      />
+    ))}
+  </div>
+
+{hoveredSeat && (
+  <div
+    style={{
+      position: "fixed",
+      left: tooltipPos.x + 12,
+      top: tooltipPos.y + 12,
+      background: "rgba(20,20,20,0.95)",
+      border: "1px solid rgba(255,255,255,0.08)",
+      borderRadius: "8px",
+      padding: "8px 10px",
+      fontSize: "12px",
+      pointerEvents: "none",
+      zIndex: 1000,
+      backdropFilter: "blur(6px)",
+      boxShadow: "0 4px 14px rgba(0,0,0,0.4)",
+      minWidth: "140px"
+    }}
+  >
+    {hoveredSeat.type === "undetermined" ? (
+      <div style={{ opacity: 0.7 }}>
+        Seat not yet declared
+      </div>
+    ) : (
+      <>
+        <div style={{ fontWeight: 600 }}>
+          {hoveredSeat.candidate}
+        </div>
+
+        <div style={{ opacity: 0.7 }}>
+          {hoveredSeat.constituency}
+        </div>
+
+        <div style={{ opacity: 0.7 }}>
+          {hoveredSeat.party} • Count {hoveredSeat.electedOn}
+        </div>
+      </>
+    )}
+  </div>
 )}
 
 </div>
-
-))}
-
+ )}
 </div>
 
 
@@ -2950,27 +3223,13 @@ National Results
   }}
 >
 
-<div>
-First Counts:{" "}
-<b>
-{nationalResults.constituenciesReporting} / {nationalResults.totalConstituencies}
-</b>
-</div>
-
-<div>
-Seats Declared:{" "}
-<b>
-{nationalResults.totalSeatsDeclared} / 174
-</b>
-</div>
-
 </div>
 
 
 {/* VOTE SHARE + SWING */}
 <div
   style={{
-    marginTop: "20px",
+    marginTop: "5px",
     display: "flex",
     gap: "14px"
   }}
@@ -3807,7 +4066,10 @@ Eliminated
 }}
   onLoadTotal={setTotal}
   onLoadList={setList}
-  onLoadResults={setResults}
+onLoadResults={(data: any) => {
+  console.log("SETTING RESULTS", year, data);
+  setResults(data);
+}}
   resetTrigger={resetTrigger}
   results={results}
   count={count}

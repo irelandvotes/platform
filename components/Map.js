@@ -673,8 +673,6 @@ useEffect(() => {
         }
       });
 
-      window.seatMap = seatMap;
-
 setGeoData(data);
 window.geoData = data; // 👈 add this
     });
@@ -767,30 +765,9 @@ grouped[constituency].counts[count].push({
 
         window.results = grouped;
 
-Object.entries(window.seatMap || {}).forEach(
-  ([constituency, seats]) => {
-
-    if (!grouped[constituency]) {
-      grouped[constituency] = {
-        counts: {},
-        seats
-      };
-    } else {
-      grouped[constituency].seats =
-        grouped[constituency].seats || seats;
-    }
-
-  }
-);
-
-Object.entries(seatMap).forEach(([c, seats]) => {
-  if (!grouped[c]) {
-    grouped[c] = {
-      counts: {},
-      seats
-    };
-  } else {
-    grouped[c].seats = seats;
+Object.keys(grouped).forEach((c) => {
+  if (!grouped[c].seats) {
+    grouped[c].seats = seatMap[c] || 0;
   }
 });
 
