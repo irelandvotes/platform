@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, Fragment } from "react";
 import ElectionMetaPanel from "./ElectionMetaPanel";
 import dynamic from "next/dynamic";
 import MapViewToggle from "./MapViewToggle";
+import { useSearchParams, useRouter } from "next/navigation";
 
 const Map = dynamic(
   () => import("@/components/Map"),
@@ -187,6 +188,11 @@ const [previousResults, setPreviousResults] = useState<any>({});
 const [mapView, setMapView] = useState<string>("winner");
 const [projection, setProjection] = useState<any>(null);
 
+const router = useRouter();
+const searchParams = useSearchParams();
+
+const selectedSlug = searchParams.get("c");
+
 function normalizeSlug(value: string) {
   return value
     .toLowerCase()
@@ -195,33 +201,43 @@ function normalizeSlug(value: string) {
     .replace(/^-+|-+$/g, "");
 }
 
+useEffect(() => {
+  if (!selectedSlug) {
+    setSelected(null);
+    return;
+  }
+
+  if (!list.length) return;
+
+  const match = list.find((item) => {
+    const value =
+      typeof item === "string"
+        ? item
+        : item.name || item.slug || item.id;
+
+    return normalizeSlug(value) === selectedSlug;
+  });
+
+  if (!match) {
+    setSelected(null);
+    return;
+  }
+
+  // 🔥 NORMALISE SHAPE HERE
+  if (typeof match === "string") {
+    setSelected({ name: match });
+  } else {
+    setSelected({
+      name: match.name || match.slug || match.id
+    });
+  }
+}, [selectedSlug, list]);
+
 /* RESET COUNT WHEN CONSTITUENCY CHANGES */
 useEffect(() => {
   setCount(1);
   setHighlighted(null);
 }, [selected])
-
-useEffect(() => {
-  if (typeof window === "undefined") return;
-
-  const params = new URLSearchParams(
-    window.location.search
-  );
-
-  const slug = params.get("c");
-
-  if (!slug) return;
-  if (!list.length) return;
-  if (selected) return;
-
-  const match = list.find(
-    (name) => normalizeSlug(name) === slug
-  );
-
-  if (match) {
-    setSelected({ name: match });
-  }
-}, [list, selected]);
 
 const HelpTooltip = ({ text }: { text: string }) => {
   return (
@@ -351,11 +367,35 @@ function getCandidateImage(name: any) {
   return `/candidates/ireland-referendums/${slug}.png`;
 }
 
-const current: any = selected
-  ? { name: selected.name, data: results[selected.name] }
-  : Object.keys(results).length
-  ? { name: "National", data: aggregateNational(results) }
-  : null;
+const current: any = (() => {
+  if (!results) return null;
+
+  if (!selected) {
+    return Object.keys(results).length
+      ? {
+          name: "National",
+          data: aggregateNational(results)
+        }
+      : null;
+  }
+
+  const key = selected.name;
+
+  const data = results[key];
+
+  if (!data) {
+    console.warn("No match in results for:", key);
+    return {
+      name: "National",
+      data: aggregateNational(results)
+    };
+  }
+
+  return {
+    name: key,
+    data
+  };
+})();
 
   const counts = current?.data?.counts || {};
 const latestCount = Math.max(...Object.keys(counts).map(Number));
@@ -1337,6 +1377,7 @@ return (
 <button
   onClick={() => {
     setSelected(null);
+router.push(`?`);
     setResetTrigger(prev => prev + 1);
   }}
   style={{
@@ -2335,7 +2376,7 @@ onError={(e) => {
 )}
 
 <Map
-key="election_map"
+  key="election_map"
   election={{
     country,
     type,
@@ -2343,7 +2384,25 @@ key="election_map"
   }}
   selected={selected}
   view={mapView}
-  onSelect={setSelected}
+  onSelect={(item: any) => {
+  setSelected(item);
+
+if (!item) {
+  router.replace(window.location.pathname, { scroll: false });
+  return;
+}
+
+  const slug = normalizeSlug(
+    item.slug || item.name || item.id
+  );
+
+  router.push(`?c=${slug}`, { scroll: false });
+}}
+  onReset={() => {
+    setSelected(null);
+    setResetTrigger(prev => prev + 1);
+    router.push("?");
+  }}
   onLoadTotal={setTotal}
   onLoadList={setList}
   onLoadResults={setResults}

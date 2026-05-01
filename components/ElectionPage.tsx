@@ -5,6 +5,7 @@ import ElectionMetaPanel from "./ElectionMetaPanel";
 import Map from "./Map";
 import MapViewToggle from "./MapViewToggle";
 import TransferFlow from "./TransferFlow";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   LineChart,
   Line,
@@ -178,6 +179,10 @@ const [previousResults, setPreviousResults] = useState<any>({});
 
 const [projection, setProjection] = useState<any>(null);
 
+const router = useRouter();
+const searchParams = useSearchParams();
+const selectedSlug = searchParams.get("c");
+
 function normalizeSlug(value: string) {
   return value
     .toLowerCase()
@@ -186,33 +191,43 @@ function normalizeSlug(value: string) {
     .replace(/^-+|-+$/g, "");
 }
 
+useEffect(() => {
+  if (!selectedSlug) {
+    setSelected(null);
+    return;
+  }
+
+  if (!list.length) return;
+
+  const match = list.find((item) => {
+    const value =
+      typeof item === "string"
+        ? item
+        : item.name || item.slug || item.id;
+
+    return normalizeSlug(value) === selectedSlug;
+  });
+
+  if (!match) {
+    setSelected(null);
+    return;
+  }
+
+  // 🔥 NORMALISE SHAPE HERE
+  if (typeof match === "string") {
+    setSelected({ name: match });
+  } else {
+    setSelected({
+      name: match.name || match.slug || match.id
+    });
+  }
+}, [selectedSlug, list]);
+
 /* RESET COUNT WHEN CONSTITUENCY CHANGES */
 useEffect(() => {
   setCount(1);
   setHighlighted(null);
 }, [selected])
-
-useEffect(() => {
-  if (typeof window === "undefined") return;
-
-  const params = new URLSearchParams(
-    window.location.search
-  );
-
-  const slug = params.get("c");
-
-  if (!slug) return;
-  if (!list.length) return;
-  if (selected) return;
-
-  const match = list.find(
-    (name) => normalizeSlug(name) === slug
-  );
-
-  if (match) {
-    setSelected({ name: match });
-  }
-}, [list, selected]);
 
 const toggleStyle: React.CSSProperties = {
   flex: 1,
@@ -1412,6 +1427,7 @@ Advanced
 <button
   onClick={() => {
     setSelected(null);
+router.push(`?`);
     setResetTrigger(prev => prev + 1);
   }}
   style={{
@@ -3773,7 +3789,22 @@ Eliminated
   }}
   selected={selected}
   view={!selected ? mapView : view}
-  onSelect={setSelected}
+  onSelect={(item: any) => {
+  setSelected(item);
+
+  // RESET → go back to /40th
+  if (!item) {
+    router.replace(window.location.pathname, { scroll: false });
+    return;
+  }
+
+  // SELECT → update URL
+  const slug = normalizeSlug(
+    item.slug || item.name || item.id
+  );
+
+  router.replace(`?c=${slug}`, { scroll: false });
+}}
   onLoadTotal={setTotal}
   onLoadList={setList}
   onLoadResults={setResults}
