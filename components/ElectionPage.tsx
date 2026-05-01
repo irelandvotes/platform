@@ -1500,18 +1500,50 @@ Advanced
     (c: any) => c.status === "elected"
   ).length;
 
-  return (
+return (
+  <div style={{ margin: "6px 0 0 10px" }}>
+
+    {/* GRID */}
     <div
       style={{
-        margin: "2px 0 0 10px",
-        fontSize: "14px",
-        fontWeight: "600",
-        opacity: 0.9
+        display: "flex",
+        gap: "2px"
       }}
     >
-      {filled} / {seats} Seats Filled
+      {[...Array(seats)].map((_, i) => {
+        const seat = finalData
+          .filter((c: any) => c.status === "elected")[i];
+
+        return (
+          <div
+            key={i}
+            style={{
+              width: "10px",
+              height: "10px",
+              borderRadius: "2px",
+              background: seat
+                ? PARTY_COLORS[seat.party] || "#888"
+                : "rgba(255,255,255,0.08)",
+              border: "1px solid rgba(0,0,0,0.3)"
+            }}
+          />
+        );
+      })}
     </div>
-  );
+
+    {/* TEXT */}
+    <div
+      style={{
+        fontSize: "11px",
+        marginTop: "2px",
+        opacity: 0.6
+      }}
+    >
+      {filled} / {seats} seats declared
+    </div>
+
+  </div>
+);
 })()}
 
 </div>
@@ -1589,41 +1621,31 @@ return (
 {/* ELECTED PANEL */}
 <div
   style={{
-    marginTop: "10px",
-    marginBottom: "16px",
-    marginLeft: "-20px",
-    marginRight: "-20px",
-    borderTop: "1px solid var(--border)",
-    borderBottom: "1px solid var(--border)",
-    background: "var(--panel)"
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(180px, max-content))",
+    justifyContent: "start", // 👈 THIS fixes alignment
+    gap: "5px",
+    margin: "0 auto",
+    marginBottom: "12px"
   }}
 >
 
-<div
-  style={{
-    display: "flex",
-    width: "100%",
-    alignItems: "stretch",
-    minHeight: "78px"
-  }}
->
-{[...elected, ...Array(emptySeats).fill(null)].map((c: any, i, arr) => {
+{[...elected, ...Array(emptySeats).fill(null)].map((c: any, i) => {
 
 if (!c) {
   return (
     <div
       key={`empty-${i}`}
       style={{
-        flex: 1,
-        background: "rgba(255,255,255,0.02)",
-        borderRight:
-          i < arr.length - 1
-            ? "1px solid #333"
-            : "none"
+        height: "65px",
+        background: "rgba(255,255,255,0.04)",
+        border: "1px dashed rgba(255,255,255,0.08)"
       }}
     />
   );
 }
+
+const color = PARTY_COLORS[c.party] || "#444";
 
 return (
 
@@ -1631,25 +1653,39 @@ return (
   key={c.id}
   style={{
     flex: 1,
-    background: PARTY_COLORS[c.party] || "#444",
-    color: "white",
+    height: "65px",
+    position: "relative",
+    background: `${color}84`, // 👈 subtle LEFT base
+    color: "var(--text)",
     display: "flex",
     alignItems: "stretch",
     borderRight:
-      i < arr.length - 1
+      i < elected.length + emptySeats - 1
         ? "1px solid rgba(0,0,0,0.25)"
         : "none"
   }}
 >
 
+{/* SOLID RIGHT WITH DIAGONAL CUT */}
+<div
+  style={{
+    position: "absolute",
+    inset: 0,
+    background: color,
+    clipPath: "polygon(90% 0, 100% 0, 100% 100%, 70% 100%)",
+    zIndex: 0
+  }}
+/>
+
 {/* AVATAR */}
 <div
   style={{
-    width: "64px",
+    width: "52px",
     background: "rgba(0,0,0,0.15)",
     position: "relative",
     overflow: "hidden",
-    flexShrink: 0
+    flexShrink: 0,
+    zIndex: 2
   }}
 >
 <svg
@@ -1674,11 +1710,12 @@ return (
 <div
   style={{
     flex: 1,
-    padding: "8px 10px",
+    padding: "6px 8px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    minWidth: 0
+    minWidth: 0,
+    zIndex: 2
   }}
 >
 
@@ -1689,7 +1726,7 @@ return (
     alignItems: "center",
     gap: "5px",
     fontWeight: "600",
-    fontSize: "12.5px",
+    fontSize: "11.5px",
     whiteSpace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis",
@@ -1718,7 +1755,7 @@ return (
 >
 <path
   d="M5 12.5L10 17L19 7"
-  stroke={PARTY_COLORS[c.party] || "#1f1f1f"}
+  stroke={PARTY_COLORS[c.party] ?? "#1f1f1f"}
   strokeWidth="3"
   strokeLinecap="round"
   strokeLinejoin="round"
@@ -1740,9 +1777,9 @@ return (
 {/* INCUMBENT */}
 <div
   style={{
-    fontSize: "10.5px",
+    fontSize: "10px",
     opacity: c.incumbent ? 0.85 : 0,
-    minHeight: "13px",
+    minHeight: "12px",
     marginTop: "1px"
   }}
 >
@@ -1752,7 +1789,7 @@ return (
 {/* PARTY + COUNT */}
 <div
   style={{
-    fontSize: "11px",
+    fontSize: "10.5px",
     opacity: 0.9
   }}
 >
@@ -1769,8 +1806,6 @@ return (
 
 </div>
 
-</div>
-
 {/* INFO PANEL */}
 <div style={{ marginBottom: "14px" }}>
 <ElectionMetaPanel
@@ -1779,6 +1814,7 @@ meta={selected ? constituencyMeta : nationalMeta}
 </div>
 
 </>
+
 );
 })()}
 
