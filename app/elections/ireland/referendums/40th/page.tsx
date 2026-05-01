@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import ReferendumPage from "@/components/ReferendumPage";
 
 export default function Page() {

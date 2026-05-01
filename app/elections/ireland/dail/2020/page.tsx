@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import ElectionPage from "@/components/ElectionPage";
 
 export default function Dail2020() {
