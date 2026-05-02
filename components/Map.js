@@ -755,7 +755,7 @@ export default function Map({
 const country = election?.country || "ireland";
 const type = election?.type || "dail";
 const year = election?.year || "2024";
-const slug = election?.slug || "dublin-bay-south";
+const slug = election?.slug;
 
 const dataPath = slug
   ? `/data/elections/${country}/${type}/${year}/${slug}`
