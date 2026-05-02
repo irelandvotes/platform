@@ -369,7 +369,7 @@ function getCandidateImage(name: any) {
 const current: any = selected
   ? { name: selected.name, data: results[selected.name] }
   : Object.keys(results).length
-  ? { name: "National", data: aggregateNational(results) }
+  ? { name: "Overall", data: aggregateNational(results) }
   : null;
 
   const counts = current?.data?.counts || {};
@@ -1196,7 +1196,7 @@ const hasResults =
 console.log(Object.keys(results));
 
 const rawMeta =
-  current?.name === "National"
+  current?.name === "Overall"
     ? aggregateNationalMeta(results, count)
     : current?.data?.counts?.[count]?.[0];
 
@@ -1367,7 +1367,7 @@ router.push(`?`);
     cursor: "pointer"
   }}
 >
-↺ Back to national result
+↺ Back to overall result
 </button>
 )}
 
@@ -1983,7 +1983,7 @@ const maxVotes = Math.max(
 );
 
 const scaledPercent =
-  current?.name === "National"
+  current?.name === "Overall"
     ? quotaPercent
       ? (percent / quotaPercent) * 70
       : 0
@@ -2466,7 +2466,8 @@ key="election_map"
   election={{
     country,
     type,
-    year
+    year,
+    slug
   }}
   selected={selected}
   view={mapView}
