@@ -156,12 +156,14 @@ export default function DailByElectionPage({
   title,
   year,
   country,
-  type
+  type,
+  slug,
 }: {
   title: string;
   year: number | string;
   country: string;
   type: string;
+  slug: string;
 }) {
 // 👇 inside component
 

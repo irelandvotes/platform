@@ -752,11 +752,14 @@ export default function Map({
   const mapRef = useRef(null);
   const [previousResults, setPreviousResults] = useState([]);
 
-  const country = election?.country || "ireland";
-  const type = election?.type || "dail";
-  const year = election?.year || "2024";
+const country = election?.country || "ireland";
+const type = election?.type || "dail";
+const year = election?.year || "2024";
+const slug = election?.slug || "dublin-bay-south";
 
-  const dataPath = `/data/elections/${country}/${type}/${year}`;
+const dataPath = slug
+  ? `/data/elections/${country}/${type}/${year}/${slug}`
+  : `/data/elections/${country}/${type}/${year}`;
 
 const [isDark, setIsDark] = useState(true);
 

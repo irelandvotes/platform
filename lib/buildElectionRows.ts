@@ -348,8 +348,10 @@ function buildPreview(
 =================================== */
 
 function getDate(slug: string) {
-  if (/^\d{4}$/.test(slug)) {
-    return slug;
+  const year = slug.split("/")[0];
+
+  if (/^\d{4}$/.test(year)) {
+    return year;
   }
 
   const knownDates: Record<
@@ -378,6 +380,13 @@ function getInstitution(
   if (
     country === "ireland" &&
     category === "dail"
+  ) {
+    return "Dáil Éireann";
+  }
+
+    if (
+    country === "ireland" &&
+    category === "by-election"
   ) {
     return "Dáil Éireann";
   }
@@ -419,35 +428,30 @@ function getInstitution(
   return category;
 }
 
-function getType(
-  category: string
-) {
+function getType(category: string, slug: string) {
+  const isByElection = slug.includes("/");
+
+  if (isByElection) {
+    return "By-Election";
+  }
+
   if (category === "dail") {
     return "General Election";
   }
 
-    if (category === "house-of-commons") {
+  if (category === "house-of-commons") {
     return "General Election";
   }
 
-  if (
-    category ===
-    "president"
-  ) {
+  if (category === "president") {
     return "Presidential Election";
   }
 
-  if (
-    category ===
-    "referendums"
-  ) {
+  if (category === "referendums") {
     return "Referendum";
   }
 
-  if (
-    category ===
-    "assembly"
-  ) {
+  if (category === "assembly") {
     return "Assembly Election";
   }
 
@@ -498,15 +502,29 @@ function discoverElections(): ElectionFolder[] {
               categoryPath
             );
 
-          slugs.forEach(
-            (slug) => {
-              rows.push({
-                country,
-                category,
-                slug
-              });
-            }
-          );
+slugs.forEach((slug) => {
+  const slugPath = path.join(categoryPath, slug);
+
+  const nested = safeReadDirs(slugPath);
+
+  if (nested.length === 0) {
+    // normal election (e.g. 2024)
+    rows.push({
+      country,
+      category,
+      slug
+    });
+  } else {
+    // nested elections (e.g. by-elections inside a year)
+    nested.forEach((subSlug) => {
+      rows.push({
+        country,
+        category,
+        slug: `${slug}/${subSlug}` // 👈 KEY CHANGE
+      });
+    });
+  }
+});
         }
       );
     }
@@ -567,12 +585,19 @@ export function buildElectionRows(): ElectionRow[] {
           slug
         );
 
-      const type =
-        getType(category);
+const type = getType(category, slug);
 
-      rows.push({
-        date,
-        area: "National",
+const isByElection = slug.includes("/");
+
+const displayArea = isByElection
+  ? slug.split("/")[1]
+      .replace(/-/g, " ")
+      .replace(/\b\w/g, (c) => c.toUpperCase())
+  : "National";
+
+rows.push({
+  date,
+  area: displayArea,
         institution,
         type,
         href: hrefBase,

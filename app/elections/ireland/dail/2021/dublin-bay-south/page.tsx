@@ -9,6 +9,7 @@ export default function Page() {
       year="2021"
       country="ireland"
       type="dail"
+      slug="dublin-bay-south"
     />
   );
 }
