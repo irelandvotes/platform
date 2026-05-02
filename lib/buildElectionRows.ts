@@ -407,6 +407,15 @@ function getInstitution(
     return "NI Assembly";
   }
 
+    if (
+    country ===
+      "northern-ireland" &&
+    category ===
+      "house-of-commons"
+  ) {
+    return "House of Commons";
+  }
+
   return category;
 }
 
@@ -414,6 +423,10 @@ function getType(
   category: string
 ) {
   if (category === "dail") {
+    return "General Election";
+  }
+
+    if (category === "house-of-commons") {
     return "General Election";
   }
 

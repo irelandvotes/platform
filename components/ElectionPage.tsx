@@ -17,6 +17,7 @@ import {
 } from "recharts";
 
  const PARTY_COLORS: Record<string, string> = {
+
   FF: "#66bb6a",
   FG: "#5c6bc0",
   SF: "#124940",
@@ -25,10 +26,21 @@ import {
   SD: "#741d83",
   PBPS: "#da1498",
   AON: "#53660e",
-  IFP: "#0b5a1c",
   INDIRL: "#9be736",
   IND: "#7a7a7a",
-  IPP: "#0e9775"
+  IPP: "#0e9775",
+
+  SDLP: "#1a5c1d",
+  PBP: "#da1498",
+  INDN: "#0c4257",
+
+  DUP: "#dd5454",
+  UUP: "#3676c0",
+  TUV: "#061730",
+  INDU: "#d65f30",
+
+  AP: "#fdd835",
+
 };
 
 function AnimatedNumber({
@@ -185,6 +197,7 @@ const [showSeats, setShowSeats] = useState(false);
 const router = useRouter();
 const searchParams = useSearchParams();
 const selectedSlug = searchParams.get("c");
+const isFPTP = type === "house-of-commons";
 
 function seatStyle(color: string) {
   return {
@@ -310,6 +323,18 @@ const LeakageTooltip = ({ active, payload, label }: { active?: string; payload?:
   ? { name: selected.name, data: results[selected.name] }
   : null;
 
+  const firstCountData = current?.data?.counts?.[1] || [];
+
+const sorted = [...firstCountData].sort((a, b) => b.votes - a.votes);
+
+const winner = sorted[0];
+const runnerUp = sorted[1];
+
+const majority =
+  winner && runnerUp
+    ? winner.votes - runnerUp.votes
+    : 0;
+
 console.log("CURRENT DATA:", current);
 
 const rawMeta =
@@ -327,6 +352,14 @@ const meta = rawMeta && {
     ? (rawMeta.spoilt / rawMeta.turnout) * 100
     : 0
 };
+
+if (meta && isFPTP) {
+  const totalVotes = meta.tvp || 0;
+
+  meta.majorityLine = totalVotes
+    ? Math.floor(totalVotes / 2) + 1
+    : 0;
+}
 
   const counts = current?.data?.counts || {};
 const latestCount = Math.max(...Object.keys(counts).map(Number));
@@ -1809,7 +1842,8 @@ return (
 {/* INFO PANEL */}
 <div style={{ marginBottom: "14px" }}>
 <ElectionMetaPanel
-meta={selected ? constituencyMeta : nationalMeta}
+  meta={selected ? constituencyMeta : nationalMeta}
+  type={type}
 />
 </div>
 
@@ -1996,6 +2030,47 @@ meta={selected ? constituencyMeta : nationalMeta}
 
 {/* Count Controls */}
 {view === "count" && (
+  isFPTP ? (
+
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+    padding: "8px 12px",
+    borderRadius: "10px",
+    border: "1px solid var(--border)",
+    background: `${PARTY_COLORS[winner?.party] || "#444"}1A`,
+    fontWeight: "600",
+    fontSize: "12px"
+  }}
+>
+
+  {/* PARTY COLOUR STRIP */}
+  <div
+    style={{
+      width: "4px",
+      height: "28px",
+      borderRadius: "2px",
+      background: PARTY_COLORS[winner?.party] || "#444"
+    }}
+  />
+
+  {/* TEXT */}
+  <div style={{ lineHeight: 1.2 }}>
+    <div style={{ fontSize: "13px", fontWeight: "700" }}>
+      {winner?.party}
+    </div>
+
+    <div style={{ fontSize: "11px", opacity: 0.8 }}>
+      Majority of {majority.toLocaleString()}
+    </div>
+  </div>
+
+</div>
+
+  ) : (
+
 <div
   style={{
     display: "flex",
@@ -2061,7 +2136,7 @@ meta={selected ? constituencyMeta : nationalMeta}
 </button>
 
 </div>
-)}
+))}
 
 </div>
 
@@ -2998,7 +3073,11 @@ National Results
 </h2>
 
 <div style={{ marginTop: "15px", marginLeft: "10px" }}>
-  <ElectionMetaPanel meta={nationalMeta} showQuota={false} />
+<ElectionMetaPanel 
+  meta={nationalMeta} 
+  showQuota={false} 
+  type={type}
+/>
 </div>
 
 {/* SEATS CARDS */}

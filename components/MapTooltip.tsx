@@ -9,10 +9,20 @@ const PARTY_COLORS: Record<string, string> = {
   SD: "#741d83",
   PBPS: "#da1498",
   AON: "#53660e",
-  IFP: "#0b5a1c",
   INDIRL: "#9be736",
   IND: "#7a7a7a",
   IPP: "#0e9775",
+
+  SDLP: "#1a5c1d",
+  PBP: "#da1498",
+  INDN: "#0c4257",
+
+  DUP: "#dd5454",
+  UUP: "#3676c0",
+  TUV: "#061730",
+  INDU: "#d65f30",
+
+  AP: "#fdd835",
   Yes: "#0a1f94",
   No: "#d4950d"
 };

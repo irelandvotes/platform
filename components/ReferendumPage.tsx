@@ -1586,7 +1586,7 @@ onError={(e) => {
     {/* INFO LIST */}
 
 <div style={{ marginBottom: "14px" }}>
-  <ElectionMetaPanel meta={nationalMeta} />
+  <ElectionMetaPanel meta={nationalMeta} type={undefined} />
 </div>
 
 </>

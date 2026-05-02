@@ -1,7 +1,22 @@
 "use client";
 
-export default function ElectionMetaPanel({ meta, showQuota = true }) {
+export default function ElectionMetaPanel({ meta, showQuota = true, type }) {
   if (!meta) return null;
+
+const HelpTooltip = ({ text }) => {
+  return (
+    <span
+      style={{
+        marginLeft: "4px",
+        cursor: "help",
+        opacity: 0.6
+      }}
+      title={text}
+    >
+      ?
+    </span>
+  );
+};
 
   const turnoutPercent =
   meta.electorate
@@ -17,6 +32,8 @@ export default function ElectionMetaPanel({ meta, showQuota = true }) {
     meta.turnout
       ? (meta.spoilt / meta.turnout) * 100
       : 0;
+
+      const isFPTP = type === "house-of-commons";
 
   return (
 <div
@@ -153,7 +170,7 @@ Spoilt <b>{meta.spoilt?.toLocaleString()}</b>{" "}
 </div>
 
 
-{/* QUOTA */}
+{/* QUOTA / 50% LINE */}
 {showQuota && (
 <div
   style={{
@@ -168,10 +185,17 @@ Spoilt <b>{meta.spoilt?.toLocaleString()}</b>{" "}
 <div
   style={{
     fontSize: "9px",
-    opacity: 0.6
+    opacity: 0.6,
+    display: "flex",
+    alignItems: "center"
   }}
 >
-Quota
+{isFPTP ? "50% line" : "Quota"}
+
+{isFPTP && (
+  <HelpTooltip text="Candidates do not need 50% to win. This line is shown for reference only." />
+)}
+
 </div>
 
 <div
