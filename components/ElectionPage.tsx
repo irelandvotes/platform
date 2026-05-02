@@ -1826,7 +1826,10 @@ return (
     opacity: 0.9
   }}
 >
-{c.party} • Count {c.electedOn}
+  {isFPTP
+    ? c.party
+    : `${c.party} • Count ${c.electedOn}`
+  }
 </div>
 
 </div>
@@ -3313,9 +3316,12 @@ onMouseLeave={() => setHoveredSeat(null)}
           {hoveredSeat.constituency}
         </div>
 
-        <div style={{ opacity: 0.7 }}>
-          {hoveredSeat.party} • Count {hoveredSeat.electedOn}
-        </div>
+<div style={{ opacity: 0.7 }}>
+  {isFPTP
+    ? hoveredSeat.party
+    : `${hoveredSeat.party} • Count ${hoveredSeat.electedOn}`
+  }
+</div>
       </>
     )}
   </div>
