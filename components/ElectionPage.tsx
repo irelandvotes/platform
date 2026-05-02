@@ -199,6 +199,15 @@ const searchParams = useSearchParams();
 const selectedSlug = searchParams.get("c");
 const isFPTP = type === "house-of-commons";
 
+function getCandidateImage(id: any) {
+  const slug = id
+    .toLowerCase()
+    .replace(/\./g, "")
+    .replace(/\s+/g, "-");
+
+  return `/candidates/images/${slug}.jpg`;
+}
+
 function seatStyle(color: string) {
   return {
     width: "100%",
@@ -1721,10 +1730,35 @@ return (
     zIndex: 2
   }}
 >
+
+{/* IMAGE */}
+<img
+  src={getCandidateImage(c.name)}
+  alt={c.name}
+  style={{
+    position: "absolute",
+    width: "120%",
+    height: "120%",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    objectFit: "cover"
+  }}
+  onError={(e) => {
+    const img = e.currentTarget;
+    img.style.display = "none";
+
+    const fallback = img.nextSibling as HTMLElement;
+    if (fallback) fallback.style.display = "block";
+  }}
+/>
+
+{/* FALLBACK SVG */}
 <svg
   viewBox="0 0 24 24"
   preserveAspectRatio="xMidYMid slice"
   style={{
+    display: "none",
     position: "absolute",
     width: "140%",
     height: "140%",
@@ -1735,8 +1769,9 @@ return (
   }}
   fill="white"
 >
-<path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+  <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
 </svg>
+
 </div>
 
 {/* INFO */}
@@ -2896,7 +2931,7 @@ zIndex: 7
 }}
 />
 
-{/* AVATAR */}
+{/* IMAGE / AVATAR */}
 <div
   style={{
     width: "32px",
@@ -2908,25 +2943,45 @@ zIndex: 7
     flexShrink: 0,
     overflow: "hidden",
     position: "relative",
-    zIndex: 7
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
   }}
 >
+
+<img
+  src={getCandidateImage(c.name)}
+  alt={c.name}
+  style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "cover"
+  }}
+  onError={(e) => {
+    const img = e.currentTarget;
+    img.style.display = "none";
+
+    const fallback = img.nextSibling as HTMLElement;
+    if (fallback) fallback.style.display = "block";
+  }}
+/>
+
+{/* FALLBACK SVG */}
 <svg
   viewBox="0 0 24 24"
   preserveAspectRatio="xMidYMid slice"
   style={{
+    display: "none",
     position: "absolute",
     width: "110%",
     height: "110%",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
     opacity: 0.35
   }}
   fill="white"
 >
-<path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+  <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
 </svg>
+
 </div>
 
 {/* NAME */}

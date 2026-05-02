@@ -361,7 +361,7 @@ function getCandidateImage(name: any) {
     .replace(/\./g, "")
     .replace(/\s+/g, "-");
 
-  return `/candidates/ireland-president-2025/${slug}.jpg`;
+  return `/candidates/images/${slug}.jpg`;
 }
 
 const current: any = selected
@@ -2245,7 +2245,7 @@ zIndex: 6
   }}
   />
   
-  {/* IMAGE / AVATAR */}
+{/* IMAGE / AVATAR */}
 <div
   style={{
     width: "32px",
@@ -2253,14 +2253,16 @@ zIndex: 6
     borderRadius: "50%",
     background: PARTY_COLORS[c.party] || "#444",
     border: "1px solid var(--border)",
-    marginRight: "10px",
+    marginRight: "8px",
     flexShrink: 0,
     overflow: "hidden",
+    position: "relative",
     display: "flex",
     alignItems: "center",
     justifyContent: "center"
   }}
 >
+
 <img
   src={getCandidateImage(c.name)}
   alt={c.name}
@@ -2269,10 +2271,31 @@ zIndex: 6
     height: "100%",
     objectFit: "cover"
   }}
-onError={(e) => {
-  (e.target as HTMLImageElement).style.display = "none";
-}}
+  onError={(e) => {
+    const img = e.currentTarget;
+    img.style.display = "none";
+
+    const fallback = img.nextSibling as HTMLElement;
+    if (fallback) fallback.style.display = "block";
+  }}
 />
+
+{/* FALLBACK SVG */}
+<svg
+  viewBox="0 0 24 24"
+  preserveAspectRatio="xMidYMid slice"
+  style={{
+    display: "none",
+    position: "absolute",
+    width: "110%",
+    height: "110%",
+    opacity: 0.35
+  }}
+  fill="white"
+>
+  <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+</svg>
+
 </div>
   
   {/* NAME */}
