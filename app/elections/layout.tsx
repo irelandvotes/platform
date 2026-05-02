@@ -35,6 +35,10 @@ label: "Dáil Éireann 2024",
 href: "/elections/ireland/dail/2024"
 },
 {
+label: "House of Commons 2024",
+href: "/elections/northern-ireland/house-of-commons/2024"
+},
+{
 label: "Dáil Éireann 2020",
 href: "/elections/ireland/dail/2020"
 },

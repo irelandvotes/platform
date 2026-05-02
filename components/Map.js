@@ -442,16 +442,12 @@ function ResetButton({ onReset, geoJsonRef }) {
 
   return (
     <button
-      onClick={() => {
-        const bounds = getIrelandBounds(window.geoData);
+onClick={() => {
+  onReset?.();
 
-map.fitBounds(bounds, {
-  padding: window.innerWidth < 1200 ? [20, 80] : [20, 40],
-  animate: true,
-  duration: 0.4
-});
-        onReset?.();
-      }}
+  // 👇 force map controller to run
+  window.dispatchEvent(new Event("map-reset"));
+}}
 style={{
   position: "absolute",
   bottom: "20px",
@@ -520,24 +516,219 @@ function ZoomToSelected({ selected, geoJsonRef, resetTrigger }) {
   return null;
 }
 
-function ResetOnTrigger({ resetTrigger }) {
+function MapController({ geoData, selected, resetTrigger, geoJsonRef }) {
   const map = useMap();
 
+  // =============================
+  // Fit Options (zoom + padding)
+  // =============================
+  function getFitOptions(bounds) {
+    const latDiff = bounds.getNorth() - bounds.getSouth();
+    const lngDiff = bounds.getEast() - bounds.getWest();
+    const size = Math.max(latDiff, lngDiff);
+
+    let maxZoom;
+
+    if (size < 0.02) maxZoom = 14;
+    else if (size < 0.1) maxZoom = 12;
+    else if (size < 0.5) maxZoom = 10;
+    else maxZoom = 8.2;
+
+    let padding;
+
+    if (size < 0.02) {
+      padding = [200, 200];     // 👈 controlled, not extreme
+    } else if (size < 0.1) {
+      padding = [30, 30];
+    } else if (size < 0.5) {
+      padding = [20, 20];
+    } else {
+      padding = window.innerWidth < 1200 ? [20, 80] : [20, 40];
+    }
+
+    return { maxZoom, padding };
+  }
+
+  // =============================
+  // Screen Fill Helper
+  // =============================
+  function applyScreenFill(bounds, multiplier = 0.8) {
+    setTimeout(() => {
+      const ne = map.project(bounds.getNorthEast());
+      const sw = map.project(bounds.getSouthWest());
+
+      const width = Math.abs(ne.x - sw.x);
+      const height = Math.abs(ne.y - sw.y);
+
+      const mapSize = map.getSize();
+
+      const ratio = Math.max(
+        width / mapSize.x,
+        height / mapSize.y
+      );
+
+      if (ratio < 0.6) {
+        const zoomBoost = Math.log2(1 / ratio);
+        map.setZoom(map.getZoom() + zoomBoost * multiplier);
+      }
+    }, 80);
+  }
+
+  // =============================
+  // RESET HANDLER (works always)
+  // =============================
+useEffect(() => {
+  const handleReset = () => {
+    if (!geoData) return;
+
+    const bounds = L.geoJSON(geoData).getBounds();
+    const { maxZoom, padding } = getFitOptions(bounds);
+
+    map.fitBounds(bounds, {
+      padding,
+      maxZoom,
+      animate: true,
+      duration: 0.6
+    });
+
+    applyScreenFill(bounds, 0.8);
+  };
+
+  window.addEventListener("map-reset", handleReset);
+
+  return () => {
+    window.removeEventListener("map-reset", handleReset);
+  };
+}, [geoData, map]);
+
+  // =============================
+  // MAIN FIT LOGIC
+  // =============================
   useEffect(() => {
-    if (!resetTrigger) return;
+    if (!geoData) return;
 
-const bounds = getIrelandBounds(window.geoData);
+    const bounds = L.geoJSON(geoData).getBounds();
 
-map.fitBounds(bounds, {
-  padding: window.innerWidth < 1200 ? [20, 80] : [20, 40],
-  animate: true,
-  duration: 0.4
-});
-  }, [resetTrigger, map]);
+    // =============================
+    // NATIONAL VIEW
+    // =============================
+    if (!selected) {
+      const { maxZoom, padding } = getFitOptions(bounds);
+
+      map.fitBounds(bounds, {
+        padding,
+        maxZoom,
+        animate: true,
+        duration: 0.5
+      });
+
+      applyScreenFill(bounds, 0.8);
+      return;
+    }
+
+    // =============================
+    // SELECTED VIEW (combined bounds)
+    // =============================
+    let combinedBounds = null;
+
+    geoJsonRef.current?.eachLayer((layer) => {
+      const name = cleanName(
+        layer.feature.properties.ENG_NAME_VALUE
+      );
+
+      if (name === selected.name) {
+        const b = layer.getBounds();
+
+        if (!combinedBounds) {
+          combinedBounds = b;
+        } else {
+          combinedBounds.extend(b);
+        }
+      }
+    });
+
+    if (combinedBounds) {
+      const { padding } = getFitOptions(combinedBounds);
+
+      map.fitBounds(combinedBounds, {
+        padding,
+        animate: true,
+        duration: 0.6
+      });
+
+      // 👇 softer zoom for selected (less aggressive)
+      applyScreenFill(combinedBounds, 0.4);
+    }
+
+  }, [geoData, selected, resetTrigger, map]);
+
+  // =============================
+  // RESIZE HANDLING
+  // =============================
+  useEffect(() => {
+    if (!geoData) return;
+
+    let timeout;
+
+    const handleResize = () => {
+      clearTimeout(timeout);
+
+      timeout = setTimeout(() => {
+        map.invalidateSize();
+
+        let bounds;
+
+        if (selected && geoJsonRef.current) {
+          let combinedBounds = null;
+
+          geoJsonRef.current.eachLayer((layer) => {
+            const name = cleanName(
+              layer.feature.properties.ENG_NAME_VALUE
+            );
+
+            if (name === selected.name) {
+              const b = layer.getBounds();
+
+              if (!combinedBounds) {
+                combinedBounds = b;
+              } else {
+                combinedBounds.extend(b);
+              }
+            }
+          });
+
+          bounds = combinedBounds;
+
+        } else {
+          bounds = L.geoJSON(geoData).getBounds();
+        }
+
+        if (!bounds) return;
+
+        const { maxZoom, padding } = getFitOptions(bounds);
+
+        map.fitBounds(bounds, {
+          padding,
+          maxZoom,
+          animate: false
+        });
+
+        // 👇 keep screen-fill consistent after resize
+        applyScreenFill(bounds, selected ? 0.4 : 0.8);
+
+      }, 150);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(timeout);
+    };
+  }, [geoData, selected, map]);
 
   return null;
 }
-
 /* =============================
    Main Map Component
 ============================= */
@@ -568,71 +759,6 @@ export default function Map({
   const dataPath = `/data/elections/${country}/${type}/${year}`;
 
 const [isDark, setIsDark] = useState(true);
-
-function ResponsiveFit({ geoData, selected }) {
-  const map = useMap();
-
-  useEffect(() => {
-    if (!geoData) return;
-      if (selected) return; //
-
-    const layer = L.geoJSON(geoData);
-    const bounds = layer.getBounds();
-
-    let timeout;
-    let lastSize = map.getSize();
-
-    const fit = () => {
-      const newSize = map.getSize();
-
-      const widthChange = Math.abs(newSize.x - lastSize.x);
-      const heightChange = Math.abs(newSize.y - lastSize.y);
-
-      const bigChange = widthChange > 80 || heightChange > 80;
-
-      const isNarrow = window.innerWidth < 1400;
-
-let padding;
-
-if (window.innerWidth > 1600) {
-  padding = [20, 20]; // desktop full
-} else if (window.innerWidth > 1200) {
-  padding = [20, 40]; // medium screens
-} else {
-  padding = [20, 80]; // small screens → force tighter zoom
-}
-
-      map.fitBounds(bounds, {
-        padding,
-        maxZoom: 7.8, // 👈 KEY FIX: prevents zooming too far out
-        animate: bigChange,
-        duration: bigChange ? 0.3 : 0
-      });
-
-      lastSize = newSize;
-    };
-
-    // initial fit
-    fit();
-
-    const handleResize = () => {
-      clearTimeout(timeout);
-
-      timeout = setTimeout(() => {
-        fit();
-      }, 150);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      clearTimeout(timeout);
-    };
-  }, [geoData, map]);
-
-  return null;
-}
 
 useEffect(() => {
   const panes = document.querySelectorAll(".leaflet-pane");
@@ -1353,18 +1479,11 @@ return (
       map.invalidateSize();
     }, 0);
   }}
-  center={[53.5, -8]}
-  zoom={7}
   minZoom={6.5}
-  maxZoom={10}
+  maxZoom={18}
   zoomSnap={0}       // 👈 allows fractional zoom (CRITICAL)
   zoomDelta={0.25}   // 👈 smaller zoom steps
   zoomControl={false}
-  maxBounds={[
-    [51.2, -11.5],  // Southwest Ireland
-    [55.8, -5.0]    // Northeast Ireland
-  ]}
-  maxBoundsViscosity={1.0}
   style={{
     height: "100%",
     width: "100%",
@@ -1374,9 +1493,12 @@ return (
   onClick={() => onSelect(null)}
 >
 
-<ResponsiveFit geoData={geoData} selected={selected} />
-
-        <ResetOnTrigger resetTrigger={resetTrigger} />
+<MapController
+  geoData={geoData}
+  selected={selected}
+  resetTrigger={resetTrigger}
+  geoJsonRef={geoJsonRef}
+/>
 
 <ZoomControls />
 
@@ -1384,13 +1506,6 @@ return (
         <ResetButton
           geoJsonRef={geoJsonRef}
           onReset={() => onSelect(null)}
-        />
-
-        {/* Zoom Handler */}
-        <ZoomToSelected
-          selected={selected}
-          geoJsonRef={geoJsonRef}
-          resetTrigger={resetTrigger}
         />
 
 {/* IRELAND MASK */}
@@ -1524,10 +1639,12 @@ l.setStyle({
       e.originalEvent.stopPropagation();
 
       setTimeout(() => {
-        onSelect({
-          name: key,
-          data: undefined
-        });
+if (selected?.name === key) return;
+
+onSelect({
+  name: key,
+  data: undefined
+});
       }, 100);
     }
   });

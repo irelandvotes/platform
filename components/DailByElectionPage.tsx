@@ -1,0 +1,2500 @@
+"use client";
+
+import { useState, useEffect, useRef, Fragment } from "react";
+import ElectionMetaPanel from "./ElectionMetaPanel";
+import dynamic from "next/dynamic";
+import MapViewToggle from "./MapViewToggle";
+import { useRouter, useSearchParams } from "next/navigation";
+
+const Map = dynamic(
+  () => import("@/components/Map"),
+  { ssr: false }
+) as any;
+import TransferFlow from "./TransferFlow";
+import {
+  LineChart,
+  Line,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid
+} from "recharts";
+
+ const PARTY_COLORS: Record<string, string> = {
+  FF: "#66bb6a",
+  FG: "#5c6bc0",
+  SF: "#124940",
+  LAB: "#e53935",
+  GP: "#43a047",
+  SD: "#741d83",
+  PBPS: "#da1498",
+  AON: "#53660e",
+  IFP: "#0b5a1c",
+  INDIRL: "#9be736",
+  IND: "#7a7a7a",
+  IPP: "#0e9775"
+};
+
+function AnimatedNumber({
+value,
+previousValue
+}: {
+value: number;
+previousValue: number;
+}) {
+
+  const [display, setDisplay] = useState(previousValue);
+
+  useEffect(() => {
+    let start: any = previousValue;
+    let end: any = value;
+    let startTime: any = null;
+
+    const duration = 700;
+
+    function animate(time: any) {
+      
+      if (!startTime) startTime = time;
+      const progress = Math.min((time - startTime) / duration, 1);
+
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      const current = Math.floor(start + (end - start) * eased);
+      setDisplay(current);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }, [value, previousValue]);
+
+  return display.toLocaleString();
+}
+
+function AnimatedBar({
+percent,
+quotaPercent,showSurplus,party,status,justEliminated
+}: {
+percent: number;
+quotaPercent: number; showSurplus: any; party: number;  status: number; justEliminated: any;
+}) {
+
+  
+  const [width, setWidth] = useState(percent);
+  const previous = useRef(percent);
+
+  useEffect(() => {
+   let start = previous.current;
+  let end = percent;
+  let startTime: any | null = null;
+
+  const duration = 800;
+
+  function animate(time: any) {
+    if (!startTime) startTime = time;
+    const progress = Math.min((time - startTime) / duration, 1);
+
+    const eased = 1 - Math.pow(1 - progress, 3);
+
+    const current = start + (end - start) * eased;
+    setWidth(current);
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      previous.current = end;
+    }
+  }
+
+  requestAnimationFrame(animate);
+}, [percent]);
+
+  const stripeLeft =
+    percent > 0
+      ? (quotaPercent / percent) * 100
+      : 0;
+
+  const stripeWidth =
+    percent > quotaPercent
+      ? ((percent - quotaPercent) / percent) * 100
+      : 0;
+
+  return (
+    <div
+      style={{
+        width: justEliminated ? "100%" : `${width}%`,
+        height: "100%",
+        borderRadius: "4px",
+        position: "relative",
+        background:
+          justEliminated
+            ? "repeating-linear-gradient(45deg, #ff5252, #ff5252 6px, #ffcdd2 6px, #ffcdd2 12px)"
+            : PARTY_COLORS[party] || "#888",
+        overflow: "hidden"
+      }}
+    >
+      {showSurplus && stripeWidth > 0 && (
+        <div
+          style={{
+            position: "absolute",
+            left: `${stripeLeft}%`,
+            width: `${stripeWidth}%`,
+            height: "100%",
+            background:
+              "repeating-linear-gradient(45deg, rgba(255,255,255,0.6), rgba(255,255,255,0.6) 4px, transparent 4px, transparent 8px)"
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
+export default function DailByElectionPage({
+  title,
+  year,
+  country,
+  type
+}: {
+  title: string;
+  year: number | string;
+  country: string;
+  type: string;
+}) {
+// 👇 inside component
+
+const [selected, setSelected] = useState<any>(null);
+const [total, setTotal] = useState<any>(null);
+
+const [resetTrigger, setResetTrigger] = useState<number>(0);
+
+const [search, setSearch] = useState<string>("");
+
+const [list, setList] = useState<any[]>([]);
+const [results, setResults] = useState<any>({});
+
+const [count, setCount] = useState<number>(1);
+
+const [highlighted, setHighlighted] = useState<any>(null);
+
+const [view, setView] = useState<string>("count");
+const [analysis, setAnalysis] = useState<string>("basic");
+
+const [previousResults, setPreviousResults] = useState<any>({});
+const [mapView, setMapView] = useState<string>("winner");
+const [projection, setProjection] = useState<any>(null);
+
+const router = useRouter();
+const searchParams = useSearchParams();
+const selectedSlug = searchParams.get("c");
+
+function normalizeSlug(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+useEffect(() => {
+  if (!selectedSlug) {
+    setSelected(null);
+    return;
+  }
+
+  if (!list.length) return;
+
+  const match = list.find((item) => {
+    const value =
+      typeof item === "string"
+        ? item
+        : item.name || item.slug || item.id;
+
+    return normalizeSlug(value) === selectedSlug;
+  });
+
+  if (!match) {
+    setSelected(null);
+    return;
+  }
+
+  // 🔥 NORMALISE SHAPE HERE
+  if (typeof match === "string") {
+    setSelected({ name: match });
+  } else {
+    setSelected({
+      name: match.name || match.slug || match.id
+    });
+  }
+}, [selectedSlug, list]);
+
+/* RESET COUNT WHEN CONSTITUENCY CHANGES */
+useEffect(() => {
+  setCount(1);
+  setHighlighted(null);
+}, [selected])
+
+const HelpTooltip = ({ text }: { text: string }) => {
+  return (
+    <span
+      style={{
+        marginLeft: "4px",
+        cursor: "help",
+        opacity: 0.6
+      }}
+      title={text}
+    >
+      ?
+    </span>
+  );
+};
+
+const LeakageTooltip = ({ active, payload, label }: { active: boolean; payload: any[]; label: string }) => {
+  if (!active || !payload || !payload.length) return null;
+
+  return (
+    <div
+      style={{
+        background: "var(--panel)",
+        border: "1px solid var(--border)",
+        borderRadius: "8px",
+        padding: "8px",
+        fontSize: "11px"
+      }}
+    >
+      <div
+        style={{
+          fontWeight: "600",
+          marginBottom: "4px"
+        }}
+      >
+        Count {label}
+      </div>
+
+      <div>
+        Leakage: {payload[0].value}%
+      </div>
+    </div>
+  );
+};
+
+function aggregateNationalMeta(results: Record<string, any>, count: number) {
+  let electorate = 0;
+  let turnout = 0;
+  let tvp = 0;
+  let spoilt = 0;
+  let seats = 1;
+
+  Object.values(results).forEach((constituency) => {
+    const rows = constituency?.counts?.[count];
+
+    if (!rows || !rows.length) return;
+
+    const meta = rows[0]; // first candidate row contains metadata
+
+    electorate += meta.electorate || 0;
+    turnout += meta.turnout || 0;
+    tvp += meta.tvp || 0;
+    spoilt += meta.spoilt || 0;
+
+    seats = meta.seats || 1;
+  });
+
+const quota = Math.floor(tvp / (seats + 1)) + 1;
+
+const turnoutPercent = electorate
+  ? (turnout / electorate) * 100
+  : 0;
+
+const tvpPercent = turnout
+  ? (tvp / turnout) * 100
+  : 0;
+
+const spoiltPercent = turnout
+  ? (spoilt / turnout) * 100
+  : 0;
+
+return {
+  electorate,
+  turnout,
+  turnoutPercent,
+  tvp,
+  tvpPercent,
+  spoilt,
+  spoiltPercent,
+  quota,
+  seats
+};
+}
+
+function aggregateNational(results: any) {
+  const counts: Record<string, any[]> = {};
+
+  Object.values(results).forEach((constituency: any) => {
+    Object.entries(constituency.counts || {}).forEach(([count, data]: [string, any]) => {
+      if (!counts[count]) counts[count] = [];
+
+      data.forEach((candidate: any) => {
+        const existing = counts[count].find(
+          c =>
+            c.name === candidate.name &&
+            c.party === candidate.party
+        );
+
+        if (existing) {
+          existing.votes += candidate.votes;
+        } else {
+          counts[count].push({ ...candidate });
+        }
+      });
+    });
+  });
+
+  return { counts };
+}
+
+function getCandidateImage(name: any) {
+  const slug = name
+    .toLowerCase()
+    .replace(/\./g, "")
+    .replace(/\s+/g, "-");
+
+  return `/candidates/images/${slug}.jpg`;
+}
+
+const current: any = selected
+  ? { name: selected.name, data: results[selected.name] }
+  : Object.keys(results).length
+  ? { name: "National", data: aggregateNational(results) }
+  : null;
+
+  const counts = current?.data?.counts || {};
+const latestCount = Math.max(...Object.keys(counts).map(Number));
+
+let topGainer = null;
+
+if (current?.data?.counts?.[count]) {
+  const data = current.data.counts[count];
+  const prevData: any[] = current.data.counts[count - 1] || [];
+
+  const candidates = [...data];
+
+  const gains = candidates.map((c) => {
+    const prev = prevData.find(
+      (p) => p.name === c.name && p.party === c.party
+    );
+    return prev ? c.votes - prev.votes : 0;
+  });
+
+  const maxGain = gains.length ? Math.max(...gains) : 0;
+
+  topGainer =
+    maxGain > 0
+      ? candidates.find((c, i) => gains[i] === maxGain)
+      : null;
+}
+
+useEffect(() => {
+  if (topGainer) {
+    setHighlighted(topGainer.id);
+
+    const timeout = setTimeout(() => {
+      setHighlighted(null);
+    }, 1500);
+
+    return () => clearTimeout(timeout);
+  }
+}, [count, topGainer]);
+
+const constituencies = total
+  ? Object.keys(total.data).length > 0
+    ? Object.keys(total.data) // TEMP fallback (we’ll improve later)
+    : []
+  : [];
+
+const filtered = list.filter((name) =>
+  name.toLowerCase().includes(search.toLowerCase())
+);
+
+const nationalResults = (() => {
+  const partySeats: Record<string, number> = {};
+  const partyVotes: Record<string, number> = {};
+
+  let constituenciesReporting = 0;
+  let totalSeatsDeclared = 0;
+
+  const totalConstituencies = Object.keys(results || {}).length;
+
+  Object.entries(results || {}).forEach(
+    ([constituency, constituencyData]) => {
+
+      const counts = (constituencyData as any)?.counts;
+      if (!counts) return;
+
+    const firstCount = counts[1] || [];
+
+    const countNumbers = Object.keys(counts).map(Number);
+    const lastCount = Math.max(...countNumbers);
+
+    if (lastCount >= 1) {
+      constituenciesReporting++;
+    }
+
+    const finalData = counts[lastCount] || [];
+
+    // Seats from FINAL count
+    finalData.forEach((c: any) => {
+      if (c.status === "elected") {
+        if (!partySeats[c.party]) partySeats[c.party] = 0;
+        partySeats[c.party]++;
+        totalSeatsDeclared++;
+      }
+    });
+
+    // Votes from FIRST count
+    firstCount.forEach((c: any) => {
+      if (!partyVotes[c.party]) partyVotes[c.party] = 0;
+      partyVotes[c.party] += c.votes;
+    });
+  });
+
+
+  const totalVotes = Object.values(partyVotes)
+    .reduce((a, b) => a + b, 0);
+
+  /* =============================
+     PREVIOUS RESULTS (REPORTING ONLY)
+  ============================= */
+
+  const previousPartySeats: Record<string, number> = {};
+  const previousPartyVotes: Record<string, number> = {};
+
+  Object.entries(results || {}).forEach(
+    ([constituency]) => {
+
+      const previous = previousResults?.[constituency];
+      if (!previous) return;
+
+      Object.entries(previous).forEach(
+        ([party, data]: [string, any]) => {
+
+          if (!previousPartySeats[party]) {
+            previousPartySeats[party] = 0;
+          }
+
+          if (!previousPartyVotes[party]) {
+            previousPartyVotes[party] = 0;
+          }
+
+          previousPartySeats[party] += data.seats || 0;
+          previousPartyVotes[party] += data.votes || 0;
+
+        }
+      );
+
+    }
+  );
+
+
+  const previousTotalVotes = Object.values(previousPartyVotes)
+    .reduce((a, b) => a + b, 0);
+
+
+  /* =============================
+     BUILD PARTY DATA
+  ============================= */
+
+const parties = Object.keys(partyVotes).map((party) => {
+
+  const currentVotes = partyVotes[party] || 0;
+  const previousVotes = previousPartyVotes[party] || 0;
+
+  const currentPercent =
+    totalVotes
+      ? (currentVotes / totalVotes) * 100
+      : 0;
+
+  const previousPercent =
+    previousTotalVotes
+      ? (previousVotes / previousTotalVotes) * 100
+      : 0;
+
+  const voteChange = currentPercent - previousPercent;
+
+
+  /* SEAT CHANGE CALCULATION */
+
+  let confirmedGain = 0;
+  let projectedGain = 0;
+
+  Object.entries(results || {}).forEach(
+    ([constituency, constituencyData]) => {
+
+      const counts = (constituencyData as any)?.counts;
+      if (!counts) return;
+
+      const lastCount = Math.max(...Object.keys(counts).map(Number));
+      const finalData = counts[lastCount] || [];
+
+      const seats = finalData[0]?.seats || 0;
+
+      const elected = finalData.filter(
+        (c: any) => c.status === "elected" && c.party === party
+      ).length;
+
+      const running = finalData.filter(
+        (c: any) =>
+          c.party === party &&
+          c.status !== "elected" &&
+          c.status !== "eliminated"
+      ).length;
+
+      const previousSeats =
+        previousResults?.[constituency]?.[party]?.seats || 0;
+
+      const constituencyComplete =
+        finalData.filter((c: any) => c.status === "elected").length === seats;
+
+      if (constituencyComplete) {
+        confirmedGain += (elected - previousSeats);
+      } else {
+
+        if (elected > previousSeats) {
+          projectedGain += (elected - previousSeats);
+        }
+
+        if (running === 0 && elected < previousSeats) {
+          projectedGain += (elected - previousSeats);
+        }
+
+      }
+
+    }
+  );
+
+  const seatChange = confirmedGain + projectedGain;
+
+
+  return {
+    party,
+    seats: partySeats[party] || 0,
+    votes: currentVotes,
+    percent: currentPercent.toFixed(1),
+    voteChange,
+    seatChange,
+    confirmedGain,
+    projectedGain
+  };
+
+});
+
+
+  const voteSorted = [...parties].sort((a, b) => {
+    if (a.party === "IND") return 1;
+    if (b.party === "IND") return -1;
+    return b.votes - a.votes;
+  });
+
+
+const seatSorted = [...parties]
+  .filter((p) => 
+    p.seats > 0 || 
+    (previousPartySeats[p.party] || 0) > 0
+  )
+  .sort((a, b) => {
+      if (a.party === "IND") return 1;
+      if (b.party === "IND") return -1;
+      return b.seats - a.seats;
+    });
+
+
+  return {
+    parties: voteSorted,
+    seats: seatSorted,
+    constituenciesReporting,
+    totalConstituencies,
+    totalSeatsDeclared
+  };
+
+})();
+
+/* CONSTITUENCY PARTY TOTALS + SWING */
+
+const constituencyParties = (() => {
+  if (!current) return [];
+
+  const data = current?.data?.counts?.[1];
+  if (!data) return [];
+
+  const totals: Record<string, number> = {};
+
+  data.forEach((c: any) => {
+    const party = c.party || "IND";
+
+    if (!totals[party]) {
+      totals[party] = 0;
+    }
+
+    totals[party] += c.votes;
+  });
+
+  const totalVotes = Object.values(totals)
+    .reduce((sum: number, v: any) => sum + v, 0);
+
+  const constituencyName = current?.name;
+  const previous = previousResults?.[constituencyName] || {};
+
+  const previousTotalVotes = Object.values(previous)
+    .reduce((sum: number, p: any) => sum + (p.votes || 0), 0);
+
+  return Object.entries(totals)
+    .map(([party, votes]: [string, any]) => {
+
+      const percent = totalVotes
+        ? (votes / totalVotes) * 100
+        : 0;
+
+      const previousVotes =
+        previous?.[party]?.votes || 0;
+
+      const previousPercent =
+        previousTotalVotes
+          ? (previousVotes / previousTotalVotes) * 100
+          : 0;
+
+      const swing = percent - previousPercent;
+
+      return {
+        party,
+        votes,
+        percent: percent.toFixed(1),
+        swing
+      };
+
+    })
+    .sort((a, b) => {
+      if (a.party === "IND") return 1;
+      if (b.party === "IND") return -1;
+      return b.votes - a.votes;
+    });
+
+})();
+
+const transferData: any = (() => {
+  if (!current?.data?.counts || count <= 1) return null;
+
+  const counts = current.data.counts;
+
+  const currentData = counts[count] || [];
+  const prevData = counts[count - 1] || [];
+  const prevPrevData = counts[count - 2] || [];
+
+  const sources: any[] = [];
+
+  /* Count 2 special case */
+  if (count === 2) {
+    prevData.forEach((c: any) => {
+
+      /* Eliminated */
+      if (c.status === "eliminated") {
+        sources.push({
+          ...c,
+          type: "eliminated"
+        });
+      }
+
+      /* Surplus */
+      if (c.status === "elected" && c.votes > c.quota) {
+        sources.push({
+          ...c,
+          type: "surplus"
+        });
+      }
+
+    });
+
+  } else {
+
+    prevData.forEach((c: any) => {
+
+      const prevPrev = prevPrevData.find(
+        (p: any) => p.name === c.name && p.party === c.party
+      );
+
+      /* Eliminated */
+      if (
+        prevPrev &&
+        prevPrev.status !== "eliminated" &&
+        c.status === "eliminated"
+      ) {
+        sources.push({
+          ...c,
+          type: "eliminated"
+        });
+      }
+
+      /* Surplus */
+      if (
+        c.status === "elected" &&
+        c.votes > c.quota
+      ) {
+        sources.push({
+          ...c,
+          type: "surplus"
+        });
+      }
+
+    });
+
+  }
+
+  if (!sources.length) return null;
+
+  const transfers: any[] = [];
+
+  currentData.forEach((c: any) => {
+    const prev = prevData.find(
+      (p: any) => p.name === c.name && p.party === c.party
+    );
+
+    const gain = prev ? c.votes - prev.votes : 0;
+
+    if (gain > 0) {
+      transfers.push({
+        name: c.name,
+        party: c.party,
+        gain
+      });
+    }
+  });
+
+  return {
+    sources,
+    transfers: transfers.sort((a, b) => b.gain - a.gain)
+  };
+
+})();
+
+/* TRANSFER FRIENDLINESS MATRIX */
+
+const transferMatrix = (() => {
+  if (!transferData) return null;
+
+  const matrix: Record<string, number> = {};
+
+  transferData.transfers.forEach((t: any) => {
+    if (!matrix[t.party]) {
+      matrix[t.party] = 0;
+    }
+
+    matrix[t.party] += t.gain;
+  });
+
+  const total = Object.values(matrix)
+    .reduce((a, b) => a + b, 0);
+
+  return Object.entries(matrix)
+    .map(([party, votes]: [string, any]) => ({
+      party,
+      votes,
+      percent: total
+        ? ((votes / total) * 100).toFixed(1)
+        : 0
+    }))
+    .sort((a, b) => b.votes - a.votes);
+
+})();
+
+/* VOTE LEAKAGE */
+
+const voteLeakage = (() => {
+  if (!transferData) return null;
+
+const totalEliminated = transferData.sources
+  .reduce((sum: number, c: any) => {
+
+    /* elected candidates — use surplus only */
+    if (
+      c.status === "elected" &&
+      c.votes > (c.quota || transferData.quota || 0)
+    ) {
+      const quota =
+        c.quota ||
+        transferData.quota ||
+        0;
+
+      return sum + (c.votes - quota);
+    }
+
+    /* eliminated candidates */
+    return sum + (c.votes || 0);
+
+  }, 0);
+
+  const totalTransferred = transferData.transfers
+    .reduce((sum: number, t: any) => sum + (t.gain || 0), 0);
+
+  const leakage = Math.max(0, totalEliminated - totalTransferred);
+
+  const percent = totalEliminated
+    ? ((leakage / totalEliminated) * 100).toFixed(1)
+    : 0;
+
+  return {
+    leakage,
+    percent
+  };
+})();
+
+/* VOTE LEAKAGE HISTORY */
+
+
+const leakageHistory = (() => {
+  if (!current?.data?.counts) return [];
+
+  const counts = current.data.counts;
+  const history: any[] = [];
+
+  Object.keys(counts).forEach((c) => {
+
+    const count = Number(c);
+
+    if (count === 1) {
+      history.push({
+        count,
+        leakage: 0,
+        percent: 0
+      });
+      return;
+    }
+
+    const data = counts[count];
+    const prev = counts[count - 1];
+
+    if (!data || !prev) return;
+
+    const quota =
+      data?.[0]?.quota ||
+      prev?.[0]?.quota ||
+      0;
+
+    let transferableVotes = 0;
+    let totalGain = 0;
+
+    prev.forEach((p: any) => {
+
+      const curr = data.find(
+        (d: any) => d.name === p.name && d.party === p.party
+      );
+
+      if (!curr) return;
+
+      const diff = curr.votes - p.votes;
+
+      /* Gains */
+      if (diff > 0) {
+        totalGain += diff;
+      }
+
+      /* Eliminated candidates */
+      if (p.status === "eliminated") {
+        transferableVotes += p.votes;
+      }
+
+/* Surplus ONLY */
+if (
+  p.status === "elected" &&
+  p.votes > quota &&
+  curr.votes <= quota
+) {
+  transferableVotes += (p.votes - quota);
+}
+
+    });
+
+    const leakageVotes = Math.max(
+      0,
+      transferableVotes - totalGain
+    );
+
+    const percent = transferableVotes
+      ? (leakageVotes / transferableVotes) * 100
+      : 0;
+
+    history.push({
+      count,
+      leakage: Math.round(leakageVotes),
+      percent: Number(percent.toFixed(1))
+    });
+
+  });
+
+  return history;
+
+})();
+
+/* PARTY IDEOLOGY MAP */
+
+const partyIdeology: Record<string, string> = {
+
+  /* Far Left */
+  "PBPS": "far-left",
+
+  /* Left */
+  "SF": "left",
+
+  /* Centre Left */
+  "LAB": "centre-left",
+  "SD": "centre-left",
+  "GP": "centre-left",
+
+  /* Centre */
+  "FF": "centre",
+  "IND": "centre",
+  "INDIRL": "centre",
+  "AON": "centre",
+
+  /* Centre Right */
+  "FG": "centre-right",
+
+  /* Right */
+  "REN": "right",
+
+  /* Far Right */
+  "IFP": "far-right",
+  "IPP": "far-right",
+  "NP": "far-right"
+
+};
+
+
+/* IDEOLOGY DISTANCE */
+
+const ideologyDistance: Record<string, number> = {
+  "far-left": 0,
+  "left": 1,
+  "centre-left": 2,
+  "centre": 3,
+  "centre-right": 4,
+  "right": 5,
+  "far-right": 6
+};
+
+
+/* LIKE-MINDED CHECK */
+
+const isLikeMinded = (partyA: string, partyB: string) => {
+  const a = ideologyDistance[
+    partyIdeology[partyA] || "centre"
+  ];
+
+  const b = ideologyDistance[
+    partyIdeology[partyB] || "centre"
+  ];
+
+  return Math.abs(a - b) <= 1;
+};
+
+/* ADVANCED METRICS DATA */
+
+const advancedMetrics = (() => {
+  const counts = current?.data?.counts;
+  const data = counts?.[count];
+  const firstCount = counts?.[1];
+
+  if (!data || !firstCount) return [];
+
+  const quota = data?.[0]?.quota || 0;
+
+  const candidates = data.map((c: any) => {
+
+    const first = firstCount.find(
+      (p: any) => p.name === c.name && p.party === c.party
+    );
+
+    const firstVotes = first?.votes || 0;
+    const gain = c.votes - firstVotes;
+
+    let totalGain = 0;
+    let gainCounts = 0;
+    let transferCounts = 0;
+
+    let likeMindedTransfers = 0;
+    let totalTransfers = 0;
+
+    let samePartyTransfers = 0;
+    let samePartyAvailable = 0;
+
+    Object.keys(counts).forEach((k) => {
+      const n = Number(k);
+      if (n <= 1 || n > count) return;
+
+      const prev = counts[n - 1];
+      const curr = counts[n];
+
+      const prevCandidate = prev?.find(
+        (p: any) => p.name === c.name && p.party === c.party
+      );
+
+      const currCandidate = curr?.find(
+        (p: any) => p.name === c.name && p.party === c.party
+      );
+
+      if (!prevCandidate || !currCandidate) return;
+
+      const diff = currCandidate.votes - prevCandidate.votes;
+
+      transferCounts++;
+
+      if (diff > 0) {
+        gainCounts++;
+        totalGain += diff;
+      }
+
+      /* Transfer source analysis */
+      prev.forEach((p: any) => {
+
+        const transferring =
+          p.status === "eliminated" ||
+          p.status === "elected";
+
+        if (!transferring) return;
+
+        totalTransfers++;
+
+        /* Like-minded party */
+        if (isLikeMinded(c.party, p.party)) {
+          likeMindedTransfers++;
+        }
+
+        /* Same party transfers */
+        if (
+          p.party === c.party &&
+          p.name !== c.name
+        ) {
+          samePartyAvailable += p.votes;
+
+          if (diff > 0) {
+            samePartyTransfers += diff;
+          }
+        }
+
+      });
+
+    });
+
+    const consistency = transferCounts
+      ? gainCounts / transferCounts
+      : 0;
+
+    const growth = firstVotes
+      ? totalGain / firstVotes
+      : 0;
+
+    const quotaProgress = quota
+      ? c.votes / quota
+      : 0;
+
+    const partyAlignment = totalTransfers
+      ? likeMindedTransfers / totalTransfers
+      : 0;
+
+    const partyTransferEfficiency = samePartyAvailable
+      ? samePartyTransfers / samePartyAvailable
+      : 0;
+
+    return {
+      ...c,
+      firstVotes,
+      gain,
+      quotaDistance: c.votes - quota,
+
+      consistency,
+      growth,
+      quotaProgress,
+      partyAlignment,
+      partyTransferEfficiency
+    };
+
+  });
+
+  return candidates
+    .map((c: any) => ({
+
+      ...c,
+
+      /* Magnet */
+      magnet: c.votes
+        ? (Math.max(0, c.gain) / c.votes) * 100
+        : 0,
+
+      /* Composite Efficiency */
+      efficiency: (
+        (c.growth * 0.25) +
+        (c.quotaProgress * 0.25) +
+        (c.consistency * 0.15) +
+        (c.partyAlignment * 0.15) +
+        (c.partyTransferEfficiency * 0.20)
+      ) * 100
+
+    }))
+    .sort((a: any, b: any) => b.votes - a.votes);
+
+})();
+
+/* SANKEY DATA */
+
+const sankeyData = (() => {
+  if (!transferData) return null;
+
+  const nodes: any[] = [];
+  const links: any[] = [];
+
+  /* Combined eliminated node */
+const sourceLabel = transferData.sources
+  .map((s: any) =>
+    s.type === "surplus"
+      ? `${s.name} (${s.party}) Surplus`
+      : `${s.name} (${s.party})`
+  );
+
+  nodes.push({
+    name: sourceLabel.join("\n"),
+    fill: "#666"
+  });
+
+  /* Receiving candidates */
+  transferData.transfers.forEach((t: any) => {
+    nodes.push({
+      name: `${t.name} (${t.party}) +${t.gain.toLocaleString()}`,
+      gain: t.gain,
+      fill: PARTY_COLORS[t.party] || "#888"
+    });
+  });
+
+  /* Links */
+  transferData.transfers.forEach((t: any, i: number) => {
+    links.push({
+      source: 0,
+      target: i + 1,
+      value: t.gain
+    });
+  });
+
+  return { nodes, links };
+
+})();
+
+const hasResults =
+  current?.data?.counts &&
+  Object.keys(current.data.counts).length > 0;
+
+console.log(Object.keys(results));
+
+const rawMeta =
+  current?.name === "National"
+    ? aggregateNationalMeta(results, count)
+    : current?.data?.counts?.[count]?.[0];
+
+const nationalMeta = rawMeta && {
+  ...rawMeta,
+  turnoutPercent: rawMeta.electorate
+    ? (rawMeta.turnout / rawMeta.electorate) * 100
+    : 0,
+  tvpPercent: rawMeta.turnout
+    ? (rawMeta.tvp / rawMeta.turnout) * 100
+    : 0,
+  spoiltPercent: rawMeta.turnout
+    ? (rawMeta.spoilt / rawMeta.turnout) * 100
+    : 0
+};
+
+return (
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      width: "100%",
+      height: "100%",
+      overflow: "hidden"
+    }}
+  >
+
+{/* PAGE HEADER */}
+<div
+  style={{
+    flexShrink: 0,
+    padding: "12px 20px",
+    borderBottom: "1px solid var(--border)",
+    background: "var(--panel)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    zIndex: 10
+  }}
+>
+
+{/* LEFT SIDE */}
+<div>
+  <div style={{ fontSize: "11px", opacity: 0.6 }}>
+    You are viewing
+  </div>
+
+  <div
+    style={{
+      fontSize: "18px",
+      fontWeight: "700"
+    }}
+  >
+    {title}
+  </div>
+</div>
+
+</div>
+
+{/* MAIN CONTENT */}
+<div
+  style={{
+    display: "flex",
+    flex: 1,
+    minHeight: 0,
+    overflow: "hidden"
+  }}
+>
+
+      {/* LEFT PANEL */}
+<div style={{
+  width: "65%",
+  height: "100%",
+  padding: "20px",
+  background: "var(--panel)",
+  overflowY: "auto",
+  transition: "opacity 0.2s ease"
+}}>
+ 
+      <div
+  style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    marginBottom: "20px"
+  }}
+>
+
+{/* LEFT SIDE */}
+<div>
+
+<h2
+  style={{
+    margin: 0,
+    fontSize: "28px",
+    fontWeight: "700",
+    letterSpacing: "-0.3px",
+    padding: "7px 0px 0px 10px",
+    display: "flex",
+    alignItems: "center",
+    gap: "12px"
+  }}
+>
+  {current?.name || "Loading..."}
+
+  {/* STATUS DOT */}
+  {(() => {
+    const counts = current?.data?.counts;
+    if (!counts) return null;
+
+    const lastCount = Math.max(...Object.keys(counts).map(Number));
+    const finalData = counts[lastCount] || [];
+
+    const seats = finalData[0]?.seats || 0;
+    const filled = finalData.filter(
+      (c: any) => c.status === "elected"
+    ).length;
+
+    const complete = filled === seats;
+
+    return (
+      <span
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "6px",
+          fontSize: "13px",
+          fontWeight: "600",
+          opacity: 0.85
+        }}
+      >
+        <span
+          style={{
+            width: "8px",
+            height: "8px",
+            borderRadius: "50%",
+            background: complete ? "#4caf50" : "#ff5252",
+            animation: complete ? "none" : "blink 2s infinite"
+          }}
+        />
+
+        {complete ? "Complete" : "Counting"}
+      </span>
+    );
+  })()}
+</h2>
+
+</div>
+
+
+{/* RIGHT SIDE */}
+{selected && (
+<button
+  onClick={() => {
+    setSelected(null);
+router.push(`?`);
+    setResetTrigger(prev => prev + 1);
+  }}
+  style={{
+    marginTop: "10px",
+    padding: "5px 7px",
+    borderRadius: "12px",
+    background: "transparent",
+    border: "1px solid var(--border)",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+    fontSize: "12px",
+    color: "var(--text-muted)",
+    cursor: "pointer"
+  }}
+>
+↺ Back to national result
+</button>
+)}
+
+</div>
+
+{(() => {
+  const counts = current?.data?.counts;
+  if (!counts) return null;
+
+  const lastCount = Math.max(...Object.keys(counts).map(Number));
+  const finalData = counts[lastCount] || [];
+
+  const seats = finalData[0]?.seats || 0;
+
+  const elected = finalData
+    .filter((c: any) => c.status === "elected")
+    .map((c: any) => {
+      let electedOn = null;
+
+      for (let i = 1; i <= lastCount; i++) {
+        const countData = counts[i] || [];
+
+        const found = countData.find(
+          (p: any) => p.name === c.name && p.party === c.party
+        );
+
+        if (found?.status === "elected") {
+          electedOn = i;
+          break;
+        }
+      }
+
+      return {
+        ...c,
+        electedOn
+      };
+    });
+
+  const filled = elected.length;
+  const emptySeats = Math.max(seats - filled, 0);
+
+  return (
+
+<>
+
+{/* WINNER BANNER */}
+{elected.slice(0, 1).map((c: any) => (
+<div
+  key={c.id}
+  style={{
+    marginBottom: "16px",
+    marginLeft: "-20px",
+    marginRight: "-20px",
+    borderRadius: "0px",
+    overflow: "hidden",
+    background: PARTY_COLORS[c.party] || "#444",
+    color: "white",
+    display: "flex",
+    alignItems: "stretch",
+    position: "relative"
+  }}
+>
+
+{/* IMAGE */}
+<div
+  style={{
+    width: "110px",
+    background: "#00000033"
+  }}
+>
+<img
+  src={getCandidateImage(c.name)}
+  alt={c.name}
+  style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "cover"
+  }}
+onError={(e) => {
+  (e.target as HTMLImageElement).style.display = "none";
+}}
+/>
+</div>
+
+{/* CONTENT */}
+<div
+  style={{
+    flex: 1,
+    padding: "14px 16px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center"
+  }}
+>
+
+{/* NAME + CHECKMARK */}
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    fontSize: "22px",
+    fontWeight: "700",
+    marginTop: "2px"
+  }}
+>
+
+{/* CHECKMARK */}
+<div
+  style={{
+    width: "18px",
+    height: "18px",
+    borderRadius: "50%",
+    background: "#fff",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexShrink: 0
+  }}
+>
+  <svg
+    width="10"
+    height="10"
+    viewBox="0 0 16 16"
+    fill="none"
+  >
+    <path
+      d="M4 8.5L7 11.5L12 5"
+      stroke={PARTY_COLORS[c.party] || "#1f1f1f"}
+      strokeWidth="2.8"
+      strokeLinecap="square"
+    />
+  </svg>
+</div>
+
+<span>{c.name}</span>
+
+</div>
+
+{/* INCUMBENT */}
+{c.incumbent && (
+<div
+  style={{
+    fontSize: "11px",
+    opacity: 0.9
+  }}
+>
+★ Incumbent
+</div>
+)}
+
+{/* PARTY + COUNT */}
+<div
+  style={{
+    fontSize: "13px",
+    opacity: 0.9
+  }}
+>
+{c.party} • Count {c.electedOn}
+</div>
+
+{/* PROJECTION */}
+{projection && (
+<div
+  style={{
+    marginTop: "8px",
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "6px",
+    fontSize: "11px",
+    background: "rgba(0,0,0,0.18)",
+    padding: "4px 8px",
+    borderRadius: "6px",
+    border: "1px solid rgba(255,255,255,0.15)",
+    width: "fit-content"
+  }}
+>
+
+<span
+  style={{
+    width: "6px",
+    height: "6px",
+    borderRadius: "50%",
+    background: "#4caf50",
+    flexShrink: 0
+  }}
+/>
+
+<span>
+<b>#Projected</b> by Ireland Votes — {projection.note}
+</span>
+
+</div>
+)}
+
+</div>
+
+</div>
+))}
+
+    {/* INFO LIST */}
+
+<div style={{ marginBottom: "14px" }}>
+  <ElectionMetaPanel meta={nationalMeta} type={undefined} />
+</div>
+
+</>
+  );
+  
+})()}
+
+{/* TALLY BAR */}
+{!hasResults && (
+<div style={{
+  marginBottom: "15px",
+  padding: "8px 12px",
+  borderRadius: "8px",
+  background: "var(--panel-2)",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between"
+}}>
+
+  {/* LEFT: LIVE */}
+  <div style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "6px",
+    whiteSpace: "nowrap"
+  }}>
+    <span style={{
+      width: "6px",
+      height: "6px",
+      borderRadius: "50%",
+      background: "red",
+      animation: "blink 2s infinite"
+    }} />
+
+    <span style={{ color: "red", fontWeight: "700" }}>
+      LIVE
+    </span>
+
+    <span style={{ color: "var(--text-muted)", fontWeight: "600" }}>
+      TALLY:
+    </span>
+  </div>
+
+  {/* CENTER: SCROLLING TICKER */}
+  <div style={{
+    flex: 1,
+    overflow: "hidden",
+    margin: "0 10px",
+    maskImage: "linear-gradient(to right, transparent, white 10%, white 90%, transparent)"
+  }}>
+    <div
+  style={{
+    display: "inline-flex",
+    gap: "20px",
+    whiteSpace: "nowrap",
+    animation: "scroll 30s linear infinite"
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.animationPlayState = "paused";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.animationPlayState = "running";
+  }}
+>
+{(() => {
+  const data = current?.data?.counts?.[1] ?? [];
+
+  const candidates = [...data];
+  const totalVotes = candidates.reduce((sum, c) => sum + c.votes, 0);
+
+  candidates.sort((a, b) => b.votes - a.votes);
+
+  return candidates.map((c) => {
+
+    const percent = totalVotes
+      ? ((c.votes / totalVotes) * 100).toFixed(1)
+      : 0;
+
+    return (
+      <span key={c.id} style={{ marginRight: "24px" }}>
+        {c.name}{" "}
+        <span style={{ fontWeight: "700" }}>{c.party}</span>{" "}
+        {percent}%
+      </span>
+    );
+  });
+})()}
+    </div>
+  </div>
+
+  {/* RIGHT: % IN */}
+  <div style={{
+    fontSize: "12px",
+    color: "var(--text-muted)",
+    fontWeight: "600",
+    whiteSpace: "nowrap"
+  }}>
+    99% COUNTED
+  </div>
+
+</div>
+)}
+
+{/* VIEW HEADER */}
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: "14px"
+  }}
+>
+
+{/* Count Controls */}
+{view === "count" && (
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "8px"
+  }}
+>
+
+<button
+  disabled={count === 1}
+  onClick={() => setCount(count - 1)}
+  style={{
+    padding: "6px 10px",
+    borderRadius: "8px",
+    border: "1px solid var(--border)",
+    background: "transparent",
+    color: "var(--text)",
+    opacity: count === 1 ? 0.3 : 1
+  }}
+>
+  ‹
+</button>
+
+<div
+  style={{
+    padding: "6px 12px",
+    borderRadius: "8px",
+    border: "1px solid var(--border)",
+    background: "var(--panel-2)",
+    fontWeight: "600"
+  }}
+>
+  Count {count}
+</div>
+
+<button
+  disabled={count === latestCount}
+  onClick={() => setCount(count + 1)}
+  style={{
+    padding: "6px 10px",
+    borderRadius: "8px",
+    border: "1px solid var(--border)",
+    background: "transparent",
+    color: "var(--text)",
+    opacity: count === latestCount ? 0.3 : 1
+  }}
+>
+  ›
+</button>
+
+<button
+  onClick={() => setCount(latestCount)}
+  style={{
+    padding: "6px 10px",
+    borderRadius: "8px",
+    border: "1px solid var(--border)",
+    background: count === latestCount ? "var(--panel-2)" : "transparent",
+    color: "var(--text)",
+    fontSize: "12px"
+  }}
+>
+  Jump to Latest
+</button>
+
+</div>
+)}
+
+</div>
+
+{/* COUNT PANEL */}
+
+{view === "count" && (
+<div>
+
+{/* RESULT TABLE */}
+<div style={{
+  marginTop: "20px",
+  padding: "15px",
+  borderRadius: "12px",
+  background: "var(--panel)",
+  border: "1px solid var(--border)",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+  position: "relative",
+  maxHeight: "calc(100vh - 420px)",
+  overflowY: "auto"
+}}>
+  <div style={{
+  display: "flex",
+  alignItems: "center",
+  marginBottom: "10px",
+  paddingBottom: "6px",
+  borderBottom: "1px solid #333",
+  fontSize: "11px",
+  fontWeight: "600",
+  letterSpacing: "0.5px",
+  color: "var(--text-muted)"
+}}>
+  {/* CHECKMARK SPACE */}
+  <div style={{ width: "20px" }} />
+
+  {/* IMAGE SPACE */}
+  <div style={{
+    width: "36px",
+    marginRight: "10px"
+  }} />
+
+  {/* NAME (CANDIDATE) */}
+  <div style={{ width: "140px", marginLeft: "5px" }}>
+    CANDIDATE
+  </div>
+
+  {/* BAR SPACE */}
+<div style={{
+  width: "calc(100% - 420px)",
+  height: "15px",
+    marginRight: "10px"
+  }} />
+
+  {/* PERCENT */}
+<div
+  style={{
+    width: "60px",
+    textAlign: "right",
+    marginLeft: "35px",
+    opacity: count === 1 ? 1 : 0
+  }}
+>
+  PERCENT
+</div>
+
+  {/* VOTES */}
+  <div style={{
+    width: "80px",
+    textAlign: "right",
+    marginLeft: "15px"
+  }}>
+    VOTES
+  </div>
+</div>
+
+{/* RESULTS TABLE CONTENT */}
+
+<div style={{ position: "relative" }}>
+
+{(() => {
+ const data = current?.data?.counts?.[count] || [];
+
+if (!data.length) return <p>Awaiting results...</p>;
+
+const firstCount = current?.data?.counts?.[1] || [];
+
+const firstTotalVotes = firstCount.reduce(
+  (sum: number, c: any) => sum + (c.votes || 0),
+  0
+);
+
+const allCandidates = [...data];
+
+const electedMap = new globalThis.Map();
+
+for (let i = 1; i <= count; i++) {
+  const countData = current?.data?.counts?.[i] || [];
+
+  countData.forEach((c: any) => {
+    if (c.status === "elected") {
+      const key = `${c.name}-${c.party}`;
+
+      if (!electedMap.has(key)) {
+        electedMap.set(key, {
+          ...c,
+          electedOn: i
+        });
+      }
+    }
+  });
+}
+
+const elected = Array.from(electedMap.values());
+
+const electedKeys = new Set(
+  elected.map(c => `${c.name}-${c.party}`)
+);
+
+const candidates = allCandidates.filter(
+  c => !electedKeys.has(`${c.name}-${c.party}`)
+);
+
+const running = candidates.filter(c => {
+  if (c.status !== "eliminated") return true;
+
+  const prevData = current?.data?.counts?.[count - 1] || [];
+  const prev = prevData.find(
+    (p: any) => p.name === c.name && p.party === c.party
+  );
+
+  // still show in running area on elimination count
+  return prev?.status !== "eliminated";
+});
+
+const eliminated = candidates.filter(c => {
+  if (c.status !== "eliminated") return false;
+
+  const prevData = current?.data?.counts?.[count - 1] || [];
+  const prev = prevData.find(
+    (p: any) => p.name === c.name && p.party === c.party
+  );
+
+  // only move AFTER redistribution
+  return prev?.status === "eliminated";
+});
+
+// 👇 sort running by votes
+running.sort((a: any, b: any) => b.votes - a.votes);
+
+// 👇 determine elimination order
+const counts = current.data.counts;
+
+const eliminatedWithOrder = eliminated.map((c: any) => {
+  let eliminatedOn = null;
+
+  for (let i = 1; i <= count; i++) {
+    const found = (counts[i] || []).find(
+      (p: any) => p.name === c.name && p.party === c.party
+    );
+
+    if (found?.status === "eliminated") {
+      eliminatedOn = i;
+      break;
+    }
+  }
+
+  return { ...c, eliminatedOn };
+});
+
+// 👇 sort eliminated by when they were eliminated
+eliminatedWithOrder.sort((a, b) => a.eliminatedOn - b.eliminatedOn);
+
+// 👇 final order
+const orderedCandidates = [
+  ...elected,
+  ...running,
+  ...eliminatedWithOrder
+];
+
+  const totalVotes = allCandidates.reduce((sum, c) => sum + c.votes, 0);
+
+  const prevData = current?.data?.counts?.[count - 1] || [];
+
+  const gains = candidates.map((c) => {
+    const prev = prevData.find(
+      (p: any) => p.name === c.name && p.party === c.party
+    );
+    return prev ? c.votes - prev.votes : 0;
+  });
+
+  const maxGain = gains.length ? Math.max(...gains) : 0;
+
+  const topGainer =
+  maxGain > 0
+    ? candidates.find((c, i) => gains[i] === maxGain)
+    : null;
+
+return orderedCandidates.map((c, index) => {
+
+const electedOn = c.electedOn || 0;
+
+const quota = current?.data?.quota || data?.[0]?.quota || 0;
+
+const justElected =
+  c.status === "elected" &&
+  count === electedOn;
+
+const showSurplus =
+  c.status === "elected" &&
+  count === electedOn + 1;
+
+const freezeAtQuota =
+  c.status === "elected" &&
+  count >= electedOn + 2;
+
+const effectiveVotes =
+  freezeAtQuota ? quota : c.votes;
+
+const percent = firstTotalVotes
+  ? (effectiveVotes / firstTotalVotes) * 100
+  : 0;
+
+const quotaPercent = firstTotalVotes
+  ? (quota / firstTotalVotes) * 100
+  : 0;
+
+const maxVotes = Math.max(
+  ...orderedCandidates.map(c => c.votes)
+);
+
+const scaledPercent =
+  current?.name === "National"
+    ? quotaPercent
+      ? (percent / quotaPercent) * 70
+      : 0
+    : maxVotes
+    ? (c.votes / maxVotes) * 70
+    : 0;
+
+const surplus =
+  showSurplus && c.votes >= quota
+    ? c.votes - quota
+    : 0;
+
+const surplusPercent = firstTotalVotes
+  ? (surplus / firstTotalVotes) * 100
+  : 0;
+
+const scaledSurplusPercent = Math.min(
+  surplusPercent * 3,
+  100
+);
+
+const prevData = current?.data?.counts?.[count - 1] || [];
+
+let justEliminated = false;
+
+if (count > 1) {
+  const prev = prevData.find(
+    (p: any) => p.name === c.name && p.party === c.party
+  );
+
+  // 👇 candidate was eliminated LAST count
+  if (prev?.status === "eliminated") {
+    justEliminated = true;
+  }
+}
+    
+const prev = prevData.find(
+  (p: any) => p.name === c.name && p.party === c.party
+);
+
+const prevEffectiveVotes =
+  count > electedOn + 1 && prev?.status === "elected"
+    ? quota
+    : prev?.votes || 0;
+
+const currentEffectiveVotes =
+  freezeAtQuota ? quota : c.votes;
+
+const gain = currentEffectiveVotes - prevEffectiveVotes;
+
+const finalGain =
+  count > electedOn + 1 ? 0 : gain;
+
+    const isTopGainer = gain === maxGain && gain > 0;
+
+  const showDivider =
+  c.status === "eliminated" &&
+  orderedCandidates.findIndex(x => x.status === "eliminated") ===
+    orderedCandidates.findIndex(x => x.id === c.id);
+
+const scaledQuotaPercent = 70;
+
+const surplusWidth =
+  Math.max(0, scaledPercent - scaledQuotaPercent);
+  
+    
+return (
+  <Fragment key={c.id}>
+  
+  {showDivider && (
+  <div style={{ margin: "12px 0 8px 0" }}>
+  <div
+  style={{
+  borderTop: "2px dotted var(--border)",
+  marginBottom: "6px"
+  }}
+  />
+  
+  <div
+  style={{
+  fontSize: "10px",
+  fontWeight: "600",
+  letterSpacing: "1px",
+  color: "#777",
+  textTransform: "uppercase"
+  }}
+  >
+  Eliminated
+  </div>
+  </div>
+  )}
+  
+  <div
+  style={{
+  display: "flex",
+  alignItems: "center",
+  minWidth: 0,
+  padding: "6px 10px",
+  marginBottom: "4px",
+  borderRadius: "6px",
+  color: "var(--text)",
+  position: "relative",
+  overflow: "hidden",
+  background: "var(--panel-2)",
+  transition: "background 0.15s ease"
+  }}
+  onMouseEnter={(e) => {
+  e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+  }}
+  onMouseLeave={(e) => {
+  e.currentTarget.style.background = "var(--panel-2)";
+  }}
+  >
+  
+  {/* FULL ROW VOTE BACKGROUND */}
+  <div
+  style={{
+  position: "absolute",
+  left: 0,
+  top: 0,
+  bottom: 0,
+  width: `${scaledPercent}%`,
+  background: PARTY_COLORS[c.party] || "#888",
+  opacity: c.status === "elected" ? 0.35 : 0.22,
+  zIndex: 1
+  }}
+  />
+  
+  {/* SURPLUS */}
+  {showSurplus && (
+  <div
+  style={{
+  position: "absolute",
+  left: `${scaledQuotaPercent}%`,
+  top: 0,
+  bottom: 0,
+  width: `${Math.max(0, scaledPercent - scaledQuotaPercent)}%`,
+  background:
+  "repeating-linear-gradient(45deg, rgba(255,255,255,0.35), rgba(255,255,255,0.35) 4px, transparent 4px, transparent 8px)",
+  zIndex: 2
+  }}
+  />
+  )}
+  
+  {/* ELIMINATED */}
+  {justEliminated && (
+  <div
+  style={{
+  position: "absolute",
+  inset: 0,
+  background:
+  "repeating-linear-gradient(45deg, rgba(255,82,82,0.25), rgba(255,82,82,0.25) 6px, transparent 6px, transparent 12px)",
+  zIndex: 2
+  }}
+  />
+  )}
+  
+  {/* QUOTA LINE */}
+{!selected && (
+<div
+style={{
+position: "absolute",
+left: `${scaledQuotaPercent}%`,
+top: 0,
+bottom: 0,
+width: "0px",
+borderLeft: "2px dotted var(--quota-line)",
+pointerEvents: "none",
+zIndex: 6
+}}
+/>
+)}
+  
+  {/* FLASH */}
+  {highlighted === c.id && (
+  <div
+  style={{
+  position: "absolute",
+  top: 0,
+  left: "-100%",
+  width: "100%",
+  height: "100%",
+  background:
+  "linear-gradient(90deg, transparent, rgba(18,73,20,0.81), transparent)",
+  animation: "flashSweep 1s ease-out",
+  zIndex: 8
+  }}
+  />
+  )}
+  
+  {/* LABEL */}
+  {highlighted === c.id && (
+  <div
+  style={{
+  position: "absolute",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontSize: "25px",
+  fontWeight: "700",
+  fontStyle: "italic",
+  color: "rgba(255,255,255,0.81)",
+  backdropFilter: "blur(3px)",
+  animation: "fadeOverlay 1s ease-in-out forwards",
+  zIndex: 9,
+  pointerEvents: "none",
+  letterSpacing: "2px"
+  }}
+  >
+  MOST TRANSFERS RECEIVED
+  </div>
+  )}
+  
+  {/* ELECTED STRIP */}
+  {c.status === "elected" && (
+  <div
+  style={{
+  position: "absolute",
+  left: 0,
+  top: 0,
+  bottom: 0,
+  width: "26px",
+  background: "var(--elected-strip)",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  zIndex: 7
+  }}
+  >
+  <svg
+  width="12"
+  height="12"
+  viewBox="0 0 16 16"
+  fill="none"
+  >
+  <path
+  d="M4 8.5L7 11.5L12 5"
+  stroke="var(--elected-check)"
+  strokeWidth="2.8"
+  />
+  </svg>
+  </div>
+  )}
+  
+  {/* Spacer */}
+  <div style={{ width: "26px", flexShrink: 0 }} />
+  
+  {/* PARTY STRIP */}
+  <div
+  style={{
+  width: "3px",
+  alignSelf: "stretch",
+  background: PARTY_COLORS[c.party] || "#888",
+  marginRight: "8px",
+  borderRadius: "2px",
+  zIndex: 7
+  }}
+  />
+  
+{/* IMAGE / AVATAR */}
+<div
+  style={{
+    width: "32px",
+    height: "32px",
+    borderRadius: "50%",
+    background: PARTY_COLORS[c.party] || "#444",
+    border: "1px solid var(--border)",
+    marginRight: "8px",
+    flexShrink: 0,
+    overflow: "hidden",
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  }}
+>
+
+<img
+  src={getCandidateImage(c.name)}
+  alt={c.name}
+  style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "cover"
+  }}
+  onError={(e) => {
+    const img = e.currentTarget;
+    img.style.display = "none";
+
+    const fallback = img.nextSibling as HTMLElement;
+    if (fallback) fallback.style.display = "block";
+  }}
+/>
+
+{/* FALLBACK SVG */}
+<svg
+  viewBox="0 0 24 24"
+  preserveAspectRatio="xMidYMid slice"
+  style={{
+    display: "none",
+    position: "absolute",
+    width: "110%",
+    height: "110%",
+    opacity: 0.35
+  }}
+  fill="white"
+>
+  <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+</svg>
+
+</div>
+  
+  {/* NAME */}
+  <div
+  style={{
+  flex: 1,
+  minWidth: 0,
+  zIndex: 7
+  }}
+  >
+  
+  <div
+  style={{
+  display: "flex",
+  alignItems: "center",
+  gap: "6px",
+  minWidth: 0
+  }}
+  >
+  
+  {/* CANDIDATE NAME */}
+  <div
+  style={{
+  fontWeight: "600",
+  fontSize: "13px",
+  whiteSpace: "nowrap",
+  overflow: "hidden",
+  textOverflow: "ellipsis"
+  }}
+  >
+  {c.name}
+  </div>
+  
+  {/* INCUMBENT */}
+  {c.incumbent && (
+  <div
+  style={{
+  fontSize: "10px",
+  opacity: 0.85,
+  whiteSpace: "nowrap"
+  }}
+  >
+  ★
+  </div>
+  )}
+  
+  </div>
+  
+  {/* PARTY */}
+  <div
+  style={{
+  fontSize: "11px",
+  color: "var(--text-subtle)"
+  }}
+  >
+  {c.party}
+  </div>
+  
+  </div>
+  
+  {/* PERCENT (FIRST COUNT ONLY) */}
+  {count === 1 && (
+  <div
+  style={{
+  width: "60px",
+  textAlign: "right",
+  fontSize: "12px",
+  opacity: 0.8,
+  zIndex: 7
+  }}
+  >
+  {percent.toFixed(1)}%
+  </div>
+  )}
+  
+  {/* VOTES */}
+  <div
+  style={{
+  width: "90px",
+  textAlign: "right",
+  fontSize: "13px",
+  fontWeight: "500",
+  zIndex: 7
+  }}
+  >
+  <AnimatedNumber
+  value={c.votes}
+  previousValue={
+  prevData.find(
+  (p: any) =>
+  p.name === c.name &&
+  p.party === c.party
+  )?.votes || 0
+  }
+  />
+  </div>
+  
+  {/* GAIN */}
+  {count > 1 && (
+  <div
+  style={{
+  width: "60px",
+  textAlign: "right",
+  fontSize: "11px",
+  fontWeight: isTopGainer ? "700" : "500",
+  color:
+  gain > 0 ? "#4caf50" :
+  gain < 0 ? "#f44336" :
+  "#aaa",
+  zIndex: 7
+  }}
+  >
+  {gain > 0 ? "↑ " : gain < 0 ? "↓ " : "→ "}
+  {gain > 0 ? `+${gain}` : gain}
+  </div>
+  )}
+  
+  </div>
+  
+  </Fragment>
+);
+});
+})()}
+</div>
+</div>
+</div>
+)}
+
+</div>
+
+{/* END OF LEFT PANEL */}
+
+      {/* RIGHT MAP */}
+      <div style={{
+  width: "35%",
+  height: "100%",
+  position: "relative",
+  background: "var(--panel)"
+}}>
+
+{/* MAP TOGGLE */}
+{!selected && (
+<div
+  style={{
+    position: "absolute",
+    top: "10px",
+    right: "10px",
+    zIndex: 1000
+  }}
+>
+<MapViewToggle
+  value={mapView}
+  onChange={setMapView}
+  options={[
+    { label: "Winner", value: "winner" },
+    { label: "Margin", value: "margin" },
+    { label: "Turnout", value: "turnout" },
+    { label: "Spoilt", value: "spoilt" }
+  ]}
+/>
+</div>
+
+)}
+<Map
+key="election_map"
+  election={{
+    country,
+    type,
+    year
+  }}
+  selected={selected}
+  view={mapView}
+ onSelect={(item: any) => {
+  setSelected(item);
+
+  // RESET → go back to /40th
+  if (!item) {
+    router.replace(window.location.pathname, { scroll: false });
+    return;
+  }
+
+  // SELECT → update URL
+  const slug = normalizeSlug(
+    item.slug || item.name || item.id
+  );
+
+  router.replace(`?c=${slug}`, { scroll: false });
+}}
+  onLoadTotal={setTotal}
+  onLoadList={setList}
+  onLoadResults={setResults}
+  resetTrigger={resetTrigger}
+  results={results}
+  count={count}
+  onLoadPreviousResults={setPreviousResults}
+  onLoadProjection={setProjection}
+/>
+      </div>
+      </div>
+      </div>
+  );
+}

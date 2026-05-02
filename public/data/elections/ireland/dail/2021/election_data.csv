@@ -1,0 +1,466 @@
+constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,electorate,turnout,tvp,spoilt
+Kimmage C,1,ivana bacik,Ivana Bacik,FALSE,LAB,182,running,1,13442,1909,627,623,4
+Kimmage C,1,james goeghegan,James Geoghegan,FALSE,FG,66,running,1,13442,1909,627,623,4
+Kimmage C,1,lynn boylan,Lynn Boylan,FALSE,SF,188,running,1,13442,1909,627,623,4
+Kimmage C,1,claire byrne,Claire Byrne,FALSE,GP,36,running,1,13442,1909,627,623,4
+Kimmage C,1,deirdre conroy,Deirdre Conroy,FALSE,FF,36,running,1,13442,1909,627,623,4
+Kimmage C,1,mannix flynn,Mannix Flynn,FALSE,IND,7,running,1,13442,1909,627,623,4
+Kimmage C,1,sarah durcan,Sarah Durcan,FALSE,SD,13,running,1,13442,1909,627,623,4
+Kimmage C,1,brigid purcell,Brigid Purcell,FALSE,PBPS,31,running,1,13442,1909,627,623,4
+Kimmage C,1,mairead toibin,Mairéad Tóibín,FALSE,AON,26,running,1,13442,1909,627,623,4
+Kimmage C,1,peter dooley,Peter Dooley,FALSE,IND,16,running,1,13442,1909,627,623,4
+Kimmage C,1,justin barrett,Justin Barrett,FALSE,NP,7,running,1,13442,1909,627,623,4
+Kimmage C,1,dolores cahill,Dolores Cahill,FALSE,IND,4,running,1,13442,1909,627,623,4
+Kimmage C,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,7,running,1,13442,1909,627,623,4
+Kimmage C,1,john keigher,John Keigher,FALSE,IND,4,running,1,13442,1909,627,623,4
+Kimmage C,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,1909,627,623,4
+Mansion House A,1,ivana bacik,Ivana Bacik,FALSE,LAB,70,running,1,13442,2238,605,601,4
+Mansion House A,1,james goeghegan,James Geoghegan,FALSE,FG,24,running,1,13442,2238,605,601,4
+Mansion House A,1,lynn boylan,Lynn Boylan,FALSE,SF,384,running,1,13442,2238,605,601,4
+Mansion House A,1,claire byrne,Claire Byrne,FALSE,GP,12,running,1,13442,2238,605,601,4
+Mansion House A,1,deirdre conroy,Deirdre Conroy,FALSE,FF,19,running,1,13442,2238,605,601,4
+Mansion House A,1,mannix flynn,Mannix Flynn,FALSE,IND,16,running,1,13442,2238,605,601,4
+Mansion House A,1,sarah durcan,Sarah Durcan,FALSE,SD,12,running,1,13442,2238,605,601,4
+Mansion House A,1,brigid purcell,Brigid Purcell,FALSE,PBPS,16,running,1,13442,2238,605,601,4
+Mansion House A,1,mairead toibin,Mairéad Tóibín,FALSE,AON,17,running,1,13442,2238,605,601,4
+Mansion House A,1,peter dooley,Peter Dooley,FALSE,IND,6,running,1,13442,2238,605,601,4
+Mansion House A,1,justin barrett,Justin Barrett,FALSE,NP,13,running,1,13442,2238,605,601,4
+Mansion House A,1,dolores cahill,Dolores Cahill,FALSE,IND,10,running,1,13442,2238,605,601,4
+Mansion House A,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,2,running,1,13442,2238,605,601,4
+Mansion House A,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,2238,605,601,4
+Mansion House A,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,2238,605,601,4
+Pembroke East A,1,ivana bacik,Ivana Bacik,FALSE,LAB,220,running,1,13442,3590,1582,1566,16
+Pembroke East A,1,james goeghegan,James Geoghegan,FALSE,FG,120,running,1,13442,3590,1582,1566,16
+Pembroke East A,1,lynn boylan,Lynn Boylan,FALSE,SF,923,running,1,13442,3590,1582,1566,16
+Pembroke East A,1,claire byrne,Claire Byrne,FALSE,GP,57,running,1,13442,3590,1582,1566,16
+Pembroke East A,1,deirdre conroy,Deirdre Conroy,FALSE,FF,30,running,1,13442,3590,1582,1566,16
+Pembroke East A,1,mannix flynn,Mannix Flynn,FALSE,IND,52,running,1,13442,3590,1582,1566,16
+Pembroke East A,1,sarah durcan,Sarah Durcan,FALSE,SD,20,running,1,13442,3590,1582,1566,16
+Pembroke East A,1,brigid purcell,Brigid Purcell,FALSE,PBPS,59,running,1,13442,3590,1582,1566,16
+Pembroke East A,1,mairead toibin,Mairéad Tóibín,FALSE,AON,28,running,1,13442,3590,1582,1566,16
+Pembroke East A,1,peter dooley,Peter Dooley,FALSE,IND,18,running,1,13442,3590,1582,1566,16
+Pembroke East A,1,justin barrett,Justin Barrett,FALSE,NP,22,running,1,13442,3590,1582,1566,16
+Pembroke East A,1,dolores cahill,Dolores Cahill,FALSE,IND,10,running,1,13442,3590,1582,1566,16
+Pembroke East A,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,7,running,1,13442,3590,1582,1566,16
+Pembroke East A,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,3590,1582,1566,16
+Pembroke East A,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,3590,1582,1566,16
+Pembroke East B,1,ivana bacik,Ivana Bacik,FALSE,LAB,376,running,1,13442,3670,1427,1420,7
+Pembroke East B,1,james goeghegan,James Geoghegan,FALSE,FG,516,running,1,13442,3670,1427,1420,7
+Pembroke East B,1,lynn boylan,Lynn Boylan,FALSE,SF,101,running,1,13442,3670,1427,1420,7
+Pembroke East B,1,claire byrne,Claire Byrne,FALSE,GP,89,running,1,13442,3670,1427,1420,7
+Pembroke East B,1,deirdre conroy,Deirdre Conroy,FALSE,FF,58,running,1,13442,3670,1427,1420,7
+Pembroke East B,1,mannix flynn,Mannix Flynn,FALSE,IND,141,running,1,13442,3670,1427,1420,7
+Pembroke East B,1,sarah durcan,Sarah Durcan,FALSE,SD,20,running,1,13442,3670,1427,1420,7
+Pembroke East B,1,brigid purcell,Brigid Purcell,FALSE,PBPS,36,running,1,13442,3670,1427,1420,7
+Pembroke East B,1,mairead toibin,Mairéad Tóibín,FALSE,AON,68,running,1,13442,3670,1427,1420,7
+Pembroke East B,1,peter dooley,Peter Dooley,FALSE,IND,1,running,1,13442,3670,1427,1420,7
+Pembroke East B,1,justin barrett,Justin Barrett,FALSE,NP,2,running,1,13442,3670,1427,1420,7
+Pembroke East B,1,dolores cahill,Dolores Cahill,FALSE,IND,5,running,1,13442,3670,1427,1420,7
+Pembroke East B,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,6,running,1,13442,3670,1427,1420,7
+Pembroke East B,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,3670,1427,1420,7
+Pembroke East B,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,1,running,1,13442,3670,1427,1420,7
+Pembroke East C,1,ivana bacik,Ivana Bacik,FALSE,LAB,379,running,1,13442,3358,1419,1415,4
+Pembroke East C,1,james goeghegan,James Geoghegan,FALSE,FG,568,running,1,13442,3358,1419,1415,4
+Pembroke East C,1,lynn boylan,Lynn Boylan,FALSE,SF,46,running,1,13442,3358,1419,1415,4
+Pembroke East C,1,claire byrne,Claire Byrne,FALSE,GP,87,running,1,13442,3358,1419,1415,4
+Pembroke East C,1,deirdre conroy,Deirdre Conroy,FALSE,FF,57,running,1,13442,3358,1419,1415,4
+Pembroke East C,1,mannix flynn,Mannix Flynn,FALSE,IND,153,running,1,13442,3358,1419,1415,4
+Pembroke East C,1,sarah durcan,Sarah Durcan,FALSE,SD,42,running,1,13442,3358,1419,1415,4
+Pembroke East C,1,brigid purcell,Brigid Purcell,FALSE,PBPS,24,running,1,13442,3358,1419,1415,4
+Pembroke East C,1,mairead toibin,Mairéad Tóibín,FALSE,AON,34,running,1,13442,3358,1419,1415,4
+Pembroke East C,1,peter dooley,Peter Dooley,FALSE,IND,3,running,1,13442,3358,1419,1415,4
+Pembroke East C,1,justin barrett,Justin Barrett,FALSE,NP,10,running,1,13442,3358,1419,1415,4
+Pembroke East C,1,dolores cahill,Dolores Cahill,FALSE,IND,4,running,1,13442,3358,1419,1415,4
+Pembroke East C,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,6,running,1,13442,3358,1419,1415,4
+Pembroke East C,1,john keigher,John Keigher,FALSE,IND,1,running,1,13442,3358,1419,1415,4
+Pembroke East C,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,1,running,1,13442,3358,1419,1415,4
+Pembroke East D,1,ivana bacik,Ivana Bacik,FALSE,LAB,203,running,1,13442,3157,1027,1024,3
+Pembroke East D,1,james goeghegan,James Geoghegan,FALSE,FG,443,running,1,13442,3157,1027,1024,3
+Pembroke East D,1,lynn boylan,Lynn Boylan,FALSE,SF,130,running,1,13442,3157,1027,1024,3
+Pembroke East D,1,claire byrne,Claire Byrne,FALSE,GP,69,running,1,13442,3157,1027,1024,3
+Pembroke East D,1,deirdre conroy,Deirdre Conroy,FALSE,FF,65,running,1,13442,3157,1027,1024,3
+Pembroke East D,1,mannix flynn,Mannix Flynn,FALSE,IND,19,running,1,13442,3157,1027,1024,3
+Pembroke East D,1,sarah durcan,Sarah Durcan,FALSE,SD,17,running,1,13442,3157,1027,1024,3
+Pembroke East D,1,brigid purcell,Brigid Purcell,FALSE,PBPS,19,running,1,13442,3157,1027,1024,3
+Pembroke East D,1,mairead toibin,Mairéad Tóibín,FALSE,AON,39,running,1,13442,3157,1027,1024,3
+Pembroke East D,1,peter dooley,Peter Dooley,FALSE,IND,1,running,1,13442,3157,1027,1024,3
+Pembroke East D,1,justin barrett,Justin Barrett,FALSE,NP,9,running,1,13442,3157,1027,1024,3
+Pembroke East D,1,dolores cahill,Dolores Cahill,FALSE,IND,2,running,1,13442,3157,1027,1024,3
+Pembroke East D,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,8,running,1,13442,3157,1027,1024,3
+Pembroke East D,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,3157,1027,1024,3
+Pembroke East D,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,3157,1027,1024,3
+Pembroke East E,1,ivana bacik,Ivana Bacik,FALSE,LAB,182,running,1,13442,2324,718,716,2
+Pembroke East E,1,james goeghegan,James Geoghegan,FALSE,FG,335,running,1,13442,2324,718,716,2
+Pembroke East E,1,lynn boylan,Lynn Boylan,FALSE,SF,41,running,1,13442,2324,718,716,2
+Pembroke East E,1,claire byrne,Claire Byrne,FALSE,GP,39,running,1,13442,2324,718,716,2
+Pembroke East E,1,deirdre conroy,Deirdre Conroy,FALSE,FF,45,running,1,13442,2324,718,716,2
+Pembroke East E,1,mannix flynn,Mannix Flynn,FALSE,IND,22,running,1,13442,2324,718,716,2
+Pembroke East E,1,sarah durcan,Sarah Durcan,FALSE,SD,15,running,1,13442,2324,718,716,2
+Pembroke East E,1,brigid purcell,Brigid Purcell,FALSE,PBPS,10,running,1,13442,2324,718,716,2
+Pembroke East E,1,mairead toibin,Mairéad Tóibín,FALSE,AON,13,running,1,13442,2324,718,716,2
+Pembroke East E,1,peter dooley,Peter Dooley,FALSE,IND,3,running,1,13442,2324,718,716,2
+Pembroke East E,1,justin barrett,Justin Barrett,FALSE,NP,3,running,1,13442,2324,718,716,2
+Pembroke East E,1,dolores cahill,Dolores Cahill,FALSE,IND,1,running,1,13442,2324,718,716,2
+Pembroke East E,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,4,running,1,13442,2324,718,716,2
+Pembroke East E,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,2324,718,716,2
+Pembroke East E,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,3,running,1,13442,2324,718,716,2
+Pembroke West A,1,ivana bacik,Ivana Bacik,FALSE,LAB,324,running,1,13442,3421,1074,1068,6
+Pembroke West A,1,james goeghegan,James Geoghegan,FALSE,FG,210,running,1,13442,3421,1074,1068,6
+Pembroke West A,1,lynn boylan,Lynn Boylan,FALSE,SF,203,running,1,13442,3421,1074,1068,6
+Pembroke West A,1,claire byrne,Claire Byrne,FALSE,GP,115,running,1,13442,3421,1074,1068,6
+Pembroke West A,1,deirdre conroy,Deirdre Conroy,FALSE,FF,41,running,1,13442,3421,1074,1068,6
+Pembroke West A,1,mannix flynn,Mannix Flynn,FALSE,IND,43,running,1,13442,3421,1074,1068,6
+Pembroke West A,1,sarah durcan,Sarah Durcan,FALSE,SD,40,running,1,13442,3421,1074,1068,6
+Pembroke West A,1,brigid purcell,Brigid Purcell,FALSE,PBPS,41,running,1,13442,3421,1074,1068,6
+Pembroke West A,1,mairead toibin,Mairéad Tóibín,FALSE,AON,20,running,1,13442,3421,1074,1068,6
+Pembroke West A,1,peter dooley,Peter Dooley,FALSE,IND,6,running,1,13442,3421,1074,1068,6
+Pembroke West A,1,justin barrett,Justin Barrett,FALSE,NP,13,running,1,13442,3421,1074,1068,6
+Pembroke West A,1,dolores cahill,Dolores Cahill,FALSE,IND,5,running,1,13442,3421,1074,1068,6
+Pembroke West A,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,7,running,1,13442,3421,1074,1068,6
+Pembroke West A,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,3421,1074,1068,6
+Pembroke West A,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,3421,1074,1068,6
+Pembroke West B,1,ivana bacik,Ivana Bacik,FALSE,LAB,95,running,1,13442,643,273,272,1
+Pembroke West B,1,james goeghegan,James Geoghegan,FALSE,FG,110,running,1,13442,643,273,272,1
+Pembroke West B,1,lynn boylan,Lynn Boylan,FALSE,SF,7,running,1,13442,643,273,272,1
+Pembroke West B,1,claire byrne,Claire Byrne,FALSE,GP,19,running,1,13442,643,273,272,1
+Pembroke West B,1,deirdre conroy,Deirdre Conroy,FALSE,FF,9,running,1,13442,643,273,272,1
+Pembroke West B,1,mannix flynn,Mannix Flynn,FALSE,IND,4,running,1,13442,643,273,272,1
+Pembroke West B,1,sarah durcan,Sarah Durcan,FALSE,SD,8,running,1,13442,643,273,272,1
+Pembroke West B,1,brigid purcell,Brigid Purcell,FALSE,PBPS,2,running,1,13442,643,273,272,1
+Pembroke West B,1,mairead toibin,Mairéad Tóibín,FALSE,AON,8,running,1,13442,643,273,272,1
+Pembroke West B,1,peter dooley,Peter Dooley,FALSE,IND,1,running,1,13442,643,273,272,1
+Pembroke West B,1,justin barrett,Justin Barrett,FALSE,NP,2,running,1,13442,643,273,272,1
+Pembroke West B,1,dolores cahill,Dolores Cahill,FALSE,IND,1,running,1,13442,643,273,272,1
+Pembroke West B,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,4,running,1,13442,643,273,272,1
+Pembroke West B,1,john keigher,John Keigher,FALSE,IND,2,running,1,13442,643,273,272,1
+Pembroke West B,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,643,273,272,1
+Pembroke West C,1,ivana bacik,Ivana Bacik,FALSE,LAB,243,running,1,13442,2641,761,760,1
+Pembroke West C,1,james goeghegan,James Geoghegan,FALSE,FG,255,running,1,13442,2641,761,760,1
+Pembroke West C,1,lynn boylan,Lynn Boylan,FALSE,SF,45,running,1,13442,2641,761,760,1
+Pembroke West C,1,claire byrne,Claire Byrne,FALSE,GP,79,running,1,13442,2641,761,760,1
+Pembroke West C,1,deirdre conroy,Deirdre Conroy,FALSE,FF,50,running,1,13442,2641,761,760,1
+Pembroke West C,1,mannix flynn,Mannix Flynn,FALSE,IND,14,running,1,13442,2641,761,760,1
+Pembroke West C,1,sarah durcan,Sarah Durcan,FALSE,SD,28,running,1,13442,2641,761,760,1
+Pembroke West C,1,brigid purcell,Brigid Purcell,FALSE,PBPS,12,running,1,13442,2641,761,760,1
+Pembroke West C,1,mairead toibin,Mairéad Tóibín,FALSE,AON,20,running,1,13442,2641,761,760,1
+Pembroke West C,1,peter dooley,Peter Dooley,FALSE,IND,3,running,1,13442,2641,761,760,1
+Pembroke West C,1,justin barrett,Justin Barrett,FALSE,NP,5,running,1,13442,2641,761,760,1
+Pembroke West C,1,dolores cahill,Dolores Cahill,FALSE,IND,3,running,1,13442,2641,761,760,1
+Pembroke West C,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,1,running,1,13442,2641,761,760,1
+Pembroke West C,1,john keigher,John Keigher,FALSE,IND,1,running,1,13442,2641,761,760,1
+Pembroke West C,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,1,running,1,13442,2641,761,760,1
+Rathfarnham,1,ivana bacik,Ivana Bacik,FALSE,LAB,525,running,1,13442,3875,1500,1485,15
+Rathfarnham,1,james goeghegan,James Geoghegan,FALSE,FG,537,running,1,13442,3875,1500,1485,15
+Rathfarnham,1,lynn boylan,Lynn Boylan,FALSE,SF,48,running,1,13442,3875,1500,1485,15
+Rathfarnham,1,claire byrne,Claire Byrne,FALSE,GP,134,running,1,13442,3875,1500,1485,15
+Rathfarnham,1,deirdre conroy,Deirdre Conroy,FALSE,FF,85,running,1,13442,3875,1500,1485,15
+Rathfarnham,1,mannix flynn,Mannix Flynn,FALSE,IND,25,running,1,13442,3875,1500,1485,15
+Rathfarnham,1,sarah durcan,Sarah Durcan,FALSE,SD,31,running,1,13442,3875,1500,1485,15
+Rathfarnham,1,brigid purcell,Brigid Purcell,FALSE,PBPS,26,running,1,13442,3875,1500,1485,15
+Rathfarnham,1,mairead toibin,Mairéad Tóibín,FALSE,AON,35,running,1,13442,3875,1500,1485,15
+Rathfarnham,1,peter dooley,Peter Dooley,FALSE,IND,6,running,1,13442,3875,1500,1485,15
+Rathfarnham,1,justin barrett,Justin Barrett,FALSE,NP,10,running,1,13442,3875,1500,1485,15
+Rathfarnham,1,dolores cahill,Dolores Cahill,FALSE,IND,6,running,1,13442,3875,1500,1485,15
+Rathfarnham,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,13,running,1,13442,3875,1500,1485,15
+Rathfarnham,1,john keigher,John Keigher,FALSE,IND,1,running,1,13442,3875,1500,1485,15
+Rathfarnham,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,3,running,1,13442,3875,1500,1485,15
+Rathmines East A,1,ivana bacik,Ivana Bacik,FALSE,LAB,298,running,1,13442,2929,859,858,1
+Rathmines East A,1,james goeghegan,James Geoghegan,FALSE,FG,264,running,1,13442,2929,859,858,1
+Rathmines East A,1,lynn boylan,Lynn Boylan,FALSE,SF,48,running,1,13442,2929,859,858,1
+Rathmines East A,1,claire byrne,Claire Byrne,FALSE,GP,74,running,1,13442,2929,859,858,1
+Rathmines East A,1,deirdre conroy,Deirdre Conroy,FALSE,FF,37,running,1,13442,2929,859,858,1
+Rathmines East A,1,mannix flynn,Mannix Flynn,FALSE,IND,25,running,1,13442,2929,859,858,1
+Rathmines East A,1,sarah durcan,Sarah Durcan,FALSE,SD,43,running,1,13442,2929,859,858,1
+Rathmines East A,1,brigid purcell,Brigid Purcell,FALSE,PBPS,18,running,1,13442,2929,859,858,1
+Rathmines East A,1,mairead toibin,Mairéad Tóibín,FALSE,AON,30,running,1,13442,2929,859,858,1
+Rathmines East A,1,peter dooley,Peter Dooley,FALSE,IND,3,running,1,13442,2929,859,858,1
+Rathmines East A,1,justin barrett,Justin Barrett,FALSE,NP,4,running,1,13442,2929,859,858,1
+Rathmines East A,1,dolores cahill,Dolores Cahill,FALSE,IND,8,running,1,13442,2929,859,858,1
+Rathmines East A,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,5,running,1,13442,2929,859,858,1
+Rathmines East A,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,2929,859,858,1
+Rathmines East A,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,1,running,1,13442,2929,859,858,1
+Rathmines East B,1,ivana bacik,Ivana Bacik,FALSE,LAB,433,running,1,13442,4153,1391,1387,4
+Rathmines East B,1,james goeghegan,James Geoghegan,FALSE,FG,503,running,1,13442,4153,1391,1387,4
+Rathmines East B,1,lynn boylan,Lynn Boylan,FALSE,SF,80,running,1,13442,4153,1391,1387,4
+Rathmines East B,1,claire byrne,Claire Byrne,FALSE,GP,98,running,1,13442,4153,1391,1387,4
+Rathmines East B,1,deirdre conroy,Deirdre Conroy,FALSE,FF,99,running,1,13442,4153,1391,1387,4
+Rathmines East B,1,mannix flynn,Mannix Flynn,FALSE,IND,24,running,1,13442,4153,1391,1387,4
+Rathmines East B,1,sarah durcan,Sarah Durcan,FALSE,SD,45,running,1,13442,4153,1391,1387,4
+Rathmines East B,1,brigid purcell,Brigid Purcell,FALSE,PBPS,18,running,1,13442,4153,1391,1387,4
+Rathmines East B,1,mairead toibin,Mairéad Tóibín,FALSE,AON,46,running,1,13442,4153,1391,1387,4
+Rathmines East B,1,peter dooley,Peter Dooley,FALSE,IND,6,running,1,13442,4153,1391,1387,4
+Rathmines East B,1,justin barrett,Justin Barrett,FALSE,NP,4,running,1,13442,4153,1391,1387,4
+Rathmines East B,1,dolores cahill,Dolores Cahill,FALSE,IND,19,running,1,13442,4153,1391,1387,4
+Rathmines East B,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,8,running,1,13442,4153,1391,1387,4
+Rathmines East B,1,john keigher,John Keigher,FALSE,IND,3,running,1,13442,4153,1391,1387,4
+Rathmines East B,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,1,running,1,13442,4153,1391,1387,4
+Rathmines East C,1,ivana bacik,Ivana Bacik,FALSE,LAB,533,running,1,13442,3185,1410,1409,1
+Rathmines East C,1,james goeghegan,James Geoghegan,FALSE,FG,486,running,1,13442,3185,1410,1409,1
+Rathmines East C,1,lynn boylan,Lynn Boylan,FALSE,SF,55,running,1,13442,3185,1410,1409,1
+Rathmines East C,1,claire byrne,Claire Byrne,FALSE,GP,133,running,1,13442,3185,1410,1409,1
+Rathmines East C,1,deirdre conroy,Deirdre Conroy,FALSE,FF,67,running,1,13442,3185,1410,1409,1
+Rathmines East C,1,mannix flynn,Mannix Flynn,FALSE,IND,14,running,1,13442,3185,1410,1409,1
+Rathmines East C,1,sarah durcan,Sarah Durcan,FALSE,SD,41,running,1,13442,3185,1410,1409,1
+Rathmines East C,1,brigid purcell,Brigid Purcell,FALSE,PBPS,25,running,1,13442,3185,1410,1409,1
+Rathmines East C,1,mairead toibin,Mairéad Tóibín,FALSE,AON,32,running,1,13442,3185,1410,1409,1
+Rathmines East C,1,peter dooley,Peter Dooley,FALSE,IND,0,running,1,13442,3185,1410,1409,1
+Rathmines East C,1,justin barrett,Justin Barrett,FALSE,NP,2,running,1,13442,3185,1410,1409,1
+Rathmines East C,1,dolores cahill,Dolores Cahill,FALSE,IND,9,running,1,13442,3185,1410,1409,1
+Rathmines East C,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,8,running,1,13442,3185,1410,1409,1
+Rathmines East C,1,john keigher,John Keigher,FALSE,IND,3,running,1,13442,3185,1410,1409,1
+Rathmines East C,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,1,running,1,13442,3185,1410,1409,1
+Rathmines East D,1,ivana bacik,Ivana Bacik,FALSE,LAB,234,running,1,13442,1683,633,632,1
+Rathmines East D,1,james goeghegan,James Geoghegan,FALSE,FG,183,running,1,13442,1683,633,632,1
+Rathmines East D,1,lynn boylan,Lynn Boylan,FALSE,SF,44,running,1,13442,1683,633,632,1
+Rathmines East D,1,claire byrne,Claire Byrne,FALSE,GP,52,running,1,13442,1683,633,632,1
+Rathmines East D,1,deirdre conroy,Deirdre Conroy,FALSE,FF,30,running,1,13442,1683,633,632,1
+Rathmines East D,1,mannix flynn,Mannix Flynn,FALSE,IND,17,running,1,13442,1683,633,632,1
+Rathmines East D,1,sarah durcan,Sarah Durcan,FALSE,SD,24,running,1,13442,1683,633,632,1
+Rathmines East D,1,brigid purcell,Brigid Purcell,FALSE,PBPS,17,running,1,13442,1683,633,632,1
+Rathmines East D,1,mairead toibin,Mairéad Tóibín,FALSE,AON,15,running,1,13442,1683,633,632,1
+Rathmines East D,1,peter dooley,Peter Dooley,FALSE,IND,1,running,1,13442,1683,633,632,1
+Rathmines East D,1,justin barrett,Justin Barrett,FALSE,NP,2,running,1,13442,1683,633,632,1
+Rathmines East D,1,dolores cahill,Dolores Cahill,FALSE,IND,10,running,1,13442,1683,633,632,1
+Rathmines East D,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,3,running,1,13442,1683,633,632,1
+Rathmines East D,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,1683,633,632,1
+Rathmines East D,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,1683,633,632,1
+Rathmines West A,1,ivana bacik,Ivana Bacik,FALSE,LAB,271,running,1,13442,3058,743,739,4
+Rathmines West A,1,james goeghegan,James Geoghegan,FALSE,FG,101,running,1,13442,3058,743,739,4
+Rathmines West A,1,lynn boylan,Lynn Boylan,FALSE,SF,110,running,1,13442,3058,743,739,4
+Rathmines West A,1,claire byrne,Claire Byrne,FALSE,GP,81,running,1,13442,3058,743,739,4
+Rathmines West A,1,deirdre conroy,Deirdre Conroy,FALSE,FF,28,running,1,13442,3058,743,739,4
+Rathmines West A,1,mannix flynn,Mannix Flynn,FALSE,IND,11,running,1,13442,3058,743,739,4
+Rathmines West A,1,sarah durcan,Sarah Durcan,FALSE,SD,35,running,1,13442,3058,743,739,4
+Rathmines West A,1,brigid purcell,Brigid Purcell,FALSE,PBPS,38,running,1,13442,3058,743,739,4
+Rathmines West A,1,mairead toibin,Mairéad Tóibín,FALSE,AON,22,running,1,13442,3058,743,739,4
+Rathmines West A,1,peter dooley,Peter Dooley,FALSE,IND,24,running,1,13442,3058,743,739,4
+Rathmines West A,1,justin barrett,Justin Barrett,FALSE,NP,5,running,1,13442,3058,743,739,4
+Rathmines West A,1,dolores cahill,Dolores Cahill,FALSE,IND,6,running,1,13442,3058,743,739,4
+Rathmines West A,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,7,running,1,13442,3058,743,739,4
+Rathmines West A,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,3058,743,739,4
+Rathmines West A,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,3058,743,739,4
+Rathmines West B,1,ivana bacik,Ivana Bacik,FALSE,LAB,251,running,1,13442,2490,674,667,7
+Rathmines West B,1,james goeghegan,James Geoghegan,FALSE,FG,125,running,1,13442,2490,674,667,7
+Rathmines West B,1,lynn boylan,Lynn Boylan,FALSE,SF,93,running,1,13442,2490,674,667,7
+Rathmines West B,1,claire byrne,Claire Byrne,FALSE,GP,72,running,1,13442,2490,674,667,7
+Rathmines West B,1,deirdre conroy,Deirdre Conroy,FALSE,FF,19,running,1,13442,2490,674,667,7
+Rathmines West B,1,mannix flynn,Mannix Flynn,FALSE,IND,22,running,1,13442,2490,674,667,7
+Rathmines West B,1,sarah durcan,Sarah Durcan,FALSE,SD,21,running,1,13442,2490,674,667,7
+Rathmines West B,1,brigid purcell,Brigid Purcell,FALSE,PBPS,25,running,1,13442,2490,674,667,7
+Rathmines West B,1,mairead toibin,Mairéad Tóibín,FALSE,AON,9,running,1,13442,2490,674,667,7
+Rathmines West B,1,peter dooley,Peter Dooley,FALSE,IND,15,running,1,13442,2490,674,667,7
+Rathmines West B,1,justin barrett,Justin Barrett,FALSE,NP,4,running,1,13442,2490,674,667,7
+Rathmines West B,1,dolores cahill,Dolores Cahill,FALSE,IND,6,running,1,13442,2490,674,667,7
+Rathmines West B,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,1,running,1,13442,2490,674,667,7
+Rathmines West B,1,john keigher,John Keigher,FALSE,IND,4,running,1,13442,2490,674,667,7
+Rathmines West B,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,2490,674,667,7
+Rathmines West C,1,ivana bacik,Ivana Bacik,FALSE,LAB,228,running,1,13442,1798,619,618,1
+Rathmines West C,1,james goeghegan,James Geoghegan,FALSE,FG,200,running,1,13442,1798,619,618,1
+Rathmines West C,1,lynn boylan,Lynn Boylan,FALSE,SF,41,running,1,13442,1798,619,618,1
+Rathmines West C,1,claire byrne,Claire Byrne,FALSE,GP,55,running,1,13442,1798,619,618,1
+Rathmines West C,1,deirdre conroy,Deirdre Conroy,FALSE,FF,32,running,1,13442,1798,619,618,1
+Rathmines West C,1,mannix flynn,Mannix Flynn,FALSE,IND,3,running,1,13442,1798,619,618,1
+Rathmines West C,1,sarah durcan,Sarah Durcan,FALSE,SD,18,running,1,13442,1798,619,618,1
+Rathmines West C,1,brigid purcell,Brigid Purcell,FALSE,PBPS,20,running,1,13442,1798,619,618,1
+Rathmines West C,1,mairead toibin,Mairéad Tóibín,FALSE,AON,13,running,1,13442,1798,619,618,1
+Rathmines West C,1,peter dooley,Peter Dooley,FALSE,IND,0,running,1,13442,1798,619,618,1
+Rathmines West C,1,justin barrett,Justin Barrett,FALSE,NP,3,running,1,13442,1798,619,618,1
+Rathmines West C,1,dolores cahill,Dolores Cahill,FALSE,IND,2,running,1,13442,1798,619,618,1
+Rathmines West C,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,3,running,1,13442,1798,619,618,1
+Rathmines West C,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,1798,619,618,1
+Rathmines West C,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,1798,619,618,1
+Rathmines West D,1,ivana bacik,Ivana Bacik,FALSE,LAB,276,running,1,13442,2337,783,775,8
+Rathmines West D,1,james goeghegan,James Geoghegan,FALSE,FG,212,running,1,13442,2337,783,775,8
+Rathmines West D,1,lynn boylan,Lynn Boylan,FALSE,SF,78,running,1,13442,2337,783,775,8
+Rathmines West D,1,claire byrne,Claire Byrne,FALSE,GP,60,running,1,13442,2337,783,775,8
+Rathmines West D,1,deirdre conroy,Deirdre Conroy,FALSE,FF,44,running,1,13442,2337,783,775,8
+Rathmines West D,1,mannix flynn,Mannix Flynn,FALSE,IND,12,running,1,13442,2337,783,775,8
+Rathmines West D,1,sarah durcan,Sarah Durcan,FALSE,SD,41,running,1,13442,2337,783,775,8
+Rathmines West D,1,brigid purcell,Brigid Purcell,FALSE,PBPS,22,running,1,13442,2337,783,775,8
+Rathmines West D,1,mairead toibin,Mairéad Tóibín,FALSE,AON,11,running,1,13442,2337,783,775,8
+Rathmines West D,1,peter dooley,Peter Dooley,FALSE,IND,5,running,1,13442,2337,783,775,8
+Rathmines West D,1,justin barrett,Justin Barrett,FALSE,NP,4,running,1,13442,2337,783,775,8
+Rathmines West D,1,dolores cahill,Dolores Cahill,FALSE,IND,5,running,1,13442,2337,783,775,8
+Rathmines West D,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,2,running,1,13442,2337,783,775,8
+Rathmines West D,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,2337,783,775,8
+Rathmines West D,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,3,running,1,13442,2337,783,775,8
+Rathmines West E,1,ivana bacik,Ivana Bacik,FALSE,LAB,335,running,1,13442,2481,941,938,3
+Rathmines West E,1,james goeghegan,James Geoghegan,FALSE,FG,280,running,1,13442,2481,941,938,3
+Rathmines West E,1,lynn boylan,Lynn Boylan,FALSE,SF,64,running,1,13442,2481,941,938,3
+Rathmines West E,1,claire byrne,Claire Byrne,FALSE,GP,80,running,1,13442,2481,941,938,3
+Rathmines West E,1,deirdre conroy,Deirdre Conroy,FALSE,FF,69,running,1,13442,2481,941,938,3
+Rathmines West E,1,mannix flynn,Mannix Flynn,FALSE,IND,15,running,1,13442,2481,941,938,3
+Rathmines West E,1,sarah durcan,Sarah Durcan,FALSE,SD,29,running,1,13442,2481,941,938,3
+Rathmines West E,1,brigid purcell,Brigid Purcell,FALSE,PBPS,28,running,1,13442,2481,941,938,3
+Rathmines West E,1,mairead toibin,Mairéad Tóibín,FALSE,AON,17,running,1,13442,2481,941,938,3
+Rathmines West E,1,peter dooley,Peter Dooley,FALSE,IND,8,running,1,13442,2481,941,938,3
+Rathmines West E,1,justin barrett,Justin Barrett,FALSE,NP,1,running,1,13442,2481,941,938,3
+Rathmines West E,1,dolores cahill,Dolores Cahill,FALSE,IND,4,running,1,13442,2481,941,938,3
+Rathmines West E,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,7,running,1,13442,2481,941,938,3
+Rathmines West E,1,john keigher,John Keigher,FALSE,IND,1,running,1,13442,2481,941,938,3
+Rathmines West E,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,2481,941,938,3
+Rathmines West F,1,ivana bacik,Ivana Bacik,FALSE,LAB,274,running,1,13442,2221,721,715,6
+Rathmines West F,1,james goeghegan,James Geoghegan,FALSE,FG,144,running,1,13442,2221,721,715,6
+Rathmines West F,1,lynn boylan,Lynn Boylan,FALSE,SF,71,running,1,13442,2221,721,715,6
+Rathmines West F,1,claire byrne,Claire Byrne,FALSE,GP,77,running,1,13442,2221,721,715,6
+Rathmines West F,1,deirdre conroy,Deirdre Conroy,FALSE,FF,28,running,1,13442,2221,721,715,6
+Rathmines West F,1,mannix flynn,Mannix Flynn,FALSE,IND,11,running,1,13442,2221,721,715,6
+Rathmines West F,1,sarah durcan,Sarah Durcan,FALSE,SD,28,running,1,13442,2221,721,715,6
+Rathmines West F,1,brigid purcell,Brigid Purcell,FALSE,PBPS,39,running,1,13442,2221,721,715,6
+Rathmines West F,1,mairead toibin,Mairéad Tóibín,FALSE,AON,16,running,1,13442,2221,721,715,6
+Rathmines West F,1,peter dooley,Peter Dooley,FALSE,IND,15,running,1,13442,2221,721,715,6
+Rathmines West F,1,justin barrett,Justin Barrett,FALSE,NP,3,running,1,13442,2221,721,715,6
+Rathmines West F,1,dolores cahill,Dolores Cahill,FALSE,IND,5,running,1,13442,2221,721,715,6
+Rathmines West F,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,2,running,1,13442,2221,721,715,6
+Rathmines West F,1,john keigher,John Keigher,FALSE,IND,2,running,1,13442,2221,721,715,6
+Rathmines West F,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,2221,721,715,6
+Royal Exchange A,1,ivana bacik,Ivana Bacik,FALSE,LAB,61,running,1,13442,1582,310,309,1
+Royal Exchange A,1,james goeghegan,James Geoghegan,FALSE,FG,31,running,1,13442,1582,310,309,1
+Royal Exchange A,1,lynn boylan,Lynn Boylan,FALSE,SF,123,running,1,13442,1582,310,309,1
+Royal Exchange A,1,claire byrne,Claire Byrne,FALSE,GP,21,running,1,13442,1582,310,309,1
+Royal Exchange A,1,deirdre conroy,Deirdre Conroy,FALSE,FF,11,running,1,13442,1582,310,309,1
+Royal Exchange A,1,mannix flynn,Mannix Flynn,FALSE,IND,26,running,1,13442,1582,310,309,1
+Royal Exchange A,1,sarah durcan,Sarah Durcan,FALSE,SD,19,running,1,13442,1582,310,309,1
+Royal Exchange A,1,brigid purcell,Brigid Purcell,FALSE,PBPS,6,running,1,13442,1582,310,309,1
+Royal Exchange A,1,mairead toibin,Mairéad Tóibín,FALSE,AON,7,running,1,13442,1582,310,309,1
+Royal Exchange A,1,peter dooley,Peter Dooley,FALSE,IND,2,running,1,13442,1582,310,309,1
+Royal Exchange A,1,justin barrett,Justin Barrett,FALSE,NP,0,running,1,13442,1582,310,309,1
+Royal Exchange A,1,dolores cahill,Dolores Cahill,FALSE,IND,0,running,1,13442,1582,310,309,1
+Royal Exchange A,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,2,running,1,13442,1582,310,309,1
+Royal Exchange A,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,1582,310,309,1
+Royal Exchange A,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,1582,310,309,1
+Royal Exchange B,1,ivana bacik,Ivana Bacik,FALSE,LAB,14,running,1,13442,870,235,225,10
+Royal Exchange B,1,james goeghegan,James Geoghegan,FALSE,FG,8,running,1,13442,870,235,225,10
+Royal Exchange B,1,lynn boylan,Lynn Boylan,FALSE,SF,153,running,1,13442,870,235,225,10
+Royal Exchange B,1,claire byrne,Claire Byrne,FALSE,GP,7,running,1,13442,870,235,225,10
+Royal Exchange B,1,deirdre conroy,Deirdre Conroy,FALSE,FF,2,running,1,13442,870,235,225,10
+Royal Exchange B,1,mannix flynn,Mannix Flynn,FALSE,IND,22,running,1,13442,870,235,225,10
+Royal Exchange B,1,sarah durcan,Sarah Durcan,FALSE,SD,2,running,1,13442,870,235,225,10
+Royal Exchange B,1,brigid purcell,Brigid Purcell,FALSE,PBPS,6,running,1,13442,870,235,225,10
+Royal Exchange B,1,mairead toibin,Mairéad Tóibín,FALSE,AON,2,running,1,13442,870,235,225,10
+Royal Exchange B,1,peter dooley,Peter Dooley,FALSE,IND,4,running,1,13442,870,235,225,10
+Royal Exchange B,1,justin barrett,Justin Barrett,FALSE,NP,3,running,1,13442,870,235,225,10
+Royal Exchange B,1,dolores cahill,Dolores Cahill,FALSE,IND,0,running,1,13442,870,235,225,10
+Royal Exchange B,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,2,running,1,13442,870,235,225,10
+Royal Exchange B,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,870,235,225,10
+Royal Exchange B,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,870,235,225,10
+South Dock,1,ivana bacik,Ivana Bacik,FALSE,LAB,208,running,1,13442,3447,821,817,4
+South Dock,1,james goeghegan,James Geoghegan,FALSE,FG,104,running,1,13442,3447,821,817,4
+South Dock,1,lynn boylan,Lynn Boylan,FALSE,SF,285,running,1,13442,3447,821,817,4
+South Dock,1,claire byrne,Claire Byrne,FALSE,GP,74,running,1,13442,3447,821,817,4
+South Dock,1,deirdre conroy,Deirdre Conroy,FALSE,FF,28,running,1,13442,3447,821,817,4
+South Dock,1,mannix flynn,Mannix Flynn,FALSE,IND,20,running,1,13442,3447,821,817,4
+South Dock,1,sarah durcan,Sarah Durcan,FALSE,SD,30,running,1,13442,3447,821,817,4
+South Dock,1,brigid purcell,Brigid Purcell,FALSE,PBPS,22,running,1,13442,3447,821,817,4
+South Dock,1,mairead toibin,Mairéad Tóibín,FALSE,AON,16,running,1,13442,3447,821,817,4
+South Dock,1,peter dooley,Peter Dooley,FALSE,IND,4,running,1,13442,3447,821,817,4
+South Dock,1,justin barrett,Justin Barrett,FALSE,NP,11,running,1,13442,3447,821,817,4
+South Dock,1,dolores cahill,Dolores Cahill,FALSE,IND,7,running,1,13442,3447,821,817,4
+South Dock,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,5,running,1,13442,3447,821,817,4
+South Dock,1,john keigher,John Keigher,FALSE,IND,1,running,1,13442,3447,821,817,4
+South Dock,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,2,running,1,13442,3447,821,817,4
+St Kevins,1,ivana bacik,Ivana Bacik,FALSE,LAB,167,running,1,13442,2064,422,419,3
+St Kevins,1,james goeghegan,James Geoghegan,FALSE,FG,38,running,1,13442,2064,422,419,3
+St Kevins,1,lynn boylan,Lynn Boylan,FALSE,SF,66,running,1,13442,2064,422,419,3
+St Kevins,1,claire byrne,Claire Byrne,FALSE,GP,39,running,1,13442,2064,422,419,3
+St Kevins,1,deirdre conroy,Deirdre Conroy,FALSE,FF,15,running,1,13442,2064,422,419,3
+St Kevins,1,mannix flynn,Mannix Flynn,FALSE,IND,22,running,1,13442,2064,422,419,3
+St Kevins,1,sarah durcan,Sarah Durcan,FALSE,SD,18,running,1,13442,2064,422,419,3
+St Kevins,1,brigid purcell,Brigid Purcell,FALSE,PBPS,17,running,1,13442,2064,422,419,3
+St Kevins,1,mairead toibin,Mairéad Tóibín,FALSE,AON,16,running,1,13442,2064,422,419,3
+St Kevins,1,peter dooley,Peter Dooley,FALSE,IND,9,running,1,13442,2064,422,419,3
+St Kevins,1,justin barrett,Justin Barrett,FALSE,NP,2,running,1,13442,2064,422,419,3
+St Kevins,1,dolores cahill,Dolores Cahill,FALSE,IND,4,running,1,13442,2064,422,419,3
+St Kevins,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,6,running,1,13442,2064,422,419,3
+St Kevins,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,2064,422,419,3
+St Kevins,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,2064,422,419,3
+Terenure A,1,ivana bacik,Ivana Bacik,FALSE,LAB,407,running,1,13442,2735,1168,1157,11
+Terenure A,1,james goeghegan,James Geoghegan,FALSE,FG,209,running,1,13442,2735,1168,1157,11
+Terenure A,1,lynn boylan,Lynn Boylan,FALSE,SF,127,running,1,13442,2735,1168,1157,11
+Terenure A,1,claire byrne,Claire Byrne,FALSE,GP,117,running,1,13442,2735,1168,1157,11
+Terenure A,1,deirdre conroy,Deirdre Conroy,FALSE,FF,60,running,1,13442,2735,1168,1157,11
+Terenure A,1,mannix flynn,Mannix Flynn,FALSE,IND,14,running,1,13442,2735,1168,1157,11
+Terenure A,1,sarah durcan,Sarah Durcan,FALSE,SD,67,running,1,13442,2735,1168,1157,11
+Terenure A,1,brigid purcell,Brigid Purcell,FALSE,PBPS,34,running,1,13442,2735,1168,1157,11
+Terenure A,1,mairead toibin,Mairéad Tóibín,FALSE,AON,40,running,1,13442,2735,1168,1157,11
+Terenure A,1,peter dooley,Peter Dooley,FALSE,IND,54,running,1,13442,2735,1168,1157,11
+Terenure A,1,justin barrett,Justin Barrett,FALSE,NP,4,running,1,13442,2735,1168,1157,11
+Terenure A,1,dolores cahill,Dolores Cahill,FALSE,IND,12,running,1,13442,2735,1168,1157,11
+Terenure A,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,11,running,1,13442,2735,1168,1157,11
+Terenure A,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,2735,1168,1157,11
+Terenure A,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,1,running,1,13442,2735,1168,1157,11
+Terenure B,1,ivana bacik,Ivana Bacik,FALSE,LAB,410,running,1,13442,2684,1217,1211,6
+Terenure B,1,james goeghegan,James Geoghegan,FALSE,FG,256,running,1,13442,2684,1217,1211,6
+Terenure B,1,lynn boylan,Lynn Boylan,FALSE,SF,177,running,1,13442,2684,1217,1211,6
+Terenure B,1,claire byrne,Claire Byrne,FALSE,GP,96,running,1,13442,2684,1217,1211,6
+Terenure B,1,deirdre conroy,Deirdre Conroy,FALSE,FF,51,running,1,13442,2684,1217,1211,6
+Terenure B,1,mannix flynn,Mannix Flynn,FALSE,IND,26,running,1,13442,2684,1217,1211,6
+Terenure B,1,sarah durcan,Sarah Durcan,FALSE,SD,67,running,1,13442,2684,1217,1211,6
+Terenure B,1,brigid purcell,Brigid Purcell,FALSE,PBPS,34,running,1,13442,2684,1217,1211,6
+Terenure B,1,mairead toibin,Mairéad Tóibín,FALSE,AON,43,running,1,13442,2684,1217,1211,6
+Terenure B,1,peter dooley,Peter Dooley,FALSE,IND,26,running,1,13442,2684,1217,1211,6
+Terenure B,1,justin barrett,Justin Barrett,FALSE,NP,14,running,1,13442,2684,1217,1211,6
+Terenure B,1,dolores cahill,Dolores Cahill,FALSE,IND,4,running,1,13442,2684,1217,1211,6
+Terenure B,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,5,running,1,13442,2684,1217,1211,6
+Terenure B,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,2684,1217,1211,6
+Terenure B,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,2,running,1,13442,2684,1217,1211,6
+Terenure C,1,ivana bacik,Ivana Bacik,FALSE,LAB,214,running,1,13442,1505,704,702,2
+Terenure C,1,james goeghegan,James Geoghegan,FALSE,FG,260,running,1,13442,1505,704,702,2
+Terenure C,1,lynn boylan,Lynn Boylan,FALSE,SF,42,running,1,13442,1505,704,702,2
+Terenure C,1,claire byrne,Claire Byrne,FALSE,GP,52,running,1,13442,1505,704,702,2
+Terenure C,1,deirdre conroy,Deirdre Conroy,FALSE,FF,42,running,1,13442,1505,704,702,2
+Terenure C,1,mannix flynn,Mannix Flynn,FALSE,IND,6,running,1,13442,1505,704,702,2
+Terenure C,1,sarah durcan,Sarah Durcan,FALSE,SD,16,running,1,13442,1505,704,702,2
+Terenure C,1,brigid purcell,Brigid Purcell,FALSE,PBPS,17,running,1,13442,1505,704,702,2
+Terenure C,1,mairead toibin,Mairéad Tóibín,FALSE,AON,33,running,1,13442,1505,704,702,2
+Terenure C,1,peter dooley,Peter Dooley,FALSE,IND,1,running,1,13442,1505,704,702,2
+Terenure C,1,justin barrett,Justin Barrett,FALSE,NP,3,running,1,13442,1505,704,702,2
+Terenure C,1,dolores cahill,Dolores Cahill,FALSE,IND,9,running,1,13442,1505,704,702,2
+Terenure C,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,6,running,1,13442,1505,704,702,2
+Terenure C,1,john keigher,John Keigher,FALSE,IND,1,running,1,13442,1505,704,702,2
+Terenure C,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,1505,704,702,2
+Terenure D,1,ivana bacik,Ivana Bacik,FALSE,LAB,86,running,1,13442,694,304,303,1
+Terenure D,1,james goeghegan,James Geoghegan,FALSE,FG,127,running,1,13442,694,304,303,1
+Terenure D,1,lynn boylan,Lynn Boylan,FALSE,SF,10,running,1,13442,694,304,303,1
+Terenure D,1,claire byrne,Claire Byrne,FALSE,GP,31,running,1,13442,694,304,303,1
+Terenure D,1,deirdre conroy,Deirdre Conroy,FALSE,FF,20,running,1,13442,694,304,303,1
+Terenure D,1,mannix flynn,Mannix Flynn,FALSE,IND,1,running,1,13442,694,304,303,1
+Terenure D,1,sarah durcan,Sarah Durcan,FALSE,SD,3,running,1,13442,694,304,303,1
+Terenure D,1,brigid purcell,Brigid Purcell,FALSE,PBPS,3,running,1,13442,694,304,303,1
+Terenure D,1,mairead toibin,Mairéad Tóibín,FALSE,AON,16,running,1,13442,694,304,303,1
+Terenure D,1,peter dooley,Peter Dooley,FALSE,IND,2,running,1,13442,694,304,303,1
+Terenure D,1,justin barrett,Justin Barrett,FALSE,NP,2,running,1,13442,694,304,303,1
+Terenure D,1,dolores cahill,Dolores Cahill,FALSE,IND,1,running,1,13442,694,304,303,1
+Terenure D,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,1,running,1,13442,694,304,303,1
+Terenure D,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,694,304,303,1
+Terenure D,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,694,304,303,1
+Wood Quay A,1,ivana bacik,Ivana Bacik,FALSE,LAB,44,running,1,13442,1696,395,385,10
+Wood Quay A,1,james goeghegan,James Geoghegan,FALSE,FG,14,running,1,13442,1696,395,385,10
+Wood Quay A,1,lynn boylan,Lynn Boylan,FALSE,SF,237,running,1,13442,1696,395,385,10
+Wood Quay A,1,claire byrne,Claire Byrne,FALSE,GP,11,running,1,13442,1696,395,385,10
+Wood Quay A,1,deirdre conroy,Deirdre Conroy,FALSE,FF,14,running,1,13442,1696,395,385,10
+Wood Quay A,1,mannix flynn,Mannix Flynn,FALSE,IND,23,running,1,13442,1696,395,385,10
+Wood Quay A,1,sarah durcan,Sarah Durcan,FALSE,SD,5,running,1,13442,1696,395,385,10
+Wood Quay A,1,brigid purcell,Brigid Purcell,FALSE,PBPS,15,running,1,13442,1696,395,385,10
+Wood Quay A,1,mairead toibin,Mairéad Tóibín,FALSE,AON,9,running,1,13442,1696,395,385,10
+Wood Quay A,1,peter dooley,Peter Dooley,FALSE,IND,1,running,1,13442,1696,395,385,10
+Wood Quay A,1,justin barrett,Justin Barrett,FALSE,NP,5,running,1,13442,1696,395,385,10
+Wood Quay A,1,dolores cahill,Dolores Cahill,FALSE,IND,3,running,1,13442,1696,395,385,10
+Wood Quay A,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,3,running,1,13442,1696,395,385,10
+Wood Quay A,1,john keigher,John Keigher,FALSE,IND,1,running,1,13442,1696,395,385,10
+Wood Quay A,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,0,running,1,13442,1696,395,385,10
+Wood Quay B,1,ivana bacik,Ivana Bacik,FALSE,LAB,344,running,1,13442,2594,701,696,5
+Wood Quay B,1,james goeghegan,James Geoghegan,FALSE,FG,65,running,1,13442,2594,701,696,5
+Wood Quay B,1,lynn boylan,Lynn Boylan,FALSE,SF,91,running,1,13442,2594,701,696,5
+Wood Quay B,1,claire byrne,Claire Byrne,FALSE,GP,82,running,1,13442,2594,701,696,5
+Wood Quay B,1,deirdre conroy,Deirdre Conroy,FALSE,FF,19,running,1,13442,2594,701,696,5
+Wood Quay B,1,mannix flynn,Mannix Flynn,FALSE,IND,25,running,1,13442,2594,701,696,5
+Wood Quay B,1,sarah durcan,Sarah Durcan,FALSE,SD,20,running,1,13442,2594,701,696,5
+Wood Quay B,1,brigid purcell,Brigid Purcell,FALSE,PBPS,26,running,1,13442,2594,701,696,5
+Wood Quay B,1,mairead toibin,Mairéad Tóibín,FALSE,AON,12,running,1,13442,2594,701,696,5
+Wood Quay B,1,peter dooley,Peter Dooley,FALSE,IND,3,running,1,13442,2594,701,696,5
+Wood Quay B,1,justin barrett,Justin Barrett,FALSE,NP,1,running,1,13442,2594,701,696,5
+Wood Quay B,1,dolores cahill,Dolores Cahill,FALSE,IND,5,running,1,13442,2594,701,696,5
+Wood Quay B,1,jacqui gilbourne,Jacqui Gilbourne,FALSE,REN,2,running,1,13442,2594,701,696,5
+Wood Quay B,1,john keigher,John Keigher,FALSE,IND,0,running,1,13442,2594,701,696,5
+Wood Quay B,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,1,running,1,13442,2594,701,696,5
