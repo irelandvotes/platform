@@ -536,15 +536,11 @@ function MapController({ geoData, selected, resetTrigger, geoJsonRef }) {
 
     let padding;
 
-    if (size < 0.02) {
-      padding = [200, 200];     // 👈 controlled, not extreme
-    } else if (size < 0.1) {
-      padding = [30, 30];
-    } else if (size < 0.5) {
-      padding = [20, 20];
-    } else {
-      padding = window.innerWidth < 1200 ? [20, 80] : [20, 40];
-    }
+if (size < 0.02) {
+  padding = window.innerWidth < 1200
+    ? [40, 40]
+    : [120, 120];
+}
 
     return { maxZoom, padding };
   }
@@ -567,9 +563,13 @@ function MapController({ geoData, selected, resetTrigger, geoJsonRef }) {
         height / mapSize.y
       );
 
-      if (ratio < 0.6) {
-        const zoomBoost = Math.log2(1 / ratio);
-        map.setZoom(map.getZoom() + zoomBoost * multiplier);
+      if (ratio < 0.75) {
+const zoomBoost = Math.min(
+  2, // 👈 HARD LIMIT (prevents crazy jumps)
+  Math.log2(1 / ratio)
+);
+
+map.setZoom(map.getZoom() + zoomBoost * multiplier);
       }
     }, 80);
   }
@@ -714,7 +714,9 @@ useEffect(() => {
         });
 
         // 👇 keep screen-fill consistent after resize
-        applyScreenFill(bounds, selected ? 0.4 : 0.8);
+        if (selected) {
+  applyScreenFill(bounds, 0.4);
+}
 
       }, 150);
     };
