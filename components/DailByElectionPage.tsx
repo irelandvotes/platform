@@ -176,6 +176,7 @@ const [search, setSearch] = useState<string>("");
 
 const [list, setList] = useState<any[]>([]);
 const [results, setResults] = useState<any>({});
+const [officialResults, setOfficialResults] = useState<any>(null);
 
 const [count, setCount] = useState<number>(1);
 
@@ -366,10 +367,22 @@ function getCandidateImage(name: any) {
   return `/candidates/images/${slug}.jpg`;
 }
 
+const usingOfficial =
+  officialResults &&
+  Object.keys(officialResults).length > 0;
+
 const current: any = selected
+  // 👉 constituency view ALWAYS uses tally
   ? { name: selected.name, data: results[selected.name] }
-  : Object.keys(results).length
-  ? { name: "Overall", data: aggregateNational(results) }
+
+  // 👉 overall view switches source
+  : Object.keys(usingOfficial ? officialResults : results).length
+  ? {
+      name: "Overall",
+      data: aggregateNational(
+        usingOfficial ? officialResults : results
+      )
+    }
   : null;
 
   const counts = current?.data?.counts || {};
@@ -398,7 +411,13 @@ if (current?.data?.counts?.[count]) {
       : null;
 }
 
+const prevCountRef = useRef(count);
+
 useEffect(() => {
+  if (prevCountRef.current === count) return;
+
+  prevCountRef.current = count;
+
   if (topGainer) {
     setHighlighted(topGainer.id);
 
@@ -421,15 +440,16 @@ const filtered = list.filter((name) =>
 );
 
 const nationalResults = (() => {
+  const source = usingOfficial ? officialResults : results;
   const partySeats: Record<string, number> = {};
   const partyVotes: Record<string, number> = {};
 
   let constituenciesReporting = 0;
   let totalSeatsDeclared = 0;
 
-  const totalConstituencies = Object.keys(results || {}).length;
+  const totalConstituencies = Object.keys(source || {}).length;
 
-  Object.entries(results || {}).forEach(
+  Object.entries(source || {}).forEach(
     ([constituency, constituencyData]) => {
 
       const counts = (constituencyData as any)?.counts;
@@ -473,7 +493,7 @@ const nationalResults = (() => {
   const previousPartySeats: Record<string, number> = {};
   const previousPartyVotes: Record<string, number> = {};
 
-  Object.entries(results || {}).forEach(
+  Object.entries(source || {}).forEach(
     ([constituency]) => {
 
       const previous = previousResults?.[constituency];
@@ -971,7 +991,6 @@ const partyIdeology: Record<string, string> = {
 
 };
 
-
 /* IDEOLOGY DISTANCE */
 
 const ideologyDistance: Record<string, number> = {
@@ -1193,12 +1212,45 @@ const hasResults =
   current?.data?.counts &&
   Object.keys(current.data.counts).length > 0;
 
+const resultsObj = results as Record<string, any>;
+
+const totalConstituencies = Object.keys(resultsObj).length;
+
+const reporting = Object.values(resultsObj).filter((c) => {
+  const first = c?.counts?.[1];
+
+  if (!first || !first.length) return false;
+
+  const totalVotes = first.reduce(
+    (sum: number, x: any) => sum + (x.votes || 0),
+    0
+  );
+
+  return totalVotes > 0;
+}).length;
+
+const reportingPercent =
+  totalConstituencies > 0
+    ? Math.round((reporting / totalConstituencies) * 100)
+    : 0;
+
+const isOverall = current?.name === "Overall";
+
+const isTally =
+  !isOverall || // ALWAYS true for constituencies
+  !officialResults ||
+  Object.keys(officialResults).length === 0;
+
 console.log(Object.keys(results));
 
 const rawMeta =
   current?.name === "Overall"
-    ? aggregateNationalMeta(results, count)
-    : current?.data?.counts?.[count]?.[0];
+    ? aggregateNationalMeta(
+        usingOfficial ? officialResults : results,
+        1 // 👈 ALWAYS use first count for meta
+      )
+    : current?.data?.counts?.[count]?.[0] ||
+      current?.data?.counts?.[1]?.[0]; // 👈 fallback
 
 const nationalMeta = rawMeta && {
   ...rawMeta,
@@ -1315,7 +1367,25 @@ return (
       (c: any) => c.status === "elected"
     ).length;
 
-    const complete = filled === seats;
+let complete = false;
+
+if (isTally) {
+  // 🟥 TALLY LOGIC
+  if (isOverall) {
+    // overall tally = all constituencies reporting
+    complete = reporting === totalConstituencies;
+  } else {
+    // constituency tally = any data present
+    const hasData =
+      current?.data?.counts &&
+      Object.keys(current.data.counts).length > 0;
+
+    complete = !!hasData;
+  }
+} else {
+  // 🟩 OFFICIAL RESULT LOGIC
+  complete = filled === seats;
+}
 
     return (
       <span
@@ -1343,6 +1413,52 @@ return (
     );
   })()}
 </h2>
+
+{isTally && (
+  <div
+    style={{
+      marginTop: "8px",
+      padding: "10px 12px",
+      borderRadius: "8px",
+      background: "rgba(255, 82, 82, 0.08)",
+      border: "1px solid rgba(255, 82, 82, 0.25)",
+      fontSize: "12px",
+      lineHeight: 1.4
+    }}
+  >
+
+    {/* TOP ROW */}
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: "4px"
+      }}
+    >
+      <div style={{ fontWeight: "700", color: "#ff5252" }}>
+        Tally Data
+      </div>
+
+      <div
+        style={{
+          fontSize: "11px",
+          opacity: 0.7
+        }}
+      >
+        {isOverall
+  ? ` ${reportingPercent}% counted`
+  : ""}
+      </div>
+    </div>
+
+    {/* EXPLANATION */}
+    <div style={{ opacity: 0.8 }}>
+      Estimated result based on collated ballot boxes. Not an official result.
+    </div>
+
+  </div>
+)}
 
 </div>
 
@@ -1686,7 +1802,7 @@ onError={(e) => {
 >
 
 {/* Count Controls */}
-{view === "count" && (
+{view === "count" && !isTally && (
 <div
   style={{
     display: "flex",
@@ -2470,6 +2586,7 @@ key="election_map"
     slug
   }}
   selected={selected}
+  onLoadOfficialResults={setOfficialResults}
   view={mapView}
  onSelect={(item: any) => {
   setSelected(item);

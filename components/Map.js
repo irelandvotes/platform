@@ -743,6 +743,7 @@ export default function Map({
   onLoadTotal,
   onLoadList,
   onLoadResults,
+  onLoadOfficialResults,
   resetTrigger,
   results,
   count,
@@ -753,6 +754,7 @@ export default function Map({
   const geoJsonRef = useRef();
   const mapRef = useRef(null);
   const [previousResults, setPreviousResults] = useState([]);
+  const [officialResults, setOfficialResults] = useState(null);
 
 const country = election?.country || "ireland";
 const type = election?.type || "dail";
@@ -915,8 +917,79 @@ Object.keys(grouped).forEach((c) => {
 
         onLoadResults(grouped);
         onLoadList(Object.keys(grouped));
+
+        // 👇 also pass tally as fallback official if no official exists yet
+        if (onLoadOfficialResults) {
+          onLoadOfficialResults(null);
+        }
+        
       });
   }, [dataPath]);
+
+useEffect(() => {
+  fetch(`${dataPath}/count_data.csv`)
+    .then((res) => {
+      if (!res.ok) throw new Error("no official data");
+      return res.text();
+    })
+    .then((csv) => {
+      const parsed = Papa.parse(csv, {
+        header: true,
+        skipEmptyLines: true,
+      }).data;
+
+      const grouped = {};
+
+      parsed.forEach((row) => {
+        const constituency = row.constituency?.trim();
+        const count = Number(row.count);
+
+        if (!constituency) return;
+
+        if (!grouped[constituency]) {
+          grouped[constituency] = { counts: {} };
+        }
+
+        if (!grouped[constituency].counts[count]) {
+          grouped[constituency].counts[count] = [];
+        }
+
+        const name =
+          row.candidate_name ||
+          row.Candidate ||
+          row.candidate;
+
+        if (!name) return;
+
+        grouped[constituency].counts[count].push({
+          id: `${name}-${row.party}-${count}`,
+          name,
+          party: row.party,
+          votes: parseNumber(row.votes),
+          status: row.status?.toLowerCase() || "running",
+          incumbent: row.incumbent === "TRUE",
+          seats: parseNumber(row.seats),
+          quota: parseNumber(row.quota),
+          electorate: parseNumber(row.electorate),
+          turnout: parseNumber(row.turnout),
+          tvp: parseNumber(row.tvp),
+          spoilt: parseNumber(row.spoilt),
+        });
+      });
+
+      console.log("OFFICIAL RESULTS:", grouped);
+
+      if (onLoadOfficialResults) {
+        onLoadOfficialResults(grouped);
+      }
+    })
+    .catch(() => {
+      // 👇 IMPORTANT: tells app "no official results yet"
+      if (onLoadOfficialResults) {
+        onLoadOfficialResults(null);
+      }
+    });
+}, [dataPath]);
 
 /* =============================
    Load Previous Results CSV
@@ -1240,6 +1313,15 @@ function getColor(name) {
   if (!constituency?.counts) return "transparent";
 
   const counts = constituency.counts;
+
+const first = counts[1];
+
+const totalVotes = first?.reduce(
+  (sum, c) => sum + (c.votes || 0),
+  0
+) || 0;
+
+if (totalVotes === 0) return "transparent";
 
 if (type?.startsWith("referendum")) {
   if (view === "margin") {

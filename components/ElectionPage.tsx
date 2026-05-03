@@ -178,6 +178,7 @@ const [resetTrigger, setResetTrigger] = useState<number>(0);
 const [search, setSearch] = useState<string>("");
 const [list, setList] = useState<any[]>([]);
 const [results, setResults] = useState<any>({});
+const [officialResults, setOfficialResults] = useState<any>(null);
 
 const [count, setCount] = useState<number>(1);
 
@@ -4223,6 +4224,7 @@ Eliminated
     year
   }}
   selected={selected}
+  onLoadOfficialResults={setOfficialResults}
   view={!selected ? mapView : view}
   onSelect={(item: any) => {
   setSelected(item);
