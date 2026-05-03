@@ -25,6 +25,7 @@ const [previousResults, setPreviousResults] = useState<any>({});
 const [sceneIndex, setSceneIndex] = useState<number>(0);
 const [onComplete, setOnComplete] = useState<any>(null);
 const [projection, setProjection] = useState<any>(null);
+const [officialResults, setOfficialResults] = useState<any>(null);
 
 
 /* ===============================
@@ -142,6 +143,7 @@ onLoadResults={setResults}
 onLoadList={setList}
 onLoadTotal={setTotal}
 onLoadPreviousResults={setPreviousResults}
+onLoadOfficialResults={setOfficialResults}
 selected={null}
 view="count"
 results={results}
