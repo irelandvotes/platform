@@ -755,6 +755,7 @@ export default function Map({
   const mapRef = useRef(null);
   const [previousResults, setPreviousResults] = useState([]);
   const [officialResults, setOfficialResults] = useState(null);
+  const hasOfficialData = useRef(false);
 
 const country = election?.country || "ireland";
 const type = election?.type || "dail";
@@ -915,8 +916,12 @@ Object.keys(grouped).forEach((c) => {
   }
 });
 
-        onLoadResults(grouped);
-        onLoadList(Object.keys(grouped));
+if (!hasOfficialData.current) {
+  console.log("USING TALLY DATA");
+
+  onLoadResults(grouped);
+  onLoadList(Object.keys(grouped));
+}
 
         // 👇 also pass tally as fallback official if no official exists yet
         if (onLoadOfficialResults) {
@@ -933,6 +938,10 @@ useEffect(() => {
       return res.text();
     })
     .then((csv) => {
+
+hasOfficialData.current = true;
+console.log("USING COUNT DATA");
+
       const parsed = Papa.parse(csv, {
         header: true,
         skipEmptyLines: true,
