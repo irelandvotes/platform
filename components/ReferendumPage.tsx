@@ -176,6 +176,7 @@ const [search, setSearch] = useState<string>("");
 
 const [list, setList] = useState<any[]>([]);
 const [results, setResults] = useState<any>({});
+const [officialResults, setOfficialResults] = useState<any>(null);
 
 const [count, setCount] = useState<number>(1);
 
@@ -2406,6 +2407,7 @@ zIndex: 6
     year
   }}
   selected={selected}
+  onLoadOfficialResults={setOfficialResults}
   view={mapView}
   onSelect={(item: any) => {
   setSelected(item);
