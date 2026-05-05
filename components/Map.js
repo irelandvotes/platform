@@ -225,7 +225,10 @@ function getPresidentialColor(counts, range) {
 
   const { min, max } = range;
 
-  let t = max > 0 ? margin / max : 0;
+  let t =
+  max > min
+    ? (margin - min) / (max - min)
+    : 0;
 
   t = Math.max(0, Math.min(1, t));
 
@@ -518,6 +521,14 @@ function ZoomToSelected({ selected, geoJsonRef, resetTrigger }) {
 
 function MapController({ geoData, selected, resetTrigger, geoJsonRef }) {
   const map = useMap();
+
+useEffect(() => {
+  const id = setTimeout(() => {
+    map.invalidateSize();
+  }, 100);
+
+  return () => clearTimeout(id);
+}, [map]);
 
   // =============================
   // Fit Options (zoom + padding)
@@ -1337,17 +1348,6 @@ if (type?.startsWith("referendum")) {
     return getReferendumColor(counts, marginRange);
   }
 
-if (type?.startsWith("president")) {
-
-  if (view === "margin") {
-    return getPresidentialColor(
-      counts,
-      ranges.presidentialMargin
-    );
-  }
-
-}
-
 if (view === "party" || view === "winner") {
   const first = counts[1];
   if (!first?.length) return "transparent";
@@ -1398,9 +1398,16 @@ if (view === "spoilt") {
   return "transparent";
 }
 
-if (type?.startsWith("president")) {
+if (view === "margin") {
 
-  if (view === "margin") {
+  if (type?.startsWith("referendum")) {
+    return getReferendumColor(counts, marginRange);
+  }
+
+  if (
+    type?.startsWith("president") ||
+    type === "dail"
+  ) {
     return getPresidentialColor(
       counts,
       ranges.presidentialMargin
@@ -1571,9 +1578,11 @@ return (
 
     mapRef.current = map;
 
-    setTimeout(() => {
-      map.invalidateSize();
-    }, 0);
+requestAnimationFrame(() => {
+  setTimeout(() => {
+    map.invalidateSize();
+  }, 50);
+});
   }}
   minZoom={6.5}
   maxZoom={18}

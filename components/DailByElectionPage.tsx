@@ -207,6 +207,7 @@ useEffect(() => {
     return;
   }
 
+  // 🔥 DO NOT early return permanently
   if (!list.length) return;
 
   const match = list.find((item) => {
@@ -219,18 +220,16 @@ useEffect(() => {
   });
 
   if (!match) {
-    setSelected(null);
+    // 👇 IMPORTANT: retry later instead of killing state
     return;
   }
 
-  // 🔥 NORMALISE SHAPE HERE
-  if (typeof match === "string") {
-    setSelected({ name: match });
-  } else {
-    setSelected({
-      name: match.name || match.slug || match.id
-    });
-  }
+  setSelected(
+    typeof match === "string"
+      ? { name: match }
+      : { name: match.name || match.slug || match.id }
+  );
+
 }, [selectedSlug, list]);
 
 /* RESET COUNT WHEN CONSTITUENCY CHANGES */

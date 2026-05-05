@@ -233,6 +233,7 @@ useEffect(() => {
     return;
   }
 
+  // 🔥 DO NOT early return permanently
   if (!list.length) return;
 
   const match = list.find((item) => {
@@ -244,19 +245,14 @@ useEffect(() => {
     return normalizeSlug(value) === selectedSlug;
   });
 
-  if (!match) {
-    setSelected(null);
-    return;
-  }
+if (!match) return;
 
-  // 🔥 NORMALISE SHAPE HERE
-  if (typeof match === "string") {
-    setSelected({ name: match });
-  } else {
-    setSelected({
-      name: match.name || match.slug || match.id
-    });
-  }
+  setSelected(
+    typeof match === "string"
+      ? { name: match }
+      : { name: match.name || match.slug || match.id }
+  );
+
 }, [selectedSlug, list]);
 
 /* RESET COUNT WHEN CONSTITUENCY CHANGES */
@@ -1310,6 +1306,19 @@ const sourceLabel = transferData.sources
 const hasResults =
   current?.data?.counts &&
   Object.keys(current.data.counts).length > 0;
+
+if (typeof window !== "undefined") {
+  (window as any).__debug = (window as any).__debug || [];
+
+  (window as any).__debug.push({
+    time: Date.now(),
+    selectedSlug,
+    selectedName: selected?.name,
+    listLength: list.length,
+    resultsKeys: Object.keys(results || {}).length,
+    hasResults
+  });
+}
 
 return (
   <div
@@ -4243,9 +4252,12 @@ Eliminated
   router.replace(`?c=${slug}`, { scroll: false });
 }}
   onLoadTotal={setTotal}
-  onLoadList={setList}
+  onLoadList={(data: any) => {
+  console.log("LIST UPDATE", data?.length);
+  setList(data);
+}}
 onLoadResults={(data: any) => {
-  console.log("SETTING RESULTS", year, data);
+  console.log("RESULTS UPDATE", Object.keys(data || {}).length);
   setResults(data);
 }}
   resetTrigger={resetTrigger}

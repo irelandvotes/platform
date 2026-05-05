@@ -439,6 +439,10 @@ function getType(category: string, slug: string) {
     return "General Election";
   }
 
+   if (category === "byelection") {
+    return "By-Election";
+  }
+
   if (category === "house-of-commons") {
     return "General Election";
   }

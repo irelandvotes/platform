@@ -1,0 +1,183 @@
+constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,turnout,tvp,spoilt,electorate
+Clondalkin-Cappaghmore,1,mark ward,Mark Ward,FALSE,SF,150,running,1,9153,259,253,6,1295
+Clondalkin-Cappaghmore,1,emer higgins,Emer Higgins,FALSE,FG,11,running,1,9153,259,253,6,1295
+Clondalkin-Cappaghmore,1,paul gogarty,Paul Gogarty,FALSE,IND,6,running,1,9153,259,253,6,1295
+Clondalkin-Cappaghmore,1,shane moynihan,Shane Moynihan,FALSE,FF,20,running,1,9153,259,253,6,1295
+Clondalkin-Cappaghmore,1,francis timmons,Francis Timmons,FALSE,IND,22,running,1,9153,259,253,6,1295
+Clondalkin-Cappaghmore,1,joanna tuffy,Joanna Tuffy,FALSE,LAB,8,running,1,9153,259,253,6,1295
+Clondalkin-Cappaghmore,1,peter kavanagh,Peter Kavanagh,FALSE,GP,3,running,1,9153,259,253,6,1295
+Clondalkin-Cappaghmore,1,kellie sweeney,Kellie Sweeney,FALSE,PBPS,19,running,1,9153,259,253,6,1295
+Clondalkin-Cappaghmore,1,annemarie mcnally,Anne-Marie McNally,FALSE,SD,3,running,1,9153,259,253,6,1295
+Clondalkin-Cappaghmore,1,david gardiner,David Gardiner,FALSE,WP,3,running,1,9153,259,253,6,1295
+Clondalkin-Cappaghmore,1,ruth nolan,Ruth Nolan,FALSE,I4C,7,running,1,9153,259,253,6,1295
+Clondalkin-Cappaghmore,1,charlie keddy,Charlie Keddy,FALSE,IND,1,running,1,9153,259,253,6,1295
+Clondalkin-Cappaghmore,1,peter madden,Peter Madden,FALSE,IND,0,running,1,9153,259,253,6,1295
+Clondalkin-Dunawley,1,mark ward,Mark Ward,FALSE,SF,801,running,1,9153,1675,1657,18,7245
+Clondalkin-Dunawley,1,emer higgins,Emer Higgins,FALSE,FG,134,running,1,9153,1675,1657,18,7245
+Clondalkin-Dunawley,1,paul gogarty,Paul Gogarty,FALSE,IND,48,running,1,9153,1675,1657,18,7245
+Clondalkin-Dunawley,1,shane moynihan,Shane Moynihan,FALSE,FF,100,running,1,9153,1675,1657,18,7245
+Clondalkin-Dunawley,1,francis timmons,Francis Timmons,FALSE,IND,295,running,1,9153,1675,1657,18,7245
+Clondalkin-Dunawley,1,joanna tuffy,Joanna Tuffy,FALSE,LAB,37,running,1,9153,1675,1657,18,7245
+Clondalkin-Dunawley,1,peter kavanagh,Peter Kavanagh,FALSE,GP,97,running,1,9153,1675,1657,18,7245
+Clondalkin-Dunawley,1,kellie sweeney,Kellie Sweeney,FALSE,PBPS,80,running,1,9153,1675,1657,18,7245
+Clondalkin-Dunawley,1,annemarie mcnally,Anne-Marie McNally,FALSE,SD,35,running,1,9153,1675,1657,18,7245
+Clondalkin-Dunawley,1,david gardiner,David Gardiner,FALSE,WP,11,running,1,9153,1675,1657,18,7245
+Clondalkin-Dunawley,1,ruth nolan,Ruth Nolan,FALSE,I4C,10,running,1,9153,1675,1657,18,7245
+Clondalkin-Dunawley,1,charlie keddy,Charlie Keddy,FALSE,IND,5,running,1,9153,1675,1657,18,7245
+Clondalkin-Dunawley,1,peter madden,Peter Madden,FALSE,IND,4,running,1,9153,1675,1657,18,7245
+Clondalkin-Monastery,1,mark ward,Mark Ward,FALSE,SF,434,running,1,9153,1854,1844,10,7558
+Clondalkin-Monastery,1,emer higgins,Emer Higgins,FALSE,FG,335,running,1,9153,1854,1844,10,7558
+Clondalkin-Monastery,1,paul gogarty,Paul Gogarty,FALSE,IND,71,running,1,9153,1854,1844,10,7558
+Clondalkin-Monastery,1,shane moynihan,Shane Moynihan,FALSE,FF,201,running,1,9153,1854,1844,10,7558
+Clondalkin-Monastery,1,francis timmons,Francis Timmons,FALSE,IND,293,running,1,9153,1854,1844,10,7558
+Clondalkin-Monastery,1,joanna tuffy,Joanna Tuffy,FALSE,LAB,76,running,1,9153,1854,1844,10,7558
+Clondalkin-Monastery,1,peter kavanagh,Peter Kavanagh,FALSE,GP,228,running,1,9153,1854,1844,10,7558
+Clondalkin-Monastery,1,kellie sweeney,Kellie Sweeney,FALSE,PBPS,82,running,1,9153,1854,1844,10,7558
+Clondalkin-Monastery,1,annemarie mcnally,Anne-Marie McNally,FALSE,SD,66,running,1,9153,1854,1844,10,7558
+Clondalkin-Monastery,1,david gardiner,David Gardiner,FALSE,WP,15,running,1,9153,1854,1844,10,7558
+Clondalkin-Monastery,1,ruth nolan,Ruth Nolan,FALSE,I4C,17,running,1,9153,1854,1844,10,7558
+Clondalkin-Monastery,1,charlie keddy,Charlie Keddy,FALSE,IND,16,running,1,9153,1854,1844,10,7558
+Clondalkin-Monastery,1,peter madden,Peter Madden,FALSE,IND,10,running,1,9153,1854,1844,10,7558
+Clondalkin-Moorfield,1,mark ward,Mark Ward,FALSE,SF,669,running,1,9153,1101,1087,14,4404
+Clondalkin-Moorfield,1,emer higgins,Emer Higgins,FALSE,FG,44,running,1,9153,1101,1087,14,4404
+Clondalkin-Moorfield,1,paul gogarty,Paul Gogarty,FALSE,IND,22,running,1,9153,1101,1087,14,4404
+Clondalkin-Moorfield,1,shane moynihan,Shane Moynihan,FALSE,FF,52,running,1,9153,1101,1087,14,4404
+Clondalkin-Moorfield,1,francis timmons,Francis Timmons,FALSE,IND,83,running,1,9153,1101,1087,14,4404
+Clondalkin-Moorfield,1,joanna tuffy,Joanna Tuffy,FALSE,LAB,44,running,1,9153,1101,1087,14,4404
+Clondalkin-Moorfield,1,peter kavanagh,Peter Kavanagh,FALSE,GP,22,running,1,9153,1101,1087,14,4404
+Clondalkin-Moorfield,1,kellie sweeney,Kellie Sweeney,FALSE,PBPS,85,running,1,9153,1101,1087,14,4404
+Clondalkin-Moorfield,1,annemarie mcnally,Anne-Marie McNally,FALSE,SD,26,running,1,9153,1101,1087,14,4404
+Clondalkin-Moorfield,1,david gardiner,David Gardiner,FALSE,WP,29,running,1,9153,1101,1087,14,4404
+Clondalkin-Moorfield,1,ruth nolan,Ruth Nolan,FALSE,I4C,7,running,1,9153,1101,1087,14,4404
+Clondalkin-Moorfield,1,charlie keddy,Charlie Keddy,FALSE,IND,0,running,1,9153,1101,1087,14,4404
+Clondalkin-Moorfield,1,peter madden,Peter Madden,FALSE,IND,4,running,1,9153,1101,1087,14,4404
+Clondalkin-Rowlagh,1,mark ward,Mark Ward,FALSE,SF,602,running,1,9153,785,770,15,3213
+Clondalkin-Rowlagh,1,emer higgins,Emer Higgins,FALSE,FG,16,running,1,9153,785,770,15,3213
+Clondalkin-Rowlagh,1,paul gogarty,Paul Gogarty,FALSE,IND,9,running,1,9153,785,770,15,3213
+Clondalkin-Rowlagh,1,shane moynihan,Shane Moynihan,FALSE,FF,22,running,1,9153,785,770,15,3213
+Clondalkin-Rowlagh,1,francis timmons,Francis Timmons,FALSE,IND,36,running,1,9153,785,770,15,3213
+Clondalkin-Rowlagh,1,joanna tuffy,Joanna Tuffy,FALSE,LAB,8,running,1,9153,785,770,15,3213
+Clondalkin-Rowlagh,1,peter kavanagh,Peter Kavanagh,FALSE,GP,5,running,1,9153,785,770,15,3213
+Clondalkin-Rowlagh,1,kellie sweeney,Kellie Sweeney,FALSE,PBPS,55,running,1,9153,785,770,15,3213
+Clondalkin-Rowlagh,1,annemarie mcnally,Anne-Marie McNally,FALSE,SD,7,running,1,9153,785,770,15,3213
+Clondalkin-Rowlagh,1,david gardiner,David Gardiner,FALSE,WP,4,running,1,9153,785,770,15,3213
+Clondalkin-Rowlagh,1,ruth nolan,Ruth Nolan,FALSE,I4C,3,running,1,9153,785,770,15,3213
+Clondalkin-Rowlagh,1,charlie keddy,Charlie Keddy,FALSE,IND,3,running,1,9153,785,770,15,3213
+Clondalkin-Rowlagh,1,peter madden,Peter Madden,FALSE,IND,0,running,1,9153,785,770,15,3213
+Clondalkin Village,1,mark ward,Mark Ward,FALSE,SF,270,running,1,9153,1492,1471,21,6037
+Clondalkin Village,1,emer higgins,Emer Higgins,FALSE,FG,238,running,1,9153,1492,1471,21,6037
+Clondalkin Village,1,paul gogarty,Paul Gogarty,FALSE,IND,59,running,1,9153,1492,1471,21,6037
+Clondalkin Village,1,shane moynihan,Shane Moynihan,FALSE,FF,160,running,1,9153,1492,1471,21,6037
+Clondalkin Village,1,francis timmons,Francis Timmons,FALSE,IND,287,running,1,9153,1492,1471,21,6037
+Clondalkin Village,1,joanna tuffy,Joanna Tuffy,FALSE,LAB,57,running,1,9153,1492,1471,21,6037
+Clondalkin Village,1,peter kavanagh,Peter Kavanagh,FALSE,GP,214,running,1,9153,1492,1471,21,6037
+Clondalkin Village,1,kellie sweeney,Kellie Sweeney,FALSE,PBPS,89,running,1,9153,1492,1471,21,6037
+Clondalkin Village,1,annemarie mcnally,Anne-Marie McNally,FALSE,SD,46,running,1,9153,1492,1471,21,6037
+Clondalkin Village,1,david gardiner,David Gardiner,FALSE,WP,13,running,1,9153,1492,1471,21,6037
+Clondalkin Village,1,ruth nolan,Ruth Nolan,FALSE,I4C,17,running,1,9153,1492,1471,21,6037
+Clondalkin Village,1,charlie keddy,Charlie Keddy,FALSE,IND,15,running,1,9153,1492,1471,21,6037
+Clondalkin Village,1,peter madden,Peter Madden,FALSE,IND,6,running,1,9153,1492,1471,21,6037
+Lucan-Esker,1,mark ward,Mark Ward,FALSE,SF,403,running,1,9153,3504,3486,18,16864
+Lucan-Esker,1,emer higgins,Emer Higgins,FALSE,FG,610,running,1,9153,3504,3486,18,16864
+Lucan-Esker,1,paul gogarty,Paul Gogarty,FALSE,IND,752,running,1,9153,3504,3486,18,16864
+Lucan-Esker,1,shane moynihan,Shane Moynihan,FALSE,FF,605,running,1,9153,3504,3486,18,16864
+Lucan-Esker,1,francis timmons,Francis Timmons,FALSE,IND,47,running,1,9153,3504,3486,18,16864
+Lucan-Esker,1,joanna tuffy,Joanna Tuffy,FALSE,LAB,326,running,1,9153,3504,3486,18,16864
+Lucan-Esker,1,peter kavanagh,Peter Kavanagh,FALSE,GP,190,running,1,9153,3504,3486,18,16864
+Lucan-Esker,1,kellie sweeney,Kellie Sweeney,FALSE,PBPS,176,running,1,9153,3504,3486,18,16864
+Lucan-Esker,1,annemarie mcnally,Anne-Marie McNally,FALSE,SD,204,running,1,9153,3504,3486,18,16864
+Lucan-Esker,1,david gardiner,David Gardiner,FALSE,WP,39,running,1,9153,3504,3486,18,16864
+Lucan-Esker,1,ruth nolan,Ruth Nolan,FALSE,I4C,100,running,1,9153,3504,3486,18,16864
+Lucan-Esker,1,charlie keddy,Charlie Keddy,FALSE,IND,15,running,1,9153,3504,3486,18,16864
+Lucan-Esker,1,peter madden,Peter Madden,FALSE,IND,19,running,1,9153,3504,3486,18,16864
+Lucan Heights,1,mark ward,Mark Ward,FALSE,SF,87,running,1,9153,1661,1652,9,4991
+Lucan Heights,1,emer higgins,Emer Higgins,FALSE,FG,332,running,1,9153,1661,1652,9,4991
+Lucan Heights,1,paul gogarty,Paul Gogarty,FALSE,IND,472,running,1,9153,1661,1652,9,4991
+Lucan Heights,1,shane moynihan,Shane Moynihan,FALSE,FF,218,running,1,9153,1661,1652,9,4991
+Lucan Heights,1,francis timmons,Francis Timmons,FALSE,IND,9,running,1,9153,1661,1652,9,4991
+Lucan Heights,1,joanna tuffy,Joanna Tuffy,FALSE,LAB,259,running,1,9153,1661,1652,9,4991
+Lucan Heights,1,peter kavanagh,Peter Kavanagh,FALSE,GP,80,running,1,9153,1661,1652,9,4991
+Lucan Heights,1,kellie sweeney,Kellie Sweeney,FALSE,PBPS,58,running,1,9153,1661,1652,9,4991
+Lucan Heights,1,annemarie mcnally,Anne-Marie McNally,FALSE,SD,84,running,1,9153,1661,1652,9,4991
+Lucan Heights,1,david gardiner,David Gardiner,FALSE,WP,8,running,1,9153,1661,1652,9,4991
+Lucan Heights,1,ruth nolan,Ruth Nolan,FALSE,I4C,31,running,1,9153,1661,1652,9,4991
+Lucan Heights,1,charlie keddy,Charlie Keddy,FALSE,IND,10,running,1,9153,1661,1652,9,4991
+Lucan Heights,1,peter madden,Peter Madden,FALSE,IND,4,running,1,9153,1661,1652,9,4991
+Lucan-St Helens,1,mark ward,Mark Ward,FALSE,SF,124,running,1,9153,1735,1723,12,7214
+Lucan-St Helens,1,emer higgins,Emer Higgins,FALSE,FG,334,running,1,9153,1735,1723,12,7214
+Lucan-St Helens,1,paul gogarty,Paul Gogarty,FALSE,IND,415,running,1,9153,1735,1723,12,7214
+Lucan-St Helens,1,shane moynihan,Shane Moynihan,FALSE,FF,235,running,1,9153,1735,1723,12,7214
+Lucan-St Helens,1,francis timmons,Francis Timmons,FALSE,IND,22,running,1,9153,1735,1723,12,7214
+Lucan-St Helens,1,joanna tuffy,Joanna Tuffy,FALSE,LAB,223,running,1,9153,1735,1723,12,7214
+Lucan-St Helens,1,peter kavanagh,Peter Kavanagh,FALSE,GP,79,running,1,9153,1735,1723,12,7214
+Lucan-St Helens,1,kellie sweeney,Kellie Sweeney,FALSE,PBPS,116,running,1,9153,1735,1723,12,7214
+Lucan-St Helens,1,annemarie mcnally,Anne-Marie McNally,FALSE,SD,100,running,1,9153,1735,1723,12,7214
+Lucan-St Helens,1,david gardiner,David Gardiner,FALSE,WP,29,running,1,9153,1735,1723,12,7214
+Lucan-St Helens,1,ruth nolan,Ruth Nolan,FALSE,I4C,29,running,1,9153,1735,1723,12,7214
+Lucan-St Helens,1,charlie keddy,Charlie Keddy,FALSE,IND,9,running,1,9153,1735,1723,12,7214
+Lucan-St Helens,1,peter madden,Peter Madden,FALSE,IND,8,running,1,9153,1735,1723,12,7214
+Newcastle,1,mark ward,Mark Ward,FALSE,SF,47,running,1,9153,727,724,3,2789
+Newcastle,1,emer higgins,Emer Higgins,FALSE,FG,403,running,1,9153,727,724,3,2789
+Newcastle,1,paul gogarty,Paul Gogarty,FALSE,IND,37,running,1,9153,727,724,3,2789
+Newcastle,1,shane moynihan,Shane Moynihan,FALSE,FF,68,running,1,9153,727,724,3,2789
+Newcastle,1,francis timmons,Francis Timmons,FALSE,IND,89,running,1,9153,727,724,3,2789
+Newcastle,1,joanna tuffy,Joanna Tuffy,FALSE,LAB,17,running,1,9153,727,724,3,2789
+Newcastle,1,peter kavanagh,Peter Kavanagh,FALSE,GP,35,running,1,9153,727,724,3,2789
+Newcastle,1,kellie sweeney,Kellie Sweeney,FALSE,PBPS,9,running,1,9153,727,724,3,2789
+Newcastle,1,annemarie mcnally,Anne-Marie McNally,FALSE,SD,14,running,1,9153,727,724,3,2789
+Newcastle,1,david gardiner,David Gardiner,FALSE,WP,3,running,1,9153,727,724,3,2789
+Newcastle,1,ruth nolan,Ruth Nolan,FALSE,I4C,0,running,1,9153,727,724,3,2789
+Newcastle,1,charlie keddy,Charlie Keddy,FALSE,IND,0,running,1,9153,727,724,3,2789
+Newcastle,1,peter madden,Peter Madden,FALSE,IND,2,running,1,9153,727,724,3,2789
+Palmerstown Village,1,mark ward,Mark Ward,FALSE,SF,58,running,1,9153,915,913,2,3131
+Palmerstown Village,1,emer higgins,Emer Higgins,FALSE,FG,137,running,1,9153,915,913,2,3131
+Palmerstown Village,1,paul gogarty,Paul Gogarty,FALSE,IND,220,running,1,9153,915,913,2,3131
+Palmerstown Village,1,shane moynihan,Shane Moynihan,FALSE,FF,199,running,1,9153,915,913,2,3131
+Palmerstown Village,1,francis timmons,Francis Timmons,FALSE,IND,3,running,1,9153,915,913,2,3131
+Palmerstown Village,1,joanna tuffy,Joanna Tuffy,FALSE,LAB,54,running,1,9153,915,913,2,3131
+Palmerstown Village,1,peter kavanagh,Peter Kavanagh,FALSE,GP,62,running,1,9153,915,913,2,3131
+Palmerstown Village,1,kellie sweeney,Kellie Sweeney,FALSE,PBPS,30,running,1,9153,915,913,2,3131
+Palmerstown Village,1,annemarie mcnally,Anne-Marie McNally,FALSE,SD,72,running,1,9153,915,913,2,3131
+Palmerstown Village,1,david gardiner,David Gardiner,FALSE,WP,55,running,1,9153,915,913,2,3131
+Palmerstown Village,1,ruth nolan,Ruth Nolan,FALSE,I4C,13,running,1,9153,915,913,2,3131
+Palmerstown Village,1,charlie keddy,Charlie Keddy,FALSE,IND,9,running,1,9153,915,913,2,3131
+Palmerstown Village,1,peter madden,Peter Madden,FALSE,IND,1,running,1,9153,915,913,2,3131
+Palmerstown West,1,mark ward,Mark Ward,FALSE,SF,637,running,1,9153,1438,1431,7,5411
+Palmerstown West,1,emer higgins,Emer Higgins,FALSE,FG,116,running,1,9153,1438,1431,7,5411
+Palmerstown West,1,paul gogarty,Paul Gogarty,FALSE,IND,151,running,1,9153,1438,1431,7,5411
+Palmerstown West,1,shane moynihan,Shane Moynihan,FALSE,FF,156,running,1,9153,1438,1431,7,5411
+Palmerstown West,1,francis timmons,Francis Timmons,FALSE,IND,23,running,1,9153,1438,1431,7,5411
+Palmerstown West,1,joanna tuffy,Joanna Tuffy,FALSE,LAB,69,running,1,9153,1438,1431,7,5411
+Palmerstown West,1,peter kavanagh,Peter Kavanagh,FALSE,GP,60,running,1,9153,1438,1431,7,5411
+Palmerstown West,1,kellie sweeney,Kellie Sweeney,FALSE,PBPS,65,running,1,9153,1438,1431,7,5411
+Palmerstown West,1,annemarie mcnally,Anne-Marie McNally,FALSE,SD,51,running,1,9153,1438,1431,7,5411
+Palmerstown West,1,david gardiner,David Gardiner,FALSE,WP,78,running,1,9153,1438,1431,7,5411
+Palmerstown West,1,ruth nolan,Ruth Nolan,FALSE,I4C,16,running,1,9153,1438,1431,7,5411
+Palmerstown West,1,charlie keddy,Charlie Keddy,FALSE,IND,5,running,1,9153,1438,1431,7,5411
+Palmerstown West,1,peter madden,Peter Madden,FALSE,IND,4,running,1,9153,1438,1431,7,5411
+Rathcoole,1,mark ward,Mark Ward,FALSE,SF,54,running,1,9153,934,924,10,3656
+Rathcoole,1,emer higgins,Emer Higgins,FALSE,FG,524,running,1,9153,934,924,10,3656
+Rathcoole,1,paul gogarty,Paul Gogarty,FALSE,IND,56,running,1,9153,934,924,10,3656
+Rathcoole,1,shane moynihan,Shane Moynihan,FALSE,FF,85,running,1,9153,934,924,10,3656
+Rathcoole,1,francis timmons,Francis Timmons,FALSE,IND,35,running,1,9153,934,924,10,3656
+Rathcoole,1,joanna tuffy,Joanna Tuffy,FALSE,LAB,35,running,1,9153,934,924,10,3656
+Rathcoole,1,peter kavanagh,Peter Kavanagh,FALSE,GP,57,running,1,9153,934,924,10,3656
+Rathcoole,1,kellie sweeney,Kellie Sweeney,FALSE,PBPS,30,running,1,9153,934,924,10,3656
+Rathcoole,1,annemarie mcnally,Anne-Marie McNally,FALSE,SD,35,running,1,9153,934,924,10,3656
+Rathcoole,1,david gardiner,David Gardiner,FALSE,WP,5,running,1,9153,934,924,10,3656
+Rathcoole,1,ruth nolan,Ruth Nolan,FALSE,I4C,4,running,1,9153,934,924,10,3656
+Rathcoole,1,charlie keddy,Charlie Keddy,FALSE,IND,2,running,1,9153,934,924,10,3656
+Rathcoole,1,peter madden,Peter Madden,FALSE,IND,2,running,1,9153,934,924,10,3656
+Saggart,1,mark ward,Mark Ward,FALSE,SF,38,running,1,9153,371,370,1,2202
+Saggart,1,emer higgins,Emer Higgins,FALSE,FG,186,running,1,9153,371,370,1,2202
+Saggart,1,paul gogarty,Paul Gogarty,FALSE,IND,14,running,1,9153,371,370,1,2202
+Saggart,1,shane moynihan,Shane Moynihan,FALSE,FF,40,running,1,9153,371,370,1,2202
+Saggart,1,francis timmons,Francis Timmons,FALSE,IND,21,running,1,9153,371,370,1,2202
+Saggart,1,joanna tuffy,Joanna Tuffy,FALSE,LAB,6,running,1,9153,371,370,1,2202
+Saggart,1,peter kavanagh,Peter Kavanagh,FALSE,GP,36,running,1,9153,371,370,1,2202
+Saggart,1,kellie sweeney,Kellie Sweeney,FALSE,PBPS,8,running,1,9153,371,370,1,2202
+Saggart,1,annemarie mcnally,Anne-Marie McNally,FALSE,SD,16,running,1,9153,371,370,1,2202
+Saggart,1,david gardiner,David Gardiner,FALSE,WP,2,running,1,9153,371,370,1,2202
+Saggart,1,ruth nolan,Ruth Nolan,FALSE,I4C,1,running,1,9153,371,370,1,2202
+Saggart,1,charlie keddy,Charlie Keddy,FALSE,IND,2,running,1,9153,371,370,1,2202
+Saggart,1,peter madden,Peter Madden,FALSE,IND,0,running,1,9153,371,370,1,2202

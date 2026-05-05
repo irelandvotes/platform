@@ -763,34 +763,34 @@ function MarginTooltip({
         over {formatWinnerLabel(runnerUp)}
       </div>
 
-      <div
-        style={{
-          height: 8,
-          borderRadius: 999,
-          overflow: "hidden",
-          background: "var(--panel-2)",
-          display: "flex"
-        }}
-      >
-        <div
-          style={{
-            width: `${winnerPct}%`,
-            background:
-              PARTY_COLORS[winner.party] ||
-              "#777"
-          }}
-        />
+<div
+  style={{
+    height: 8,
+    borderRadius: 999,
+    overflow: "hidden",
+    background: "var(--panel-2)",
+    display: "flex"
+  }}
+>
+  {rows.map((candidate, i) => {
+    const pct =
+      totalVotes > 0
+        ? (candidate.votes / totalVotes) * 100
+        : 0;
 
-        <div
-          style={{
-            width: `${runnerPct}%`,
-            background:
-              PARTY_COLORS[runnerUp.party] ||
-              "#999",
-            opacity: 0.7
-          }}
-        />
-      </div>
+    return (
+      <div
+        key={candidate.party + i}
+        style={{
+          width: `${pct}%`,
+          background:
+            PARTY_COLORS[candidate.party] || "#999",
+          opacity: i === 0 ? 1 : 0.85
+        }}
+      />
+    );
+  })}
+</div>
     </Card>
   );
 }
