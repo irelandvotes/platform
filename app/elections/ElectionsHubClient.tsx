@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const PARTY_COLORS: Record<string, string> = {
   FF: "#66bb6a",
@@ -34,6 +34,9 @@ export default function ElectionsHubClient({
 }: {
   rows: any[];
 }) {
+
+const [showFilters, setShowFilters] = useState(false);
+
   const [expanded, setExpanded] =
     useState<string | null>(null);
 
@@ -52,6 +55,15 @@ export default function ElectionsHubClient({
 
   const [selectedTypes, setSelectedTypes] =
     useState<string[]>(["All Types"]);
+
+const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  const check = () => setIsMobile(window.innerWidth < 900);
+  check();
+  window.addEventListener("resize", check);
+  return () => window.removeEventListener("resize", check);
+}, []);
 
   const yearOptions = [
     "All Years",
@@ -144,95 +156,211 @@ export default function ElectionsHubClient({
     width: "100%"
   }}
 >
-      {/* SIDEBAR */}
+{/* SIDEBAR / DRAWER */}
+{isMobile ? (
+  <>
+    {/* OVERLAY */}
+    {showFilters && (
+      <div
+        onClick={() => setShowFilters(false)}
+        style={{
+          position: "fixed",
+          inset: 0,
+          background: "rgba(0,0,0,0.4)",
+          zIndex: 50
+        }}
+      />
+    )}
+
+    {/* DRAWER PANEL */}
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: showFilters ? 0 : "-280px",
+        height: "100%",
+        width: "260px",
+        background: "var(--panel)",
+        borderRight: "1px solid var(--border)",
+        padding: "12px",
+        overflowY: "auto",
+        zIndex: 60,
+        transition: "left 0.25s ease"
+      }}
+    >
+      {/* HEADER */}
       <div
         style={{
-          width: "260px",
-          flexShrink: 0,
-          borderRight:
-            "1px solid var(--border)",
-          background:
-            "var(--panel)",
-          padding: "12px",
-          overflowY: "auto"
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginBottom: "12px",
+          padding: "0 4px"
         }}
       >
-<div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: "12px",
-    padding: "0 4px"
-  }}
->
+        <div
+          style={{
+            fontSize: "16px",
+            fontWeight: 700
+          }}
+        >
+          Filters
+        </div>
+
+        <button
+          onClick={() => setShowFilters(false)}
+          style={{
+            fontSize: "14px",
+            background: "transparent",
+            border: "none",
+            cursor: "pointer"
+          }}
+        >
+          ✕
+        </button>
+      </div>
+
+      {/* RESET BUTTON */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          marginBottom: "12px"
+        }}
+      >
+        <button
+          onClick={() => {
+            setSelectedYears(["All Years"]);
+            setSelectedAreas(["All Areas"]);
+            setSelectedInstitutions(["All Institutions"]);
+            setSelectedTypes(["All Types"]);
+          }}
+          style={{
+            fontSize: "11px",
+            fontWeight: 600,
+            padding: "4px 8px",
+            borderRadius: "6px",
+            border: "1px solid var(--border)",
+            background: "transparent",
+            cursor: "pointer",
+            opacity: 0.7
+          }}
+        >
+          Reset
+        </button>
+      </div>
+
+      {/* FILTERS */}
+      <FilterMultiSelect
+        title="Year (When?)"
+        values={selectedYears}
+        options={yearOptions}
+        onChange={setSelectedYears}
+      />
+
+      <FilterMultiSelect
+        title="Area (Where?)"
+        values={selectedAreas}
+        options={areaOptions}
+        onChange={setSelectedAreas}
+      />
+
+      <FilterMultiSelect
+        title="Institution (What?)"
+        values={selectedInstitutions}
+        options={institutionOptions}
+        onChange={setSelectedInstitutions}
+      />
+
+      <FilterMultiSelect
+        title="Type (How?)"
+        values={selectedTypes}
+        options={typeOptions}
+        onChange={setSelectedTypes}
+      />
+    </div>
+  </>
+) : (
+  /* DESKTOP SIDEBAR (original behaviour) */
   <div
     style={{
-      fontSize: "16px",
-      fontWeight: 700
+      width: "260px",
+      flexShrink: 0,
+      borderRight: "1px solid var(--border)",
+      background: "var(--panel)",
+      padding: "12px",
+      overflowY: "auto"
     }}
   >
-    Filters
-  </div>
-
-  <button
-    onClick={() => {
-      setSelectedYears(["All Years"]);
-      setSelectedAreas(["All Areas"]);
-      setSelectedInstitutions(["All Institutions"]);
-      setSelectedTypes(["All Types"]);
-    }}
-    style={{
-      fontSize: "11px",
-      fontWeight: 600,
-      padding: "4px 8px",
-      borderRadius: "6px",
-      border: "1px solid var(--border)",
-      background: "transparent",
-      cursor: "pointer",
-      opacity: 0.7
-    }}
-    onMouseEnter={(e) => {
-      e.currentTarget.style.opacity = "1";
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.opacity = "0.7";
-    }}
-  >
-    Reset
-  </button>
-</div>
-
-        <FilterMultiSelect
-          title="Year (When?)"
-          values={selectedYears}
-          options={yearOptions}
-          onChange={setSelectedYears}
-        />
-
-        <FilterMultiSelect
-          title="Area (Where?)"
-          values={selectedAreas}
-          options={areaOptions}
-          onChange={setSelectedAreas}
-        />
-
-        <FilterMultiSelect
-          title="Institution (What?)"
-          values={selectedInstitutions}
-          options={institutionOptions}
-          onChange={
-            setSelectedInstitutions
-          }
-        />
-
-        <FilterMultiSelect
-          title="Type (How?)"
-          values={selectedTypes}
-          options={typeOptions}
-          onChange={setSelectedTypes}
-        />
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        marginBottom: "12px",
+        padding: "0 4px"
+      }}
+    >
+      <div
+        style={{
+          fontSize: "16px",
+          fontWeight: 700
+        }}
+      >
+        Filters
       </div>
+
+      <button
+        onClick={() => {
+          setSelectedYears(["All Years"]);
+          setSelectedAreas(["All Areas"]);
+          setSelectedInstitutions(["All Institutions"]);
+          setSelectedTypes(["All Types"]);
+        }}
+        style={{
+          fontSize: "11px",
+          fontWeight: 600,
+          padding: "4px 8px",
+          borderRadius: "6px",
+          border: "1px solid var(--border)",
+          background: "transparent",
+          cursor: "pointer",
+          opacity: 0.7
+        }}
+      >
+        Reset
+      </button>
+    </div>
+
+    <FilterMultiSelect
+      title="Year (When?)"
+      values={selectedYears}
+      options={yearOptions}
+      onChange={setSelectedYears}
+    />
+
+    <FilterMultiSelect
+      title="Area (Where?)"
+      values={selectedAreas}
+      options={areaOptions}
+      onChange={setSelectedAreas}
+    />
+
+    <FilterMultiSelect
+      title="Institution (What?)"
+      values={selectedInstitutions}
+      options={institutionOptions}
+      onChange={setSelectedInstitutions}
+    />
+
+    <FilterMultiSelect
+      title="Type (How?)"
+      values={selectedTypes}
+      options={typeOptions}
+      onChange={setSelectedTypes}
+    />
+  </div>
+)}
 
 {/* TABLE */}
 <div
@@ -254,15 +382,40 @@ export default function ElectionsHubClient({
   >
 
   {/* HEADER TEXT (NOT SCROLLING) */}
+<div
+  style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: "8px"
+  }}
+>
   <div
     style={{
       fontSize: "28px",
-      fontWeight: 700,
-      marginBottom: "8px"
+      fontWeight: 700
     }}
   >
     Election Centre
   </div>
+
+  {isMobile && (
+    <button
+      onClick={() => setShowFilters(true)}
+      style={{
+        padding: "6px 10px",
+        fontSize: "12px",
+        fontWeight: 600,
+        borderRadius: "8px",
+        border: "1px solid var(--border)",
+        background: "var(--panel)",
+        cursor: "pointer"
+      }}
+    >
+      Filters
+    </button>
+  )}
+</div>
 
   <div
     style={{

@@ -13,7 +13,7 @@ html, body, #__next {
 :root {
 
   /* Layout */
-  --bg: #ffffff;
+  --bg: #f8f8f8;
   --panel: #f8f8f8;
   --panel-2: #ffffff;
   --border: #e5e5e5;
@@ -48,15 +48,15 @@ html, body, #__next {
 .dark {
 
   /* Layout */
-  --bg: #121212;
-  --panel: #1f1f1f;
-  --panel-2: #2a2a2a;
+  --bg: #181818;
+  --panel: #181818;
+  --panel-2: #252525;
   --border: #333;
 
   /* Text */
   --text: #ffffff;
-  --text-muted: #aaaaaa;
-  --text-subtle: #777777;
+  --text-muted: #bbbbbb;
+  --text-subtle: #929292;
 
   /* Map */
   --map-outline: #9c9c9c;
