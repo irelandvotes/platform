@@ -470,7 +470,7 @@ useEffect(() => {
           fontWeight: 700,
           letterSpacing: "0.5px",
           opacity: 0.9,
-          borderBottom: "1px solid var(--border)",
+          borderBottom: "2px solid #00dfef",
           position: "sticky",
           top: 0,
           zIndex: 2,

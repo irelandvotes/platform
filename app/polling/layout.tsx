@@ -13,22 +13,6 @@ Line,
 YAxis
 } from "recharts";
 
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const check = () => {
-      setIsMobile(window.innerWidth < 900);
-    };
-
-    check();
-    window.addEventListener("resize", check);
-
-    return () => window.removeEventListener("resize", check);
-  }, []);
-
-  return isMobile;
-}
 
 /* ===============================
    POLLING PAGES
@@ -55,7 +39,42 @@ export default function ElectionsLayout({
 
 const pathname = usePathname();
 
-const isMobile = useIsMobile();
+const [showMenu, setShowMenu] = useState(false);
+const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  const check = () => setIsMobile(window.innerWidth < 900);
+  check();
+  window.addEventListener("resize", check);
+  return () => window.removeEventListener("resize", check);
+}, []);
+
+const SidebarContent = (
+  <>
+    <div
+      style={{
+        fontSize: "16px",
+        fontWeight: "700",
+        marginBottom: "12px",
+        opacity: 0.9,
+        marginLeft: "5px"
+      }}
+    >
+      Featured
+    </div>
+
+    {pollingPages.map((poll) => (
+      <PollLink
+        key={poll.href}
+        href={poll.href}
+        label={poll.label}
+        tracker={poll.tracker}
+        pathname={pathname}
+      />
+    ))}
+  </>
+);
+
 return (
 
 <div
@@ -66,56 +85,121 @@ width: "100%"
 }}
 >
 
-{/* SIDEBAR */}
+{/* SIDEBAR / DRAWER */}
+{isMobile ? (
+  <>
+    {/* OVERLAY */}
+    {showMenu && (
+      <div
+        onClick={() => setShowMenu(false)}
+        style={{
+          position: "fixed",
+          inset: 0,
+          background: "rgba(0,0,0,0.4)",
+          zIndex: 50
+        }}
+      />
+    )}
 
-<div
-style={{
-width: "260px",
-borderRight: "1px solid var(--border)",
-background: "var(--panel)",
-padding: "12px",
-overflowY: "auto"
-}}
->
+    {/* DRAWER */}
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: showMenu ? 0 : "-280px",
+        height: "100%",
+        width: "260px",
+        background: "var(--panel)",
+        borderRight: "1px solid var(--border)",
+        padding: "12px",
+        overflowY: "auto",
+        zIndex: 60,
+        transition: "left 0.25s ease"
+      }}
+    >
+      {/* HEADER */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginBottom: "12px"
+        }}
+      >
+        <div style={{ fontWeight: 700 }}>
+          Polling
+        </div>
 
-<div
-style={{
-fontSize: "16px",
-fontWeight: "700",
-marginBottom: "12px",
-opacity: 0.9,
-marginLeft: "5px"
-}}
->
-Featured
-</div>
+        <button onClick={() => setShowMenu(false)}>
+          ✕
+        </button>
+      </div>
 
-{pollingPages.map((poll) => (
-
-<PollLink
-key={poll.href}
-href={poll.href}
-label={poll.label}
-tracker={poll.tracker}
-pathname={pathname}
-/>
-
-))}
-
-</div>
+      {SidebarContent}
+    </div>
+  </>
+) : (
+  /* DESKTOP SIDEBAR */
+  <div
+    style={{
+      width: "260px",
+      borderRight: "1px solid var(--border)",
+      background: "var(--panel)",
+      padding: "12px",
+      overflowY: "auto"
+    }}
+  >
+    {SidebarContent}
+  </div>
+)}
 
 
 {/* MAIN CONTENT */}
 
 <div
-style={{
-flex: 1,
-overflow: "auto"
-}}
+  style={{
+    flex: 1,
+    overflow: "auto",
+    display: "flex",
+    flexDirection: "column"
+  }}
 >
 
-{children}
+  {/* MOBILE HEADER */}
+  {isMobile && (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "12px 16px",
+        borderBottom: "1px solid var(--border)",
+        background: "var(--panel)",
+        position: "sticky",
+        top: 0,
+        zIndex: 10
+      }}
+    >
+      <div style={{ fontWeight: 600 }}>
+        Ireland Votes Polling Aggregates
+      </div>
 
+      <button
+        onClick={() => setShowMenu(true)}
+        style={{
+          padding: "6px 10px",
+          fontSize: "12px",
+          borderRadius: "8px",
+          border: "1px solid var(--border)",
+          background: "var(--panel-2)",
+          cursor: "pointer"
+        }}
+      >
+        ☰ Browse all polling
+      </button>
+    </div>
+  )}
+
+  {children}
 </div>
 
 </div>

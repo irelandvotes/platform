@@ -51,6 +51,15 @@ export default function PollPage({
 
 const [polls, setPolls] = useState<any[]>([]);
 const [range, setRange] = useState<string>("all");
+const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  const check = () => setIsMobile(window.innerWidth < 900);
+  check();
+  window.addEventListener("resize", check);
+  return () => window.removeEventListener("resize", check);
+}, []);
+
 
 useEffect(() => {
 setRange("all");
@@ -1127,7 +1136,7 @@ width: "100%",
 height: "100%",
 display: "flex",
 flexDirection: "column",
-overflow: "hidden",
+overflow: "visible",
 background: "var(--panel)"
 }}
 >
@@ -1136,7 +1145,8 @@ background: "var(--panel)"
 style={{
 flex: 1,
 overflow: "auto",
-padding: "20px"
+padding: isMobile ? "14px" : "20px",
+minHeight: 0 // 👈 ADD THIS LINE
 }}
 >
 
@@ -1182,8 +1192,9 @@ marginBottom: "14px"
 <div
 style={{
 display: "grid",
-gridTemplateColumns: "auto 1fr auto",
-gap: "14px",
+gridTemplateColumns: isMobile ? "1fr" : "auto 1fr auto",
+rowGap: isMobile ? "12px" : "0",
+gap: isMobile ? "8px" : "14px",
 alignItems: "start"
 }}
 >
@@ -1358,7 +1369,7 @@ The Ireland Votes Aggregate
 
 <div
 style={{
-height: "500px",
+height: isMobile ? "650px" : "500px",
 width: "100%",
 display: "flex",
 flexDirection: "column"
@@ -1406,7 +1417,7 @@ Last Updated:{" "}
 <div
 style={{
 display: "flex",
-gap: "14px",
+gap: isMobile ? "8px" : "14px",
 flexWrap: "wrap",
 fontSize: "13px",
 fontWeight: "600"
@@ -1504,8 +1515,8 @@ fontWeight: 500
 
 <div
 style={{
-height: "420px",
-width: "100%",
+height: isMobile ? "260px" : "420px",
+overflow: "visible", // ✅ FIX
 display: "flex",
 flexDirection: "column"
 }}
@@ -2109,7 +2120,7 @@ tickFormatter={(value) => `${Math.round(value)}%`}
 <div
 style={{
 display: "grid",
-gridTemplateColumns: "1fr 1fr",
+gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
 gap: "16px",
 marginTop: "16px"
 }}
@@ -2233,10 +2244,11 @@ width: "100%"
 >
 
 <div
-style={{
-maxHeight: "500px",
-overflowY: "auto"
-}}
+  style={{
+    maxHeight: "500px",
+    overflowY: "auto",
+    overflowX: isMobile ? "auto" : "hidden"
+  }}
 >
 
 {/* HEADER */}
@@ -2251,6 +2263,7 @@ background: "var(--panel)",
 borderBottom: "1px solid var(--border)",
 boxShadow: "0 2px 4px rgba(0,0,0,0.4)",
 width: "100%",
+minWidth: isMobile ? "900px" : "100%", // 👈 ADD THIS LINE
 gridTemplateColumns:
 `140px 160px 90px 70px repeat(${tableParties.length}, minmax(45px, 1fr)) 90px`,
 fontSize: "11px",
@@ -2302,10 +2315,10 @@ const leader = getLeader(poll);
 return (
 
 <div
-key={i}
 style={{
 display: "grid",
 width: "100%",
+minWidth: isMobile ? "900px" : "100%", // 👈 ADD HERE TOO
 gridTemplateColumns:
 `140px 160px 90px 70px repeat(${tableParties.length}, minmax(45px, 1fr)) 90px`,
 borderTop: "1px solid #2a2a2a",
