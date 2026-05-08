@@ -36,6 +36,7 @@ export default function ElectionsHubClient({
 }) {
 
 const [showFilters, setShowFilters] = useState(false);
+const [showSubRegions, setShowSubRegions] = useState(false);
 
   const [expanded, setExpanded] =
     useState<string | null>(null);
@@ -99,48 +100,36 @@ useEffect(() => {
     )
   ];
 
-  const filteredRows = rows.filter(
-    (row) => {
-      const yearMatch =
-        selectedYears.includes(
-          "All Years"
-        ) ||
-        selectedYears.includes(
-          row.date
-        );
+const filteredRows = rows.filter((row) => {
 
-      const areaMatch =
-        selectedAreas.includes(
-          "All Areas"
-        ) ||
-        selectedAreas.includes(
-          row.area
-        );
+  // ✅ NEW: hide sub-regions unless enabled
+  if (!showSubRegions && !row.isOverall) {
+    return false;
+  }
 
-      const institutionMatch =
-        selectedInstitutions.includes(
-          "All Institutions"
-        ) ||
-        selectedInstitutions.includes(
-          row.institution
-        );
+  const yearMatch =
+    selectedYears.includes("All Years") ||
+    selectedYears.includes(row.date);
 
-      const typeMatch =
-        selectedTypes.includes(
-          "All Types"
-        ) ||
-        selectedTypes.includes(
-          row.type
-        );
+  const areaMatch =
+    selectedAreas.includes("All Areas") ||
+    selectedAreas.includes(row.area);
 
-      return (
-        yearMatch &&
-        areaMatch &&
-        institutionMatch &&
-        typeMatch
-      );
-    }
+  const institutionMatch =
+    selectedInstitutions.includes("All Institutions") ||
+    selectedInstitutions.includes(row.institution);
+
+  const typeMatch =
+    selectedTypes.includes("All Types") ||
+    selectedTypes.includes(row.type);
+
+  return (
+    yearMatch &&
+    areaMatch &&
+    institutionMatch &&
+    typeMatch
   );
+});
 
   function toggleRow(id: string) {
     setExpanded(
@@ -439,6 +428,54 @@ useEffect(() => {
     {filteredRows.length === 1 ? "" : "s"}
   </div>
 
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+    marginBottom: "14px"
+  }}
+>
+
+  <span
+    style={{
+      fontSize: "12px",
+      opacity: 0.7
+    }}
+  >
+    Show sub-regions (e.g. constituencies, electoral districts, etc.)
+  </span>
+
+  <button
+    onClick={() => setShowSubRegions(!showSubRegions)}
+    style={{
+      width: "42px",
+      height: "22px",
+      borderRadius: "20px",
+      border: "1px solid var(--border)",
+      background: showSubRegions ? "#00dfef" : "var(--panel-2)",
+      position: "relative",
+      transition: "all 0.2s ease",
+      cursor: "pointer"
+    }}
+  >
+    <div
+      style={{
+        position: "absolute",
+        top: "2px",
+        left: showSubRegions ? "22px" : "2px",
+        width: "18px",
+        height: "18px",
+        borderRadius: "50%",
+        background: "white",
+        transition: "all 0.2s ease"
+      }}
+    />
+  </button>
+
+</div>
+
+
   {/* TABLE BOX (fills remaining height) */}
   <div
     style={{
@@ -470,7 +507,7 @@ useEffect(() => {
           fontWeight: 700,
           letterSpacing: "0.5px",
           opacity: 0.9,
-          borderBottom: "2px solid #00dfef",
+          borderBottom: "1px solid var(--border)",
           position: "sticky",
           top: 0,
           zIndex: 2,

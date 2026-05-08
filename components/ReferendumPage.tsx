@@ -1283,23 +1283,23 @@ return (
 
 {/* MAIN CONTENT */}
 <div
+  className="election-layout"
   style={{
-    display: "flex",
     flex: 1,
-    minHeight: 0,
-    overflow: "hidden"
+    minHeight: 0
   }}
 >
 
-      {/* LEFT PANEL */}
-<div style={{
-  width: "65%",
-  height: "100%",
-  padding: "20px",
-  background: "var(--panel)",
-  overflowY: "auto",
-  transition: "opacity 0.2s ease"
-}}>
+{/* LEFT PANEL */}
+<div
+  className="election-left-panel"
+  style={{
+    padding: "20px",
+    background: "var(--panel)",
+    overflowY: "auto",
+    transition: "opacity 0.2s ease"
+  }}
+>
  
       <div
   style={{
@@ -2367,13 +2367,15 @@ zIndex: 6
 
 {/* END OF LEFT PANEL */}
 
-      {/* RIGHT MAP */}
-      <div style={{
-  width: "35%",
-  height: "100%",
-  position: "relative",
-  background: "var(--panel)"
-}}>
+{/* RIGHT MAP */}
+<div
+  className="election-map-panel"
+  style={{
+    position: "relative",
+    background: "var(--panel)",
+    overflow: "hidden",
+  }}
+>
 
 {/* MAP TOGGLE */}
 {!selected && (

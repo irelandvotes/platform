@@ -23,6 +23,7 @@ export type ElectionRow = {
   institution: string;
   type: string;
   href: string;
+  isOverall: boolean;
   preview?: {
     leaders: {
       name: string;
@@ -605,6 +606,7 @@ rows.push({
         institution,
         type,
         href: hrefBase,
+        isOverall: true,
         preview:
           buildPreview(
             filePath,
@@ -618,6 +620,7 @@ rows.push({
           area,
           institution,
           type,
+          isOverall: false,
           href:
             `${hrefBase}?c=${slugify(
               area

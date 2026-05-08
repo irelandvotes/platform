@@ -1309,23 +1309,23 @@ return (
 
 {/* MAIN CONTENT */}
 <div
+  className="election-layout"
   style={{
-    display: "flex",
     flex: 1,
-    minHeight: 0,
-    overflow: "hidden"
+    minHeight: 0
   }}
 >
 
-      {/* LEFT PANEL */}
-<div style={{
-  width: "65%",
-  height: "100%",
-  padding: "20px",
-  background: "var(--panel)",
-  overflowY: "auto",
-  transition: "opacity 0.2s ease"
-}}>
+{/* LEFT PANEL */}
+<div
+  className="election-left-panel"
+  style={{
+    padding: "20px",
+    background: "var(--panel)",
+    overflowY: "auto",
+    transition: "opacity 0.2s ease"
+  }}
+>
  
       <div
   style={{
@@ -1885,8 +1885,12 @@ onError={(e) => {
   border: "1px solid var(--border)",
   boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
   position: "relative",
-  maxHeight: "calc(100vh - 420px)",
-  overflowY: "auto"
+maxHeight: window.innerWidth < 900
+  ? "none"
+  : "calc(100vh - 420px)",
+overflowY: window.innerWidth < 900
+  ? "visible"
+  : "auto"
 }}>
   <div style={{
   display: "flex",
@@ -2545,13 +2549,15 @@ zIndex: 6
 
 {/* END OF LEFT PANEL */}
 
-      {/* RIGHT MAP */}
-      <div style={{
-  width: "35%",
-  height: "100%",
-  position: "relative",
-  background: "var(--panel)"
-}}>
+{/* RIGHT MAP */}
+<div
+  className="election-map-panel"
+  style={{
+    position: "relative",
+    background: "var(--panel)",
+    overflow: "hidden",
+  }}
+>
 
 {/* MAP TOGGLE */}
 {!selected && (

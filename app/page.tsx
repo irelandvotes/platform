@@ -83,8 +83,9 @@ setNiData(aggregated);
 }, []);
 
 return (
-
+<>
 <div
+className="home-page"
 style={{
 display: "flex",
 flexDirection: "column",
@@ -101,6 +102,7 @@ background: "var(--panel)"
 =============================== */}
 
 <div
+className="home-section"
 style={{
 padding: "20px",
 borderBottom: "1px solid var(--border)"
@@ -177,11 +179,12 @@ See all →
 
 
 <div
+className="recent-carousel"
 ref={carouselRef}
 style={{
 display: "flex",
 gap: "14px",
-overflow: "hidden",
+overflowX: "auto",
 scrollBehavior: "smooth"
 }}
 >
@@ -274,18 +277,13 @@ date="8 Jul 2021"
    MAIN GRID
 =============================== */}
 
-<div
-style={{
-display: "grid",
-gridTemplateColumns: "2fr 1fr",
-height: "100%"
-}}
->
+<div className="home-grid">
 
 
 {/* UPCOMING */}
 
 <div
+className="home-main-column"
 style={{
 padding: "20px",
 borderRight: "1px solid var(--border)"
@@ -314,25 +312,29 @@ gap: "12px"
 <UpcomingRace
 title="Galway West By-Election"
 subtitle="Dáil Éireann"
-date="May 2026 (TBC)"
+date="Friday 22 May 2026"
+targetDate="2026-05-22"
 />
 
 <UpcomingRace
 title="Dublin Central By-Election"
 subtitle="Dáil Éireann"
-date="May 2026 (TBC)"
+date="Friday 22 May 2026"
+targetDate="2026-05-22"
 />
 
 <UpcomingRace
 title="NI Assembly"
 subtitle="Assembly Election"
-date="First Half 2027"
+date="On or before Thursday 6 May 2027"
+targetDate="2027-05-06"
 />
 
 <UpcomingRace
 title="Local Authorities"
 subtitle="Northern Ireland"
-date="First Half 2027"
+date="On or before Thursday 6 May 2027"
+targetDate="2027-05-06"
 />
 
 </div>
@@ -344,6 +346,7 @@ date="First Half 2027"
 {/* POLLING */}
 
 <div
+className="home-sidebar"
 style={{
 padding: "20px"
 }}
@@ -416,6 +419,68 @@ comingSoon
 
 </div>
 
+<style jsx global>{`
+
+  .recent-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .recent-carousel {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+.home-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  flex: 1;
+  min-height: 0;
+}
+
+  @media (max-width: 900px) {
+
+    .home-grid {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .home-sidebar {
+      border-top: none;
+      background: var(--panel);
+      padding: 18px 16px !important;
+    }
+
+    .home-main-column {
+      border-right: none !important;
+      border-bottom: 1px solid var(--border);
+      padding: 18px 16px !important;
+    }
+
+    .home-main-column,
+    .home-sidebar {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .recent-carousel {
+      overflow-x: auto !important;
+      padding-bottom: 4px;
+      scroll-snap-type: x proximity;
+    }
+
+    .recent-carousel > * {
+      scroll-snap-align: start;
+    }
+
+    .home-section {
+      padding: 16px !important;
+    }
+
+  }
+
+`}</style>
+
+</>
+
 );
 }
 
@@ -443,7 +508,8 @@ const content = (
 
 <div
 style={{
-minWidth: "260px",
+minWidth: "280px",
+flexShrink: 0,
 padding: "14px",
 borderRadius: "8px",
 border: "1px solid var(--border)",
@@ -453,7 +519,21 @@ position: "relative",
 display: "flex",
 flexDirection: "column",
 justifyContent: "space-between",
-height: "110px"
+height: "108px",
+transition: "all 0.18s ease",
+boxShadow: "0 0 0 rgba(0,223,239,0)"
+}}
+onMouseEnter={(e) => {
+const el = e.currentTarget;
+
+el.style.borderColor = "rgba(0,223,239,0.45)";
+el.style.boxShadow = "0 0 18px rgba(0,223,239,0.12)";
+}}
+onMouseLeave={(e) => {
+const el = e.currentTarget;
+
+el.style.borderColor = "var(--border)";
+el.style.boxShadow = "0 0 0 rgba(0,223,239,0)";
 }}
 >
 
@@ -530,37 +610,84 @@ return content;
    UPCOMING RACE
 =============================== */
 
+function getDaysUntil(dateString: string) {
+
+const today = new Date();
+const target = new Date(dateString);
+
+today.setHours(0,0,0,0);
+target.setHours(0,0,0,0);
+
+const diff =
+  target.getTime() - today.getTime();
+
+return Math.ceil(
+  diff / (1000 * 60 * 60 * 24)
+);
+
+}
+
 function UpcomingRace({
 title,
 subtitle,
 date,
+targetDate
 }: {
 title: string;
 subtitle: string;
 date: string;
+targetDate: string;
 }) {
+
+const daysUntil = getDaysUntil(targetDate);
 
 return (
 
+   <div
+style={{
+padding: "12px 14px",
+borderRadius: "8px",
+border: "1px solid var(--border)",
+cursor: "pointer",
+position: "relative",
+display: "flex",
+flexDirection: "column",
+justifyContent: "space-between",
+height: "110px",
+transition: "all 0.18s ease",
+boxShadow: "0 0 0 rgba(0,223,239,0)"
+}}
+onMouseEnter={(e) => {
+const el = e.currentTarget;
+
+el.style.borderColor = "rgba(0,223,239,0.45)";
+el.style.boxShadow = "0 0 18px rgba(0,223,239,0.12)";
+}}
+onMouseLeave={(e) => {
+const el = e.currentTarget;
+
+el.style.borderColor = "var(--border)";
+el.style.boxShadow = "0 0 0 rgba(0,223,239,0)";
+}}
+>
+
+{/* TOP ROW */}
 <div
 style={{
-padding: "12px 0",
-borderBottom: "1px solid var(--border)"
+display: "flex",
+justifyContent: "space-between",
+alignItems: "flex-start",
+marginBottom: "8px"
 }}
 >
 
 <div
 style={{
-fontWeight: 600
-}}
->
-{title}
-</div>
-
-<div
-style={{
-fontSize: "12px",
-opacity: 0.6
+fontSize: "10px",
+fontWeight: "600",
+opacity: 0.55,
+textTransform: "uppercase",
+letterSpacing: "0.04em",
 }}
 >
 {subtitle}
@@ -568,11 +695,61 @@ opacity: 0.6
 
 <div
 style={{
-fontSize: "11px",
-opacity: 0.5
+fontSize: "10px",
+padding: "4px 8px",
+borderRadius: "999px",
+background: "rgba(0,223,239,0.08)",
+color: "#00dfef",
+border: "1px solid rgba(0,223,239,0.16)"
+}}
+>
+in {daysUntil} days
+</div>
+
+</div>
+
+{/* TITLE */}
+<div
+style={{
+fontWeight: 700,
+fontSize: "18px",
+lineHeight: 1.2,
+marginBottom: "10px"
+}}
+>
+{title}
+</div>
+
+{/* FOOTER */}
+<div
+style={{
+display: "flex",
+justifyContent: "space-between",
+alignItems: "center",
+marginTop: "auto"
+}}
+>
+
+<div
+style={{
+fontSize: "12px",
+opacity: 0.6
 }}
 >
 {date}
+</div>
+
+<div
+style={{
+fontSize: "12px",
+color: "#00dfef",
+fontWeight: "600",
+opacity: 0.9
+}}
+>
+View race →
+</div>
+
 </div>
 
 </div>
