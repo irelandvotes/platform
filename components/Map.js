@@ -780,26 +780,6 @@ const dataPath = slug
 const [isDark, setIsDark] = useState(true);
 
 useEffect(() => {
-  if (typeof window === "undefined") return;
-
-  import("leaflet-gesture-handling").then(() => {
-    import(
-      "leaflet-gesture-handling/dist/leaflet-gesture-handling.css"
-    );
-
-    L.Map.addInitHook(
-      "addHandler",
-      "gestureHandling",
-      L.GestureHandling
-    );
-
-    if (mapRef.current) {
-      mapRef.current.gestureHandling.enable();
-    }
-  });
-}, []);
-
-useEffect(() => {
   const panes = document.querySelectorAll(".leaflet-pane");
 
   panes.forEach((pane) => {
@@ -826,6 +806,26 @@ useEffect(() => {
   });
 
   return () => observer.disconnect();
+}, []);
+
+useEffect(() => {
+  if (typeof window === "undefined") return;
+
+  import("leaflet-gesture-handling").then(() => {
+    import(
+      "leaflet-gesture-handling/dist/leaflet-gesture-handling.css"
+    );
+
+    L.Map.addInitHook(
+      "addHandler",
+      "gestureHandling",
+      L.GestureHandling
+    );
+
+    if (mapRef.current) {
+      mapRef.current.gestureHandling.enable();
+    }
+  });
 }, []);
 
   /* =============================
