@@ -1271,7 +1271,6 @@ return (
       flexDirection: "column",
       width: "100%",
       height: "100%",
-      overflow: "hidden"
     }}
   >
 
@@ -1322,7 +1321,9 @@ return (
   style={{
     padding: "20px",
     background: "var(--panel)",
-    overflowY: "auto",
+overflowY: "auto",
+WebkitOverflowScrolling: "touch",
+touchAction: "pan-y",
     transition: "opacity 0.2s ease"
   }}
 >
