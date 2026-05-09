@@ -761,9 +761,11 @@ export default function Map({
   onLoadProjection
 }) {
   const [geoData, setGeoData] = useState(null);
-  const [isMobile, setIsMobile] = useState(false);
   const geoJsonRef = useRef();
   const mapRef = useRef(null);
+  const isMobile =
+  typeof window !== "undefined" &&
+  window.innerWidth < 900;
   const leafletRef = useRef(null);
   const [previousResults, setPreviousResults] = useState([]);
   const [officialResults, setOfficialResults] = useState(null);
@@ -779,10 +781,6 @@ const dataPath = slug
   : `/data/elections/${country}/${type}/${year}`;
 
 const [isDark, setIsDark] = useState(true);
-
-useEffect(() => {
-  setIsMobile(window.innerWidth < 900);
-}, []);
 
 useEffect(() => {
   const panes = document.querySelectorAll(".leaflet-pane");
