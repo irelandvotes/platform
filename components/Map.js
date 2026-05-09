@@ -1594,7 +1594,12 @@ requestAnimationFrame(() => {
     width: "100%",
     background: isDark ? "#1f1f1f" : "#f8f8f8"
   }}
-  scrollWheelZoom
+  scrollWheelZoom={true}
+wheelDebounceTime={120}
+wheelPxPerZoomLevel={240}
+
+touchZoom={false}
+tap={false}
   onClick={() => onSelect(null)}
 >
 

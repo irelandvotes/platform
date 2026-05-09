@@ -1327,7 +1327,6 @@ return (
       flexDirection: "column",
       width: "100%",
       height: "100%",
-      overflow: "hidden"
     }}
   >
 
@@ -1455,7 +1454,9 @@ Advanced
   style={{
     padding: "20px",
     background: "var(--panel)",
-    overflowY: "auto",
+overflowY: "auto",
+WebkitOverflowScrolling: "touch",
+touchAction: "pan-y",
     transition: "opacity 0.2s ease"
   }}
 >
@@ -4202,6 +4203,7 @@ Eliminated
     position: "relative",
     background: "var(--panel)",
     overflow: "hidden",
+    touchAction: "pan-y",
   }}
 >
 
@@ -4269,8 +4271,24 @@ onLoadResults={(data: any) => {
   onLoadProjection={setProjection}
 />
       </div>
+      </div>
 
-    </div>
-    </div>
+<style jsx global>{`
+
+@media (max-width: 900px) {
+
+  .election-map-panel {
+    touch-action: pan-y !important;
+  }
+
+  .election-map-panel canvas {
+    touch-action: pan-y !important;
+  }
+
+}
+
+`}</style>
+
+      </div>
   );
 }

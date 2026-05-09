@@ -1218,7 +1218,6 @@ return (
       flexDirection: "column",
       width: "100%",
       height: "100%",
-      overflow: "hidden"
     }}
   >
 
@@ -1269,7 +1268,9 @@ return (
   style={{
     padding: "20px",
     background: "var(--panel)",
-    overflowY: "auto",
+overflowY: "auto",
+WebkitOverflowScrolling: "touch",
+touchAction: "pan-y",
     transition: "opacity 0.2s ease"
   }}
 >
@@ -2435,6 +2436,7 @@ zIndex: 6
     position: "relative",
     background: "var(--panel)",
     overflow: "hidden",
+    touchAction: "pan-y",
   }}
 >
 
@@ -2499,6 +2501,23 @@ key="election_map"
 />
       </div>
       </div>
+
+<style jsx global>{`
+
+@media (max-width: 900px) {
+
+  .election-map-panel {
+    touch-action: pan-y !important;
+  }
+
+  .election-map-panel canvas {
+    touch-action: pan-y !important;
+  }
+
+}
+
+`}</style>
+
       </div>
   );
 }
