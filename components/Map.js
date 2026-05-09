@@ -44,6 +44,9 @@ import { useMap } from "react-leaflet";
 import "./map.css";
 import { renderToString } from "react-dom/server";
 import MapTooltip from "./MapTooltip";
+import L from "leaflet";
+import "leaflet-gesture-handling";
+import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css";
 
 /* =============================
    Dynamic Leaflet Imports (Next.js SSR Safe)
@@ -1578,6 +1581,10 @@ return (
 
     mapRef.current = map;
 
+L.Map.addInitHook("addHandler", "gestureHandling", L.GestureHandling);
+
+map.gestureHandling.enable();
+
 requestAnimationFrame(() => {
   setTimeout(() => {
     map.invalidateSize();
@@ -1597,9 +1604,7 @@ requestAnimationFrame(() => {
   scrollWheelZoom={true}
 wheelDebounceTime={120}
 wheelPxPerZoomLevel={240}
-
-touchZoom={false}
-tap={false}
+touchZoom="center"
   onClick={() => onSelect(null)}
 >
 
