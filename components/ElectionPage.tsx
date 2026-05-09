@@ -1708,7 +1708,7 @@ return (
     flex: 1,
     height: "65px",
     position: "relative",
-    background: `${color}84`, // 👈 subtle LEFT base
+    background: color, // 👈 subtle LEFT base
     color: "var(--text)",
     display: "flex",
     alignItems: "stretch",
@@ -1724,7 +1724,7 @@ return (
   style={{
     position: "absolute",
     inset: 0,
-    background: color,
+    background: "rgba(255,255,255,0.18)",
     clipPath: "polygon(90% 0, 100% 0, 100% 100%, 70% 100%)",
     zIndex: 0
   }}

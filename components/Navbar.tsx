@@ -61,8 +61,7 @@ const linkStyle = (path: string, exact = false) => {
 return (
 
 <div
-className={`h-[60px] flex items-center ${isMobile ? "px-3" : "px-5"} sticky top-0 z-50 shadow-md`}
-style={{
+className={`h-[60px] flex items-center ${isMobile ? "px-3" : "px-5"} sticky top-0 z-[10000] shadow-md`}style={{
   background: "var(--panel)",
   borderBottom: "1px solid var(--border)",
   position: "relative" // 👈 ADD THIS
@@ -247,7 +246,7 @@ backdropFilter: "blur(4px)",
 opacity: menuOpen ? 1 : 0,
 pointerEvents: menuOpen ? "auto" : "none",
 transition: "opacity 0.25s ease",
-zIndex: 40
+zIndex: 10001
 }}
 />
 
@@ -263,7 +262,7 @@ zIndex: 40
     borderLeft: "1px solid var(--border)",
     transform: menuOpen ? "translateX(0)" : "translateX(100%)",
     transition: "transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
-    zIndex: 50,
+    zIndex: 10002,
     display: "flex",
     flexDirection: "column",
     padding: "16px"
