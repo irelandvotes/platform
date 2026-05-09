@@ -44,7 +44,6 @@ import { useMap } from "react-leaflet";
 import "./map.css";
 import { renderToString } from "react-dom/server";
 import MapTooltip from "./MapTooltip";
-import L from "leaflet";
 
 /* =============================
    Dynamic Leaflet Imports (Next.js SSR Safe)
@@ -764,6 +763,7 @@ export default function Map({
   const [geoData, setGeoData] = useState(null);
   const geoJsonRef = useRef();
   const mapRef = useRef(null);
+  const leafletRef = useRef(null);
   const [previousResults, setPreviousResults] = useState([]);
   const [officialResults, setOfficialResults] = useState(null);
   const hasOfficialData = useRef(false);
@@ -811,10 +811,16 @@ useEffect(() => {
 useEffect(() => {
   if (typeof window === "undefined") return;
 
-  import("leaflet-gesture-handling").then(() => {
+  Promise.all([
+    import("leaflet"),
+    import("leaflet-gesture-handling"),
     import(
       "leaflet-gesture-handling/dist/leaflet-gesture-handling.css"
-    );
+    )
+  ]).then(([leaflet]) => {
+    const L = leaflet.default;
+
+    leafletRef.current = L;
 
     L.Map.addInitHook(
       "addHandler",
