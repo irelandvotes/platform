@@ -45,8 +45,6 @@ import "./map.css";
 import { renderToString } from "react-dom/server";
 import MapTooltip from "./MapTooltip";
 import L from "leaflet";
-import "leaflet-gesture-handling";
-import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css";
 
 /* =============================
    Dynamic Leaflet Imports (Next.js SSR Safe)
@@ -473,7 +471,6 @@ style={{
   );
 }
 
-
 /* =============================
    Zoom To Selected Constituency
 ============================= */
@@ -781,6 +778,26 @@ const dataPath = slug
   : `/data/elections/${country}/${type}/${year}`;
 
 const [isDark, setIsDark] = useState(true);
+
+useEffect(() => {
+  if (typeof window === "undefined") return;
+
+  import("leaflet-gesture-handling").then(() => {
+    import(
+      "leaflet-gesture-handling/dist/leaflet-gesture-handling.css"
+    );
+
+    L.Map.addInitHook(
+      "addHandler",
+      "gestureHandling",
+      L.GestureHandling
+    );
+
+    if (mapRef.current) {
+      mapRef.current.gestureHandling.enable();
+    }
+  });
+}, []);
 
 useEffect(() => {
   const panes = document.querySelectorAll(".leaflet-pane");
@@ -1580,10 +1597,6 @@ return (
     }
 
     mapRef.current = map;
-
-L.Map.addInitHook("addHandler", "gestureHandling", L.GestureHandling);
-
-map.gestureHandling.enable();
 
 requestAnimationFrame(() => {
   setTimeout(() => {
