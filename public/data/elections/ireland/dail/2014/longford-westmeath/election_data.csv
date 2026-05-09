@@ -1,0 +1,64 @@
+constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,turnout,tvp,spoilt,electorate
+Longford-Westmeath,1,gabrielle mcfadden,Gabrielle McFadden,FALSE,FG,"12,365",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,1,aengus orourke,Aengus O'Rourke,FALSE,FF,"8,910",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,1,paul hogan,Paul Hogan,FALSE,SF,"7,548",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,1,james morgan,James Morgan,FALSE,IND,"5,959",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,1,kevin boxer moran,"Kevin ""Boxer"" Moran",FALSE,IND,"5,629",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,1,brian fagan,Brian Fagan,FALSE,IND,"4,195",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,1,denis leonard,Denis Leonard,FALSE,LAB,"3,290",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,1,john mcnamara,John McNamara,FALSE,IND,869,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,1,donal jackson,Donal Jackson,FALSE,IND,238,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,2,gabrielle mcfadden,Gabrielle McFadden,FALSE,FG,"12,459",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,2,aengus orourke,Aengus O'Rourke,FALSE,FF,"8,966",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,2,paul hogan,Paul Hogan,FALSE,SF,"7,677",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,2,james morgan,James Morgan,FALSE,IND,"6,096",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,2,kevin boxer moran,"Kevin ""Boxer"" Moran",FALSE,IND,"5,849",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,2,brian fagan,Brian Fagan,FALSE,IND,"4,378",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,2,denis leonard,Denis Leonard,FALSE,LAB,"3,352",eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,2,john mcnamara,John McNamara,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,2,donal jackson,Donal Jackson,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,3,gabrielle mcfadden,Gabrielle McFadden,FALSE,FG,"13,414",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,3,aengus orourke,Aengus O'Rourke,FALSE,FF,"9,289",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,3,paul hogan,Paul Hogan,FALSE,SF,"8,014",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,3,james morgan,James Morgan,FALSE,IND,"6,206",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,3,kevin boxer moran,"Kevin ""Boxer"" Moran",FALSE,IND,"6,085",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,3,brian fagan,Brian Fagan,FALSE,IND,"4,985",eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,3,denis leonard,Denis Leonard,FALSE,LAB,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,3,john mcnamara,John McNamara,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,3,donal jackson,Donal Jackson,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,4,gabrielle mcfadden,Gabrielle McFadden,FALSE,FG,"14,390",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,4,aengus orourke,Aengus O'Rourke,FALSE,FF,"9,763",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,4,paul hogan,Paul Hogan,FALSE,SF,"8,756",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,4,james morgan,James Morgan,FALSE,IND,"6,615",eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,4,kevin boxer moran,"Kevin ""Boxer"" Moran",FALSE,IND,"6,833",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,4,brian fagan,Brian Fagan,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,4,denis leonard,Denis Leonard,FALSE,LAB,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,4,john mcnamara,John McNamara,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,4,donal jackson,Donal Jackson,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,5,gabrielle mcfadden,Gabrielle McFadden,FALSE,FG,"15,841",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,5,aengus orourke,Aengus O'Rourke,FALSE,FF,"10,811",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,5,paul hogan,Paul Hogan,FALSE,SF,"9,570",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,5,james morgan,James Morgan,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,5,kevin boxer moran,"Kevin ""Boxer"" Moran",FALSE,IND,"7,797",eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,5,brian fagan,Brian Fagan,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,5,denis leonard,Denis Leonard,FALSE,LAB,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,5,john mcnamara,John McNamara,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,5,donal jackson,Donal Jackson,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,6,gabrielle mcfadden,Gabrielle McFadden,FALSE,FG,"17,564",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,6,aengus orourke,Aengus O'Rourke,FALSE,FF,"12,431",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,6,paul hogan,Paul Hogan,FALSE,SF,"11,254",eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,6,james morgan,James Morgan,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,6,kevin boxer moran,"Kevin ""Boxer"" Moran",FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,6,brian fagan,Brian Fagan,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,6,denis leonard,Denis Leonard,FALSE,LAB,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,6,john mcnamara,John McNamara,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,6,donal jackson,Donal Jackson,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,7,gabrielle mcfadden,Gabrielle McFadden,FALSE,FG,"20,058",elected,1,24502,50495,49003,1492,87999
+Longford-Westmeath,7,aengus orourke,Aengus O'Rourke,FALSE,FF,"14,581",running,1,24502,50495,49003,1492,87999
+Longford-Westmeath,7,paul hogan,Paul Hogan,FALSE,SF,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,7,james morgan,James Morgan,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,7,kevin boxer moran,"Kevin ""Boxer"" Moran",FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,7,brian fagan,Brian Fagan,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,7,denis leonard,Denis Leonard,FALSE,LAB,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,7,john mcnamara,John McNamara,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999
+Longford-Westmeath,7,donal jackson,Donal Jackson,FALSE,IND,,eliminated,1,24502,50495,49003,1492,87999

@@ -1,0 +1,34 @@
+constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,turnout,tvp,spoilt,electorate
+Meath East,1,helen mcentee,Helen McEntee,FALSE,FG,"9,356",running,1,12155,24568,24309,259,64164
+Meath East,1,thomas byrne,Thomas Byrne,FALSE,FF,"8,002",running,1,12155,24568,24309,259,64164
+Meath East,1,darren orourke,Darren O'Rourke,FALSE,SF,"3,165",running,1,12155,24568,24309,259,64164
+Meath East,1,ben gilroy,Ben Gilroy,FALSE,DD,"1,568",running,1,12155,24568,24309,259,64164
+Meath East,1,eoin holmes,Eoin Holmes,FALSE,LAB,"1,112",running,1,12155,24568,24309,259,64164
+Meath East,1,sean o buachalla,Seán Ó Buachalla,FALSE,GP,423,eliminated,1,12155,24568,24309,259,64164
+Meath East,1,seamus mcdonagh,Seamus McDonagh,FALSE,WP,263,eliminated,1,12155,24568,24309,259,64164
+Meath East,1,mick martin,Mick Martin,FALSE,IND,190,eliminated,1,12155,24568,24309,259,64164
+Meath East,1,charlie keddy,Charlie Keddy,FALSE,IND,110,eliminated,1,12155,24568,24309,259,64164
+Meath East,1,gerard obrien,Gerard O'Brien,FALSE,IND,73,eliminated,1,12155,24568,24309,259,64164
+Meath East,1,jim tallon,Jim Tallon,FALSE,IND,47,eliminated,1,12155,24568,24309,259,64164
+Meath East,2,helen mcentee,Helen McEntee,FALSE,FG,"9,547",running,1,12155,24568,24309,259,64164
+Meath East,2,thomas byrne,Thomas Byrne,FALSE,FF,"8,106",running,1,12155,24568,24309,259,64164
+Meath East,2,darren orourke,Darren O'Rourke,FALSE,SF,"3,370",eliminated,1,12155,24568,24309,259,64164
+Meath East,2,ben gilroy,Ben Gilroy,FALSE,DD,"1,793",eliminated,1,12155,24568,24309,259,64164
+Meath East,2,eoin holmes,Eoin Holmes,FALSE,LAB,"1,245",eliminated,1,12155,24568,24309,259,64164
+Meath East,2,sean o buachalla,Seán Ó Buachalla,FALSE,GP,,eliminated,1,12155,24568,24309,259,64164
+Meath East,2,seamus mcdonagh,Seamus McDonagh,FALSE,WP,,eliminated,1,12155,24568,24309,259,64164
+Meath East,2,mick martin,Mick Martin,FALSE,IND,,eliminated,1,12155,24568,24309,259,64164
+Meath East,2,charlie keddy,Charlie Keddy,FALSE,IND,,eliminated,1,12155,24568,24309,259,64164
+Meath East,2,gerard obrien,Gerard O'Brien,FALSE,IND,,eliminated,1,12155,24568,24309,259,64164
+Meath East,2,jim tallon,Jim Tallon,FALSE,IND,,eliminated,1,12155,24568,24309,259,64164
+Meath East,3,helen mcentee,Helen McEntee,FALSE,FG,"11,473",elected,1,12155,24568,24309,259,64164
+Meath East,3,thomas byrne,Thomas Byrne,FALSE,FF,"9,582",running,1,12155,24568,24309,259,64164
+Meath East,3,darren orourke,Darren O'Rourke,FALSE,SF,,eliminated,1,12155,24568,24309,259,64164
+Meath East,3,ben gilroy,Ben Gilroy,FALSE,DD,,eliminated,1,12155,24568,24309,259,64164
+Meath East,3,eoin holmes,Eoin Holmes,FALSE,LAB,,eliminated,1,12155,24568,24309,259,64164
+Meath East,3,sean o buachalla,Seán Ó Buachalla,FALSE,GP,,eliminated,1,12155,24568,24309,259,64164
+Meath East,3,seamus mcdonagh,Seamus McDonagh,FALSE,WP,,eliminated,1,12155,24568,24309,259,64164
+Meath East,3,mick martin,Mick Martin,FALSE,IND,,eliminated,1,12155,24568,24309,259,64164
+Meath East,3,charlie keddy,Charlie Keddy,FALSE,IND,,eliminated,1,12155,24568,24309,259,64164
+Meath East,3,gerard obrien,Gerard O'Brien,FALSE,IND,,eliminated,1,12155,24568,24309,259,64164
+Meath East,3,jim tallon,Jim Tallon,FALSE,IND,,eliminated,1,12155,24568,24309,259,64164

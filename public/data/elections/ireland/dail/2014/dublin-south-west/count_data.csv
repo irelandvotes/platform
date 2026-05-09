@@ -1,0 +1,89 @@
+constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,turnout,tvp,spoilt,electorate
+Dublin South-West,1,cathal king,Cathal King,FALSE,SF,"7,288",running,1,12013,24289,24024,256,70400
+Dublin South-West,1,paul murphy,Paul Murphy,FALSE,AAA,"6,540",running,1,12013,24289,24024,256,70400
+Dublin South-West,1,ronan mcmahon,Ronan McMahon,FALSE,IND,"2,142",running,1,12013,24289,24024,256,70400
+Dublin South-West,1,cait keane,Cáit Keane,FALSE,FG,"2,110",running,1,12013,24289,24024,256,70400
+Dublin South-West,1,john lahart,John Lahart,FALSE,FF,"2,077",running,1,12013,24289,24024,256,70400
+Dublin South-West,1,pamela kearns,Pamela Kearns,FALSE,LAB,"2,043",running,1,12013,24289,24024,256,70400
+Dublin South-West,1,declan burke,Declan Burke,FALSE,IND,681,running,1,12013,24289,24024,256,70400
+Dublin South-West,1,nicky coules,Nicky Coules,FALSE,PBP,530,running,1,12013,24289,24024,256,70400
+Dublin South-West,1,francis noel duffy,Francis Noel Duffy,FALSE,GP,447,running,1,12013,24289,24024,256,70400
+Dublin South-West,1,tony rochford,Tony Rochford,FALSE,IND,92,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,1,colm okeeffe,Colm O'Keeffe,FALSE,IND,74,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,2,cathal king,Cathal King,FALSE,SF,"7,304",running,1,12013,24289,24024,256,70400
+Dublin South-West,2,paul murphy,Paul Murphy,FALSE,AAA,"6,579",running,1,12013,24289,24024,256,70400
+Dublin South-West,2,ronan mcmahon,Ronan McMahon,FALSE,IND,"2,167",running,1,12013,24289,24024,256,70400
+Dublin South-West,2,cait keane,Cáit Keane,FALSE,FG,"2,117",running,1,12013,24289,24024,256,70400
+Dublin South-West,2,john lahart,John Lahart,FALSE,FF,"2,085",running,1,12013,24289,24024,256,70400
+Dublin South-West,2,pamela kearns,Pamela Kearns,FALSE,LAB,"2,053",running,1,12013,24289,24024,256,70400
+Dublin South-West,2,declan burke,Declan Burke,FALSE,IND,711,running,1,12013,24289,24024,256,70400
+Dublin South-West,2,nicky coules,Nicky Coules,FALSE,PBP,540,running,1,12013,24289,24024,256,70400
+Dublin South-West,2,francis noel duffy,Francis Noel Duffy,FALSE,GP,453,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,2,tony rochford,Tony Rochford,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,2,colm okeeffe,Colm O'Keeffe,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,3,cathal king,Cathal King,FALSE,SF,"7,340",running,1,12013,24289,24024,256,70400
+Dublin South-West,3,paul murphy,Paul Murphy,FALSE,AAA,"6,622",running,1,12013,24289,24024,256,70400
+Dublin South-West,3,ronan mcmahon,Ronan McMahon,FALSE,IND,"2,227",running,1,12013,24289,24024,256,70400
+Dublin South-West,3,cait keane,Cáit Keane,FALSE,FG,"2,194",running,1,12013,24289,24024,256,70400
+Dublin South-West,3,john lahart,John Lahart,FALSE,FF,"2,138",running,1,12013,24289,24024,256,70400
+Dublin South-West,3,pamela kearns,Pamela Kearns,FALSE,LAB,"2,155",running,1,12013,24289,24024,256,70400
+Dublin South-West,3,declan burke,Declan Burke,FALSE,IND,746,running,1,12013,24289,24024,256,70400
+Dublin South-West,3,nicky coules,Nicky Coules,FALSE,PBP,554,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,3,francis noel duffy,Francis Noel Duffy,FALSE,GP,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,3,tony rochford,Tony Rochford,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,3,colm okeeffe,Colm O'Keeffe,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,4,cathal king,Cathal King,FALSE,SF,"7,448",running,1,12013,24289,24024,256,70400
+Dublin South-West,4,paul murphy,Paul Murphy,FALSE,AAA,"6,890",running,1,12013,24289,24024,256,70400
+Dublin South-West,4,ronan mcmahon,Ronan McMahon,FALSE,IND,"2,265",running,1,12013,24289,24024,256,70400
+Dublin South-West,4,cait keane,Cáit Keane,FALSE,FG,"2,203",running,1,12013,24289,24024,256,70400
+Dublin South-West,4,john lahart,John Lahart,FALSE,FF,"2,152",running,1,12013,24289,24024,256,70400
+Dublin South-West,4,pamela kearns,Pamela Kearns,FALSE,LAB,"2,170",running,1,12013,24289,24024,256,70400
+Dublin South-West,4,declan burke,Declan Burke,FALSE,IND,818,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,4,nicky coules,Nicky Coules,FALSE,PBP,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,4,francis noel duffy,Francis Noel Duffy,FALSE,GP,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,4,tony rochford,Tony Rochford,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,4,colm okeeffe,Colm O'Keeffe,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,5,cathal king,Cathal King,FALSE,SF,"7,580",running,1,12013,24289,24024,256,70400
+Dublin South-West,5,paul murphy,Paul Murphy,FALSE,AAA,"7,079",running,1,12013,24289,24024,256,70400
+Dublin South-West,5,ronan mcmahon,Ronan McMahon,FALSE,IND,"2,464",running,1,12013,24289,24024,256,70400
+Dublin South-West,5,cait keane,Cáit Keane,FALSE,FG,"2,267",running,1,12013,24289,24024,256,70400
+Dublin South-West,5,john lahart,John Lahart,FALSE,FF,"2,200",eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,5,pamela kearns,Pamela Kearns,FALSE,LAB,"2,239",running,1,12013,24289,24024,256,70400
+Dublin South-West,5,declan burke,Declan Burke,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,5,nicky coules,Nicky Coules,FALSE,PBP,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,5,francis noel duffy,Francis Noel Duffy,FALSE,GP,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,5,tony rochford,Tony Rochford,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,5,colm okeeffe,Colm O'Keeffe,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,6,cathal king,Cathal King,FALSE,SF,"7,828",running,1,12013,24289,24024,256,70400
+Dublin South-West,6,paul murphy,Paul Murphy,FALSE,AAA,"7,436",running,1,12013,24289,24024,256,70400
+Dublin South-West,6,ronan mcmahon,Ronan McMahon,FALSE,IND,"3,049",running,1,12013,24289,24024,256,70400
+Dublin South-West,6,cait keane,Cáit Keane,FALSE,FG,"2,575",running,1,12013,24289,24024,256,70400
+Dublin South-West,6,john lahart,John Lahart,FALSE,FF,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,6,pamela kearns,Pamela Kearns,FALSE,LAB,"2,492",eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,6,declan burke,Declan Burke,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,6,nicky coules,Nicky Coules,FALSE,PBP,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,6,francis noel duffy,Francis Noel Duffy,FALSE,GP,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,6,tony rochford,Tony Rochford,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,6,colm okeeffe,Colm O'Keeffe,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,7,cathal king,Cathal King,FALSE,SF,"8,017",running,1,12013,24289,24024,256,70400
+Dublin South-West,7,paul murphy,Paul Murphy,FALSE,AAA,"7,726",running,1,12013,24289,24024,256,70400
+Dublin South-West,7,ronan mcmahon,Ronan McMahon,FALSE,IND,"3,416",eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,7,cait keane,Cáit Keane,FALSE,FG,"3,857",eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,7,john lahart,John Lahart,FALSE,FF,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,7,pamela kearns,Pamela Kearns,FALSE,LAB,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,7,declan burke,Declan Burke,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,7,nicky coules,Nicky Coules,FALSE,PBP,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,7,francis noel duffy,Francis Noel Duffy,FALSE,GP,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,7,tony rochford,Tony Rochford,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,7,colm okeeffe,Colm O'Keeffe,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,8,cathal king,Cathal King,FALSE,SF,"8,999",running,1,12013,24289,24024,256,70400
+Dublin South-West,8,paul murphy,Paul Murphy,FALSE,AAA,"9,565",elected,1,12013,24289,24024,256,70400
+Dublin South-West,8,ronan mcmahon,Ronan McMahon,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,8,cait keane,Cáit Keane,FALSE,FG,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,8,john lahart,John Lahart,FALSE,FF,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,8,pamela kearns,Pamela Kearns,FALSE,LAB,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,8,declan burke,Declan Burke,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,8,nicky coules,Nicky Coules,FALSE,PBP,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,8,francis noel duffy,Francis Noel Duffy,FALSE,GP,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,8,tony rochford,Tony Rochford,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
+Dublin South-West,8,colm okeeffe,Colm O'Keeffe,FALSE,IND,,eliminated,1,12013,24289,24024,256,70400
