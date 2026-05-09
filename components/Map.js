@@ -761,6 +761,7 @@ export default function Map({
   onLoadProjection
 }) {
   const [geoData, setGeoData] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
   const geoJsonRef = useRef();
   const mapRef = useRef(null);
   const leafletRef = useRef(null);
@@ -778,6 +779,10 @@ const dataPath = slug
   : `/data/elections/${country}/${type}/${year}`;
 
 const [isDark, setIsDark] = useState(true);
+
+useEffect(() => {
+  setIsMobile(window.innerWidth < 900);
+}, []);
 
 useEffect(() => {
   const panes = document.querySelectorAll(".leaflet-pane");
@@ -1621,6 +1626,7 @@ requestAnimationFrame(() => {
     background: isDark ? "#1f1f1f" : "#f8f8f8"
   }}
   scrollWheelZoom={true}
+  dragging={!isMobile}
 wheelDebounceTime={120}
 wheelPxPerZoomLevel={240}
 touchZoom="center"
