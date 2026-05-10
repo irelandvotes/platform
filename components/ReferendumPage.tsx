@@ -2447,7 +2447,23 @@ if (!item) {
 
 @media (max-width: 900px) {
 
+  .election-layout {
+    display: flex;
+    flex-direction: column;
+    height: auto !important;
+    min-height: auto !important;
+  }
+
+  .election-left-panel {
+    flex: 0 0 auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
   .election-map-panel {
+    flex: 0 0 auto !important;
+    min-height: 0 !important;
     touch-action: pan-y !important;
   }
 

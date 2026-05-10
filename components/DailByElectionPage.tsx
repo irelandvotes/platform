@@ -182,7 +182,9 @@ const [count, setCount] = useState<number>(1);
 
 const [highlighted, setHighlighted] = useState<any>(null);
 
-const [view, setView] = useState<string>("count");
+const [view, setView] = useState<string>(
+  selected ? "count" : "party"
+);
 const [analysis, setAnalysis] = useState<string>("basic");
 
 const [previousResults, setPreviousResults] = useState<any>({});
@@ -200,6 +202,12 @@ function normalizeSlug(value: string) {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 }
+
+useEffect(() => {
+  if (selected) {
+    setView("count");
+  }
+}, [selected]);
 
 useEffect(() => {
   if (!selectedSlug) {
@@ -1690,6 +1698,437 @@ onError={(e) => {
   <ElectionMetaPanel meta={nationalMeta} type={undefined} />
 </div>
 
+{/* VIEW HEADER */}
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: "14px",
+    gap: "12px",
+    flexWrap: "wrap"
+  }}
+>
+
+{/* LEFT: VIEW TOGGLE */}
+{current?.name === "Overall" && (
+<div
+  style={{
+    position: "relative",
+    display: "flex",
+    background: "var(--panel-2)",
+    borderRadius: "10px",
+    padding: "3px",
+    border: "1px solid var(--border)",
+    width: "170px"
+  }}
+>
+
+{/* Sliding Background */}
+<div
+  style={{
+    position: "absolute",
+    top: "3px",
+    left: view === "party" ? "3px" : "calc(50% + 1px)",
+    width: "calc(50% - 4px)",
+    height: "calc(100% - 6px)",
+    background: "var(--panel)",
+    borderRadius: "8px",
+    transition: "all 0.25s cubic-bezier(.4,0,.2,1)"
+  }}
+/>
+
+<button
+  onClick={() => setView("party")}
+  style={{
+    flex: 1,
+    padding: "6px 12px",
+    borderRadius: "8px",
+    border: "none",
+    background: "transparent",
+    color: "var(--text)",
+    cursor: "pointer",
+    fontSize: "12px",
+    fontWeight: "600",
+    position: "relative",
+    zIndex: 1
+  }}
+>
+  Party
+</button>
+
+<button
+  onClick={() => setView("count")}
+  style={{
+    flex: 1,
+    padding: "6px 12px",
+    borderRadius: "8px",
+    border: "none",
+    background: "transparent",
+    color: "var(--text)",
+    cursor: "pointer",
+    fontSize: "12px",
+    fontWeight: "600",
+    position: "relative",
+    zIndex: 1
+  }}
+>
+  Candidate
+</button>
+
+</div>
+)}
+
+{/* RIGHT: COUNT CONTROLS */}
+{view === "count" && !isTally && (
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    marginLeft: "auto"
+  }}
+>
+
+<button
+  disabled={count === 1}
+  onClick={() => setCount(count - 1)}
+  style={{
+    padding: "6px 10px",
+    borderRadius: "8px",
+    border: "1px solid var(--border)",
+    background: "transparent",
+    color: "var(--text)",
+    opacity: count === 1 ? 0.3 : 1
+  }}
+>
+  ‹
+</button>
+
+<div
+  style={{
+    padding: "6px 12px",
+    borderRadius: "8px",
+    border: "1px solid var(--border)",
+    background: "var(--panel-2)",
+    fontWeight: "600"
+  }}
+>
+  Count {count}
+</div>
+
+<button
+  disabled={count === latestCount}
+  onClick={() => setCount(count + 1)}
+  style={{
+    padding: "6px 10px",
+    borderRadius: "8px",
+    border: "1px solid var(--border)",
+    background: "transparent",
+    color: "var(--text)",
+    opacity: count === latestCount ? 0.3 : 1
+  }}
+>
+  ›
+</button>
+
+<button
+  onClick={() => setCount(latestCount)}
+  style={{
+    padding: "6px 10px",
+    borderRadius: "8px",
+    border: "1px solid var(--border)",
+    background: count === latestCount
+      ? "var(--panel-2)"
+      : "transparent",
+    color: "var(--text)",
+    fontSize: "12px"
+  }}
+>
+  Jump to Latest
+</button>
+
+</div>
+)}
+
+</div>
+
+{/* PARTY VIEW */}
+{current?.name === "Overall" && view === "party" && (
+<div
+  style={{
+    marginTop: "5px",
+    display: "flex",
+    gap: "14px",
+    flexDirection:
+      typeof window !== "undefined" &&
+      window.innerWidth < 900
+        ? "column"
+        : "row"
+  }}
+>
+
+{/* VOTE SHARE */}
+<div
+  style={{
+    flex: 2,
+    padding: "12px",
+    borderRadius: "12px",
+    background: "var(--panel)",
+    border: "1px solid var(--border)"
+  }}
+>
+
+<div
+  style={{
+    fontSize: "11px",
+    fontWeight: "600",
+    marginBottom: "8px",
+    color: "var(--text-subtle)"
+  }}
+>
+Vote Share
+</div>
+
+{nationalResults.parties.map((p: any, index: number) => (
+
+<div
+  key={p.party}
+  style={{
+    position: "relative",
+    padding: "6px 10px",
+    marginBottom: "4px",
+    borderRadius: "6px",
+    overflow: "hidden",
+    background: "var(--panel-2)",
+    transition: "background 0.15s ease"
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.background = "var(--panel-2)";
+  }}
+>
+
+{/* FULL ROW BAR */}
+<div
+  style={{
+    position: "absolute",
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: `${Math.min(Number(p.percent) * 2, 100)}%`,
+    background: PARTY_COLORS[p.party] || "#888",
+    opacity: 0.25
+  }}
+/>
+
+{/* CONTENT */}
+<div
+  style={{
+    position: "relative",
+    display: "flex",
+    alignItems: "center"
+  }}
+>
+
+{/* RANK */}
+<div
+  style={{
+    width: "22px",
+    fontSize: "11px",
+    opacity: 0.4
+  }}
+>
+{index + 1}
+</div>
+
+{/* PARTY STRIP */}
+<div
+  style={{
+    width: "3px",
+    height: "16px",
+    background: PARTY_COLORS[p.party] || "#888",
+    marginRight: "8px",
+    borderRadius: "2px"
+  }}
+/>
+
+{/* PARTY */}
+<div
+  style={{
+    width: "60px",
+    fontWeight: "600",
+    fontSize: "12px"
+  }}
+>
+{p.party}
+</div>
+
+<div style={{ flex: 1 }} />
+
+{/* VOTES */}
+<div
+  style={{
+    width: "90px",
+    textAlign: "right",
+    fontSize: "12px",
+    fontWeight: "500"
+  }}
+>
+{p.votes.toLocaleString()}
+</div>
+
+{/* PERCENT */}
+<div
+  style={{
+    width: "60px",
+    textAlign: "right",
+    fontSize: "12px",
+    opacity: 0.8
+  }}
+>
+{p.percent}%
+</div>
+
+</div>
+
+</div>
+
+))}
+
+</div>
+
+{/* SWING */}
+<div
+  style={{
+    flex: 1,
+    padding: "12px",
+    borderRadius: "12px",
+    background: "var(--panel)",
+    border: "1px solid var(--border)"
+  }}
+>
+
+<div
+  style={{
+    fontSize: "11px",
+    fontWeight: "600",
+    marginBottom: "8px",
+    color: "var(--text-subtle)"
+  }}
+>
+Swing
+</div>
+
+{nationalResults.parties.map((p: any) => (
+
+<div
+  key={p.party}
+  style={{
+    position: "relative",
+    padding: "6px 10px",
+    marginBottom: "4px",
+    borderRadius: "6px",
+    overflow: "hidden",
+    background: "var(--panel-2)",
+    transition: "background 0.15s ease"
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.background = "var(--panel-2)";
+  }}
+>
+
+{/* ZERO LINE */}
+<div
+  style={{
+    position: "absolute",
+    left: "50%",
+    top: 0,
+    bottom: 0,
+    width: "1px",
+    background: "#555",
+    zIndex: 1
+  }}
+/>
+
+{/* SWING BAR */}
+<div
+  style={{
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    left:
+      p.voteChange > 0
+        ? "50%"
+        : `${50 + p.voteChange * 4}%`,
+    width: `${Math.abs(p.voteChange) * 4}%`,
+    background: PARTY_COLORS[p.party] || "#888",
+    opacity: 0.25
+  }}
+/>
+
+{/* CONTENT */}
+<div
+  style={{
+    position: "relative",
+    display: "flex",
+    alignItems: "center"
+  }}
+>
+
+{/* PARTY STRIP */}
+<div
+  style={{
+    width: "3px",
+    height: "16px",
+    background: PARTY_COLORS[p.party] || "#888",
+    marginRight: "8px",
+    borderRadius: "2px"
+  }}
+/>
+
+{/* PARTY */}
+<div
+  style={{
+    width: "60px",
+    fontWeight: "600",
+    fontSize: "12px"
+  }}
+>
+{p.party}
+</div>
+
+<div style={{ flex: 1 }} />
+
+{/* SWING */}
+<div
+  style={{
+    width: "60px",
+    textAlign: "right",
+    fontSize: "12px",
+    color: "var(--text-muted)"
+  }}
+>
+{p.voteChange > 0 ? "+" : ""}
+{p.voteChange.toFixed(1)}
+</div>
+
+</div>
+
+</div>
+
+))}
+
+</div>
+
+</div>
+)}
+
 </>
   );
   
@@ -1791,87 +2230,6 @@ onError={(e) => {
 </div>
 )}
 
-{/* VIEW HEADER */}
-<div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: "14px"
-  }}
->
-
-{/* Count Controls */}
-{view === "count" && !isTally && (
-<div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    gap: "8px"
-  }}
->
-
-<button
-  disabled={count === 1}
-  onClick={() => setCount(count - 1)}
-  style={{
-    padding: "6px 10px",
-    borderRadius: "8px",
-    border: "1px solid var(--border)",
-    background: "transparent",
-    color: "var(--text)",
-    opacity: count === 1 ? 0.3 : 1
-  }}
->
-  ‹
-</button>
-
-<div
-  style={{
-    padding: "6px 12px",
-    borderRadius: "8px",
-    border: "1px solid var(--border)",
-    background: "var(--panel-2)",
-    fontWeight: "600"
-  }}
->
-  Count {count}
-</div>
-
-<button
-  disabled={count === latestCount}
-  onClick={() => setCount(count + 1)}
-  style={{
-    padding: "6px 10px",
-    borderRadius: "8px",
-    border: "1px solid var(--border)",
-    background: "transparent",
-    color: "var(--text)",
-    opacity: count === latestCount ? 0.3 : 1
-  }}
->
-  ›
-</button>
-
-<button
-  onClick={() => setCount(latestCount)}
-  style={{
-    padding: "6px 10px",
-    borderRadius: "8px",
-    border: "1px solid var(--border)",
-    background: count === latestCount ? "var(--panel-2)" : "transparent",
-    color: "var(--text)",
-    fontSize: "12px"
-  }}
->
-  Jump to Latest
-</button>
-
-</div>
-)}
-
-</div>
-
 {/* COUNT PANEL */}
 
 {view === "count" && (
@@ -1920,7 +2278,11 @@ overflowY: window.innerWidth < 900
 
   {/* BAR SPACE */}
 <div style={{
-  width: "calc(100% - 420px)",
+width:
+  typeof window !== "undefined" &&
+  window.innerWidth < 900
+    ? "calc(100% - 300px)"
+    : "calc(100% - 420px)",
   height: "15px",
     marginRight: "10px"
   }} />
@@ -2306,7 +2668,11 @@ zIndex: 6
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  fontSize: "25px",
+fontSize:
+  typeof window !== "undefined" &&
+  window.innerWidth < 900
+    ? "14px"
+    : "25px",
   fontWeight: "700",
   fontStyle: "italic",
   color: "rgba(255,255,255,0.81)",
@@ -2314,7 +2680,11 @@ zIndex: 6
   animation: "fadeOverlay 1s ease-in-out forwards",
   zIndex: 9,
   pointerEvents: "none",
-  letterSpacing: "2px"
+letterSpacing:
+  typeof window !== "undefined" &&
+  window.innerWidth < 900
+    ? "0.5px"
+    : "2px",
   }}
   >
   MOST TRANSFERS RECEIVED
@@ -2482,7 +2852,11 @@ zIndex: 6
   {count === 1 && (
   <div
   style={{
-  width: "60px",
+  width:
+  typeof window !== "undefined" &&
+  window.innerWidth < 900
+    ? "42px"
+    : "60px",
   textAlign: "right",
   fontSize: "12px",
   opacity: 0.8,
@@ -2496,7 +2870,11 @@ zIndex: 6
   {/* VOTES */}
   <div
   style={{
-  width: "90px",
+width:
+  typeof window !== "undefined" &&
+  window.innerWidth < 900
+    ? "64px"
+    : "90px",
   textAlign: "right",
   fontSize: "13px",
   fontWeight: "500",
@@ -2519,7 +2897,11 @@ zIndex: 6
   {count > 1 && (
   <div
   style={{
-  width: "60px",
+width:
+  typeof window !== "undefined" &&
+  window.innerWidth < 900
+    ? "46px"
+    : "60px",
   textAlign: "right",
   fontSize: "11px",
   fontWeight: isTopGainer ? "700" : "500",

@@ -1377,7 +1377,7 @@ return (
     borderRadius: "10px",
     padding: "3px",
     border: "1px solid var(--border)",
-    width: "200px"
+    width: "170px"
   }}
 >
 
@@ -2506,7 +2506,11 @@ Swing
 
   {/* BAR SPACE */}
 <div style={{
-  width: "calc(100% - 420px)",
+width:
+  typeof window !== "undefined" &&
+  window.innerWidth < 900
+    ? "calc(100% - 300px)"
+    : "calc(100% - 420px)",
   height: "15px",
     marginRight: "10px"
   }} />
@@ -2870,30 +2874,38 @@ zIndex: 8
 )}
 
 {/* LABEL */}
-{highlighted === c.id && (
-<div
-style={{
-position: "absolute",
-top: 0,
-left: 0,
-width: "100%",
-height: "100%",
-display: "flex",
-alignItems: "center",
-justifyContent: "center",
-fontSize: "25px",
-fontWeight: "700",
-fontStyle: "italic",
-color: "rgba(255,255,255,0.81)",
-backdropFilter: "blur(3px)",
-animation: "fadeOverlay 1s ease-in-out forwards",
-zIndex: 9,
-pointerEvents: "none",
-letterSpacing: "2px"
-}}
->
-MOST TRANSFERS RECEIVED
-</div>
+  {highlighted === c.id && (
+  <div
+  style={{
+  position: "absolute",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+fontSize:
+  typeof window !== "undefined" &&
+  window.innerWidth < 900
+    ? "14px"
+    : "25px",
+  fontWeight: "700",
+  fontStyle: "italic",
+  color: "rgba(255,255,255,0.81)",
+  backdropFilter: "blur(3px)",
+  animation: "fadeOverlay 1s ease-in-out forwards",
+  zIndex: 9,
+  pointerEvents: "none",
+letterSpacing:
+  typeof window !== "undefined" &&
+  window.innerWidth < 900
+    ? "0.5px"
+    : "2px",
+  }}
+  >
+  MOST TRANSFERS RECEIVED
+  </div>
 )}
 
 {/* ELECTED STRIP */}
@@ -3057,7 +3069,11 @@ color: "var(--text-subtle)"
 {count === 1 && (
 <div
 style={{
-width: "60px",
+width:
+  typeof window !== "undefined" &&
+  window.innerWidth < 900
+    ? "42px"
+    : "60px",
 textAlign: "right",
 fontSize: "12px",
 opacity: 0.8,
@@ -3071,7 +3087,11 @@ zIndex: 7
 {/* VOTES */}
 <div
 style={{
-width: "90px",
+width:
+  typeof window !== "undefined" &&
+  window.innerWidth < 900
+    ? "64px"
+    : "90px",
 textAlign: "right",
 fontSize: "13px",
 fontWeight: "500",
@@ -3094,7 +3114,11 @@ p.party === c.party
 {count > 1 && (
 <div
 style={{
-width: "60px",
+width:
+  typeof window !== "undefined" &&
+  window.innerWidth < 900
+    ? "46px"
+    : "60px",
 textAlign: "right",
 fontSize: "11px",
 fontWeight: isTopGainer ? "700" : "500",
@@ -3418,7 +3442,12 @@ onMouseLeave={() => setHoveredSeat(null)}
   style={{
     marginTop: "5px",
     display: "flex",
-    gap: "14px"
+    gap: "14px",
+    flexDirection:
+      typeof window !== "undefined" &&
+      window.innerWidth < 900
+        ? "column"
+        : "row"
   }}
 >
 
@@ -4222,7 +4251,14 @@ Eliminated
   onChange={setMapView}
   options={[
     { label: "Party", value: "party" },
-    { label: "Poll-topper", value: "count" },
+    {
+      label: isFPTP
+        ? "Margin"
+        : "Poll-topper",
+      value: isFPTP
+        ? "margin"
+        : "count",
+    },
     { label: "Turnout", value: "turnout" },
     { label: "Spoilt", value: "spoilt" }
   ]}

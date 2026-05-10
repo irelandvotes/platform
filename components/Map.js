@@ -119,129 +119,197 @@ function getReferendumMarginRange(results) {
 
 function getReferendumColor(counts, range) {
   const first = counts?.[1];
-  if (!first || first.length < 2) return "transparent";
 
-  const yes = first.find(c => c.party === "Yes")?.votes || 0;
-  const no = first.find(c => c.party === "No")?.votes || 0;
+  if (!first || first.length < 2) {
+    return "transparent";
+  }
+
+  const yes =
+    first.find(c => c.party === "Yes")?.votes || 0;
+
+  const no =
+    first.find(c => c.party === "No")?.votes || 0;
 
   const total = yes + no;
+
   if (!total) return "transparent";
 
   const margin = (yes - no) / total;
 
-  // =============================
-  // NORMALISE WITHIN DATA RANGE
-  // =============================
-  const { min, max } = range;
+  // ==================================================
+  // NORMALISED STRENGTH
+  // ==================================================
 
-  let t = 0.5;
+const t = Math.pow(
+  Math.min(Math.abs(margin) * 1.8, 1),
+  0.55
+);
 
-  if (margin >= 0) {
-    // Yes side
-    t = max > 0 ? margin / max : 0;
-  } else {
-    // No side
-    t = min < 0 ? margin / min : 0;
-  }
+  // ==================================================
+  // BASE COLOUR
+  // ==================================================
 
-  // Clamp 0 → 1
-  t = Math.max(0, Math.min(1, Math.abs(t)));
+  const base =
+    margin >= 0
+      ? [0, 90, 255]      // Yes blue
+      : [255, 170, 0];    // No gold
 
-  // =============================
-  // COLOUR SCALE
-  // =============================
-  const blue = [0, 90, 255];
-  const gold = [255, 170, 0];
-  const light = [245, 245, 245];
+  // ==================================================
+  // LIGHT TINT
+  // ==================================================
+
+  const light = [
+    base[0] + (255 - base[0]) * 0.78,
+    base[1] + (255 - base[1]) * 0.78,
+    base[2] + (255 - base[2]) * 0.78
+  ];
+
+  // ==================================================
+  // DARK SHADE
+  // ==================================================
+
+  const dark = [
+    base[0] * 0.58,
+    base[1] * 0.58,
+    base[2] * 0.58
+  ];
+
+  // ==================================================
+  // INTERPOLATION
+  // ==================================================
 
   let r, g, b;
 
-  if (margin >= 0) {
-    // Yes → light → blue
-    r = light[0] + (blue[0] - light[0]) * t;
-    g = light[1] + (blue[1] - light[1]) * t;
-    b = light[2] + (blue[2] - light[2]) * t;
+  if (t < 0.5) {
+    const local = t / 0.5;
+
+    r =
+      light[0] +
+      (base[0] - light[0]) * local;
+
+    g =
+      light[1] +
+      (base[1] - light[1]) * local;
+
+    b =
+      light[2] +
+      (base[2] - light[2]) * local;
+
   } else {
-    // No → light → gold
-    r = light[0] + (gold[0] - light[0]) * t;
-    g = light[1] + (gold[1] - light[1]) * t;
-    b = light[2] + (gold[2] - light[2]) * t;
+    const local = (t - 0.5) / 0.5;
+
+    r =
+      base[0] +
+      (dark[0] - base[0]) * local;
+
+    g =
+      base[1] +
+      (dark[1] - base[1]) * local;
+
+    b =
+      base[2] +
+      (dark[2] - base[2]) * local;
   }
 
-  return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
+  return `rgb(
+    ${Math.round(r)},
+    ${Math.round(g)},
+    ${Math.round(b)}
+  )`;
 }
 
-function getPresidentialMarginRange(results) {
-  const margins = [];
+function getPresidentialColor(counts) {
+  const first =
+    counts?.[1] ||
+    counts?.["1"];
 
-  Object.values(results || {}).forEach((c) => {
-    const first = c?.counts?.[1];
-    if (!first || first.length < 2) return;
+  if (!first || first.length < 2) {
+    return "transparent";
+  }
 
-    const sorted = [...first].sort((a, b) => b.votes - a.votes);
-
-    const winner = sorted[0];
-    const runner = sorted[1];
-
-    const total = first.reduce(
-      (sum, x) => sum + (x.votes || 0),
-      0
-    );
-
-    if (!total) return;
-
-    const margin =
-      (winner.votes - runner.votes) / total;
-
-    margins.push(margin);
-  });
-
-  if (!margins.length) return { min: 0, max: 1 };
-
-  return {
-    min: Math.min(...margins),
-    max: Math.max(...margins)
-  };
-}
-
-function getPresidentialColor(counts, range) {
-  const first = counts?.[1];
-  if (!first || first.length < 2) return "transparent";
-
-  const sorted = [...first].sort((a, b) => b.votes - a.votes);
+  const sorted = [...first]
+    .sort((a, b) => b.votes - a.votes);
 
   const winner = sorted[0];
   const runner = sorted[1];
 
-  const total = first.reduce(
+  const total = sorted.reduce(
     (sum, c) => sum + (c.votes || 0),
     0
   );
 
   if (!total) return "transparent";
 
+  // =============================
+  // MARGIN
+  // =============================
+
   const margin =
     (winner.votes - runner.votes) / total;
 
-  const { min, max } = range;
+const t = Math.min(
+  Math.abs(margin),
+  0.7
+);
 
-  let t =
-  max > min
-    ? (margin - min) / (max - min)
-    : 0;
+  // smooth continuous curve
+  const eased = Math.pow(t, 0.9);
 
-  t = Math.max(0, Math.min(1, t));
-
-  const light = [245, 245, 245];
-
-  const hex =
+  const base =
     PARTY_COLORS[winner.party] || "#777";
 
-  const rgb = hexToRgb(hex);
+  const rgb = hexToRgb(base);
 
-  const r = light[0] + (rgb[0] - light[0]) * t;
-  const g = light[1] + (rgb[1] - light[1]) * t;
-  const b = light[2] + (rgb[2] - light[2]) * t;
+  // =============================
+  // LIGHT → BASE → DARK
+  // =============================
+
+ const light = [
+  rgb[0] + (255 - rgb[0]) * 0.78,
+  rgb[1] + (255 - rgb[1]) * 0.78,
+  rgb[2] + (255 - rgb[2]) * 0.78
+];
+
+  const dark = [
+    rgb[0] * 0.55,
+    rgb[1] * 0.55,
+    rgb[2] * 0.55
+  ];
+
+  let r, g, b;
+
+  if (eased < 0.5) {
+    // LIGHT → BASE
+    const p = eased / 0.5;
+
+    r =
+      light[0] +
+      (rgb[0] - light[0]) * p;
+
+    g =
+      light[1] +
+      (rgb[1] - light[1]) * p;
+
+    b =
+      light[2] +
+      (rgb[2] - light[2]) * p;
+
+  } else {
+    // BASE → DARK
+    const p = (eased - 0.5) / 0.5;
+
+    r =
+      rgb[0] +
+      (dark[0] - rgb[0]) * p;
+
+    g =
+      rgb[1] +
+      (dark[1] - rgb[1]) * p;
+
+    b =
+      rgb[2] +
+      (dark[2] - rgb[2]) * p;
+  }
 
   return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
 }
@@ -1128,7 +1196,6 @@ function getRanges(results) {
     spoiltMin: Math.min(...spoilt),
     spoiltMax: Math.max(...spoilt),
     referendumMargin: getReferendumMarginRange(results),
-    presidentialMargin: getPresidentialMarginRange(results)
   };
 }
 
@@ -1429,19 +1496,13 @@ if (view === "spoilt") {
 
 if (view === "margin") {
 
-  if (type?.startsWith("referendum")) {
-    return getReferendumColor(counts, marginRange);
-  }
-
-  if (
-    type?.startsWith("president") ||
-    type === "dail"
-  ) {
-    return getPresidentialColor(
-      counts,
-      ranges.presidentialMargin
-    );
-  }
+if (
+  type?.startsWith("president") ||
+  type === "dail" ||
+  type === "house-of-commons"
+) {
+return getPresidentialColor(counts)
+}
 
 }
 
@@ -1476,38 +1537,6 @@ if (view === "margin") {
 
       return PARTY_COLORS[leader?.party] || "transparent";
     }
-
-if (view === "margin" && type?.startsWith("president")) {
-  const first = counts[1];
-  if (!first?.length) return "transparent";
-
-  const sorted = [...first].sort((a, b) => b.votes - a.votes);
-
-  const winner = sorted[0];
-  const runner = sorted[1];
-
-  if (!winner) return "transparent";
-
-  const totalVotes = sorted.reduce((sum, c) => sum + c.votes, 0);
-
-  const margin =
-    totalVotes && runner
-      ? (winner.votes - runner.votes) / totalVotes
-      : 1;
-
-const base =
-  PARTY_COLORS[winner.party] || "#666";
-
-const rgb = hexToRgb(base);
-
-const light = [245, 245, 245];
-
-const r = light[0] + (rgb[0] - light[0]) * t;
-const g = light[1] + (rgb[1] - light[1]) * t;
-const b = light[2] + (rgb[2] - light[2]) * t;
-
-return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
-}
 
 if (view === "turnout") {
   const first = counts[1]?.[0];
@@ -1658,20 +1687,6 @@ interactive: false
 }}
 />
 )}
-
-{/* LEFT FADE GRADIENT */}
-<div
-style={{
-position: "absolute",
-top: 0,
-bottom: 0,
-left: 0,
-width: "120px",
-background: "linear-gradient(to right, var(--panel) 0%, rgba(0,0,0,0) 100%)",
-pointerEvents: "none",
-zIndex: 500
-}}
-/>
 
         {/* Constituency Boundaries */}
         {geoData && (
