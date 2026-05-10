@@ -178,14 +178,14 @@ bottom: 0,
       </div>
 
       {/* MAIN CONTENT */}
-      <div
-        style={{
-          flex: 1,
-          overflow: "auto",
-          width: "100%",
-          position: "relative"
-        }}
-      >
+<div
+  style={{
+    flex: 1,
+    overflow: "auto",
+    width: "100%",
+    minWidth: 0
+  }}
+>
         {/* MOBILE BUTTON */}
         {isMobile && (
           <div

@@ -8,10 +8,11 @@ export default function AboutSection({
   children: React.ReactNode;
 }) {
   return (
-    <div
-      style={{
-        width: "100%",
-        minHeight: "100%",
+<div
+  style={{
+    width: "100%",
+    minWidth: 0,
+    minHeight: "100%",
         background: `
           radial-gradient(
             circle at top right,
@@ -36,19 +37,20 @@ export default function AboutSection({
         }}
       >
         {/* LARGE GLOW */}
-        <div
-          style={{
-            position: "absolute",
-            top: "-220px",
-            right: "-220px",
-            width: "680px",
-            height: "680px",
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, rgba(0,223,239,0.12), transparent 72%)",
-            pointerEvents: "none"
-          }}
-        />
+<div
+  style={{
+    position: "absolute",
+    top: "-220px",
+    right: 0,
+    transform: "translateX(0%)",
+    width: "680px",
+    height: "680px",
+    borderRadius: "50%",
+    background:
+      "radial-gradient(circle, rgba(0,223,239,0.12), transparent 72%)",
+    pointerEvents: "none"
+  }}
+/>
 
         {/* ACCENT */}
         <div
