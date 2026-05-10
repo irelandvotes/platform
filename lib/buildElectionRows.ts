@@ -362,8 +362,20 @@ let dominantParty =
     ?.party || "IND";
 
 // for by-elections, use actual winner
+const isByElection =
+  relevant.length > 0 &&
+  relevant.every(
+    (row) =>
+      row[
+        constituencyIndex
+      ] ===
+      relevant[0][
+        constituencyIndex
+      ]
+  );
+
 if (
-  area === "National" &&
+  isByElection &&
   statusIndex !== -1
 ) {
   const winnerRow =
