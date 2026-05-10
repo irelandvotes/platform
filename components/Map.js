@@ -838,7 +838,7 @@ export default function Map({
   const [previousResults, setPreviousResults] = useState([]);
   const [officialResults, setOfficialResults] = useState(null);
   const hasOfficialData = useRef(false);
-
+const mobileTooltipRef = useRef(null);
 const country = election?.country || "ireland";
 const type = election?.type || "dail";
 const year = election?.year || "2024";
@@ -1657,7 +1657,10 @@ requestAnimationFrame(() => {
 wheelDebounceTime={120}
 wheelPxPerZoomLevel={240}
 touchZoom="center"
-  onClick={() => onSelect(null)}
+ onClick={() => {
+  mobileTooltipRef.current = null;
+  onSelect(null);
+}}
 >
 
 <MapController
@@ -1791,18 +1794,24 @@ l.setStyle({
 click: (e) => {
   e.originalEvent.stopPropagation();
 
-  // MOBILE:
-  // first tap opens tooltip
-  // second tap selects constituency
+  // MOBILE
   if (window.innerWidth < 900) {
 
-    const tooltipOpen = layer.isTooltipOpen();
+    const alreadyOpen =
+      mobileTooltipRef.current === key;
 
-    if (!tooltipOpen) {
+    // FIRST TAP → open tooltip
+    if (!alreadyOpen) {
+
+      mobileTooltipRef.current = key;
+
       layer.openTooltip(e.latlng);
+
       return;
     }
 
+    // SECOND TAP → clear + select
+    mobileTooltipRef.current = null;
   }
 
   // DESKTOP + SECOND MOBILE TAP

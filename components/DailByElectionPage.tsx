@@ -1700,6 +1700,7 @@ onError={(e) => {
 
 {/* VIEW HEADER */}
 <div
+  className="view-header"
   style={{
     display: "flex",
     alignItems: "center",
@@ -1782,6 +1783,7 @@ onError={(e) => {
 {/* RIGHT: COUNT CONTROLS */}
 {view === "count" && !isTally && (
 <div
+  className="count-controls"
   style={{
     display: "flex",
     alignItems: "center",
@@ -3015,6 +3017,18 @@ key="election_map"
 
   .election-map-panel canvas {
     touch-action: pan-y !important;
+  }
+
+  .view-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .count-controls {
+    width: fit-content;
+    margin-left: 0 !important;
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
 }

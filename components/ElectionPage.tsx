@@ -2001,11 +2001,14 @@ return (
 
 {/* VIEW HEADER */}
 <div
+  className="view-header"
   style={{
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    marginBottom: "14px"
+    marginBottom: "14px",
+    gap: "12px",
+    flexWrap: "wrap"
   }}
 >
 
@@ -3717,22 +3720,25 @@ Swing
 
 {/* VIEW HEADER */}
 <div
+  className="view-header"
   style={{
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
+    marginTop: "14px",
     marginBottom: "14px",
-    marginTop: "14px"
   }}
 >
 
 {/* Count Controls */}
 {view === "count" && analysis === "advanced" && selected && sankeyData && (
 <div
+  className="count-controls"
   style={{
     display: "flex",
     alignItems: "center",
-    gap: "8px"
+    gap: "8px",
+    marginLeft: "auto"
   }}
 >
 
@@ -4319,6 +4325,18 @@ onLoadResults={(data: any) => {
 
   .election-map-panel canvas {
     touch-action: pan-y !important;
+  }
+
+  .view-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .count-controls {
+    width: fit-content;
+    margin-left: 0 !important;
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
 }
