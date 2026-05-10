@@ -7,56 +7,56 @@ const faqs = [
   {
     question: "What is Ireland Votes?",
     answer:
-      "Ireland Votes is an independent Irish political and electoral platform focused on elections, polling, constituency analysis, political data, and public-interest coverage. We aim to make Irish political information more modern, accessible, and easier to explore."
+      "Ireland Votes is an independent political and electoral data platform focused on elections, polling, analysis, and public-interest coverage on the island of Ireland. We aim to make political information more accessible and interactive."
   },
   {
     question:
       "Is Ireland Votes affiliated with the Government?",
     answer:
-      "No. Ireland Votes is fully independent and is not operated by, endorsed by, or officially connected to the Government of Ireland, the Electoral Commission, any political party, or any political candidate."
+      "No. Ireland Votes is an independent entity and is not operated by, endorsed by, or officially connected to the Government of Ireland, the Electoral Commission, any political party, or any political candidate."
   },
   {
     question:
-      "Where does your election data come from?",
+      "Where does Ireland Votes source its data?",
     answer:
       "We use a mixture of official election results, public electoral datasets, polling organisations, media reporting, public archives, and internally built analysis and visualisations. During live counts and developing events, information may evolve over time as additional data becomes available."
   },
   {
     question:
-      "Are your projections or forecasts official?",
+      "Are Ireland Votes projections or forecasts official results?",
     answer:
-      "No. Any projections, polling analysis, seat estimates, swing models, or forecasts published by Ireland Votes are independent estimates and should not be treated as official results or governmental guidance."
+      "No. Any projections, polling analysis, seat estimates, swing models, or forecasts published by Ireland Votes are independent estimates and should not be treated as official results."
   },
   {
     question:
       "Can I share Ireland Votes graphics or data?",
     answer:
-      "Generally yes for discussion, journalism, commentary, educational use, and social sharing with appropriate attribution. However, Ireland Votes branding, written analysis, visual systems, and proprietary presentation formats remain protected. Commercial reuse, automated extraction, or republication at scale may require permission."
+      "Generally yes for discussion, journalism, commentary, educational use, and social sharing with appropriate attribution. However, Ireland Votes branding, written analysis, visual systems, and proprietary presentation formats remain protected. Commercial reuse, automated extraction, or republication requires credit and may require permission."
   },
   {
-    question: "Do you sell personal data?",
+    question: "Does Ireland Votes sell personal data?",
     answer:
-      "No. Ireland Votes does not sell Users’ personal data."
+      "No. Ireland Votes does not sell our Users’ personal data."
   },
   {
     question:
-      "Do you share data with third parties?",
+      "Does Ireland Votes share data with third parties?",
     answer:
       "Certain technical or operational information may be processed by trusted third-party providers that help us operate the Platform, such as hosting, analytics, security, or infrastructure providers. We do not share personal data for advertising resale purposes."
   },
   {
-    question: "Do you use cookies?",
+    question: "Does Ireland Votes use cookies?",
     answer:
       "Yes. Ireland Votes may use cookies, local storage, and similar technologies for functionality, analytics, performance monitoring, remembering preferences, and maintaining security."
   },
   {
-    question: "Do you track analytics?",
+    question: "Does Ireland Votes track analytics?",
     answer:
       "Yes. Like most modern websites, we may use analytics tools to better understand traffic, performance, feature usage, and technical reliability. This helps us improve the Platform over time."
   },
   {
     question:
-      "Can I request a correction or removal of information?",
+      "Does Ireland Votes allow users to request corrections or removal of information?",
     answer:
       "Absolutely. If you believe something published on Ireland Votes is inaccurate, outdated, misleading, or infringes your rights, you can contact us for review. We take accuracy seriously and are happy to investigate legitimate concerns."
   },
@@ -64,23 +64,23 @@ const faqs = [
     question:
       "Can Ireland Votes remove access to the Platform?",
     answer:
-      "Yes. We reserve the right to suspend or restrict access where necessary to protect platform integrity, security, infrastructure, legal compliance, or operational stability."
+      "Yes. Ireland Votes reserves the right to suspend or restrict access where necessary to protect platform integrity, security, infrastructure, legal compliance, or operational stability."
   },
+{
+  question:
+    "What makes Ireland Votes different?",
+  answer:
+    "Ireland Votes focuses on presenting election data through interactive maps, live visualisations, and a cleaner interface designed to make political information easier to follow."
+},
   {
     question:
-      "Why does Ireland Votes look different from other election websites?",
+      "Will Ireland Votes add accounts and/or premium subscriptions in the future?",
     answer:
-      "Most political websites were designed for a very different internet era. Ireland Votes aims to combine modern design, interactive visualisation, and serious political data into a cleaner and more accessible experience."
+      "Yes. Ireland Votes is an evolving platform and additional features, tools, or services may be introduced over time We are currently exploring options for a premium tier."
   },
   {
     question:
-      "Will Ireland Votes add accounts or subscriptions in the future?",
-    answer:
-      "Potentially. Ireland Votes is an evolving platform and additional features, tools, or services may be introduced over time."
-  },
-  {
-    question:
-      "Can journalists or organisations work with Ireland Votes?",
+      "Does Ireland Votes allow individuals or organisations to work with it in a professional capacity?",
     answer:
       "Potentially yes. We are open to discussions involving media, research, educational, analytical, or commercial collaboration opportunities."
   },
@@ -88,7 +88,7 @@ const faqs = [
     question:
       "Is Ireland Votes available outside Ireland?",
     answer:
-      "Yes. The Platform is publicly accessible internationally, although its primary focus is Irish and Northern Irish politics and elections."
+      "Yes. The Platform is publicly accessible internationally, although its primary focus is politics and elections on the island of Ireland. Ireland Votes may sometimes cover foreign-related elections when citizens of that country reside in Ireland and can vote in an election occuring outside of Ireland."
   },
   {
     question:
