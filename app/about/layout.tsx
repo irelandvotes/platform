@@ -37,6 +37,10 @@ const aboutLinks = [
     label: "Overview",
     href: "/about"
   },
+    {
+    label: "FAQs",
+    href: "/about/faqs"
+  },
   {
     label: "Meet the Team",
     href: "/about/team"
@@ -45,6 +49,14 @@ const aboutLinks = [
     label: "Disclaimer",
     href: "/about/disclaimer"
   },
+  {
+  label: "Privacy Policy",
+  href: "/about/privacy"
+},
+  {
+  label: "Terms of Service",
+  href: "/about/terms"
+},
   {
     label: "Contact",
     href: "/about/contact"

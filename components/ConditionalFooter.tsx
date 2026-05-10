@@ -38,26 +38,8 @@ return (
       "
     >
       <span>
-        © {new Date().getFullYear()} Ireland Votes — Data sourced from
-        official or original sources.
+        © {new Date().getFullYear()} Ireland Votes. All rights reserved.
       </span>
-
-      <span>
-        Ireland Votes is an independent entity and is not affiliated
-        with any pollster or electoral authority.
-      </span>
-
-      <a
-        href="/disclaimer"
-        className="
-          underline
-          hover:text-gray-200
-          transition-colors
-          break-all
-        "
-      >
-        irelandvotes.com/disclaimer
-      </a>
     </div>
   </footer>
 );
