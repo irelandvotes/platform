@@ -146,6 +146,23 @@ filter: "var(--logo-filter)"
   Elections
 </Link>
 
+<Link
+  href="/about"
+  className={linkStyle("/about", true)}
+  style={{
+    background:
+      pathname === "/about"
+        ? "var(--panel-2)"
+        : "transparent",
+    color:
+      pathname === "/about"
+        ? "var(--text)"
+        : "var(--text-muted)"
+  }}
+>
+  About
+</Link>
+
 </div>
 )}
 
@@ -301,6 +318,16 @@ zIndex: 10001
       Elections
     </Link>
   </div>
+
+  <Link
+  href="/about"
+  onClick={() =>
+    setMenuOpen(false)
+  }
+  className={linkStyle("/about")}
+>
+  About
+</Link>
 
   {/* PUSH CONTENT DOWN */}
   <div style={{ flex: 1 }} />
