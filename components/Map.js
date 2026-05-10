@@ -1788,18 +1788,35 @@ l.setStyle({
       });
     },
 
-    click: (e) => {
-      e.originalEvent.stopPropagation();
+click: (e) => {
+  e.originalEvent.stopPropagation();
 
-      setTimeout(() => {
-if (selected?.name === key) return;
+  // MOBILE:
+  // first tap opens tooltip
+  // second tap selects constituency
+  if (window.innerWidth < 900) {
 
-onSelect({
-  name: key,
-  data: undefined
-});
-      }, 100);
+    const tooltipOpen = layer.isTooltipOpen();
+
+    if (!tooltipOpen) {
+      layer.openTooltip(e.latlng);
+      return;
     }
+
+  }
+
+  // DESKTOP + SECOND MOBILE TAP
+  setTimeout(() => {
+
+    if (selected?.name === key) return;
+
+    onSelect({
+      name: key,
+      data: undefined
+    });
+
+  }, 100);
+}
   });
 }}
           />
