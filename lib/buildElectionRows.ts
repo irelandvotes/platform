@@ -185,7 +185,8 @@ function parseOverallByElectionArea(
 
 function buildPreview(
   filePath: string,
-  area: string
+  area: string,
+  type: string
 ) {
   if (!fs.existsSync(filePath)) {
     return null;
@@ -289,7 +290,6 @@ firstCount.forEach((row) => {
 
   const isIndependent =
     party === "IND" ||
-    party === "INDIRL" ||
     party === "INDN" ||
     party === "INDU";
 
@@ -351,31 +351,44 @@ name: item.party,
     return b.votes - a.votes;
   });
 
-  const largestNonIndependent =
+const largestNonIndependent =
   leaders.find(
     (leader) =>
       !leader.isIndependent
+  );
+
+const largestIndependent =
+  leaders.find(
+    (leader) =>
+      leader.isIndependent
   );
 
 let dominantParty =
   largestNonIndependent
     ?.party || "IND";
 
-// for by-elections, use actual winner
-const isByElection =
-  relevant.length > 0 &&
-  relevant.every(
-    (row) =>
-      row[
-        constituencyIndex
-      ] ===
-      relevant[0][
-        constituencyIndex
-      ]
-  );
+// if the grouped independent bloc
+// genuinely exceeds the top party,
+// use IND colouring
+if (
+  (largestIndependent?.votes ||
+    0) >
+  (largestNonIndependent
+    ?.votes || 0)
+) {
+  dominantParty = "IND";
+}
+
+// by-elections and presidential elections
+// should use actual winner colouring
+const isSingleWinnerElection =
+  type === "By-Election" ||
+  type ===
+    "Presidential Election";
 
 if (
-  isByElection &&
+  isSingleWinnerElection &&
+  area === "National" &&
   statusIndex !== -1
 ) {
   const winnerRow =
@@ -777,10 +790,11 @@ rows.push({
   href: hrefBase,
   isOverall: true,
   preview:
-    buildPreview(
-      previewFilePath,
-      "National"
-    )
+buildPreview(
+  previewFilePath,
+  "National",
+  type
+)
 });
 areas.forEach((area) => {
   rows.push({
@@ -799,10 +813,11 @@ areas.forEach((area) => {
               area
             )}`,
           preview:
-            buildPreview(
-              filePath,
-              area
-            )
+buildPreview(
+  filePath,
+  area,
+  type
+)
         });
       });
     }
