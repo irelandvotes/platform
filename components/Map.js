@@ -1030,11 +1030,6 @@ if (!hasOfficialData.current) {
   onLoadResults(grouped);
   onLoadList(Object.keys(grouped));
 }
-
-        // 👇 also pass tally as fallback official if no official exists yet
-        if (onLoadOfficialResults) {
-          onLoadOfficialResults(null);
-        }
         
       });
   }, [dataPath]);
@@ -1100,12 +1095,9 @@ console.log("USING COUNT DATA");
         onLoadOfficialResults(grouped);
       }
     })
-    .catch(() => {
-      // 👇 IMPORTANT: tells app "no official results yet"
-      if (onLoadOfficialResults) {
-        onLoadOfficialResults(null);
-      }
-    });
+.catch(() => {
+  console.log("No official results available");
+});
 }, [dataPath]);
 
 /* =============================

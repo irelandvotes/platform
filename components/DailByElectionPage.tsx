@@ -195,6 +195,16 @@ const router = useRouter();
 const searchParams = useSearchParams();
 const selectedSlug = searchParams.get("c");
 
+const hasResults =
+  Object.keys(results || {}).length > 0;
+
+const hasOfficial =
+  officialResults &&
+  Object.keys(officialResults).length > 0;
+
+const displayResults =
+  hasOfficial ? officialResults : results;
+
 function normalizeSlug(value: string) {
   return value
     .toLowerCase()
@@ -379,16 +389,21 @@ const usingOfficial =
   Object.keys(officialResults).length > 0;
 
 const current: any = selected
-  // 👉 constituency view ALWAYS uses tally
-  ? { name: selected.name, data: results[selected.name] }
+  ? {
+      name: selected.name,
 
-  // 👉 overall view switches source
-  : Object.keys(usingOfficial ? officialResults : results).length
+      // ALWAYS use count/tally data
+      data: results?.[selected.name],
+
+      // separate official state
+      official: officialResults?.[selected.name]
+    }
+  : hasResults || hasOfficial
   ? {
       name: "Overall",
-      data: aggregateNational(
-        usingOfficial ? officialResults : results
-      )
+
+      // overall should use whichever dataset is active
+      data: aggregateNational(displayResults)
     }
   : null;
 
@@ -447,16 +462,19 @@ const filtered = list.filter((name) =>
 );
 
 const nationalResults = (() => {
-  const source = usingOfficial ? officialResults : results;
+const dataset =
+  hasResults && Object.keys(results).length > 0
+    ? results
+    : displayResults;
   const partySeats: Record<string, number> = {};
   const partyVotes: Record<string, number> = {};
 
   let constituenciesReporting = 0;
   let totalSeatsDeclared = 0;
 
-  const totalConstituencies = Object.keys(source || {}).length;
+  const totalConstituencies = Object.keys(dataset || {}).length;
 
-  Object.entries(source || {}).forEach(
+  Object.entries(dataset || {}).forEach(
     ([constituency, constituencyData]) => {
 
       const counts = (constituencyData as any)?.counts;
@@ -500,31 +518,30 @@ const nationalResults = (() => {
   const previousPartySeats: Record<string, number> = {};
   const previousPartyVotes: Record<string, number> = {};
 
-  Object.entries(source || {}).forEach(
-    ([constituency]) => {
+const overallPrevious =
+  previousResults?.[title] ||
+  Object.values(previousResults || {})[0];
 
-      const previous = previousResults?.[constituency];
-      if (!previous) return;
+if (overallPrevious) {
 
-      Object.entries(previous).forEach(
-        ([party, data]: [string, any]) => {
+  Object.entries(overallPrevious).forEach(
+    ([party, data]: [string, any]) => {
 
-          if (!previousPartySeats[party]) {
-            previousPartySeats[party] = 0;
-          }
+      if (!previousPartySeats[party]) {
+        previousPartySeats[party] = 0;
+      }
 
-          if (!previousPartyVotes[party]) {
-            previousPartyVotes[party] = 0;
-          }
+      if (!previousPartyVotes[party]) {
+        previousPartyVotes[party] = 0;
+      }
 
-          previousPartySeats[party] += data.seats || 0;
-          previousPartyVotes[party] += data.votes || 0;
-
-        }
-      );
+      previousPartySeats[party] += data.seats || 0;
+      previousPartyVotes[party] += data.votes || 0;
 
     }
   );
+
+}
 
 
   const previousTotalVotes = Object.values(previousPartyVotes)
@@ -558,7 +575,7 @@ const parties = Object.keys(partyVotes).map((party) => {
   let confirmedGain = 0;
   let projectedGain = 0;
 
-  Object.entries(results || {}).forEach(
+ Object.entries(displayResults || {}).forEach(
     ([constituency, constituencyData]) => {
 
       const counts = (constituencyData as any)?.counts;
@@ -583,8 +600,11 @@ const parties = Object.keys(partyVotes).map((party) => {
       const previousSeats =
         previousResults?.[constituency]?.[party]?.seats || 0;
 
-      const constituencyComplete =
-        finalData.filter((c: any) => c.status === "elected").length === seats;
+const constituencyComplete =
+  hasOfficial &&
+  finalData.filter(
+    (c: any) => c.status === "elected"
+  ).length === seats;
 
       if (constituencyComplete) {
         confirmedGain += (elected - previousSeats);
@@ -1215,11 +1235,7 @@ const sourceLabel = transferData.sources
 
 })();
 
-const hasResults =
-  current?.data?.counts &&
-  Object.keys(current.data.counts).length > 0;
-
-const resultsObj = results as Record<string, any>;
+const resultsObj = displayResults as Record<string, any>;
 
 const totalConstituencies = Object.keys(resultsObj).length;
 
@@ -1253,7 +1269,7 @@ console.log(Object.keys(results));
 const rawMeta =
   current?.name === "Overall"
     ? aggregateNationalMeta(
-        usingOfficial ? officialResults : results,
+  displayResults,
         1 // 👈 ALWAYS use first count for meta
       )
     : current?.data?.counts?.[count]?.[0] ||

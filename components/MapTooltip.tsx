@@ -814,9 +814,9 @@ function WinnerTooltip({
     );
   }
 
-  const rows = [...first].sort(
-    (a, b) => b.votes - a.votes
-  );
+const rows = [...first]
+  .sort((a, b) => b.votes - a.votes)
+  .slice(0, 5);
 
   const winner = rows[0];
 
