@@ -37,6 +37,8 @@ export default function ElectionsHubClient({
 
 const [showFilters, setShowFilters] = useState(false);
 const [showSubRegions, setShowSubRegions] = useState(false);
+const [searchQuery, setSearchQuery] =
+  useState("");
 
   const [expanded, setExpanded] =
     useState<string | null>(null);
@@ -66,6 +68,25 @@ useEffect(() => {
   return () => window.removeEventListener("resize", check);
 }, []);
 
+useEffect(() => {
+  const hasSubRegionSelected =
+    selectedAreas.some((area) => {
+      if (area === "All Areas") {
+        return false;
+      }
+
+      return rows.some(
+        (row) =>
+          row.area === area &&
+          !row.isOverall
+      );
+    });
+
+  if (hasSubRegionSelected) {
+    setShowSubRegions(true);
+  }
+}, [selectedAreas, rows]);
+
   const yearOptions = [
     "All Years",
     ...Array.from(
@@ -75,12 +96,38 @@ useEffect(() => {
     )
   ];
 
-  const areaOptions = [
-    "All Areas",
-    ...Array.from(
-      new Set(rows.map((row) => row.area))
-    )
-  ];
+const groupedAreas = Object.entries(
+  rows.reduce(
+    (
+      acc: Record<string, string[]>,
+      row
+    ) => {
+      if (!row.areaType) {
+        return acc;
+      }
+
+      if (!acc[row.areaType]) {
+        acc[row.areaType] = [];
+      }
+
+      if (
+        !acc[row.areaType].includes(
+          row.area
+        )
+      ) {
+        acc[row.areaType].push(
+          row.area
+        );
+      }
+
+      return acc;
+    },
+    {}
+  )
+).map(([label, values]) => ({
+  label,
+  values: values.sort()
+}));
 
   const institutionOptions = [
     "All Institutions",
@@ -119,16 +166,36 @@ const filteredRows = rows.filter((row) => {
     selectedInstitutions.includes("All Institutions") ||
     selectedInstitutions.includes(row.institution);
 
-  const typeMatch =
-    selectedTypes.includes("All Types") ||
-    selectedTypes.includes(row.type);
+const typeMatch =
+  selectedTypes.includes("All Types") ||
+  selectedTypes.includes(row.type);
 
-  return (
-    yearMatch &&
-    areaMatch &&
-    institutionMatch &&
-    typeMatch
-  );
+const search = searchQuery
+  .trim()
+  .toLowerCase();
+
+const searchMatch =
+  search === "" ||
+  row.area
+    .toLowerCase()
+    .includes(search) ||
+  row.institution
+    .toLowerCase()
+    .includes(search) ||
+  row.type
+    .toLowerCase()
+    .includes(search) ||
+  row.date
+    .toLowerCase()
+    .includes(search);
+
+return (
+  yearMatch &&
+  areaMatch &&
+  institutionMatch &&
+  typeMatch &&
+  searchMatch
+);
 });
 
   function toggleRow(id: string) {
@@ -247,12 +314,12 @@ const filteredRows = rows.filter((row) => {
         onChange={setSelectedYears}
       />
 
-      <FilterMultiSelect
-        title="Area (Where?)"
-        values={selectedAreas}
-        options={areaOptions}
-        onChange={setSelectedAreas}
-      />
+        <AreaFilterMultiSelect
+          title="Area (Where?)"
+          values={selectedAreas}
+          groupedAreas={groupedAreas}
+          onChange={setSelectedAreas}
+        />
 
       <FilterMultiSelect
         title="Institution (What?)"
@@ -328,12 +395,12 @@ const filteredRows = rows.filter((row) => {
       onChange={setSelectedYears}
     />
 
-    <FilterMultiSelect
-      title="Area (Where?)"
-      values={selectedAreas}
-      options={areaOptions}
-      onChange={setSelectedAreas}
-    />
+<AreaFilterMultiSelect
+  title="Area (Where?)"
+  values={selectedAreas}
+  groupedAreas={groupedAreas}
+  onChange={setSelectedAreas}
+/>
 
     <FilterMultiSelect
       title="Institution (What?)"
@@ -428,6 +495,28 @@ const filteredRows = rows.filter((row) => {
     {filteredRows.length === 1 ? "" : "s"}
   </div>
 
+<input
+  type="text"
+  placeholder="Search by year, election type, constituencies, institutions..."
+  value={searchQuery}
+  onChange={(e) =>
+    setSearchQuery(
+      e.target.value
+    )
+  }
+  style={{
+    width: "100%",
+    padding: "10px 12px",
+    marginBottom: "16px",
+    borderRadius: "10px",
+    border: "1px solid var(--border)",
+    background: "var(--panel-2)",
+    color: "var(--text)",
+    fontSize: "10px",
+    outline: "none"
+  }}
+/>
+
 <div
   style={{
     display: "flex",
@@ -459,18 +548,22 @@ const filteredRows = rows.filter((row) => {
       cursor: "pointer"
     }}
   >
-    <div
-      style={{
-        position: "absolute",
-        top: "2px",
-        left: showSubRegions ? "22px" : "2px",
-        width: "18px",
-        height: "18px",
-        borderRadius: "50%",
-        background: "white",
-        transition: "all 0.2s ease"
-      }}
-    />
+<div
+  style={{
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    left: showSubRegions ? "22px" : "2px",
+    width: "18px",
+    height: "18px",
+    borderRadius: "50%",
+    background: "var(--text)",
+    transition:
+      "left 0.2s ease, background 0.2s ease",
+    boxShadow:
+      "0 1px 3px rgba(0,0,0,0.25)"
+  }}
+/>
   </button>
 
 </div>
@@ -497,30 +590,62 @@ const filteredRows = rows.filter((row) => {
         minHeight: 0
       }}
     >
-      {/* HEADER */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns:
-            "5px 140px minmax(180px, 1.4fr) minmax(160px, 1.2fr) minmax(140px, 1fr) 70px",
-          fontSize: "11px",
-          fontWeight: 700,
-          letterSpacing: "0.5px",
-          opacity: 0.9,
-          borderBottom: "1px solid var(--border)",
-          position: "sticky",
-          top: 0,
-          zIndex: 2,
-          background: "var(--panel)"
-        }}
-      >
-        <div style={{ padding: "12px 14px" }} />
-        <div style={{ padding: "12px 14px" }}>Date (When?)</div>
-        <div style={{ padding: "12px 14px" }}>Area (Where?)</div>
-        <div style={{ padding: "12px 14px" }}>Institution (What?)</div>
-        <div style={{ padding: "12px 14px" }}>Type (How?)</div>
-        <div style={{ padding: "12px 14px" }}>Expand</div>
+{/* HEADER */}
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: isMobile
+      ? "5px 1fr 50px"
+      : "5px 140px minmax(180px, 1.4fr) minmax(160px, 1.2fr) minmax(140px, 1fr) 70px",
+    fontSize: "11px",
+    fontWeight: 700,
+    letterSpacing: "0.5px",
+    opacity: 0.9,
+    borderBottom: "1px solid var(--border)",
+    position: "sticky",
+    top: 0,
+    zIndex: 2,
+    background: "var(--panel)"
+  }}
+>
+  {isMobile ? (
+    <>
+      <div style={{ padding: "12px 14px" }} />
+
+      <div style={{ padding: "12px 14px" }}>
+        Elections
       </div>
+
+      <div style={{ padding: "12px 14px" }}>
+        
+      </div>
+    </>
+  ) : (
+    <>
+      <div style={{ padding: "12px 14px" }} />
+
+      <div style={{ padding: "12px 14px" }}>
+        Date (When?)
+      </div>
+
+      <div style={{ padding: "12px 14px" }}>
+        Area (Where?)
+      </div>
+
+      <div style={{ padding: "12px 14px" }}>
+        Institution (What?)
+      </div>
+
+      <div style={{ padding: "12px 14px" }}>
+        Type (How?)
+      </div>
+
+      <div style={{ padding: "12px 14px" }}>
+        Expand
+      </div>
+    </>
+  )}
+</div>
 
       {filteredRows.length === 0 ? (
         <div style={{ padding: "18px" }}>
@@ -544,95 +669,205 @@ const filteredRows = rows.filter((row) => {
                 borderBottom: "1px solid var(--border)"
               }}
             >
-              {/* MAIN ROW */}
-              <div
-                onClick={() => toggleRow(row.href)}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background =
-                    "rgba(255,255,255,0.05)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                }}
-                style={{
-                  display: "grid",
-                  gridTemplateColumns:
-                    "5px 140px minmax(180px, 1.4fr) minmax(160px, 1.2fr) minmax(140px, 1fr) 70px",
-                  cursor: "pointer",
-                  fontSize: "13px",
-                  alignItems: "stretch",
-                  transition: "background 0.18s ease"
-                }}
-              >
-                <div
-                  style={{
-                    background:
-                      PARTY_COLORS[
-                        row.preview?.leaders?.[0]?.party ||
-                          row.preview?.leaders?.[0]?.name
-                      ] || "#444"
-                  }}
-                />
-
-                <div style={{ padding: "12px 14px", display: "flex", alignItems: "center" }}>
-                  {row.date}
-                </div>
-
-                <div style={{ padding: "12px 14px", display: "flex", alignItems: "center" }}>
-<a
-  href={row.href}
-  onClick={(e) => e.stopPropagation()}
-  style={{
-    position: "relative",
-    fontWeight: 600,
-    color: "inherit",
-    textDecoration: "none"
-  }}
+{/* MAIN ROW */}
+<div
+  onClick={() => toggleRow(row.href)}
   onMouseEnter={(e) => {
-    const t = e.currentTarget;
-
-    const line = t.querySelector("span") as HTMLElement;
-    if (line) line.style.width = "100%";
-
-    t.style.color = "#00dfef";
+    e.currentTarget.style.background =
+      "rgba(255,255,255,0.05)";
   }}
   onMouseLeave={(e) => {
-    const t = e.currentTarget;
-
-    const line = t.querySelector("span") as HTMLElement;
-    if (line) line.style.width = "0";
-
-    t.style.color = "inherit";
+    e.currentTarget.style.background =
+      "transparent";
+  }}
+  style={{
+    display: "grid",
+    gridTemplateColumns: isMobile
+      ? "5px 1fr 50px"
+      : "5px 140px minmax(180px, 1.4fr) minmax(160px, 1.2fr) minmax(140px, 1fr) 70px",
+    cursor: "pointer",
+    fontSize: "13px",
+    alignItems: "stretch",
+    transition: "background 0.18s ease"
   }}
 >
-  {row.area}
-
-  <span
+  <div
     style={{
-      position: "absolute",
-      left: 0,
-      bottom: "-2px",
-      height: "2px",
-      width: "0",
-      background: "#00dfef",
-      transition: "width 0.25s ease"
+      background:
+PARTY_COLORS[
+  row.preview?.dominantParty
+]
+        || "#444"
     }}
   />
-</a>
-                </div>
 
-                <div style={{ padding: "12px 14px", display: "flex", alignItems: "center" }}>
-                  {row.institution}
-                </div>
+  {isMobile ? (
+    <>
+      <div
+        style={{
+          padding: "12px 14px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          gap: "4px"
+        }}
+      >
+        <a
+          href={row.href}
+          onClick={(e) =>
+            e.stopPropagation()
+          }
+          style={{
+            fontWeight: 700,
+            color: "inherit",
+            textDecoration: "none"
+          }}
+        >
+          {row.area}
+        </a>
 
-                <div style={{ padding: "12px 14px", display: "flex", alignItems: "center" }}>
-                  {row.type}
-                </div>
+        <div
+          style={{
+            fontSize: "12px",
+            opacity: 0.7
+          }}
+        >
+          {row.institution}
+        </div>
 
-                <div style={{ padding: "12px 14px", display: "flex", alignItems: "center" }}>
-                  {isOpen ? "−" : "+"}
-                </div>
-              </div>
+        <div
+          style={{
+            fontSize: "11px",
+            opacity: 0.55
+          }}
+        >
+          {row.date} • {row.type}
+        </div>
+      </div>
+
+      <div
+        style={{
+          padding: "12px 14px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        {isOpen ? "−" : "+"}
+      </div>
+    </>
+  ) : (
+    <>
+      <div
+        style={{
+          padding: "12px 14px",
+          display: "flex",
+          alignItems: "center"
+        }}
+      >
+        {row.date}
+      </div>
+
+      <div
+        style={{
+          padding: "12px 14px",
+          display: "flex",
+          alignItems: "center"
+        }}
+      >
+        <a
+          href={row.href}
+          onClick={(e) =>
+            e.stopPropagation()
+          }
+          style={{
+            position: "relative",
+            fontWeight: 600,
+            color: "inherit",
+            textDecoration: "none"
+          }}
+          onMouseEnter={(e) => {
+            const t =
+              e.currentTarget;
+
+            const line =
+              t.querySelector(
+                "span"
+              ) as HTMLElement;
+
+            if (line)
+              line.style.width =
+                "100%";
+
+            t.style.color =
+              "#00dfef";
+          }}
+          onMouseLeave={(e) => {
+            const t =
+              e.currentTarget;
+
+            const line =
+              t.querySelector(
+                "span"
+              ) as HTMLElement;
+
+            if (line)
+              line.style.width =
+                "0";
+
+            t.style.color =
+              "inherit";
+          }}
+        >
+          {row.area}
+
+          <span
+            style={{
+              position: "absolute",
+              left: 0,
+              bottom: "-2px",
+              height: "2px",
+              width: "0",
+              background: "#00dfef",
+              transition:
+                "width 0.25s ease"
+            }}
+          />
+        </a>
+      </div>
+
+      <div
+        style={{
+          padding: "12px 14px",
+          display: "flex",
+          alignItems: "center"
+        }}
+      >
+        {row.institution}
+      </div>
+
+      <div
+        style={{
+          padding: "12px 14px",
+          display: "flex",
+          alignItems: "center"
+        }}
+      >
+        {row.type}
+      </div>
+
+      <div
+        style={{
+          padding: "12px 14px",
+          display: "flex",
+          alignItems: "center"
+        }}
+      >
+        {isOpen ? "−" : "+"}
+      </div>
+    </>
+  )}
+</div>
 
               {/* EXPANDED (UNCHANGED) */}
               <div
@@ -779,7 +1014,7 @@ function FilterMultiSelect({
 
     onChange(next);
   }
-
+  
 return (
   <div style={{ marginBottom: "10px" }}>
 
@@ -891,4 +1126,202 @@ return (
     </div>
   </div>
 );
+}
+
+function AreaFilterMultiSelect({
+  title,
+  values,
+  groupedAreas,
+  onChange
+}: {
+  title: string;
+  values: string[];
+  groupedAreas: {
+    label: string;
+    values: string[];
+  }[];
+  onChange: (
+    values: string[]
+  ) => void;
+}) {
+  const [open, setOpen] =
+    useState(false);
+
+  function toggle(option: string) {
+    if (option === "All Areas") {
+      onChange(["All Areas"]);
+      return;
+    }
+
+    let next =
+      values.filter(
+        (v) => v !== "All Areas"
+      );
+
+    if (
+      next.includes(option)
+    ) {
+      next = next.filter(
+        (v) => v !== option
+      );
+    } else {
+      next.push(option);
+    }
+
+    if (next.length === 0) {
+      next = ["All Areas"];
+    }
+
+    onChange(next);
+  }
+
+  function renderOption(
+    option: string
+  ) {
+    const active =
+      values.includes(option);
+
+    return (
+      <div
+        key={option}
+        onClick={() => toggle(option)}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          padding: "6px 8px",
+          cursor: "pointer",
+          fontSize: "13px"
+        }}
+      >
+        <div
+          style={{
+            width: "14px",
+            height: "14px",
+            borderRadius: "4px",
+            border:
+              "1px solid var(--border)",
+            background: active
+              ? "var(--text)"
+              : "transparent"
+          }}
+        />
+
+        <div
+          style={{
+            fontWeight: active
+              ? 600
+              : 500
+          }}
+        >
+          {option}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ marginBottom: "10px" }}>
+      <div
+        style={{
+          fontSize: "11px",
+          fontWeight: 700,
+          opacity: 0.6,
+          margin: "0 0 6px 4px",
+          letterSpacing: "0.4px",
+          color: "var(--text)"
+        }}
+      >
+        {title}
+      </div>
+
+      <div
+        style={{
+          borderRadius: "10px",
+          background: "var(--panel-2)",
+          border:
+            "1px solid var(--border)",
+          overflow: "hidden"
+        }}
+      >
+        <div
+          onClick={() => setOpen(!open)}
+          style={{
+            padding: "10px 12px",
+            cursor: "pointer",
+            display: "flex",
+            justifyContent:
+              "space-between"
+          }}
+        >
+          <div
+            style={{
+              fontSize: "11px",
+              opacity: 0.6
+            }}
+          >
+            {open ? "−" : "+"}
+          </div>
+
+          <div
+            style={{
+              fontSize: "11px",
+              opacity: 0.6,
+              maxWidth: "120px",
+              textAlign: "right",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap"
+            }}
+          >
+            {values.includes(
+              "All Areas"
+            )
+              ? "All Areas"
+              : values.length === 1
+              ? values[0]
+              : `${values.length} selected`}
+          </div>
+        </div>
+
+        {open && (
+          <div
+            style={{
+              padding: "0 8px 8px"
+            }}
+          >
+            {renderOption(
+              "All Areas"
+            )}
+
+            {groupedAreas.map(
+              (group) => (
+                <div
+                  key={group.label}
+                >
+                  <div
+                    style={{
+                      fontSize: "10px",
+                      fontWeight: 700,
+                      opacity: 0.45,
+                      padding:
+                        "10px 8px 4px",
+                      letterSpacing:
+                        "0.4px"
+                    }}
+                  >
+                    {group.label.toUpperCase()}
+                  </div>
+
+                  {group.values.map(
+                    renderOption
+                  )}
+                </div>
+              )
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }

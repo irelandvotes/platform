@@ -20,15 +20,19 @@ function parseCSVLine(line: string) {
 export type ElectionRow = {
   date: string;
   area: string;
+  areaType: string | null;
   institution: string;
   type: string;
   href: string;
   isOverall: boolean;
   preview?: {
-    leaders: {
-      name: string;
-      percent: string;
-    }[];
+leaders: {
+  name: string;
+  party: string;
+  percent: string;
+  votes: number;
+  isIndependent: boolean;
+}[];
     seatLeaders: {
       name: string;
       value: number;
@@ -124,6 +128,57 @@ function parseUniqueAreas(
   );
 }
 
+function parseOverallByElectionArea(
+  filePath: string
+): string | null {
+  if (!fs.existsSync(filePath)) {
+    return null;
+  }
+
+  const raw = fs.readFileSync(
+    filePath,
+    "utf8"
+  );
+
+  const lines = raw
+    .split(/\r?\n/)
+    .filter(Boolean);
+
+  if (lines.length < 2) {
+    return null;
+  }
+
+  const headers =
+    parseCSVLine(lines[0]);
+
+  const constituencyIndex =
+    headers.findIndex(
+      (header) =>
+        header
+          .trim()
+          .toLowerCase() ===
+        "constituency"
+    );
+
+  if (constituencyIndex === -1) {
+    return null;
+  }
+
+  const firstRow =
+    parseCSVLine(lines[1]);
+
+  const area =
+    firstRow[
+      constituencyIndex
+    ];
+
+  if (!area) {
+    return null;
+  }
+
+  return area.trim();
+}
+
 /* ===================================
    PREVIEW DATA
 =================================== */
@@ -207,70 +262,124 @@ function buildPreview(
             row[countIndex] === "1"
         );
 
-  const totals: Record<
-    string,
-    number
-  > = {};
+const totals: Record<
+  string,
+  {
+    votes: number;
+    party: string;
+    candidate: string;
+    isIndependent: boolean;
+  }
+> = {};
 
-  firstCount.forEach((row) => {
-    const party =
-      row[
-        partyIndex
-      ]?.trim();
+firstCount.forEach((row) => {
+  const party =
+    row[
+      partyIndex
+    ]?.trim() || "Other";
 
-    const candidate =
-      row[
-        candidateIndex
-      ]?.trim();
+  const candidate =
+    row[
+      candidateIndex
+    ]?.trim() || "Unknown";
 
-    const fallback =
-      row.find(
-        (cell) =>
-          cell?.trim() &&
-          cell.trim() !== "1"
-      ) || "Other";
+  const votes = Number(
+    row[votesIndex] || 0
+  );
 
-    const key =
-      party ||
-      candidate ||
-      fallback;
+  const isIndependent =
+    party === "IND" ||
+    party === "INDIRL" ||
+    party === "INDN" ||
+    party === "INDU";
 
-    const votes = Number(
-      row[votesIndex] || 0
-    );
+// independents remain grouped
+const key = party;
 
-    totals[key] =
-      (totals[key] || 0) +
-      votes;
+  if (!totals[key]) {
+    totals[key] = {
+      votes: 0,
+      party,
+      candidate,
+      isIndependent
+    };
+  }
+
+  totals[key].votes += votes;
+});
+
+const totalVotes =
+  Object.values(totals).reduce(
+    (a, b) => a + b.votes,
+    0
+  );
+
+const leaders = Object.values(
+  totals
+)
+  .map((item) => ({
+name: item.party,
+    party: item.party,
+    votes: item.votes,
+    isIndependent:
+      item.isIndependent,
+    percent:
+      totalVotes > 0
+        ? (
+            (item.votes /
+              totalVotes) *
+            100
+          ).toFixed(1)
+        : "0.0"
+  }))
+  .sort((a, b) => {
+    // independents always last
+    if (
+      a.isIndependent &&
+      !b.isIndependent
+    ) {
+      return 1;
+    }
+
+    if (
+      !a.isIndependent &&
+      b.isIndependent
+    ) {
+      return -1;
+    }
+
+    return b.votes - a.votes;
   });
 
-  const totalVotes =
-    Object.values(totals).reduce(
-      (a, b) => a + b,
-      0
+  const largestNonIndependent =
+  leaders.find(
+    (leader) =>
+      !leader.isIndependent
+  );
+
+let dominantParty =
+  largestNonIndependent
+    ?.party || "IND";
+
+// for by-elections, use actual winner
+if (
+  area === "National" &&
+  statusIndex !== -1
+) {
+  const winnerRow =
+    relevant.find(
+      (row) =>
+        row[statusIndex] ===
+        "elected"
     );
 
-  const leaders = Object.entries(
-    totals
-  )
-    .map(
-      ([name, votes]) => ({
-        name,
-        percent:
-          totalVotes > 0
-            ? (
-                (votes /
-                  totalVotes) *
-                100
-              ).toFixed(1)
-            : "0.0"
-      })
-    )
-    .sort(
-      (a, b) =>
-        Number(b.percent) -
-        Number(a.percent)
-    );
+  if (winnerRow) {
+    dominantParty =
+      winnerRow[
+        partyIndex
+      ] || dominantParty;
+  }
+}
 
   /* -------------------
      Seats by Party
@@ -340,7 +449,8 @@ function buildPreview(
 
   return {
     leaders,
-    seatLeaders
+    seatLeaders,
+    dominantParty
   };
 }
 
@@ -463,6 +573,35 @@ function getType(category: string, slug: string) {
   return category;
 }
 
+function getAreaType(
+  category: string,
+  isOverall: boolean,
+  slug: string
+) {
+  if (isOverall) {
+    return null;
+  }
+
+  const isByElection =
+    slug.includes("/");
+
+  if (isByElection) {
+    return "Electoral Districts";
+  }
+
+  if (
+    category === "dail" ||
+    category === "house-of-commons" ||
+    category === "assembly" ||
+    category === "president" ||
+    category === "referendums"
+  ) {
+    return "Constituencies";
+  }
+
+  return "Areas";
+}
+
 /* ===================================
    DISCOVER
 =================================== */
@@ -566,11 +705,17 @@ export function buildElectionRows(): ElectionRow[] {
           slug
         );
 
-      const filePath =
-        path.join(
-          folderPath,
-          "election_data.csv"
-        );
+const filePath =
+  path.join(
+    folderPath,
+    "election_data.csv"
+  );
+
+const countFilePath =
+  path.join(
+    folderPath,
+    "count_data.csv"
+  );
 
       const areas =
         parseUniqueAreas(
@@ -592,32 +737,48 @@ export function buildElectionRows(): ElectionRow[] {
 
 const type = getType(category, slug);
 
-const isByElection = slug.includes("/");
+const isByElection =
+  slug.includes("/");
 
-const displayArea = isByElection
-  ? slug.split("/")[1]
-      .replace(/-/g, " ")
-      .replace(/\b\w/g, (c) => c.toUpperCase())
-  : "National";
+const previewFilePath =
+  isByElection
+    ? countFilePath
+    : filePath;
+
+const displayArea =
+  isByElection
+    ? parseOverallByElectionArea(
+        countFilePath
+      ) || "Unknown"
+    : "National";
 
 rows.push({
   date,
   area: displayArea,
-        institution,
-        type,
-        href: hrefBase,
-        isOverall: true,
-        preview:
-          buildPreview(
-            filePath,
-            "National"
-          )
-      });
-
-      areas.forEach((area) => {
-        rows.push({
+  areaType: getAreaType(
+    category,
+    true,
+    slug
+  ),
+  institution,
+  type,
+  href: hrefBase,
+  isOverall: true,
+  preview:
+    buildPreview(
+      previewFilePath,
+      "National"
+    )
+});
+areas.forEach((area) => {
+  rows.push({
           date,
           area,
+          areaType: getAreaType(
+            category,
+            false,
+            slug
+          ),
           institution,
           type,
           isOverall: false,
