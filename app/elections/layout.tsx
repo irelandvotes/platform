@@ -25,31 +25,70 @@ function useIsMobile() {
    ELECTION PAGES
 =============================== */
 
-const electionPages = [
+const electionGroups = [
+
 {
-label: "President 2025",
-href: "/elections/ireland/president/2025"
+  title: "President",
+  pages: [
+    {
+      label: "President 2025",
+      href: "/elections/ireland/president/2025"
+    }
+  ]
 },
+
 {
-label: "Dáil Éireann 2024",
-href: "/elections/ireland/dail/2024"
+  title: "Dáil",
+  pages: [
+    {
+      label: "Dublin Central 2026",
+      href: "/elections/ireland/dail/dublin-central-2026"
+    },
+    {
+      label: "Galway West 2026",
+      href: "/elections/ireland/dail/galway-west-2026"
+    },
+    {
+      label: "Dáil Éireann 2024",
+      href: "/elections/ireland/dail/2024"
+    }
+  ]
 },
+
 {
-label: "House of Commons 2024",
-href: "/elections/northern-ireland/house-of-commons/2024"
+  title: "House of Commons",
+  pages: [
+    {
+      label: "House of Commons 2024",
+      href: "/elections/northern-ireland/house-of-commons/2024"
+    }
+  ]
 },
+
 {
-label: "Dáil Éireann 2020",
-href: "/elections/ireland/dail/2020"
+  title: "NI Assembly",
+  pages: [
+    {
+      label: "NI Assembly 2022",
+      href: "/elections/northern-ireland/assembly/2022"
+    }
+  ]
 },
+
 {
-label: "40th Amendment Referendum",
-href: "/elections/ireland/referendums/40th"
-},
-{
-label: "39th Amendment Referendum",
-href: "/elections/ireland/referendums/39th"
+  title: "Referendums",
+  pages: [
+    {
+      label: "40th Amendment Referendum",
+      href: "/elections/ireland/referendums/40th"
+    },
+    {
+      label: "39th Amendment Referendum",
+      href: "/elections/ireland/referendums/39th"
+    }
+  ]
 }
+
 ];
 
 
@@ -80,10 +119,40 @@ flexDirection: "row"
 style={{
 width: "260px",
 flexShrink: 0,
-borderRight: "1px solid var(--border)",
-background: "var(--panel)",
-padding: "12px",
-overflowY: "auto"
+borderRight: "1px solid rgba(255,255,255,0.05)",
+background:
+  "linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01))",
+backdropFilter: "blur(12px)",
+padding: "14px 12px",
+overflowY: "auto",
+overflowX: "hidden",
+position: "relative",
+boxShadow:
+  "inset -1px 0 rgba(255,255,255,0.03)"
+}}
+>
+
+{/* LARGE GLOW */}
+<div
+  style={{
+    position: "absolute",
+    top: "-220px",
+    right: "-140px",
+    width: "680px",
+    height: "680px",
+    borderRadius: "50%",
+    background:
+      "radial-gradient(circle, rgba(0,223,239,0.12), transparent 72%)",
+    pointerEvents: "none",
+    zIndex: 0
+  }}
+/>
+
+{/* CONTENT */}
+<div
+style={{
+position: "relative",
+zIndex: 1
 }}
 >
 
@@ -99,16 +168,57 @@ marginLeft: "5px"
 Featured
 </div>
 
-{electionPages.map((election) => (
+{electionGroups.map((group) => (
+
+<div
+  key={group.title}
+  style={{
+    marginBottom: "18px"
+  }}
+>
+
+{/* GROUP TITLE */}
+<div
+  style={{
+display: "flex",
+alignItems: "center",
+gap: "8px",
+fontSize: "12px",
+fontWeight: "700",
+letterSpacing: "0.5px",
+opacity: 0.75,
+marginBottom: "10px",
+paddingLeft: "4px"
+  }}
+>
+<div
+style={{
+height: "1px",
+width: "14px",
+background: "rgba(255,255,255,0.18)"
+}}
+/>
+
+{group.title}
+</div>
+
+{/* LINKS */}
+{group.pages.map((election) => (
 
 <ElectionLink
-key={election.href}
-href={election.href}
-label={election.label}
-pathname={pathname}
+  key={election.href}
+  href={election.href}
+  label={election.label}
+  pathname={pathname}
 />
 
 ))}
+
+</div>
+
+))}
+
+</div>
 
 </div>
 )}
@@ -157,19 +267,96 @@ return (
 href={href}
 style={{
 display: "block",
-padding: "12px",
-borderRadius: "10px",
-marginBottom: "8px",
-background: active ? "var(--panel-2)" : "var(--panel)",
-border: "1px solid var(--border)",
-fontSize: "13px",
-fontWeight: active ? "600" : "500",
-cursor: "pointer",
-transition: "0.15s"
+position: "relative",
+padding: "11px 12px 11px 14px",
+borderRadius: "12px",
+marginBottom: "6px",
+background: active
+  ? "linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03))"
+  : "rgba(255,255,255,0.015)",
+border: active
+  ? "1px solid rgba(255,255,255,0.08)"
+  : "1px solid transparent",
+overflow: "hidden",
+transition: "all 0.16s ease",
+transform: active
+  ? "translateX(2px)"
+  : "translateX(0)"
+}}
+onMouseEnter={(e) => {
+
+if (active) return;
+
+e.currentTarget.style.background =
+  "rgba(255,255,255,0.035)";
+
+e.currentTarget.style.border =
+  "1px solid rgba(255,255,255,0.05)";
+
+}}
+onMouseLeave={(e) => {
+
+if (active) return;
+
+e.currentTarget.style.background =
+  "rgba(255,255,255,0.015)";
+
+e.currentTarget.style.border =
+  "1px solid transparent";
+
 }}
 >
 
+{/* ACTIVE STRIP */}
+{active && (
+<div
+style={{
+position: "absolute",
+left: 0,
+top: 0,
+bottom: 0,
+width: "3px",
+background:
+  "linear-gradient(180deg, #00dfef, #80deea)"
+}}
+/>
+)}
+
+<div
+style={{
+display: "flex",
+alignItems: "center",
+justifyContent: "space-between",
+gap: "8px"
+}}
+>
+
+<div
+style={{
+fontSize: "13px",
+fontWeight: active ? "700" : "550",
+letterSpacing: "-0.1px",
+color: "var(--text)"
+}}
+>
 {label}
+</div>
+
+{active && (
+<div
+style={{
+fontSize: "9px",
+fontWeight: "800",
+letterSpacing: "0.7px",
+textTransform: "uppercase",
+color: "#80deea"
+}}
+>
+VIEWING
+</div>
+)}
+
+</div>
 
 </Link>
 

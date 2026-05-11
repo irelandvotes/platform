@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, Fragment } from "react";
 import ElectionMetaPanel from "./ElectionMetaPanel";
+import { buildCountTimeline } from "../utils/buildCountTimeline";
 import dynamic from "next/dynamic";
 import MapViewToggle from "./MapViewToggle";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -681,6 +682,10 @@ const constituencyParties = (() => {
     });
 
 })();
+
+const countTimeline = current?.data?.counts
+  ? buildCountTimeline(current.data.counts)
+  : {};
 
 const transferData: any = (() => {
   if (!current?.data?.counts || count <= 1) return null;
@@ -1754,6 +1759,421 @@ onError={(e) => {
 )}
 
 </div>
+
+{/* COUNT NARRATION */}
+
+{current?.name === "National" && view === "count" && (() => {
+
+const counts = current?.data?.counts || {};
+
+const currentCountData =
+  counts[count] || [];
+
+const prevCountData =
+  counts[count - 1] || [];
+
+/*
+  Elections on this count
+*/
+
+const electedThisCount =
+  currentCountData.filter((c: any) => {
+
+    /*
+      Count 1:
+      already elected
+    */
+
+    if (count === 1) {
+      return c.status === "elected";
+    }
+
+    /*
+      Later counts:
+      newly elected only
+    */
+
+    const prevCandidate = prevCountData.find(
+      (p: any) =>
+        p.name === c.name &&
+        p.party === c.party
+    );
+
+    return (
+      c.status === "elected" &&
+      prevCandidate?.status !== "elected"
+    );
+
+});
+
+/*
+  Eliminations on this count
+*/
+
+const eliminatedThisCount =
+  currentCountData.filter((c: any) => {
+
+    if (count === 1) {
+      return c.status === "eliminated";
+    }
+
+    const prevCandidate = prevCountData.find(
+      (p: any) =>
+        p.name === c.name &&
+        p.party === c.party
+    );
+
+    return (
+      c.status === "eliminated" &&
+      prevCandidate?.status !== "eliminated"
+    );
+
+});
+
+/*
+  Synthetic Count 1 event
+*/
+
+const syntheticCountOneEvent =
+  count === 1
+    ? {
+        description: [
+          "First preference votes counted.",
+
+          electedThisCount.length
+            ? electedThisCount
+                .map(
+                  (c: any) =>
+                    `${c.name} elected`
+                )
+                .join(", ") + "."
+            : null,
+
+          eliminatedThisCount.length
+            ? eliminatedThisCount
+                .map(
+                  (c: any) =>
+                    `${c.name} eliminated`
+                )
+                .join(", ") + "."
+            : null
+
+        ]
+          .filter(Boolean)
+          .join(" "),
+
+        sources: [
+          ...electedThisCount.map((c: any) => ({
+            ...c,
+            sourceType: "election"
+          })),
+
+          ...eliminatedThisCount.map((c: any) => ({
+            ...c,
+            sourceType: "elimination"
+          }))
+        ]
+      }
+    : countTimeline?.[count];
+
+/*
+  Final event object
+*/
+
+const event = syntheticCountOneEvent;
+
+if (!event) return null;
+
+/*
+  Sources
+*/
+
+const sources = [
+  ...(event.sources || []),
+
+  ...((event.elected || []).map((c: any) => ({
+    ...c,
+    sourceType: "election"
+  })))
+];
+
+/*
+  Event chips
+*/
+
+const hasSurplus =
+  sources.some(
+    (s: any) => s.sourceType === "surplus"
+  );
+
+const hasElimination =
+  sources.some(
+    (s: any) => s.sourceType === "elimination"
+  );
+
+const hasRedistribution =
+  sources.some(
+    (s: any) =>
+      s.sourceType === "elimination-redistribution"
+  );
+
+const hasElection =
+  electedThisCount.length > 0;
+
+/*
+  Hide narration while awaiting results
+*/
+
+const totalVotesThisCount =
+  currentCountData.reduce(
+    (sum: number, c: any) =>
+      sum + (c.votes || 0),
+    0
+  );
+
+if (totalVotesThisCount === 0) {
+  return null;
+}
+
+return (
+
+<div
+  style={{
+    marginTop: "14px",
+    marginBottom: "12px",
+    borderRadius: "12px",
+    background:
+      "linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01))",
+    border: "1px solid var(--border)",
+    padding: "10px 12px",
+    boxShadow: "0 2px 10px rgba(0,0,0,0.12)"
+  }}
+>
+
+{/* HEADER */}
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: "8px",
+    gap: "10px",
+    flexWrap: "wrap"
+  }}
+>
+
+{/* LEFT */}
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "8px"
+  }}
+>
+
+<div
+  style={{
+    fontSize: "12px",
+    fontWeight: "700",
+    letterSpacing: "0.5px",
+    textTransform: "uppercase"
+  }}
+>
+  On this Count
+</div>
+
+</div>
+
+{/* EVENT CHIPS */}
+<div
+  style={{
+    display: "flex",
+    gap: "6px",
+    flexWrap: "wrap"
+  }}
+>
+
+{count === 1 && (
+<div
+  style={{
+    padding: "3px 7px",
+    borderRadius: "999px",
+    background: "rgba(33,150,243,0.12)",
+    border: "1px solid rgba(33,150,243,0.28)",
+    fontSize: "10px",
+    fontWeight: "700",
+    color: "#2196f3",
+    textTransform: "uppercase"
+  }}
+>
+  First Preferences Received
+</div>
+)}
+
+{hasElection && (
+<div
+  style={{
+    padding: "3px 7px",
+    borderRadius: "999px",
+    background: "rgba(76,175,80,0.12)",
+    border: "1px solid rgba(76,175,80,0.28)",
+    fontSize: "10px",
+    fontWeight: "700",
+    color: "#4caf50",
+    textTransform: "uppercase"
+  }}
+>
+  Election
+</div>
+)}
+
+{hasSurplus && (
+<div
+  style={{
+    padding: "3px 7px",
+    borderRadius: "999px",
+        background: "rgba(255,193,7,0.12)",
+    border: "1px solid rgba(255,193,7,0.28)",
+    fontSize: "10px",
+    fontWeight: "700",
+    color: "#ffc107",
+    textTransform: "uppercase"
+  }}
+>
+  Surplus Distribution
+</div>
+)}
+
+{hasElimination && (
+<div
+  style={{
+    padding: "3px 7px",
+    borderRadius: "999px",
+    background: "rgba(244,67,54,0.12)",
+    border: "1px solid rgba(244,67,54,0.28)",
+    fontSize: "10px",
+    fontWeight: "700",
+    color: "#f44336",
+    textTransform: "uppercase"
+  }}
+>
+  Elimination
+</div>
+)}
+
+{hasRedistribution && (
+<div
+  style={{
+    padding: "3px 7px",
+    borderRadius: "999px",
+        background: "rgba(255,193,7,0.12)",
+    border: "1px solid rgba(255,193,7,0.28)",
+    fontSize: "10px",
+    fontWeight: "700",
+    color: "#ffc107",
+    textTransform: "uppercase"
+  }}
+>
+  Redistribution
+</div>
+)}
+
+</div>
+
+</div>
+
+{/* DESCRIPTION */}
+<div
+  style={{
+    fontSize: "13px",
+    lineHeight: 1.5,
+    fontWeight: "500",
+    color: "var(--text)"
+  }}
+>
+  {event.description}
+</div>
+
+{/* SOURCE ROW */}
+{sources.length > 0 && (
+<div
+  style={{
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "6px",
+    marginTop: "10px"
+  }}
+>
+
+{sources.map((source: any) => {
+
+const sourceColor =
+    source.sourceType === "election"
+    ? "#4caf50"
+  : source.sourceType === "surplus"
+    ? "#ffc107"
+    : source.sourceType === "elimination"
+    ? "#f44336"
+    : source.sourceType === "elimination-redistribution"
+    ? "#ffc107"
+    : "#777";
+
+return (
+
+<div
+  key={`${source.name}-${source.sourceType}`}
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "6px",
+    padding: "5px 8px",
+    borderRadius: "8px",
+    background: `${sourceColor}14`,
+    border: `1px solid ${sourceColor}22`
+  }}
+>
+
+<div
+  style={{
+    width: "6px",
+    height: "6px",
+    borderRadius: "50%",
+    background: sourceColor
+  }}
+/>
+
+<div
+  style={{
+    fontSize: "11px",
+    fontWeight: "600"
+  }}
+>
+  {source.name}
+</div>
+
+<div
+  style={{
+    fontSize: "10px",
+    opacity: 0.65
+  }}
+>
+  {source.party}
+</div>
+
+</div>
+
+);
+
+})}
+
+</div>
+)}
+
+</div>
+
+);
+
+})()}
 
 {/* COUNT PANEL */}
 

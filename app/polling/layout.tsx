@@ -109,47 +109,126 @@ width: "100%"
         left: showMenu ? 0 : "-280px",
         height: "100%",
         width: "260px",
-        background: "var(--panel)",
-        borderRight: "1px solid var(--border)",
-        padding: "12px",
+        borderRight: "1px solid rgba(255,255,255,0.05)",
+        background:
+          "linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015))",
+        backdropFilter: "blur(14px)",
+        padding: "14px 12px",
         overflowY: "auto",
+        overflowX: "hidden",
         zIndex: 60,
-        transition: "left 0.25s ease"
+        transition: "left 0.25s ease",
+        boxShadow:
+          "0 0 40px rgba(0,0,0,0.45)"
       }}
     >
+
+{/* LARGE GLOW */}
+<div
+  style={{
+    position: "absolute",
+    top: "-220px",
+    right: "-140px",
+    width: "680px",
+    height: "680px",
+    borderRadius: "50%",
+    background:
+      "radial-gradient(circle, rgba(0,223,239,0.12), transparent 72%)",
+    pointerEvents: "none",
+    zIndex: 0
+  }}
+/>
+
+<div
+style={{
+position: "relative",
+zIndex: 1
+}}
+>
+
       {/* HEADER */}
       <div
         style={{
           display: "flex",
           justifyContent: "space-between",
-          marginBottom: "12px"
+          alignItems: "center",
+          marginBottom: "14px"
         }}
       >
-        <div style={{ fontWeight: 700 }}>
-          Polling
-        </div>
+        <div
+style={{
+fontWeight: 700,
+fontSize: "15px"
+}}
+>
+Polling
+</div>
 
-        <button onClick={() => setShowMenu(false)}>
-          ✕
-        </button>
+<button
+  onClick={() => setShowMenu(false)}
+  style={{
+    border: "none",
+    background: "transparent",
+    color: "var(--text)",
+    fontSize: "16px",
+    cursor: "pointer"
+  }}
+>
+✕
+</button>
+
       </div>
 
       {SidebarContent}
+
+</div>
+
     </div>
   </>
 ) : (
   /* DESKTOP SIDEBAR */
-  <div
-    style={{
-      width: "260px",
-      borderRight: "1px solid var(--border)",
-      background: "var(--panel)",
-      padding: "12px",
-      overflowY: "auto"
-    }}
-  >
-    {SidebarContent}
-  </div>
+<div
+  style={{
+    width: "260px",
+    borderRight: "1px solid rgba(255,255,255,0.05)",
+    background:
+      "linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01))",
+    backdropFilter: "blur(12px)",
+    padding: "14px 12px",
+    overflowY: "auto",
+    overflowX: "hidden",
+    position: "relative",
+    boxShadow:
+      "inset -1px 0 rgba(255,255,255,0.03)"
+  }}
+>
+
+{/* LARGE GLOW */}
+<div
+  style={{
+    position: "absolute",
+    top: "-220px",
+    right: "-140px",
+    width: "680px",
+    height: "680px",
+    borderRadius: "50%",
+    background:
+      "radial-gradient(circle, rgba(0,223,239,0.12), transparent 72%)",
+    pointerEvents: "none",
+    zIndex: 0
+  }}
+/>
+
+<div
+  style={{
+    position: "relative",
+    zIndex: 1
+  }}
+>
+  {SidebarContent}
+</div>
+
+</div>
 )}
 
 
@@ -275,25 +354,95 @@ return (
 href={href}
 style={{
 display: "block",
-padding: "10px",
-borderRadius: "8px",
+position: "relative",
+padding: "11px 12px 10px 14px",
+borderRadius: "12px",
 marginBottom: "8px",
-background: active ? "var(--panel-2)" : "var(--panel)",
-border: "1px solid var(--border)",
-fontSize: "13px",
-fontWeight: active ? "600" : "500",
-cursor: "pointer",
-transition: "0.15s",
-position: "relative"
+background: active
+  ? "linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03))"
+  : "rgba(255,255,255,0.015)",
+border: active
+  ? "1px solid rgba(255,255,255,0.08)"
+  : "1px solid transparent",
+overflow: "hidden",
+transition: "all 0.16s ease",
+transform: active
+  ? "translateX(2px)"
+  : "translateX(0)"
+}}
+onMouseEnter={(e) => {
+
+if (active) return;
+
+e.currentTarget.style.background =
+  "rgba(255,255,255,0.035)";
+
+e.currentTarget.style.border =
+  "1px solid rgba(255,255,255,0.05)";
+
+}}
+onMouseLeave={(e) => {
+
+if (active) return;
+
+e.currentTarget.style.background =
+  "rgba(255,255,255,0.015)";
+
+e.currentTarget.style.border =
+  "1px solid transparent";
+
+}}
+>
+
+{/* ACTIVE STRIP */}
+{active && (
+<div
+style={{
+position: "absolute",
+left: 0,
+top: 0,
+bottom: 0,
+width: "3px",
+background:
+  "linear-gradient(180deg, #00dfef, #80deea)"
+}}
+/>
+)}
+
+<div
+style={{
+display: "flex",
+alignItems: "center",
+justifyContent: "space-between",
+marginBottom: "6px"
 }}
 >
 
 <div
 style={{
-marginBottom: "4px"
+fontSize: "13px",
+fontWeight: active ? "700" : "550",
+letterSpacing: "-0.1px",
+color: "var(--text)"
 }}
 >
 {label}
+</div>
+
+{active && (
+<div
+style={{
+fontSize: "9px",
+fontWeight: "800",
+letterSpacing: "0.7px",
+textTransform: "uppercase",
+color: "#80deea"
+}}
+>
+VIEWING
+</div>
+)}
+
 </div>
 
 <SidebarPreview data={data} tracker={tracker}/>

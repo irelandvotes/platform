@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, Fragment } from "react";
+import { buildCountTimeline } from "../utils/buildCountTimeline";
 import ElectionMetaPanel from "./ElectionMetaPanel";
 import Map from "./Map";
 import MapViewToggle from "./MapViewToggle";
@@ -798,98 +799,65 @@ const constituencyParties = (() => {
 
 })();
 
+const countTimeline = current?.data?.counts
+  ? buildCountTimeline(current.data.counts)
+  : {};
+
 const transferData: any = (() => {
-  if (!current?.data?.counts || count <= 1) return null;
+
+  if (!current?.data?.counts || count <= 1) {
+    return null;
+  }
 
   const counts = current.data.counts;
 
   const currentData = counts[count] || [];
   const prevData = counts[count - 1] || [];
-  const prevPrevData = counts[count - 2] || [];
 
-  const sources: any[] = [];
+  const quota =
+    currentData?.[0]?.quota ||
+    prevData?.[0]?.quota ||
+    0;
 
-  /* Count 2 special case */
-  if (count === 2) {
-    prevData.forEach((c: any) => {
-
-      /* Eliminated */
-      if (c.status === "eliminated") {
-        sources.push({
-          ...c,
-          type: "eliminated"
-        });
-      }
-
-      /* Surplus */
-      if (c.status === "elected" && c.votes > c.quota) {
-        sources.push({
-          ...c,
-          type: "surplus"
-        });
-      }
-
-    });
-
-  } else {
-
-    prevData.forEach((c: any) => {
-
-      const prevPrev = prevPrevData.find(
-        (p: any) => p.name === c.name && p.party === c.party
-      );
-
-      /* Eliminated */
-      if (
-        prevPrev &&
-        prevPrev.status !== "eliminated" &&
-        c.status === "eliminated"
-      ) {
-        sources.push({
-          ...c,
-          type: "eliminated"
-        });
-      }
-
-      /* Surplus */
-      if (
-        c.status === "elected" &&
-        c.votes > c.quota
-      ) {
-        sources.push({
-          ...c,
-          type: "surplus"
-        });
-      }
-
-    });
-
-  }
-
-  if (!sources.length) return null;
+const event =
+  countTimeline?.[count];
 
   const transfers: any[] = [];
 
   currentData.forEach((c: any) => {
+
     const prev = prevData.find(
-      (p: any) => p.name === c.name && p.party === c.party
+      (p: any) =>
+        p.name === c.name &&
+        p.party === c.party
     );
 
-    const gain = prev ? c.votes - prev.votes : 0;
+    const gain = prev
+      ? c.votes - prev.votes
+      : 0;
 
     if (gain > 0) {
+
       transfers.push({
         name: c.name,
         party: c.party,
         gain
       });
+
     }
+
   });
 
-  return {
-    sources,
-    transfers: transfers.sort((a, b) => b.gain - a.gain)
-  };
+return {
+  quota,
+  event,
+
+  sources: event?.sources || [],
+
+  transfers: transfers.sort(
+    (a, b) => b.gain - a.gain
+  )
+};
 
 })();
 
@@ -926,42 +894,57 @@ const transferMatrix = (() => {
 /* VOTE LEAKAGE */
 
 const voteLeakage = (() => {
-  if (!transferData) return null;
 
-const totalEliminated = transferData.sources
-  .reduce((sum: number, c: any) => {
+  if (!transferData?.event) {
+    return null;
+  }
 
-    /* elected candidates — use surplus only */
-    if (
-      c.status === "elected" &&
-      c.votes > (c.quota || transferData.quota || 0)
-    ) {
-      const quota =
-        c.quota ||
-        transferData.quota ||
-        0;
+  const sources = transferData.sources || [];
 
-      return sum + (c.votes - quota);
+  let transferableVotes = 0;
+
+  sources.forEach((s: any) => {
+
+    /*
+      Surplus source
+    */
+
+    if (s.surplus) {
+      transferableVotes += s.surplus;
+      return;
     }
 
-    /* eliminated candidates */
-    return sum + (c.votes || 0);
+    /*
+      Elimination source
+    */
 
-  }, 0);
+    transferableVotes += s.votes || 0;
 
-  const totalTransferred = transferData.transfers
-    .reduce((sum: number, t: any) => sum + (t.gain || 0), 0);
+  });
 
-  const leakage = Math.max(0, totalEliminated - totalTransferred);
+  const totalTransferred =
+    transferData.transfers.reduce(
+      (sum: number, t: any) =>
+        sum + (t.gain || 0),
+      0
+    );
 
-  const percent = totalEliminated
-    ? ((leakage / totalEliminated) * 100).toFixed(1)
+  const leakage = Math.max(
+    0,
+    transferableVotes - totalTransferred
+  );
+
+  const percent = transferableVotes
+    ? (
+        (leakage / transferableVotes) * 100
+      ).toFixed(1)
     : 0;
 
   return {
     leakage,
     percent
   };
+
 })();
 
 /* VOTE LEAKAGE HISTORY */
@@ -1172,9 +1155,14 @@ const advancedMetrics = (() => {
       /* Transfer source analysis */
       prev.forEach((p: any) => {
 
-        const transferring =
-          p.status === "eliminated" ||
-          p.status === "elected";
+const timelineEvent = countTimeline?.[n];
+
+const transferring =
+  timelineEvent?.sources?.some?.(
+    (s: any) =>
+      s.name === p.name &&
+      s.party === p.party
+  );
 
         if (!transferring) return;
 
@@ -1270,12 +1258,19 @@ const sankeyData = (() => {
 
   /* Combined eliminated node */
 const sourceLabel = transferData.sources
-  .map((s: any) =>
-    s.type === "surplus"
-      ? `${s.name} (${s.party}) Surplus`
-      : `${s.name} (${s.party})`
-  );
+  .map((s: any) => {
 
+    if (s.reason) {
+      return `${s.name} (${s.party}) admin elimination`;
+    }
+
+    if (s.surplus) {
+      return `${s.name} (${s.party}) surplus`;
+    }
+
+    return `${s.name} (${s.party})`;
+
+  });
   nodes.push({
     name: sourceLabel.join("\n"),
     fill: "#666"
@@ -2470,6 +2465,422 @@ Swing
 {view === "count" && (
 <>
 
+{/* COUNT NARRATION */}
+
+{view === "count" &&
+ !isFPTP && (() => {
+
+const counts = current?.data?.counts || {};
+
+const currentCountData =
+  counts[count] || [];
+
+const prevCountData =
+  counts[count - 1] || [];
+
+/*
+  Elections on this count
+*/
+
+const electedThisCount =
+  currentCountData.filter((c: any) => {
+
+    /*
+      Count 1:
+      already elected
+    */
+
+    if (count === 1) {
+      return c.status === "elected";
+    }
+
+    /*
+      Later counts:
+      newly elected only
+    */
+
+    const prevCandidate = prevCountData.find(
+      (p: any) =>
+        p.name === c.name &&
+        p.party === c.party
+    );
+
+    return (
+      c.status === "elected" &&
+      prevCandidate?.status !== "elected"
+    );
+
+});
+
+/*
+  Eliminations on this count
+*/
+
+const eliminatedThisCount =
+  currentCountData.filter((c: any) => {
+
+    if (count === 1) {
+      return c.status === "eliminated";
+    }
+
+    const prevCandidate = prevCountData.find(
+      (p: any) =>
+        p.name === c.name &&
+        p.party === c.party
+    );
+
+    return (
+      c.status === "eliminated" &&
+      prevCandidate?.status !== "eliminated"
+    );
+
+});
+
+/*
+  Synthetic Count 1 event
+*/
+
+const syntheticCountOneEvent =
+  count === 1
+    ? {
+        description: [
+          "First preference votes counted.",
+
+          electedThisCount.length
+            ? electedThisCount
+                .map(
+                  (c: any) =>
+                    `${c.name} elected`
+                )
+                .join(", ") + "."
+            : null,
+
+          eliminatedThisCount.length
+            ? eliminatedThisCount
+                .map(
+                  (c: any) =>
+                    `${c.name} eliminated`
+                )
+                .join(", ") + "."
+            : null
+
+        ]
+          .filter(Boolean)
+          .join(" "),
+
+        sources: [
+          ...electedThisCount.map((c: any) => ({
+            ...c,
+            sourceType: "election"
+          })),
+
+          ...eliminatedThisCount.map((c: any) => ({
+            ...c,
+            sourceType: "elimination"
+          }))
+        ]
+      }
+    : countTimeline?.[count];
+
+/*
+  Final event object
+*/
+
+const event = syntheticCountOneEvent;
+
+if (!event) return null;
+
+/*
+  Sources
+*/
+
+const sources = [
+  ...(event.sources || []),
+
+  ...((event.elected || []).map((c: any) => ({
+    ...c,
+    sourceType: "election"
+  })))
+];
+
+/*
+  Event chips
+*/
+
+const hasSurplus =
+  sources.some(
+    (s: any) => s.sourceType === "surplus"
+  );
+
+const hasElimination =
+  sources.some(
+    (s: any) => s.sourceType === "elimination"
+  );
+
+const hasRedistribution =
+  sources.some(
+    (s: any) =>
+      s.sourceType === "elimination-redistribution"
+  );
+
+const hasElection =
+  electedThisCount.length > 0;
+
+/*
+  Hide narration while awaiting results
+*/
+
+const totalVotesThisCount =
+  currentCountData.reduce(
+    (sum: number, c: any) =>
+      sum + (c.votes || 0),
+    0
+  );
+
+if (totalVotesThisCount === 0) {
+  return null;
+}
+
+return (
+
+<div
+  style={{
+    marginTop: "14px",
+    marginBottom: "12px",
+    borderRadius: "12px",
+    background:
+      "linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01))",
+    border: "1px solid var(--border)",
+    padding: "10px 12px",
+    boxShadow: "0 2px 10px rgba(0,0,0,0.12)"
+  }}
+>
+
+{/* HEADER */}
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: "8px",
+    gap: "10px",
+    flexWrap: "wrap"
+  }}
+>
+
+{/* LEFT */}
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "8px"
+  }}
+>
+
+<div
+  style={{
+    fontSize: "12px",
+    fontWeight: "700",
+    letterSpacing: "0.5px",
+    textTransform: "uppercase"
+  }}
+>
+  On this Count
+</div>
+
+</div>
+
+{/* EVENT CHIPS */}
+<div
+  style={{
+    display: "flex",
+    gap: "6px",
+    flexWrap: "wrap"
+  }}
+>
+
+{count === 1 && (
+<div
+  style={{
+    padding: "3px 7px",
+    borderRadius: "999px",
+    background: "rgba(33,150,243,0.12)",
+    border: "1px solid rgba(33,150,243,0.28)",
+    fontSize: "10px",
+    fontWeight: "700",
+    color: "#2196f3",
+    textTransform: "uppercase"
+  }}
+>
+  First Preferences Received
+</div>
+)}
+
+{hasElection && (
+<div
+  style={{
+    padding: "3px 7px",
+    borderRadius: "999px",
+    background: "rgba(76,175,80,0.12)",
+    border: "1px solid rgba(76,175,80,0.28)",
+    fontSize: "10px",
+    fontWeight: "700",
+    color: "#4caf50",
+    textTransform: "uppercase"
+  }}
+>
+  Election
+</div>
+)}
+
+{hasSurplus && (
+<div
+  style={{
+    padding: "3px 7px",
+    borderRadius: "999px",
+        background: "rgba(255,193,7,0.12)",
+    border: "1px solid rgba(255,193,7,0.28)",
+    fontSize: "10px",
+    fontWeight: "700",
+    color: "#ffc107",
+    textTransform: "uppercase"
+  }}
+>
+  Surplus Distribution
+</div>
+)}
+
+{hasElimination && (
+<div
+  style={{
+    padding: "3px 7px",
+    borderRadius: "999px",
+    background: "rgba(244,67,54,0.12)",
+    border: "1px solid rgba(244,67,54,0.28)",
+    fontSize: "10px",
+    fontWeight: "700",
+    color: "#f44336",
+    textTransform: "uppercase"
+  }}
+>
+  Elimination
+</div>
+)}
+
+{hasRedistribution && (
+<div
+  style={{
+    padding: "3px 7px",
+    borderRadius: "999px",
+        background: "rgba(255,193,7,0.12)",
+    border: "1px solid rgba(255,193,7,0.28)",
+    fontSize: "10px",
+    fontWeight: "700",
+    color: "#ffc107",
+    textTransform: "uppercase"
+  }}
+>
+  Redistribution
+</div>
+)}
+
+</div>
+
+</div>
+
+{/* DESCRIPTION */}
+<div
+  style={{
+    fontSize: "13px",
+    lineHeight: 1.5,
+    fontWeight: "500",
+    color: "var(--text)"
+  }}
+>
+  {event.description}
+</div>
+
+{/* SOURCE ROW */}
+{sources.length > 0 && (
+<div
+  style={{
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "6px",
+    marginTop: "10px"
+  }}
+>
+
+{sources.map((source: any) => {
+
+const sourceColor =
+    source.sourceType === "election"
+    ? "#4caf50"
+  : source.sourceType === "surplus"
+    ? "#ffc107"
+    : source.sourceType === "elimination"
+    ? "#f44336"
+    : source.sourceType === "elimination-redistribution"
+    ? "#ffc107"
+    : "#777";
+
+return (
+
+<div
+  key={`${source.name}-${source.sourceType}`}
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "6px",
+    padding: "5px 8px",
+    borderRadius: "8px",
+    background: `${sourceColor}14`,
+    border: `1px solid ${sourceColor}22`
+  }}
+>
+
+<div
+  style={{
+    width: "6px",
+    height: "6px",
+    borderRadius: "50%",
+    background: sourceColor
+  }}
+/>
+
+<div
+  style={{
+    fontSize: "11px",
+    fontWeight: "600"
+  }}
+>
+  {source.name}
+</div>
+
+<div
+  style={{
+    fontSize: "10px",
+    opacity: 0.65
+  }}
+>
+  {source.party}
+</div>
+
+</div>
+
+);
+
+})}
+
+</div>
+)}
+
+</div>
+
+);
+
+})()}
+
 {/* RESULT TABLE */}
 <div style={{
   marginTop: "20px",
@@ -2672,13 +3083,40 @@ const justElected =
   c.status === "elected" &&
   count === electedOn;
 
-const showSurplus =
-  c.status === "elected" &&
-  count === electedOn + 1;
+const surplusDistributedAlready =
+  Object.entries(countTimeline || {}).some(
+    ([timelineCount, evt]: any) => {
+
+      /*
+        Must have happened BEFORE this count
+      */
+
+      if (Number(timelineCount) >= count) {
+        return false;
+      }
+
+      return evt?.sources?.some?.(
+        (s: any) =>
+          s.name === c.name &&
+          s.party === c.party &&
+          s.sourceType === "surplus"
+      );
+
+    }
+  );
 
 const freezeAtQuota =
   c.status === "elected" &&
-  count >= electedOn + 2;
+  surplusDistributedAlready;
+
+const showSurplus =
+  transferData?.sources?.some(
+    (s: any) =>
+      s.name === c.name &&
+      s.party === c.party &&
+      s.sourceType === "surplus"
+  ) &&
+  !freezeAtQuota;
 
 const effectiveVotes =
   freezeAtQuota ? quota : c.votes;
@@ -4335,7 +4773,7 @@ onLoadResults={(data: any) => {
   .count-controls {
     width: fit-content;
     margin-left: 0 !important;
-    justify-content: flex-start;
+    justify-content: flex-start;s
     flex-wrap: wrap;
   }
 

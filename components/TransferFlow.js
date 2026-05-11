@@ -36,7 +36,7 @@ const renderNode = ({
   fontSize={11}
   alignmentBaseline="middle"
 >
-  {name.split("\n").map((line, i) => (
+  {(name || "").split("\n").map((line, i) => (
     <tspan
       key={i}
       x={isRightSide ? x - 6 : x + width + 6}
