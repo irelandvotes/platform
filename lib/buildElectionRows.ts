@@ -527,6 +527,13 @@ function getInstitution(
     return "Dáil Éireann";
   }
 
+      if (
+    country === "ireland" &&
+    category === "mayor"
+  ) {
+    return "Mayor";
+  }
+
   if (
     country === "ireland" &&
     category ===
@@ -540,7 +547,15 @@ function getInstitution(
     category ===
       "referendums"
   ) {
-    return `${slug} Amendment`;
+    return "Constitutional Amendment";
+  }
+
+    if (
+    country === "ireland" &&
+    category ===
+      "european"
+  ) {
+    return "European Parliament";
   }
 
   if (
@@ -565,9 +580,17 @@ function getInstitution(
 }
 
 function getType(category: string, slug: string) {
-  const isByElection = slug.includes("/");
 
-  if (isByElection) {
+  /*
+    Nested Dáil slugs
+    are by-elections
+  */
+
+  const isDailByElection =
+    category === "dail" &&
+    slug.includes("/");
+
+  if (isDailByElection) {
     return "By-Election";
   }
 
@@ -575,8 +598,8 @@ function getType(category: string, slug: string) {
     return "General Election";
   }
 
-   if (category === "byelection") {
-    return "By-Election";
+  if (category === "mayor") {
+    return "Mayoral Election";
   }
 
   if (category === "house-of-commons") {
@@ -592,10 +615,15 @@ function getType(category: string, slug: string) {
   }
 
   if (category === "assembly") {
-    return "Assembly Election";
+    return "Devolved Election";
+  }
+
+  if (category === "european") {
+    return "European Election";
   }
 
   return category;
+
 }
 
 function getAreaType(

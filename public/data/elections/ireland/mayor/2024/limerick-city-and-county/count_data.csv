@@ -1,0 +1,181 @@
+constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,turnout,tvp,spoilt,electorate
+Limerick City and County,1,john moran,John Moran,FALSE,IND,"18,308",running,1,39873,81668,79745,1923,157672
+Limerick City and County,1,helen odonnell,Helen O'Donnell,FALSE,IND,"12,903",running,1,39873,81668,79745,1923,157672
+Limerick City and County,1,dee ryan,Dee Ryan,FALSE,FF,"11,785",running,1,39873,81668,79745,1923,157672
+Limerick City and County,1,daniel butler,Daniel Butler,FALSE,FG,"10,190",running,1,39873,81668,79745,1923,157672
+Limerick City and County,1,maurice quinlivan,Maurice Quinlivan,FALSE,SF,"8,331",running,1,39873,81668,79745,1923,157672
+Limerick City and County,1,frankie daly,Frankie Daly,FALSE,IND,"4,574",running,1,39873,81668,79745,1923,157672
+Limerick City and County,1,sarah beasley,Sarah Beasley,FALSE,AON,"2,635",running,1,39873,81668,79745,1923,157672
+Limerick City and County,1,conor sheehan,Conor Sheehan,FALSE,LAB,"2,390",running,1,39873,81668,79745,1923,157672
+Limerick City and County,1,elisa odonovan,Elisa O'Donovan,FALSE,SF,"2,384",running,1,39873,81668,79745,1923,157672
+Limerick City and County,1,brian leddin,Brian Leddin,FALSE,GP,"2,303",running,1,39873,81668,79745,1923,157672
+Limerick City and County,1,laura keyes,Laura Keyes,FALSE,RAB,"1,079",running,1,39873,81668,79745,1923,157672
+Limerick City and County,1,catriona nichathain,Catríona Ní Chatháin,FALSE,IND,886,running,1,39873,81668,79745,1923,157672
+Limerick City and County,1,gerben uunk,Gerben Uunk,FALSE,PAW,758,running,1,39873,81668,79745,1923,157672
+Limerick City and County,1,ruairu fahy,Ruairi Fahy,FALSE,PBPS,689,running,1,39873,81668,79745,1923,157672
+Limerick City and County,1,colm omorain,Colm Ó Móráin,FALSE,IND,530,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,2,john moran,John Moran,FALSE,IND,"18,363",running,1,39873,81668,79745,1923,157672
+Limerick City and County,2,helen odonnell,Helen O'Donnell,FALSE,IND,"12,991",running,1,39873,81668,79745,1923,157672
+Limerick City and County,2,dee ryan,Dee Ryan,FALSE,FF,"11,843",running,1,39873,81668,79745,1923,157672
+Limerick City and County,2,daniel butler,Daniel Butler,FALSE,FG,"10,249",running,1,39873,81668,79745,1923,157672
+Limerick City and County,2,maurice quinlivan,Maurice Quinlivan,FALSE,SF,"8,356",running,1,39873,81668,79745,1923,157672
+Limerick City and County,2,frankie daly,Frankie Daly,FALSE,IND,"4,597",running,1,39873,81668,79745,1923,157672
+Limerick City and County,2,sarah beasley,Sarah Beasley,FALSE,AON,"2,662",running,1,39873,81668,79745,1923,157672
+Limerick City and County,2,conor sheehan,Conor Sheehan,FALSE,LAB,"2,404",running,1,39873,81668,79745,1923,157672
+Limerick City and County,2,elisa odonovan,Elisa O'Donovan,FALSE,SF,"2,401",running,1,39873,81668,79745,1923,157672
+Limerick City and County,2,brian leddin,Brian Leddin,FALSE,GP,"2,313",running,1,39873,81668,79745,1923,157672
+Limerick City and County,2,laura keyes,Laura Keyes,FALSE,RAB,"1,089",running,1,39873,81668,79745,1923,157672
+Limerick City and County,2,catriona nichathain,Catríona Ní Chatháin,FALSE,IND,896,running,1,39873,81668,79745,1923,157672
+Limerick City and County,2,gerben uunk,Gerben Uunk,FALSE,PAW,768,running,1,39873,81668,79745,1923,157672
+Limerick City and County,2,ruairu fahy,Ruairi Fahy,FALSE,PBPS,692,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,2,colm omorain,Colm Ó Móráin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,3,john moran,John Moran,FALSE,IND,"18,397",running,1,39873,81668,79745,1923,157672
+Limerick City and County,3,helen odonnell,Helen O'Donnell,FALSE,IND,"13,016",running,1,39873,81668,79745,1923,157672
+Limerick City and County,3,dee ryan,Dee Ryan,FALSE,FF,"11,864",running,1,39873,81668,79745,1923,157672
+Limerick City and County,3,daniel butler,Daniel Butler,FALSE,FG,"10,274",running,1,39873,81668,79745,1923,157672
+Limerick City and County,3,maurice quinlivan,Maurice Quinlivan,FALSE,SF,"8,438",running,1,39873,81668,79745,1923,157672
+Limerick City and County,3,frankie daly,Frankie Daly,FALSE,IND,"4,645",running,1,39873,81668,79745,1923,157672
+Limerick City and County,3,sarah beasley,Sarah Beasley,FALSE,AON,"2,698",running,1,39873,81668,79745,1923,157672
+Limerick City and County,3,conor sheehan,Conor Sheehan,FALSE,LAB,"2,439",running,1,39873,81668,79745,1923,157672
+Limerick City and County,3,elisa odonovan,Elisa O'Donovan,FALSE,SF,"2,478",running,1,39873,81668,79745,1923,157672
+Limerick City and County,3,brian leddin,Brian Leddin,FALSE,GP,"2,368",running,1,39873,81668,79745,1923,157672
+Limerick City and County,3,laura keyes,Laura Keyes,FALSE,RAB,"1,122",running,1,39873,81668,79745,1923,157672
+Limerick City and County,3,catriona nichathain,Catríona Ní Chatháin,FALSE,IND,990,running,1,39873,81668,79745,1923,157672
+Limerick City and County,3,gerben uunk,Gerben Uunk,FALSE,PAW,788,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,3,ruairu fahy,Ruairi Fahy,FALSE,PBPS,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,3,colm omorain,Colm Ó Móráin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,4,john moran,John Moran,FALSE,IND,"18,462",running,1,39873,81668,79745,1923,157672
+Limerick City and County,4,helen odonnell,Helen O'Donnell,FALSE,IND,"13,061",running,1,39873,81668,79745,1923,157672
+Limerick City and County,4,dee ryan,Dee Ryan,FALSE,FF,"11,939",running,1,39873,81668,79745,1923,157672
+Limerick City and County,4,daniel butler,Daniel Butler,FALSE,FG,"10,316",running,1,39873,81668,79745,1923,157672
+Limerick City and County,4,maurice quinlivan,Maurice Quinlivan,FALSE,SF,"8,509",running,1,39873,81668,79745,1923,157672
+Limerick City and County,4,frankie daly,Frankie Daly,FALSE,IND,"4,686",running,1,39873,81668,79745,1923,157672
+Limerick City and County,4,sarah beasley,Sarah Beasley,FALSE,AON,"2,738",running,1,39873,81668,79745,1923,157672
+Limerick City and County,4,conor sheehan,Conor Sheehan,FALSE,LAB,"2,480",running,1,39873,81668,79745,1923,157672
+Limerick City and County,4,elisa odonovan,Elisa O'Donovan,FALSE,SF,"2,526",running,1,39873,81668,79745,1923,157672
+Limerick City and County,4,brian leddin,Brian Leddin,FALSE,GP,"2,409",running,1,39873,81668,79745,1923,157672
+Limerick City and County,4,laura keyes,Laura Keyes,FALSE,RAB,"1,165",eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,4,catriona nichathain,Catríona Ní Chatháin,FALSE,IND,"1,016",eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,4,gerben uunk,Gerben Uunk,FALSE,PAW,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,4,ruairu fahy,Ruairi Fahy,FALSE,PBPS,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,4,colm omorain,Colm Ó Móráin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,5,john moran,John Moran,FALSE,IND,"18,618",running,1,39873,81668,79745,1923,157672
+Limerick City and County,5,helen odonnell,Helen O'Donnell,FALSE,IND,"13,275",running,1,39873,81668,79745,1923,157672
+Limerick City and County,5,dee ryan,Dee Ryan,FALSE,FF,"12,081",running,1,39873,81668,79745,1923,157672
+Limerick City and County,5,daniel butler,Daniel Butler,FALSE,FG,"10,420",running,1,39873,81668,79745,1923,157672
+Limerick City and County,5,maurice quinlivan,Maurice Quinlivan,FALSE,SF,"8,693",running,1,39873,81668,79745,1923,157672
+Limerick City and County,5,frankie daly,Frankie Daly,FALSE,IND,"4,815",running,1,39873,81668,79745,1923,157672
+Limerick City and County,5,sarah beasley,Sarah Beasley,FALSE,AON,"2,811",running,1,39873,81668,79745,1923,157672
+Limerick City and County,5,conor sheehan,Conor Sheehan,FALSE,LAB,"2,614",running,1,39873,81668,79745,1923,157672
+Limerick City and County,5,elisa odonovan,Elisa O'Donovan,FALSE,SF,"3,061",running,1,39873,81668,79745,1923,157672
+Limerick City and County,5,brian leddin,Brian Leddin,FALSE,GP,"2,578",eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,5,laura keyes,Laura Keyes,FALSE,RAB,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,5,catriona nichathain,Catríona Ní Chatháin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,5,gerben uunk,Gerben Uunk,FALSE,PAW,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,5,ruairu fahy,Ruairi Fahy,FALSE,PBPS,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,5,colm omorain,Colm Ó Móráin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,6,john moran,John Moran,FALSE,IND,"19,080",running,1,39873,81668,79745,1923,157672
+Limerick City and County,6,helen odonnell,Helen O'Donnell,FALSE,IND,"13,588",running,1,39873,81668,79745,1923,157672
+Limerick City and County,6,dee ryan,Dee Ryan,FALSE,FF,"12,370",running,1,39873,81668,79745,1923,157672
+Limerick City and County,6,daniel butler,Daniel Butler,FALSE,FG,"10,731",running,1,39873,81668,79745,1923,157672
+Limerick City and County,6,maurice quinlivan,Maurice Quinlivan,FALSE,SF,"8,845",running,1,39873,81668,79745,1923,157672
+Limerick City and County,6,frankie daly,Frankie Daly,FALSE,IND,"4,907",running,1,39873,81668,79745,1923,157672
+Limerick City and County,6,sarah beasley,Sarah Beasley,FALSE,AON,"2,859",running,1,39873,81668,79745,1923,157672
+Limerick City and County,6,conor sheehan,Conor Sheehan,FALSE,LAB,"2,946",eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,6,elisa odonovan,Elisa O'Donovan,FALSE,SF,"3,336",running,1,39873,81668,79745,1923,157672
+Limerick City and County,6,brian leddin,Brian Leddin,FALSE,GP,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,6,laura keyes,Laura Keyes,FALSE,RAB,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,6,catriona nichathain,Catríona Ní Chatháin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,6,gerben uunk,Gerben Uunk,FALSE,PAW,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,6,ruairu fahy,Ruairi Fahy,FALSE,PBPS,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,6,colm omorain,Colm Ó Móráin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,7,john moran,John Moran,FALSE,IND,"19,350",running,1,39873,81668,79745,1923,157672
+Limerick City and County,7,helen odonnell,Helen O'Donnell,FALSE,IND,"13,938",running,1,39873,81668,79745,1923,157672
+Limerick City and County,7,dee ryan,Dee Ryan,FALSE,FF,"12,540",running,1,39873,81668,79745,1923,157672
+Limerick City and County,7,daniel butler,Daniel Butler,FALSE,FG,"10,962",running,1,39873,81668,79745,1923,157672
+Limerick City and County,7,maurice quinlivan,Maurice Quinlivan,FALSE,SF,"9,156",running,1,39873,81668,79745,1923,157672
+Limerick City and County,7,frankie daly,Frankie Daly,FALSE,IND,"5,410",running,1,39873,81668,79745,1923,157672
+Limerick City and County,7,sarah beasley,Sarah Beasley,FALSE,AON,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,7,conor sheehan,Conor Sheehan,FALSE,LAB,"3,047",eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,7,elisa odonovan,Elisa O'Donovan,FALSE,SF,"3,439",running,1,39873,81668,79745,1923,157672
+Limerick City and County,7,brian leddin,Brian Leddin,FALSE,GP,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,7,laura keyes,Laura Keyes,FALSE,RAB,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,7,catriona nichathain,Catríona Ní Chatháin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,7,gerben uunk,Gerben Uunk,FALSE,PAW,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,7,ruairu fahy,Ruairi Fahy,FALSE,PBPS,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,7,colm omorain,Colm Ó Móráin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,8,john moran,John Moran,FALSE,IND,"19,719",running,1,39873,81668,79745,1923,157672
+Limerick City and County,8,helen odonnell,Helen O'Donnell,FALSE,IND,"14,288",running,1,39873,81668,79745,1923,157672
+Limerick City and County,8,dee ryan,Dee Ryan,FALSE,FF,"12,937",running,1,39873,81668,79745,1923,157672
+Limerick City and County,8,daniel butler,Daniel Butler,FALSE,FG,"11,337",running,1,39873,81668,79745,1923,157672
+Limerick City and County,8,maurice quinlivan,Maurice Quinlivan,FALSE,SF,"9,528",running,1,39873,81668,79745,1923,157672
+Limerick City and County,8,frankie daly,Frankie Daly,FALSE,IND,"5,689",running,1,39873,81668,79745,1923,157672
+Limerick City and County,8,sarah beasley,Sarah Beasley,FALSE,AON,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,8,conor sheehan,Conor Sheehan,FALSE,LAB,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,8,elisa odonovan,Elisa O'Donovan,FALSE,SF,"3,799",eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,8,brian leddin,Brian Leddin,FALSE,GP,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,8,laura keyes,Laura Keyes,FALSE,RAB,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,8,catriona nichathain,Catríona Ní Chatháin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,8,gerben uunk,Gerben Uunk,FALSE,PAW,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,8,ruairu fahy,Ruairi Fahy,FALSE,PBPS,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,8,colm omorain,Colm Ó Móráin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,9,john moran,John Moran,FALSE,IND,"20,982",running,1,39873,81668,79745,1923,157672
+Limerick City and County,9,helen odonnell,Helen O'Donnell,FALSE,IND,"15,389",running,1,39873,81668,79745,1923,157672
+Limerick City and County,9,dee ryan,Dee Ryan,FALSE,FF,"13,965",running,1,39873,81668,79745,1923,157672
+Limerick City and County,9,daniel butler,Daniel Butler,FALSE,FG,"12,385",running,1,39873,81668,79745,1923,157672
+Limerick City and County,9,maurice quinlivan,Maurice Quinlivan,FALSE,SF,"11,571",eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,9,frankie daly,Frankie Daly,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,9,sarah beasley,Sarah Beasley,FALSE,AON,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,9,conor sheehan,Conor Sheehan,FALSE,LAB,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,9,elisa odonovan,Elisa O'Donovan,FALSE,SF,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,9,brian leddin,Brian Leddin,FALSE,GP,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,9,laura keyes,Laura Keyes,FALSE,RAB,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,9,catriona nichathain,Catríona Ní Chatháin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,9,gerben uunk,Gerben Uunk,FALSE,PAW,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,9,ruairu fahy,Ruairi Fahy,FALSE,PBPS,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,9,colm omorain,Colm Ó Móráin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,10,john moran,John Moran,FALSE,IND,"22,290",running,1,39873,81668,79745,1923,157672
+Limerick City and County,10,helen odonnell,Helen O'Donnell,FALSE,IND,"16,688",running,1,39873,81668,79745,1923,157672
+Limerick City and County,10,dee ryan,Dee Ryan,FALSE,FF,"15,473",running,1,39873,81668,79745,1923,157672
+Limerick City and County,10,daniel butler,Daniel Butler,FALSE,FG,"13,632",eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,10,maurice quinlivan,Maurice Quinlivan,FALSE,SF,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,10,frankie daly,Frankie Daly,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,10,sarah beasley,Sarah Beasley,FALSE,AON,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,10,conor sheehan,Conor Sheehan,FALSE,LAB,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,10,elisa odonovan,Elisa O'Donovan,FALSE,SF,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,10,brian leddin,Brian Leddin,FALSE,GP,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,10,laura keyes,Laura Keyes,FALSE,RAB,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,10,catriona nichathain,Catríona Ní Chatháin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,10,gerben uunk,Gerben Uunk,FALSE,PAW,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,10,ruairu fahy,Ruairi Fahy,FALSE,PBPS,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,10,colm omorain,Colm Ó Móráin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,11,john moran,John Moran,FALSE,IND,"24,958",running,1,39873,81668,79745,1923,157672
+Limerick City and County,11,helen odonnell,Helen O'Donnell,FALSE,IND,"19,353",running,1,39873,81668,79745,1923,157672
+Limerick City and County,11,dee ryan,Dee Ryan,FALSE,FF,"18,575",eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,11,daniel butler,Daniel Butler,FALSE,FG,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,11,maurice quinlivan,Maurice Quinlivan,FALSE,SF,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,11,frankie daly,Frankie Daly,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,11,sarah beasley,Sarah Beasley,FALSE,AON,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,11,conor sheehan,Conor Sheehan,FALSE,LAB,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,11,elisa odonovan,Elisa O'Donovan,FALSE,SF,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,11,brian leddin,Brian Leddin,FALSE,GP,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,11,laura keyes,Laura Keyes,FALSE,RAB,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,11,catriona nichathain,Catríona Ní Chatháin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,11,gerben uunk,Gerben Uunk,FALSE,PAW,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,11,ruairu fahy,Ruairi Fahy,FALSE,PBPS,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,11,colm omorain,Colm Ó Móráin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,12,john moran,John Moran,FALSE,IND,"28,451",elected,1,39873,81668,79745,1923,157672
+Limerick City and County,12,helen odonnell,Helen O'Donnell,FALSE,IND,"23,829",running,1,39873,81668,79745,1923,157672
+Limerick City and County,12,dee ryan,Dee Ryan,FALSE,FF,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,12,daniel butler,Daniel Butler,FALSE,FG,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,12,maurice quinlivan,Maurice Quinlivan,FALSE,SF,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,12,frankie daly,Frankie Daly,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,12,sarah beasley,Sarah Beasley,FALSE,AON,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,12,conor sheehan,Conor Sheehan,FALSE,LAB,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,12,elisa odonovan,Elisa O'Donovan,FALSE,SF,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,12,brian leddin,Brian Leddin,FALSE,GP,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,12,laura keyes,Laura Keyes,FALSE,RAB,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,12,catriona nichathain,Catríona Ní Chatháin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,12,gerben uunk,Gerben Uunk,FALSE,PAW,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,12,ruairu fahy,Ruairi Fahy,FALSE,PBPS,,eliminated,1,39873,81668,79745,1923,157672
+Limerick City and County,12,colm omorain,Colm Ó Móráin,FALSE,IND,,eliminated,1,39873,81668,79745,1923,157672
