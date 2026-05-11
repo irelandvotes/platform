@@ -38,6 +38,66 @@ html, body, #__next {
   /* Logo */
   --logo-filter: invert(1);
 
+/* Atmosphere */
+--glass-bg:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,0.78),
+    rgba(255,255,255,0.58)
+  );
+
+--glass-hover:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,0.92),
+    rgba(255,255,255,0.72)
+  );
+
+--panel-shadow:
+  0 8px 24px rgba(0,0,0,0.06);
+
+--panel-shadow-hover:
+  0 12px 30px rgba(0,223,239,0.10);
+
+--hover-border:
+  rgba(0,223,239,0.24);
+
+--soft-highlight:
+  rgba(0,223,239,0.06);
+
+/* Glass */
+--glass-bg:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,0.72),
+    rgba(255,255,255,0.58)
+  );
+
+--glass-hover:
+  rgba(255,255,255,0.82);
+
+--glass-active:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,0.92),
+    rgba(255,255,255,0.78)
+  );
+
+--glass-border:
+  rgba(255,255,255,0.75);
+
+--glass-border-strong:
+  rgba(255,255,255,0.95);
+
+--sidebar-shadow:
+  inset -1px 0 rgba(255,255,255,0.75);
+
+--hero-glow:
+  rgba(0, 223, 239, 0.226);
+
+--hero-glow-strong:
+  rgba(0, 223, 239, 0.281);
+
 }
 
 
@@ -72,6 +132,66 @@ html, body, #__next {
 
   /* Logo */
   --logo-filter: invert(0);
+
+/* Atmosphere */
+--glass-bg:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.015)
+  );
+
+--glass-hover:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.025)
+  );
+
+--panel-shadow:
+  0 10px 30px rgba(0,0,0,0.22);
+
+--panel-shadow-hover:
+  0 0 22px rgba(0,223,239,0.14);
+
+--hover-border:
+  rgba(0,223,239,0.40);
+
+--soft-highlight:
+  rgba(0,223,239,0.10);
+
+/* Glass */
+--glass-bg:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,0.025),
+    rgba(255,255,255,0.01)
+  );
+
+--glass-hover:
+  rgba(255,255,255,0.035);
+
+--glass-active:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.03)
+  );
+
+--glass-border:
+  rgba(255,255,255,0.05);
+
+--glass-border-strong:
+  rgba(255,255,255,0.08);
+
+--sidebar-shadow:
+  inset -1px 0 rgba(255,255,255,0.03);
+
+--hero-glow:
+  rgba(0,223,239,0.12);
+
+--hero-glow-strong:
+  rgba(0,223,239,0.18);
 
 }
 

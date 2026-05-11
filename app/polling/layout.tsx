@@ -109,17 +109,17 @@ width: "100%"
         left: showMenu ? 0 : "-280px",
         height: "100%",
         width: "260px",
-        borderRight: "1px solid rgba(255,255,255,0.05)",
-        background:
-          "linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015))",
+borderRight: "1px solid var(--glass-border)",
+
+background: "var(--background)",
         backdropFilter: "blur(14px)",
         padding: "14px 12px",
         overflowY: "auto",
         overflowX: "hidden",
         zIndex: 60,
         transition: "left 0.25s ease",
-        boxShadow:
-          "0 0 40px rgba(0,0,0,0.45)"
+boxShadow:
+  "0 0 40px rgba(0,0,0,0.12)"
       }}
     >
 
@@ -127,13 +127,13 @@ width: "100%"
 <div
   style={{
     position: "absolute",
-    top: "-220px",
-    right: "-140px",
+    top: "-50px",
+    right: "-150px",
     width: "680px",
-    height: "680px",
+    height: "850px",
     borderRadius: "50%",
-    background:
-      "radial-gradient(circle, rgba(0,223,239,0.12), transparent 72%)",
+background:
+  "radial-gradient(circle, var(--hero-glow), transparent 72%)",
     pointerEvents: "none",
     zIndex: 0
   }}
@@ -190,16 +190,15 @@ Polling
 <div
   style={{
     width: "260px",
-    borderRight: "1px solid rgba(255,255,255,0.05)",
-    background:
-      "linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01))",
+borderRight: "1px solid var(--glass-border)",
+
+background: "var(--background)",
     backdropFilter: "blur(12px)",
     padding: "14px 12px",
     overflowY: "auto",
     overflowX: "hidden",
     position: "relative",
-    boxShadow:
-      "inset -1px 0 rgba(255,255,255,0.03)"
+boxShadow: "var(--sidebar-shadow)"
   }}
 >
 
@@ -207,13 +206,13 @@ Polling
 <div
   style={{
     position: "absolute",
-    top: "-220px",
-    right: "-140px",
+    top: "-50px",
+    right: "-150px",
     width: "680px",
-    height: "680px",
+    height: "850px",
     borderRadius: "50%",
-    background:
-      "radial-gradient(circle, rgba(0,223,239,0.12), transparent 72%)",
+background:
+  "radial-gradient(circle, var(--hero-glow), transparent 72%)",
     pointerEvents: "none",
     zIndex: 0
   }}
@@ -355,14 +354,14 @@ href={href}
 style={{
 display: "block",
 position: "relative",
-padding: "11px 12px 10px 14px",
+padding: "11px 12px 11px 14px",
 borderRadius: "12px",
 marginBottom: "8px",
 background: active
-  ? "linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03))"
-  : "rgba(255,255,255,0.015)",
+  ? "var(--glass-active)"
+  : "var(--glass-bg)",
 border: active
-  ? "1px solid rgba(255,255,255,0.08)"
+  ? "1px solid var(--glass-border-strong)"
   : "1px solid transparent",
 overflow: "hidden",
 transition: "all 0.16s ease",
@@ -375,10 +374,10 @@ onMouseEnter={(e) => {
 if (active) return;
 
 e.currentTarget.style.background =
-  "rgba(255,255,255,0.035)";
+  "var(--glass-hover)";
 
 e.currentTarget.style.border =
-  "1px solid rgba(255,255,255,0.05)";
+  "1px solid var(--glass-border)";
 
 }}
 onMouseLeave={(e) => {

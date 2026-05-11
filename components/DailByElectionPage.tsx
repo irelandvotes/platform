@@ -2991,7 +2991,7 @@ zIndex: 6
   width: "100%",
   height: "100%",
   background:
-  "linear-gradient(90deg, transparent, rgba(18,73,20,0.81), transparent)",
+  "linear-gradient(90deg, transparent, rgba(0, 223, 239, 0.28), transparent)",
   animation: "flashSweep 1s ease-out",
   zIndex: 8
   }}

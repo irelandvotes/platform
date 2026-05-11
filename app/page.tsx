@@ -92,10 +92,143 @@ flexDirection: "column",
 height: "100%",
 width: "100%",
 overflow: "auto",
-background: "var(--panel)"
 }}
 >
 
+{/* ===============================
+   HERO
+=============================== */}
+
+<div
+style={{
+position: "relative",
+overflow: "hidden",
+padding: "42px 28px 34px 28px",
+borderBottom: "1px solid var(--border)",
+isolation: "isolate"
+}}
+>
+
+{/* BACKGROUND GLASS */}
+<div
+style={{
+position: "absolute",
+inset: 0,
+background: "var(--glass-bg)",
+backdropFilter: "blur(12px)",
+zIndex: 0
+}}
+/>
+
+{/* LARGE GLOW */}
+<div
+style={{
+position: "absolute",
+top: "-220px",
+right: "-120px",
+width: "680px",
+height: "680px",
+borderRadius: "50%",
+background:
+  "radial-gradient(circle, var(--hero-glow-strong), transparent 72%)",
+pointerEvents: "none",
+zIndex: 1
+}}
+/>
+
+{/* SECONDARY GLOW */}
+<div
+style={{
+position: "absolute",
+bottom: "-340px",
+left: "-220px",
+width: "820px",
+height: "820px",
+borderRadius: "50%",
+background:
+  "radial-gradient(circle, var(--hero-glow), transparent 72%)",
+pointerEvents: "none",
+zIndex: 1
+}}
+/>
+
+{/* CONTENT */}
+<div
+style={{
+position: "relative",
+zIndex: 2,
+maxWidth: "860px"
+}}
+>
+
+<div
+style={{
+fontSize: "52px",
+fontWeight: "800",
+lineHeight: 1,
+letterSpacing: "-2px",
+marginBottom: "18px"
+}}
+>
+Welcome to Ireland Votes
+</div>
+
+<div
+style={{
+fontSize: "18px",
+lineHeight: 1.6,
+opacity: 0.78,
+maxWidth: "760px"
+}}
+>
+The new home for Irish political data.
+</div>
+
+<div
+style={{
+display: "flex",
+gap: "12px",
+marginTop: "26px",
+flexWrap: "wrap"
+}}
+>
+
+<Link
+href="/elections"
+style={{
+padding: "10px 16px",
+borderRadius: "10px",
+background:
+  "linear-gradient(180deg, var(--soft-highlight), transparent)",
+border: "1px solid var(--hover-border)",
+color: "var(--text)",
+fontSize: "13px",
+fontWeight: "700"
+}}
+>
+Explore Elections
+</Link>
+
+<Link
+href="/polling/ireland/dail"
+style={{
+padding: "10px 16px",
+borderRadius: "10px",
+background: "var(--glass-bg)",
+border: "1px solid var(--border)",
+backdropFilter: "blur(10px)",
+fontSize: "13px",
+fontWeight: "600"
+}}
+>
+View Polling Aggregates
+</Link>
+
+</div>
+
+</div>
+
+</div>
 
 {/* ===============================
    RECENT ELECTIONS
@@ -120,8 +253,9 @@ marginBottom: "12px"
 
 <div
 style={{
-fontSize: "18px",
-fontWeight: "600"
+fontSize: "22px",
+fontWeight: "750",
+letterSpacing: "-0.4px"
 }}
 >
 Recent Elections
@@ -192,14 +326,15 @@ scrollBehavior: "smooth"
 <RecentElection
 title="Presidential Election"
 type="President"
-result="Connolly (IND) 63.4%"
+result="Connolly won with 63.4% of the vote"
 date="24 Oct 2025"
+link="/elections/ireland/president/2025"
 />
 
 <RecentElection
 title="Dáil Éireann"
 type="General Election"
-result="FF 48 • SF 39 • FG 38"
+result="FF emerged as the largest party"
 date="29 Nov 2024"
 link="/elections/ireland/dail/2024"
 />
@@ -207,64 +342,41 @@ link="/elections/ireland/dail/2024"
 <RecentElection
 title="House of Commons (NI)"
 type="General Election"
-result="SF 7 • DUP 5 • SDLP 2"
+result="Sinn Féin won 7 seats, DUP retained 5"
 date="4 Jul 2024"
-/>
-
-<RecentElection
-title="Local Authorities (ROI)"
-type="Local Elections"
-result="FF 248 • FG 245 • SF 102"
-date="7 Jun 2024"
-/>
-
-<RecentElection
-title="European Parliament"
-type="European Election"
-result="FG 4 • FF 4 • SF 2"
-date="7 Jun 2024"
-/>
-
-<RecentElection
-title="Limerick Mayor"
-type="Mayoral Election"
-result="Moran (IND) 35.7%"
-date="7 Jun 2024"
+link="/elections/northern-ireland/house-of-commons/2024"
 />
 
 <RecentElection
 title="39th Amendment"
 type="Referendum"
-result="No 67.7%"
+result="Proposal rejected by 67.7% of voters"
 date="8 Mar 2024"
+link="/elections/ireland/referendum/39th"
 />
 
 <RecentElection
 title="40th Amendment"
 type="Referendum"
-result="No 73.9%"
+result="Proposal rejected by 73.9% of voters"
 date="8 Mar 2024"
-/>
-
-<RecentElection
-title="Local Authorities (NI)"
-type="Local Elections"
-result="SF 144 • DUP 122 • AP 67"
-date="18 May 2023"
+link="/elections/ireland/referendum/40th"
 />
 
 <RecentElection
 title="NI Assembly"
 type="Assembly Election"
-result="SF 27 • DUP 25 • AP 17"
+result="SF became the largest party at Stormont"
 date="5 May 2022"
+link="/elections/northern-ireland/assembly/2022"
 />
 
 <RecentElection
 title="Dublin Bay South"
 type="By-Election"
-result="Bacik (LAB) 30.2%"
+result="Ivana Bacik won the seat for Labour"
 date="8 Jul 2021"
+link="/elections/ireland/dail/2021/dublin-bay-south"
 />
 
 </div>
@@ -286,7 +398,9 @@ date="8 Jul 2021"
 className="home-main-column"
 style={{
 padding: "20px",
-borderRight: "1px solid var(--border)"
+borderRight: "1px solid var(--border)",
+background: "var(--background)",
+backdropFilter: "blur(12px)"
 }}
 >
 
@@ -314,6 +428,7 @@ title="Galway West By-Election"
 subtitle="Dáil Éireann"
 date="Friday 22 May 2026"
 targetDate="2026-05-22"
+link="/elections/ireland/dail/2026/galway-west"
 />
 
 <UpcomingRace
@@ -321,6 +436,7 @@ title="Dublin Central By-Election"
 subtitle="Dáil Éireann"
 date="Friday 22 May 2026"
 targetDate="2026-05-22"
+link="/elections/ireland/dail/2026/dublin-central"
 />
 
 <UpcomingRace
@@ -348,7 +464,9 @@ targetDate="2027-05-06"
 <div
 className="home-sidebar"
 style={{
-padding: "20px"
+padding: "20px",
+background: "var(--background)",
+backdropFilter: "blur(12px)"
 }}
 >
 
@@ -362,8 +480,9 @@ marginBottom: "14px"
 
 <div
 style={{
-fontSize: "18px",
-fontWeight: "600"
+fontSize: "22px",
+fontWeight: "750",
+letterSpacing: "-0.4px"
 }}
 >
 Polling
@@ -508,103 +627,161 @@ const content = (
 
 <div
 style={{
-minWidth: "280px",
+minWidth: "300px",
 flexShrink: 0,
-padding: "14px",
-borderRadius: "8px",
-border: "1px solid var(--border)",
-background: "var(--panel)",
-cursor: "pointer",
+padding: "18px",
+borderRadius: "16px",
+border: "1px solid var(--glass-border)",
+background: "var(--glass-bg)",
+backdropFilter: "blur(12px)",
+cursor: link ? "pointer" : "default",
 position: "relative",
 display: "flex",
 flexDirection: "column",
 justifyContent: "space-between",
-height: "108px",
-transition: "all 0.18s ease",
+height: "132px",
+overflow: "hidden",
+transition: "all 0.16s ease",
 boxShadow: "0 0 0 rgba(0,223,239,0)"
 }}
 onMouseEnter={(e) => {
+
 const el = e.currentTarget;
 
-el.style.borderColor = "rgba(0,223,239,0.45)";
-el.style.boxShadow = "0 0 18px rgba(0,223,239,0.12)";
+el.style.borderColor = "var(--hover-border)";
+el.style.boxShadow =
+  "0 0 18px rgba(0,223,239,0.10)";
+
 }}
 onMouseLeave={(e) => {
+
 const el = e.currentTarget;
 
-el.style.borderColor = "var(--border)";
-el.style.boxShadow = "0 0 0 rgba(0,223,239,0)";
+el.style.borderColor = "var(--glass-border)";
+el.style.boxShadow =
+  "0 0 0 rgba(0,223,239,0)";
+
 }}
 >
 
-{/* TYPE */}
-
+{/* SUBTLE GLOW */}
 <div
 style={{
 position: "absolute",
-top: "8px",
-left: "10px",
-fontSize: "9px",
-opacity: 0.5,
+top: "-80px",
+right: "-40px",
+width: "180px",
+height: "180px",
+borderRadius: "50%",
+background: "var(--hero-glow)",
+filter: "blur(55px)",
+opacity: 0.45,
+pointerEvents: "none"
+}}
+/>
+
+{/* TOP */}
+<div
+style={{
+position: "relative",
+zIndex: 1
+}}
+>
+
+<div
+style={{
+fontSize: "10px",
+fontWeight: "400",
 textTransform: "uppercase",
-letterSpacing: "0.04em",
-marginLeft: "5px"
+opacity: 0.55,
+marginBottom: "12px"
 }}
 >
 {type}
 </div>
 
-{/* TITLE */}
-
 <div
 style={{
-fontWeight: 600,
-marginBottom: "6px",
-marginTop: "14px",
-fontSize: "18px"
+fontWeight: 750,
+fontSize: "20px",
+lineHeight: 1.1,
+letterSpacing: "-0.5px",
+marginBottom: "10px"
 }}
 >
 {title}
 </div>
 
-
-{/* RESULT */}
-
 <div
 style={{
-fontSize: "12px",
-opacity: 0.8
+fontSize: "13px",
+lineHeight: 1.45,
+opacity: 0.78,
+fontWeight: "500"
 }}
 >
 {result}
 </div>
 
+</div>
 
-{/* DATE */}
+{/* FOOTER */}
+<div
+style={{
+display: "flex",
+justifyContent: "space-between",
+alignItems: "center",
+marginTop: "8px",
+position: "relative",
+zIndex: 1
+}}
+>
 
 <div
 style={{
-position: "absolute",
-bottom: "8px",
-right: "10px",
-fontSize: "10px",
-opacity: 0.5
+fontSize: "11px",
+opacity: 0.5,
+fontWeight: "500"
 }}
 >
 {date}
+</div>
+
+{link && (
+<div
+style={{
+fontSize: "12px",
+fontWeight: "700",
+color: "#00dfef"
+}}
+>
+View →
+</div>
+)}
+
 </div>
 
 </div>
 
 );
 
-if (link) return <Link href={link}>{content}</Link>;
+if (link) {
+return (
+<Link
+href={link}
+style={{
+textDecoration: "none",
+color: "inherit"
+}}
+>
+{content}
+</Link>
+);
+}
 
 return content;
 
 }
-
-
 
 /* ===============================
    UPCOMING RACE
@@ -631,45 +808,76 @@ function UpcomingRace({
 title,
 subtitle,
 date,
-targetDate
+targetDate,
+link
 }: {
 title: string;
 subtitle: string;
 date: string;
 targetDate: string;
+link?: string;
 }) {
 
 const daysUntil = getDaysUntil(targetDate);
 
-return (
+const content = (
 
-   <div
+<div
 style={{
-padding: "12px 14px",
-borderRadius: "8px",
-border: "1px solid var(--border)",
-cursor: "pointer",
+padding: "14px 16px",
+borderRadius: "16px",
+border: "1px solid var(--glass-border)",
+background: "var(--glass-bg)",
+backdropFilter: "blur(12px)",
+cursor: link ? "pointer" : "default",
 position: "relative",
 display: "flex",
 flexDirection: "column",
 justifyContent: "space-between",
-height: "110px",
+height: "118px",
+overflow: "hidden",
 transition: "all 0.18s ease",
-boxShadow: "0 0 0 rgba(0,223,239,0)"
+boxShadow: "0 0 0 rgba(0,223,239,0)",
 }}
 onMouseEnter={(e) => {
+
+if (!link) return;
+
 const el = e.currentTarget;
 
-el.style.borderColor = "rgba(0,223,239,0.45)";
-el.style.boxShadow = "0 0 18px rgba(0,223,239,0.12)";
+el.style.borderColor = "var(--hover-border)";
+el.style.boxShadow =
+  "0 0 22px rgba(0,223,239,0.12)";
+
 }}
 onMouseLeave={(e) => {
+
+if (!link) return;
+
 const el = e.currentTarget;
 
-el.style.borderColor = "var(--border)";
-el.style.boxShadow = "0 0 0 rgba(0,223,239,0)";
+el.style.borderColor = "var(--glass-border)";
+el.style.boxShadow =
+  "0 0 0 rgba(0,223,239,0)";
+
 }}
 >
+
+{/* GLOW */}
+<div
+style={{
+position: "absolute",
+top: "-60px",
+right: "-60px",
+width: "180px",
+height: "180px",
+borderRadius: "50%",
+background: "var(--hero-glow)",
+filter: "blur(55px)",
+opacity: 0.55,
+pointerEvents: "none"
+}}
+/>
 
 {/* TOP ROW */}
 <div
@@ -677,17 +885,18 @@ style={{
 display: "flex",
 justifyContent: "space-between",
 alignItems: "flex-start",
-marginBottom: "8px"
+marginBottom: "10px",
+position: "relative",
+zIndex: 1
 }}
 >
 
 <div
 style={{
 fontSize: "10px",
-fontWeight: "600",
-opacity: 0.55,
-textTransform: "uppercase",
-letterSpacing: "0.04em",
+fontWeight: "400",
+opacity: 0.58,
+textTransform: "uppercase"
 }}
 >
 {subtitle}
@@ -698,9 +907,10 @@ style={{
 fontSize: "10px",
 padding: "4px 8px",
 borderRadius: "999px",
-background: "rgba(0,223,239,0.08)",
-color: "#00dfef",
-border: "1px solid rgba(0,223,239,0.16)"
+background: "var(--soft-highlight)",
+border: "1px solid var(--hover-border)",
+fontWeight: "400",
+backdropFilter: "blur(10px)"
 }}
 >
 in {daysUntil} days
@@ -711,10 +921,13 @@ in {daysUntil} days
 {/* TITLE */}
 <div
 style={{
-fontWeight: 700,
-fontSize: "18px",
-lineHeight: 1.2,
-marginBottom: "10px"
+fontWeight: 750,
+fontSize: "20px",
+lineHeight: 1.15,
+letterSpacing: "-0.5px",
+marginBottom: "12px",
+position: "relative",
+zIndex: 1
 }}
 >
 {title}
@@ -726,35 +939,55 @@ style={{
 display: "flex",
 justifyContent: "space-between",
 alignItems: "center",
-marginTop: "auto"
+marginTop: "auto",
+position: "relative",
+zIndex: 1
 }}
 >
 
 <div
 style={{
 fontSize: "12px",
-opacity: 0.6
+opacity: 0.6,
+fontWeight: "500"
 }}
 >
 {date}
 </div>
 
+{link && (
 <div
 style={{
 fontSize: "12px",
-color: "#00dfef",
-fontWeight: "600",
-opacity: 0.9
+fontWeight: "700",
+color: "#00dfef"
 }}
 >
 View race →
 </div>
+)}
 
 </div>
 
 </div>
 
 );
+
+if (link) {
+return (
+<Link
+href={link}
+style={{
+textDecoration: "none",
+color: "inherit"
+}}
+>
+{content}
+</Link>
+);
+}
+
+return content;
 
 }
 
