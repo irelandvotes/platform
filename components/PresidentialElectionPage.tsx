@@ -1941,12 +1941,7 @@ return (
   style={{
     marginTop: "14px",
     marginBottom: "12px",
-    borderRadius: "12px",
-    background:
-      "linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01))",
-    border: "1px solid var(--border)",
     padding: "10px 12px",
-    boxShadow: "0 2px 10px rgba(0,0,0,0.12)"
   }}
 >
 
@@ -1973,13 +1968,12 @@ return (
 
 <div
   style={{
-    fontSize: "12px",
+    fontSize: "14px",
     fontWeight: "700",
     letterSpacing: "0.5px",
-    textTransform: "uppercase"
   }}
 >
-  On this Count
+  On This Count
 </div>
 
 </div>

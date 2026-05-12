@@ -998,6 +998,14 @@ if (constituency && seats) {
             grouped[constituency] = { counts: {} };
           }
 
+if (row.auto_return_candidate) {
+  grouped[constituency].automaticReturn = {
+    candidate: row.auto_return_candidate,
+    party: row.auto_return_party,
+    reason: row.auto_return_reason
+  };
+}
+
           const name =
             row.candidate_name ||
             row.Candidate ||

@@ -1110,6 +1110,11 @@ const constituencyMeta = selected
   ? results?.[selected.name]?.counts?.[1]?.[0]
   : null;
 
+const autoReturn =
+  selected
+    ? results?.[selected.name]?.automaticReturn
+    : null;
+
 /* CONSTITUENCY PARTY TOTALS + SWING */
 
 const constituencyParties = (() => {
@@ -3043,11 +3048,7 @@ return (
     marginTop: "14px",
     marginBottom: "12px",
     borderRadius: "12px",
-    background:
-      "linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01))",
-    border: "1px solid var(--border)",
     padding: "10px 12px",
-    boxShadow: "0 2px 10px rgba(0,0,0,0.12)"
   }}
 >
 
@@ -3074,13 +3075,12 @@ return (
 
 <div
   style={{
-    fontSize: "12px",
+    fontSize: "14px",
     fontWeight: "700",
     letterSpacing: "0.5px",
-    textTransform: "uppercase"
   }}
 >
-  On this Count
+  On This Count
 </div>
 
 </div>
@@ -3288,6 +3288,7 @@ return (
   maxHeight: "calc(100vh - 420px)",
   overflowY: "auto"
 }}>
+
   <div style={{
   display: "flex",
   alignItems: "center",
@@ -3574,6 +3575,9 @@ const gain = currentEffectiveVotes - prevEffectiveVotes;
 const finalGain =
   count > electedOn + 1 ? 0 : gain;
 
+  const isAutoReturned =
+  autoReturn?.candidate === c.name;
+
     const isTopGainer = gain === maxGain && gain > 0;
 
   const showDivider =
@@ -3775,6 +3779,48 @@ strokeWidth="2.8"
 </div>
 )}
 
+{isAutoReturned && (
+  <div
+    style={{
+      position: "absolute",
+
+      top: 0,
+      bottom: 0,
+
+      right: 0,
+
+      width:
+        count > 1
+          ? (
+              typeof window !== "undefined" &&
+              window.innerWidth < 900
+                ? "152px"
+                : "210px"
+            )
+          : (
+              typeof window !== "undefined" &&
+              window.innerWidth < 900
+                ? "106px"
+                : "150px"
+            ),
+
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+
+      background: "var(--panel-2)",
+
+      fontSize: "11px",
+      fontWeight: 600,
+
+      zIndex: 20,
+      pointerEvents: "none",
+    }}
+  >
+    Automatically Returned
+  </div>
+)}
+
 {/* Spacer */}
 <div style={{ width: "26px", flexShrink: 0 }} />
 
@@ -3923,17 +3969,23 @@ zIndex: 7
 {/* VOTES */}
 <div
 style={{
+position: "relative",
+
 width:
   typeof window !== "undefined" &&
   window.innerWidth < 900
     ? "64px"
     : "90px",
+
 textAlign: "right",
 fontSize: "13px",
 fontWeight: "500",
-zIndex: 7
+zIndex: 7,
+
+overflow: "hidden",
 }}
 >
+
 <AnimatedNumber
 value={c.votes}
 previousValue={
@@ -3944,6 +3996,7 @@ p.party === c.party
 )?.votes || 0
 }
 />
+
 </div>
 
 {/* GAIN */}
@@ -4343,7 +4396,7 @@ transform:
           : "translateY(12px) scale(0.96)"
       ),
 
-      bottom: "calc(100% - 6px)",
+      top: "calc(100% - -10px)",
 width:
   typeof window !== "undefined" &&
   window.innerWidth < 900
@@ -4383,7 +4436,7 @@ overscrollBehavior: "contain",
           ? 1
           : 0,
 
-      transformOrigin: "bottom center",
+      transformOrigin: "top center",
 
       transition:
         "all 240ms cubic-bezier(.2,.8,.2,1)",
