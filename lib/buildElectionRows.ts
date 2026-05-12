@@ -186,7 +186,10 @@ function parseOverallByElectionArea(
 function buildPreview(
   filePath: string,
   area: string,
-  type: string
+  type: string,
+  options?: {
+    excludeConstituencies?: string[];
+  }
 ) {
   if (!fs.existsSync(filePath)) {
     return null;
@@ -237,15 +240,37 @@ function buildPreview(
       parseCSVLine(line)
     );
 
-  const relevant =
-    area === "National"
-      ? data
-      : data.filter(
-          (row) =>
-            row[
-              constituencyIndex
-            ]?.trim() === area
-        );
+const excluded =
+  options?.excludeConstituencies || [];
+
+const filteredData =
+  data.filter((row) => {
+
+    const constituency =
+      row[
+        constituencyIndex
+      ]?.trim();
+
+    if (
+      excluded.includes(
+        constituency
+      )
+    ) {
+      return false;
+    }
+
+    return true;
+  });
+
+const relevant =
+  area === "National"
+    ? filteredData
+    : filteredData.filter(
+        (row) =>
+          row[
+            constituencyIndex
+          ]?.trim() === area
+      );
 
   if (!relevant.length) {
     return null;
@@ -790,6 +815,16 @@ const countFilePath =
 
 const type = getType(category, slug);
 
+const isEuropean =
+  category === "european";
+
+const electionYear =
+  Number(slug.split("/")[0]);
+
+const excludeNI =
+  isEuropean &&
+  electionYear <= 2020;
+
 const isByElection =
   slug.includes("/");
 
@@ -817,11 +852,18 @@ rows.push({
   type,
   href: hrefBase,
   isOverall: true,
-  preview:
+preview:
 buildPreview(
   previewFilePath,
   "National",
-  type
+  type,
+  excludeNI
+    ? {
+        excludeConstituencies: [
+          "Northern Ireland"
+        ]
+      }
+    : undefined
 )
 });
 areas.forEach((area) => {

@@ -195,11 +195,15 @@ const [previousResults, setPreviousResults] = useState<any>({});
 
 const [projection, setProjection] = useState<any>(null);
 const [showSeats, setShowSeats] = useState(false);
+const [includeNI, setIncludeNI] =
+  useState(false);
 
 const router = useRouter();
 const searchParams = useSearchParams();
 const selectedSlug = searchParams.get("c");
 const isFPTP = type === "house-of-commons";
+const isEuropean =
+  type === "european";
 
 function getCandidateImage(id: any) {
   const slug = id
@@ -218,6 +222,14 @@ function seatStyle(color: string) {
     background: color,
     boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.25)"
   };
+}
+
+function isNorthernIrelandConstituency(
+  name: string
+) {
+  return (
+    name === "Northern Ireland"
+  );
 }
 
 function normalizeSlug(value: string) {
@@ -416,6 +428,24 @@ const filtered = list.filter((name) =>
   name.toLowerCase().includes(search.toLowerCase())
 );
 
+const includedResultsEntries =
+  Object.entries(results || {}).filter(
+    ([constituency]) => {
+
+      if (
+        isEuropean &&
+        !includeNI &&
+        isNorthernIrelandConstituency(
+          constituency
+        )
+      ) {
+        return false;
+      }
+
+      return true;
+    }
+  );
+
 const nationalResults = (() => {
   const partySeats: Record<string, number> = {};
   const partyVotes: Record<string, number> = {};
@@ -423,9 +453,11 @@ const nationalResults = (() => {
   let constituenciesReporting = 0;
   let totalSeatsDeclared = 0;
 
-  const totalConstituencies = Object.keys(results || {}).length;
+const totalConstituencies =
+  includedResultsEntries.length;
 
-  Object.entries(results || {}).forEach(([constituency, constituencyData]) => {
+  includedResultsEntries.forEach(
+  ([constituency, constituencyData]) => {
   const data = constituencyData as any;
     const counts = (constituencyData as any)?.counts;
     if (!counts) return;
@@ -468,7 +500,7 @@ const nationalResults = (() => {
   const previousPartySeats: Record<string, number> = {};
   const previousPartyVotes: Record<string, number> = {};
 
-  Object.entries(results || {}).forEach(
+  includedResultsEntries.forEach(
     ([constituency]) => {
 
       const previous = previousResults?.[constituency];
@@ -526,7 +558,7 @@ const parties = Object.keys(partyVotes).map((party) => {
   let confirmedGain = 0;
   let projectedGain = 0;
 
-  Object.entries(results || {}).forEach(
+  includedResultsEntries.forEach(
     ([constituency, constituencyData]) => {
 
       const counts = (constituencyData as any)?.counts;
@@ -620,14 +652,24 @@ const seatSorted = [...parties]
 
 })();
 
-const TOTAL_SEATS = Object.values(results || {}).reduce(
-  (sum: number, constituency: any) => {
-    return sum + (constituency?.seats || 0);
-  },
-  0
-);
+const TOTAL_SEATS =
+  includedResultsEntries.reduce(
+    (
+      sum: number,
+      [, constituency]: any
+    ) => {
 
-const declaredSeats = Object.entries(results || {}).flatMap(
+      return (
+        sum +
+        (constituency?.seats || 0)
+      );
+
+    },
+    0
+  );
+
+const declaredSeats =
+  includedResultsEntries.flatMap(
   ([constituency, data]: any) => {
     const counts = data?.counts;
     if (!counts) return [];
@@ -703,7 +745,8 @@ const nationalMeta = (() => {
   let quota = 0;
   let quotaCount = 0;
 
-  Object.values(results || {}).forEach((constituency: any) => {
+  includedResultsEntries.forEach(
+  ([, constituency]: any) => {
     const counts = constituency?.counts;
     if (!counts) return;
 
@@ -1530,7 +1573,6 @@ touchAction: "pan-y",
     );
   })()}
 </h2>
-
 
 {/* SEATS FILLED */}
 {(() => {
@@ -3605,6 +3647,91 @@ zIndex: 7
 >
 National Results
 </h2>
+
+{isEuropean &&
+ Number(year) <= 2020 && (
+<div
+  style={{
+    marginTop: "12px",
+    marginLeft: "10px",
+    display: "flex",
+    alignItems: "center"
+  }}
+>
+
+<div
+  style={{
+    position: "relative",
+    display: "flex",
+    background: "var(--panel-2)",
+    borderRadius: "10px",
+    padding: "3px",
+    border: "1px solid var(--border)",
+    width: "220px"
+  }}
+>
+
+{/* Sliding Background */}
+<div
+  style={{
+    position: "absolute",
+    top: "3px",
+    left: includeNI
+      ? "calc(50% + 1px)"
+      : "3px",
+    width: "calc(50% - 4px)",
+    height: "calc(100% - 6px)",
+    background: "var(--panel)",
+    borderRadius: "8px",
+    transition:
+      "all 0.25s cubic-bezier(.4,0,.2,1)"
+  }}
+/>
+
+<button
+  onClick={() =>
+    setIncludeNI(false)
+  }
+  style={{
+    flex: 1,
+    padding: "7px 12px",
+    border: "none",
+    background: "transparent",
+    color: "var(--text)",
+    fontSize: "12px",
+    fontWeight: "600",
+    cursor: "pointer",
+    position: "relative",
+    zIndex: 1
+  }}
+>
+  Exclude NI
+</button>
+
+<button
+  onClick={() =>
+    setIncludeNI(true)
+  }
+  style={{
+    flex: 1,
+    padding: "7px 12px",
+    border: "none",
+    background: "transparent",
+    color: "var(--text)",
+    fontSize: "12px",
+    fontWeight: "600",
+    cursor: "pointer",
+    position: "relative",
+    zIndex: 1
+  }}
+>
+  Include NI
+</button>
+
+</div>
+
+</div>
+)}
 
 <div style={{ marginTop: "15px", marginLeft: "10px" }}>
 <ElectionMetaPanel 
