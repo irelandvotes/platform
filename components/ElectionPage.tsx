@@ -232,6 +232,50 @@ function isNorthernIrelandConstituency(
   );
 }
 
+function getFPTPOutcome(
+  constituency: string,
+  winningParty: string
+) {
+
+  const previous =
+    previousResults?.[
+      constituency
+    ] || {};
+
+  let previousWinner:
+    | string
+    | null = null;
+
+  let maxSeats = -1;
+
+  Object.entries(previous).forEach(
+    ([party, data]: any) => {
+
+      const seats =
+        data?.seats || 0;
+
+      if (seats > maxSeats) {
+        maxSeats = seats;
+        previousWinner = party;
+      }
+
+    }
+  );
+
+  if (!previousWinner) {
+    return null;
+  }
+
+  if (
+    previousWinner ===
+    winningParty
+  ) {
+    return "hold";
+  }
+
+  return `gain from ${previousWinner}`;
+}
+
 function normalizeSlug(value: string) {
   return value
     .toLowerCase()
@@ -353,6 +397,14 @@ const majority =
   winner && runnerUp
     ? winner.votes - runnerUp.votes
     : 0;
+
+const fptpOutcome =
+  winner && current
+    ? getFPTPOutcome(
+        current.name,
+        winner.party
+      )
+    : null;
 
 console.log("CURRENT DATA:", current);
 
@@ -1781,8 +1833,8 @@ return (
 
 {/* IMAGE */}
 <img
-  src={getCandidateImage(c.name)}
-  alt={c.name}
+  src={getCandidateImage(c.imageId)}
+  alt={c.imageId}
   style={{
     position: "absolute",
     width: "120%",
@@ -2146,15 +2198,37 @@ return (
   />
 
   {/* TEXT */}
-  <div style={{ lineHeight: 1.2 }}>
-    <div style={{ fontSize: "13px", fontWeight: "700" }}>
-      {winner?.party}
-    </div>
+<div style={{ lineHeight: 1.2 }}>
 
-    <div style={{ fontSize: "11px", opacity: 0.8 }}>
-      Majority of {majority.toLocaleString()}
-    </div>
+ <div
+  style={{
+    fontSize: "13px",
+    fontWeight: "700",
+    display: "flex",
+    alignItems: "center",
+    gap: "6px"
+  }}
+>
+
+{fptpOutcome && (
+  <span>
+    {winner?.party} {fptpOutcome}
+  </span>
+)}
+
+</div>
+
+  <div
+    style={{
+      fontSize: "11px",
+      opacity: 0.8
+    }}
+  >
+    Majority of{" "}
+    {majority.toLocaleString()}
   </div>
+
+</div>
 
 </div>
 
@@ -3456,8 +3530,8 @@ zIndex: 7
 >
 
 <img
-  src={getCandidateImage(c.name)}
-  alt={c.name}
+  src={getCandidateImage(c.imageId)}
+  alt={c.imageId}
   style={{
     width: "100%",
     height: "100%",
@@ -3977,7 +4051,7 @@ onMouseLeave={() => setHoveredSeat(null)}
 <div style={{ opacity: 0.7 }}>
   {isFPTP
     ? hoveredSeat.party
-    : `${hoveredSeat.party} • Count ${hoveredSeat.electedOn}`
+    : `${winner?.party} ${fptpOutcome}`
   }
 </div>
       </>

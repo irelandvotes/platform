@@ -843,6 +843,8 @@ const country = election?.country || "ireland";
 const type = election?.type || "dail";
 const year = election?.year || "2024";
 const slug = election?.slug;
+const isFPTP =
+  type === "house-of-commons";
 
 const dataPath = slug
   ? `/data/elections/${country}/${type}/${year}/${slug}`
@@ -997,6 +999,7 @@ if (constituency && seats) {
 
 grouped[constituency].counts[count].push({
   id: `${name}-${row.party}-${count}`,
+  imageId: `${row.candidate_id}-${row.party}`,
   name,
   party: row.party,
 
@@ -1416,6 +1419,49 @@ useEffect(() => {
      Constituency Styling
   ============================= */
 
+function isGainConstituency(name) {
+
+  if (type !== "house-of-commons") {
+    return false;
+  }
+
+  const constituency = results?.[name];
+  if (!constituency?.counts?.[1]) {
+    return false;
+  }
+
+  const first = constituency.counts[1];
+
+  // winning party
+  const winner = [...first]
+    .sort((a, b) => b.votes - a.votes)[0];
+
+  if (!winner) {
+    return false;
+  }
+
+  // outgoing party from previous_results.csv
+  const previous =
+    previousResults?.[name];
+
+  if (!previous) {
+    return false;
+  }
+
+  const previousWinner =
+    Object.entries(previous)
+      .sort(
+        (a, b) =>
+          b[1].votes - a[1].votes
+      )[0]?.[0];
+
+  if (!previousWinner) {
+    return false;
+  }
+
+  return winner.party !== previousWinner;
+}
+
 function getColor(name) {
   const constituency = results?.[name];
   if (!constituency?.counts) return "transparent";
@@ -1655,6 +1701,31 @@ touchZoom="center"
 }}
 >
 
+<svg width="0" height="0">
+
+  <defs>
+
+    <pattern
+      id="gainHatch"
+      patternUnits="userSpaceOnUse"
+      width="8"
+      height="8"
+      patternTransform="rotate(135)"
+    >
+      <line
+        x1="0"
+        y1="0"
+        x2="0"
+        y2="8"
+        stroke="rgba(0,0,0,0.22)"
+        strokeWidth="8"
+      />
+    </pattern>
+
+  </defs>
+
+</svg>
+
 <MapController
   geoData={geoData}
   selected={selected}
@@ -1823,8 +1894,92 @@ click: (e) => {
           />
         )}
 
+{/* Gain Overlay */}
+{geoData &&
+  type === "house-of-commons" &&
+  view === "party" && (
+  <GeoJSON
+    key={`gain-overlay-${selected?.name || "national"}`}
+    data={geoData}
+
+    style={(feature) => {
+
+      const key = cleanName(
+        feature.properties.ENG_NAME_VALUE
+      );
+
+      if (!isGainConstituency(key)) {
+        return {
+          fillOpacity: 0,
+          opacity: 0
+        };
+      }
+
+      const isSelected =
+        selected?.name === key;
+
+      return {
+        color: "transparent",
+        weight: 0,
+
+        fill: true,
+        fillColor: "url(#gainHatch)",
+
+        fillOpacity:
+          selected
+            ? 1
+            : 0.5,
+
+        interactive: false
+      };
+    }}
+  />
+)}
+
 {type?.startsWith("referendum") && (
   <ReferendumLegend range={marginRange} />
+)}
+
+{type === "house-of-commons" &&
+  view === "party" && (
+  <div
+    style={{
+      position: "absolute",
+      bottom: "20px",
+      right: "20px",
+      zIndex: 1000,
+
+      display: "flex",
+      alignItems: "center",
+      gap: "8px",
+
+      padding: "8px 12px",
+
+      background: "var(--panel)",
+      border: "1px solid var(--border)",
+      borderRadius: "10px",
+
+      fontSize: "11px",
+      color: "var(--text)"
+    }}
+  >
+
+    <div
+      style={{
+        width: "18px",
+        height: "18px",
+        borderRadius: "4px",
+
+        background:
+          "repeating-linear-gradient(45deg, rgba(102, 102, 102, 0.22) 0px, rgba(102, 102, 102, 0.22) 3px, transparent 3px, transparent 8px)"
+      }}
+    />
+
+    <span>
+      Denotes a gain
+    </span>
+
+  </div>
 )}
 
       </MapContainer>
