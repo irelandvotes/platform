@@ -729,13 +729,11 @@ function buildSeatChangeSummary(
       const finalData =
         counts[lastCount] || [];
 
-      const elected = finalData.filter(
-        (c: any) => c.status === "elected"
-      );
-
       const currentSeats =
-        elected.filter(
-          (c: any) => c.party === party
+        finalData.filter(
+          (c: any) =>
+            c.status === "elected" &&
+            c.party === party
         ).length;
 
       const previousSeats =
@@ -745,18 +743,25 @@ function buildSeatChangeSummary(
 
       seatsWon += currentSeats;
 
-      if (
-        currentSeats > 0 &&
-        previousSeats === 0
-      ) {
-        gained.push(constituency);
+      const diff =
+        currentSeats - previousSeats;
+
+      /*
+        STV GAINS
+      */
+      if (diff > 0) {
+        for (let i = 0; i < diff; i++) {
+          gained.push(constituency);
+        }
       }
 
-      if (
-        currentSeats === 0 &&
-        previousSeats > 0
-      ) {
-        lost.push(constituency);
+      /*
+        STV LOSSES
+      */
+      if (diff < 0) {
+        for (let i = 0; i < Math.abs(diff); i++) {
+          lost.push(constituency);
+        }
       }
     }
   );
@@ -765,8 +770,7 @@ function buildSeatChangeSummary(
     seatsWon,
     gains: gained.length,
     losses: lost.length,
-    net:
-      gained.length - lost.length,
+    net: gained.length - lost.length,
     gained,
     lost
   };
