@@ -158,6 +158,92 @@ quotaPercent: number; showSurplus: any; party: number;  status: number; justElim
   );
 }
 
+function MiniStat({
+  label,
+  value,
+  color
+}: {
+  label: string;
+  value: string | number;
+  color: string;
+}) {
+  return (
+    <div
+      style={{
+        padding: "6px 10px",
+        borderRadius: "10px",
+        background: `${color}18`,
+        border: `1px solid ${color}33`,
+        minWidth: "52px",
+        textAlign: "center"
+      }}
+    >
+
+      <div
+        style={{
+          fontSize: "9px",
+          opacity: 0.7,
+          textTransform: "uppercase"
+        }}
+      >
+        {label}
+      </div>
+
+      <div
+        style={{
+          fontSize: "14px",
+          fontWeight: 700,
+          color
+        }}
+      >
+        {value}
+      </div>
+
+    </div>
+  );
+}
+
+function StatBox({
+  label,
+  value
+}: {
+  label: string;
+  value: string | number;
+}) {
+  return (
+    <div
+      style={{
+        padding: "8px 6px",
+        borderRadius: 10,
+        background: "var(--panel-2)",
+        textAlign: "center"
+      }}
+    >
+
+      <div
+        style={{
+          fontSize: 10,
+          opacity: 0.6,
+          marginBottom: 2,
+          textTransform: "uppercase"
+        }}
+      >
+        {label}
+      </div>
+
+      <div
+        style={{
+          fontSize: 16,
+          fontWeight: 700
+        }}
+      >
+        {value}
+      </div>
+
+    </div>
+  );
+}
+
 export default function ElectionPage({
   title,
   year,
@@ -192,12 +278,27 @@ const [mapView, setMapView] = useState<string>("party");
 const [analysis, setAnalysis] = useState<string>("basic");
 
 const [previousResults, setPreviousResults] = useState<any>({});
+const [animatingParty, setAnimatingParty] =
+  useState<string | null>(null);
+  const seatCardRefs = useRef<
+  Record<string, HTMLDivElement | null>
+>({});
 
+const [popupAlignments, setPopupAlignments] =
+  useState<
+    Record<
+      string,
+      "left" | "center" | "right"
+    >
+  >({});
 const [projection, setProjection] = useState<any>(null);
 const [showSeats, setShowSeats] = useState(false);
 const [includeNI, setIncludeNI] =
   useState(false);
-
+const [expandedParty, setExpandedParty] =
+  useState<string | null>(null);
+  const leftPanelRef =
+  useRef<HTMLDivElement | null>(null);
 const router = useRouter();
 const searchParams = useSearchParams();
 const selectedSlug = searchParams.get("c");
@@ -317,6 +418,113 @@ useEffect(() => {
   setCount(1);
   setHighlighted(null);
 }, [selected])
+
+useEffect(() => {
+
+function updatePopupAlignment() {
+
+  const next: Record<
+    string,
+    "left" | "center" | "right"
+  > = {};
+
+  const panel =
+    leftPanelRef.current;
+
+  if (!panel) return;
+
+  const panelRect =
+    panel.getBoundingClientRect();
+
+  Object.entries(
+    seatCardRefs.current
+  ).forEach(([party, el]) => {
+
+    if (!el) return;
+
+    const rect =
+      el.getBoundingClientRect();
+
+    const popupWidth =
+      window.innerWidth < 900
+        ? Math.min(
+            window.innerWidth - 32,
+            340
+          )
+        : 340;
+
+    const center =
+      rect.left + rect.width / 2;
+
+    const wouldOverflowLeft =
+      center - popupWidth / 2 <
+      panelRect.left + 16;
+
+    const wouldOverflowRight =
+      center + popupWidth / 2 >
+      panelRect.right - 16;
+
+    if (wouldOverflowLeft) {
+
+      next[party] = "left";
+
+    } else if (
+      wouldOverflowRight
+    ) {
+
+      next[party] = "right";
+
+    } else {
+
+      next[party] = "center";
+
+    }
+
+  });
+
+  setPopupAlignments(next);
+
+}
+
+  updatePopupAlignment();
+
+  window.addEventListener(
+    "resize",
+    updatePopupAlignment
+  );
+
+  return () => {
+    window.removeEventListener(
+      "resize",
+      updatePopupAlignment
+    );
+  };
+
+}, [expandedParty, showSeats]);
+
+useEffect(() => {
+
+  const close = () => {
+    setAnimatingParty(null);
+
+    setTimeout(() => {
+      setExpandedParty(null);
+    }, 180);
+  };
+
+  window.addEventListener(
+    "click",
+    close
+  );
+
+  return () => {
+    window.removeEventListener(
+      "click",
+      close
+    );
+  };
+
+}, []);
 
 useEffect(() => {
   setResults({});
@@ -497,6 +705,72 @@ const includedResultsEntries =
       return true;
     }
   );
+
+function buildSeatChangeSummary(
+  party: string,
+  results: Record<string, any>,
+  previousResults: Record<string, any>
+) {
+  const gained: string[] = [];
+  const lost: string[] = [];
+
+  let seatsWon = 0;
+
+  Object.entries(results || {}).forEach(
+    ([constituency, data]: [string, any]) => {
+
+      const counts = data?.counts;
+      if (!counts) return;
+
+      const lastCount = Math.max(
+        ...Object.keys(counts).map(Number)
+      );
+
+      const finalData =
+        counts[lastCount] || [];
+
+      const elected = finalData.filter(
+        (c: any) => c.status === "elected"
+      );
+
+      const currentSeats =
+        elected.filter(
+          (c: any) => c.party === party
+        ).length;
+
+      const previousSeats =
+        previousResults?.[
+          constituency
+        ]?.[party]?.seats || 0;
+
+      seatsWon += currentSeats;
+
+      if (
+        currentSeats > 0 &&
+        previousSeats === 0
+      ) {
+        gained.push(constituency);
+      }
+
+      if (
+        currentSeats === 0 &&
+        previousSeats > 0
+      ) {
+        lost.push(constituency);
+      }
+    }
+  );
+
+  return {
+    seatsWon,
+    gains: gained.length,
+    losses: lost.length,
+    net:
+      gained.length - lost.length,
+    gained,
+    lost
+  };
+}
 
 const nationalResults = (() => {
   const partySeats: Record<string, number> = {};
@@ -1540,11 +1814,12 @@ Advanced
 
 {/* LEFT PANEL */}
 <div
+  ref={leftPanelRef}
   className="election-left-panel"
   style={{
     padding: "20px",
     background: "var(--panel)",
-overflowY: "auto",
+overflowX: "hidden",
 WebkitOverflowScrolling: "touch",
 touchAction: "pan-y",
     transition: "opacity 0.2s ease"
@@ -3871,11 +4146,26 @@ National Results
     marginBottom: "10px"
   }}
 >
-  {nationalResults.seats.map((p) => {
+  {nationalResults.seats.map((p, index) => {
     const color = PARTY_COLORS[p.party] || "#444";
 
-    return (
-      <div
+const summary =
+  buildSeatChangeSummary(
+    p.party,
+    results,
+    previousResults
+  );
+
+return (
+  <div
+    ref={(el) => {
+      seatCardRefs.current[p.party] = el;
+    }}
+    style={{
+      position: "relative"
+    }}
+  >
+    <div
         key={p.party}
         style={{
           display: "flex",
@@ -3889,7 +4179,24 @@ National Results
           fontSize: "12px",
           fontWeight: 600,
           minWidth: "110px",
-          transition: "transform 0.15s ease"
+          cursor: "pointer",
+transform:
+  expandedParty === p.party
+    ? "translateY(-4px)"
+    : "translateY(0)",
+
+transition:
+  "all 220ms cubic-bezier(.2,.8,.2,1)",
+
+boxShadow:
+  expandedParty === p.party
+    ? `0 12px 24px ${color}44`
+    : "0 2px 8px rgba(0,0,0,0.12)",
+
+zIndex:
+  expandedParty === p.party
+    ? 200
+    : 1,
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = "translateY(-2px)";
@@ -3897,6 +4204,25 @@ National Results
         onMouseLeave={(e) => {
           e.currentTarget.style.transform = "translateY(0)";
         }}
+onClick={(e) => {
+  e.stopPropagation();
+
+  if (expandedParty === p.party) {
+    setAnimatingParty(null);
+
+    setTimeout(() => {
+      setExpandedParty(null);
+    }, 180);
+
+    return;
+  }
+
+  setExpandedParty(p.party);
+
+  requestAnimationFrame(() => {
+    setAnimatingParty(p.party);
+  });
+}}
       >
 
         {/* ANGLED PARTY COLOUR */}
@@ -3977,6 +4303,247 @@ National Results
         </div>
 
       </div>
+
+{expandedParty === p.party && (
+  <div
+    onClick={(e) =>
+      e.stopPropagation()
+    }
+    style={{
+
+      position: "absolute",
+
+left:
+  popupAlignments[p.party] === "left"
+    ? "0"
+    : popupAlignments[p.party] === "right"
+    ? "auto"
+    : "50%",
+
+right:
+  popupAlignments[p.party] === "right"
+    ? "0"
+    : "auto",
+
+transform:
+  popupAlignments[p.party] ===
+  "center"
+    ? (
+        animatingParty === p.party
+          ? "translateX(-50%) translateY(0px) scale(1)"
+          : "translateX(-50%) translateY(12px) scale(0.96)"
+      )
+    : (
+        animatingParty === p.party
+          ? "translateY(0px) scale(1)"
+          : "translateY(12px) scale(0.96)"
+      ),
+
+      bottom: "calc(100% - 6px)",
+width:
+  typeof window !== "undefined" &&
+  window.innerWidth < 900
+    ? "min(92vw, 340px)"
+    : "340px",
+maxHeight:
+  typeof window !== "undefined" &&
+  window.innerWidth < 900
+    ? "min(60vh, 520px)"
+    : "420px",
+
+overflowY: "auto",
+
+WebkitOverflowScrolling: "touch",
+
+overscrollBehavior: "contain",
+      borderRadius: "16px 16px 12px 12px",
+
+      overflow: "hidden",
+
+      background:
+        `linear-gradient(
+          180deg,
+          ${color}22,
+          var(--panel)
+        )`,
+
+      border: `1px solid ${color}44`,
+
+      boxShadow:
+        `0 18px 40px rgba(0,0,0,0.42)`,
+
+      backdropFilter: "blur(18px)",
+
+      opacity:
+        animatingParty === p.party
+          ? 1
+          : 0,
+
+      transformOrigin: "bottom center",
+
+      transition:
+        "all 240ms cubic-bezier(.2,.8,.2,1)",
+
+      zIndex: 300
+    }}
+  >
+
+    {/* TOP COLOUR BAND */}
+    <div
+      style={{
+        height: "4px",
+        background: color
+      }}
+    />
+
+    {/* HEADER */}
+    <div
+      style={{
+        padding: "14px 14px 10px 14px",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center"
+      }}
+    >
+
+      <div>
+
+        <div
+          style={{
+            fontSize: "11px",
+            opacity: 0.65,
+            fontWeight: 600
+          }}
+        >
+          {p.party}
+        </div>
+
+        <div
+          style={{
+            fontSize: "20px",
+            fontWeight: 800,
+            letterSpacing: "-0.5px"
+          }}
+        >
+          {p.seats} seats won
+        </div>
+
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          gap: "6px"
+        }}
+      >
+
+        <MiniStat
+          label="Gains"
+          value={summary.gains}
+          color="#4caf50"
+        />
+
+        <MiniStat
+          label="Losses"
+          value={summary.losses}
+          color="#f44336"
+        />
+
+        <MiniStat
+          label="Net"
+          value={
+            summary.net > 0
+              ? `+${summary.net}`
+              : summary.net
+          }
+          color={
+            summary.net >= 0
+              ? "#4caf50"
+              : "#f44336"
+          }
+        />
+
+      </div>
+
+    </div>
+
+    {/* GAINS */}
+    {summary.gained.length > 0 && (
+      <div
+        style={{
+          padding:
+            "0 14px 14px 14px"
+        }}
+      >
+
+        <div
+          style={{
+            fontSize: "10px",
+            fontWeight: 700,
+            opacity: 0.5,
+            marginBottom: "8px",
+            letterSpacing: "1px",
+            textTransform:
+              "uppercase"
+          }}
+        >
+          Gains
+        </div>
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "4px",
+    maxHeight: "180px",
+    overflowY: "auto"
+  }}
+>
+
+  {summary.gained.map(
+    (seat: string) => (
+
+      <div
+        key={seat}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+
+          fontSize: "12px",
+          fontWeight: 500,
+
+          lineHeight: 1.3
+        }}
+      >
+
+        <span
+          style={{
+            color,
+            fontWeight: 800,
+            opacity: 0.9
+          }}
+        >
+          ↗
+        </span>
+
+        <span>
+          {seat}
+        </span>
+
+      </div>
+    )
+  )}
+
+</div>
+
+      </div>
+    )}
+
+  </div>
+)}
+
+      </div>
     );
   })}
 </div>
@@ -4051,7 +4618,7 @@ onMouseLeave={() => setHoveredSeat(null)}
 <div style={{ opacity: 0.7 }}>
   {isFPTP
     ? hoveredSeat.party
-    : `${winner?.party} ${fptpOutcome}`
+    : winner?.party
   }
 </div>
       </>

@@ -308,11 +308,8 @@ function CountTooltip({
     );
   }
 
-  const sorted = [...first].sort((a, b) => {
-    if (a.party === "IND") return 1;
-    if (b.party === "IND") return -1;
-    return b.votes - a.votes;
-  });
+const sorted = [...first]
+  .sort((a, b) => b.votes - a.votes);
 
   const totalVotes = sorted.reduce(
     (sum, candidate) => sum + candidate.votes,

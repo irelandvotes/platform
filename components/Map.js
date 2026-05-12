@@ -612,12 +612,28 @@ useEffect(() => {
     else if (size < 0.5) maxZoom = 10;
     else maxZoom = 8.2;
 
-    let padding;
+let padding;
 
-if (size < 0.02) {
+// national / large maps
+if (size > 2) {
+  padding = [60, 60];
+}
+
+// medium regions
+else if (size > 0.5) {
+  padding = [40, 40];
+}
+
+// tiny constituencies
+else if (size < 0.02) {
   padding = window.innerWidth < 1200
     ? [40, 40]
     : [120, 120];
+}
+
+// default
+else {
+  padding = [30, 30];
 }
 
     return { maxZoom, padding };
@@ -1462,6 +1478,53 @@ function isGainConstituency(name) {
   return winner.party !== previousWinner;
 }
 
+function getWinningMapParty(first) {
+
+  const partyTotals = {};
+  let strongestIndependent = 0;
+
+  first.forEach((c) => {
+
+    const votes = c.votes || 0;
+
+    const isIndependent =
+      c.party === "IND" ||
+      c.party === "INDN" ||
+      c.party === "INDU";
+
+    if (isIndependent) {
+
+      // track strongest INDIVIDUAL independent
+      strongestIndependent = Math.max(
+        strongestIndependent,
+        votes
+      );
+
+      return;
+    }
+
+    // grouped political parties
+    partyTotals[c.party] =
+      (partyTotals[c.party] || 0) + votes;
+  });
+
+  const topParty = Object.entries(partyTotals)
+    .sort((a, b) => b[1] - a[1])[0];
+
+  const topPartyVotes =
+    topParty?.[1] || 0;
+
+  // IND only wins if an INDIVIDUAL beats top party
+  if (
+    strongestIndependent >
+    topPartyVotes
+  ) {
+    return "IND";
+  }
+
+  return topParty?.[0] || "IND";
+}
+
 function getColor(name) {
   const constituency = results?.[name];
   if (!constituency?.counts) return "transparent";
@@ -1552,17 +1615,10 @@ return getPresidentialColor(counts)
       const first = counts[1];
       if (!first?.length) return "transparent";
 
-      const partyTotals = {};
+const winner =
+  getWinningMapParty(first);
 
-      first.forEach((c) => {
-        partyTotals[c.party] =
-          (partyTotals[c.party] || 0) + c.votes;
-      });
-
-      const winner = Object.entries(partyTotals)
-        .sort((a, b) => b[1] - a[1])[0];
-
-      return PARTY_COLORS[winner?.[0]] || "transparent";
+return PARTY_COLORS[winner] || "transparent";
     }
 
     // Poll-topping candidate
@@ -1614,17 +1670,10 @@ if (view === "spoilt") {
     const first = counts[1];
     if (!first?.length) return "transparent";
 
-    const partyTotals = {};
+const winner =
+  getWinningMapParty(first);
 
-    first.forEach((c) => {
-      partyTotals[c.party] =
-        (partyTotals[c.party] || 0) + c.votes;
-    });
-
-    const winner = Object.entries(partyTotals)
-      .sort((a, b) => b[1] - a[1])[0];
-
-    return PARTY_COLORS[winner?.[0]] || "transparent";
+return PARTY_COLORS[winner] || "transparent";
   }
 
 const displayCount =
@@ -1898,42 +1947,54 @@ click: (e) => {
 {geoData &&
   type === "house-of-commons" &&
   view === "party" && (
-  <GeoJSON
-    key={`gain-overlay-${selected?.name || "national"}`}
-    data={geoData}
+<GeoJSON
+  key={`gain-overlay-${selected?.name || "national"}`}
+  data={geoData}
 
-    style={(feature) => {
+  style={(feature) => {
 
-      const key = cleanName(
-        feature.properties.ENG_NAME_VALUE
-      );
+    const key = cleanName(
+      feature.properties.ENG_NAME_VALUE
+    );
 
-      if (!isGainConstituency(key)) {
-        return {
-          fillOpacity: 0,
-          opacity: 0
-        };
-      }
-
-      const isSelected =
-        selected?.name === key;
-
+    if (!isGainConstituency(key)) {
       return {
-        color: "transparent",
-        weight: 0,
-
-        fill: true,
-        fillColor: "url(#gainHatch)",
-
-        fillOpacity:
-          selected
-            ? 1
-            : 0.5,
-
-        interactive: false
+        fillOpacity: 0,
+        opacity: 0
       };
-    }}
-  />
+    }
+
+    const isSelected =
+      selected?.name === key;
+
+    return {
+      color: "transparent",
+      weight: 0,
+
+      fill: true,
+      fillColor: "url(#gainHatch)",
+
+      fillOpacity:
+        selected
+          ? 1
+          : 0.5,
+
+      interactive: false
+    };
+  }}
+
+  onEachFeature={(feature, layer) => {
+    if (layer._path) {
+      layer._path.style.pointerEvents = "none";
+    }
+
+    layer.on("add", () => {
+      if (layer._path) {
+        layer._path.style.pointerEvents = "none";
+      }
+    });
+  }}
+/>
 )}
 
 {type?.startsWith("referendum") && (

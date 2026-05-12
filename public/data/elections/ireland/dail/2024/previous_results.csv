@@ -48,7 +48,28 @@ election,constituency,party,votes,seats
 2020,Cork North-West,LR,0,
 2020,Cork North-West,IND,475,
 2020,Cork South-Central,,,
-2020,Cork South-West,,,
+2020,Cork South-West,AON,466,
+2020,Cork South-West,FF,10335,1
+2020,Cork South-West,FG,8211,
+2020,Cork South-West,GP,1680,
+2020,Cork South-West,INDIRL,0,
+2020,Cork South-West,IF,0,
+2020,Cork South-West,IFP,0,
+2020,Cork South-West,LAB,0,
+2020,Cork South-West,NP,0,
+2020,Cork South-West,PBPS,403,
+2020,Cork South-West,RTC,0,
+2020,Cork South-West,SF,4403,
+2020,Cork South-West,SD,4966,1
+2020,Cork South-West,IPP,0,
+2020,Cork South-West,WUA,0,
+2020,Cork South-West,WP,0,
+2020,Cork South-West,WUA,0,
+2020,Cork South-West,Redress,0,
+2020,Cork South-West,PAW,0,
+2020,Cork South-West,CEN,0,
+2020,Cork South-West,LR,0,
+2020,Cork South-West,IND,13873,1
 2020,Donegal,AON,2382,
 2020,Donegal,FF,15816,1
 2020,Donegal,FG,10677,1
@@ -197,7 +218,28 @@ election,constituency,party,votes,seats
 2020,Louth,CEN,0,
 2020,Louth,LR,0,
 2020,Louth,IND,6656,1
-2020,Mayo,,,
+2020,Mayo,AON,2803,
+2020,Mayo,FF,16546,2
+2020,Mayo,FG,26157,2
+2020,Mayo,GP,4219,
+2020,Mayo,INDIRL,0,
+2020,Mayo,IF,0,
+2020,Mayo,IFP,208,
+2020,Mayo,LAB,248,
+2020,Mayo,NP,0,
+2020,Mayo,PBPS,724,
+2020,Mayo,RTC,0,
+2020,Mayo,SF,15023,1
+2020,Mayo,SD,54,
+2020,Mayo,IPP,0,
+2020,Mayo,WUA,0,
+2020,Mayo,WP,0,
+2020,Mayo,WUA,0,
+2020,Mayo,Redress,0,
+2020,Mayo,PAW,0,
+2020,Mayo,CEN,0,
+2020,Mayo,LR,0,
+2020,Mayo,IND,1080,
 2020,Meath East,,,
 2020,Meath West,AON,7052,1
 2020,Meath West,FF,5986,
@@ -266,7 +308,28 @@ election,constituency,party,votes,seats
 2020,Roscommon-Galway,IND,18407,2
 2020,Sligo-Leitrim,,,
 2020,Tipperary North,,,
-2020,Tipperary South,,,
+2020,Tipperary South,AON,0,
+2020,Tipperary South,FF,5401,
+2020,Tipperary South,FG,6080,1
+2020,Tipperary South,GP,1489,
+2020,Tipperary South,INDIRL,0,
+2020,Tipperary South,IF,0,
+2020,Tipperary South,IFP,248,
+2020,Tipperary South,LAB,1080,
+2020,Tipperary South,NP,0,
+2020,Tipperary South,PBPS,0,
+2020,Tipperary South,RTC,0,
+2020,Tipperary South,SF,6007,1
+2020,Tipperary South,SD,0,
+2020,Tipperary South,IPP,0,
+2020,Tipperary South,WUA,0,
+2020,Tipperary South,WP,0,
+2020,Tipperary South,WUA,0,
+2020,Tipperary South,Redress,0,
+2020,Tipperary South,PAW,0,
+2020,Tipperary South,CEN,0,
+2020,Tipperary South,LR,0,
+2020,Tipperary South,IND,16189,1
 2020,Waterford,AON,1038,
 2020,Waterford,FF,9338,1
 2020,Waterford,FG,8763,
