@@ -2,19 +2,16 @@
 
 import fs from "fs";
 import path from "path";
+import { parse } from "csv-parse/sync";
 
 function parseCSVLine(line: string) {
-  const matches =
-    line.match(
-      /(".*?"|[^",]+)(?=\s*,|\s*$)/g
-    ) || [];
+  const records = parse(line, {
+    relax_quotes: true,
+    skip_empty_lines: true,
+    trim: true
+  });
 
-  return matches.map((value) =>
-    value
-      .replace(/^"|"$/g, "")
-      .replace(/,/g, "")
-      .trim()
-  );
+  return records[0] || [];
 }
 
 export type ElectionRow = {
@@ -308,10 +305,11 @@ firstCount.forEach((row) => {
     row[
       candidateIndex
     ]?.trim() || "Unknown";
-
-  const votes = Number(
-    row[votesIndex] || 0
-  );
+    
+const votes = Number(
+  String(row[votesIndex] || "0")
+    .replace(/,/g, "")
+);
 
   const isIndependent =
     party === "IND" ||

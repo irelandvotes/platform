@@ -1003,7 +1003,10 @@ if (constituency && seats) {
             grouped[constituency] = { counts: {} };
           }
 
-if (row.auto_return_candidate) {
+if (
+  row.auto_return_candidate &&
+  row.auto_return_candidate !== "NONE"
+) {
   grouped[constituency].automaticReturn = {
     candidate: row.auto_return_candidate,
     party: row.auto_return_party,

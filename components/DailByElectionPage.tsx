@@ -1898,15 +1898,11 @@ onError={(e) => {
 {/* PARTY VIEW */}
 {current?.name === "Overall" && view === "party" && (
 <div
+  className="national-party-layout"
   style={{
-    marginTop: "5px",
+    marginTop: "20px",
     display: "flex",
-    gap: "14px",
-    flexDirection:
-      typeof window !== "undefined" &&
-      window.innerWidth < 900
-        ? "column"
-        : "row"
+    gap: "14px"
   }}
 >
 
@@ -3287,6 +3283,16 @@ key="election_map"
     justify-content: flex-start;
     flex-wrap: wrap;
   }
+
+.national-party-layout {
+  flex-direction: row;
+}
+
+@media (max-width: 900px) {
+  .national-party-layout {
+    flex-direction: column;
+  }
+}
 
 }
 

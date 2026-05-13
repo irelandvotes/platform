@@ -2867,6 +2867,16 @@ key="election_map"
     touch-action: pan-y !important;
   }
 
+.national-party-layout {
+  flex-direction: row;
+}
+
+@media (max-width: 900px) {
+  .national-party-layout {
+    flex-direction: column;
+  }
+}
+
 }
 
 `}</style>

@@ -21,10 +21,94 @@ election,constituency,party,votes,seats
 2020,Carlow-Kilkenny,CEN,0,
 2020,Carlow-Kilkenny,LR,0,
 2020,Carlow-Kilkenny,IND,3299,
-2020,Cavan-Monaghan,,,
-2020,Clare,,,
-2020,Cork East,,,
-2020,Cork North-Central,,,
+2020,Cavan-Monaghan,AON,3777,
+2020,Cavan-Monaghan,FF,18005,2
+2020,Cavan-Monaghan,FG,19257,1
+2020,Cavan-Monaghan,GP,2503,
+2020,Cavan-Monaghan,INDIRL,0,
+2020,Cavan-Monaghan,IF,0,
+2020,Cavan-Monaghan,IFP,0,
+2020,Cavan-Monaghan,LAB,1007,
+2020,Cavan-Monaghan,NP,0,
+2020,Cavan-Monaghan,PBPS,806,
+2020,Cavan-Monaghan,RTC,0,
+2020,Cavan-Monaghan,SF,26436,2
+2020,Cavan-Monaghan,SD,0,
+2020,Cavan-Monaghan,IPP,0,
+2020,Cavan-Monaghan,WUA,0,
+2020,Cavan-Monaghan,WP,0,
+2020,Cavan-Monaghan,WUA,0,
+2020,Cavan-Monaghan,Redress,0,
+2020,Cavan-Monaghan,PAW,0,
+2020,Cavan-Monaghan,CEN,0,
+2020,Cavan-Monaghan,LR,0,
+2020,Cavan-Monaghan,IND,144,
+2020,Clare,AON,0,
+2020,Clare,FF,20199,1
+2020,Clare,FG,13446,1
+2020,Clare,GP,5646,
+2020,Clare,INDIRL,0,
+2020,Clare,IF,0,
+2020,Clare,IFP,714,
+2020,Clare,LAB,0,
+2020,Clare,NP,0,
+2020,Clare,PBPS,1190,
+2020,Clare,RTC,0,
+2020,Clare,SF,9002,1
+2020,Clare,SD,0,
+2020,Clare,IPP,0,
+2020,Clare,WUA,0,
+2020,Clare,WP,0,
+2020,Clare,WUA,0,
+2020,Clare,Redress,0,
+2020,Clare,PAW,0,
+2020,Clare,CEN,0,
+2020,Clare,LR,0,
+2020,Clare,IND,9103,1
+2020,Cork East,AON,915,
+2020,Cork East,FF,12805,1
+2020,Cork East,FG,9528,1
+2020,Cork East,GP,3255,
+2020,Cork East,INDIRL,0,
+2020,Cork East,IF,0,
+2020,Cork East,IFP,379,
+2020,Cork East,LAB,3809,1
+2020,Cork East,NP,0,
+2020,Cork East,PBPS,0,
+2020,Cork East,RTC,0,
+2020,Cork East,SF,10924,1
+2020,Cork East,SD,0,
+2020,Cork East,IPP,0,
+2020,Cork East,WUA,0,
+2020,Cork East,WP,0,
+2020,Cork East,WUA,0,
+2020,Cork East,Redress,0,
+2020,Cork East,PAW,0,
+2020,Cork East,CEN,0,
+2020,Cork East,LR,0,
+2020,Cork East,IND,4614,
+2020,Cork North-Central,AON,1988,
+2020,Cork North-Central,FF,14804,1
+2020,Cork North-Central,FG,8650,1
+2020,Cork North-Central,GP,3958,
+2020,Cork North-Central,INDIRL,0,
+2020,Cork North-Central,IF,0,
+2020,Cork North-Central,IFP,328,
+2020,Cork North-Central,LAB,4734,
+2020,Cork North-Central,NP,0,
+2020,Cork North-Central,PBPS,3271,1
+2020,Cork North-Central,RTC,0,
+2020,Cork North-Central,SF,13753,1
+2020,Cork North-Central,SD,2435,
+2020,Cork North-Central,IPP,0,
+2020,Cork North-Central,WUA,0,
+2020,Cork North-Central,WP,155,
+2020,Cork North-Central,WUA,0,
+2020,Cork North-Central,Redress,0,
+2020,Cork North-Central,PAW,0,
+2020,Cork North-Central,CEN,0,
+2020,Cork North-Central,LR,0,
+2020,Cork North-Central,IND,5617,
 2020,Cork North-West,AON,3414,
 2020,Cork North-West,FF,16724,2
 2020,Cork North-West,FG,14578,1
@@ -92,7 +176,28 @@ election,constituency,party,votes,seats
 2020,Donegal,CEN,0,
 2020,Donegal,LR,0,
 2020,Donegal,IND,11986,1
-2020,Dublin Bay North,,,
+2020,Dublin Bay North,AON,925,
+2020,Dublin Bay North,FF,9723,1
+2020,Dublin Bay North,FG,12925,1
+2020,Dublin Bay North,GP,5011,
+2020,Dublin Bay North,INDIRL,0,
+2020,Dublin Bay North,IF,0,
+2020,Dublin Bay North,IFP,707,
+2020,Dublin Bay North,LAB,7731,1
+2020,Dublin Bay North,NP,0,
+2020,Dublin Bay North,PBPS,2053,
+2020,Dublin Bay North,RTC,0,
+2020,Dublin Bay North,SF,19908,1
+2020,Dublin Bay North,SD,5922,1
+2020,Dublin Bay North,IPP,0,
+2020,Dublin Bay North,WUA,0,
+2020,Dublin Bay North,WP,0,
+2020,Dublin Bay North,WUA,0,
+2020,Dublin Bay North,Redress,0,
+2020,Dublin Bay North,PAW,0,
+2020,Dublin Bay North,CEN,0,
+2020,Dublin Bay North,LR,0,
+2020,Dublin Bay North,IND,3094,
 2020,Dublin Bay South,,,
 2020,Dublin Central,AON,563,
 2020,Dublin Central,FF,3169,
