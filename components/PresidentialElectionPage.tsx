@@ -1462,8 +1462,8 @@ style={{
   }}
 >
 <img
-  src={getCandidateImage(c.name)}
-  alt={c.name}
+  src={getCandidateImage(c.imageId)}
+  alt={c.imageId}
   style={{
     width: "100%",
     height: "100%",
@@ -2602,8 +2602,8 @@ zIndex: 6
 >
 
 <img
-  src={getCandidateImage(c.name)}
-  alt={c.name}
+  src={getCandidateImage(c.imageId)}
+  alt={c.imageId}
   style={{
     width: "100%",
     height: "100%",
