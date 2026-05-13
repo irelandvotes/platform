@@ -4708,18 +4708,12 @@ onMouseLeave={() => setHoveredSeat(null)}
 
 </div>
 
-
 {/* VOTE SHARE + SWING */}
 <div
   style={{
-    marginTop: "5px",
+    marginTop: "20px",
     display: "flex",
-    gap: "14px",
-    flexDirection:
-      typeof window !== "undefined" &&
-      window.innerWidth < 900
-        ? "column"
-        : "row"
+    gap: "14px"
   }}
 >
 
