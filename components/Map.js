@@ -1707,97 +1707,65 @@ const [isClient, setIsClient] = useState(false);
 useEffect(() => {
   setIsClient(true);
 }, []);
+
 useEffect(() => {
   if (!mapRef.current || !isMobile) return;
 
   const map = mapRef.current;
   const container = map.getContainer();
 
-  // start fully disabled
+  // disabled by default
   map.dragging.disable();
 
-  let twoFingerDrag = false;
+  const updateDragging = (e) => {
 
-  const handleTouchStart = (e) => {
+    // 2 fingers = allow dragging
     if (e.touches.length >= 2) {
-      twoFingerDrag = true;
       map.dragging.enable();
-    } else {
-      twoFingerDrag = false;
+    }
+
+    // 1 finger = disable dragging
+    else {
       map.dragging.disable();
     }
   };
 
-  const handleTouchMove = (e) => {
-    if (!twoFingerDrag) {
-      map.dragging.disable();
-    }
-  };
-
-  const handleTouchEnd = (e) => {
-    if (e.touches.length < 2) {
-      twoFingerDrag = false;
-      map.dragging.disable();
-    }
+  const stopDragging = () => {
+    map.dragging.disable();
   };
 
   container.addEventListener(
     "touchstart",
-    handleTouchStart,
+    updateDragging,
     { passive: true }
   );
 
   container.addEventListener(
     "touchmove",
-    handleTouchMove,
+    updateDragging,
     { passive: true }
   );
 
   container.addEventListener(
     "touchend",
-    handleTouchEnd,
+    stopDragging,
     { passive: true }
   );
 
   return () => {
     container.removeEventListener(
       "touchstart",
-      handleTouchStart
+      updateDragging
     );
 
     container.removeEventListener(
       "touchmove",
-      handleTouchMove
+      updateDragging
     );
 
     container.removeEventListener(
       "touchend",
-      handleTouchEnd
-    );
-  };
-}, [isMobile]);
-
-useEffect(() => {
-  if (!mapRef.current || !isMobile) return;
-
-  const container = mapRef.current.getContainer();
-
-  const blockSingleFingerDrag = (e) => {
-    if (e.touches.length === 1) {
-      e.stopPropagation();
-    }
-  };
-
-  container.addEventListener(
-    "touchmove",
-    blockSingleFingerDrag,
-    { passive: false }
-  );
-
-  return () => {
-    container.removeEventListener(
-      "touchmove",
-      blockSingleFingerDrag
+      stopDragging
     );
   };
 }, [isMobile]);
