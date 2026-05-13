@@ -105,9 +105,9 @@ width: "100%"
     <div
       style={{
         position: "fixed",
-        top: 0,
+        top: "60px",
         left: showMenu ? 0 : "-280px",
-        height: "100%",
+        height: height: "calc(100% - 60px)",
         width: "260px",
 borderRight: "1px solid var(--glass-border)",
 
