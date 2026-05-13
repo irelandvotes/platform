@@ -2590,11 +2590,17 @@ return (
 {/* PARTY PANEL */}
 {view === "party" && (
 
+{/* VOTE SHARE + SWING */}
 <div
   style={{
-    marginTop: "20px",
+    marginTop: "5px",
     display: "flex",
-    gap: "14px"
+    gap: "14px",
+    flexDirection:
+      typeof window !== "undefined" &&
+      window.innerWidth < 900
+        ? "column"
+        : "row"
   }}
 >
 
