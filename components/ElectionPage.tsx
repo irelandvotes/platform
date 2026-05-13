@@ -1849,171 +1849,158 @@ touchAction: "pan-y",
 >
 
 {/* LEFT SIDE */}
-<div
-style={{
-display: "flex",
-justifyContent: "space-between",
-alignItems: "flex-start",
-gap: "16px",
-flexWrap: "wrap"
-}}
+<div>
+
+<h2
+  style={{
+    margin: 0,
+    fontSize: "28px",
+    fontWeight: "700",
+    letterSpacing: "-0.3px",
+    padding: "7px 0px 0px 10px",
+    display: "flex",
+    alignItems: "center",
+    gap: "12px"
+  }}
 >
-{/* MOBILE/TABLET CONTENT */}
-<div
-style={{
-display: "flex",
-flexDirection: "column",
-gap: "6px",
-flex: 1,
-minWidth: 0
-}}
->
-{/* BACK BUTTON FIRST ON MOBILE */}
+  {current.name}
+
+  {/* STATUS DOT */}
+  {(() => {
+    const counts = current?.data?.counts;
+    if (!counts) return null;
+
+    const lastCount = Math.max(...Object.keys(counts).map(Number));
+    const finalData = counts[lastCount] || [];
+
+    const seats =
+  current?.data?.seats ||
+  finalData?.[0]?.seats ||
+  0;
+    const filled = finalData.filter(
+      (c: any) => c.status === "elected"
+    ).length;
+
+    const complete = filled === seats;
+
+    return (
+      <span
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "6px",
+          fontSize: "13px",
+          fontWeight: "600",
+          opacity: 0.85
+        }}
+      >
+        <span
+          style={{
+            width: "8px",
+            height: "8px",
+            borderRadius: "50%",
+            background: complete ? "#4caf50" : "#ff5252",
+            animation: complete ? "none" : "blink 2s infinite"
+          }}
+        />
+
+        {complete ? "Complete" : "Counting"}
+      </span>
+    );
+  })()}
+</h2>
+
+{/* SEATS FILLED */}
+{(() => {
+  const counts = current?.data?.counts;
+  if (!counts) return null;
+
+  const lastCount = Math.max(...Object.keys(counts).map(Number));
+  const finalData = counts[lastCount] || [];
+
+  const seats =
+  current?.data?.seats ||
+  finalData?.[0]?.seats ||
+  0;
+  const filled = finalData.filter(
+    (c: any) => c.status === "elected"
+  ).length;
+
+return (
+  <div style={{ margin: "6px 0 0 10px" }}>
+
+    {/* GRID */}
+    <div
+      style={{
+        display: "flex",
+        gap: "2px"
+      }}
+    >
+      {[...Array(seats)].map((_, i) => {
+        const seat = finalData
+          .filter((c: any) => c.status === "elected")[i];
+
+        return (
+          <div
+            key={i}
+            style={{
+              width: "10px",
+              height: "10px",
+              borderRadius: "2px",
+              background: seat
+                ? PARTY_COLORS[seat.party] || "#888"
+                : "rgba(255,255,255,0.08)",
+              border: "1px solid rgba(0,0,0,0.3)"
+            }}
+          />
+        );
+      })}
+    </div>
+
+    {/* TEXT */}
+    <div
+      style={{
+        fontSize: "11px",
+        marginTop: "2px",
+        opacity: 0.6
+      }}
+    >
+      {filled} / {seats} seats declared
+    </div>
+
+  </div>
+);
+})()}
+
+</div>
+
+
+{/* RIGHT SIDE */}
 {selected && (
 <button
-onClick={() => {
-setSelected(null);
+  onClick={() => {
+    setSelected(null);
 router.push(`?`);
-setResetTrigger(prev => prev + 1);
-}}
-style={{
-padding: "5px 7px",
-borderRadius: "12px",
-background: "transparent",
-border: "1px solid var(--border)",
-boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
-fontSize: "12px",
-color: "var(--text-muted)",
-cursor: "pointer",
-alignSelf: "flex-start"
-}}
+    setResetTrigger(prev => prev + 1);
+  }}
+  style={{
+    marginTop: "10px",
+    padding: "5px 7px",
+    borderRadius: "12px",
+    background: "transparent",
+    border: "1px solid var(--border)",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+    fontSize: "12px",
+    color: "var(--text-muted)",
+    cursor: "pointer"
+  }}
 >
 ↺ Back to national result
 </button>
 )}
 
-{/* NAME */}
-<h2
-style={{
-margin: 0,
-fontSize: "28px",
-fontWeight: "700",
-letterSpacing: "-0.3px",
-padding: "7px 0px 0px 10px",
-lineHeight: 1.1
-}}
->
-{current.name}
-</h2>
-
-{/* STATUS */}
-{(() => {
-const counts = current?.data?.counts;
-if (!counts) return null;
-
-const lastCount = Math.max(...Object.keys(counts).map(Number));
-const finalData = counts[lastCount] || [];
-
-const seats =
-current?.data?.seats ||
-finalData?.[0]?.seats ||
-0;
-
-const filled = finalData.filter(
-(c: any) => c.status === "elected"
-).length;
-
-const complete = filled === seats;
-
-return (
-<div
-style={{
-display: "flex",
-alignItems: "center",
-gap: "6px",
-fontSize: "13px",
-fontWeight: "600",
-opacity: 0.85,
-paddingLeft: "10px"
-}}
->
-<span
-style={{
-width: "8px",
-height: "8px",
-borderRadius: "50%",
-background: complete ? "#4caf50" : "#ff5252",
-animation: complete ? "none" : "blink 2s infinite"
-}}
-/>
-
-{complete ? "Complete" : "Counting"}
-</div>
-);
-})()}
-
-{/* SEATS FILLED */}
-{(() => {
-const counts = current?.data?.counts;
-if (!counts) return null;
-
-const lastCount = Math.max(...Object.keys(counts).map(Number));
-const finalData = counts[lastCount] || [];
-
-const seats =
-current?.data?.seats ||
-finalData?.[0]?.seats ||
-0;
-
-const filled = finalData.filter(
-(c: any) => c.status === "elected"
-).length;
-
-return (
-<div style={{ marginLeft: "10px" }}>
-{/* GRID */}
-<div
-style={{
-display: "flex",
-gap: "2px"
-}}
->
-{[...Array(seats)].map((_, i) => {
-const seat = finalData
-.filter((c: any) => c.status === "elected")[i];
-
-return (
-<div
-key={i}
-style={{
-width: "10px",
-height: "10px",
-borderRadius: "2px",
-background: seat
-? PARTY_COLORS[seat.party] || "#888"
-: "rgba(255,255,255,0.08)",
-border: "1px solid rgba(0,0,0,0.3)"
-}}
-/>
-);
-})}
 </div>
 
-{/* TEXT */}
-<div
-style={{
-fontSize: "11px",
-marginTop: "2px",
-opacity: 0.6
-}}
->
-{filled} / {seats} seats declared
-</div>
-</div>
-);
-})()}
-</div>
-</div>
 
 
 {(() => {
@@ -2288,104 +2275,6 @@ return (
 
 );
 })()}
-
-
-
-{/* TALLY BAR */}
-{!hasResults && (
-<div style={{
-  marginBottom: "15px",
-  padding: "8px 12px",
-  borderRadius: "8px",
-  background: "var(--panel-2)",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between"
-}}>
-
-  {/* LEFT: LIVE */}
-  <div style={{
-    display: "flex",
-    alignItems: "center",
-    gap: "6px",
-    whiteSpace: "nowrap"
-  }}>
-    <span style={{
-      width: "6px",
-      height: "6px",
-      borderRadius: "50%",
-      background: "red",
-      animation: "blink 2s infinite"
-    }} />
-
-    <span style={{ color: "red", fontWeight: "700" }}>
-      LIVE
-    </span>
-
-    <span style={{ color: "var(--text-muted)", fontWeight: "600" }}>
-      TALLY:
-    </span>
-  </div>
-
-  {/* CENTER: SCROLLING TICKER */}
-  <div style={{
-    flex: 1,
-    overflow: "hidden",
-    margin: "0 10px",
-    maskImage: "linear-gradient(to right, transparent, white 10%, white 90%, transparent)"
-  }}>
-    <div
-  style={{
-    display: "inline-flex",
-    gap: "20px",
-    whiteSpace: "nowrap",
-    animation: "scroll 30s linear infinite"
-  }}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.animationPlayState = "paused";
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.animationPlayState = "running";
-  }}
->
-{(() => {
-  const data = current?.data?.counts?.[1] ?? [];
-
-  const candidates = [...data];
-  const totalVotes = candidates.reduce((sum, c) => sum + c.votes, 0);
-
-  candidates.sort((a, b) => b.votes - a.votes);
-
-  return candidates.map((c) => {
-
-    const percent = totalVotes
-      ? ((c.votes / totalVotes) * 100).toFixed(1)
-      : 0;
-
-    return (
-      <span key={c.id} style={{ marginRight: "24px" }}>
-        {c.name}{" "}
-        <span style={{ fontWeight: "700" }}>{c.party}</span>{" "}
-        {percent}%
-      </span>
-    );
-  });
-})()}
-    </div>
-  </div>
-
-  {/* RIGHT: % IN */}
-  <div style={{
-    fontSize: "12px",
-    color: "var(--text-muted)",
-    fontWeight: "600",
-    whiteSpace: "nowrap"
-  }}>
-    99% COUNTED
-  </div>
-
-</div>
-)}
 
 {/* VIEW HEADER */}
 <div
