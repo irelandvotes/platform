@@ -1777,6 +1777,31 @@ useEffect(() => {
   };
 }, [isMobile]);
 
+useEffect(() => {
+  if (!mapRef.current || !isMobile) return;
+
+  const container = mapRef.current.getContainer();
+
+  const blockSingleFingerDrag = (e) => {
+    if (e.touches.length === 1) {
+      e.stopPropagation();
+    }
+  };
+
+  container.addEventListener(
+    "touchmove",
+    blockSingleFingerDrag,
+    { passive: false }
+  );
+
+  return () => {
+    container.removeEventListener(
+      "touchmove",
+      blockSingleFingerDrag
+    );
+  };
+}, [isMobile]);
+
   /* =============================
      Map Render
   ============================= */
@@ -1818,9 +1843,10 @@ requestAnimationFrame(() => {
   }}
   scrollWheelZoom={true}
   dragging={true}
+  tap={false}
+touchZoom={true}
 wheelDebounceTime={120}
 wheelPxPerZoomLevel={240}
-touchZoom="center"
  onClick={() => {
   mobileTooltipRef.current = null;
   onSelect(null);
