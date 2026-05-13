@@ -1735,6 +1735,7 @@ return (
 
 
 {/* RIGHT SIDE */}
+{!isFPTP && (
 <div
   style={{
     display: "flex",
@@ -1809,6 +1810,7 @@ Advanced
 </div>
 
 </div>
+)}
 
 </div>
 
@@ -1839,11 +1841,30 @@ touchAction: "pan-y",
   <div>
 
   
-      <div
+<div
   style={{
     display: "flex",
+
+    flexDirection:
+      typeof window !== "undefined" &&
+      window.innerWidth < 900
+        ? "column-reverse"
+        : "row",
+
     justifyContent: "space-between",
-    alignItems: "flex-start",
+
+    alignItems:
+      typeof window !== "undefined" &&
+      window.innerWidth < 900
+        ? "stretch"
+        : "flex-start",
+
+    gap:
+      typeof window !== "undefined" &&
+      window.innerWidth < 900
+        ? "12px"
+        : "0px",
+
     marginBottom: "20px"
   }}
 >
@@ -1983,17 +2004,28 @@ return (
 router.push(`?`);
     setResetTrigger(prev => prev + 1);
   }}
-  style={{
-    marginTop: "10px",
-    padding: "5px 7px",
-    borderRadius: "12px",
-    background: "transparent",
-    border: "1px solid var(--border)",
-    boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
-    fontSize: "12px",
-    color: "var(--text-muted)",
-    cursor: "pointer"
-  }}
+style={{
+  marginTop:
+    typeof window !== "undefined" &&
+    window.innerWidth < 900
+      ? "0px"
+      : "10px",
+
+  alignSelf:
+    typeof window !== "undefined" &&
+    window.innerWidth < 900
+      ? "flex-start"
+      : "auto",
+
+  padding: "5px 7px",
+  borderRadius: "12px",
+  background: "transparent",
+  border: "1px solid var(--border)",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+  fontSize: "12px",
+  color: "var(--text-muted)",
+  cursor: "pointer"
+}}
 >
 ↺ Back to national result
 </button>
@@ -2592,9 +2624,14 @@ return (
 
 <div
   style={{
-    marginTop: "20px",
+    marginTop: "5px",
     display: "flex",
-    gap: "14px"
+    gap: "14px",
+    flexDirection:
+      typeof window !== "undefined" &&
+      window.innerWidth < 900
+        ? "column"
+        : "row"
   }}
 >
 
@@ -3064,120 +3101,23 @@ return (
   }}
 >
 
-{/* LEFT */}
 <div
   style={{
     display: "flex",
     alignItems: "center",
-    gap: "8px"
+    justifyContent: "space-between",
   }}
 >
 
 <div
   style={{
-    fontSize: "14px",
+    fontSize: "13px",
     fontWeight: "700",
-    letterSpacing: "0.5px",
+    opacity: 0.8
   }}
 >
   On This Count
 </div>
-
-</div>
-
-{/* EVENT CHIPS */}
-<div
-  style={{
-    display: "flex",
-    gap: "6px",
-    flexWrap: "wrap"
-  }}
->
-
-{count === 1 && (
-<div
-  style={{
-    padding: "3px 7px",
-    borderRadius: "999px",
-    background: "rgba(33,150,243,0.12)",
-    border: "1px solid rgba(33,150,243,0.28)",
-    fontSize: "10px",
-    fontWeight: "700",
-    color: "#2196f3",
-    textTransform: "uppercase"
-  }}
->
-  First Preferences Received
-</div>
-)}
-
-{hasElection && (
-<div
-  style={{
-    padding: "3px 7px",
-    borderRadius: "999px",
-    background: "rgba(76,175,80,0.12)",
-    border: "1px solid rgba(76,175,80,0.28)",
-    fontSize: "10px",
-    fontWeight: "700",
-    color: "#4caf50",
-    textTransform: "uppercase"
-  }}
->
-  Election
-</div>
-)}
-
-{hasSurplus && (
-<div
-  style={{
-    padding: "3px 7px",
-    borderRadius: "999px",
-        background: "rgba(255,193,7,0.12)",
-    border: "1px solid rgba(255,193,7,0.28)",
-    fontSize: "10px",
-    fontWeight: "700",
-    color: "#ffc107",
-    textTransform: "uppercase"
-  }}
->
-  Surplus Distribution
-</div>
-)}
-
-{hasElimination && (
-<div
-  style={{
-    padding: "3px 7px",
-    borderRadius: "999px",
-    background: "rgba(244,67,54,0.12)",
-    border: "1px solid rgba(244,67,54,0.28)",
-    fontSize: "10px",
-    fontWeight: "700",
-    color: "#f44336",
-    textTransform: "uppercase"
-  }}
->
-  Elimination
-</div>
-)}
-
-{hasRedistribution && (
-<div
-  style={{
-    padding: "3px 7px",
-    borderRadius: "999px",
-        background: "rgba(255,193,7,0.12)",
-    border: "1px solid rgba(255,193,7,0.28)",
-    fontSize: "10px",
-    fontWeight: "700",
-    color: "#ffc107",
-    textTransform: "uppercase"
-  }}
->
-  Redistribution
-</div>
-)}
 
 </div>
 
@@ -3186,9 +3126,9 @@ return (
 {/* DESCRIPTION */}
 <div
   style={{
-    fontSize: "13px",
-    lineHeight: 1.5,
-    fontWeight: "500",
+fontSize: "13px",
+lineHeight: 1.6,
+fontWeight: "400",
     color: "var(--text)"
   }}
 >
@@ -3206,18 +3146,18 @@ return (
   }}
 >
 
-{sources.map((source: any) => {
+{sources
+  .filter(
+    (source: any) =>
+      source.sourceType === "election" ||
+      source.sourceType === "elimination"
+  )
+  .map((source: any) => {
 
 const sourceColor =
-    source.sourceType === "election"
+  source.sourceType === "election"
     ? "#4caf50"
-  : source.sourceType === "surplus"
-    ? "#ffc107"
-    : source.sourceType === "elimination"
-    ? "#f44336"
-    : source.sourceType === "elimination-redistribution"
-    ? "#ffc107"
-    : "#777";
+    : "#f44336";
 
 return (
 

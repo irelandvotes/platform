@@ -1302,11 +1302,30 @@ touchAction: "pan-y",
   }}
 >
  
-      <div
+<div
   style={{
     display: "flex",
+
+    flexDirection:
+      typeof window !== "undefined" &&
+      window.innerWidth < 900
+        ? "column-reverse"
+        : "row",
+
     justifyContent: "space-between",
-    alignItems: "flex-start",
+
+    alignItems:
+      typeof window !== "undefined" &&
+      window.innerWidth < 900
+        ? "stretch"
+        : "flex-start",
+
+    gap:
+      typeof window !== "undefined" &&
+      window.innerWidth < 900
+        ? "12px"
+        : "0px",
+
     marginBottom: "20px"
   }}
 >
@@ -1381,17 +1400,17 @@ touchAction: "pan-y",
 router.push(`?`);
     setResetTrigger(prev => prev + 1);
   }}
-  style={{
-    marginTop: "10px",
-    padding: "5px 7px",
-    borderRadius: "12px",
-    background: "transparent",
-    border: "1px solid var(--border)",
-    boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
-    fontSize: "12px",
-    color: "var(--text-muted)",
-    cursor: "pointer"
-  }}
+style={{
+  marginTop: "10px",
+  padding: "5px 7px",
+  borderRadius: "12px",
+  background: "transparent",
+  border: "1px solid var(--border)",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+  fontSize: "12px",
+  color: "var(--text-muted)",
+  cursor: "pointer"
+}}
 >
 ↺ Back to national result
 </button>

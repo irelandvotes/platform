@@ -1708,6 +1708,55 @@ useEffect(() => {
   setIsClient(true);
 }, []);
 
+useEffect(() => {
+  if (!mapRef.current || !isMobile) return;
+
+  const map = mapRef.current;
+
+  // disable normal dragging initially
+  map.dragging.disable();
+
+  const container = map.getContainer();
+
+  const handleTouchStart = (e) => {
+    // two fingers = allow drag
+    if (e.touches.length >= 2) {
+      map.dragging.enable();
+    }
+  };
+
+  const handleTouchEnd = (e) => {
+    // back to one/no finger = disable drag
+    if (e.touches.length < 2) {
+      map.dragging.disable();
+    }
+  };
+
+  container.addEventListener(
+    "touchstart",
+    handleTouchStart,
+    { passive: true }
+  );
+
+  container.addEventListener(
+    "touchend",
+    handleTouchEnd,
+    { passive: true }
+  );
+
+  return () => {
+    container.removeEventListener(
+      "touchstart",
+      handleTouchStart
+    );
+
+    container.removeEventListener(
+      "touchend",
+      handleTouchEnd
+    );
+  };
+}, [isMobile]);
+
   /* =============================
      Map Render
   ============================= */
@@ -1748,7 +1797,7 @@ requestAnimationFrame(() => {
     background: isDark ? "#1f1f1f" : "#f8f8f8"
   }}
   scrollWheelZoom={true}
-  dragging={!isMobile}
+  dragging={true}
 wheelDebounceTime={120}
 wheelPxPerZoomLevel={240}
 touchZoom="center"
