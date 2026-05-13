@@ -118,9 +118,9 @@ bottom: 0,
           ...(isMobile
             ? {
                 position: "fixed",
-                top: 0,
+                top:"60px",
                 left: 0,
-                height: "100%",
+                height: "calc(100% - 60px)",
                 zIndex: 101,
                 transform:
                   isMobile &&
