@@ -4712,7 +4712,12 @@ onMouseLeave={() => setHoveredSeat(null)}
   style={{
     marginTop: "20px",
     display: "flex",
-    gap: "14px"
+    gap: "14px",
+    flexDirection:
+      typeof window !== "undefined" &&
+      window.innerWidth < 900
+        ? "column"
+        : "row"
   }}
 >
 
