@@ -1584,8 +1584,8 @@ router.push(`?`);
   }}
 >
 <img
-  src={getCandidateImage(c.imageId)}
-  alt={c.imageId}
+  src={getCandidateImage(c.name)}
+  alt={c.name}
   style={{
     width: "100%",
     height: "100%",
@@ -3092,8 +3092,8 @@ letterSpacing:
 >
 
 <img
-  src={getCandidateImage(c.imageId)}
-  alt={c.imageId}
+  src={getCandidateImage(c.name)}
+  alt={c.name}
   style={{
     width: "100%",
     height: "100%",
