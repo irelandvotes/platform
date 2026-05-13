@@ -1707,27 +1707,36 @@ const [isClient, setIsClient] = useState(false);
 useEffect(() => {
   setIsClient(true);
 }, []);
-
 useEffect(() => {
   if (!mapRef.current || !isMobile) return;
 
   const map = mapRef.current;
-
-  // disable normal dragging initially
-  map.dragging.disable();
-
   const container = map.getContainer();
 
+  // start fully disabled
+  map.dragging.disable();
+
+  let twoFingerDrag = false;
+
   const handleTouchStart = (e) => {
-    // two fingers = allow drag
     if (e.touches.length >= 2) {
+      twoFingerDrag = true;
       map.dragging.enable();
+    } else {
+      twoFingerDrag = false;
+      map.dragging.disable();
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    if (!twoFingerDrag) {
+      map.dragging.disable();
     }
   };
 
   const handleTouchEnd = (e) => {
-    // back to one/no finger = disable drag
     if (e.touches.length < 2) {
+      twoFingerDrag = false;
       map.dragging.disable();
     }
   };
@@ -1735,6 +1744,12 @@ useEffect(() => {
   container.addEventListener(
     "touchstart",
     handleTouchStart,
+    { passive: true }
+  );
+
+  container.addEventListener(
+    "touchmove",
+    handleTouchMove,
     { passive: true }
   );
 
@@ -1748,6 +1763,11 @@ useEffect(() => {
     container.removeEventListener(
       "touchstart",
       handleTouchStart
+    );
+
+    container.removeEventListener(
+      "touchmove",
+      handleTouchMove
     );
 
     container.removeEventListener(
