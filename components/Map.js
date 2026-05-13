@@ -907,18 +907,23 @@ useEffect(() => {
       "leaflet-gesture-handling/dist/leaflet-gesture-handling.css"
     )
   ]).then(([leaflet]) => {
+
     const L = leaflet.default;
 
     leafletRef.current = L;
 
-    L.Map.addInitHook(
-      "addHandler",
-      "gestureHandling",
-      L.GestureHandling
-    );
+    // DESKTOP ONLY
+    if (window.innerWidth >= 900) {
 
-    if (mapRef.current) {
-      mapRef.current.gestureHandling.enable();
+      L.Map.addInitHook(
+        "addHandler",
+        "gestureHandling",
+        L.GestureHandling
+      );
+
+      if (mapRef.current) {
+        mapRef.current.gestureHandling.enable();
+      }
     }
   });
 }, []);
@@ -1810,9 +1815,9 @@ requestAnimationFrame(() => {
     background: isDark ? "#1f1f1f" : "#f8f8f8"
   }}
   scrollWheelZoom={true}
-  dragging={true}
+  dragging={!isMobile}
   tap={false}
-touchZoom={true}
+touchZoom="center"
 wheelDebounceTime={120}
 wheelPxPerZoomLevel={240}
  onClick={() => {
