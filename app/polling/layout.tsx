@@ -107,7 +107,7 @@ width: "100%"
         position: "fixed",
         top: "60px",
         left: showMenu ? 0 : "-280px",
-        height: height: "calc(100% - 60px)",
+        height: "calc(100% - 60px)",
         width: "260px",
 borderRight: "1px solid var(--glass-border)",
 
