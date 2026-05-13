@@ -2114,7 +2114,7 @@ return (
     height: "65px",
     position: "relative",
     background: color, // 👈 subtle LEFT base
-    color: "var(--text)",
+    color: "white",
     display: "flex",
     alignItems: "stretch",
     borderRight:
@@ -4244,13 +4244,6 @@ width:
   window.innerWidth < 900
     ? "min(92vw, 340px)"
     : "340px",
-maxHeight:
-  typeof window !== "undefined" &&
-  window.innerWidth < 900
-    ? "min(60vh, 520px)"
-    : "420px",
-
-overflowY: "auto",
 
 WebkitOverflowScrolling: "touch",
 
@@ -4366,14 +4359,22 @@ overscrollBehavior: "contain",
 
     </div>
 
+{/* GAINS + LOSSES */}
+{(summary.gained.length > 0 ||
+  summary.lost.length > 0) && (
+
+  <div
+    style={{
+      display: "flex",
+      gap: "18px",
+      padding: "0 14px 14px 14px",
+      alignItems: "flex-start"
+    }}
+  >
+
     {/* GAINS */}
     {summary.gained.length > 0 && (
-      <div
-        style={{
-          padding:
-            "0 14px 14px 14px"
-        }}
-      >
+      <div style={{ flex: 1, minWidth: 0 }}>
 
         <div
           style={{
@@ -4382,62 +4383,152 @@ overscrollBehavior: "contain",
             opacity: 0.5,
             marginBottom: "8px",
             letterSpacing: "1px",
-            textTransform:
-              "uppercase"
+            textTransform: "uppercase"
           }}
         >
           Gains
         </div>
 
-<div
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    gap: "4px",
-    maxHeight: "180px",
-    overflowY: "auto"
-  }}
->
-
-  {summary.gained.map(
-    (seat: string) => (
-
-      <div
-        key={seat}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "8px",
-
-          fontSize: "12px",
-          fontWeight: 500,
-
-          lineHeight: 1.3
-        }}
-      >
-
-        <span
+        <div
           style={{
-            color,
-            fontWeight: 800,
-            opacity: 0.9
+            display: "flex",
+            flexDirection: "column",
+            gap: "4px"
           }}
         >
-          ↗
-        </span>
 
-        <span>
-          {seat}
-        </span>
-
-      </div>
+{(
+  Object.entries(
+    summary.gained.reduce(
+      (
+        acc: Record<string, number>,
+        seat: string
+      ) => {
+        acc[seat] = (acc[seat] || 0) + 1;
+        return acc;
+      },
+      {}
     )
-  )}
+  ) as [string, number][]
+).map(
+  ([seat, count]) => (
 
-</div>
+    <div
+      key={`gain-${seat}`}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "8px",
+        fontSize: "12px",
+        fontWeight: 500,
+        lineHeight: 1.3
+      }}
+    >
+
+      <span
+        style={{
+          color,
+          fontWeight: 800,
+          opacity: 0.9
+        }}
+      >
+        ↗
+      </span>
+
+      <span>
+        {seat}
+        {count > 1 && ` (${count})`}
+      </span>
+
+    </div>
+  )
+)}
+
+        </div>
 
       </div>
     )}
+
+    {/* LOSSES */}
+    {summary.lost.length > 0 && (
+      <div style={{ flex: 1, minWidth: 0 }}>
+
+        <div
+          style={{
+            fontSize: "10px",
+            fontWeight: 700,
+            opacity: 0.5,
+            marginBottom: "8px",
+            letterSpacing: "1px",
+            textTransform: "uppercase",
+            textAlign: "left"
+          }}
+        >
+          Losses
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "4px"
+          }}
+        >
+
+{(
+  Object.entries(
+    summary.lost.reduce(
+      (
+        acc: Record<string, number>,
+        seat: string
+      ) => {
+        acc[seat] = (acc[seat] || 0) + 1;
+        return acc;
+      },
+      {}
+    )
+  ) as [string, number][]
+).map(
+  ([seat, count]) => (
+
+    <div
+      key={`loss-${seat}`}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "8px",
+        fontSize: "12px",
+        fontWeight: 500,
+        lineHeight: 1.3
+      }}
+    >
+
+      <span
+        style={{
+          color,
+          fontWeight: 800,
+          opacity: 0.9
+        }}
+      >
+        ↘
+      </span>
+
+      <span>
+        {seat}
+        {count > 1 && ` (${count})`}
+      </span>
+
+    </div>
+  )
+)}
+
+        </div>
+
+      </div>
+    )}
+
+  </div>
+)}
 
   </div>
 )}
@@ -4493,6 +4584,7 @@ onMouseLeave={() => setHoveredSeat(null)}
       borderRadius: "8px",
       padding: "8px 10px",
       fontSize: "12px",
+      color: "white",
       pointerEvents: "none",
       zIndex: 1000,
       backdropFilter: "blur(6px)",

@@ -131,7 +131,28 @@ election,constituency,party,votes,seats
 2020,Cork North-West,CEN,0,
 2020,Cork North-West,LR,0,
 2020,Cork North-West,IND,475,
-2020,Cork South-Central,,,
+2020,Cork South-Central,AON,1720,
+2020,Cork South-Central,FF,24013,2
+2020,Cork South-Central,FG,14722,1
+2020,Cork South-Central,GP,6671,1
+2020,Cork South-Central,INDIRL,0,
+2020,Cork South-Central,IF,0,
+2020,Cork South-Central,IFP,0,
+2020,Cork South-Central,LAB,1616,
+2020,Cork South-Central,NP,0,
+2020,Cork South-Central,PBPS,1207,
+2020,Cork South-Central,RTC,0,
+2020,Cork South-Central,SF,16802,1
+2020,Cork South-Central,SD,1387,
+2020,Cork South-Central,IPP,0,
+2020,Cork South-Central,WUA,0,
+2020,Cork South-Central,WP,14,
+2020,Cork South-Central,WUA,0,
+2020,Cork South-Central,Redress,0,
+2020,Cork South-Central,PAW,0,
+2020,Cork South-Central,CEN,0,
+2020,Cork South-Central,LR,0,
+2020,Cork South-Central,IND,1186,
 2020,Cork South-West,AON,466,
 2020,Cork South-West,FF,10335,1
 2020,Cork South-West,FG,8211,
@@ -198,7 +219,28 @@ election,constituency,party,votes,seats
 2020,Dublin Bay North,CEN,0,
 2020,Dublin Bay North,LR,0,
 2020,Dublin Bay North,IND,3094,
-2020,Dublin Bay South,,,
+2020,Dublin Bay South,AON,0,
+2020,Dublin Bay South,FF,5367,1
+2020,Dublin Bay South,FG,10866,1
+2020,Dublin Bay South,GP,8786,1
+2020,Dublin Bay South,INDIRL,0,
+2020,Dublin Bay South,IF,0,
+2020,Dublin Bay South,IFP,226,
+2020,Dublin Bay South,LAB,3057,
+2020,Dublin Bay South,NP,0,
+2020,Dublin Bay South,PBPS,968,
+2020,Dublin Bay South,RTC,0,
+2020,Dublin Bay South,SF,6192,1
+2020,Dublin Bay South,SD,1746,
+2020,Dublin Bay South,IPP,0,
+2020,Dublin Bay South,WUA,0,
+2020,Dublin Bay South,WP,0,
+2020,Dublin Bay South,WUA,0,
+2020,Dublin Bay South,Redress,0,
+2020,Dublin Bay South,PAW,0,
+2020,Dublin Bay South,CEN,0,
+2020,Dublin Bay South,LR,0,
+2020,Dublin Bay South,IND,1062,
 2020,Dublin Central,AON,563,
 2020,Dublin Central,FF,3169,
 2020,Dublin Central,FG,4744,1
@@ -221,7 +263,28 @@ election,constituency,party,votes,seats
 2020,Dublin Central,CEN,0,
 2020,Dublin Central,LR,0,
 2020,Dublin Central,IND,1776,
-2020,Dublin Fingal East,,,
+2020,Dublin Fingal East,AON,0,
+2020,Dublin Fingal East,FF,8834,1
+2020,Dublin Fingal East,FG,5513,1
+2020,Dublin Fingal East,GP,4045,
+2020,Dublin Fingal East,INDIRL,0,
+2020,Dublin Fingal East,IF,0,
+2020,Dublin Fingal East,IFP,0,
+2020,Dublin Fingal East,LAB,2731,
+2020,Dublin Fingal East,NP,0,
+2020,Dublin Fingal East,PBPS,515,
+2020,Dublin Fingal East,RTC,0,
+2020,Dublin Fingal East,SF,7453,1
+2020,Dublin Fingal East,SD,1502,
+2020,Dublin Fingal East,IPP,0,
+2020,Dublin Fingal East,WUA,0,
+2020,Dublin Fingal East,WP,0,
+2020,Dublin Fingal East,WUA,0,
+2020,Dublin Fingal East,Redress,0,
+2020,Dublin Fingal East,PAW,0,
+2020,Dublin Fingal East,CEN,0,
+2020,Dublin Fingal East,LR,0,
+2020,Dublin Fingal East,IND,3082,
 2020,Dublin Fingal West,AON,0,
 2020,Dublin Fingal West,FF,3727,1
 2020,Dublin Fingal West,FG,3321,
@@ -309,9 +372,72 @@ election,constituency,party,votes,seats
 2020,Dublin Rathdown,CEN,0,
 2020,Dublin Rathdown,LR,0,
 2020,Dublin Rathdown,IND,4084,
-2020,Dublin South-Central,,,
-2020,Dublin South-West,,,
-2020,Dublin West,,,
+2020,Dublin South-Central,AON,0,
+2020,Dublin South-Central,FF,3664,
+2020,Dublin South-Central,FG,3913,
+2020,Dublin South-Central,GP,3501,1
+2020,Dublin South-Central,INDIRL,0,
+2020,Dublin South-Central,IF,0,
+2020,Dublin South-Central,IFP,8,
+2020,Dublin South-Central,LAB,1875,
+2020,Dublin South-Central,NP,547,
+2020,Dublin South-Central,PBPS,4734,1
+2020,Dublin South-Central,RTC,2688,1
+2020,Dublin South-Central,SF,16839,1
+2020,Dublin South-Central,SD,1384,
+2020,Dublin South-Central,IPP,0,
+2020,Dublin South-Central,WUA,0,
+2020,Dublin South-Central,WP,0,
+2020,Dublin South-Central,WUA,0,
+2020,Dublin South-Central,Redress,0,
+2020,Dublin South-Central,PAW,0,
+2020,Dublin South-Central,CEN,0,
+2020,Dublin South-Central,LR,0,
+2020,Dublin South-Central,IND,488,
+2020,Dublin South-West,AON,0,
+2020,Dublin South-West,FF,13234,1
+2020,Dublin South-West,FG,12379,1
+2020,Dublin South-West,GP,5473,1
+2020,Dublin South-West,INDIRL,0,
+2020,Dublin South-West,IF,0,
+2020,Dublin South-West,IFP,0,
+2020,Dublin South-West,LAB,3895,
+2020,Dublin South-West,NP,549,
+2020,Dublin South-West,PBPS,5918,1
+2020,Dublin South-West,RTC,0,
+2020,Dublin South-West,SF,18944,1
+2020,Dublin South-West,SD,3018,
+2020,Dublin South-West,IPP,0,
+2020,Dublin South-West,WUA,0,
+2020,Dublin South-West,WP,0,
+2020,Dublin South-West,WUA,0,
+2020,Dublin South-West,Redress,0,
+2020,Dublin South-West,PAW,0,
+2020,Dublin South-West,CEN,0,
+2020,Dublin South-West,LR,0,
+2020,Dublin South-West,IND,5278,
+2020,Dublin West,AON,1102,
+2020,Dublin West,FF,7068,1
+2020,Dublin West,FG,10660,1
+2020,Dublin West,GP,5088,1
+2020,Dublin West,INDIRL,0,
+2020,Dublin West,IF,0,
+2020,Dublin West,IFP,0,
+2020,Dublin West,LAB,2136,
+2020,Dublin West,NP,0,
+2020,Dublin West,PBPS,4479,1
+2020,Dublin West,RTC,0,
+2020,Dublin West,SF,12716,1
+2020,Dublin West,SD,847,
+2020,Dublin West,IPP,0,
+2020,Dublin West,WUA,0,
+2020,Dublin West,WP,0,
+2020,Dublin West,WUA,0,
+2020,Dublin West,Redress,0,
+2020,Dublin West,PAW,0,
+2020,Dublin West,CEN,0,
+2020,Dublin West,LR,0,
+2020,Dublin West,IND,690,
 2020,Dún Laoghaire,AON,1103,
 2020,Dún Laoghaire,FF,8488,1
 2020,Dún Laoghaire,FG,17754,1
@@ -356,9 +482,72 @@ election,constituency,party,votes,seats
 2020,Galway East,CEN,0,
 2020,Galway East,LR,0,
 2020,Galway East,IND,12875,1
-2020,Galway West,,,
-2020,Kerry,,,
-2020,Kildare North,,,
+2020,Galway West,AON,1060,
+2020,Galway West,FF,13106,1
+2020,Galway West,FG,10144,1
+2020,Galway West,GP,3588,
+2020,Galway West,INDIRL,0,
+2020,Galway West,IF,0,
+2020,Galway West,IFP,0,
+2020,Galway West,LAB,1499,
+2020,Galway West,NP,0,
+2020,Galway West,PBPS,872,
+2020,Galway West,RTC,0,
+2020,Galway West,SF,8154,1
+2020,Galway West,SD,3571,
+2020,Galway West,IPP,0,
+2020,Galway West,WUA,0,
+2020,Galway West,WP,0,
+2020,Galway West,WUA,0,
+2020,Galway West,Redress,0,
+2020,Galway West,PAW,0,
+2020,Galway West,CEN,0,
+2020,Galway West,LR,0,
+2020,Galway West,IND,16548,2
+2020,Kerry,AON,1041,
+2020,Kerry,FF,16022,1
+2020,Kerry,FG,14508,1
+2020,Kerry,GP,4054,
+2020,Kerry,INDIRL,0,
+2020,Kerry,IF,388,
+2020,Kerry,IFP,0,
+2020,Kerry,LAB,0,
+2020,Kerry,NP,0,
+2020,Kerry,PBPS,0,
+2020,Kerry,RTC,0,
+2020,Kerry,SF,15813,1
+2020,Kerry,SD,0,
+2020,Kerry,IPP,0,
+2020,Kerry,WUA,0,
+2020,Kerry,WP,0,
+2020,Kerry,WUA,0,
+2020,Kerry,Redress,0,
+2020,Kerry,PAW,0,
+2020,Kerry,CEN,0,
+2020,Kerry,LR,0,
+2020,Kerry,IND,25839,2
+2020,Kildare North,AON,32,
+2020,Kildare North,FF,13856,2
+2020,Kildare North,FG,9679,1
+2020,Kildare North,GP,5295,
+2020,Kildare North,INDIRL,0,
+2020,Kildare North,IF,0,
+2020,Kildare North,IFP,0,
+2020,Kildare North,LAB,2841,
+2020,Kildare North,NP,0,
+2020,Kildare North,PBPS,816,
+2020,Kildare North,RTC,0,
+2020,Kildare North,SF,8942,1
+2020,Kildare North,SD,9939,1
+2020,Kildare North,IPP,0,
+2020,Kildare North,WUA,0,
+2020,Kildare North,WP,0,
+2020,Kildare North,WUA,0,
+2020,Kildare North,Redress,0,
+2020,Kildare North,PAW,0,
+2020,Kildare North,CEN,0,
+2020,Kildare North,LR,0,
+2020,Kildare North,IND,604,
 2020,Kildare South,AON,589,
 2020,Kildare South,FF,8677,1
 2020,Kildare South,FG,7236,1
@@ -403,9 +592,72 @@ election,constituency,party,votes,seats
 2020,Laois,CEN,0,
 2020,Laois,LR,0,
 2020,Laois,IND,3261,
-2020,Limerick City,,,
-2020,Limerick County,,,
-2020,Longford-Westmeath,,,
+2020,Limerick City,AON,1515,
+2020,Limerick City,FF,11507,1
+2020,Limerick City,FG,9225,1
+2020,Limerick City,GP,3151,1
+2020,Limerick City,INDIRL,0,
+2020,Limerick City,IF,0,
+2020,Limerick City,IFP,0,
+2020,Limerick City,LAB,2576,
+2020,Limerick City,NP,339,
+2020,Limerick City,PBPS,695,
+2020,Limerick City,RTC,0,
+2020,Limerick City,SF,10723,1
+2020,Limerick City,SD,1711,
+2020,Limerick City,IPP,0,
+2020,Limerick City,WUA,0,
+2020,Limerick City,WP,0,
+2020,Limerick City,WUA,0,
+2020,Limerick City,Redress,0,
+2020,Limerick City,PAW,0,
+2020,Limerick City,CEN,0,
+2020,Limerick City,LR,0,
+2020,Limerick City,IND,3124,
+2020,Limerick County,AON,770,
+2020,Limerick County,FF,13574,1
+2020,Limerick County,FG,15113,1
+2020,Limerick County,GP,2512,
+2020,Limerick County,INDIRL,0,
+2020,Limerick County,IF,0,
+2020,Limerick County,IFP,0,
+2020,Limerick County,LAB,0,
+2020,Limerick County,NP,180,
+2020,Limerick County,PBPS,0,
+2020,Limerick County,RTC,0,
+2020,Limerick County,SF,6863,
+2020,Limerick County,SD,0,
+2020,Limerick County,IPP,0,
+2020,Limerick County,WUA,0,
+2020,Limerick County,WP,0,
+2020,Limerick County,WUA,0,
+2020,Limerick County,Redress,0,
+2020,Limerick County,PAW,0,
+2020,Limerick County,CEN,0,
+2020,Limerick County,LR,0,
+2020,Limerick County,IND,9200,1
+2020,Longford-Westmeath,AON,387,
+2020,Longford-Westmeath,FF,18057,2
+2020,Longford-Westmeath,FG,15643,1
+2020,Longford-Westmeath,GP,2480,
+2020,Longford-Westmeath,INDIRL,0,
+2020,Longford-Westmeath,IF,0,
+2020,Longford-Westmeath,IFP,0,
+2020,Longford-Westmeath,LAB,1899,
+2020,Longford-Westmeath,NP,932,
+2020,Longford-Westmeath,PBPS,496,
+2020,Longford-Westmeath,RTC,0,
+2020,Longford-Westmeath,SF,13163,1
+2020,Longford-Westmeath,SD,121,
+2020,Longford-Westmeath,IPP,0,
+2020,Longford-Westmeath,WUA,0,
+2020,Longford-Westmeath,WP,0,
+2020,Longford-Westmeath,WUA,0,
+2020,Longford-Westmeath,Redress,0,
+2020,Longford-Westmeath,PAW,0,
+2020,Longford-Westmeath,CEN,0,
+2020,Longford-Westmeath,LR,0,
+2020,Longford-Westmeath,IND,7217,1
 2020,Louth,AON,0,
 2020,Louth,FF,9161,
 2020,Louth,FG,10282,1
