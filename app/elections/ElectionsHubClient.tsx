@@ -232,9 +232,9 @@ return (
     <div
       style={{
         position: "fixed",
-        top: 0,
+        top: "60px",
         left: showFilters ? 0 : "-280px",
-        height: "100%",
+        height: "calc(100% - 60px)",
         width: "260px",
         background: "var(--panel)",
         borderRight: "1px solid var(--border)",
