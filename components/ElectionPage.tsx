@@ -2590,10 +2590,9 @@ return (
 {/* PARTY PANEL */}
 {view === "party" && (
 
-{/* VOTE SHARE + SWING */}
 <div
   style={{
-    marginTop: "5px",
+    marginTop: "20px",
     display: "flex",
     gap: "14px",
     flexDirection:
