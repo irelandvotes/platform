@@ -12,6 +12,7 @@ const PARTY_COLORS: Record<string, string> = {
   PBPS: "#da1498",
   AON: "#53660e",
   INDIRL: "#9be736",
+  I4C: "#e2a8a8",
   IND: "#7a7a7a",
   IPP: "#0e9775",
 
@@ -21,7 +22,7 @@ const PARTY_COLORS: Record<string, string> = {
 
   DUP: "#dd5454",
   UUP: "#3676c0",
-  TUV: "#061730",
+  TUV: "#0a244b",
   INDU: "#d65f30",
 
   AP: "#fdd835",

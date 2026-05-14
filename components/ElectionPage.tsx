@@ -38,7 +38,7 @@ import {
 
   DUP: "#dd5454",
   UUP: "#3676c0",
-  TUV: "#061730",
+  TUV: "#0a244b",
   INDU: "#d65f30",
 
   AP: "#fdd835",

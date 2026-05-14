@@ -86,8 +86,8 @@ election,constituency,party,votes,seats
 2022,East Derry,SF,10804,1
 2022,East Derry,TUV,1038,
 2022,East Derry,UUP,2814,
-2022,Fermanagh and South Tyrone,AP,1437,
-2022,Fermanagh and South Tyrone,DUP,15581,1
+2022,Fermanagh and South Tyrone,AP,1437,1
+2022,Fermanagh and South Tyrone,DUP,15581,
 2022,Fermanagh and South Tyrone,GP,550,
 2022,Fermanagh and South Tyrone,CCLA,643,
 2022,Fermanagh and South Tyrone,CON,70,
@@ -95,9 +95,34 @@ election,constituency,party,votes,seats
 2022,Fermanagh and South Tyrone,SF,22008,3
 2022,Fermanagh and South Tyrone,TUV,780,
 2022,Fermanagh and South Tyrone,UUP,6060,1
-2022,Foyle,,,
-2022,Lagan Valley,,,
-2022,Mid Ulster,,,
+2022,Foyle,AP,1124,
+2022,Foyle,CISTA,196,
+2022,Foyle,DUP,5975,1
+2022,Foyle,GP,242,
+2022,Foyle,CON,77,
+2022,Foyle,PBP,4760,
+2022,Foyle,SDLP,14188,2
+2022,Foyle,SF,16350,2
+2022,Foyle,UUP,1660,
+2022,Foyle,IND,44,
+2022,Lagan Valley,AP,6105,1
+2022,Lagan Valley,DUP,18614,2
+2022,Lagan Valley,GP,912,
+2022,Lagan Valley,CON,183,
+2022,Lagan Valley,SDLP,3795,1
+2022,Lagan Valley,SF,1801,
+2022,Lagan Valley,TUV,1389,
+2022,Lagan Valley,UUP,6846,1
+2022,Lagan Valley,IND,4492,
+2022,Mid Ulster,AP,1017,
+2022,Mid Ulster,DUP,9568,1
+2022,Mid Ulster,GP,243,
+2022,Mid Ulster,SDLP,6419,1
+2022,Mid Ulster,SF,26207,3
+2022,Mid Ulster,TUV,1244,
+2022,Mid Ulster,UUP,4516,
+2022,Mid Ulster,WP,217,
+2022,Mid Ulster,IND,247,
 2022,Newry and Armagh,SF,26532,3
 2022,Newry and Armagh,SDLP,8983,1
 2022,Newry and Armagh,PBP,,
@@ -132,15 +157,50 @@ election,constituency,party,votes,seats
 2022,North Antrim,CCLA,,
 2022,North Antrim,CISTA,,
 2022,North Antrim,IND,113,
-2022,North Antrim,,,
-2022,North Antrim,,,
-2022,North Antrim,,,
-2022,North Antrim,,,
-2022,North Down,,,
-2022,South Antrim,,,
-2022,South Down,,,
-2022,Strangford,,,
-2022,Upper Bann,,,
+2022,North Down,AP,7014,1
+2022,North Down,DUP,14152,2
+2022,North Down,GP,5178,1
+2022,North Down,CON,641,
+2022,North Down,SDLP,679,
+2022,North Down,SF,591,
+2022,North Down,UUP,8115,1
+2022,North Down,IND,1369,
+2022,South Antrim,AP,5278,1
+2022,South Antrim,DUP,14277,2
+2022,South Antrim,GP,501,
+2022,South Antrim,CON,194,
+2022,South Antrim,PBP,530,
+2022,South Antrim,SDLP,4024,
+2022,South Antrim,SF,6891,1
+2022,South Antrim,TUV,1353,
+2022,South Antrim,UUP,8792,1
+2022,South Antrim,IND,503,
+2022,South Down,AP,4535,
+2022,South Down,DUP,7786,1
+2022,South Down,GP,483,
+2022,South Down,CON,85,
+2022,South Down,SDLP,12433,2
+2022,South Down,SF,19083,2
+2022,South Down,TUV,630,
+2022,South Down,UUP,4172,
+2022,Strangford,AP,5813,1
+2022,Strangford,DUP,15492,3
+2022,Strangford,GP,918,
+2022,Strangford,CON,195,
+2022,Strangford,SDLP,3045,
+2022,Strangford,SF,1110,
+2022,Strangford,TUV,1330,
+2022,Strangford,UUP,7776,1
+2022,Strangford,IND,3106,
+2022,Upper Bann,AP,2720,1
+2022,Upper Bann,DUP,16885,2
+2022,Upper Bann,GP,555,
+2022,Upper Bann,CON,81,
+2022,Upper Bann,SDLP,5127,
+2022,Upper Bann,SF,14328,1
+2022,Upper Bann,TUV,1035,
+2022,Upper Bann,UUP,10599,1
+2022,Upper Bann,WP,218,
 2022,West Tyrone,SF,21321,3
 2022,West Tyrone,SDLP,6283,1
 2022,West Tyrone,PBP,,

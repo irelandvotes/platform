@@ -17,25 +17,29 @@ ReferenceLine
 } from "recharts";
 
 const PARTY_COLORS: Record<string, string> = {
-FF: "#66bb6a",
-FG: "#5c6bc0",
-SF: "#124940",
-LAB: "#e53935",
-GP: "#43a047",
-SD: "#741d83",
-PBPS: "#da1498",
-AON: "#53660e",
-INDIRL: "#9be736",
-IND: "#7a7a7a",
+  FF: "#66bb6a",
+  FG: "#5c6bc0",
+  SF: "#124940",
+  LAB: "#e53935",
+  GP: "#43a047",
+  SD: "#741d83",
+  PBPS: "#da1498",
+  AON: "#53660e",
+  INDIRL: "#9be736",
+  I4C: "#e2a8a8",
+  IND: "#7a7a7a",
+  IPP: "#0e9775",
 
-SDLP: "#1a5c1d",
-PBP: "#da1498",
+  SDLP: "#1a5c1d",
+  PBP: "#da1498",
+  INDN: "#0c4257",
 
-DUP: "#dd5454",
-UUP: "#3676c0",
-TUV: "#061730",
+  DUP: "#dd5454",
+  UUP: "#3676c0",
+  TUV: "#0a244b",
+  INDU: "#d65f30",
 
-AP: "#fdd835",
+  AP: "#fdd835",
 
 };
 
