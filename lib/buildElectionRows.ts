@@ -605,15 +605,18 @@ function getInstitution(
 function getType(category: string, slug: string) {
 
   /*
-    Nested Dáil slugs
+    Nested slugs
     are by-elections
   */
 
-  const isDailByElection =
-    category === "dail" &&
+  const isByElection =
+    (
+      category === "dail" ||
+      category === "house-of-commons"
+    ) &&
     slug.includes("/");
 
-  if (isDailByElection) {
+  if (isByElection) {
     return "By-Election";
   }
 

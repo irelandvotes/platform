@@ -31,10 +31,21 @@ import {
   SD: "#741d83",
   PBPS: "#da1498",
   AON: "#53660e",
-  IFP: "#0b5a1c",
   INDIRL: "#9be736",
+  I4C: "#e2a8a8",
   IND: "#7a7a7a",
-  IPP: "#0e9775"
+  IPP: "#0e9775",
+
+  SDLP: "#1a5c1d",
+  PBP: "#da1498",
+  INDN: "#0c4257",
+
+  DUP: "#dd5454",
+  UUP: "#3676c0",
+  TUV: "#0a244b",
+  INDU: "#d65f30",
+
+  AP: "#fdd835",
 };
 
 function AnimatedNumber({
@@ -191,7 +202,7 @@ const [analysis, setAnalysis] = useState<string>("basic");
 const [previousResults, setPreviousResults] = useState<any>({});
 const [mapView, setMapView] = useState<string>("winner");
 const [projection, setProjection] = useState<any>(null);
-
+const isFPTP = type === "house-of-commons";
 const router = useRouter();
 const searchParams = useSearchParams();
 const selectedSlug = searchParams.get("c");
@@ -1282,12 +1293,20 @@ const rawMeta =
 
 const nationalMeta = rawMeta && {
   ...rawMeta,
+
+  // FPTP uses majority line instead of STV quota
+  quota: isFPTP
+    ? Math.floor((rawMeta.tvp || 0) / 2) + 1
+    : rawMeta.quota,
+
   turnoutPercent: rawMeta.electorate
     ? (rawMeta.turnout / rawMeta.electorate) * 100
     : 0,
+
   tvpPercent: rawMeta.turnout
     ? (rawMeta.tvp / rawMeta.turnout) * 100
     : 0,
+
   spoiltPercent: rawMeta.turnout
     ? (rawMeta.spoilt / rawMeta.turnout) * 100
     : 0
@@ -1690,7 +1709,8 @@ onError={(e) => {
     opacity: 0.9
   }}
 >
-{c.party} • Count {c.electedOn}
+  {c.party}
+  {!isFPTP && ` • Count ${c.electedOn}`}
 </div>
 
 {/* PROJECTION */}
@@ -1735,7 +1755,7 @@ onError={(e) => {
     {/* INFO LIST */}
 
 <div style={{ marginBottom: "14px" }}>
-  <ElectionMetaPanel meta={nationalMeta} type={undefined} />
+  <ElectionMetaPanel meta={nationalMeta} type={type} />
 </div>
 
 {/* VIEW HEADER */}
@@ -1821,7 +1841,7 @@ onError={(e) => {
 )}
 
 {/* RIGHT: COUNT CONTROLS */}
-{view === "count" && !isTally && (
+{view === "count" && !isTally && !isFPTP && (
 <div
   className="count-controls"
   style={{
@@ -2174,7 +2194,10 @@ Swing
 
 {/* COUNT NARRATION */}
 
-{current?.name === "Overall" && view === "count" && (() => {
+{current?.name === "Overall" &&
+ view === "count" &&
+ !isFPTP &&
+ (() => {
 
 const counts = current?.data?.counts || {};
 

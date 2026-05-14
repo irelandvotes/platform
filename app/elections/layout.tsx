@@ -28,6 +28,20 @@ function useIsMobile() {
 const electionGroups = [
 
 {
+  title: "Upcoming",
+  pages: [
+    {
+      label: "Dublin Central 2026",
+      href: "/elections/ireland/dail/2026/dublin-central"
+    },
+    {
+      label: "Galway West 2026",
+      href: "/elections/ireland/dail/2026/galway-west"
+    },
+  ]
+},
+
+{
   title: "President",
   pages: [
     {
@@ -40,14 +54,6 @@ const electionGroups = [
 {
   title: "Dáil Éireann",
   pages: [
-    {
-      label: "Dublin Central 2026",
-      href: "/elections/ireland/dail/2026/dublin-central"
-    },
-    {
-      label: "Galway West 2026",
-      href: "/elections/ireland/dail/2026/galway-west"
-    },
     {
       label: "Dáil Éireann 2024",
       href: "/elections/ireland/dail/2024"

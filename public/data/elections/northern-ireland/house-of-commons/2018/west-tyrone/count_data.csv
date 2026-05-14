@@ -1,0 +1,6 @@
+constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,turnout,tvp,spoilt,electorate
+West Tyrone,1,orfhlaith begley,Órfhlaith Begley,FALSE,SF,16346,elected,1,17667,35334,35029,305,64101
+West Tyrone,1,thomas buchanan,Thomas Buchanan,FALSE,DUP,8390,running,1,17667,35334,35029,305,64101
+West Tyrone,1,daniel mccrossan,Daniel McCrossan,FALSE,SDLP,6254,running,1,17667,35334,35029,305,64101
+West Tyrone,1,chris smyth,Chris Smyth,FALSE,UUP,2909,running,1,17667,35334,35029,305,64101
+West Tyrone,1,stephen donnelly,Stephen Donnelly,FALSE,AP,1130,running,1,17667,35334,35029,305,64101
