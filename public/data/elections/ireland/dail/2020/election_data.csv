@@ -572,6 +572,592 @@ Cork North-Central,2,diarmaid o cadhla,Diarmaid O Cadhla,FALSE,IND,270,running,4
 Cork North-Central,2,james coughlan,James Coughlan,FALSE,WP,301,running,4,10356,51778,52218,440,87473
 Cork North-Central,2,sean o'leary,Sean O'Leary,FALSE,IND,152,running,4,10356,51778,52218,440,87473
 Cork North-Central,2,stephen o'donovan,Stephen O'Donovan,FALSE,IND,83,running,4,10356,51778,52218,440,87473
+Cork North-Central,3,thomas gould,Thomas Gould,TRUE,SF,,elected,4,10356,51778,52218,440,87473
+Cork North-Central,3,padraig o'sullivan,Padraig O'Sullivan,TRUE,FF,"8,259",running,4,10356,51778,52218,440,87473
+Cork North-Central,3,colm burke,Colm Burke,FALSE,FG,"6,731",running,4,10356,51778,52218,440,87473
+Cork North-Central,3,ken o'flynn,Ken O'Flynn,FALSE,IND,"4,438",running,4,10356,51778,52218,440,87473
+Cork North-Central,3,mick barry,Mick Barry,TRUE,PBPS,"5,185",running,4,10356,51778,52218,440,87473
+Cork North-Central,3,tony fitzgerald,Tony Fitzgerald,FALSE,FF,"3,526",running,4,10356,51778,52218,440,87473
+Cork North-Central,3,oliver moran,Oliver Moran,FALSE,GP,"3,403",running,4,10356,51778,52218,440,87473
+Cork North-Central,3,john maher,John Maher,FALSE,LAB,"2,864",running,4,10356,51778,52218,440,87473
+Cork North-Central,3,finian toomey,Finian Toomey,FALSE,AON,"1,449",running,4,10356,51778,52218,440,87473
+Cork North-Central,3,sandra murphy,Sandra Murphy,FALSE,FF,"1,264",running,4,10356,51778,52218,440,87473
+Cork North-Central,3,lorraine o'neill,Lorainne O'Neill,FALSE,FG,"1,178",running,4,10356,51778,52218,440,87473
+Cork North-Central,3,sinead halpin,Sinead Halpin,FALSE,SD,"1,309",running,4,10356,51778,52218,440,87473
+Cork North-Central,3,ger keohan,Ger Keohane,FALSE,IND,766,running,4,10356,51778,52218,440,87473
+Cork North-Central,3,t j hogan,T J Hogan,FALSE,IND,427,running,4,10356,51778,52218,440,87473
+Cork North-Central,3,diarmaid o cadhla,Diarmaid O Cadhla,FALSE,IND,288,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,3,james coughlan,James Coughlan,FALSE,WP,311,running,4,10356,51778,52218,440,87473
+Cork North-Central,3,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,3,stephen o'donovan,Stephen O'Donovan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,4,thomas gould,Thomas Gould,TRUE,SF,,elected,4,10356,51778,52218,440,87473
+Cork North-Central,4,padraig o'sullivan,Padraig O'Sullivan,TRUE,FF,"8,269",running,4,10356,51778,52218,440,87473
+Cork North-Central,4,colm burke,Colm Burke,FALSE,FG,"6,738",running,4,10356,51778,52218,440,87473
+Cork North-Central,4,ken o'flynn,Ken O'Flynn,FALSE,IND,"4,478",running,4,10356,51778,52218,440,87473
+Cork North-Central,4,mick barry,Mick Barry,TRUE,PBPS,"5,229",running,4,10356,51778,52218,440,87473
+Cork North-Central,4,tony fitzgerald,Tony Fitzgerald,FALSE,FF,"3,531",running,4,10356,51778,52218,440,87473
+Cork North-Central,4,oliver moran,Oliver Moran,FALSE,GP,"3,410",running,4,10356,51778,52218,440,87473
+Cork North-Central,4,john maher,John Maher,FALSE,LAB,"2,869",running,4,10356,51778,52218,440,87473
+Cork North-Central,4,finian toomey,Finian Toomey,FALSE,AON,"1,507",running,4,10356,51778,52218,440,87473
+Cork North-Central,4,sandra murphy,Sandra Murphy,FALSE,FF,"1,267",running,4,10356,51778,52218,440,87473
+Cork North-Central,4,lorraine o'neill,Lorainne O'Neill,FALSE,FG,"1,181",running,4,10356,51778,52218,440,87473
+Cork North-Central,4,sinead halpin,Sinead Halpin,FALSE,SD,"1,325",running,4,10356,51778,52218,440,87473
+Cork North-Central,4,ger keohan,Ger Keohane,FALSE,IND,783,running,4,10356,51778,52218,440,87473
+Cork North-Central,4,t j hogan,T J Hogan,FALSE,IND,454,running,4,10356,51778,52218,440,87473
+Cork North-Central,4,diarmaid o cadhla,Diarmaid O Cadhla,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,4,james coughlan,James Coughlan,FALSE,WP,327,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,4,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,4,stephen o'donovan,Stephen O'Donovan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,5,thomas gould,Thomas Gould,TRUE,SF,,elected,4,10356,51778,52218,440,87473
+Cork North-Central,5,padraig o'sullivan,Padraig O'Sullivan,TRUE,FF,"8,276",running,4,10356,51778,52218,440,87473
+Cork North-Central,5,colm burke,Colm Burke,FALSE,FG,"6,748",running,4,10356,51778,52218,440,87473
+Cork North-Central,5,ken o'flynn,Ken O'Flynn,FALSE,IND,"4,546",running,4,10356,51778,52218,440,87473
+Cork North-Central,5,mick barry,Mick Barry,TRUE,PBPS,"5,457",running,4,10356,51778,52218,440,87473
+Cork North-Central,5,tony fitzgerald,Tony Fitzgerald,FALSE,FF,"3,576",running,4,10356,51778,52218,440,87473
+Cork North-Central,5,oliver moran,Oliver Moran,FALSE,GP,"3,452",running,4,10356,51778,52218,440,87473
+Cork North-Central,5,john maher,John Maher,FALSE,LAB,"2,939",running,4,10356,51778,52218,440,87473
+Cork North-Central,5,finian toomey,Finian Toomey,FALSE,AON,"1,540",running,4,10356,51778,52218,440,87473
+Cork North-Central,5,sandra murphy,Sandra Murphy,FALSE,FF,"1,278",running,4,10356,51778,52218,440,87473
+Cork North-Central,5,lorraine o'neill,Lorainne O'Neill,FALSE,FG,"1,185",running,4,10356,51778,52218,440,87473
+Cork North-Central,5,sinead halpin,Sinead Halpin,FALSE,SD,"1,396",running,4,10356,51778,52218,440,87473
+Cork North-Central,5,ger keohan,Ger Keohane,FALSE,IND,866,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,5,t j hogan,T J Hogan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,5,diarmaid o cadhla,Diarmaid O Cadhla,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,5,james coughlan,James Coughlan,FALSE,WP,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,5,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,5,stephen o'donovan,Stephen O'Donovan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,6,thomas gould,Thomas Gould,TRUE,SF,,elected,4,10356,51778,52218,440,87473
+Cork North-Central,6,padraig o'sullivan,Padraig O'Sullivan,TRUE,FF,"8,461",running,4,10356,51778,52218,440,87473
+Cork North-Central,6,colm burke,Colm Burke,FALSE,FG,"6,775",running,4,10356,51778,52218,440,87473
+Cork North-Central,6,ken o'flynn,Ken O'Flynn,FALSE,IND,"4,672",running,4,10356,51778,52218,440,87473
+Cork North-Central,6,mick barry,Mick Barry,TRUE,PBPS,"5,576",running,4,10356,51778,52218,440,87473
+Cork North-Central,6,tony fitzgerald,Tony Fitzgerald,FALSE,FF,"3,588",running,4,10356,51778,52218,440,87473
+Cork North-Central,6,oliver moran,Oliver Moran,FALSE,GP,"3,529",running,4,10356,51778,52218,440,87473
+Cork North-Central,6,john maher,John Maher,FALSE,LAB,"3,056",running,4,10356,51778,52218,440,87473
+Cork North-Central,6,finian toomey,Finian Toomey,FALSE,AON,"1,571",running,4,10356,51778,52218,440,87473
+Cork North-Central,6,sandra murphy,Sandra Murphy,FALSE,FF,"1,283",running,4,10356,51778,52218,440,87473
+Cork North-Central,6,lorraine o'neill,Lorainne O'Neill,FALSE,FG,"1,221",eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,6,sinead halpin,Sinead Halpin,FALSE,SD,"1,444",running,4,10356,51778,52218,440,87473
+Cork North-Central,6,ger keohan,Ger Keohane,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,6,t j hogan,T J Hogan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,6,diarmaid o cadhla,Diarmaid O Cadhla,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,6,james coughlan,James Coughlan,FALSE,WP,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,6,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,6,stephen o'donovan,Stephen O'Donovan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,7,thomas gould,Thomas Gould,TRUE,SF,,elected,4,10356,51778,52218,440,87473
+Cork North-Central,7,padraig o'sullivan,Padraig O'Sullivan,TRUE,FF,"8,624",running,4,10356,51778,52218,440,87473
+Cork North-Central,7,colm burke,Colm Burke,FALSE,FG,"7,486",running,4,10356,51778,52218,440,87473
+Cork North-Central,7,ken o'flynn,Ken O'Flynn,FALSE,IND,"4,700",running,4,10356,51778,52218,440,87473
+Cork North-Central,7,mick barry,Mick Barry,TRUE,PBPS,"5,594",running,4,10356,51778,52218,440,87473
+Cork North-Central,7,tony fitzgerald,Tony Fitzgerald,FALSE,FF,"3,610",running,4,10356,51778,52218,440,87473
+Cork North-Central,7,oliver moran,Oliver Moran,FALSE,GP,"3,617",running,4,10356,51778,52218,440,87473
+Cork North-Central,7,john maher,John Maher,FALSE,LAB,"3,128",running,4,10356,51778,52218,440,87473
+Cork North-Central,7,finian toomey,Finian Toomey,FALSE,AON,"1,584",running,4,10356,51778,52218,440,87473
+Cork North-Central,7,sandra murphy,Sandra Murphy,FALSE,FF,"1,329",eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,7,lorraine o'neill,Lorainne O'Neill,FALSE,FG,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,7,sinead halpin,Sinead Halpin,FALSE,SD,"1,465",running,4,10356,51778,52218,440,87473
+Cork North-Central,7,ger keohan,Ger Keohane,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,7,t j hogan,T J Hogan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,7,diarmaid o cadhla,Diarmaid O Cadhla,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,7,james coughlan,James Coughlan,FALSE,WP,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,7,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,7,stephen o'donovan,Stephen O'Donovan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,8,thomas gould,Thomas Gould,TRUE,SF,,elected,4,10356,51778,52218,440,87473
+Cork North-Central,8,padraig o'sullivan,Padraig O'Sullivan,TRUE,FF,"9,179",running,4,10356,51778,52218,440,87473
+Cork North-Central,8,colm burke,Colm Burke,FALSE,FG,"7,617",running,4,10356,51778,52218,440,87473
+Cork North-Central,8,ken o'flynn,Ken O'Flynn,FALSE,IND,"4,754",running,4,10356,51778,52218,440,87473
+Cork North-Central,8,mick barry,Mick Barry,TRUE,PBPS,"5,628",running,4,10356,51778,52218,440,87473
+Cork North-Central,8,tony fitzgerald,Tony Fitzgerald,FALSE,FF,"3,927",running,4,10356,51778,52218,440,87473
+Cork North-Central,8,oliver moran,Oliver Moran,FALSE,GP,"3,688",running,4,10356,51778,52218,440,87473
+Cork North-Central,8,john maher,John Maher,FALSE,LAB,"3,183",running,4,10356,51778,52218,440,87473
+Cork North-Central,8,finian toomey,Finian Toomey,FALSE,AON,"1,602",running,4,10356,51778,52218,440,87473
+Cork North-Central,8,sandra murphy,Sandra Murphy,FALSE,FF,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,8,lorraine o'neill,Lorainne O'Neill,FALSE,FG,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,8,sinead halpin,Sinead Halpin,FALSE,SD,"1,503",eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,8,ger keohan,Ger Keohane,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,8,t j hogan,T J Hogan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,8,diarmaid o cadhla,Diarmaid O Cadhla,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,8,james coughlan,James Coughlan,FALSE,WP,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,8,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,8,stephen o'donovan,Stephen O'Donovan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,9,thomas gould,Thomas Gould,TRUE,SF,,elected,4,10356,51778,52218,440,87473
+Cork North-Central,9,padraig o'sullivan,Padraig O'Sullivan,TRUE,FF,"9,242",running,4,10356,51778,52218,440,87473
+Cork North-Central,9,colm burke,Colm Burke,FALSE,FG,"7,687",running,4,10356,51778,52218,440,87473
+Cork North-Central,9,ken o'flynn,Ken O'Flynn,FALSE,IND,"4,830",running,4,10356,51778,52218,440,87473
+Cork North-Central,9,mick barry,Mick Barry,TRUE,PBPS,"5,981",running,4,10356,51778,52218,440,87473
+Cork North-Central,9,tony fitzgerald,Tony Fitzgerald,FALSE,FF,"3,961",running,4,10356,51778,52218,440,87473
+Cork North-Central,9,oliver moran,Oliver Moran,FALSE,GP,"4,181",running,4,10356,51778,52218,440,87473
+Cork North-Central,9,john maher,John Maher,FALSE,LAB,"3,428",running,4,10356,51778,52218,440,87473
+Cork North-Central,9,finian toomey,Finian Toomey,FALSE,AON,"1,647",eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,9,sandra murphy,Sandra Murphy,FALSE,FF,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,9,lorraine o'neill,Lorainne O'Neill,FALSE,FG,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,9,sinead halpin,Sinead Halpin,FALSE,SD,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,9,ger keohan,Ger Keohane,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,9,t j hogan,T J Hogan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,9,diarmaid o cadhla,Diarmaid O Cadhla,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,9,james coughlan,James Coughlan,FALSE,WP,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,9,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,9,stephen o'donovan,Stephen O'Donovan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,10,thomas gould,Thomas Gould,TRUE,SF,,elected,4,10356,51778,52218,440,87473
+Cork North-Central,10,padraig o'sullivan,Padraig O'Sullivan,TRUE,FF,"9,417",running,4,10356,51778,52218,440,87473
+Cork North-Central,10,colm burke,Colm Burke,FALSE,FG,"7,783",running,4,10356,51778,52218,440,87473
+Cork North-Central,10,ken o'flynn,Ken O'Flynn,FALSE,IND,"5,401",running,4,10356,51778,52218,440,87473
+Cork North-Central,10,mick barry,Mick Barry,TRUE,PBPS,"6,199",running,4,10356,51778,52218,440,87473
+Cork North-Central,10,tony fitzgerald,Tony Fitzgerald,FALSE,FF,"4,062",running,4,10356,51778,52218,440,87473
+Cork North-Central,10,oliver moran,Oliver Moran,FALSE,GP,"4,304",running,4,10356,51778,52218,440,87473
+Cork North-Central,10,john maher,John Maher,FALSE,LAB,"3,513",eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,10,finian toomey,Finian Toomey,FALSE,AON,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,10,sandra murphy,Sandra Murphy,FALSE,FF,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,10,lorraine o'neill,Lorainne O'Neill,FALSE,FG,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,10,sinead halpin,Sinead Halpin,FALSE,SD,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,10,ger keohan,Ger Keohane,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,10,t j hogan,T J Hogan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,10,diarmaid o cadhla,Diarmaid O Cadhla,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,10,james coughlan,James Coughlan,FALSE,WP,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,10,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,10,stephen o'donovan,Stephen O'Donovan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,11,thomas gould,Thomas Gould,TRUE,SF,,elected,4,10356,51778,52218,440,87473
+Cork North-Central,11,padraig o'sullivan,Padraig O'Sullivan,TRUE,FF,"9,821",running,4,10356,51778,52218,440,87473
+Cork North-Central,11,colm burke,Colm Burke,FALSE,FG,"8,201",running,4,10356,51778,52218,440,87473
+Cork North-Central,11,ken o'flynn,Ken O'Flynn,FALSE,IND,"5,928",running,4,10356,51778,52218,440,87473
+Cork North-Central,11,mick barry,Mick Barry,TRUE,PBPS,"6,815",running,4,10356,51778,52218,440,87473
+Cork North-Central,11,tony fitzgerald,Tony Fitzgerald,FALSE,FF,"4,256",eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,11,oliver moran,Oliver Moran,FALSE,GP,"5,206",running,4,10356,51778,52218,440,87473
+Cork North-Central,11,john maher,John Maher,FALSE,LAB,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,11,finian toomey,Finian Toomey,FALSE,AON,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,11,sandra murphy,Sandra Murphy,FALSE,FF,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,11,lorraine o'neill,Lorainne O'Neill,FALSE,FG,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,11,sinead halpin,Sinead Halpin,FALSE,SD,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,11,ger keohan,Ger Keohane,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,11,t j hogan,T J Hogan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,11,diarmaid o cadhla,Diarmaid O Cadhla,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,11,james coughlan,James Coughlan,FALSE,WP,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,11,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,11,stephen o'donovan,Stephen O'Donovan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,12,thomas gould,Thomas Gould,TRUE,SF,,elected,4,10356,51778,52218,440,87473
+Cork North-Central,12,padraig o'sullivan,Padraig O'Sullivan,TRUE,FF,"12,099",elected,4,10356,51778,52218,440,87473
+Cork North-Central,12,colm burke,Colm Burke,FALSE,FG,"8,670",running,4,10356,51778,52218,440,87473
+Cork North-Central,12,ken o'flynn,Ken O'Flynn,FALSE,IND,"6,394",running,4,10356,51778,52218,440,87473
+Cork North-Central,12,mick barry,Mick Barry,TRUE,PBPS,"7,205",running,4,10356,51778,52218,440,87473
+Cork North-Central,12,tony fitzgerald,Tony Fitzgerald,FALSE,FF,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,12,oliver moran,Oliver Moran,FALSE,GP,"5,416",running,4,10356,51778,52218,440,87473
+Cork North-Central,12,john maher,John Maher,FALSE,LAB,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,12,finian toomey,Finian Toomey,FALSE,AON,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,12,sandra murphy,Sandra Murphy,FALSE,FF,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,12,lorraine o'neill,Lorainne O'Neill,FALSE,FG,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,12,sinead halpin,Sinead Halpin,FALSE,SD,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,12,ger keohan,Ger Keohane,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,12,t j hogan,T J Hogan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,12,diarmaid o cadhla,Diarmaid O Cadhla,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,12,james coughlan,James Coughlan,FALSE,WP,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,12,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,12,stephen o'donovan,Stephen O'Donovan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,13,thomas gould,Thomas Gould,TRUE,SF,,elected,4,10356,51778,52218,440,87473
+Cork North-Central,13,padraig o'sullivan,Padraig O'Sullivan,TRUE,FF,,elected,4,10356,51778,52218,440,87473
+Cork North-Central,13,colm burke,Colm Burke,FALSE,FG,"9,117",running,4,10356,51778,52218,440,87473
+Cork North-Central,13,ken o'flynn,Ken O'Flynn,FALSE,IND,"6,771",running,4,10356,51778,52218,440,87473
+Cork North-Central,13,mick barry,Mick Barry,TRUE,PBPS,"7,425",running,4,10356,51778,52218,440,87473
+Cork North-Central,13,tony fitzgerald,Tony Fitzgerald,FALSE,FF,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,13,oliver moran,Oliver Moran,FALSE,GP,"5,738",eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,13,john maher,John Maher,FALSE,LAB,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,13,finian toomey,Finian Toomey,FALSE,AON,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,13,sandra murphy,Sandra Murphy,FALSE,FF,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,13,lorraine o'neill,Lorainne O'Neill,FALSE,FG,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,13,sinead halpin,Sinead Halpin,FALSE,SD,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,13,ger keohan,Ger Keohane,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,13,t j hogan,T J Hogan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,13,diarmaid o cadhla,Diarmaid O Cadhla,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,13,james coughlan,James Coughlan,FALSE,WP,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,13,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,13,stephen o'donovan,Stephen O'Donovan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,14,thomas gould,Thomas Gould,TRUE,SF,,elected,4,10356,51778,52218,440,87473
+Cork North-Central,14,padraig o'sullivan,Padraig O'Sullivan,TRUE,FF,,elected,4,10356,51778,52218,440,87473
+Cork North-Central,14,colm burke,Colm Burke,FALSE,FG,"10,649",elected,4,10356,51778,52218,440,87473
+Cork North-Central,14,ken o'flynn,Ken O'Flynn,FALSE,IND,"7,280",eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,14,mick barry,Mick Barry,TRUE,PBPS,"9,396",elected,4,10356,51778,52218,440,87473
+Cork North-Central,14,tony fitzgerald,Tony Fitzgerald,FALSE,FF,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,14,oliver moran,Oliver Moran,FALSE,GP,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,14,john maher,John Maher,FALSE,LAB,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,14,finian toomey,Finian Toomey,FALSE,AON,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,14,sandra murphy,Sandra Murphy,FALSE,FF,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,14,lorraine o'neill,Lorainne O'Neill,FALSE,FG,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,14,sinead halpin,Sinead Halpin,FALSE,SD,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,14,ger keohan,Ger Keohane,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,14,t j hogan,T J Hogan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,14,diarmaid o cadhla,Diarmaid O Cadhla,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,14,james coughlan,James Coughlan,FALSE,WP,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,14,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-Central,14,stephen o'donovan,Stephen O'Donovan,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473
+Cork North-West,1,aindrias moynihan,Aindrias Moynihan,TRUE,FF,9628,running,3,11593,46856,46370,486,71685
+Cork North-West,1,michael moynihan,Michael Moynihan,TRUE,FF,8561,running,3,11593,46856,46370,486,71685
+Cork North-West,1,michael creed,Michael Creed,TRUE,FG,8338,running,3,11593,46856,46370,486,71685
+Cork North-West,1,john paul o'shea,John Paul O'Shea,FALSE,FG,7065,running,3,11593,46856,46370,486,71685
+Cork North-West,1,becky kealy,Becky Kealy,FALSE,AON,3877,running,3,11593,46856,46370,486,71685
+Cork North-West,1,ciaran mccarthy,Ciaran McCarthy,FALSE,SD,3845,running,3,11593,46856,46370,486,71685
+Cork North-West,1,colette finn,Colette Finn,FALSE,GP,3495,running,3,11593,46856,46370,486,71685
+Cork North-West,1,tara nic domhnaill,Tara Nic Domhnaill,FALSE,IFP,956,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,1,sean o'leary,Sean O'Leary,FALSE,IND,915,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,2,aindrias moynihan,Aindrias Moynihan,TRUE,FF,9700,running,3,11593,46856,46370,486,71685
+Cork North-West,2,michael moynihan,Michael Moynihan,TRUE,FF,8698,running,3,11593,46856,46370,486,71685
+Cork North-West,2,michael creed,Michael Creed,TRUE,FG,8376,running,3,11593,46856,46370,486,71685
+Cork North-West,2,john paul o'shea,John Paul O'Shea,FALSE,FG,7120,running,3,11593,46856,46370,486,71685
+Cork North-West,2,becky kealy,Becky Kealy,FALSE,AON,4354,running,3,11593,46856,46370,486,71685
+Cork North-West,2,ciaran mccarthy,Ciaran McCarthy,FALSE,SD,4241,running,3,11593,46856,46370,486,71685
+Cork North-West,2,colette finn,Colette Finn,FALSE,GP,3694,running,3,11593,46856,46370,486,71685
+Cork North-West,2,tara nic domhnaill,Tara Nic Domhnaill,FALSE,IFP,,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,2,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,3,aindrias moynihan,Aindrias Moynihan,TRUE,FF,10019,running,3,11593,46856,46370,486,71685
+Cork North-West,3,michael moynihan,Michael Moynihan,TRUE,FF,8817,running,3,11593,46856,46370,486,71685
+Cork North-West,3,michael creed,Michael Creed,TRUE,FG,8772,running,3,11593,46856,46370,486,71685
+Cork North-West,3,john paul o'shea,John Paul O'Shea,FALSE,FG,7352,running,3,11593,46856,46370,486,71685
+Cork North-West,3,becky kealy,Becky Kealy,FALSE,AON,5066,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,3,ciaran mccarthy,Ciaran McCarthy,FALSE,SD,5918,running,3,11593,46856,46370,486,71685
+Cork North-West,3,colette finn,Colette Finn,FALSE,GP,,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,3,tara nic domhnaill,Tara Nic Domhnaill,FALSE,IFP,,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,3,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,4,aindrias moynihan,Aindrias Moynihan,TRUE,FF,10679,running,3,11593,46856,46370,486,71685
+Cork North-West,4,michael moynihan,Michael Moynihan,TRUE,FF,9269,running,3,11593,46856,46370,486,71685
+Cork North-West,4,michael creed,Michael Creed,TRUE,FG,9099,running,3,11593,46856,46370,486,71685
+Cork North-West,4,john paul o'shea,John Paul O'Shea,FALSE,FG,7816,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,4,becky kealy,Becky Kealy,FALSE,AON,,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,4,ciaran mccarthy,Ciaran McCarthy,FALSE,SD,8079,running,3,11593,46856,46370,486,71685
+Cork North-West,4,colette finn,Colette Finn,FALSE,GP,,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,4,tara nic domhnaill,Tara Nic Domhnaill,FALSE,IFP,,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,4,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,5,aindrias moynihan,Aindrias Moynihan,TRUE,FF,11173,elected,3,11593,46856,46370,486,71685
+Cork North-West,5,michael moynihan,Michael Moynihan,TRUE,FF,11240,elected,3,11593,46856,46370,486,71685
+Cork North-West,5,michael creed,Michael Creed,TRUE,FG,13060,elected,3,11593,46856,46370,486,71685
+Cork North-West,5,john paul o'shea,John Paul O'Shea,FALSE,FG,,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,5,becky kealy,Becky Kealy,FALSE,AON,,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,5,ciaran mccarthy,Ciaran McCarthy,FALSE,SD,8588,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,5,colette finn,Colette Finn,FALSE,GP,,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,5,tara nic domhnaill,Tara Nic Domhnaill,FALSE,IFP,,eliminated,3,11593,46856,46370,486,71685
+Cork North-West,5,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,3,11593,46856,46370,486,71685
+Cork South-Central,1,donnchadh o laoghaire,Donnchadh O Laoghaire,TRUE,SF,"14,057",elected,4,11429,57457,57140,317,90916
+Cork South-Central,1,micheal martin,Micheal Martin,TRUE,FF,"11,023",running,4,11429,57457,57140,317,90916
+Cork South-Central,1,simon coveney,Simon Coveney,TRUE,FG,"9,327",running,4,11429,57457,57140,317,90916
+Cork South-Central,1,michael mcgrath,Michael McGrath,TRUE,FF,"9,236",running,4,11429,57457,57140,317,90916
+Cork South-Central,1,lorna bogue,Lorna Bogue,FALSE,GP,"5,379",running,4,11429,57457,57140,317,90916
+Cork South-Central,1,jerry buttimer,Jerry Buttimer,FALSE,FG,"2,828",running,4,11429,57457,57140,317,90916
+Cork South-Central,1,anna daly,Anna Daly,FALSE,AON,"1,350",running,4,11429,57457,57140,317,90916
+Cork South-Central,1,ciara kennedy,Ciara Kennedy,FALSE,LAB,"1,263",running,4,11429,57457,57140,317,90916
+Cork South-Central,1,patricia o'dwyer,Patricia O'Dwyer,FALSE,SD,"1,077",running,4,11429,57457,57140,317,90916
+Cork South-Central,1,bobby murray,Bobby Murray,FALSE,PBPS,764,running,4,11429,57457,57140,317,90916
+Cork South-Central,1,paudie dineen,Paudie Dineen,FALSE,IND,429,running,4,11429,57457,57140,317,90916
+Cork South-Central,1,william o'brien,William O'Brien,FALSE,IND,202,running,4,11429,57457,57140,317,90916
+Cork South-Central,1,john donohoe,John Donohoe,FALSE,IND,103,running,4,11429,57457,57140,317,90916
+Cork South-Central,1,sean o'leary,Sean O'Leary,FALSE,IND,102,running,4,11429,57457,57140,317,90916
+Cork South-Central,2,donnchadh o laoghaire,Donnchadh O Laoghaire,TRUE,SF,,elected,4,11429,57457,57140,317,90916
+Cork South-Central,2,micheal martin,Micheal Martin,TRUE,FF,"11,197",running,4,11429,57457,57140,317,90916
+Cork South-Central,2,simon coveney,Simon Coveney,TRUE,FG,"9,408",running,4,11429,57457,57140,317,90916
+Cork South-Central,2,michael mcgrath,Michael McGrath,TRUE,FF,"9,499",running,4,11429,57457,57140,317,90916
+Cork South-Central,2,lorna bogue,Lorna Bogue,FALSE,GP,"5,787",running,4,11429,57457,57140,317,90916
+Cork South-Central,2,jerry buttimer,Jerry Buttimer,FALSE,FG,"2,869",running,4,11429,57457,57140,317,90916
+Cork South-Central,2,anna daly,Anna Daly,FALSE,AON,"1,495",running,4,11429,57457,57140,317,90916
+Cork South-Central,2,ciara kennedy,Ciara Kennedy,FALSE,LAB,"1,404",running,4,11429,57457,57140,317,90916
+Cork South-Central,2,patricia o'dwyer,Patricia O'Dwyer,FALSE,SD,"1,311",running,4,11429,57457,57140,317,90916
+Cork South-Central,2,bobby murray,Bobby Murray,FALSE,PBPS,"1,360",running,4,11429,57457,57140,317,90916
+Cork South-Central,2,paudie dineen,Paudie Dineen,FALSE,IND,697,running,4,11429,57457,57140,317,90916
+Cork South-Central,2,william o'brien,William O'Brien,FALSE,IND,381,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,2,john donohoe,John Donohoe,FALSE,IND,145,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,2,sean o'leary,Sean O'Leary,FALSE,IND,158,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,3,donnchadh o laoghaire,Donnchadh O Laoghaire,TRUE,SF,,elected,4,11429,57457,57140,317,90916
+Cork South-Central,3,micheal martin,Micheal Martin,TRUE,FF,"11,234",running,4,11429,57457,57140,317,90916
+Cork South-Central,3,simon coveney,Simon Coveney,TRUE,FG,"9,439",running,4,11429,57457,57140,317,90916
+Cork South-Central,3,michael mcgrath,Michael McGrath,TRUE,FF,"9,527",running,4,11429,57457,57140,317,90916
+Cork South-Central,3,lorna bogue,Lorna Bogue,FALSE,GP,"5,833",running,4,11429,57457,57140,317,90916
+Cork South-Central,3,jerry buttimer,Jerry Buttimer,FALSE,FG,"2,882",running,4,11429,57457,57140,317,90916
+Cork South-Central,3,anna daly,Anna Daly,FALSE,AON,"1,565",running,4,11429,57457,57140,317,90916
+Cork South-Central,3,ciara kennedy,Ciara Kennedy,FALSE,LAB,"1,424",running,4,11429,57457,57140,317,90916
+Cork South-Central,3,patricia o'dwyer,Patricia O'Dwyer,FALSE,SD,"1,367",running,4,11429,57457,57140,317,90916
+Cork South-Central,3,bobby murray,Bobby Murray,FALSE,PBPS,"1,466",running,4,11429,57457,57140,317,90916
+Cork South-Central,3,paudie dineen,Paudie Dineen,FALSE,IND,898,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,3,william o'brien,William O'Brien,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,3,john donohoe,John Donohoe,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,3,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,4,donnchadh o laoghaire,Donnchadh O Laoghaire,TRUE,SF,,elected,4,11429,57457,57140,317,90916
+Cork South-Central,4,micheal martin,Micheal Martin,TRUE,FF,"11,297",running,4,11429,57457,57140,317,90916
+Cork South-Central,4,simon coveney,Simon Coveney,TRUE,FG,"9,465",running,4,11429,57457,57140,317,90916
+Cork South-Central,4,michael mcgrath,Michael McGrath,TRUE,FF,"9,576",running,4,11429,57457,57140,317,90916
+Cork South-Central,4,lorna bogue,Lorna Bogue,FALSE,GP,"5,931",running,4,11429,57457,57140,317,90916
+Cork South-Central,4,jerry buttimer,Jerry Buttimer,FALSE,FG,"2,897",running,4,11429,57457,57140,317,90916
+Cork South-Central,4,anna daly,Anna Daly,FALSE,AON,"1,664",running,4,11429,57457,57140,317,90916
+Cork South-Central,4,ciara kennedy,Ciara Kennedy,FALSE,LAB,"1,490",running,4,11429,57457,57140,317,90916
+Cork South-Central,4,patricia o'dwyer,Patricia O'Dwyer,FALSE,SD,"1,439",eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,4,bobby murray,Bobby Murray,FALSE,PBPS,"1,651",running,4,11429,57457,57140,317,90916
+Cork South-Central,4,paudie dineen,Paudie Dineen,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,4,william o'brien,William O'Brien,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,4,john donohoe,John Donohoe,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,4,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,5,donnchadh o laoghaire,Donnchadh O Laoghaire,TRUE,SF,,elected,4,11429,57457,57140,317,90916
+Cork South-Central,5,micheal martin,Micheal Martin,TRUE,FF,"11,360",running,4,11429,57457,57140,317,90916
+Cork South-Central,5,simon coveney,Simon Coveney,TRUE,FG,"9,525",running,4,11429,57457,57140,317,90916
+Cork South-Central,5,michael mcgrath,Michael McGrath,TRUE,FF,"9,636",running,4,11429,57457,57140,317,90916
+Cork South-Central,5,lorna bogue,Lorna Bogue,FALSE,GP,"6,448",running,4,11429,57457,57140,317,90916
+Cork South-Central,5,jerry buttimer,Jerry Buttimer,FALSE,FG,"2,926",running,4,11429,57457,57140,317,90916
+Cork South-Central,5,anna daly,Anna Daly,FALSE,AON,"1,736",running,4,11429,57457,57140,317,90916
+Cork South-Central,5,ciara kennedy,Ciara Kennedy,FALSE,LAB,"1,707",eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,5,patricia o'dwyer,Patricia O'Dwyer,FALSE,SD,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,5,bobby murray,Bobby Murray,FALSE,PBPS,"1,977",running,4,11429,57457,57140,317,90916
+Cork South-Central,5,paudie dineen,Paudie Dineen,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,5,william o'brien,William O'Brien,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,5,john donohoe,John Donohoe,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,5,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,6,donnchadh o laoghaire,Donnchadh O Laoghaire,TRUE,SF,,elected,4,11429,57457,57140,317,90916
+Cork South-Central,6,micheal martin,Micheal Martin,TRUE,FF,"11,505",elected,4,11429,57457,57140,317,90916
+Cork South-Central,6,simon coveney,Simon Coveney,TRUE,FG,"9,720",running,4,11429,57457,57140,317,90916
+Cork South-Central,6,michael mcgrath,Michael McGrath,TRUE,FF,"9,775",running,4,11429,57457,57140,317,90916
+Cork South-Central,6,lorna bogue,Lorna Bogue,FALSE,GP,"7,184",running,4,11429,57457,57140,317,90916
+Cork South-Central,6,jerry buttimer,Jerry Buttimer,FALSE,FG,"3,066",running,4,11429,57457,57140,317,90916
+Cork South-Central,6,anna daly,Anna Daly,FALSE,AON,"1,821",eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,6,ciara kennedy,Ciara Kennedy,FALSE,LAB,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,6,patricia o'dwyer,Patricia O'Dwyer,FALSE,SD,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,6,bobby murray,Bobby Murray,FALSE,PBPS,"2,120",running,4,11429,57457,57140,317,90916
+Cork South-Central,6,paudie dineen,Paudie Dineen,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,6,william o'brien,William O'Brien,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,6,john donohoe,John Donohoe,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,6,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,7,donnchadh o laoghaire,Donnchadh O Laoghaire,TRUE,SF,,elected,4,11429,57457,57140,317,90916
+Cork South-Central,7,micheal martin,Micheal Martin,TRUE,FF,,elected,4,11429,57457,57140,317,90916
+Cork South-Central,7,simon coveney,Simon Coveney,TRUE,FG,"9,847",running,4,11429,57457,57140,317,90916
+Cork South-Central,7,michael mcgrath,Michael McGrath,TRUE,FF,"10,350",running,4,11429,57457,57140,317,90916
+Cork South-Central,7,lorna bogue,Lorna Bogue,FALSE,GP,"7,537",running,4,11429,57457,57140,317,90916
+Cork South-Central,7,jerry buttimer,Jerry Buttimer,FALSE,FG,"3,112",eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,7,anna daly,Anna Daly,FALSE,AON,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,7,ciara kennedy,Ciara Kennedy,FALSE,LAB,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,7,patricia o'dwyer,Patricia O'Dwyer,FALSE,SD,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,7,bobby murray,Bobby Murray,FALSE,PBPS,"2,377",eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,7,paudie dineen,Paudie Dineen,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,7,william o'brien,William O'Brien,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,7,john donohoe,John Donohoe,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,7,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,8,donnchadh o laoghaire,Donnchadh O Laoghaire,TRUE,SF,,elected,4,11429,57457,57140,317,90916
+Cork South-Central,8,micheal martin,Micheal Martin,TRUE,FF,,elected,4,11429,57457,57140,317,90916
+Cork South-Central,8,simon coveney,Simon Coveney,TRUE,FG,"12,170",elected,4,11429,57457,57140,317,90916
+Cork South-Central,8,michael mcgrath,Michael McGrath,TRUE,FF,"10,809",elected,4,11429,57457,57140,317,90916
+Cork South-Central,8,lorna bogue,Lorna Bogue,FALSE,GP,"9,179",eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,8,jerry buttimer,Jerry Buttimer,FALSE,FG,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,8,anna daly,Anna Daly,FALSE,AON,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,8,ciara kennedy,Ciara Kennedy,FALSE,LAB,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,8,patricia o'dwyer,Patricia O'Dwyer,FALSE,SD,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,8,bobby murray,Bobby Murray,FALSE,PBPS,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,8,paudie dineen,Paudie Dineen,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,8,william o'brien,William O'Brien,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,8,john donohoe,John Donohoe,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-Central,8,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,11429,57457,57140,317,90916
+Cork South-West,1,michael collins,Michael Collins,TRUE,IND,"11,712",elected,3,11085,44626,44338,288,69127
+Cork South-West,1,christopher o'sullivan,Christopher O'Sullivan,FALSE,FF,"6,262",running,3,11085,44626,44338,288,69127
+Cork South-West,1,tim lombard,Tim Lombard,FALSE,FG,"5,865",running,3,11085,44626,44338,288,69127
+Cork South-West,1,paul hayes,Paul Hayes,FALSE,SF,"4,777",running,3,11085,44626,44338,288,69127
+Cork South-West,1,holly cairns,Holly Cairns,FALSE,SD,"4,696",running,3,11085,44626,44338,288,69127
+Cork South-West,1,margaret murphy o'mahony,Margaret Murphy O'Mahony,TRUE,FF,"4,077",running,3,11085,44626,44338,288,69127
+Cork South-West,1,karen coakley,Karen Coakley,FALSE,FG,"2,526",running,3,11085,44626,44338,288,69127
+Cork South-West,1,alan coleman,Alan Coleman,FALSE,IND,"1,801",running,3,11085,44626,44338,288,69127
+Cork South-West,1,bernadette connolly,Bernadette Connolly,FALSE,GP,"1,647",running,3,11085,44626,44338,288,69127
+Cork South-West,1,mairead ruane,Mairead Ruane,FALSE,AON,515,running,3,11085,44626,44338,288,69127
+Cork South-West,1,kevin o'connor,Kevin O'Connor,FALSE,PBPS,427,running,3,11085,44626,44338,288,69127
+Cork South-West,1,sean o'leary,Sean O'Leary,FALSE,IND,33,running,3,11085,44626,44338,288,69127
+Cork South-West,2,michael collins,Michael Collins,TRUE,IND,,elected,3,11085,44626,44338,288,69127
+Cork South-West,2,christopher o'sullivan,Christopher O'Sullivan,FALSE,FF,"6,400",running,3,11085,44626,44338,288,69127
+Cork South-West,2,tim lombard,Tim Lombard,FALSE,FG,"5,917",running,3,11085,44626,44338,288,69127
+Cork South-West,2,paul hayes,Paul Hayes,FALSE,SF,"4,881",running,3,11085,44626,44338,288,69127
+Cork South-West,2,holly cairns,Holly Cairns,FALSE,SD,"4,808",running,3,11085,44626,44338,288,69127
+Cork South-West,2,margaret murphy o'mahony,Margaret Murphy O'Mahony,TRUE,FF,"4,163",running,3,11085,44626,44338,288,69127
+Cork South-West,2,karen coakley,Karen Coakley,FALSE,FG,"2,577",running,3,11085,44626,44338,288,69127
+Cork South-West,2,alan coleman,Alan Coleman,FALSE,IND,"1,843",running,3,11085,44626,44338,288,69127
+Cork South-West,2,bernadette connolly,Bernadette Connolly,FALSE,GP,"1,663",running,3,11085,44626,44338,288,69127
+Cork South-West,2,mairead ruane,Mairead Ruane,FALSE,AON,531,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,2,kevin o'connor,Kevin O'Connor,FALSE,PBPS,435,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,2,sean o'leary,Sean O'Leary,FALSE,IND,35,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,3,michael collins,Michael Collins,TRUE,IND,,elected,3,11085,44626,44338,288,69127
+Cork South-West,3,christopher o'sullivan,Christopher O'Sullivan,FALSE,FF,"6,503",running,3,11085,44626,44338,288,69127
+Cork South-West,3,tim lombard,Tim Lombard,FALSE,FG,"5,982",running,3,11085,44626,44338,288,69127
+Cork South-West,3,paul hayes,Paul Hayes,FALSE,SF,"5,075",running,3,11085,44626,44338,288,69127
+Cork South-West,3,holly cairns,Holly Cairns,FALSE,SD,"5,008",running,3,11085,44626,44338,288,69127
+Cork South-West,3,margaret murphy o'mahony,Margaret Murphy O'Mahony,TRUE,FF,"4,274",running,3,11085,44626,44338,288,69127
+Cork South-West,3,karen coakley,Karen Coakley,FALSE,FG,"2,595",running,3,11085,44626,44338,288,69127
+Cork South-West,3,alan coleman,Alan Coleman,FALSE,IND,"1,950",running,3,11085,44626,44338,288,69127
+Cork South-West,3,bernadette connolly,Bernadette Connolly,FALSE,GP,"1,765",eliminated,3,11085,44626,44338,288,69127
+Cork South-West,3,mairead ruane,Mairead Ruane,FALSE,AON,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,3,kevin o'connor,Kevin O'Connor,FALSE,PBPS,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,3,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,4,michael collins,Michael Collins,TRUE,IND,,elected,3,11085,44626,44338,288,69127
+Cork South-West,4,christopher o'sullivan,Christopher O'Sullivan,FALSE,FF,"6,602",running,3,11085,44626,44338,288,69127
+Cork South-West,4,tim lombard,Tim Lombard,FALSE,FG,"6,170",running,3,11085,44626,44338,288,69127
+Cork South-West,4,paul hayes,Paul Hayes,FALSE,SF,"5,229",running,3,11085,44626,44338,288,69127
+Cork South-West,4,holly cairns,Holly Cairns,FALSE,SD,"5,994",running,3,11085,44626,44338,288,69127
+Cork South-West,4,margaret murphy o'mahony,Margaret Murphy O'Mahony,TRUE,FF,"4,352",running,3,11085,44626,44338,288,69127
+Cork South-West,4,karen coakley,Karen Coakley,FALSE,FG,"2,698",running,3,11085,44626,44338,288,69127
+Cork South-West,4,alan coleman,Alan Coleman,FALSE,IND,"2,025",eliminated,3,11085,44626,44338,288,69127
+Cork South-West,4,bernadette connolly,Bernadette Connolly,FALSE,GP,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,4,mairead ruane,Mairead Ruane,FALSE,AON,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,4,kevin o'connor,Kevin O'Connor,FALSE,PBPS,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,4,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,5,michael collins,Michael Collins,TRUE,IND,,elected,3,11085,44626,44338,288,69127
+Cork South-West,5,christopher o'sullivan,Christopher O'Sullivan,FALSE,FF,"6,960",running,3,11085,44626,44338,288,69127
+Cork South-West,5,tim lombard,Tim Lombard,FALSE,FG,"6,669",running,3,11085,44626,44338,288,69127
+Cork South-West,5,paul hayes,Paul Hayes,FALSE,SF,"5,462",running,3,11085,44626,44338,288,69127
+Cork South-West,5,holly cairns,Holly Cairns,FALSE,SD,"6,280",running,3,11085,44626,44338,288,69127
+Cork South-West,5,margaret murphy o'mahony,Margaret Murphy O'Mahony,TRUE,FF,"4,761",running,3,11085,44626,44338,288,69127
+Cork South-West,5,karen coakley,Karen Coakley,FALSE,FG,"2,747",eliminated,3,11085,44626,44338,288,69127
+Cork South-West,5,alan coleman,Alan Coleman,FALSE,IND,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,5,bernadette connolly,Bernadette Connolly,FALSE,GP,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,5,mairead ruane,Mairead Ruane,FALSE,AON,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,5,kevin o'connor,Kevin O'Connor,FALSE,PBPS,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,5,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,6,michael collins,Michael Collins,TRUE,IND,,elected,3,11085,44626,44338,288,69127
+Cork South-West,6,christopher o'sullivan,Christopher O'Sullivan,FALSE,FF,"7,228",running,3,11085,44626,44338,288,69127
+Cork South-West,6,tim lombard,Tim Lombard,FALSE,FG,"8,557",running,3,11085,44626,44338,288,69127
+Cork South-West,6,paul hayes,Paul Hayes,FALSE,SF,"5,542",running,3,11085,44626,44338,288,69127
+Cork South-West,6,holly cairns,Holly Cairns,FALSE,SD,"6,593",running,3,11085,44626,44338,288,69127
+Cork South-West,6,margaret murphy o'mahony,Margaret Murphy O'Mahony,TRUE,FF,"4,863",eliminated,3,11085,44626,44338,288,69127
+Cork South-West,6,karen coakley,Karen Coakley,FALSE,FG,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,6,alan coleman,Alan Coleman,FALSE,IND,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,6,bernadette connolly,Bernadette Connolly,FALSE,GP,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,6,mairead ruane,Mairead Ruane,FALSE,AON,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,6,kevin o'connor,Kevin O'Connor,FALSE,PBPS,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,6,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,7,michael collins,Michael Collins,TRUE,IND,,elected,3,11085,44626,44338,288,69127
+Cork South-West,7,christopher o'sullivan,Christopher O'Sullivan,FALSE,FF,"10,273",running,3,11085,44626,44338,288,69127
+Cork South-West,7,tim lombard,Tim Lombard,FALSE,FG,"9,133",running,3,11085,44626,44338,288,69127
+Cork South-West,7,paul hayes,Paul Hayes,FALSE,SF,"5,832",eliminated,3,11085,44626,44338,288,69127
+Cork South-West,7,holly cairns,Holly Cairns,FALSE,SD,"7,055",running,3,11085,44626,44338,288,69127
+Cork South-West,7,margaret murphy o'mahony,Margaret Murphy O'Mahony,TRUE,FF,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,7,karen coakley,Karen Coakley,FALSE,FG,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,7,alan coleman,Alan Coleman,FALSE,IND,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,7,bernadette connolly,Bernadette Connolly,FALSE,GP,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,7,mairead ruane,Mairead Ruane,FALSE,AON,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,7,kevin o'connor,Kevin O'Connor,FALSE,PBPS,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,7,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,8,michael collins,Michael Collins,TRUE,IND,,elected,3,11085,44626,44338,288,69127
+Cork South-West,8,christopher o'sullivan,Christopher O'Sullivan,FALSE,FF,"11,262",elected,3,11085,44626,44338,288,69127
+Cork South-West,8,tim lombard,Tim Lombard,FALSE,FG,"9,526",eliminated,3,11085,44626,44338,288,69127
+Cork South-West,8,paul hayes,Paul Hayes,FALSE,SF,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,8,holly cairns,Holly Cairns,FALSE,SD,"10,078",elected,3,11085,44626,44338,288,69127
+Cork South-West,8,margaret murphy o'mahony,Margaret Murphy O'Mahony,TRUE,FF,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,8,karen coakley,Karen Coakley,FALSE,FG,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,8,alan coleman,Alan Coleman,FALSE,IND,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,8,bernadette connolly,Bernadette Connolly,FALSE,GP,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,8,mairead ruane,Mairead Ruane,FALSE,AON,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,8,kevin o'connor,Kevin O'Connor,FALSE,PBPS,,eliminated,3,11085,44626,44338,288,69127
+Cork South-West,8,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,3,11085,44626,44338,288,69127
+Donegal,1,pearse doherty,Pearse Doherty,TRUE,SF,"21,044",elected,5,12909,78099,77452,647,125911
+Donegal,1,padraig mac lochlainn,Padraig Mac Lochlainn,FALSE,SF,"13,891",elected,5,12909,78099,77452,647,125911
+Donegal,1,charlie mcconalogue,Charlie McConalogue,TRUE,FF,"8,347",running,5,12909,78099,77452,647,125911
+Donegal,1,joe mchugh,Joe McHugh,TRUE,FG,"7,621",running,5,12909,78099,77452,647,125911
+Donegal,1,pat 'the cope' gallagher,Pat 'The Cope' Gallagher,TRUE,FF,"7,469",running,5,12909,78099,77452,647,125911
+Donegal,1,thomas pringle,Thomas Pringle,TRUE,IND,"5,472",running,5,12909,78099,77452,647,125911
+Donegal,1,john o'donnell,John O'Donnell,FALSE,IND,"4,735",running,5,12909,78099,77452,647,125911
+Donegal,1,martin harley,Martin Harley,FALSE,FG,"3,056",running,5,12909,78099,77452,647,125911
+Donegal,1,mary sweeney,Mary Sweeney,FALSE,AON,"2,382",running,5,12909,78099,77452,647,125911
+Donegal,1,michael white,Michael White,FALSE,GP,"1,656",running,5,12909,78099,77452,647,125911
+Donegal,1,peter casey,Peter Casey,FALSE,IND,"1,143",running,5,12909,78099,77452,647,125911
+Donegal,1,niall mcconnell,Niall McConnell,FALSE,IND,580,running,5,12909,78099,77452,647,125911
+Donegal,1,arthur mcguinness,Arthur McGuinness,FALSE,IND,56,running,5,12909,78099,77452,647,125911
+Donegal,2,pearse doherty,Pearse Doherty,TRUE,SF,,elected,5,12909,78099,77452,647,125911
+Donegal,2,padraig mac lochlainn,Padraig Mac Lochlainn,FALSE,SF,13891,elected,5,12909,78099,77452,647,125911
+Donegal,2,charlie mcconalogue,Charlie McConalogue,TRUE,FF,"8,871",running,5,12909,78099,77452,647,125911
+Donegal,2,joe mchugh,Joe McHugh,TRUE,FG,"8,093",running,5,12909,78099,77452,647,125911
+Donegal,2,pat 'the cope' gallagher,Pat 'The Cope' Gallagher,TRUE,FF,"8,661",running,5,12909,78099,77452,647,125911
+Donegal,2,thomas pringle,Thomas Pringle,TRUE,IND,"8,270",running,5,12909,78099,77452,647,125911
+Donegal,2,john o'donnell,John O'Donnell,FALSE,IND,"5,620",running,5,12909,78099,77452,647,125911
+Donegal,2,martin harley,Martin Harley,FALSE,FG,"3,491",running,5,12909,78099,77452,647,125911
+Donegal,2,mary sweeney,Mary Sweeney,FALSE,AON,"2,827",running,5,12909,78099,77452,647,125911
+Donegal,2,michael white,Michael White,FALSE,GP,"2,113",running,5,12909,78099,77452,647,125911
+Donegal,2,peter casey,Peter Casey,FALSE,IND,"1,804",running,5,12909,78099,77452,647,125911
+Donegal,2,niall mcconnell,Niall McConnell,FALSE,IND,803,running,5,12909,78099,77452,647,125911
+Donegal,2,arthur mcguinness,Arthur McGuinness,FALSE,IND,99,running,5,12909,78099,77452,647,125911
+Donegal,3,pearse doherty,Pearse Doherty,TRUE,SF,,elected,5,12909,78099,77452,647,125911
+Donegal,3,padraig mac lochlainn,Padraig Mac Lochlainn,FALSE,SF,,elected,5,12909,78099,77452,647,125911
+Donegal,3,charlie mcconalogue,Charlie McConalogue,TRUE,FF,"9,022",running,5,12909,78099,77452,647,125911
+Donegal,3,joe mchugh,Joe McHugh,TRUE,FG,"8,129",running,5,12909,78099,77452,647,125911
+Donegal,3,pat 'the cope' gallagher,Pat 'The Cope' Gallagher,TRUE,FF,"8,688",running,5,12909,78099,77452,647,125911
+Donegal,3,thomas pringle,Thomas Pringle,TRUE,IND,"8,521",running,5,12909,78099,77452,647,125911
+Donegal,3,john o'donnell,John O'Donnell,FALSE,IND,"5,780",running,5,12909,78099,77452,647,125911
+Donegal,3,martin harley,Martin Harley,FALSE,FG,"3,502",running,5,12909,78099,77452,647,125911
+Donegal,3,mary sweeney,Mary Sweeney,FALSE,AON,"2,907",running,5,12909,78099,77452,647,125911
+Donegal,3,michael white,Michael White,FALSE,GP,"2,194",running,5,12909,78099,77452,647,125911
+Donegal,3,peter casey,Peter Casey,FALSE,IND,"1,950",running,5,12909,78099,77452,647,125911
+Donegal,3,niall mcconnell,Niall McConnell,FALSE,IND,832,eliminated,5,12909,78099,77452,647,125911
+Donegal,3,arthur mcguinness,Arthur McGuinness,FALSE,IND,109,eliminated,5,12909,78099,77452,647,125911
+Donegal,4,pearse doherty,Pearse Doherty,TRUE,SF,,elected,5,12909,78099,77452,647,125911
+Donegal,4,padraig mac lochlainn,Padraig Mac Lochlainn,FALSE,SF,,elected,5,12909,78099,77452,647,125911
+Donegal,4,charlie mcconalogue,Charlie McConalogue,TRUE,FF,"9,078",running,5,12909,78099,77452,647,125911
+Donegal,4,joe mchugh,Joe McHugh,TRUE,FG,"8,170",running,5,12909,78099,77452,647,125911
+Donegal,4,pat 'the cope' gallagher,Pat 'The Cope' Gallagher,TRUE,FF,"8,729",running,5,12909,78099,77452,647,125911
+Donegal,4,thomas pringle,Thomas Pringle,TRUE,IND,"8,621",running,5,12909,78099,77452,647,125911
+Donegal,4,john o'donnell,John O'Donnell,FALSE,IND,"5,891",running,5,12909,78099,77452,647,125911
+Donegal,4,martin harley,Martin Harley,FALSE,FG,"3,526",running,5,12909,78099,77452,647,125911
+Donegal,4,mary sweeney,Mary Sweeney,FALSE,AON,"3,128",running,5,12909,78099,77452,647,125911
+Donegal,4,michael white,Michael White,FALSE,GP,"2,220",running,5,12909,78099,77452,647,125911
+Donegal,4,peter casey,Peter Casey,FALSE,IND,"2,132",eliminated,5,12909,78099,77452,647,125911
+Donegal,4,niall mcconnell,Niall McConnell,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
+Donegal,4,arthur mcguinness,Arthur McGuinness,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
+Donegal,5,pearse doherty,Pearse Doherty,TRUE,SF,,elected,5,12909,78099,77452,647,125911
+Donegal,5,padraig mac lochlainn,Padraig Mac Lochlainn,FALSE,SF,,elected,5,12909,78099,77452,647,125911
+Donegal,5,charlie mcconalogue,Charlie McConalogue,TRUE,FF,"9,425",running,5,12909,78099,77452,647,125911
+Donegal,5,joe mchugh,Joe McHugh,TRUE,FG,"8,309",running,5,12909,78099,77452,647,125911
+Donegal,5,pat 'the cope' gallagher,Pat 'The Cope' Gallagher,TRUE,FF,"8,905",running,5,12909,78099,77452,647,125911
+Donegal,5,thomas pringle,Thomas Pringle,TRUE,IND,"8,947",running,5,12909,78099,77452,647,125911
+Donegal,5,john o'donnell,John O'Donnell,FALSE,IND,"6,168",running,5,12909,78099,77452,647,125911
+Donegal,5,martin harley,Martin Harley,FALSE,FG,"3,650",running,5,12909,78099,77452,647,125911
+Donegal,5,mary sweeney,Mary Sweeney,FALSE,AON,"3,349",running,5,12909,78099,77452,647,125911
+Donegal,5,michael white,Michael White,FALSE,GP,"2,339",eliminated,5,12909,78099,77452,647,125911
+Donegal,5,peter casey,Peter Casey,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
+Donegal,5,niall mcconnell,Niall McConnell,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
+Donegal,5,arthur mcguinness,Arthur McGuinness,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
+Donegal,6,pearse doherty,Pearse Doherty,TRUE,SF,,elected,5,12909,78099,77452,647,125911
+Donegal,6,padraig mac lochlainn,Padraig Mac Lochlainn,FALSE,SF,,elected,5,12909,78099,77452,647,125911
+Donegal,6,charlie mcconalogue,Charlie McConalogue,TRUE,FF,"9,633",running,5,12909,78099,77452,647,125911
+Donegal,6,joe mchugh,Joe McHugh,TRUE,FG,"8,740",running,5,12909,78099,77452,647,125911
+Donegal,6,pat 'the cope' gallagher,Pat 'The Cope' Gallagher,TRUE,FF,"9,035",running,5,12909,78099,77452,647,125911
+Donegal,6,thomas pringle,Thomas Pringle,TRUE,IND,"9,637",running,5,12909,78099,77452,647,125911
+Donegal,6,john o'donnell,John O'Donnell,FALSE,IND,"6,294",running,5,12909,78099,77452,647,125911
+Donegal,6,martin harley,Martin Harley,FALSE,FG,"3,771",running,5,12909,78099,77452,647,125911
+Donegal,6,mary sweeney,Mary Sweeney,FALSE,AON,"3,600",eliminated,5,12909,78099,77452,647,125911
+Donegal,6,michael white,Michael White,FALSE,GP,,eliminated,5,12909,78099,77452,647,125911
+Donegal,6,peter casey,Peter Casey,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
+Donegal,6,niall mcconnell,Niall McConnell,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
+Donegal,6,arthur mcguinness,Arthur McGuinness,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
+Donegal,7,pearse doherty,Pearse Doherty,TRUE,SF,,elected,5,12909,78099,77452,647,125911
+Donegal,7,padraig mac lochlainn,Padraig Mac Lochlainn,FALSE,SF,,elected,5,12909,78099,77452,647,125911
+Donegal,7,charlie mcconalogue,Charlie McConalogue,TRUE,FF,"10,054",running,5,12909,78099,77452,647,125911
+Donegal,7,joe mchugh,Joe McHugh,TRUE,FG,"8,988",running,5,12909,78099,77452,647,125911
+Donegal,7,pat 'the cope' gallagher,Pat 'The Cope' Gallagher,TRUE,FF,"9,518",running,5,12909,78099,77452,647,125911
+Donegal,7,thomas pringle,Thomas Pringle,TRUE,IND,"10,241",running,5,12909,78099,77452,647,125911
+Donegal,7,john o'donnell,John O'Donnell,FALSE,IND,"6,956",running,5,12909,78099,77452,647,125911
+Donegal,7,martin harley,Martin Harley,FALSE,FG,"3,896",eliminated,5,12909,78099,77452,647,125911
+Donegal,7,mary sweeney,Mary Sweeney,FALSE,AON,,eliminated,5,12909,78099,77452,647,125911
+Donegal,7,michael white,Michael White,FALSE,GP,,eliminated,5,12909,78099,77452,647,125911
+Donegal,7,peter casey,Peter Casey,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
+Donegal,7,niall mcconnell,Niall McConnell,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
+Donegal,7,arthur mcguinness,Arthur McGuinness,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
+Donegal,8,pearse doherty,Pearse Doherty,TRUE,SF,,elected,5,12909,78099,77452,647,125911
+Donegal,8,padraig mac lochlainn,Padraig Mac Lochlainn,FALSE,SF,,elected,5,12909,78099,77452,647,125911
+Donegal,8,charlie mcconalogue,Charlie McConalogue,TRUE,FF,"10,270",running,5,12909,78099,77452,647,125911
+Donegal,8,joe mchugh,Joe McHugh,TRUE,FG,"10,920",running,5,12909,78099,77452,647,125911
+Donegal,8,pat 'the cope' gallagher,Pat 'The Cope' Gallagher,TRUE,FF,"10,146",running,5,12909,78099,77452,647,125911
+Donegal,8,thomas pringle,Thomas Pringle,TRUE,IND,"10,755",running,5,12909,78099,77452,647,125911
+Donegal,8,john o'donnell,John O'Donnell,FALSE,IND,"7,106",eliminated,5,12909,78099,77452,647,125911
+Donegal,8,martin harley,Martin Harley,FALSE,FG,,eliminated,5,12909,78099,77452,647,125911
+Donegal,8,mary sweeney,Mary Sweeney,FALSE,AON,,eliminated,5,12909,78099,77452,647,125911
+Donegal,8,michael white,Michael White,FALSE,GP,,eliminated,5,12909,78099,77452,647,125911
+Donegal,8,peter casey,Peter Casey,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
+Donegal,8,niall mcconnell,Niall McConnell,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
+Donegal,8,arthur mcguinness,Arthur McGuinness,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
+Donegal,9,pearse doherty,Pearse Doherty,TRUE,SF,,elected,5,12909,78099,77452,647,125911
+Donegal,9,padraig mac lochlainn,Padraig Mac Lochlainn,FALSE,SF,,elected,5,12909,78099,77452,647,125911
+Donegal,9,charlie mcconalogue,Charlie McConalogue,TRUE,FF,"11,432",elected,5,12909,78099,77452,647,125911
+Donegal,9,joe mchugh,Joe McHugh,TRUE,FG,"12,104",elected,5,12909,78099,77452,647,125911
+Donegal,9,pat 'the cope' gallagher,Pat 'The Cope' Gallagher,TRUE,FF,"11,074",eliminated,5,12909,78099,77452,647,125911
+Donegal,9,thomas pringle,Thomas Pringle,TRUE,IND,"12,245",elected,5,12909,78099,77452,647,125911
+Donegal,9,john o'donnell,John O'Donnell,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
+Donegal,9,martin harley,Martin Harley,FALSE,FG,,eliminated,5,12909,78099,77452,647,125911
+Donegal,9,mary sweeney,Mary Sweeney,FALSE,AON,,eliminated,5,12909,78099,77452,647,125911
+Donegal,9,michael white,Michael White,FALSE,GP,,eliminated,5,12909,78099,77452,647,125911
+Donegal,9,peter casey,Peter Casey,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
+Donegal,9,niall mcconnell,Niall McConnell,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
+Donegal,9,arthur mcguinness,Arthur McGuinness,FALSE,IND,,eliminated,5,12909,78099,77452,647,125911
 ,,,,,,,,,,,,,
 ,,,,,,,,,,,,,
 ,,,,,,,,,,,,,
@@ -699,7 +1285,38 @@ Cork North-Central,2,stephen o'donovan,Stephen O'Donovan,FALSE,IND,83,running,4,
 ,,,,,,,,,,,,,
 ,,,,,,,,,,,,,
 ,,,,,,,,,,,,,
-Cork North-Central,,,,,,,,4,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
 Cork North-West,,,,,,,,3,,,,,
 Cork South-Central,,,,,,,,4,,,,,
 Cork South-West,,,,,,,,3,,,,,
