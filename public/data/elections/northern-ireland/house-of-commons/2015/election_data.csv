@@ -1,0 +1,139 @@
+constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,turnout,tvp,spoilt,electorate
+Belfast East,1,gavin robinson,Gavin Robinson,FALSE,DUP,19575,elected,1,19930,39860,39682,178,63157
+Belfast East,1,naomi long,Naomi Long,TRUE,AP,16978,running,1,19930,39860,39682,178,63157
+Belfast East,1,neil wilson,Neil Wilson,FALSE,CON,1121,running,1,19930,39860,39682,178,63157
+Belfast East,1,ross brown,Ross Brown,FALSE,GP,1058,running,1,19930,39860,39682,178,63157
+Belfast East,1,niall odonnghaile,Niall Ó Donnghaile,FALSE,SF,823,running,1,19930,39860,39682,178,63157
+Belfast East,1,mary muldoon,Mary Muldoon,FALSE,SDLP,127,running,1,19930,39860,39682,178,63157
+Belfast North,1,nigel dodds,Nigel Dodds,TRUE,DUP,19096,elected,1,20444,40887,40593,294,68553
+Belfast North,1,gerry kelly,Gerry Kelly,FALSE,SF,13770,running,1,20444,40887,40593,294,68553
+Belfast North,1,alban maginness,Alban Maginness,FALSE,SDLP,3338,running,1,20444,40887,40593,294,68553
+Belfast North,1,jason oneill,Jason O'Neill,FALSE,AP,2941,running,1,20444,40887,40593,294,68553
+Belfast North,1,gemma weir,Gemma Weir,FALSE,WP,919,running,1,20444,40887,40593,294,68553
+Belfast North,1,fra hughes,Fra Hughes,FALSE,IND,529,running,1,20444,40887,40593,294,68553
+Belfast South,1,alasdair mcdonnell,Alasdair McDonnell,TRUE,SDLP,9560,elected,1,19570,39140,38957,183,64927
+Belfast South,1,jonathan bell,Jonathan Bell,FALSE,DUP,8654,running,1,19570,39140,38957,183,64927
+Belfast South,1,paula bradshaw,Paula Bradshaw,FALSE,AP,6711,running,1,19570,39140,38957,183,64927
+Belfast South,1,mairtin o muilleoir,Máirtín Ó Muilleoir,FALSE,SF,5402,running,1,19570,39140,38957,183,64927
+Belfast South,1,rodney mccune,Rodney McCune,FALSE,UUP,3549,running,1,19570,39140,38957,183,64927
+Belfast South,1,clare bailey,Clare Bailey,FALSE,GP,2238,running,1,19570,39140,38957,183,64927
+Belfast South,1,bob stoker,Bob Stoker,FALSE,UKIP,1900,running,1,19570,39140,38957,183,64927
+Belfast South,1,ben manton,Ben Manton,FALSE,CON,582,running,1,19570,39140,38957,183,64927
+Belfast South,1,lily kerr,Lily Kerr,FALSE,WP,361,running,1,19570,39140,38957,183,64927
+Belfast West,1,paul maskey,Paul Maskey,TRUE,SF,19163,elected,1,17805,35610,35329,281,62697
+Belfast West,1,gerry carroll,Gerry Carroll,FALSE,PBP,6798,running,1,17805,35610,35329,281,62697
+Belfast West,1,alex attwood,Alex Attwood,FALSE,SDLP,3475,running,1,17805,35610,35329,281,62697
+Belfast West,1,frank mccoubrey,Frank McCoubrey,FALSE,DUP,2773,running,1,17805,35610,35329,281,62697
+Belfast West,1,bill manwaring,Bill Manwaring,FALSE,UUP,1088,running,1,17805,35610,35329,281,62697
+Belfast West,1,brian higginson,Brian Higginson,FALSE,UKIP,765,running,1,17805,35610,35329,281,62697
+Belfast West,1,gerard catney,Gerard Catney,FALSE,AP,636,running,1,17805,35610,35329,281,62697
+Belfast West,1,john lowry,John Lowry,FALSE,WP,597,running,1,17805,35610,35329,281,62697
+Belfast West,1,paul shea,Paul Shea,FALSE,CON,34,running,1,17805,35610,35329,281,62697
+East Antrim,1,sammy wilson,Sammy Wilson,TRUE,DUP,12103,elected,1,16844,33688,33497,191,62811
+East Antrim,1,roy beggs,Roy Beggs,FALSE,UUP,6308,running,1,16844,33688,33497,191,62811
+East Antrim,1,stewart dickson,Stewart Dickson,FALSE,AP,5021,running,1,16844,33688,33497,191,62811
+East Antrim,1,noel jordan,Noel Jordan,FALSE,UKIP,3660,running,1,16844,33688,33497,191,62811
+East Antrim,1,oliver mcmullan,Oliver McMullan,FALSE,SF,2314,running,1,16844,33688,33497,191,62811
+East Antrim,1,ruth wilson,Ruth Wilson,FALSE,TUV,1903,running,1,16844,33688,33497,191,62811
+East Antrim,1,margaretanne mckillop,Margaret Anne McKillop,FALSE,SDLP,1639,running,1,16844,33688,33497,191,62811
+East Antrim,1,alex wilson,Alex Wilson,FALSE,CON,549,running,1,16844,33688,33497,191,62811
+East Derry,1,gregory campbell,Gregory Campbell,TRUE,DUP,14663,elected,1,17483,34965,34714,251,66926
+East Derry,1,caoimhe archibald,Caoimhe Archibald,FALSE,SF,6859,running,1,17483,34965,34714,251,66926
+East Derry,1,william mccandless,William McCandless,FALSE,UUP,5333,running,1,17483,34965,34714,251,66926
+East Derry,1,gerry mullan,Gerry Mullan,FALSE,SDLP,4268,running,1,17483,34965,34714,251,66926
+East Derry,1,yvonne boyle,Yvonne Boyle,FALSE,AP,2642,running,1,17483,34965,34714,251,66926
+East Derry,1,neil paine,Neil Paine,FALSE,CSA,527,running,1,17483,34965,34714,251,66926
+East Derry,1,elizabeth stclairlegge,Elizabeth St Clair-Legge,FALSE,CON,422,running,1,17483,34965,34714,251,66926
+Fermanagh and South Tyrone,1,tom elliott,Tom Elliott,FALSE,UUP,23608,elected,1,25575,51150,50864,286,70108
+Fermanagh and South Tyrone,1,michelle gildernew,Michelle Gildernew,TRUE,SF,23078,running,1,25575,51150,50864,286,70108
+Fermanagh and South Tyrone,1,john coyle,John Coyle,FALSE,SDLP,2732,running,1,25575,51150,50864,286,70108
+Fermanagh and South Tyrone,1,tanya jones,Tanya Jones,FALSE,GP,788,running,1,25575,51150,50864,286,70108
+Fermanagh and South Tyrone,1,hannah su,Hannah Su,FALSE,AP,658,running,1,25575,51150,50864,286,70108
+Foyle,1,mark durkan,Mark Durkan,TRUE,SDLP,17725,elected,1,18764,37528,37002,526,70036
+Foyle,1,gearoid oheara,Gearóid Ó Heára,FALSE,SF,11679,running,1,18764,37528,37002,526,70036
+Foyle,1,gary middleton,Gary Middleton,FALSE,DUP,4573,running,1,18764,37528,37002,526,70036
+Foyle,1,julia kee,Julia Kee,FALSE,UUP,1226,running,1,18764,37528,37002,526,70036
+Foyle,1,david hawthorne,David Hawthorne,FALSE,AP,835,running,1,18764,37528,37002,526,70036
+Foyle,1,kyle thompson,Kyle Thompson,FALSE,UKIP,832,running,1,18764,37528,37002,526,70036
+Foyle,1,hamish badenoch,Hamish Badenoch,FALSE,CON,132,running,1,18764,37528,37002,526,70036
+Lagan Valley,1,jeffrey donaldson,Jeffrey Donaldson,TRUE,DUP,19055,elected,1,19993,39986,39795,191,71152
+Lagan Valley,1,alexander redpath,Alexander Redpath,FALSE,UUP,6055,running,1,19993,39986,39795,191,71152
+Lagan Valley,1,trevor lunn,Trevor Lunn,FALSE,AP,5544,running,1,19993,39986,39795,191,71152
+Lagan Valley,1,pat catney,Pat Catney,FALSE,SDLP,2500,running,1,19993,39986,39795,191,71152
+Lagan Valley,1,alan love,Alan Love,FALSE,UKIP,2200,running,1,19993,39986,39795,191,71152
+Lagan Valley,1,samuel morrison,Samuel Morrison,FALSE,TUV,1887,running,1,19993,39986,39795,191,71152
+Lagan Valley,1,jacqui mcgeough,Jacqui McGeough,FALSE,SF,1144,running,1,19993,39986,39795,191,71152
+Lagan Valley,1,jonny orr,Jonny Orr,FALSE,IND,756,running,1,19993,39986,39795,191,71152
+Lagan Valley,1,helen osborne,Helen Osborne,FALSE,CON,654,running,1,19993,39986,39795,191,71152
+Mid Ulster,1,francie molloy,Francie Molloy,TRUE,SF,19935,elected,1,20659,41317,40922,395,67832
+Mid Ulster,1,sandra overend,Sandra Overend,FALSE,UUP,6318,running,1,20659,41317,40922,395,67832
+Mid Ulster,1,ian mccrea,Ian McCrea,FALSE,DUP,5465,running,1,20659,41317,40922,395,67832
+Mid Ulster,1,malachy quinn,Malachy Quinn,FALSE,SDLP,5055,running,1,20659,41317,40922,395,67832
+Mid Ulster,1,gareth ferguson,Gareth Ferguson,FALSE,TUV,1892,running,1,20659,41317,40922,395,67832
+Mid Ulster,1,alan day,Alan Day,FALSE,UKIP,863,running,1,20659,41317,40922,395,67832
+Mid Ulster,1,eric bullick,Eric Bullick,FALSE,AP,778,running,1,20659,41317,40922,395,67832
+Mid Ulster,1,hugh scullion,Hugh Scullion,FALSE,WP,496,running,1,20659,41317,40922,395,67832
+Mid Ulster,1,lucille nicholson,Lucille Nicholson,FALSE,CON,120,running,1,20659,41317,40922,395,67832
+Newry and Armagh,1,mickey brady,Mickey Brady,FALSE,SF,20488,elected,1,25132,50263,49877,386,77633
+Newry and Armagh,1,danny kennedy,Danny Kennedy,FALSE,UUP,16312,running,1,25132,50263,49877,386,77633
+Newry and Armagh,1,justin mcnulty,Justin McNulty,FALSE,SDLP,12026,running,1,25132,50263,49877,386,77633
+Newry and Armagh,1,kate nicholl,Kate Nicholl,FALSE,AP,841,running,1,25132,50263,49877,386,77633
+Newry and Armagh,1,robert rigby,Robert Rigby,FALSE,CON,210,running,1,25132,50263,49877,386,77633
+North Antrim,1,ian paisley,Ian Paisley,TRUE,DUP,18107,elected,1,21058,42116,41907,209,75876
+North Antrim,1,timothy gaston,Timothy Gaston,FALSE,TUV,6561,running,1,21058,42116,41907,209,75876
+North Antrim,1,daithi­ mckay,Daithí­ McKay,FALSE,SF,5143,running,1,21058,42116,41907,209,75876
+North Antrim,1,robin swann,Robin Swann,FALSE,UUP,5054,running,1,21058,42116,41907,209,75876
+North Antrim,1,declan oloan,Declan O'Loan,FALSE,SDLP,2925,running,1,21058,42116,41907,209,75876
+North Antrim,1,jayne dunlop,Jayne Dunlop,FALSE,AP,2351,running,1,21058,42116,41907,209,75876
+North Antrim,1,robert hill,Robert Hill,FALSE,UKIP,1341,running,1,21058,42116,41907,209,75876
+North Antrim,1,carol freeman,Carol Freeman,FALSE,CON,368,running,1,21058,42116,41907,209,75876
+North Antrim,1,thomas palmer,Thomas Palmer,FALSE,IND,57,running,1,21058,42116,41907,209,75876
+North Down,1,sylvia hermon,Sylvia Hermon,TRUE,INDU,17689,elected,1,18022,36044,35947,97,64207
+North Down,1,alex easton,Alex Easton,FALSE,DUP,8487,running,1,18022,36044,35947,97,64207
+North Down,1,andrew muir,Andrew Muir,FALSE,AP,3086,running,1,18022,36044,35947,97,64207
+North Down,1,steven agnew,Steven Agnew,FALSE,GP,1958,running,1,18022,36044,35947,97,64207
+North Down,1,mark brotherston,Mark Brotherston,FALSE,CON,1593,running,1,18022,36044,35947,97,64207
+North Down,1,jonny lavery,Jonny Lavery,FALSE,UKIP,1482,running,1,18022,36044,35947,97,64207
+North Down,1,william cudworth,William Cudworth,FALSE,TUV,686,running,1,18022,36044,35947,97,64207
+North Down,1,tom woolley,Tom Woolley,FALSE,SDLP,355,running,1,18022,36044,35947,97,64207
+North Down,1,glenn donnelly,Glenn Donnelly,FALSE,CSA,338,running,1,18022,36044,35947,97,64207
+North Down,1,therese mccartney,Therese McCartney,FALSE,SF,273,running,1,18022,36044,35947,97,64207
+South Antrim,1,danny kinahan,Danny Kinahan,FALSE,UUP,11942,elected,1,18367,36734,36523,211,67425
+South Antrim,1,william mccrea,William McCrea,TRUE,DUP,10993,running,1,18367,36734,36523,211,67425
+South Antrim,1,declan kearney,Declan Kearney,FALSE,SF,4699,running,1,18367,36734,36523,211,67425
+South Antrim,1,neil kelly,Neil Kelly,FALSE,AP,3576,running,1,18367,36734,36523,211,67425
+South Antrim,1,roisin lynch,Roisin Lynch,FALSE,SDLP,2990,running,1,18367,36734,36523,211,67425
+South Antrim,1,richard cairns,Richard Cairns,FALSE,TUV,1908,running,1,18367,36734,36523,211,67425
+South Antrim,1,alan dunlop,Alan Dunlop,FALSE,CON,415,running,1,18367,36734,36523,211,67425
+South Down,1,margaret ritchie,Margaret Ritchie,TRUE,SDLP,18077,elected,1,21500,43000,42697,303,75220
+South Down,1,chris hazzard,Chris Hazzard,FALSE,SF,12186,running,1,21500,43000,42697,303,75220
+South Down,1,harold mckee,Harold McKee,FALSE,UUP,3964,running,1,21500,43000,42697,303,75220
+South Down,1,jim wells,Jim Wells,FALSE,DUP,3486,running,1,21500,43000,42697,303,75220
+South Down,1,henry reilly,Henry Reilly,FALSE,UKIP,3044,running,1,21500,43000,42697,303,75220
+South Down,1,martyn todd,Martyn Todd,FALSE,AP,1622,running,1,21500,43000,42697,303,75220
+South Down,1,felicity buchan,Felicity Buchan,FALSE,CON,318,running,1,21500,43000,42697,303,75220
+Strangford,1,jim shannon,Jim Shannon,TRUE,DUP,15053,elected,1,17052,34104,33924,180,64289
+Strangford,1,robert burgess,Robert Burgess,FALSE,UUP,4868,running,1,17052,34104,33924,180,64289
+Strangford,1,kellie armstrong,Kellie Armstrong,FALSE,AP,4687,running,1,17052,34104,33924,180,64289
+Strangford,1,joe boyle,Joe Boyle,FALSE,SDLP,2335,running,1,17052,34104,33924,180,64289
+Strangford,1,joe jordan,Joe Jordan,FALSE,UKIP,2237,running,1,17052,34104,33924,180,64289
+Strangford,1,johnny andrews,Johnny Andrews,FALSE,CON,2167,running,1,17052,34104,33924,180,64289
+Strangford,1,stephen cooper,Stephen Cooper,FALSE,TUV,1701,running,1,17052,34104,33924,180,64289
+Strangford,1,sheila bailie,Sheila Bailie,FALSE,SF,876,running,1,17052,34104,33924,180,64289
+Upper Bann,1,david simpson,David Simpson,TRUE,DUP,15430,elected,1,23737,47473,47219,254,80060
+Upper Bann,1,joanne dobson,Jo-Anne Dobson,FALSE,UUP,13166,running,1,23737,47473,47219,254,80060
+Upper Bann,1,catherine seeley,Catherine Seeley,FALSE,SF,11593,running,1,23737,47473,47219,254,80060
+Upper Bann,1,dolores kelly,Dolores Kelly,FALSE,SDLP,4238,running,1,23737,47473,47219,254,80060
+Upper Bann,1,peter lavery,Peter Lavery,FALSE,AP,1780,running,1,23737,47473,47219,254,80060
+Upper Bann,1,martin kelly,Martin Kelly,FALSE,CSA,460,running,1,23737,47473,47219,254,80060
+Upper Bann,1,damien harte,Damien Harte,FALSE,WP,351,running,1,23737,47473,47219,254,80060
+Upper Bann,1,amandeep singhbhogal,Amandeep Singh Bhogal,FALSE,CON,201,running,1,23737,47473,47219,254,80060
+West Tyrone,1,pat doherty,Pat Doherty,TRUE,SF,16807,elected,1,23737,39007,38654,353,63856
+West Tyrone,1,tom buchanan,Tom Buchanan,FALSE,DUP,6747,running,1,19504,39007,38654,353,63856
+West Tyrone,1,daniel mccrossan,Daniel McCrossan,FALSE,SDLP,6444,running,1,19504,39007,38654,353,63856
+West Tyrone,1,ross hussey,Ross Hussey,FALSE,UUP,6144,running,1,19504,39007,38654,353,63856
+West Tyrone,1,stephen donnelly,Stephen Donnelly,FALSE,AP,869,running,1,19504,39007,38654,353,63856
+West Tyrone,1,ciaran mcclean,Ciaran McClean,FALSE,GP,780,running,1,19504,39007,38654,353,63856
+West Tyrone,1,barry brown,Barry Brown,FALSE,CSA,528,running,1,19504,39007,38654,353,63856
+West Tyrone,1,clairelouise leyland,Claire-Louise Leyland,FALSE,CON,169,running,1,19504,39007,38654,353,63856
+West Tyrone,1,susananne white,Susan-Anne White,FALSE,IND,166,running,1,19504,39007,38654,353,63856
