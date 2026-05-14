@@ -382,7 +382,7 @@ election,constituency,party,votes,seats
 2020,Dublin South-Central,LAB,1875,
 2020,Dublin South-Central,NP,547,
 2020,Dublin South-Central,PBPS,4734,1
-2020,Dublin South-Central,RTC,2688,1
+2020,Dublin South-Central,I4C,2688,1
 2020,Dublin South-Central,SF,16839,1
 2020,Dublin South-Central,SD,1384,
 2020,Dublin South-Central,IPP,0,
@@ -702,7 +702,28 @@ election,constituency,party,votes,seats
 2020,Mayo,CEN,0,
 2020,Mayo,LR,0,
 2020,Mayo,IND,1080,
-2020,Meath East,,,
+2020,Meath East,AON,1759,
+2020,Meath East,FF,8878,1
+2020,Meath East,FG,13021,1
+2020,Meath East,GP,3579,1
+2020,Meath East,INDIRL,0,
+2020,Meath East,IF,0,
+2020,Meath East,IFP,47,
+2020,Meath East,LAB,1387,
+2020,Meath East,NP,0,
+2020,Meath East,PBPS,687,
+2020,Meath East,RTC,0,
+2020,Meath East,SF,12170,1
+2020,Meath East,SD,0,
+2020,Meath East,IPP,0,
+2020,Meath East,WUA,0,
+2020,Meath East,WP,150,
+2020,Meath East,WUA,0,
+2020,Meath East,Redress,0,
+2020,Meath East,PAW,0,
+2020,Meath East,CEN,0,
+2020,Meath East,LR,0,
+2020,Meath East,IND,5304,
 2020,Meath West,AON,7052,1
 2020,Meath West,FF,5986,
 2020,Meath West,FG,9569,1
@@ -768,7 +789,28 @@ election,constituency,party,votes,seats
 2020,Roscommon-Galway,CEN,,
 2020,Roscommon-Galway,LR,,
 2020,Roscommon-Galway,IND,18407,2
-2020,Sligo-Leitrim,,,
+2020,Sligo-Leitrim,AON,228,
+2020,Sligo-Leitrim,FF,15315,1
+2020,Sligo-Leitrim,FG,8993,1
+2020,Sligo-Leitrim,GP,1646,
+2020,Sligo-Leitrim,INDIRL,0,
+2020,Sligo-Leitrim,IF,0,
+2020,Sligo-Leitrim,IFP,0,
+2020,Sligo-Leitrim,LAB,1071,
+2020,Sligo-Leitrim,NP,342,
+2020,Sligo-Leitrim,PBPS,1675,
+2020,Sligo-Leitrim,RTC,0,
+2020,Sligo-Leitrim,SF,14416,1
+2020,Sligo-Leitrim,SD,0,
+2020,Sligo-Leitrim,IPP,0,
+2020,Sligo-Leitrim,WUA,0,
+2020,Sligo-Leitrim,WP,0,
+2020,Sligo-Leitrim,WUA,0,
+2020,Sligo-Leitrim,Redress,0,
+2020,Sligo-Leitrim,PAW,0,
+2020,Sligo-Leitrim,CEN,0,
+2020,Sligo-Leitrim,LR,0,
+2020,Sligo-Leitrim,IND,13237,1
 2020,Tipperary North,AON,62,
 2020,Tipperary North,FF,8522,1
 2020,Tipperary North,FG,3847,
@@ -834,9 +876,50 @@ election,constituency,party,votes,seats
 2020,Waterford,CEN,,
 2020,Waterford,LR,,
 2020,Waterford,IND,5360,1
-2020,Wexford,,,
-2020,Wicklow,,,
-2020,Wicklow-Wexford,AON,449,
+2020,Wexford,AON,1245,
+2020,Wexford,FF,8268,1
+2020,Wexford,FG,4580,1
+2020,Wexford,GP,866,
+2020,Wexford,INDIRL,0,
+2020,Wexford,IF,0,
+2020,Wexford,IFP,0,
+2020,Wexford,LAB,5072,1
+2020,Wexford,NP,0,
+2020,Wexford,PBPS,465,
+2020,Wexford,RTC,0,
+2020,Wexford,SF,8190,1
+2020,Wexford,SD,0,
+2020,Wexford,IPP,0,
+2020,Wexford,WUA,0,
+2020,Wexford,WP,0,
+2020,Wexford,WUA,0,
+2020,Wexford,Redress,0,
+2020,Wexford,PAW,0,
+2020,Wexford,CEN,0,
+2020,Wexford,LR,0,
+2020,Wexford,IND,5442,1
+2020,Wicklow,AON,830,
+2020,Wicklow,FF,7041,1
+2020,Wicklow,FG,15135,1
+2020,Wicklow,GP,5062,
+2020,Wicklow,INDIRL,0,
+2020,Wicklow,IF,0,
+2020,Wicklow,IFP,0,
+2020,Wicklow,LAB,1507,
+2020,Wicklow,NP,228,
+2020,Wicklow,PBPS,796,
+2020,Wicklow,RTC,0,
+2020,Wicklow,SF,12610,1
+2020,Wicklow,SD,6592,1
+2020,Wicklow,IPP,0,
+2020,Wicklow,WUA,0,
+2020,Wicklow,WP,0,
+2020,Wicklow,WUA,0,
+2020,Wicklow,Redress,0,
+2020,Wicklow,PAW,0,
+2020,Wicklow,CEN,0,
+2020,Wicklow,LR,0,
+2020,Wicklow-Wexford,IND,7081,
 2020,Wicklow-Wexford,FF,10071,1
 2020,Wicklow-Wexford,FG,9634,1
 2020,Wicklow-Wexford,GP,1206,

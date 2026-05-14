@@ -28,6 +28,7 @@ import {
   PBPS: "#da1498",
   AON: "#53660e",
   INDIRL: "#9be736",
+  I4C: "#e2a8a8",
   IND: "#7a7a7a",
   IPP: "#0e9775",
 
@@ -4007,9 +4008,39 @@ National Results
     marginBottom: "8px"
   }}
 >
-  <div style={{ fontSize: "11px", fontWeight: 600, opacity: 0.6 }}>
-    Seats
-  </div>
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "4px",
+    fontSize: "11px",
+    fontWeight: 600,
+    opacity: 0.6
+  }}
+>
+
+  {type === "dail" && Number(year) === 2024
+    ? "Seats (Notional Changes)"
+    : "Seats"}
+
+  {type === "dail" && Number(year) === 2024 && (
+    <span
+      title="Notional changes estimate how the new constituency boundaries would have translated previous election results into seats under the revised map. Because of this, some parties may appear to gain or lose seats even where an incumbent from an abolished or heavily redrawn constituency was re-elected in a successor constituency."
+      style={{
+        cursor: "help",
+        opacity: 0.7,
+        fontWeight: 700,
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "9px"
+      }}
+    >
+      ?
+    </span>
+  )}
+
+</div>
 
   <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
 
