@@ -166,8 +166,8 @@ Cavan-Monaghan,2,emmett smith,Emmett Smith,FALSE,PBPS,910,running,5,12031,72878,
 Cavan-Monaghan,2,liam van der speck,Liam van der Spek,FALSE,LAB,1017,running,5,12031,72878,72183,695,110190,NONE,NONE,NONE
 Cavan-Monaghan,2,joseph duffy,Joseph Duffy,FALSE,IND,171,running,5,12031,72878,72183,695,110190,NONE,NONE,NONE
 Cavan-Monaghan,3,matt carthy,Matt Carthy,TRUE,SF,,elected,5,12031,72878,72183,695,110190,NONE,NONE,NONE
-Cavan-Monaghan,3,heather humphreys,Heather Humphreys,TRUE,FG,,elected,5,12031,72878,72183,695,110190,NONE,NONE,NONE
-Cavan-Monaghan,3,pauline tully,Pauline Tully,FALSE,SF,13457,elected,5,12031,72878,72183,695,110190,NONE,NONE,NONE
+Cavan-Monaghan,3,heather humphreys,Heather Humphreys,TRUE,FG,12808,elected,5,12031,72878,72183,695,110190,NONE,NONE,NONE
+Cavan-Monaghan,3,pauline tully,Pauline Tully,FALSE,SF,,elected,5,12031,72878,72183,695,110190,NONE,NONE,NONE
 Cavan-Monaghan,3,brendan smith,Brendan Smith,TRUE,FF,7476,running,5,12031,72878,72183,695,110190,NONE,NONE,NONE
 Cavan-Monaghan,3,niamh smyth,Niamh Smyth,TRUE,FF,5985,running,5,12031,72878,72183,695,110190,NONE,NONE,NONE
 Cavan-Monaghan,3,t.p. o'reilly,T. P. O'Reilly,FALSE,FG,5175,running,5,12031,72878,72183,695,110190,NONE,NONE,NONE
@@ -179,8 +179,8 @@ Cavan-Monaghan,3,emmett smith,Emmett Smith,FALSE,PBPS,1261,running,5,12031,72878
 Cavan-Monaghan,3,liam van der speck,Liam van der Spek,FALSE,LAB,1128,running,5,12031,72878,72183,695,110190,NONE,NONE,NONE
 Cavan-Monaghan,3,joseph duffy,Joseph Duffy,FALSE,IND,235,eliminated,5,12031,72878,72183,695,110190,NONE,NONE,NONE
 Cavan-Monaghan,4,matt carthy,Matt Carthy,TRUE,SF,,elected,5,12031,72878,72183,695,110190,NONE,NONE,NONE
-Cavan-Monaghan,4,heather humphreys,Heather Humphreys,TRUE,FG,,elected,5,12031,72878,72183,695,110190,NONE,NONE,NONE
-Cavan-Monaghan,4,pauline tully,Pauline Tully,FALSE,SF,13457,elected,5,12031,72878,72183,695,110190,NONE,NONE,NONE
+Cavan-Monaghan,4,heather humphreys,Heather Humphreys,TRUE,FG,12808,elected,5,12031,72878,72183,695,110190,NONE,NONE,NONE
+Cavan-Monaghan,4,pauline tully,Pauline Tully,FALSE,SF,,elected,5,12031,72878,72183,695,110190,NONE,NONE,NONE
 Cavan-Monaghan,4,brendan smith,Brendan Smith,TRUE,FF,7482,running,5,12031,72878,72183,695,110190,NONE,NONE,NONE
 Cavan-Monaghan,4,niamh smyth,Niamh Smyth,TRUE,FF,5996,running,5,12031,72878,72183,695,110190,NONE,NONE,NONE
 Cavan-Monaghan,4,t.p. o'reilly,T. P. O'Reilly,FALSE,FG,5179,running,5,12031,72878,72183,695,110190,NONE,NONE,NONE
@@ -570,8 +570,8 @@ Cork North-Central,2,ger keohan,Ger Keohane,FALSE,IND,759,running,4,10356,51778,
 Cork North-Central,2,t j hogan,T J Hogan,FALSE,IND,407,running,4,10356,51778,52218,440,87473,NONE,NONE,NONE
 Cork North-Central,2,diarmaid o cadhla,Diarmaid O Cadhla,FALSE,IND,270,running,4,10356,51778,52218,440,87473,NONE,NONE,NONE
 Cork North-Central,2,james coughlan,James Coughlan,FALSE,WP,301,running,4,10356,51778,52218,440,87473,NONE,NONE,NONE
-Cork North-Central,2,sean o'leary,Sean O'Leary,FALSE,IND,152,running,4,10356,51778,52218,440,87473,NONE,NONE,NONE
-Cork North-Central,2,stephen o'donovan,Stephen O'Donovan,FALSE,IND,83,running,4,10356,51778,52218,440,87473,NONE,NONE,NONE
+Cork North-Central,2,sean o'leary,Sean O'Leary,FALSE,IND,152,eliminated,4,10356,51778,52218,440,87473,NONE,NONE,NONE
+Cork North-Central,2,stephen o'donovan,Stephen O'Donovan,FALSE,IND,83,eliminated,4,10356,51778,52218,440,87473,NONE,NONE,NONE
 Cork North-Central,3,thomas gould,Thomas Gould,TRUE,SF,,elected,4,10356,51778,52218,440,87473,NONE,NONE,NONE
 Cork North-Central,3,padraig o'sullivan,Padraig O'Sullivan,TRUE,FF,"8,259",running,4,10356,51778,52218,440,87473,NONE,NONE,NONE
 Cork North-Central,3,colm burke,Colm Burke,FALSE,FG,"6,731",running,4,10356,51778,52218,440,87473,NONE,NONE,NONE
@@ -603,7 +603,7 @@ Cork North-Central,4,sandra murphy,Sandra Murphy,FALSE,FF,"1,267",running,4,1035
 Cork North-Central,4,lorraine o'neill,Lorainne O'Neill,FALSE,FG,"1,181",running,4,10356,51778,52218,440,87473,NONE,NONE,NONE
 Cork North-Central,4,sinead halpin,Sinead Halpin,FALSE,SD,"1,325",running,4,10356,51778,52218,440,87473,NONE,NONE,NONE
 Cork North-Central,4,ger keohan,Ger Keohane,FALSE,IND,783,running,4,10356,51778,52218,440,87473,NONE,NONE,NONE
-Cork North-Central,4,t j hogan,T J Hogan,FALSE,IND,454,running,4,10356,51778,52218,440,87473,NONE,NONE,NONE
+Cork North-Central,4,t j hogan,T J Hogan,FALSE,IND,454,eliminated,4,10356,51778,52218,440,87473,NONE,NONE,NONE
 Cork North-Central,4,diarmaid o cadhla,Diarmaid O Cadhla,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473,NONE,NONE,NONE
 Cork North-Central,4,james coughlan,James Coughlan,FALSE,WP,327,eliminated,4,10356,51778,52218,440,87473,NONE,NONE,NONE
 Cork North-Central,4,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,4,10356,51778,52218,440,87473,NONE,NONE,NONE
@@ -803,7 +803,7 @@ Cork North-West,2,michael creed,Michael Creed,TRUE,FG,8376,running,3,11593,46856
 Cork North-West,2,john paul o'shea,John Paul O'Shea,FALSE,FG,7120,running,3,11593,46856,46370,486,71685,NONE,NONE,NONE
 Cork North-West,2,becky kealy,Becky Kealy,FALSE,AON,4354,running,3,11593,46856,46370,486,71685,NONE,NONE,NONE
 Cork North-West,2,ciaran mccarthy,Ciaran McCarthy,FALSE,SD,4241,running,3,11593,46856,46370,486,71685,NONE,NONE,NONE
-Cork North-West,2,colette finn,Colette Finn,FALSE,GP,3694,running,3,11593,46856,46370,486,71685,NONE,NONE,NONE
+Cork North-West,2,colette finn,Colette Finn,FALSE,GP,3694,eliminated,3,11593,46856,46370,486,71685,NONE,NONE,NONE
 Cork North-West,2,tara nic domhnaill,Tara Nic Domhnaill,FALSE,IFP,,eliminated,3,11593,46856,46370,486,71685,NONE,NONE,NONE
 Cork North-West,2,sean o'leary,Sean O'Leary,FALSE,IND,,eliminated,3,11593,46856,46370,486,71685,NONE,NONE,NONE
 Cork North-West,3,aindrias moynihan,Aindrias Moynihan,TRUE,FF,10019,running,3,11593,46856,46370,486,71685,NONE,NONE,NONE
@@ -1532,7 +1532,7 @@ Dublin Bay South,6,eoghan murphy,Eoghan Murphy,TRUE,FG,"6,638",running,4,7919,39
 Dublin Bay South,6,jim o'callaghan,Jim O'Callaghan,TRUE,FF,"5,977",running,4,7919,39759,39591,268,76514,NONE,NONE,NONE
 Dublin Bay South,6,kate o'connell,Kate O'Connell,TRUE,FG,"4,891",running,4,7919,39759,39591,268,76514,NONE,NONE,NONE
 Dublin Bay South,6,kevin humphreys,Kevin Humphreys,FALSE,LAB,"3,589",running,4,7919,39759,39591,268,76514,NONE,NONE,NONE
-Dublin Bay South,6,sarah durcan,Sarah Durcan,FALSE,SD,"2,210",running,4,7919,39759,39591,268,76514,NONE,NONE,NONE
+Dublin Bay South,6,sarah durcan,Sarah Durcan,FALSE,SD,"2,210",eliminated,4,7919,39759,39591,268,76514,NONE,NONE,NONE
 Dublin Bay South,6,annette mooney,Annette Mooney,FALSE,PBPS,"1,282",eliminated,4,7919,39759,39591,268,76514,NONE,NONE,NONE
 Dublin Bay South,6,mannix flynn,Mannix Flynn,FALSE,IND,,eliminated,4,7919,39759,39591,268,76514,NONE,NONE,NONE
 Dublin Bay South,6,jacqui gilborne,Jacqui Gilborne,FALSE,REN,,eliminated,4,7919,39759,39591,268,76514,NONE,NONE,NONE
@@ -1643,7 +1643,7 @@ Dublin Central,5,gary gannon,Gary Gannon,FALSE,SD,"3,724",running,4,6288,31732,3
 Dublin Central,5,joe costello,Joe Costello,FALSE,LAB,"2,029",running,4,6288,31732,31435,297,61998,NONE,NONE,NONE
 Dublin Central,5,christy burke,Christy Burke,FALSE,IND,"3,449",running,4,6288,31732,31435,297,61998,NONE,NONE,NONE
 Dublin Central,5,gillian brien,Gillian Brien,FALSE,PBPS,"1,836",running,4,6288,31732,31435,297,61998,NONE,NONE,NONE
-Dublin Central,5,ian noel smyth,Ian Noel Smyth,FALSE,AON,737,running,4,6288,31732,31435,297,61998,NONE,NONE,NONE
+Dublin Central,5,ian noel smyth,Ian Noel Smyth,FALSE,AON,737,eliminated,4,6288,31732,31435,297,61998,NONE,NONE,NONE
 Dublin Central,5,deirdre duffy,Deirdre Duffy,FALSE,FG,,eliminated,4,6288,31732,31435,297,61998,NONE,NONE,NONE
 Dublin Central,5,eilis ryan,Eilis Ryan,FALSE,WP,662,eliminated,4,6288,31732,31435,297,61998,NONE,NONE,NONE
 Dublin Central,5,rita harrold,Rita Harrold,FALSE,PBPS,,eliminated,4,6288,31732,31435,297,61998,NONE,NONE,NONE
@@ -1836,8 +1836,8 @@ Dublin Fingal,8,john uwhumiakpor,John Uwhumiakpor,FALSE,PBPS,,eliminated,5,10574
 Dublin Fingal,8,sandra sweetman,Sandra Sweetman,FALSE,IND,,eliminated,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,8,alistair smith,Alistair Smith,FALSE,UP,,eliminated,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,9,louise o'reilly,Louise O'Reilly,TRUE,SF,,elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
-Dublin Fingal,9,joe o'brien,Joe O'Brien,TRUE,GP,,elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
-Dublin Fingal,9,darragh o'brien,Darragh O'Brien,TRUE,FF,,elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
+Dublin Fingal,9,joe o'brien,Joe O'Brien,TRUE,GP,"10,720",elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
+Dublin Fingal,9,darragh o'brien,Darragh O'Brien,TRUE,FF,"10,652",elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,9,alan farrell,Alan Farrell,TRUE,FG,"8,732",running,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,9,duncan smith,Duncan Smith,FALSE,LAB,"6,126",running,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,9,dean mulligan,Dean Mulligan,FALSE,I4C,"5,972",running,5,10574,63891,63440,451,101045,NONE,NONE,NONE
@@ -1851,8 +1851,8 @@ Dublin Fingal,9,john uwhumiakpor,John Uwhumiakpor,FALSE,PBPS,,eliminated,5,10574
 Dublin Fingal,9,sandra sweetman,Sandra Sweetman,FALSE,IND,,eliminated,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,9,alistair smith,Alistair Smith,FALSE,UP,,eliminated,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,10,louise o'reilly,Louise O'Reilly,TRUE,SF,,elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
-Dublin Fingal,10,joe o'brien,Joe O'Brien,TRUE,GP,,elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
-Dublin Fingal,10,darragh o'brien,Darragh O'Brien,TRUE,FF,,elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
+Dublin Fingal,10,joe o'brien,Joe O'Brien,TRUE,GP,"10,720",elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
+Dublin Fingal,10,darragh o'brien,Darragh O'Brien,TRUE,FF,"10,652",elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,10,alan farrell,Alan Farrell,TRUE,FG,"9,754",running,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,10,duncan smith,Duncan Smith,FALSE,LAB,"7,135",running,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,10,dean mulligan,Dean Mulligan,FALSE,I4C,"6,447",running,5,10574,63891,63440,451,101045,NONE,NONE,NONE
@@ -1866,8 +1866,8 @@ Dublin Fingal,10,john uwhumiakpor,John Uwhumiakpor,FALSE,PBPS,,eliminated,5,1057
 Dublin Fingal,10,sandra sweetman,Sandra Sweetman,FALSE,IND,,eliminated,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,10,alistair smith,Alistair Smith,FALSE,UP,,eliminated,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,11,louise o'reilly,Louise O'Reilly,TRUE,SF,,elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
-Dublin Fingal,11,joe o'brien,Joe O'Brien,TRUE,GP,,elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
-Dublin Fingal,11,darragh o'brien,Darragh O'Brien,TRUE,FF,,elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
+Dublin Fingal,11,joe o'brien,Joe O'Brien,TRUE,GP,"10,720",elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
+Dublin Fingal,11,darragh o'brien,Darragh O'Brien,TRUE,FF,"10,652",elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,11,alan farrell,Alan Farrell,TRUE,FG,"10,577",elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,11,duncan smith,Duncan Smith,FALSE,LAB,"8,258",running,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,11,dean mulligan,Dean Mulligan,FALSE,I4C,"8,088",running,5,10574,63891,63440,451,101045,NONE,NONE,NONE
@@ -1882,8 +1882,8 @@ Dublin Fingal,11,sandra sweetman,Sandra Sweetman,FALSE,IND,,eliminated,5,10574,6
 Dublin Fingal,11,alistair smith,Alistair Smith,FALSE,UP,,eliminated,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,12,louise o'reilly,Louise O'Reilly,TRUE,SF,,elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,12,joe o'brien,Joe O'Brien,TRUE,GP,,elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
-Dublin Fingal,12,darragh o'brien,Darragh O'Brien,TRUE,FF,,elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
-Dublin Fingal,12,alan farrell,Alan Farrell,TRUE,FG,,elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
+Dublin Fingal,12,darragh o'brien,Darragh O'Brien,TRUE,FF,"10,652",elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
+Dublin Fingal,12,alan farrell,Alan Farrell,TRUE,FG,"10,577",elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,12,duncan smith,Duncan Smith,FALSE,LAB,"8,340",elected,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,12,dean mulligan,Dean Mulligan,FALSE,I4C,"8,152",running,5,10574,63891,63440,451,101045,NONE,NONE,NONE
 Dublin Fingal,12,tony murphy,Tony Murphy,FALSE,IND,,eliminated,5,10574,63891,63440,451,101045,NONE,NONE,NONE
@@ -2413,10 +2413,10 @@ Dublin Rathdown,5,eoghan o ceannabhain,Eoghan O Ceannabhain,FALSE,PBPS,,eliminat
 Dublin Rathdown,5,liam coughlan,Liam Coughlan,FALSE,AON,,eliminated,3,10601,42406,42654,251,67012,NONE,NONE,NONE
 Dublin Rathdown,5,deirdre conroy,Deirdre Conroy,FALSE,FF,,eliminated,3,10601,42406,42654,251,67012,NONE,NONE,NONE
 Dublin Rathdown,5,patrick noonan,Patrick Noonan,FALSE,IND,,eliminated,3,10601,42406,42654,251,67012,NONE,NONE,NONE
-Dublin Rathdown,6,catherine martin,Catherine Martin,TRUE,GP,,elected,3,10601,42406,42654,251,67012,NONE,NONE,NONE
+Dublin Rathdown,6,catherine martin,Catherine Martin,TRUE,GP,11444,elected,3,10601,42406,42654,251,67012,NONE,NONE,NONE
 Dublin Rathdown,6,neale richmond,Neale Richmond,FALSE,FG,8675,running,3,10601,42406,42654,251,67012,NONE,NONE,NONE
 Dublin Rathdown,6,josepha madigan,Josepha Madigan,TRUE,FG,7835,running,3,10601,42406,42654,251,67012,NONE,NONE,NONE
-Dublin Rathdown,6,sorcha nic cormaic,Sorcha Nic Cormaic,FALSE,SF,6538,eliminated,3,10601,42406,42654,251,67012,NONE,NONE,NONE
+Dublin Rathdown,6,sorcha nic cormaic,Sorcha Nic Cormaic,FALSE,SF,6538,running,3,10601,42406,42654,251,67012,NONE,NONE,NONE
 Dublin Rathdown,6,shay brennan,Shay Brennan,FALSE,FF,6904,running,3,10601,42406,42654,251,67012,NONE,NONE,NONE
 Dublin Rathdown,6,shane ross,Shane Ross,TRUE,IND,,eliminated,3,10601,42406,42654,251,67012,NONE,NONE,NONE
 Dublin Rathdown,6,lettie mccarthy,Lettie McCarthy,FALSE,LAB,,eliminated,3,10601,42406,42654,251,67012,NONE,NONE,NONE
@@ -2679,7 +2679,7 @@ Dublin West,5,leo varadkar,Leo Varadkar,TRUE,FG,"8,763",elected,4,8726,43898,436
 Dublin West,5,jack chambers,Jack Chambers,TRUE,FF,"7,836",running,4,8726,43898,43628,270,70337,NONE,NONE,NONE
 Dublin West,5,roderic o'gorman,Roderic O'Gorman,FALSE,GP,"6,270",running,4,8726,43898,43628,270,70337,NONE,NONE,NONE
 Dublin West,5,ruth coppinger,Ruth Coppinger,TRUE,PBPS,"6,991",running,4,8726,43898,43628,270,70337,NONE,NONE,NONE
-Dublin West,5,joan burton,Joan Burton,TRUE,LAB,"2,406",running,4,8726,43898,43628,270,70337,NONE,NONE,NONE
+Dublin West,5,joan burton,Joan Burton,TRUE,LAB,"2,406",eliminated,4,8726,43898,43628,270,70337,NONE,NONE,NONE
 Dublin West,5,emer currie,Emer Currie,FALSE,FG,"2,030",eliminated,4,8726,43898,43628,270,70337,NONE,NONE,NONE
 Dublin West,5,edward mac manus,Edward Mac Manus,FALSE,AON,,eliminated,4,8726,43898,43628,270,70337,NONE,NONE,NONE
 Dublin West,5,aengus o maolain,Aengus O Maolain,FALSE,SD,,eliminated,4,8726,43898,43628,270,70337,NONE,NONE,NONE
