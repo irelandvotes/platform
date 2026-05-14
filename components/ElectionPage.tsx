@@ -31,6 +31,7 @@ import {
   I4C: "#e2a8a8",
   IND: "#7a7a7a",
   IPP: "#0e9775",
+  REN: "#d6960b",
 
   SDLP: "#1a5c1d",
   PBP: "#da1498",

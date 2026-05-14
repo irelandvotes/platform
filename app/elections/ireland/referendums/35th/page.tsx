@@ -9,6 +9,10 @@ export default function Page() {
       year="35th"
       country="ireland"
       type="referendums"
+                  proposal={{
+        title: "Proposal",
+        text: "to lower the minimum age for the presidency from 35 to 21."
+      }}
     />
   );
 }

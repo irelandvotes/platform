@@ -9,6 +9,10 @@ export default function Page() {
       year="39th"
       country="ireland"
       type="referendums"
+            proposal={{
+        title: "Proposal",
+        text: "to expand recognition of the family to include durable relationships."
+      }}
     />
   );
 }

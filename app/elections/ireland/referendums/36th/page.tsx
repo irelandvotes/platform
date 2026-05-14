@@ -9,6 +9,10 @@ export default function Page() {
       year="36th"
       country="ireland"
       type="referendums"
+                  proposal={{
+        title: "Proposal",
+        text: "to remove clauses added by the 8th, 13th, and 14th Amendments of the Constitution and allowed the Oireachtas to legislate for the regulation of termination of pregnancy."
+      }}
     />
   );
 }

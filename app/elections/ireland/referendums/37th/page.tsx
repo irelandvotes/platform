@@ -9,6 +9,10 @@ export default function Page() {
       year="37th"
       country="ireland"
       type="referendums"
+                  proposal={{
+        title: "Proposal",
+        text: "to remove the offence of publication or utterance of blasphemous matter from the Constitution."
+      }}
     />
   );
 }

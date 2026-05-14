@@ -9,6 +9,10 @@ export default function Page() {
       year="34th"
       country="ireland"
       type="referendums"
+                  proposal={{
+        title: "Proposal",
+        text: "to prohibit restriction on civil marriage based on sex"
+      }}
     />
   );
 }

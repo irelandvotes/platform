@@ -9,6 +9,10 @@ export default function Page() {
       year="32nd"
       country="ireland"
       type="referendums"
+                  proposal={{
+        title: "Proposal",
+        text: "to abolish Seanad Éireann, the upper house of the Oireachtas"
+      }}
     />
   );
 }

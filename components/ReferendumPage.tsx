@@ -158,12 +158,17 @@ export default function ReferendumPage({
   title,
   year,
   country,
-  type
+  type,
+  proposal
 }: {
   title: string;
   year: number | string;
   country: string;
   type: string;
+  proposal?: {
+    title?: string;
+    text: string;
+  }
 }) {
 // 👇 inside component
 
@@ -1602,6 +1607,78 @@ onError={(e) => {
 
 </div>
 ))}
+
+{/* REFERENDUM PROPOSAL */}
+{proposal && (
+  <div
+    style={{
+      marginBottom: "14px",
+      borderRadius: "12px",
+      overflow: "hidden",
+      background:
+        "linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
+      border: "1px solid var(--border-color)",
+      position: "relative"
+    }}
+  >
+    {/* top accent */}
+    <div
+      style={{
+        height: "3px",
+        width: "100%",
+        background:
+          "linear-gradient(90deg, var(--accent), rgba(255,255,255,0))"
+      }}
+    />
+
+    <div
+      style={{
+        padding: "18px 18px 20px"
+      }}
+    >
+
+      {/* TITLE */}
+      <div
+        style={{
+          fontFamily:
+            'Georgia, "Times New Roman", serif',
+          fontSize: "25px",
+          lineHeight: 1.05,
+          letterSpacing: "-0.03em",
+          fontWeight: 700,
+          marginBottom: "18px",
+          maxWidth: "700px"
+        }}
+      >
+        {proposal.title || "Proposal"}
+      </div>
+
+      {/* TEXT */}
+      <div
+        style={{
+          position: "relative",
+          paddingLeft: "18px",
+          borderLeft:
+            "2px solid rgba(255,255,255,0.08)"
+        }}
+      >
+        <div
+          style={{
+            fontFamily:
+              '"IBM Plex Mono", "SFMono-Regular", Consolas, monospace',
+            fontSize: "13.5px",
+            lineHeight: 1.95,
+            opacity: 0.82,
+            whiteSpace: "pre-wrap",
+            maxWidth: "900px"
+          }}
+        >
+          {proposal.text}
+        </div>
+      </div>
+    </div>
+  </div>
+)}
 
     {/* INFO LIST */}
 

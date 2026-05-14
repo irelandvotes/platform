@@ -9,6 +9,10 @@ export default function Page() {
       year="38th"
       country="ireland"
       type="referendums"
+                  proposal={{
+        title: "Proposal",
+        text: "to remove the requirement of a period of separation before proceedings for divorce are initiated, and to allow for recognition of foreign divorces."
+      }}
     />
   );
 }
