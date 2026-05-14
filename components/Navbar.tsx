@@ -21,13 +21,14 @@ useEffect(() => {
 useEffect(() => {
   const saved = localStorage.getItem("theme");
 
-  if (saved) {
-    setTheme(saved);
-    document.documentElement.classList.toggle(
-      "dark",
-      saved === "dark"
-    );
-  }
+  const initialTheme = saved || "dark";
+
+  setTheme(initialTheme);
+
+  document.documentElement.classList.toggle(
+    "dark",
+    initialTheme === "dark"
+  );
 }, []);
 
 const toggleTheme = () => {
@@ -238,13 +239,6 @@ filter: "var(--logo-filter)"
           </svg>
         )}
       </button>
-
-      {/* PROFILE */}
-      <button className="w-9 h-9 rounded-full border border-gray-700 bg-gray-800 hover:bg-gray-700 transition flex items-center justify-center overflow-hidden">
-        <svg viewBox="0 0 24 24" width="35" height="35" fill="#00dfef" opacity="0.5">
-          <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
-        </svg>
-      </button>
     </>
   )}
 
@@ -333,7 +327,7 @@ zIndex: 10001
   <div style={{ flex: 1 }} />
 
   {/* ACTIONS (same as desktop) */}
-  <div style={{ display: "flex", gap: "10px" }}>
+  <div style={{ display: "flex", gap: "0px" }}>
     <button
       onClick={toggleTheme}
       className="w-9 h-9 rounded-full border border-gray-700 bg-gray-800 flex items-center justify-center"
@@ -373,13 +367,6 @@ zIndex: 10001
           </svg>
         )}
     </button>
-
-      {/* PROFILE */}
-      <button className="w-9 h-9 rounded-full border border-gray-700 bg-gray-800 hover:bg-gray-700 transition flex items-center justify-center overflow-hidden">
-        <svg viewBox="0 0 24 24" width="35" height="35" fill="#00dfef" opacity="0.5">
-          <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
-        </svg>
-      </button>
   </div>
 
 </div>
