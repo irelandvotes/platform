@@ -47,9 +47,9 @@ election,constituency,party,votes,seats
 2022,Belfast South,GP,4247,1
 2022,Belfast South,CCLA,531,
 2022,Belfast South,IND,,
-2022,Belfast West,SF,24931,
+2022,Belfast West,SF,24931,4
 2022,Belfast West,SDLP,3452,
-2022,Belfast West,PBP,4903,
+2022,Belfast West,PBP,4903,1
 2022,Belfast West,AON,,
 2022,Belfast West,WP,415,
 2022,Belfast West,INDN,,
@@ -63,9 +63,38 @@ election,constituency,party,votes,seats
 2022,Belfast West,GP,251,
 2022,Belfast West,CCLA,,
 2022,Belfast West,IND,,
-2022,East Antrim,,,
-2022,East Derry,,,
-2022,Fermanagh and South Tyrone,,,
+2022,East Antrim,DUP,13164,2
+2022,East Antrim,AP,5996,1
+2022,East Antrim,UUP,8529,2
+2022,East Antrim,SF,3701,
+2022,East Antrim,UKIP,1579,
+2022,East Antrim,SDLP,1524,
+2022,East Antrim,TUV,1534,
+2022,East Antrim,GP,777,
+2022,East Antrim,CCLA,393,
+2022,East Antrim,CON,152,
+2022,East Antrim,IND,106,
+2022,East Derry,AP,1841,
+2022,East Derry,DUP,14040,2
+2022,East Derry,GP,305,
+2022,East Derry,INDN,1204,
+2022,East Derry,INDU,4918,1
+2022,East Derry,CON,219,
+2022,East Derry,PBP,492,
+2022,East Derry,PUP,879,
+2022,East Derry,SDLP,3319,1
+2022,East Derry,SF,10804,1
+2022,East Derry,TUV,1038,
+2022,East Derry,UUP,2814,
+2022,Fermanagh and South Tyrone,AP,1437,
+2022,Fermanagh and South Tyrone,DUP,15581,1
+2022,Fermanagh and South Tyrone,GP,550,
+2022,Fermanagh and South Tyrone,CCLA,643,
+2022,Fermanagh and South Tyrone,CON,70,
+2022,Fermanagh and South Tyrone,SDLP,5134,
+2022,Fermanagh and South Tyrone,SF,22008,3
+2022,Fermanagh and South Tyrone,TUV,780,
+2022,Fermanagh and South Tyrone,UUP,6060,1
 2022,Foyle,,,
 2022,Lagan Valley,,,
 2022,Mid Ulster,,,
@@ -92,9 +121,9 @@ election,constituency,party,votes,seats
 2022,North Antrim,AON,,
 2022,North Antrim,WP,,
 2022,North Antrim,INDN,435,
-2022,North Antrim,DUP,19540,
-2022,North Antrim,UUP,6022,
-2022,North Antrim,TUV,7719,
+2022,North Antrim,DUP,19540,2
+2022,North Antrim,UUP,6022,1
+2022,North Antrim,TUV,7719,1
 2022,North Antrim,PUP,,
 2022,North Antrim,CON,,
 2022,North Antrim,INDU,,

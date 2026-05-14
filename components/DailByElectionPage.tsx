@@ -376,8 +376,8 @@ function aggregateNational(results: any) {
   return { counts };
 }
 
-function getCandidateImage(name: any) {
-  const slug = name
+function getCandidateImage(name: string, party: string) {
+  const slug = `${name}-${party}`
     .toLowerCase()
     .replace(/\./g, "")
     .replace(/\s+/g, "-");
@@ -1603,7 +1603,7 @@ style={{
   }}
 >
 <img
-  src={getCandidateImage(c.name)}
+  src={getCandidateImage(c.name, c.party)}
   alt={c.name}
   style={{
     width: "100%",
@@ -3011,7 +3011,7 @@ letterSpacing:
 >
 
 <img
-  src={getCandidateImage(c.name)}
+  src={getCandidateImage(c.name, c.party)}
   alt={c.name}
   style={{
     width: "100%",
