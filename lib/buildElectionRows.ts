@@ -678,7 +678,7 @@ function getAreaType(
     return "Constituencies";
   }
 
-  return "Areas";
+  return "EU Constituencies";
 }
 
 /* ===================================
