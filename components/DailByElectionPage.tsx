@@ -1421,64 +1421,140 @@ touchAction: "pan-y",
 >
   {current?.name || "Loading..."}
 
-  {/* STATUS DOT */}
-  {(() => {
-    const counts = current?.data?.counts;
-    if (!counts) return null;
+{/* STATUS DOT */}
+{(() => {
 
-    const lastCount = Math.max(...Object.keys(counts).map(Number));
-    const finalData = counts[lastCount] || [];
+  const counts = current?.data?.counts;
+  if (!counts) return null;
 
-    const seats = finalData[0]?.seats || 0;
-    const filled = finalData.filter(
-      (c: any) => c.status === "elected"
-    ).length;
+  const firstCount = counts[1] || [];
+  const lastCount = Math.max(...Object.keys(counts).map(Number));
+  const finalData = counts[lastCount] || [];
 
-let complete = false;
+  const seats = finalData[0]?.seats || 0;
 
-if (isTally) {
-  // 🟥 TALLY LOGIC
-  if (isOverall) {
-    // overall tally = all constituencies reporting
-    complete = reporting === totalConstituencies;
+  const filled = finalData.filter(
+    (c: any) => c.status === "elected"
+  ).length;
+
+  /* =========================
+     DETECT WHETHER ANY VOTES
+     HAVE ACTUALLY ARRIVED
+  ========================= */
+
+  const totalVotes = firstCount.reduce(
+    (sum: number, c: any) => sum + (c.votes || 0),
+    0
+  );
+
+  const hasVotes = totalVotes > 0;
+
+  /* =========================
+     STATUS LOGIC
+  ========================= */
+
+  let status = {
+    label: "Awaiting Results",
+    color: "#9e9e9e",
+    animate: false
+  };
+
+  if (isTally) {
+
+    /*
+      LIVE TALLY MODE
+    */
+
+    if (!hasVotes) {
+
+      status = {
+        label: "Awaiting Results",
+        color: "#9e9e9e",
+        animate: false
+      };
+
+    } else {
+
+      const complete = isOverall
+        ? reporting === totalConstituencies
+        : true;
+
+      status = complete
+        ? {
+            label: "Complete",
+            color: "#4caf50",
+            animate: false
+          }
+        : {
+            label: "Counting",
+            color: "#ff9800",
+            animate: true
+          };
+
+    }
+
   } else {
-    // constituency tally = any data present
-    const hasData =
-      current?.data?.counts &&
-      Object.keys(current.data.counts).length > 0;
 
-    complete = !!hasData;
+    /*
+      OFFICIAL RESULT MODE
+    */
+
+    const complete = filled === seats;
+
+    if (!hasVotes) {
+
+      status = {
+        label: "Awaiting Results",
+        color: "#9e9e9e",
+        animate: false
+      };
+
+    } else {
+
+      status = complete
+        ? {
+            label: "Complete",
+            color: "#4caf50",
+            animate: false
+          }
+        : {
+            label: "Counting",
+            color: "#ff9800",
+            animate: true
+          };
+
+    }
+
   }
-} else {
-  // 🟩 OFFICIAL RESULT LOGIC
-  complete = filled === seats;
-}
 
-    return (
+  return (
+    <span
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "6px",
+        fontSize: "13px",
+        fontWeight: "600",
+        opacity: 0.85
+      }}
+    >
       <span
         style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "6px",
-          fontSize: "13px",
-          fontWeight: "600",
-          opacity: 0.85
+          width: "8px",
+          height: "8px",
+          borderRadius: "50%",
+          background: status.color,
+          animation: status.animate
+            ? "blink 2s infinite"
+            : "none"
         }}
-      >
-        <span
-          style={{
-            width: "8px",
-            height: "8px",
-            borderRadius: "50%",
-            background: complete ? "#4caf50" : "#ff5252",
-            animation: complete ? "none" : "blink 2s infinite"
-          }}
-        />
+      />
 
-        {complete ? "Complete" : "Counting"}
-      </span>
-    );
-  })()}
+      {status.label}
+    </span>
+  );
+
+})()}
 </h2>
 
 {isTally && (

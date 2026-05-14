@@ -2,6 +2,18 @@
 
 import { useState, useEffect, useRef, Fragment } from "react";
 import { buildCountTimeline } from "../utils/buildCountTimeline";
+import { buildTransferData } from "../utils/analytics/buildTransferData";
+import { buildTransferMatrix } from "../utils/analytics/buildTransferMatrix";
+import {
+  calculateLeakageHistory
+} from "../utils/analytics/calculateLeakage";
+import { buildSankeyData }
+from "../utils/analytics/buildSankeyData";
+import {
+  buildAdvancedMetrics
+} from "../utils/analytics/buildAdvancedMetrics";
+import CandidatePerformanceTable
+from "./CandidatePerformanceTable";
 import ElectionMetaPanel from "./ElectionMetaPanel";
 import Map from "./Map";
 import MapViewToggle from "./MapViewToggle";
@@ -548,21 +560,6 @@ const toggleStyle: React.CSSProperties = {
   zIndex: 1
 };
 
-const HelpTooltip = ({ text }: { text: string }) => {
-  return (
-    <span
-      style={{
-        marginLeft: "4px",
-        cursor: "help",
-        opacity: 0.6
-      }}
-      title={text}
-    >
-      ?
-    </span>
-  );
-};
-
 const LeakageTooltip = ({ active, payload, label }: { active?: string; payload?: any[]; label?: string }) => {
   if (!active || !payload || !payload.length) return null;
 
@@ -710,7 +707,7 @@ const includedResultsEntries =
 
 function buildSeatChangeSummary(
   party: string,
-  results: Record<string, any>,
+  includedEntries: [string, any][],
   previousResults: Record<string, any>
 ) {
   const gained: string[] = [];
@@ -718,7 +715,7 @@ function buildSeatChangeSummary(
 
   let seatsWon = 0;
 
-  Object.entries(results || {}).forEach(
+  includedEntries.forEach(
     ([constituency, data]: [string, any]) => {
 
       const counts = data?.counts;
@@ -748,18 +745,14 @@ function buildSeatChangeSummary(
       const diff =
         currentSeats - previousSeats;
 
-      /*
-        STV GAINS
-      */
+      /* GAINS */
       if (diff > 0) {
         for (let i = 0; i < diff; i++) {
           gained.push(constituency);
         }
       }
 
-      /*
-        STV LOSSES
-      */
+      /* LOSSES */
       if (diff < 0) {
         for (let i = 0; i < Math.abs(diff); i++) {
           lost.push(constituency);
@@ -1183,500 +1176,48 @@ const countTimeline = current?.data?.counts
   ? buildCountTimeline(current.data.counts)
   : {};
 
-const transferData: any = (() => {
+/* TRANSFER DATA */
 
-  if (!current?.data?.counts || count <= 1) {
-    return null;
-  }
-
-  const counts = current.data.counts;
-
-  const currentData = counts[count] || [];
-  const prevData = counts[count - 1] || [];
-
-  const quota =
-    currentData?.[0]?.quota ||
-    prevData?.[0]?.quota ||
-    0;
-
-const event =
-  countTimeline?.[count];
-
-  const transfers: any[] = [];
-
-  currentData.forEach((c: any) => {
-
-    const prev = prevData.find(
-      (p: any) =>
-        p.name === c.name &&
-        p.party === c.party
-    );
-
-    const gain = prev
-      ? c.votes - prev.votes
-      : 0;
-
-    if (gain > 0) {
-
-      transfers.push({
-        name: c.name,
-        party: c.party,
-        gain
-      });
-
-    }
-
-  });
-
-return {
-  quota,
-  event,
-
-  sources: event?.sources || [],
-
-  transfers: transfers.sort(
-    (a, b) => b.gain - a.gain
-  )
-};
-
-})();
+const transferData = buildTransferData({
+  current,
+  count,
+  countTimeline
+});
 
 /* TRANSFER FRIENDLINESS MATRIX */
 
-const transferMatrix = (() => {
-  if (!transferData) return null;
-
-  const matrix: Record<string, number> = {};
-
-  transferData.transfers.forEach((t: any) => {
-    if (!matrix[t.party]) {
-      matrix[t.party] = 0;
-    }
-
-    matrix[t.party] += t.gain;
-  });
-
-  const total = Object.values(matrix)
-    .reduce((a, b) => a + b, 0);
-
-  return Object.entries(matrix)
-    .map(([party, votes]: [string, any]) => ({
-      party,
-      votes,
-      percent: total
-        ? ((votes / total) * 100).toFixed(1)
-        : 0
-    }))
-    .sort((a, b) => b.votes - a.votes);
-
-})();
-
-/* VOTE LEAKAGE */
-
-const voteLeakage = (() => {
-
-  if (!transferData?.event) {
-    return null;
-  }
-
-  const sources = transferData.sources || [];
-
-  let transferableVotes = 0;
-
-  sources.forEach((s: any) => {
-
-    /*
-      Surplus source
-    */
-
-    if (s.surplus) {
-      transferableVotes += s.surplus;
-      return;
-    }
-
-    /*
-      Elimination source
-    */
-
-    transferableVotes += s.votes || 0;
-
-  });
-
-  const totalTransferred =
-    transferData.transfers.reduce(
-      (sum: number, t: any) =>
-        sum + (t.gain || 0),
-      0
-    );
-
-  const leakage = Math.max(
-    0,
-    transferableVotes - totalTransferred
-  );
-
-  const percent = transferableVotes
-    ? (
-        (leakage / transferableVotes) * 100
-      ).toFixed(1)
-    : 0;
-
-  return {
-    leakage,
-    percent
-  };
-
-})();
+const transferMatrix =
+  buildTransferMatrix(transferData);
 
 /* VOTE LEAKAGE HISTORY */
 
+const leakageHistory =
+  calculateLeakageHistory(current);
 
-const leakageHistory = (() => {
-  if (!current?.data?.counts) return [];
+/* VOTE LEAKAGE */
 
-  const counts = current.data.counts;
-  const history: any[] = [];
+const voteLeakage =
+  leakageHistory.find(
+    (h) => h.count === count
+  ) || null;
 
-  Object.keys(counts).forEach((c) => {
+/* ADVANCED METRICS */
 
-    const count = Number(c);
-
-    if (count === 1) {
-      history.push({
-        count,
-        leakage: 0,
-        percent: 0
-      });
-      return;
-    }
-
-    const data = counts[count];
-    const prev = counts[count - 1];
-
-    if (!data || !prev) return;
-
-    const quota =
-      data?.[0]?.quota ||
-      prev?.[0]?.quota ||
-      0;
-
-    let transferableVotes = 0;
-    let totalGain = 0;
-
-    prev.forEach((p: any) => {
-
-      const curr = data.find(
-        (d: any) => d.name === p.name && d.party === p.party
-      );
-
-      if (!curr) return;
-
-      const diff = curr.votes - p.votes;
-
-      /* Gains */
-      if (diff > 0) {
-        totalGain += diff;
-      }
-
-      /* Eliminated candidates */
-      if (p.status === "eliminated") {
-        transferableVotes += p.votes;
-      }
-
-/* Surplus ONLY */
-if (
-  p.status === "elected" &&
-  p.votes > quota &&
-  curr.votes <= quota
-) {
-  transferableVotes += (p.votes - quota);
-}
-
-    });
-
-    const leakageVotes = Math.max(
-      0,
-      transferableVotes - totalGain
-    );
-
-    const percent = transferableVotes
-      ? (leakageVotes / transferableVotes) * 100
-      : 0;
-
-    history.push({
-      count,
-      leakage: Math.round(leakageVotes),
-      percent: Number(percent.toFixed(1))
-    });
-
+const advancedMetrics =
+  buildAdvancedMetrics({
+    current,
+    count,
+    countTimeline
   });
 
-  return history;
-
-})();
-
-/* PARTY IDEOLOGY MAP */
-
-const partyIdeology: Record<string, string> = {
-
-  /* Far Left */
-  "PBPS": "far-left",
-
-  /* Left */
-  "SF": "left",
-
-  /* Centre Left */
-  "LAB": "centre-left",
-  "SD": "centre-left",
-  "GP": "centre-left",
-
-  /* Centre */
-  "FF": "centre",
-  "IND": "centre",
-  "INDIRL": "centre",
-  "AON": "centre",
-
-  /* Centre Right */
-  "FG": "centre-right",
-
-  /* Right */
-  "REN": "right",
-
-  /* Far Right */
-  "IFP": "far-right",
-  "IPP": "far-right",
-  "NP": "far-right"
-
-};
-
-
-/* IDEOLOGY DISTANCE */
-
-const ideologyDistance: Record<string, number> = {
-  "far-left": 0,
-  "left": 1,
-  "centre-left": 2,
-  "centre": 3,
-  "centre-right": 4,
-  "right": 5,
-  "far-right": 6
-};
-
-
-/* LIKE-MINDED CHECK */
-
-const isLikeMinded = (partyA: string, partyB: string) => {
-  const a = ideologyDistance[
-    partyIdeology[partyA] || "centre"
-  ];
-
-  const b = ideologyDistance[
-    partyIdeology[partyB] || "centre"
-  ];
-
-  return Math.abs(a - b) <= 1;
-};
-
-/* ADVANCED METRICS DATA */
-
-const advancedMetrics = (() => {
-  const counts = current?.data?.counts;
-  const data = counts?.[count];
-  const firstCount = counts?.[1];
-
-  if (!data || !firstCount) return [];
-
-  const quota = data?.[0]?.quota || 0;
-
-  const candidates = data.map((c: any) => {
-
-    const first = firstCount.find(
-      (p: any) => p.name === c.name && p.party === c.party
-    );
-
-    const firstVotes = first?.votes || 0;
-    const gain = c.votes - firstVotes;
-
-    let totalGain = 0;
-    let gainCounts = 0;
-    let transferCounts = 0;
-
-    let likeMindedTransfers = 0;
-    let totalTransfers = 0;
-
-    let samePartyTransfers = 0;
-    let samePartyAvailable = 0;
-
-    Object.keys(counts).forEach((k) => {
-      const n = Number(k);
-      if (n <= 1 || n > count) return;
-
-      const prev = counts[n - 1];
-      const curr = counts[n];
-
-      const prevCandidate = prev?.find(
-        (p: any) => p.name === c.name && p.party === c.party
-      );
-
-      const currCandidate = curr?.find(
-        (p: any) => p.name === c.name && p.party === c.party
-      );
-
-      if (!prevCandidate || !currCandidate) return;
-
-      const diff = currCandidate.votes - prevCandidate.votes;
-
-      transferCounts++;
-
-      if (diff > 0) {
-        gainCounts++;
-        totalGain += diff;
-      }
-
-      /* Transfer source analysis */
-      prev.forEach((p: any) => {
-
-const timelineEvent = countTimeline?.[n];
-
-const transferring =
-  timelineEvent?.sources?.some?.(
-    (s: any) =>
-      s.name === p.name &&
-      s.party === p.party
-  );
-
-        if (!transferring) return;
-
-        totalTransfers++;
-
-        /* Like-minded party */
-        if (isLikeMinded(c.party, p.party)) {
-          likeMindedTransfers++;
-        }
-
-        /* Same party transfers */
-        if (
-          p.party === c.party &&
-          p.name !== c.name
-        ) {
-          samePartyAvailable += p.votes;
-
-          if (diff > 0) {
-            samePartyTransfers += diff;
-          }
-        }
-
-      });
-
-    });
-
-    const consistency = transferCounts
-      ? gainCounts / transferCounts
-      : 0;
-
-    const growth = firstVotes
-      ? totalGain / firstVotes
-      : 0;
-
-    const quotaProgress = quota
-      ? c.votes / quota
-      : 0;
-
-    const partyAlignment = totalTransfers
-      ? likeMindedTransfers / totalTransfers
-      : 0;
-
-    const partyTransferEfficiency = samePartyAvailable
-      ? samePartyTransfers / samePartyAvailable
-      : 0;
-
-    return {
-      ...c,
-      firstVotes,
-      gain,
-      quotaDistance: c.votes - quota,
-
-      consistency,
-      growth,
-      quotaProgress,
-      partyAlignment,
-      partyTransferEfficiency
-    };
-
-  });
-
-  return candidates
-    .map((c: any) => ({
-
-      ...c,
-
-      /* Magnet */
-      magnet: c.votes
-        ? (Math.max(0, c.gain) / c.votes) * 100
-        : 0,
-
-      /* Composite Efficiency */
-      efficiency: (
-        (c.growth * 0.25) +
-        (c.quotaProgress * 0.25) +
-        (c.consistency * 0.15) +
-        (c.partyAlignment * 0.15) +
-        (c.partyTransferEfficiency * 0.20)
-      ) * 100
-
-    }))
-    .sort((a: any, b: any) => b.votes - a.votes);
-
-})();
 
 /* SANKEY DATA */
 
-const sankeyData = (() => {
-  if (!transferData) return null;
-
-  const nodes: any[] = [];
-  const links: any[] = [];
-
-  /* Combined eliminated node */
-const sourceLabel = transferData.sources
-  .map((s: any) => {
-
-    if (s.reason) {
-      return `${s.name} (${s.party}) admin elimination`;
-    }
-
-    if (s.surplus) {
-      return `${s.name} (${s.party}) surplus`;
-    }
-
-    return `${s.name} (${s.party})`;
-
-  });
-  nodes.push({
-    name: sourceLabel.join("\n"),
-    fill: "#666"
-  });
-
-  /* Receiving candidates */
-  transferData.transfers.forEach((t: any) => {
-    nodes.push({
-      name: `${t.name} (${t.party}) +${t.gain.toLocaleString()}`,
-      gain: t.gain,
-      fill: PARTY_COLORS[t.party] || "#888"
-    });
-  });
-
-  /* Links */
-  transferData.transfers.forEach((t: any, i: number) => {
-    links.push({
-      source: 0,
-      target: i + 1,
-      value: t.gain
-    });
-  });
-
-  return { nodes, links };
-
-})();
+const sankeyData =
+  buildSankeyData(
+    transferData,
+    PARTY_COLORS
+  );
 
 const hasResults =
   current?.data?.counts &&
@@ -3416,13 +2957,20 @@ const currentEffectiveVotes =
 
 const gain = currentEffectiveVotes - prevEffectiveVotes;
 
+const freezeGain =
+  c.status === "elected" &&
+  electedOn !== null &&
+  count > electedOn;
+
 const finalGain =
-  count > electedOn + 1 ? 0 : gain;
+  freezeGain ? 0 : gain;
 
   const isAutoReturned =
   autoReturn?.candidate === c.name;
 
-    const isTopGainer = gain === maxGain && gain > 0;
+const isTopGainer =
+  finalGain === maxGain &&
+  finalGain > 0;
 
   const showDivider =
   c.status === "eliminated" &&
@@ -3856,14 +3404,21 @@ textAlign: "right",
 fontSize: "11px",
 fontWeight: isTopGainer ? "700" : "500",
 color:
-gain > 0 ? "#4caf50" :
-gain < 0 ? "#f44336" :
+finalGain > 0 ? "#4caf50" :
+finalGain < 0 ? "#f44336" :
 "#aaa",
 zIndex: 7
 }}
 >
-{gain > 0 ? "↑ " : gain < 0 ? "↓ " : "→ "}
-{gain > 0 ? `+${gain}` : gain}
+{finalGain > 0
+  ? "↑ "
+  : finalGain < 0
+  ? "↓ "
+  : "→ "}
+
+{finalGain > 0
+  ? `+${finalGain}`
+  : finalGain}
 </div>
 )}
 
@@ -4083,7 +3638,7 @@ National Results
 const summary =
   buildSeatChangeSummary(
     p.party,
-    results,
+    includedResultsEntries,
     previousResults
   );
 
@@ -5263,190 +4818,11 @@ Vote Leakage
 
 {/* ADVANCED TABLE GOES HERE */}
 
-{/* ADVANCED ANALYTICS TABLE */}
-{advancedMetrics && (
-<div
-  style={{
-    marginTop: "12px",
-    padding: "12px",
-    borderRadius: "12px",
-    background: "var(--panel)",
-    border: "1px solid var(--border)"
-  }}
->
-
-<div
-  style={{
-    fontSize: "14px",
-    fontWeight: "600",
-    marginBottom: "10px",
-    opacity: 0.8
-  }}
->
-Candidate Performance
-</div>
-
-<div
-  style={{
-    display: "flex",
-    fontSize: "11px",
-    color: "var(--text-subtle)",
-    marginBottom: "6px"
-  }}
->
-<div style={{ width: "200px" }}>Candidate</div>
-<div style={{ width: "110px", textAlign: "left" }}>Votes this Count</div>
-<div style={{ width: "120px", textAlign: "left" }}>Distance from Quota</div>
-
-<div style={{ width: "110px", textAlign: "left" }}>
-Magnet
-<HelpTooltip text="Magnet measures how strongly a candidate attracts transfers relative to their overall vote. Higher scores indicate candidates whose support is driven more heavily by transfers." />
-</div>
-
-<div style={{ width: "110px", textAlign: "left" }}>
-Efficiency
-<HelpTooltip text="Efficiency measures how effectively a candidate builds support through transfers, including consistency of gains, progress toward quota, and strength of same-party and like-minded transfers." />
-</div>
-</div>
-
-{advancedMetrics.map((c: any) => {
-
-const prev = current?.data?.counts?.[count - 1]
-  ?.find((p: any) => p.name === c.name && p.party === c.party);
-
-const disableScores =
-  prev?.status === "elected" ||
-  prev?.status === "eliminated";
-
-return (
-
-<div
-  key={c.id}
-  style={{
-    display: "flex",
-    alignItems: "center",
-    padding: "6px 0",
-    borderTop: "1px solid var(--border)",
-    fontSize: "11px"
-  }}
->
-
-<div
-  style={{
-    width: "200px",
-    display: "flex",
-    alignItems: "center",
-    gap: "8px"
-  }}
->
-
-{/* Avatar */}
-<div
-  style={{
-    width: "26px",
-    height: "26px",
-    borderRadius: "50%",
-    background: "var(--panel-2)",
-    border: "1px solid var(--border)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    fontSize: "10px",
-    fontWeight: "600",
-    color: "var(--text-muted)"
-  }}
->
-{c.name.split(" ").map((n: any) => n[0]).slice(0,2).join("")}
-</div>
-
-{/* Name + Party + Status */}
-<div style={{ lineHeight: "1.1" }}>
-
-<div>
-{c.name}
-</div>
-
-<div
-  style={{
-    fontSize: "10px",
-    opacity: 0.6,
-    display: "flex",
-    gap: "6px"
-  }}
->
-
-<span>{c.party || "Ind"}</span>
-
-{c.status === "elected" && (
-<span style={{ color: "#4caf50" }}>
-Elected
-</span>
-)}
-
-{c.status === "eliminated" && (
-<span style={{ color: "#f44336" }}>
-Eliminated
-</span>
-)}
-
-</div>
-
-</div>
-
-</div>
-
-<div style={{ width: "110px", textAlign: "left" }}>
-{c.votes.toLocaleString()}
-</div>
-
-<div
-  style={{
-    width: "120px",
-    textAlign: "left",
-    color: c.quotaDistance > 0 ? "#4caf50" : "#aaa"
-  }}
->
-{c.quotaDistance > 0 ? "+" : ""}
-{Math.round(c.quotaDistance)}
-</div>
-
-<div
-  style={{
-    width: "110px",
-    textAlign: "left",
-    color: c.magnet > 0 ? "#4caf50" : "#aaa"
-  }}
->
-{disableScores
-  ? "—"
-  : `${c.magnet > 0 ? "+" : ""}${c.magnet.toFixed(1)}%`
-}
-</div>
-
-<div
-  style={{
-    width: "100px",
-    textAlign: "left",
-    color:
-      c.efficiency > 75 ? "#4caf50" :
-      c.efficiency > 40 ? "#ffc107" :
-      "#aaa"
-  }}
->
-{disableScores
-  ? "—"
-  : `${c.efficiency.toFixed(0)}%`
-}
-</div>
-
-</div>
-
-);
-
-})}
-
-</div>
-)}
+<CandidatePerformanceTable
+  advancedMetrics={advancedMetrics}
+  count={count}
+  current={current}
+/>
 
 </div>
 )}
