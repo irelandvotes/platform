@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import "./globals.css";
 import ConditionalFooter from "../components/ConditionalFooter";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 
 const averta = localFont({
   src: [
@@ -67,6 +68,7 @@ style={{
 {/* FOOTER */}
 <ConditionalFooter />
 
+        <Analytics />
       </body>
     </html>
   );
