@@ -137,13 +137,13 @@ export default function ContactPage() {
             }}
           >
             <ContactCard
-              name="Glen Scanlon Tims"
+              name="Glen"
               title="Co-Founder, Managing Director"
               email="glen@irelandvotes.com"
             />
 
             <ContactCard
-              name="Michael Flaherty"
+              name="Michael"
               title="Co-Founder, Managing Director"
               email="michael@irelandvotes.com"
             />
