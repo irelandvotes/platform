@@ -298,30 +298,46 @@ zIndex: 10001
     </button>
   </div>
 
-  {/* NAV */}
-  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-    <Link href="/" onClick={() => setMenuOpen(false)} className={linkStyle("/", true)}>
-      Home
-    </Link>
-
-    <Link href="/polling/ireland/dail" onClick={() => setMenuOpen(false)} className={linkStyle("/polling")}>
-      Polling
-    </Link>
-
-    <Link href="/elections" onClick={() => setMenuOpen(false)} className={linkStyle("/elections")}>
-      Elections
-    </Link>
-  </div>
+{/* NAV */}
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "8px"
+  }}
+>
+  <Link
+    href="/"
+    onClick={() => setMenuOpen(false)}
+    className={linkStyle("/", true)}
+  >
+    Home
+  </Link>
 
   <Link
-  href="/about"
-  onClick={() =>
-    setMenuOpen(false)
-  }
-  className={linkStyle("/about")}
->
-  About
-</Link>
+    href="/polling/ireland/dail"
+    onClick={() => setMenuOpen(false)}
+    className={linkStyle("/polling")}
+  >
+    Polling
+  </Link>
+
+  <Link
+    href="/elections"
+    onClick={() => setMenuOpen(false)}
+    className={linkStyle("/elections")}
+  >
+    Elections
+  </Link>
+
+  <Link
+    href="/about"
+    onClick={() => setMenuOpen(false)}
+    className={linkStyle("/about")}
+  >
+    About
+  </Link>
+</div>
 
   {/* PUSH CONTENT DOWN */}
   <div style={{ flex: 1 }} />
