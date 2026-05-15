@@ -63,7 +63,7 @@ html, body, #__next {
   rgba(0,223,239,0.24);
 
 --soft-highlight:
-  rgba(0,223,239,0.06);
+  rgba(0, 223, 239, 0.274);
 
 /* Glass */
 --glass-bg:
@@ -97,6 +97,8 @@ html, body, #__next {
 
 --hero-glow-strong:
   rgba(0, 223, 239, 0.281);
+
+--sidebar-bg: #e4e4e4;
 
 }
 
@@ -192,6 +194,8 @@ html, body, #__next {
 
 --hero-glow-strong:
   rgba(0,223,239,0.18);
+
+--sidebar-bg: #181818;
 
 }
 

@@ -5,13 +5,19 @@ import path from "path";
 import { parse } from "csv-parse/sync";
 
 function parseCSVLine(line: string) {
-  const records = parse(line, {
-    relax_quotes: true,
-    skip_empty_lines: true,
-    trim: true
-  });
+  try {
+    const records = parse(line, {
+      relax_quotes: true,
+      relax_column_count: true,
+      skip_empty_lines: true,
+      trim: true
+    });
 
-  return records[0] || [];
+    return records[0] || [];
+  } catch (err) {
+    console.error("Bad CSV line:", line);
+    return [];
+  }
 }
 
 export type ElectionRow = {

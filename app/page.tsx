@@ -114,7 +114,7 @@ isolation: "isolate"
 style={{
 position: "absolute",
 inset: 0,
-background: "var(--glass-bg)",
+background: "var(--sidebar-bg)",
 backdropFilter: "blur(12px)",
 zIndex: 0
 }}
@@ -214,7 +214,6 @@ href="/polling/ireland/dail"
 style={{
 padding: "10px 16px",
 borderRadius: "10px",
-background: "var(--glass-bg)",
 border: "1px solid var(--border)",
 backdropFilter: "blur(10px)",
 fontSize: "13px",
@@ -632,7 +631,7 @@ flexShrink: 0,
 padding: "18px",
 borderRadius: "16px",
 border: "1px solid var(--glass-border)",
-background: "var(--glass-bg)",
+background: "var(--sidebar-bg)",
 backdropFilter: "blur(12px)",
 cursor: link ? "pointer" : "default",
 position: "relative",

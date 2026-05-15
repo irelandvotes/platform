@@ -397,17 +397,27 @@ if (current?.data?.counts?.[count]) {
       : null;
 }
 
+const flashedCountRef = useRef<number | null>(null);
+
 useEffect(() => {
-  if (topGainer) {
-    setHighlighted(topGainer.id);
+  if (!topGainer) return;
 
-    const timeout = setTimeout(() => {
-      setHighlighted(null);
-    }, 1500);
-
-    return () => clearTimeout(timeout);
+  // already flashed for this count
+  if (flashedCountRef.current === count) {
+    return;
   }
-}, [count, topGainer]);
+
+  flashedCountRef.current = count;
+
+  setHighlighted(topGainer.id);
+
+  const timeout = setTimeout(() => {
+    setHighlighted(null);
+  }, 1500);
+
+  return () => clearTimeout(timeout);
+
+}, [count]);
 
 const constituencies = total
   ? Object.keys(total.data).length > 0

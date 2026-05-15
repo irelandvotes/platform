@@ -1,0 +1,241 @@
+constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,turnout,tvp,spoilt,electorate
+Carlow-Kilkenny,1,peter casey,Peter Casey,FALSE,IND,13929,running,1,736951,50060,49472,588,108863
+Carlow-Kilkenny,1,gavin duffy,Gavin Duffy,FALSE,IND,1265,running,1,736951,50060,49472,588,108863
+Carlow-Kilkenny,1,joan freeman,Joan Freeman,FALSE,IND,2636,running,1,736951,50060,49472,588,108863
+Carlow-Kilkenny,1,sean gallagher,Seán Gallagher,FALSE,IND,3506,running,1,736951,50060,49472,588,108863
+Carlow-Kilkenny,1,michaeld higgins,Michael D. Higgins,TRUE,IND,25717,elected,1,736951,50060,49472,588,108863
+Carlow-Kilkenny,1,liadh niriada,Liadh Ní Riada,FALSE,SF,2419,running,1,736951,50060,49472,588,108863
+Cavan-Monaghan,1,peter casey,Peter Casey,FALSE,IND,7023,running,1,736951,38376,37773,603,91692
+Cavan-Monaghan,1,gavin duffy,Gavin Duffy,FALSE,IND,1000,running,1,736951,38376,37773,603,91692
+Cavan-Monaghan,1,joan freeman,Joan Freeman,FALSE,IND,2063,running,1,736951,38376,37773,603,91692
+Cavan-Monaghan,1,sean gallagher,Seán Gallagher,FALSE,IND,6771,running,1,736951,38376,37773,603,91692
+Cavan-Monaghan,1,michaeld higgins,Michael D. Higgins,TRUE,IND,16749,elected,1,736951,38376,37773,603,91692
+Cavan-Monaghan,1,liadh niriada,Liadh Ní Riada,FALSE,SF,4167,running,1,736951,38376,37773,603,91692
+Clare,1,peter casey,Peter Casey,FALSE,IND,11722,running,1,736951,41871,41422,449,83044
+Clare,1,gavin duffy,Gavin Duffy,FALSE,IND,617,running,1,736951,41871,41422,449,83044
+Clare,1,joan freeman,Joan Freeman,FALSE,IND,1969,running,1,736951,41871,41422,449,83044
+Clare,1,sean gallagher,Seán Gallagher,FALSE,IND,2289,running,1,736951,41871,41422,449,83044
+Clare,1,michaeld higgins,Michael D. Higgins,TRUE,IND,22639,elected,1,736951,41871,41422,449,83044
+Clare,1,liadh niriada,Liadh Ní Riada,FALSE,SF,2186,running,1,736951,41871,41422,449,83044
+Cork East,1,peter casey,Peter Casey,FALSE,IND,9340,running,1,736951,38448,38057,391,86180
+Cork East,1,gavin duffy,Gavin Duffy,FALSE,IND,716,running,1,736951,38448,38057,391,86180
+Cork East,1,joan freeman,Joan Freeman,FALSE,IND,2283,running,1,736951,38448,38057,391,86180
+Cork East,1,sean gallagher,Seán Gallagher,FALSE,IND,2625,running,1,736951,38448,38057,391,86180
+Cork East,1,michaeld higgins,Michael D. Higgins,TRUE,IND,20388,elected,1,736951,38448,38057,391,86180
+Cork East,1,liadh niriada,Liadh Ní Riada,FALSE,SF,2705,running,1,736951,38448,38057,391,86180
+Cork North-Central,1,peter casey,Peter Casey,FALSE,IND,8382,running,1,736951,35361,34877,484,84919
+Cork North-Central,1,gavin duffy,Gavin Duffy,FALSE,IND,545,running,1,736951,35361,34877,484,84919
+Cork North-Central,1,joan freeman,Joan Freeman,FALSE,IND,2010,running,1,736951,35361,34877,484,84919
+Cork North-Central,1,sean gallagher,Seán Gallagher,FALSE,IND,1977,running,1,736951,35361,34877,484,84919
+Cork North-Central,1,michaeld higgins,Michael D. Higgins,TRUE,IND,18851,elected,1,736951,35361,34877,484,84919
+Cork North-Central,1,liadh niriada,Liadh Ní Riada,FALSE,SF,3112,running,1,736951,35361,34877,484,84919
+Cork North-West,1,peter casey,Peter Casey,FALSE,IND,8092,running,1,736951,34592,34238,354,68820
+Cork North-West,1,gavin duffy,Gavin Duffy,FALSE,IND,630,running,1,736951,34592,34238,354,68820
+Cork North-West,1,joan freeman,Joan Freeman,FALSE,IND,1855,running,1,736951,34592,34238,354,68820
+Cork North-West,1,sean gallagher,Seán Gallagher,FALSE,IND,3199,running,1,736951,34592,34238,354,68820
+Cork North-West,1,michaeld higgins,Michael D. Higgins,TRUE,IND,17638,elected,1,736951,34592,34238,354,68820
+Cork North-West,1,liadh niriada,Liadh Ní Riada,FALSE,SF,2824,running,1,736951,34592,34238,354,68820
+Cork South-Central,1,peter casey,Peter Casey,FALSE,IND,7323,running,1,736951,40474,39916,558,88074
+Cork South-Central,1,gavin duffy,Gavin Duffy,FALSE,IND,642,running,1,736951,40474,39916,558,88074
+Cork South-Central,1,joan freeman,Joan Freeman,FALSE,IND,2554,running,1,736951,40474,39916,558,88074
+Cork South-Central,1,sean gallagher,Seán Gallagher,FALSE,IND,2164,running,1,736951,40474,39916,558,88074
+Cork South-Central,1,michaeld higgins,Michael D. Higgins,TRUE,IND,24161,elected,1,736951,40474,39916,558,88074
+Cork South-Central,1,liadh niriada,Liadh Ní Riada,FALSE,SF,3072,running,1,736951,40474,39916,558,88074
+Cork South-West,1,peter casey,Peter Casey,FALSE,IND,6582,running,1,736951,30966,30620,346,63897
+Cork South-West,1,gavin duffy,Gavin Duffy,FALSE,IND,680,running,1,736951,30966,30620,346,63897
+Cork South-West,1,joan freeman,Joan Freeman,FALSE,IND,1635,running,1,736951,30966,30620,346,63897
+Cork South-West,1,sean gallagher,Seán Gallagher,FALSE,IND,2374,running,1,736951,30966,30620,346,63897
+Cork South-West,1,michaeld higgins,Michael D. Higgins,TRUE,IND,16860,elected,1,736951,30966,30620,346,63897
+Cork South-West,1,liadh niriada,Liadh Ní Riada,FALSE,SF,2489,running,1,736951,30966,30620,346,63897
+Donegal,1,peter casey,Peter Casey,FALSE,IND,12952,running,1,736951,40256,39522,734,119318
+Donegal,1,gavin duffy,Gavin Duffy,FALSE,IND,747,running,1,736951,40256,39522,734,119318
+Donegal,1,joan freeman,Joan Freeman,FALSE,IND,2563,running,1,736951,40256,39522,734,119318
+Donegal,1,sean gallagher,Seán Gallagher,FALSE,IND,3684,running,1,736951,40256,39522,734,119318
+Donegal,1,michaeld higgins,Michael D. Higgins,TRUE,IND,15052,elected,1,736951,40256,39522,734,119318
+Donegal,1,liadh niriada,Liadh Ní Riada,FALSE,SF,4524,running,1,736951,40256,39522,734,119318
+Dublin Bay North,1,peter casey,Peter Casey,FALSE,IND,8009,running,1,736951,51132,50404,728,114626
+Dublin Bay North,1,gavin duffy,Gavin Duffy,FALSE,IND,1010,running,1,736951,51132,50404,728,114626
+Dublin Bay North,1,joan freeman,Joan Freeman,FALSE,IND,3372,running,1,736951,51132,50404,728,114626
+Dublin Bay North,1,sean gallagher,Seán Gallagher,FALSE,IND,2500,running,1,736951,51132,50404,728,114626
+Dublin Bay North,1,michaeld higgins,Michael D. Higgins,TRUE,IND,32198,elected,1,736951,51132,50404,728,114626
+Dublin Bay North,1,liadh niriada,Liadh Ní Riada,FALSE,SF,3315,running,1,736951,51132,50404,728,114626
+Dublin Bay South,1,peter casey,Peter Casey,FALSE,IND,3433,running,1,736951,29452,29045,407,80146
+Dublin Bay South,1,gavin duffy,Gavin Duffy,FALSE,IND,626,running,1,736951,29452,29045,407,80146
+Dublin Bay South,1,joan freeman,Joan Freeman,FALSE,IND,1884,running,1,736951,29452,29045,407,80146
+Dublin Bay South,1,sean gallagher,Seán Gallagher,FALSE,IND,1116,running,1,736951,29452,29045,407,80146
+Dublin Bay South,1,michaeld higgins,Michael D. Higgins,TRUE,IND,20765,elected,1,736951,29452,29045,407,80146
+Dublin Bay South,1,liadh niriada,Liadh Ní Riada,FALSE,SF,1221,running,1,736951,29452,29045,407,80146
+Dublin Central,1,peter casey,Peter Casey,FALSE,IND,1692,running,1,736951,15442,15135,307,48588
+Dublin Central,1,gavin duffy,Gavin Duffy,FALSE,IND,203,running,1,736951,15442,15135,307,48588
+Dublin Central,1,joan freeman,Joan Freeman,FALSE,IND,868,running,1,736951,15442,15135,307,48588
+Dublin Central,1,sean gallagher,Seán Gallagher,FALSE,IND,529,running,1,736951,15442,15135,307,48588
+Dublin Central,1,michaeld higgins,Michael D. Higgins,TRUE,IND,10094,elected,1,736951,15442,15135,307,48588
+Dublin Central,1,liadh niriada,Liadh Ní Riada,FALSE,SF,1749,running,1,736951,15442,15135,307,48588
+Dublin Fingal,1,peter casey,Peter Casey,FALSE,IND,7505,running,1,736951,43293,42832,461,96612
+Dublin Fingal,1,gavin duffy,Gavin Duffy,FALSE,IND,986,running,1,736951,43293,42832,461,96612
+Dublin Fingal,1,joan freeman,Joan Freeman,FALSE,IND,2643,running,1,736951,43293,42832,461,96612
+Dublin Fingal,1,sean gallagher,Seán Gallagher,FALSE,IND,2369,running,1,736951,43293,42832,461,96612
+Dublin Fingal,1,michaeld higgins,Michael D. Higgins,TRUE,IND,27039,elected,1,736951,43293,42832,461,96612
+Dublin Fingal,1,liadh niriada,Liadh Ní Riada,FALSE,SF,2290,running,1,736951,43293,42832,461,96612
+Dublin Mid-West,1,peter casey,Peter Casey,FALSE,IND,5128,running,1,736951,29399,28995,404,72006
+Dublin Mid-West,1,gavin duffy,Gavin Duffy,FALSE,IND,526,running,1,736951,29399,28995,404,72006
+Dublin Mid-West,1,joan freeman,Joan Freeman,FALSE,IND,2734,running,1,736951,29399,28995,404,72006
+Dublin Mid-West,1,sean gallagher,Seán Gallagher,FALSE,IND,1433,running,1,736951,29399,28995,404,72006
+Dublin Mid-West,1,michaeld higgins,Michael D. Higgins,TRUE,IND,17196,elected,1,736951,29399,28995,404,72006
+Dublin Mid-West,1,liadh niriada,Liadh Ní Riada,FALSE,SF,1978,running,1,736951,29399,28995,404,72006
+Dublin North-West,1,peter casey,Peter Casey,FALSE,IND,3737,running,1,736951,23875,23515,360,62726
+Dublin North-West,1,gavin duffy,Gavin Duffy,FALSE,IND,451,running,1,736951,23875,23515,360,62726
+Dublin North-West,1,joan freeman,Joan Freeman,FALSE,IND,1546,running,1,736951,23875,23515,360,62726
+Dublin North-West,1,sean gallagher,Seán Gallagher,FALSE,IND,1121,running,1,736951,23875,23515,360,62726
+Dublin North-West,1,michaeld higgins,Michael D. Higgins,TRUE,IND,14728,elected,1,736951,23875,23515,360,62726
+Dublin North-West,1,liadh niriada,Liadh Ní Riada,FALSE,SF,1932,running,1,736951,23875,23515,360,62726
+Dublin Rathdown,1,peter casey,Peter Casey,FALSE,IND,4385,running,1,736951,31962,31605,357,65918
+Dublin Rathdown,1,gavin duffy,Gavin Duffy,FALSE,IND,711,running,1,736951,31962,31605,357,65918
+Dublin Rathdown,1,joan freeman,Joan Freeman,FALSE,IND,2177,running,1,736951,31962,31605,357,65918
+Dublin Rathdown,1,sean gallagher,Seán Gallagher,FALSE,IND,1487,running,1,736951,31962,31605,357,65918
+Dublin Rathdown,1,michaeld higgins,Michael D. Higgins,TRUE,IND,21704,elected,1,736951,31962,31605,357,65918
+Dublin Rathdown,1,liadh niriada,Liadh Ní Riada,FALSE,SF,1141,running,1,736951,31962,31605,357,65918
+Dublin South-Central,1,peter casey,Peter Casey,FALSE,IND,3794,running,1,736951,28058,27591,467,73567
+Dublin South-Central,1,gavin duffy,Gavin Duffy,FALSE,IND,441,running,1,736951,28058,27591,467,73567
+Dublin South-Central,1,joan freeman,Joan Freeman,FALSE,IND,2039,running,1,736951,28058,27591,467,73567
+Dublin South-Central,1,sean gallagher,Seán Gallagher,FALSE,IND,1105,running,1,736951,28058,27591,467,73567
+Dublin South-Central,1,michaeld higgins,Michael D. Higgins,TRUE,IND,17930,elected,1,736951,28058,27591,467,73567
+Dublin South-Central,1,liadh niriada,Liadh Ní Riada,FALSE,SF,2282,running,1,736951,28058,27591,467,73567
+Dublin South-West,1,peter casey,Peter Casey,FALSE,IND,8324,running,1,736951,45774,45236,538,107134
+Dublin South-West,1,gavin duffy,Gavin Duffy,FALSE,IND,929,running,1,736951,45774,45236,538,107134
+Dublin South-West,1,joan freeman,Joan Freeman,FALSE,IND,3011,running,1,736951,45774,45236,538,107134
+Dublin South-West,1,sean gallagher,Seán Gallagher,FALSE,IND,2237,running,1,736951,45774,45236,538,107134
+Dublin South-West,1,michaeld higgins,Michael D. Higgins,TRUE,IND,28151,elected,1,736951,45774,45236,538,107134
+Dublin South-West,1,liadh niriada,Liadh Ní Riada,FALSE,SF,2584,running,1,736951,45774,45236,538,107134
+Dublin West,1,peter casey,Peter Casey,FALSE,IND,4887,running,1,736951,28640,28271,369,67625
+Dublin West,1,gavin duffy,Gavin Duffy,FALSE,IND,514,running,1,736951,28640,28271,369,67625
+Dublin West,1,joan freeman,Joan Freeman,FALSE,IND,2053,running,1,736951,28640,28271,369,67625
+Dublin West,1,sean gallagher,Seán Gallagher,FALSE,IND,1430,running,1,736951,28640,28271,369,67625
+Dublin West,1,michaeld higgins,Michael D. Higgins,TRUE,IND,17545,elected,1,736951,28640,28271,369,67625
+Dublin West,1,liadh niriada,Liadh Ní Riada,FALSE,SF,1842,running,1,736951,28640,28271,369,67625
+Dún Laoghaire,1,peter casey,Peter Casey,FALSE,IND,5872,running,1,736951,45433,44891,542,96825
+Dún Laoghaire,1,gavin duffy,Gavin Duffy,FALSE,IND,1000,running,1,736951,45433,44891,542,96825
+Dún Laoghaire,1,joan freeman,Joan Freeman,FALSE,IND,2866,running,1,736951,45433,44891,542,96825
+Dún Laoghaire,1,sean gallagher,Seán Gallagher,FALSE,IND,2044,running,1,736951,45433,44891,542,96825
+Dún Laoghaire,1,michaeld higgins,Michael D. Higgins,TRUE,IND,31513,elected,1,736951,45433,44891,542,96825
+Dún Laoghaire,1,liadh niriada,Liadh Ní Riada,FALSE,SF,1596,running,1,736951,45433,44891,542,96825
+Galway East,1,peter casey,Peter Casey,FALSE,IND,11227,running,1,736951,34078,33707,371,70302
+Galway East,1,gavin duffy,Gavin Duffy,FALSE,IND,516,running,1,736951,34078,33707,371,70302
+Galway East,1,joan freeman,Joan Freeman,FALSE,IND,1545,running,1,736951,34078,33707,371,70302
+Galway East,1,sean gallagher,Seán Gallagher,FALSE,IND,1379,running,1,736951,34078,33707,371,70302
+Galway East,1,michaeld higgins,Michael D. Higgins,TRUE,IND,18011,elected,1,736951,34078,33707,371,70302
+Galway East,1,liadh niriada,Liadh Ní Riada,FALSE,SF,1029,running,1,736951,34078,33707,371,70302
+Galway West,1,peter casey,Peter Casey,FALSE,IND,10821,running,1,736951,48057,47482,575,109523
+Galway West,1,gavin duffy,Gavin Duffy,FALSE,IND,660,running,1,736951,48057,47482,575,109523
+Galway West,1,joan freeman,Joan Freeman,FALSE,IND,2445,running,1,736951,48057,47482,575,109523
+Galway West,1,sean gallagher,Seán Gallagher,FALSE,IND,1783,running,1,736951,48057,47482,575,109523
+Galway West,1,michaeld higgins,Michael D. Higgins,TRUE,IND,29612,elected,1,736951,48057,47482,575,109523
+Galway West,1,liadh niriada,Liadh Ní Riada,FALSE,SF,2161,running,1,736951,48057,47482,575,109523
+Kerry,1,peter casey,Peter Casey,FALSE,IND,13752,running,1,736951,50643,50078,565,111777
+Kerry,1,gavin duffy,Gavin Duffy,FALSE,IND,1037,running,1,736951,50643,50078,565,111777
+Kerry,1,joan freeman,Joan Freeman,FALSE,IND,3102,running,1,736951,50643,50078,565,111777
+Kerry,1,sean gallagher,Seán Gallagher,FALSE,IND,2856,running,1,736951,50643,50078,565,111777
+Kerry,1,michaeld higgins,Michael D. Higgins,TRUE,IND,25078,elected,1,736951,50643,50078,565,111777
+Kerry,1,liadh niriada,Liadh Ní Riada,FALSE,SF,4253,running,1,736951,50643,50078,565,111777
+Kildare North,1,peter casey,Peter Casey,FALSE,IND,7210,running,1,736951,38133,37689,444,86305
+Kildare North,1,gavin duffy,Gavin Duffy,FALSE,IND,844,running,1,736951,38133,37689,444,86305
+Kildare North,1,joan freeman,Joan Freeman,FALSE,IND,2751,running,1,736951,38133,37689,444,86305
+Kildare North,1,sean gallagher,Seán Gallagher,FALSE,IND,2258,running,1,736951,38133,37689,444,86305
+Kildare North,1,michaeld higgins,Michael D. Higgins,TRUE,IND,23103,elected,1,736951,38133,37689,444,86305
+Kildare North,1,liadh niriada,Liadh Ní Riada,FALSE,SF,1523,running,1,736951,38133,37689,444,86305
+Kildare South,1,peter casey,Peter Casey,FALSE,IND,5819,running,1,736951,26280,25973,307,63929
+Kildare South,1,gavin duffy,Gavin Duffy,FALSE,IND,633,running,1,736951,26280,25973,307,63929
+Kildare South,1,joan freeman,Joan Freeman,FALSE,IND,1619,running,1,736951,26280,25973,307,63929
+Kildare South,1,sean gallagher,Seán Gallagher,FALSE,IND,1829,running,1,736951,26280,25973,307,63929
+Kildare South,1,michaeld higgins,Michael D. Higgins,TRUE,IND,14766,elected,1,736951,26280,25973,307,63929
+Kildare South,1,liadh niriada,Liadh Ní Riada,FALSE,SF,1307,running,1,736951,26280,25973,307,63929
+Laois,1,peter casey,Peter Casey,FALSE,IND,8419,running,1,736951,27921,27643,278,64139
+Laois,1,gavin duffy,Gavin Duffy,FALSE,IND,718,running,1,736951,27921,27643,278,64139
+Laois,1,joan freeman,Joan Freeman,FALSE,IND,1464,running,1,736951,27921,27643,278,64139
+Laois,1,sean gallagher,Seán Gallagher,FALSE,IND,1845,running,1,736951,27921,27643,278,64139
+Laois,1,michaeld higgins,Michael D. Higgins,TRUE,IND,13754,elected,1,736951,27921,27643,278,64139
+Laois,1,liadh niriada,Liadh Ní Riada,FALSE,SF,1443,running,1,736951,27921,27643,278,64139
+Limerick City,1,peter casey,Peter Casey,FALSE,IND,7845,running,1,736951,33183,32765,418,79647
+Limerick City,1,gavin duffy,Gavin Duffy,FALSE,IND,578,running,1,736951,33183,32765,418,79647
+Limerick City,1,joan freeman,Joan Freeman,FALSE,IND,1917,running,1,736951,33183,32765,418,79647
+Limerick City,1,sean gallagher,Seán Gallagher,FALSE,IND,1557,running,1,736951,33183,32765,418,79647
+Limerick City,1,michaeld higgins,Michael D. Higgins,TRUE,IND,18904,elected,1,736951,33183,32765,418,79647
+Limerick City,1,liadh niriada,Liadh Ní Riada,FALSE,SF,1964,running,1,736951,33183,32765,418,79647
+Limerick County,1,peter casey,Peter Casey,FALSE,IND,10865,running,1,736951,32055,31741,314,68740
+Limerick County,1,gavin duffy,Gavin Duffy,FALSE,IND,658,running,1,736951,32055,31741,314,68740
+Limerick County,1,joan freeman,Joan Freeman,FALSE,IND,1762,running,1,736951,32055,31741,314,68740
+Limerick County,1,sean gallagher,Seán Gallagher,FALSE,IND,1756,running,1,736951,32055,31741,314,68740
+Limerick County,1,michaeld higgins,Michael D. Higgins,TRUE,IND,15262,elected,1,736951,32055,31741,314,68740
+Limerick County,1,liadh niriada,Liadh Ní Riada,FALSE,SF,1438,running,1,736951,32055,31741,314,68740
+Longford-Westmeath,1,peter casey,Peter Casey,FALSE,IND,12005,running,1,736951,38385,37942,443,92354
+Longford-Westmeath,1,gavin duffy,Gavin Duffy,FALSE,IND,829,running,1,736951,38385,37942,443,92354
+Longford-Westmeath,1,joan freeman,Joan Freeman,FALSE,IND,2122,running,1,736951,38385,37942,443,92354
+Longford-Westmeath,1,sean gallagher,Seán Gallagher,FALSE,IND,2873,running,1,736951,38385,37942,443,92354
+Longford-Westmeath,1,michaeld higgins,Michael D. Higgins,TRUE,IND,18024,elected,1,736951,38385,37942,443,92354
+Longford-Westmeath,1,liadh niriada,Liadh Ní Riada,FALSE,SF,2089,running,1,736951,38385,37942,443,92354
+Louth,1,peter casey,Peter Casey,FALSE,IND,7223,running,1,736951,45584,45015,569,110256
+Louth,1,gavin duffy,Gavin Duffy,FALSE,IND,2101,running,1,736951,45584,45015,569,110256
+Louth,1,joan freeman,Joan Freeman,FALSE,IND,2291,running,1,736951,45584,45015,569,110256
+Louth,1,sean gallagher,Seán Gallagher,FALSE,IND,2934,running,1,736951,45584,45015,569,110256
+Louth,1,michaeld higgins,Michael D. Higgins,TRUE,IND,26291,elected,1,736951,45584,45015,569,110256
+Louth,1,liadh niriada,Liadh Ní Riada,FALSE,SF,4175,running,1,736951,45584,45015,569,110256
+Mayo,1,peter casey,Peter Casey,FALSE,IND,12850,running,1,736951,42027,41434,593,91412
+Mayo,1,gavin duffy,Gavin Duffy,FALSE,IND,937,running,1,736951,42027,41434,593,91412
+Mayo,1,joan freeman,Joan Freeman,FALSE,IND,2663,running,1,736951,42027,41434,593,91412
+Mayo,1,sean gallagher,Seán Gallagher,FALSE,IND,2235,running,1,736951,42027,41434,593,91412
+Mayo,1,michaeld higgins,Michael D. Higgins,TRUE,IND,20642,elected,1,736951,42027,41434,593,91412
+Mayo,1,liadh niriada,Liadh Ní Riada,FALSE,SF,2107,running,1,736951,42027,41434,593,91412
+Meath East,1,peter casey,Peter Casey,FALSE,IND,6064,running,1,736951,29872,29557,315,68591
+Meath East,1,gavin duffy,Gavin Duffy,FALSE,IND,1142,running,1,736951,29872,29557,315,68591
+Meath East,1,joan freeman,Joan Freeman,FALSE,IND,1883,running,1,736951,29872,29557,315,68591
+Meath East,1,sean gallagher,Seán Gallagher,FALSE,IND,2060,running,1,736951,29872,29557,315,68591
+Meath East,1,michaeld higgins,Michael D. Higgins,TRUE,IND,16754,elected,1,736951,29872,29557,315,68591
+Meath East,1,liadh niriada,Liadh Ní Riada,FALSE,SF,1654,running,1,736951,29872,29557,315,68591
+Meath West,1,peter casey,Peter Casey,FALSE,IND,5917,running,1,736951,27173,26860,313,66848
+Meath West,1,gavin duffy,Gavin Duffy,FALSE,IND,904,running,1,736951,27173,26860,313,66848
+Meath West,1,joan freeman,Joan Freeman,FALSE,IND,1727,running,1,736951,27173,26860,313,66848
+Meath West,1,sean gallagher,Seán Gallagher,FALSE,IND,1943,running,1,736951,27173,26860,313,66848
+Meath West,1,michaeld higgins,Michael D. Higgins,TRUE,IND,14522,elected,1,736951,27173,26860,313,66848
+Meath West,1,liadh niriada,Liadh Ní Riada,FALSE,SF,1847,running,1,736951,27173,26860,313,66848
+Offaly,1,peter casey,Peter Casey,FALSE,IND,9253,running,1,736951,30064,29710,354,66208
+Offaly,1,gavin duffy,Gavin Duffy,FALSE,IND,673,running,1,736951,30064,29710,354,66208
+Offaly,1,joan freeman,Joan Freeman,FALSE,IND,1691,running,1,736951,30064,29710,354,66208
+Offaly,1,sean gallagher,Seán Gallagher,FALSE,IND,2672,running,1,736951,30064,29710,354,66208
+Offaly,1,michaeld higgins,Michael D. Higgins,TRUE,IND,13977,elected,1,736951,30064,29710,354,66208
+Offaly,1,liadh niriada,Liadh Ní Riada,FALSE,SF,1444,running,1,736951,30064,29710,354,66208
+Roscommon-Galway,1,peter casey,Peter Casey,FALSE,IND,10918,running,1,736951,31994,31614,380,64857
+Roscommon-Galway,1,gavin duffy,Gavin Duffy,FALSE,IND,713,running,1,736951,31994,31614,380,64857
+Roscommon-Galway,1,joan freeman,Joan Freeman,FALSE,IND,1850,running,1,736951,31994,31614,380,64857
+Roscommon-Galway,1,sean gallagher,Seán Gallagher,FALSE,IND,2270,running,1,736951,31994,31614,380,64857
+Roscommon-Galway,1,michaeld higgins,Michael D. Higgins,TRUE,IND,14246,elected,1,736951,31994,31614,380,64857
+Roscommon-Galway,1,liadh niriada,Liadh Ní Riada,FALSE,SF,1617,running,1,736951,31994,31614,380,64857
+Sligo-Leitrim,1,peter casey,Peter Casey,FALSE,IND,11132,running,1,736951,42573,41988,585,96653
+Sligo-Leitrim,1,gavin duffy,Gavin Duffy,FALSE,IND,859,running,1,736951,42573,41988,585,96653
+Sligo-Leitrim,1,joan freeman,Joan Freeman,FALSE,IND,2475,running,1,736951,42573,41988,585,96653
+Sligo-Leitrim,1,sean gallagher,Seán Gallagher,FALSE,IND,3749,running,1,736951,42573,41988,585,96653
+Sligo-Leitrim,1,michaeld higgins,Michael D. Higgins,TRUE,IND,20601,elected,1,736951,42573,41988,585,96653
+Sligo-Leitrim,1,liadh niriada,Liadh Ní Riada,FALSE,SF,3172,running,1,736951,42573,41988,585,96653
+Tipperary,1,peter casey,Peter Casey,FALSE,IND,20149,running,1,736951,55376,54799,577,114433
+Tipperary,1,gavin duffy,Gavin Duffy,FALSE,IND,1106,running,1,736951,55376,54799,577,114433
+Tipperary,1,joan freeman,Joan Freeman,FALSE,IND,2723,running,1,736951,55376,54799,577,114433
+Tipperary,1,sean gallagher,Seán Gallagher,FALSE,IND,3077,running,1,736951,55376,54799,577,114433
+Tipperary,1,michaeld higgins,Michael D. Higgins,TRUE,IND,24917,elected,1,736951,55376,54799,577,114433
+Tipperary,1,liadh niriada,Liadh Ní Riada,FALSE,SF,2827,running,1,736951,55376,54799,577,114433
+Waterford,1,peter casey,Peter Casey,FALSE,IND,8822,running,1,736951,36137,35670,467,83359
+Waterford,1,gavin duffy,Gavin Duffy,FALSE,IND,847,running,1,736951,36137,35670,467,83359
+Waterford,1,joan freeman,Joan Freeman,FALSE,IND,2025,running,1,736951,36137,35670,467,83359
+Waterford,1,sean gallagher,Seán Gallagher,FALSE,IND,2530,running,1,736951,36137,35670,467,83359
+Waterford,1,michaeld higgins,Michael D. Higgins,TRUE,IND,18609,elected,1,736951,36137,35670,467,83359
+Waterford,1,liadh niriada,Liadh Ní Riada,FALSE,SF,2837,running,1,736951,36137,35670,467,83359
+Wexford,1,peter casey,Peter Casey,FALSE,IND,11818,running,1,736951,49290,48709,581,111897
+Wexford,1,gavin duffy,Gavin Duffy,FALSE,IND,1161,running,1,736951,49290,48709,581,111897
+Wexford,1,joan freeman,Joan Freeman,FALSE,IND,2272,running,1,736951,49290,48709,581,111897
+Wexford,1,sean gallagher,Seán Gallagher,FALSE,IND,3499,running,1,736951,49290,48709,581,111897
+Wexford,1,michaeld higgins,Michael D. Higgins,TRUE,IND,27020,elected,1,736951,49290,48709,581,111897
+Wexford,1,liadh niriada,Liadh Ní Riada,FALSE,SF,2939,running,1,736951,49290,48709,581,111897
+Wicklow,1,peter casey,Peter Casey,FALSE,IND,8507,running,1,736951,50649,50107,542,99871
+Wicklow,1,gavin duffy,Gavin Duffy,FALSE,IND,1043,running,1,736951,50649,50107,542,99871
+Wicklow,1,joan freeman,Joan Freeman,FALSE,IND,2820,running,1,736951,50649,50107,542,99871
+Wicklow,1,sean gallagher,Seán Gallagher,FALSE,IND,3449,running,1,736951,50649,50107,542,99871
+Wicklow,1,michaeld higgins,Michael D. Higgins,TRUE,IND,31555,elected,1,736951,50649,50107,542,99871
+Wicklow,1,liadh niriada,Liadh Ní Riada,FALSE,SF,2733,running,1,736951,50649,50107,542,99871

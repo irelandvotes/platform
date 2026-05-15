@@ -192,7 +192,7 @@ Polling
     width: "260px",
 borderRight: "1px solid var(--glass-border)",
 
-background: "var(--background)",
+background: "var(--sidebar-bg)",
     backdropFilter: "blur(12px)",
     padding: "14px 12px",
     overflowY: "auto",

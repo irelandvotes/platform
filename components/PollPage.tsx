@@ -46,16 +46,36 @@ const PARTY_COLORS: Record<string, string> = {
 export default function PollPage({
   country,
   election,
+  governmentApproval,
   tracker = "dail",
 }: {
   country: string;
   election: string;
   tracker?: string;
+
+    governmentApproval?: {
+    approval: number;
+    disapproval: number;
+    undecided: number;
+    title: string;
+  };
 }) {
 
 const [polls, setPolls] = useState<any[]>([]);
 const [range, setRange] = useState<string>("all");
 const [isMobile, setIsMobile] = useState(false);
+
+const approval =
+  governmentApproval?.approval ?? 47;
+
+const disapproval =
+  governmentApproval?.disapproval ?? 41;
+
+const undecided =
+  governmentApproval?.undecided ?? 12;
+
+const title =
+  governmentApproval?.title ?? "Government";
 
 useEffect(() => {
   const check = () => setIsMobile(window.innerWidth < 900);
@@ -2196,7 +2216,7 @@ tracker === "ni"
 
 </div>
 
-{/* SUB SAMPLE PLACEHOLDER */}
+{/* GOVERNMENT APPROVAL */}
 
 <div
 style={{
@@ -2207,31 +2227,174 @@ padding: "14px"
 }}
 >
 
+{/* HEADER */}
+<div
+style={{
+display: "flex",
+justifyContent: "space-between",
+alignItems: "center",
+marginBottom: "14px"
+}}
+>
+
+<div>
+
 <div
 style={{
 fontSize: "13px",
-fontWeight: "600",
-marginBottom: "8px",
-opacity: 0.85
+fontWeight: "700",
+opacity: 0.9
 }}
 >
-Sub-Sample Aggregates
+{title} Approval
 </div>
 
 <div
 style={{
-height: "260px",
-display: "flex",
-alignItems: "center",
-justifyContent: "center",
-fontSize: "12px",
-opacity: 0.6
+fontSize: "11px",
+opacity: 0.55,
+marginTop: "2px"
 }}
 >
-Regional and demographic polling coming soon
+National polling average
 </div>
 
 </div>
+
+<div
+style={{
+fontSize: "10px",
+padding: "4px 8px",
+borderRadius: "999px",
+background: "rgba(0,223,239,0.10)",
+color: "#00dfef",
+fontWeight: "700"
+}}
+>
+TRACKER
+</div>
+
+</div>
+
+
+{/* APPROVAL BAR */}
+
+<div style={{ marginBottom: "16px" }}>
+
+<div
+style={{
+display: "flex",
+justifyContent: "space-between",
+fontSize: "12px",
+marginBottom: "6px"
+}}
+>
+
+<span>Approval</span>
+
+<span
+style={{
+fontWeight: "700"
+}}
+>
+{approval}%
+</span>
+
+</div>
+
+
+<div
+style={{
+height: "12px",
+borderRadius: "999px",
+background: "var(--panel-2)",
+overflow: "hidden",
+position: "relative"
+}}
+>
+
+<div
+style={{
+width: `${approval}%`,
+height: "100%",
+background:
+"linear-gradient(90deg,#00dfef,#4dd0e1)",
+transition: "0.4s"
+}}
+/>
+
+</div>
+
+</div>
+
+
+{/* METRICS */}
+
+<div
+style={{
+display: "grid",
+gridTemplateColumns: "1fr 1fr 1fr",
+gap: "10px"
+}}
+>
+
+{[
+{
+label:"Approve",
+value:`${approval}%`,
+color:"#4caf50"
+},
+{
+label:"Disapprove",
+value:`${disapproval}%`,
+color:"#f44336"
+},
+{
+label:"Neutral or Unsure",
+value:`${undecided}%`,
+color:"#999"
+}
+
+].map(item => (
+
+<div
+key={item.label}
+style={{
+padding:"10px",
+borderRadius:"10px",
+background:"var(--panel-2)",
+textAlign:"center"
+}}
+>
+
+<div
+style={{
+fontSize:"18px",
+fontWeight:"700",
+color:item.color
+}}
+>
+{item.value}
+</div>
+
+<div
+style={{
+fontSize:"10px",
+opacity:0.6,
+marginTop:"2px"
+}}
+>
+{item.label}
+</div>
+
+</div>
+
+))}
+
+</div>
+
+</div>
+
 </div>
 
 {/* TABLE */}

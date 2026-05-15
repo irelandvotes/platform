@@ -1,0 +1,1205 @@
+constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,turnout,tvp,spoilt,electorate
+Carlow-Kilkenny,1,mary davis,Mary Davis,FALSE,IND,1143,eliminated,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,1,sean gallagher,Seán Gallagher,FALSE,IND,19846,running,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,21574,running,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,1,martin mcguinness,Martin McGuinness,FALSE,SF,7257,running,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,1,gay mitchell,Gay Mitchell,FALSE,FG,4511,running,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,1,david norris,David Norris,FALSE,IND,2792,running,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1614,eliminated,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,2,sean gallagher,Seán Gallagher,FALSE,IND,20531,running,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,22382,running,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,2,martin mcguinness,Martin McGuinness,FALSE,SF,7497,running,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,2,gay mitchell,Gay Mitchell,FALSE,FG,4915,running,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,2,david norris,David Norris,FALSE,IND,2975,eliminated,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,3,sean gallagher,Seán Gallagher,FALSE,IND,21089,running,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,23919,running,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,3,martin mcguinness,Martin McGuinness,FALSE,SF,7883,eliminated,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,3,gay mitchell,Gay Mitchell,FALSE,FG,5095,eliminated,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,4,sean gallagher,Seán Gallagher,FALSE,IND,23705,running,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,31136,elected,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,59328,58737,591,106810
+Carlow-Kilkenny,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,59328,58737,591,106810
+Cavan-Monaghan,1,mary davis,Mary Davis,FALSE,IND,1071,eliminated,1,885882,58518,57964,554,98952
+Cavan-Monaghan,1,sean gallagher,Seán Gallagher,FALSE,IND,26150,running,1,885882,58518,57964,554,98952
+Cavan-Monaghan,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,11471,running,1,885882,58518,57964,554,98952
+Cavan-Monaghan,1,martin mcguinness,Martin McGuinness,FALSE,SF,11940,running,1,885882,58518,57964,554,98952
+Cavan-Monaghan,1,gay mitchell,Gay Mitchell,FALSE,FG,4109,running,1,885882,58518,57964,554,98952
+Cavan-Monaghan,1,david norris,David Norris,FALSE,IND,1636,running,1,885882,58518,57964,554,98952
+Cavan-Monaghan,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1587,eliminated,1,885882,58518,57964,554,98952
+Cavan-Monaghan,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,58518,57964,554,98952
+Cavan-Monaghan,2,sean gallagher,Seán Gallagher,FALSE,IND,26972,running,1,885882,58518,57964,554,98952
+Cavan-Monaghan,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,12085,running,1,885882,58518,57964,554,98952
+Cavan-Monaghan,2,martin mcguinness,Martin McGuinness,FALSE,SF,12275,running,1,885882,58518,57964,554,98952
+Cavan-Monaghan,2,gay mitchell,Gay Mitchell,FALSE,FG,4472,running,1,885882,58518,57964,554,98952
+Cavan-Monaghan,2,david norris,David Norris,FALSE,IND,1800,eliminated,1,885882,58518,57964,554,98952
+Cavan-Monaghan,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,58518,57964,554,98952
+Cavan-Monaghan,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,58518,57964,554,98952
+Cavan-Monaghan,3,sean gallagher,Seán Gallagher,FALSE,IND,27379,running,1,885882,58518,57964,554,98952
+Cavan-Monaghan,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,12835,running,1,885882,58518,57964,554,98952
+Cavan-Monaghan,3,martin mcguinness,Martin McGuinness,FALSE,SF,12509,eliminated,1,885882,58518,57964,554,98952
+Cavan-Monaghan,3,gay mitchell,Gay Mitchell,FALSE,FG,4688,eliminated,1,885882,58518,57964,554,98952
+Cavan-Monaghan,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,58518,57964,554,98952
+Cavan-Monaghan,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,58518,57964,554,98952
+Cavan-Monaghan,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,58518,57964,554,98952
+Cavan-Monaghan,4,sean gallagher,Seán Gallagher,FALSE,IND,32420,running,1,885882,58518,57964,554,98952
+Cavan-Monaghan,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,20309,elected,1,885882,58518,57964,554,98952
+Cavan-Monaghan,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,58518,57964,554,98952
+Cavan-Monaghan,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,58518,57964,554,98952
+Cavan-Monaghan,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,58518,57964,554,98952
+Cavan-Monaghan,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,58518,57964,554,98952
+Clare,1,mary davis,Mary Davis,FALSE,IND,890,eliminated,1,885882,47417,47012,405,81419
+Clare,1,sean gallagher,Seán Gallagher,FALSE,IND,14779,running,1,885882,47417,47012,405,81419
+Clare,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,20828,running,1,885882,47417,47012,405,81419
+Clare,1,martin mcguinness,Martin McGuinness,FALSE,SF,4950,running,1,885882,47417,47012,405,81419
+Clare,1,gay mitchell,Gay Mitchell,FALSE,FG,2545,running,1,885882,47417,47012,405,81419
+Clare,1,david norris,David Norris,FALSE,IND,1707,running,1,885882,47417,47012,405,81419
+Clare,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1313,eliminated,1,885882,47417,47012,405,81419
+Clare,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,47417,47012,405,81419
+Clare,2,sean gallagher,Seán Gallagher,FALSE,IND,15339,running,1,885882,47417,47012,405,81419
+Clare,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,21573,running,1,885882,47417,47012,405,81419
+Clare,2,martin mcguinness,Martin McGuinness,FALSE,SF,5152,running,1,885882,47417,47012,405,81419
+Clare,2,gay mitchell,Gay Mitchell,FALSE,FG,2810,running,1,885882,47417,47012,405,81419
+Clare,2,david norris,David Norris,FALSE,IND,1858,eliminated,1,885882,47417,47012,405,81419
+Clare,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,47417,47012,405,81419
+Clare,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,47417,47012,405,81419
+Clare,3,sean gallagher,Seán Gallagher,FALSE,IND,15703,running,1,885882,47417,47012,405,81419
+Clare,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,22550,running,1,885882,47417,47012,405,81419
+Clare,3,martin mcguinness,Martin McGuinness,FALSE,SF,5365,eliminated,1,885882,47417,47012,405,81419
+Clare,3,gay mitchell,Gay Mitchell,FALSE,FG,2935,eliminated,1,885882,47417,47012,405,81419
+Clare,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,47417,47012,405,81419
+Clare,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,47417,47012,405,81419
+Clare,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,47417,47012,405,81419
+Clare,4,sean gallagher,Seán Gallagher,FALSE,IND,17171,running,1,885882,47417,47012,405,81419
+Clare,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,27719,elected,1,885882,47417,47012,405,81419
+Clare,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,47417,47012,405,81419
+Clare,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,47417,47012,405,81419
+Clare,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,47417,47012,405,81419
+Clare,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,47417,47012,405,81419
+Cork East,1,mary davis,Mary Davis,FALSE,IND,923,eliminated,1,885882,45462,44953,509,82731
+Cork East,1,sean gallagher,Seán Gallagher,FALSE,IND,15455,running,1,885882,45462,44953,509,82731
+Cork East,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,16435,running,1,885882,45462,44953,509,82731
+Cork East,1,martin mcguinness,Martin McGuinness,FALSE,SF,6193,running,1,885882,45462,44953,509,82731
+Cork East,1,gay mitchell,Gay Mitchell,FALSE,FG,2678,running,1,885882,45462,44953,509,82731
+Cork East,1,david norris,David Norris,FALSE,IND,1921,running,1,885882,45462,44953,509,82731
+Cork East,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1348,eliminated,1,885882,45462,44953,509,82731
+Cork East,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,45462,44953,509,82731
+Cork East,2,sean gallagher,Seán Gallagher,FALSE,IND,16063,running,1,885882,45462,44953,509,82731
+Cork East,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,17031,running,1,885882,45462,44953,509,82731
+Cork East,2,martin mcguinness,Martin McGuinness,FALSE,SF,6393,running,1,885882,45462,44953,509,82731
+Cork East,2,gay mitchell,Gay Mitchell,FALSE,FG,3022,running,1,885882,45462,44953,509,82731
+Cork East,2,david norris,David Norris,FALSE,IND,2059,eliminated,1,885882,45462,44953,509,82731
+Cork East,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,45462,44953,509,82731
+Cork East,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,45462,44953,509,82731
+Cork East,3,sean gallagher,Seán Gallagher,FALSE,IND,16422,running,1,885882,45462,44953,509,82731
+Cork East,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,18128,running,1,885882,45462,44953,509,82731
+Cork East,3,martin mcguinness,Martin McGuinness,FALSE,SF,6615,eliminated,1,885882,45462,44953,509,82731
+Cork East,3,gay mitchell,Gay Mitchell,FALSE,FG,3146,eliminated,1,885882,45462,44953,509,82731
+Cork East,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,45462,44953,509,82731
+Cork East,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,45462,44953,509,82731
+Cork East,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,45462,44953,509,82731
+Cork East,4,sean gallagher,Seán Gallagher,FALSE,IND,18423,running,1,885882,45462,44953,509,82731
+Cork East,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,23195,elected,1,885882,45462,44953,509,82731
+Cork East,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,45462,44953,509,82731
+Cork East,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,45462,44953,509,82731
+Cork East,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,45462,44953,509,82731
+Cork East,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,45462,44953,509,82731
+Cork North-Central,1,mary davis,Mary Davis,FALSE,IND,693,eliminated,1,885882,41602,41026,576,75622
+Cork North-Central,1,sean gallagher,Seán Gallagher,FALSE,IND,11526,running,1,885882,41602,41026,576,75622
+Cork North-Central,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,15427,running,1,885882,41602,41026,576,75622
+Cork North-Central,1,martin mcguinness,Martin McGuinness,FALSE,SF,8201,running,1,885882,41602,41026,576,75622
+Cork North-Central,1,gay mitchell,Gay Mitchell,FALSE,FG,1911,running,1,885882,41602,41026,576,75622
+Cork North-Central,1,david norris,David Norris,FALSE,IND,2090,running,1,885882,41602,41026,576,75622
+Cork North-Central,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1178,eliminated,1,885882,41602,41026,576,75622
+Cork North-Central,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,41602,41026,576,75622
+Cork North-Central,2,sean gallagher,Seán Gallagher,FALSE,IND,11973,running,1,885882,41602,41026,576,75622
+Cork North-Central,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,15899,running,1,885882,41602,41026,576,75622
+Cork North-Central,2,martin mcguinness,Martin McGuinness,FALSE,SF,8407,running,1,885882,41602,41026,576,75622
+Cork North-Central,2,gay mitchell,Gay Mitchell,FALSE,FG,2185,running,1,885882,41602,41026,576,75622
+Cork North-Central,2,david norris,David Norris,FALSE,IND,2235,eliminated,1,885882,41602,41026,576,75622
+Cork North-Central,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,41602,41026,576,75622
+Cork North-Central,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,41602,41026,576,75622
+Cork North-Central,3,sean gallagher,Seán Gallagher,FALSE,IND,12336,running,1,885882,41602,41026,576,75622
+Cork North-Central,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,17098,running,1,885882,41602,41026,576,75622
+Cork North-Central,3,martin mcguinness,Martin McGuinness,FALSE,SF,8705,eliminated,1,885882,41602,41026,576,75622
+Cork North-Central,3,gay mitchell,Gay Mitchell,FALSE,FG,2313,eliminated,1,885882,41602,41026,576,75622
+Cork North-Central,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,41602,41026,576,75622
+Cork North-Central,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,41602,41026,576,75622
+Cork North-Central,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,41602,41026,576,75622
+Cork North-Central,4,sean gallagher,Seán Gallagher,FALSE,IND,14351,running,1,885882,41602,41026,576,75622
+Cork North-Central,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,22560,elected,1,885882,41602,41026,576,75622
+Cork North-Central,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,41602,41026,576,75622
+Cork North-Central,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,41602,41026,576,75622
+Cork North-Central,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,41602,41026,576,75622
+Cork North-Central,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,41602,41026,576,75622
+Cork North-West,1,mary davis,Mary Davis,FALSE,IND,561,eliminated,1,885882,37784,37413,371,62113
+Cork North-West,1,sean gallagher,Seán Gallagher,FALSE,IND,14362,running,1,885882,37784,37413,371,62113
+Cork North-West,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,12836,running,1,885882,37784,37413,371,62113
+Cork North-West,1,martin mcguinness,Martin McGuinness,FALSE,SF,4329,running,1,885882,37784,37413,371,62113
+Cork North-West,1,gay mitchell,Gay Mitchell,FALSE,FG,2836,running,1,885882,37784,37413,371,62113
+Cork North-West,1,david norris,David Norris,FALSE,IND,1380,running,1,885882,37784,37413,371,62113
+Cork North-West,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1109,eliminated,1,885882,37784,37413,371,62113
+Cork North-West,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,37784,37413,371,62113
+Cork North-West,2,sean gallagher,Seán Gallagher,FALSE,IND,14794,running,1,885882,37784,37413,371,62113
+Cork North-West,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,13277,running,1,885882,37784,37413,371,62113
+Cork North-West,2,martin mcguinness,Martin McGuinness,FALSE,SF,4470,running,1,885882,37784,37413,371,62113
+Cork North-West,2,gay mitchell,Gay Mitchell,FALSE,FG,3102,running,1,885882,37784,37413,371,62113
+Cork North-West,2,david norris,David Norris,FALSE,IND,1490,eliminated,1,885882,37784,37413,371,62113
+Cork North-West,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,37784,37413,371,62113
+Cork North-West,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,37784,37413,371,62113
+Cork North-West,3,sean gallagher,Seán Gallagher,FALSE,IND,15129,running,1,885882,37784,37413,371,62113
+Cork North-West,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,14027,running,1,885882,37784,37413,371,62113
+Cork North-West,3,martin mcguinness,Martin McGuinness,FALSE,SF,4638,eliminated,1,885882,37784,37413,371,62113
+Cork North-West,3,gay mitchell,Gay Mitchell,FALSE,FG,3184,eliminated,1,885882,37784,37413,371,62113
+Cork North-West,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,37784,37413,371,62113
+Cork North-West,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,37784,37413,371,62113
+Cork North-West,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,37784,37413,371,62113
+Cork North-West,4,sean gallagher,Seán Gallagher,FALSE,IND,16697,running,1,885882,37784,37413,371,62113
+Cork North-West,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,18513,elected,1,885882,37784,37413,371,62113
+Cork North-West,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,37784,37413,371,62113
+Cork North-West,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,37784,37413,371,62113
+Cork North-West,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,37784,37413,371,62113
+Cork North-West,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,37784,37413,371,62113
+Cork South-Central,1,mary davis,Mary Davis,FALSE,IND,1080,eliminated,1,885882,53710,53048,662,91716
+Cork South-Central,1,sean gallagher,Seán Gallagher,FALSE,IND,13224,running,1,885882,53710,53048,662,91716
+Cork South-Central,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,23861,running,1,885882,53710,53048,662,91716
+Cork South-Central,1,martin mcguinness,Martin McGuinness,FALSE,SF,7496,running,1,885882,53710,53048,662,91716
+Cork South-Central,1,gay mitchell,Gay Mitchell,FALSE,FG,2488,running,1,885882,53710,53048,662,91716
+Cork South-Central,1,david norris,David Norris,FALSE,IND,3423,running,1,885882,53710,53048,662,91716
+Cork South-Central,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1476,eliminated,1,885882,53710,53048,662,91716
+Cork South-Central,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,53710,53048,662,91716
+Cork South-Central,2,sean gallagher,Seán Gallagher,FALSE,IND,13829,running,1,885882,53710,53048,662,91716
+Cork South-Central,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,24601,running,1,885882,53710,53048,662,91716
+Cork South-Central,2,martin mcguinness,Martin McGuinness,FALSE,SF,7692,running,1,885882,53710,53048,662,91716
+Cork South-Central,2,gay mitchell,Gay Mitchell,FALSE,FG,2882,running,1,885882,53710,53048,662,91716
+Cork South-Central,2,david norris,David Norris,FALSE,IND,3625,eliminated,1,885882,53710,53048,662,91716
+Cork South-Central,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,53710,53048,662,91716
+Cork South-Central,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,53710,53048,662,91716
+Cork South-Central,3,sean gallagher,Seán Gallagher,FALSE,IND,14403,running,1,885882,53710,53048,662,91716
+Cork South-Central,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,26611,running,1,885882,53710,53048,662,91716
+Cork South-Central,3,martin mcguinness,Martin McGuinness,FALSE,SF,8069,eliminated,1,885882,53710,53048,662,91716
+Cork South-Central,3,gay mitchell,Gay Mitchell,FALSE,FG,3125,eliminated,1,885882,53710,53048,662,91716
+Cork South-Central,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,53710,53048,662,91716
+Cork South-Central,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,53710,53048,662,91716
+Cork South-Central,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,53710,53048,662,91716
+Cork South-Central,4,sean gallagher,Seán Gallagher,FALSE,IND,16398,running,1,885882,53710,53048,662,91716
+Cork South-Central,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,32637,elected,1,885882,53710,53048,662,91716
+Cork South-Central,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,53710,53048,662,91716
+Cork South-Central,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,53710,53048,662,91716
+Cork South-Central,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,53710,53048,662,91716
+Cork South-Central,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,53710,53048,662,91716
+Cork South-West,1,mary davis,Mary Davis,FALSE,IND,770,eliminated,1,885882,35941,35571,370,60248
+Cork South-West,1,sean gallagher,Seán Gallagher,FALSE,IND,12449,running,1,885882,35941,35571,370,60248
+Cork South-West,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,12047,running,1,885882,35941,35571,370,60248
+Cork South-West,1,martin mcguinness,Martin McGuinness,FALSE,SF,4608,running,1,885882,35941,35571,370,60248
+Cork South-West,1,gay mitchell,Gay Mitchell,FALSE,FG,3035,running,1,885882,35941,35571,370,60248
+Cork South-West,1,david norris,David Norris,FALSE,IND,1534,running,1,885882,35941,35571,370,60248
+Cork South-West,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1128,eliminated,1,885882,35941,35571,370,60248
+Cork South-West,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,35941,35571,370,60248
+Cork South-West,2,sean gallagher,Seán Gallagher,FALSE,IND,12930,running,1,885882,35941,35571,370,60248
+Cork South-West,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,12559,running,1,885882,35941,35571,370,60248
+Cork South-West,2,martin mcguinness,Martin McGuinness,FALSE,SF,4776,running,1,885882,35941,35571,370,60248
+Cork South-West,2,gay mitchell,Gay Mitchell,FALSE,FG,3353,running,1,885882,35941,35571,370,60248
+Cork South-West,2,david norris,David Norris,FALSE,IND,1634,eliminated,1,885882,35941,35571,370,60248
+Cork South-West,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,35941,35571,370,60248
+Cork South-West,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,35941,35571,370,60248
+Cork South-West,3,sean gallagher,Seán Gallagher,FALSE,IND,13204,running,1,885882,35941,35571,370,60248
+Cork South-West,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,13471,running,1,885882,35941,35571,370,60248
+Cork South-West,3,martin mcguinness,Martin McGuinness,FALSE,SF,4943,eliminated,1,885882,35941,35571,370,60248
+Cork South-West,3,gay mitchell,Gay Mitchell,FALSE,FG,3473,eliminated,1,885882,35941,35571,370,60248
+Cork South-West,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,35941,35571,370,60248
+Cork South-West,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,35941,35571,370,60248
+Cork South-West,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,35941,35571,370,60248
+Cork South-West,4,sean gallagher,Seán Gallagher,FALSE,IND,15048,running,1,885882,35941,35571,370,60248
+Cork South-West,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,18024,elected,1,885882,35941,35571,370,60248
+Cork South-West,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,35941,35571,370,60248
+Cork South-West,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,35941,35571,370,60248
+Cork South-West,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,35941,35571,370,60248
+Cork South-West,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,35941,35571,370,60248
+Donegal North-East,1,mary davis,Mary Davis,FALSE,IND,598,eliminated,1,885882,28582,28254,328,58579
+Donegal North-East,1,sean gallagher,Seán Gallagher,FALSE,IND,7978,running,1,885882,28582,28254,328,58579
+Donegal North-East,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,6516,running,1,885882,28582,28254,328,58579
+Donegal North-East,1,martin mcguinness,Martin McGuinness,FALSE,SF,9085,running,1,885882,28582,28254,328,58579
+Donegal North-East,1,gay mitchell,Gay Mitchell,FALSE,FG,1384,running,1,885882,28582,28254,328,58579
+Donegal North-East,1,david norris,David Norris,FALSE,IND,788,running,1,885882,28582,28254,328,58579
+Donegal North-East,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1905,eliminated,1,885882,28582,28254,328,58579
+Donegal North-East,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,28582,28254,328,58579
+Donegal North-East,2,sean gallagher,Seán Gallagher,FALSE,IND,8639,running,1,885882,28582,28254,328,58579
+Donegal North-East,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,7035,running,1,885882,28582,28254,328,58579
+Donegal North-East,2,martin mcguinness,Martin McGuinness,FALSE,SF,9626,running,1,885882,28582,28254,328,58579
+Donegal North-East,2,gay mitchell,Gay Mitchell,FALSE,FG,1629,running,1,885882,28582,28254,328,58579
+Donegal North-East,2,david norris,David Norris,FALSE,IND,911,eliminated,1,885882,28582,28254,328,58579
+Donegal North-East,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,28582,28254,328,58579
+Donegal North-East,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,28582,28254,328,58579
+Donegal North-East,3,sean gallagher,Seán Gallagher,FALSE,IND,8822,running,1,885882,28582,28254,328,58579
+Donegal North-East,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,7436,running,1,885882,28582,28254,328,58579
+Donegal North-East,3,martin mcguinness,Martin McGuinness,FALSE,SF,9749,eliminated,1,885882,28582,28254,328,58579
+Donegal North-East,3,gay mitchell,Gay Mitchell,FALSE,FG,1702,eliminated,1,885882,28582,28254,328,58579
+Donegal North-East,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,28582,28254,328,58579
+Donegal North-East,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,28582,28254,328,58579
+Donegal North-East,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,28582,28254,328,58579
+Donegal North-East,4,sean gallagher,Seán Gallagher,FALSE,IND,11466,running,1,885882,28582,28254,328,58579
+Donegal North-East,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,11595,elected,1,885882,28582,28254,328,58579
+Donegal North-East,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,28582,28254,328,58579
+Donegal North-East,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,28582,28254,328,58579
+Donegal North-East,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,28582,28254,328,58579
+Donegal North-East,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,28582,28254,328,58579
+Donegal South-West,1,mary davis,Mary Davis,FALSE,IND,660,eliminated,1,885882,31068,30716,352,64158
+Donegal South-West,1,sean gallagher,Seán Gallagher,FALSE,IND,9912,running,1,885882,31068,30716,352,64158
+Donegal South-West,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,7093,running,1,885882,31068,30716,352,64158
+Donegal South-West,1,martin mcguinness,Martin McGuinness,FALSE,SF,8738,running,1,885882,31068,30716,352,64158
+Donegal South-West,1,gay mitchell,Gay Mitchell,FALSE,FG,1620,running,1,885882,31068,30716,352,64158
+Donegal South-West,1,david norris,David Norris,FALSE,IND,916,running,1,885882,31068,30716,352,64158
+Donegal South-West,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1777,eliminated,1,885882,31068,30716,352,64158
+Donegal South-West,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,31068,30716,352,64158
+Donegal South-West,2,sean gallagher,Seán Gallagher,FALSE,IND,10595,running,1,885882,31068,30716,352,64158
+Donegal South-West,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,7635,running,1,885882,31068,30716,352,64158
+Donegal South-West,2,martin mcguinness,Martin McGuinness,FALSE,SF,9158,running,1,885882,31068,30716,352,64158
+Donegal South-West,2,gay mitchell,Gay Mitchell,FALSE,FG,1866,running,1,885882,31068,30716,352,64158
+Donegal South-West,2,david norris,David Norris,FALSE,IND,1035,eliminated,1,885882,31068,30716,352,64158
+Donegal South-West,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,31068,30716,352,64158
+Donegal South-West,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,31068,30716,352,64158
+Donegal South-West,3,sean gallagher,Seán Gallagher,FALSE,IND,10776,running,1,885882,31068,30716,352,64158
+Donegal South-West,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,8102,running,1,885882,31068,30716,352,64158
+Donegal South-West,3,martin mcguinness,Martin McGuinness,FALSE,SF,9299,eliminated,1,885882,31068,30716,352,64158
+Donegal South-West,3,gay mitchell,Gay Mitchell,FALSE,FG,1959,eliminated,1,885882,31068,30716,352,64158
+Donegal South-West,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,31068,30716,352,64158
+Donegal South-West,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,31068,30716,352,64158
+Donegal South-West,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,31068,30716,352,64158
+Donegal South-West,4,sean gallagher,Seán Gallagher,FALSE,IND,13395,running,1,885882,31068,30716,352,64158
+Donegal South-West,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,12358,elected,1,885882,31068,30716,352,64158
+Donegal South-West,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,31068,30716,352,64158
+Donegal South-West,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,31068,30716,352,64158
+Donegal South-West,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,31068,30716,352,64158
+Donegal South-West,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,31068,30716,352,64158
+Dublin Central,1,mary davis,Mary Davis,FALSE,IND,820,eliminated,1,885882,28236,27885,351,54500
+Dublin Central,1,sean gallagher,Seán Gallagher,FALSE,IND,4577,running,1,885882,28236,27885,351,54500
+Dublin Central,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,12267,running,1,885882,28236,27885,351,54500
+Dublin Central,1,martin mcguinness,Martin McGuinness,FALSE,SF,4485,running,1,885882,28236,27885,351,54500
+Dublin Central,1,gay mitchell,Gay Mitchell,FALSE,FG,1392,running,1,885882,28236,27885,351,54500
+Dublin Central,1,david norris,David Norris,FALSE,IND,3588,running,1,885882,28236,27885,351,54500
+Dublin Central,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,756,eliminated,1,885882,28236,27885,351,54500
+Dublin Central,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,28236,27885,351,54500
+Dublin Central,2,sean gallagher,Seán Gallagher,FALSE,IND,4883,running,1,885882,28236,27885,351,54500
+Dublin Central,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,12714,running,1,885882,28236,27885,351,54500
+Dublin Central,2,martin mcguinness,Martin McGuinness,FALSE,SF,4631,running,1,885882,28236,27885,351,54500
+Dublin Central,2,gay mitchell,Gay Mitchell,FALSE,FG,1641,running,1,885882,28236,27885,351,54500
+Dublin Central,2,david norris,David Norris,FALSE,IND,3762,eliminated,1,885882,28236,27885,351,54500
+Dublin Central,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,28236,27885,351,54500
+Dublin Central,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,28236,27885,351,54500
+Dublin Central,3,sean gallagher,Seán Gallagher,FALSE,IND,5292,running,1,885882,28236,27885,351,54500
+Dublin Central,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,14983,running,1,885882,28236,27885,351,54500
+Dublin Central,3,martin mcguinness,Martin McGuinness,FALSE,SF,5048,eliminated,1,885882,28236,27885,351,54500
+Dublin Central,3,gay mitchell,Gay Mitchell,FALSE,FG,1878,eliminated,1,885882,28236,27885,351,54500
+Dublin Central,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,28236,27885,351,54500
+Dublin Central,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,28236,27885,351,54500
+Dublin Central,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,28236,27885,351,54500
+Dublin Central,4,sean gallagher,Seán Gallagher,FALSE,IND,6463,running,1,885882,28236,27885,351,54500
+Dublin Central,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,18541,elected,1,885882,28236,27885,351,54500
+Dublin Central,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,28236,27885,351,54500
+Dublin Central,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,28236,27885,351,54500
+Dublin Central,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,28236,27885,351,54500
+Dublin Central,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,28236,27885,351,54500
+Dublin Mid-West,1,mary davis,Mary Davis,FALSE,IND,1039,eliminated,1,885882,34113,33717,396,64370
+Dublin Mid-West,1,sean gallagher,Seán Gallagher,FALSE,IND,7436,running,1,885882,34113,33717,396,64370
+Dublin Mid-West,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,13594,running,1,885882,34113,33717,396,64370
+Dublin Mid-West,1,martin mcguinness,Martin McGuinness,FALSE,SF,5374,running,1,885882,34113,33717,396,64370
+Dublin Mid-West,1,gay mitchell,Gay Mitchell,FALSE,FG,2176,running,1,885882,34113,33717,396,64370
+Dublin Mid-West,1,david norris,David Norris,FALSE,IND,3428,running,1,885882,34113,33717,396,64370
+Dublin Mid-West,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,670,eliminated,1,885882,34113,33717,396,64370
+Dublin Mid-West,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,34113,33717,396,64370
+Dublin Mid-West,2,sean gallagher,Seán Gallagher,FALSE,IND,7806,running,1,885882,34113,33717,396,64370
+Dublin Mid-West,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,14096,running,1,885882,34113,33717,396,64370
+Dublin Mid-West,2,martin mcguinness,Martin McGuinness,FALSE,SF,5529,running,1,885882,34113,33717,396,64370
+Dublin Mid-West,2,gay mitchell,Gay Mitchell,FALSE,FG,2415,running,1,885882,34113,33717,396,64370
+Dublin Mid-West,2,david norris,David Norris,FALSE,IND,3590,eliminated,1,885882,34113,33717,396,64370
+Dublin Mid-West,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,34113,33717,396,64370
+Dublin Mid-West,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,34113,33717,396,64370
+Dublin Mid-West,3,sean gallagher,Seán Gallagher,FALSE,IND,8365,running,1,885882,34113,33717,396,64370
+Dublin Mid-West,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,15906,running,1,885882,34113,33717,396,64370
+Dublin Mid-West,3,martin mcguinness,Martin McGuinness,FALSE,SF,5995,eliminated,1,885882,34113,33717,396,64370
+Dublin Mid-West,3,gay mitchell,Gay Mitchell,FALSE,FG,2728,eliminated,1,885882,34113,33717,396,64370
+Dublin Mid-West,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,34113,33717,396,64370
+Dublin Mid-West,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,34113,33717,396,64370
+Dublin Mid-West,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,34113,33717,396,64370
+Dublin Mid-West,4,sean gallagher,Seán Gallagher,FALSE,IND,9955,running,1,885882,34113,33717,396,64370
+Dublin Mid-West,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,20529,elected,1,885882,34113,33717,396,64370
+Dublin Mid-West,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,34113,33717,396,64370
+Dublin Mid-West,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,34113,33717,396,64370
+Dublin Mid-West,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,34113,33717,396,64370
+Dublin Mid-West,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,34113,33717,396,64370
+Dublin North,1,mary davis,Mary Davis,FALSE,IND,1253,eliminated,1,885882,39731,39330,401,69347
+Dublin North,1,sean gallagher,Seán Gallagher,FALSE,IND,10014,running,1,885882,39731,39330,401,69347
+Dublin North,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,17630,running,1,885882,39731,39330,401,69347
+Dublin North,1,martin mcguinness,Martin McGuinness,FALSE,SF,4097,running,1,885882,39731,39330,401,69347
+Dublin North,1,gay mitchell,Gay Mitchell,FALSE,FG,1742,running,1,885882,39731,39330,401,69347
+Dublin North,1,david norris,David Norris,FALSE,IND,3868,running,1,885882,39731,39330,401,69347
+Dublin North,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,726,eliminated,1,885882,39731,39330,401,69347
+Dublin North,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,39731,39330,401,69347
+Dublin North,2,sean gallagher,Seán Gallagher,FALSE,IND,10454,running,1,885882,39731,39330,401,69347
+Dublin North,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,18244,running,1,885882,39731,39330,401,69347
+Dublin North,2,martin mcguinness,Martin McGuinness,FALSE,SF,4257,running,1,885882,39731,39330,401,69347
+Dublin North,2,gay mitchell,Gay Mitchell,FALSE,FG,1994,running,1,885882,39731,39330,401,69347
+Dublin North,2,david norris,David Norris,FALSE,IND,4073,eliminated,1,885882,39731,39330,401,69347
+Dublin North,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,39731,39330,401,69347
+Dublin North,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,39731,39330,401,69347
+Dublin North,3,sean gallagher,Seán Gallagher,FALSE,IND,11183,running,1,885882,39731,39330,401,69347
+Dublin North,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,20398,running,1,885882,39731,39330,401,69347
+Dublin North,3,martin mcguinness,Martin McGuinness,FALSE,SF,4678,eliminated,1,885882,39731,39330,401,69347
+Dublin North,3,gay mitchell,Gay Mitchell,FALSE,FG,2277,eliminated,1,885882,39731,39330,401,69347
+Dublin North,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,39731,39330,401,69347
+Dublin North,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,39731,39330,401,69347
+Dublin North,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,39731,39330,401,69347
+Dublin North,4,sean gallagher,Seán Gallagher,FALSE,IND,12519,running,1,885882,39731,39330,401,69347
+Dublin North,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,24279,elected,1,885882,39731,39330,401,69347
+Dublin North,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,39731,39330,401,69347
+Dublin North,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,39731,39330,401,69347
+Dublin North,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,39731,39330,401,69347
+Dublin North,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,39731,39330,401,69347
+Dublin North-Central,1,mary davis,Mary Davis,FALSE,IND,1148,eliminated,1,885882,33239,32858,381,51929
+Dublin North-Central,1,sean gallagher,Seán Gallagher,FALSE,IND,6603,running,1,885882,33239,32858,381,51929
+Dublin North-Central,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,15230,running,1,885882,33239,32858,381,51929
+Dublin North-Central,1,martin mcguinness,Martin McGuinness,FALSE,SF,3678,running,1,885882,33239,32858,381,51929
+Dublin North-Central,1,gay mitchell,Gay Mitchell,FALSE,FG,1953,running,1,885882,33239,32858,381,51929
+Dublin North-Central,1,david norris,David Norris,FALSE,IND,3434,running,1,885882,33239,32858,381,51929
+Dublin North-Central,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,812,eliminated,1,885882,33239,32858,381,51929
+Dublin North-Central,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,33239,32858,381,51929
+Dublin North-Central,2,sean gallagher,Seán Gallagher,FALSE,IND,7026,running,1,885882,33239,32858,381,51929
+Dublin North-Central,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,15772,running,1,885882,33239,32858,381,51929
+Dublin North-Central,2,martin mcguinness,Martin McGuinness,FALSE,SF,3865,running,1,885882,33239,32858,381,51929
+Dublin North-Central,2,gay mitchell,Gay Mitchell,FALSE,FG,2270,running,1,885882,33239,32858,381,51929
+Dublin North-Central,2,david norris,David Norris,FALSE,IND,3597,eliminated,1,885882,33239,32858,381,51929
+Dublin North-Central,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,33239,32858,381,51929
+Dublin North-Central,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,33239,32858,381,51929
+Dublin North-Central,3,sean gallagher,Seán Gallagher,FALSE,IND,7517,running,1,885882,33239,32858,381,51929
+Dublin North-Central,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,17792,running,1,885882,33239,32858,381,51929
+Dublin North-Central,3,martin mcguinness,Martin McGuinness,FALSE,SF,4238,eliminated,1,885882,33239,32858,381,51929
+Dublin North-Central,3,gay mitchell,Gay Mitchell,FALSE,FG,2550,eliminated,1,885882,33239,32858,381,51929
+Dublin North-Central,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,33239,32858,381,51929
+Dublin North-Central,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,33239,32858,381,51929
+Dublin North-Central,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,33239,32858,381,51929
+Dublin North-Central,4,sean gallagher,Seán Gallagher,FALSE,IND,8674,running,1,885882,33239,32858,381,51929
+Dublin North-Central,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,21656,elected,1,885882,33239,32858,381,51929
+Dublin North-Central,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,33239,32858,381,51929
+Dublin North-Central,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,33239,32858,381,51929
+Dublin North-Central,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,33239,32858,381,51929
+Dublin North-Central,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,33239,32858,381,51929
+Dublin North-East,1,mary davis,Mary Davis,FALSE,IND,1491,eliminated,1,885882,34462,34062,400,57627
+Dublin North-East,1,sean gallagher,Seán Gallagher,FALSE,IND,7138,running,1,885882,34462,34062,400,57627
+Dublin North-East,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,14956,running,1,885882,34462,34062,400,57627
+Dublin North-East,1,martin mcguinness,Martin McGuinness,FALSE,SF,4484,running,1,885882,34462,34062,400,57627
+Dublin North-East,1,gay mitchell,Gay Mitchell,FALSE,FG,1727,running,1,885882,34462,34062,400,57627
+Dublin North-East,1,david norris,David Norris,FALSE,IND,3512,running,1,885882,34462,34062,400,57627
+Dublin North-East,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,754,eliminated,1,885882,34462,34062,400,57627
+Dublin North-East,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,34462,34062,400,57627
+Dublin North-East,2,sean gallagher,Seán Gallagher,FALSE,IND,7664,running,1,885882,34462,34062,400,57627
+Dublin North-East,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,15644,running,1,885882,34462,34062,400,57627
+Dublin North-East,2,martin mcguinness,Martin McGuinness,FALSE,SF,4680,running,1,885882,34462,34062,400,57627
+Dublin North-East,2,gay mitchell,Gay Mitchell,FALSE,FG,2007,running,1,885882,34462,34062,400,57627
+Dublin North-East,2,david norris,David Norris,FALSE,IND,3730,eliminated,1,885882,34462,34062,400,57627
+Dublin North-East,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,34462,34062,400,57627
+Dublin North-East,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,34462,34062,400,57627
+Dublin North-East,3,sean gallagher,Seán Gallagher,FALSE,IND,8253,running,1,885882,34462,34062,400,57627
+Dublin North-East,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,17617,running,1,885882,34462,34062,400,57627
+Dublin North-East,3,martin mcguinness,Martin McGuinness,FALSE,SF,5071,eliminated,1,885882,34462,34062,400,57627
+Dublin North-East,3,gay mitchell,Gay Mitchell,FALSE,FG,2290,eliminated,1,885882,34462,34062,400,57627
+Dublin North-East,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,34462,34062,400,57627
+Dublin North-East,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,34462,34062,400,57627
+Dublin North-East,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,34462,34062,400,57627
+Dublin North-East,4,sean gallagher,Seán Gallagher,FALSE,IND,9594,running,1,885882,34462,34062,400,57627
+Dublin North-East,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,21623,elected,1,885882,34462,34062,400,57627
+Dublin North-East,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,34462,34062,400,57627
+Dublin North-East,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,34462,34062,400,57627
+Dublin North-East,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,34462,34062,400,57627
+Dublin North-East,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,34462,34062,400,57627
+Dublin North-West,1,mary davis,Mary Davis,FALSE,IND,915,eliminated,1,885882,25361,25003,358,50410
+Dublin North-West,1,sean gallagher,Seán Gallagher,FALSE,IND,5069,running,1,885882,25361,25003,358,50410
+Dublin North-West,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,9709,running,1,885882,25361,25003,358,50410
+Dublin North-West,1,martin mcguinness,Martin McGuinness,FALSE,SF,4985,running,1,885882,25361,25003,358,50410
+Dublin North-West,1,gay mitchell,Gay Mitchell,FALSE,FG,1111,running,1,885882,25361,25003,358,50410
+Dublin North-West,1,david norris,David Norris,FALSE,IND,2638,running,1,885882,25361,25003,358,50410
+Dublin North-West,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,576,eliminated,1,885882,25361,25003,358,50410
+Dublin North-West,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,25361,25003,358,50410
+Dublin North-West,2,sean gallagher,Seán Gallagher,FALSE,IND,5408,running,1,885882,25361,25003,358,50410
+Dublin North-West,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,10123,running,1,885882,25361,25003,358,50410
+Dublin North-West,2,martin mcguinness,Martin McGuinness,FALSE,SF,5142,running,1,885882,25361,25003,358,50410
+Dublin North-West,2,gay mitchell,Gay Mitchell,FALSE,FG,1333,running,1,885882,25361,25003,358,50410
+Dublin North-West,2,david norris,David Norris,FALSE,IND,2765,eliminated,1,885882,25361,25003,358,50410
+Dublin North-West,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,25361,25003,358,50410
+Dublin North-West,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,25361,25003,358,50410
+Dublin North-West,3,sean gallagher,Seán Gallagher,FALSE,IND,5841,running,1,885882,25361,25003,358,50410
+Dublin North-West,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,11486,running,1,885882,25361,25003,358,50410
+Dublin North-West,3,martin mcguinness,Martin McGuinness,FALSE,SF,5528,eliminated,1,885882,25361,25003,358,50410
+Dublin North-West,3,gay mitchell,Gay Mitchell,FALSE,FG,1537,eliminated,1,885882,25361,25003,358,50410
+Dublin North-West,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,25361,25003,358,50410
+Dublin North-West,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,25361,25003,358,50410
+Dublin North-West,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,25361,25003,358,50410
+Dublin North-West,4,sean gallagher,Seán Gallagher,FALSE,IND,7211,running,1,885882,25361,25003,358,50410
+Dublin North-West,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,14883,elected,1,885882,25361,25003,358,50410
+Dublin North-West,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,25361,25003,358,50410
+Dublin North-West,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,25361,25003,358,50410
+Dublin North-West,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,25361,25003,358,50410
+Dublin North-West,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,25361,25003,358,50410
+Dublin South,1,mary davis,Mary Davis,FALSE,IND,2100,eliminated,1,885882,64492,63978,514,104145
+Dublin South,1,sean gallagher,Seán Gallagher,FALSE,IND,12814,running,1,885882,64492,63978,514,104145
+Dublin South,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,32673,running,1,885882,64492,63978,514,104145
+Dublin South,1,martin mcguinness,Martin McGuinness,FALSE,SF,4146,running,1,885882,64492,63978,514,104145
+Dublin South,1,gay mitchell,Gay Mitchell,FALSE,FG,4684,running,1,885882,64492,63978,514,104145
+Dublin South,1,david norris,David Norris,FALSE,IND,6265,running,1,885882,64492,63978,514,104145
+Dublin South,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1296,eliminated,1,885882,64492,63978,514,104145
+Dublin South,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,64492,63978,514,104145
+Dublin South,2,sean gallagher,Seán Gallagher,FALSE,IND,13537,running,1,885882,64492,63978,514,104145
+Dublin South,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,33842,running,1,885882,64492,63978,514,104145
+Dublin South,2,martin mcguinness,Martin McGuinness,FALSE,SF,4342,running,1,885882,64492,63978,514,104145
+Dublin South,2,gay mitchell,Gay Mitchell,FALSE,FG,5280,running,1,885882,64492,63978,514,104145
+Dublin South,2,david norris,David Norris,FALSE,IND,6560,eliminated,1,885882,64492,63978,514,104145
+Dublin South,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,64492,63978,514,104145
+Dublin South,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,64492,63978,514,104145
+Dublin South,3,sean gallagher,Seán Gallagher,FALSE,IND,14477,running,1,885882,64492,63978,514,104145
+Dublin South,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,37817,running,1,885882,64492,63978,514,104145
+Dublin South,3,martin mcguinness,Martin McGuinness,FALSE,SF,4779,eliminated,1,885882,64492,63978,514,104145
+Dublin South,3,gay mitchell,Gay Mitchell,FALSE,FG,5832,eliminated,1,885882,64492,63978,514,104145
+Dublin South,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,64492,63978,514,104145
+Dublin South,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,64492,63978,514,104145
+Dublin South,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,64492,63978,514,104145
+Dublin South,4,sean gallagher,Seán Gallagher,FALSE,IND,16300,running,1,885882,64492,63978,514,104145
+Dublin South,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,44633,elected,1,885882,64492,63978,514,104145
+Dublin South,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,64492,63978,514,104145
+Dublin South,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,64492,63978,514,104145
+Dublin South,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,64492,63978,514,104145
+Dublin South,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,64492,63978,514,104145
+Dublin South-Central,1,mary davis,Mary Davis,FALSE,IND,1116,eliminated,1,885882,41604,41075,529,77688
+Dublin South-Central,1,sean gallagher,Seán Gallagher,FALSE,IND,6154,running,1,885882,41604,41075,529,77688
+Dublin South-Central,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,16391,running,1,885882,41604,41075,529,77688
+Dublin South-Central,1,martin mcguinness,Martin McGuinness,FALSE,SF,6803,running,1,885882,41604,41075,529,77688
+Dublin South-Central,1,gay mitchell,Gay Mitchell,FALSE,FG,4971,running,1,885882,41604,41075,529,77688
+Dublin South-Central,1,david norris,David Norris,FALSE,IND,4703,running,1,885882,41604,41075,529,77688
+Dublin South-Central,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,937,eliminated,1,885882,41604,41075,529,77688
+Dublin South-Central,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,41604,41075,529,77688
+Dublin South-Central,2,sean gallagher,Seán Gallagher,FALSE,IND,6547,running,1,885882,41604,41075,529,77688
+Dublin South-Central,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,16915,running,1,885882,41604,41075,529,77688
+Dublin South-Central,2,martin mcguinness,Martin McGuinness,FALSE,SF,7016,running,1,885882,41604,41075,529,77688
+Dublin South-Central,2,gay mitchell,Gay Mitchell,FALSE,FG,5383,running,1,885882,41604,41075,529,77688
+Dublin South-Central,2,david norris,David Norris,FALSE,IND,4898,eliminated,1,885882,41604,41075,529,77688
+Dublin South-Central,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,41604,41075,529,77688
+Dublin South-Central,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,41604,41075,529,77688
+Dublin South-Central,3,sean gallagher,Seán Gallagher,FALSE,IND,7112,running,1,885882,41604,41075,529,77688
+Dublin South-Central,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,19613,running,1,885882,41604,41075,529,77688
+Dublin South-Central,3,martin mcguinness,Martin McGuinness,FALSE,SF,7594,eliminated,1,885882,41604,41075,529,77688
+Dublin South-Central,3,gay mitchell,Gay Mitchell,FALSE,FG,5899,eliminated,1,885882,41604,41075,529,77688
+Dublin South-Central,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,41604,41075,529,77688
+Dublin South-Central,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,41604,41075,529,77688
+Dublin South-Central,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,41604,41075,529,77688
+Dublin South-Central,4,sean gallagher,Seán Gallagher,FALSE,IND,9441,running,1,885882,41604,41075,529,77688
+Dublin South-Central,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,26973,elected,1,885882,41604,41075,529,77688
+Dublin South-Central,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,41604,41075,529,77688
+Dublin South-Central,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,41604,41075,529,77688
+Dublin South-Central,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,41604,41075,529,77688
+Dublin South-Central,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,41604,41075,529,77688
+Dublin South-East,1,mary davis,Mary Davis,FALSE,IND,975,eliminated,1,885882,30780,30485,295,55533
+Dublin South-East,1,sean gallagher,Seán Gallagher,FALSE,IND,4179,running,1,885882,30780,30485,295,55533
+Dublin South-East,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,16315,running,1,885882,30780,30485,295,55533
+Dublin South-East,1,martin mcguinness,Martin McGuinness,FALSE,SF,2289,running,1,885882,30780,30485,295,55533
+Dublin South-East,1,gay mitchell,Gay Mitchell,FALSE,FG,2486,running,1,885882,30780,30485,295,55533
+Dublin South-East,1,david norris,David Norris,FALSE,IND,3574,running,1,885882,30780,30485,295,55533
+Dublin South-East,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,667,eliminated,1,885882,30780,30485,295,55533
+Dublin South-East,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,30780,30485,295,55533
+Dublin South-East,2,sean gallagher,Seán Gallagher,FALSE,IND,4497,running,1,885882,30780,30485,295,55533
+Dublin South-East,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,16886,running,1,885882,30780,30485,295,55533
+Dublin South-East,2,martin mcguinness,Martin McGuinness,FALSE,SF,2402,running,1,885882,30780,30485,295,55533
+Dublin South-East,2,gay mitchell,Gay Mitchell,FALSE,FG,2755,running,1,885882,30780,30485,295,55533
+Dublin South-East,2,david norris,David Norris,FALSE,IND,3738,eliminated,1,885882,30780,30485,295,55533
+Dublin South-East,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,30780,30485,295,55533
+Dublin South-East,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,30780,30485,295,55533
+Dublin South-East,3,sean gallagher,Seán Gallagher,FALSE,IND,4871,running,1,885882,30780,30485,295,55533
+Dublin South-East,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,19362,running,1,885882,30780,30485,295,55533
+Dublin South-East,3,martin mcguinness,Martin McGuinness,FALSE,SF,2666,eliminated,1,885882,30780,30485,295,55533
+Dublin South-East,3,gay mitchell,Gay Mitchell,FALSE,FG,3053,eliminated,1,885882,30780,30485,295,55533
+Dublin South-East,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,30780,30485,295,55533
+Dublin South-East,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,30780,30485,295,55533
+Dublin South-East,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,30780,30485,295,55533
+Dublin South-East,4,sean gallagher,Seán Gallagher,FALSE,IND,5770,running,1,885882,30780,30485,295,55533
+Dublin South-East,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,22944,elected,1,885882,30780,30485,295,55533
+Dublin South-East,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,30780,30485,295,55533
+Dublin South-East,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,30780,30485,295,55533
+Dublin South-East,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,30780,30485,295,55533
+Dublin South-East,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,30780,30485,295,55533
+Dublin South-West,1,mary davis,Mary Davis,FALSE,IND,1127,eliminated,1,885882,36669,36195,474,69977
+Dublin South-West,1,sean gallagher,Seán Gallagher,FALSE,IND,7947,running,1,885882,36669,36195,474,69977
+Dublin South-West,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,14530,running,1,885882,36669,36195,474,69977
+Dublin South-West,1,martin mcguinness,Martin McGuinness,FALSE,SF,6006,running,1,885882,36669,36195,474,69977
+Dublin South-West,1,gay mitchell,Gay Mitchell,FALSE,FG,2345,running,1,885882,36669,36195,474,69977
+Dublin South-West,1,david norris,David Norris,FALSE,IND,3482,running,1,885882,36669,36195,474,69977
+Dublin South-West,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,758,eliminated,1,885882,36669,36195,474,69977
+Dublin South-West,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,36669,36195,474,69977
+Dublin South-West,2,sean gallagher,Seán Gallagher,FALSE,IND,8370,running,1,885882,36669,36195,474,69977
+Dublin South-West,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,15056,running,1,885882,36669,36195,474,69977
+Dublin South-West,2,martin mcguinness,Martin McGuinness,FALSE,SF,6157,running,1,885882,36669,36195,474,69977
+Dublin South-West,2,gay mitchell,Gay Mitchell,FALSE,FG,2631,running,1,885882,36669,36195,474,69977
+Dublin South-West,2,david norris,David Norris,FALSE,IND,3653,eliminated,1,885882,36669,36195,474,69977
+Dublin South-West,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,36669,36195,474,69977
+Dublin South-West,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,36669,36195,474,69977
+Dublin South-West,3,sean gallagher,Seán Gallagher,FALSE,IND,8958,running,1,885882,36669,36195,474,69977
+Dublin South-West,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,16869,running,1,885882,36669,36195,474,69977
+Dublin South-West,3,martin mcguinness,Martin McGuinness,FALSE,SF,6609,eliminated,1,885882,36669,36195,474,69977
+Dublin South-West,3,gay mitchell,Gay Mitchell,FALSE,FG,2967,eliminated,1,885882,36669,36195,474,69977
+Dublin South-West,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,36669,36195,474,69977
+Dublin South-West,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,36669,36195,474,69977
+Dublin South-West,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,36669,36195,474,69977
+Dublin South-West,4,sean gallagher,Seán Gallagher,FALSE,IND,10877,running,1,885882,36669,36195,474,69977
+Dublin South-West,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,21730,elected,1,885882,36669,36195,474,69977
+Dublin South-West,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,36669,36195,474,69977
+Dublin South-West,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,36669,36195,474,69977
+Dublin South-West,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,36669,36195,474,69977
+Dublin South-West,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,36669,36195,474,69977
+Dublin West,1,mary davis,Mary Davis,FALSE,IND,1174,eliminated,1,885882,36319,35949,370,61583
+Dublin West,1,sean gallagher,Seán Gallagher,FALSE,IND,8677,running,1,885882,36319,35949,370,61583
+Dublin West,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,15539,running,1,885882,36319,35949,370,61583
+Dublin West,1,martin mcguinness,Martin McGuinness,FALSE,SF,4278,running,1,885882,36319,35949,370,61583
+Dublin West,1,gay mitchell,Gay Mitchell,FALSE,FG,1916,running,1,885882,36319,35949,370,61583
+Dublin West,1,david norris,David Norris,FALSE,IND,3632,running,1,885882,36319,35949,370,61583
+Dublin West,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,733,eliminated,1,885882,36319,35949,370,61583
+Dublin West,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,36319,35949,370,61583
+Dublin West,2,sean gallagher,Seán Gallagher,FALSE,IND,9123,running,1,885882,36319,35949,370,61583
+Dublin West,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,16082,running,1,885882,36319,35949,370,61583
+Dublin West,2,martin mcguinness,Martin McGuinness,FALSE,SF,4419,running,1,885882,36319,35949,370,61583
+Dublin West,2,gay mitchell,Gay Mitchell,FALSE,FG,2176,running,1,885882,36319,35949,370,61583
+Dublin West,2,david norris,David Norris,FALSE,IND,3821,eliminated,1,885882,36319,35949,370,61583
+Dublin West,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,36319,35949,370,61583
+Dublin West,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,36319,35949,370,61583
+Dublin West,3,sean gallagher,Seán Gallagher,FALSE,IND,9741,running,1,885882,36319,35949,370,61583
+Dublin West,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,18074,running,1,885882,36319,35949,370,61583
+Dublin West,3,martin mcguinness,Martin McGuinness,FALSE,SF,4826,eliminated,1,885882,36319,35949,370,61583
+Dublin West,3,gay mitchell,Gay Mitchell,FALSE,FG,2439,eliminated,1,885882,36319,35949,370,61583
+Dublin West,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,36319,35949,370,61583
+Dublin West,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,36319,35949,370,61583
+Dublin West,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,36319,35949,370,61583
+Dublin West,4,sean gallagher,Seán Gallagher,FALSE,IND,11131,running,1,885882,36319,35949,370,61583
+Dublin West,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,21913,elected,1,885882,36319,35949,370,61583
+Dublin West,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,36319,35949,370,61583
+Dublin West,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,36319,35949,370,61583
+Dublin West,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,36319,35949,370,61583
+Dublin West,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,36319,35949,370,61583
+Dún Laoghaire,1,mary davis,Mary Davis,FALSE,IND,1711,eliminated,1,885882,49191,48763,428,82033
+Dún Laoghaire,1,sean gallagher,Seán Gallagher,FALSE,IND,8626,running,1,885882,49191,48763,428,82033
+Dún Laoghaire,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,25616,running,1,885882,49191,48763,428,82033
+Dún Laoghaire,1,martin mcguinness,Martin McGuinness,FALSE,SF,3355,running,1,885882,49191,48763,428,82033
+Dún Laoghaire,1,gay mitchell,Gay Mitchell,FALSE,FG,3424,running,1,885882,49191,48763,428,82033
+Dún Laoghaire,1,david norris,David Norris,FALSE,IND,4973,running,1,885882,49191,48763,428,82033
+Dún Laoghaire,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1058,eliminated,1,885882,49191,48763,428,82033
+Dún Laoghaire,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,49191,48763,428,82033
+Dún Laoghaire,2,sean gallagher,Seán Gallagher,FALSE,IND,9225,running,1,885882,49191,48763,428,82033
+Dún Laoghaire,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,26517,running,1,885882,49191,48763,428,82033
+Dún Laoghaire,2,martin mcguinness,Martin McGuinness,FALSE,SF,3537,running,1,885882,49191,48763,428,82033
+Dún Laoghaire,2,gay mitchell,Gay Mitchell,FALSE,FG,3934,running,1,885882,49191,48763,428,82033
+Dún Laoghaire,2,david norris,David Norris,FALSE,IND,5238,eliminated,1,885882,49191,48763,428,82033
+Dún Laoghaire,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,49191,48763,428,82033
+Dún Laoghaire,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,49191,48763,428,82033
+Dún Laoghaire,3,sean gallagher,Seán Gallagher,FALSE,IND,9913,running,1,885882,49191,48763,428,82033
+Dún Laoghaire,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,29781,running,1,885882,49191,48763,428,82033
+Dún Laoghaire,3,martin mcguinness,Martin McGuinness,FALSE,SF,3854,eliminated,1,885882,49191,48763,428,82033
+Dún Laoghaire,3,gay mitchell,Gay Mitchell,FALSE,FG,4378,eliminated,1,885882,49191,48763,428,82033
+Dún Laoghaire,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,49191,48763,428,82033
+Dún Laoghaire,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,49191,48763,428,82033
+Dún Laoghaire,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,49191,48763,428,82033
+Dún Laoghaire,4,sean gallagher,Seán Gallagher,FALSE,IND,11322,running,1,885882,49191,48763,428,82033
+Dún Laoghaire,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,34871,elected,1,885882,49191,48763,428,82033
+Dún Laoghaire,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,49191,48763,428,82033
+Dún Laoghaire,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,49191,48763,428,82033
+Dún Laoghaire,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,49191,48763,428,82033
+Dún Laoghaire,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,49191,48763,428,82033
+Galway East,1,mary davis,Mary Davis,FALSE,IND,1053,eliminated,1,885882,47092,46681,411,81896
+Galway East,1,sean gallagher,Seán Gallagher,FALSE,IND,13473,running,1,885882,47092,46681,411,81896
+Galway East,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,21554,running,1,885882,47092,46681,411,81896
+Galway East,1,martin mcguinness,Martin McGuinness,FALSE,SF,4849,running,1,885882,47092,46681,411,81896
+Galway East,1,gay mitchell,Gay Mitchell,FALSE,FG,2905,running,1,885882,47092,46681,411,81896
+Galway East,1,david norris,David Norris,FALSE,IND,1177,running,1,885882,47092,46681,411,81896
+Galway East,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1670,eliminated,1,885882,47092,46681,411,81896
+Galway East,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,47092,46681,411,81896
+Galway East,2,sean gallagher,Seán Gallagher,FALSE,IND,14138,running,1,885882,47092,46681,411,81896
+Galway East,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,22460,running,1,885882,47092,46681,411,81896
+Galway East,2,martin mcguinness,Martin McGuinness,FALSE,SF,5108,running,1,885882,47092,46681,411,81896
+Galway East,2,gay mitchell,Gay Mitchell,FALSE,FG,3242,running,1,885882,47092,46681,411,81896
+Galway East,2,david norris,David Norris,FALSE,IND,1316,eliminated,1,885882,47092,46681,411,81896
+Galway East,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,47092,46681,411,81896
+Galway East,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,47092,46681,411,81896
+Galway East,3,sean gallagher,Seán Gallagher,FALSE,IND,14336,running,1,885882,47092,46681,411,81896
+Galway East,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,23138,running,1,885882,47092,46681,411,81896
+Galway East,3,martin mcguinness,Martin McGuinness,FALSE,SF,5295,eliminated,1,885882,47092,46681,411,81896
+Galway East,3,gay mitchell,Gay Mitchell,FALSE,FG,3342,eliminated,1,885882,47092,46681,411,81896
+Galway East,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,47092,46681,411,81896
+Galway East,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,47092,46681,411,81896
+Galway East,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,47092,46681,411,81896
+Galway East,4,sean gallagher,Seán Gallagher,FALSE,IND,15853,running,1,885882,47092,46681,411,81896
+Galway East,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,28322,elected,1,885882,47092,46681,411,81896
+Galway East,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,47092,46681,411,81896
+Galway East,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,47092,46681,411,81896
+Galway East,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,47092,46681,411,81896
+Galway East,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,47092,46681,411,81896
+Galway West,1,mary davis,Mary Davis,FALSE,IND,900,eliminated,1,885882,50688,50274,414,94700
+Galway West,1,sean gallagher,Seán Gallagher,FALSE,IND,9281,running,1,885882,50688,50274,414,94700
+Galway West,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,28970,running,1,885882,50688,50274,414,94700
+Galway West,1,martin mcguinness,Martin McGuinness,FALSE,SF,5392,running,1,885882,50688,50274,414,94700
+Galway West,1,gay mitchell,Gay Mitchell,FALSE,FG,2326,running,1,885882,50688,50274,414,94700
+Galway West,1,david norris,David Norris,FALSE,IND,1660,running,1,885882,50688,50274,414,94700
+Galway West,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1745,eliminated,1,885882,50688,50274,414,94700
+Galway West,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,50688,50274,414,94700
+Galway West,2,sean gallagher,Seán Gallagher,FALSE,IND,9839,running,1,885882,50688,50274,414,94700
+Galway West,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,29880,running,1,885882,50688,50274,414,94700
+Galway West,2,martin mcguinness,Martin McGuinness,FALSE,SF,5665,running,1,885882,50688,50274,414,94700
+Galway West,2,gay mitchell,Gay Mitchell,FALSE,FG,2724,running,1,885882,50688,50274,414,94700
+Galway West,2,david norris,David Norris,FALSE,IND,1808,eliminated,1,885882,50688,50274,414,94700
+Galway West,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,50688,50274,414,94700
+Galway West,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,50688,50274,414,94700
+Galway West,3,sean gallagher,Seán Gallagher,FALSE,IND,10107,running,1,885882,50688,50274,414,94700
+Galway West,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,30948,running,1,885882,50688,50274,414,94700
+Galway West,3,martin mcguinness,Martin McGuinness,FALSE,SF,5875,eliminated,1,885882,50688,50274,414,94700
+Galway West,3,gay mitchell,Gay Mitchell,FALSE,FG,2840,eliminated,1,885882,50688,50274,414,94700
+Galway West,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,50688,50274,414,94700
+Galway West,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,50688,50274,414,94700
+Galway West,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,50688,50274,414,94700
+Galway West,4,sean gallagher,Seán Gallagher,FALSE,IND,11555,running,1,885882,50688,50274,414,94700
+Galway West,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,36280,elected,1,885882,50688,50274,414,94700
+Galway West,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,50688,50274,414,94700
+Galway West,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,50688,50274,414,94700
+Galway West,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,50688,50274,414,94700
+Galway West,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,50688,50274,414,94700
+Kerry North-West Limerick,1,mary davis,Mary Davis,FALSE,IND,757,eliminated,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,1,sean gallagher,Seán Gallagher,FALSE,IND,9909,running,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,12947,running,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,1,martin mcguinness,Martin McGuinness,FALSE,SF,5739,running,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,1,gay mitchell,Gay Mitchell,FALSE,FG,2221,running,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,1,david norris,David Norris,FALSE,IND,1301,running,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1260,eliminated,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,2,sean gallagher,Seán Gallagher,FALSE,IND,10419,running,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,13521,running,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,2,martin mcguinness,Martin McGuinness,FALSE,SF,5954,running,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,2,gay mitchell,Gay Mitchell,FALSE,FG,2475,running,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,2,david norris,David Norris,FALSE,IND,1417,eliminated,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,3,sean gallagher,Seán Gallagher,FALSE,IND,10689,running,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,14216,running,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,3,martin mcguinness,Martin McGuinness,FALSE,SF,6148,eliminated,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,3,gay mitchell,Gay Mitchell,FALSE,FG,2576,eliminated,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,4,sean gallagher,Seán Gallagher,FALSE,IND,12214,running,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,18705,elected,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,34525,34134,391,63068
+Kerry North-West Limerick,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,34525,34134,391,63068
+Kerry South,1,mary davis,Mary Davis,FALSE,IND,838,eliminated,1,885882,31969,31613,356,57776
+Kerry South,1,sean gallagher,Seán Gallagher,FALSE,IND,9668,running,1,885882,31969,31613,356,57776
+Kerry South,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,11604,running,1,885882,31969,31613,356,57776
+Kerry South,1,martin mcguinness,Martin McGuinness,FALSE,SF,4723,running,1,885882,31969,31613,356,57776
+Kerry South,1,gay mitchell,Gay Mitchell,FALSE,FG,2302,running,1,885882,31969,31613,356,57776
+Kerry South,1,david norris,David Norris,FALSE,IND,1246,running,1,885882,31969,31613,356,57776
+Kerry South,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1232,eliminated,1,885882,31969,31613,356,57776
+Kerry South,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,31969,31613,356,57776
+Kerry South,2,sean gallagher,Seán Gallagher,FALSE,IND,10168,running,1,885882,31969,31613,356,57776
+Kerry South,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,12253,running,1,885882,31969,31613,356,57776
+Kerry South,2,martin mcguinness,Martin McGuinness,FALSE,SF,4922,running,1,885882,31969,31613,356,57776
+Kerry South,2,gay mitchell,Gay Mitchell,FALSE,FG,2551,running,1,885882,31969,31613,356,57776
+Kerry South,2,david norris,David Norris,FALSE,IND,1363,eliminated,1,885882,31969,31613,356,57776
+Kerry South,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,31969,31613,356,57776
+Kerry South,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,31969,31613,356,57776
+Kerry South,3,sean gallagher,Seán Gallagher,FALSE,IND,10390,running,1,885882,31969,31613,356,57776
+Kerry South,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,13008,running,1,885882,31969,31613,356,57776
+Kerry South,3,martin mcguinness,Martin McGuinness,FALSE,SF,5077,eliminated,1,885882,31969,31613,356,57776
+Kerry South,3,gay mitchell,Gay Mitchell,FALSE,FG,2635,eliminated,1,885882,31969,31613,356,57776
+Kerry South,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,31969,31613,356,57776
+Kerry South,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,31969,31613,356,57776
+Kerry South,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,31969,31613,356,57776
+Kerry South,4,sean gallagher,Seán Gallagher,FALSE,IND,11818,running,1,885882,31969,31613,356,57776
+Kerry South,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,17307,elected,1,885882,31969,31613,356,57776
+Kerry South,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,31969,31613,356,57776
+Kerry South,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,31969,31613,356,57776
+Kerry South,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,31969,31613,356,57776
+Kerry South,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,31969,31613,356,57776
+Kildare North,1,mary davis,Mary Davis,FALSE,IND,1198,eliminated,1,885882,43463,43134,329,76623
+Kildare North,1,sean gallagher,Seán Gallagher,FALSE,IND,11615,running,1,885882,43463,43134,329,76623
+Kildare North,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,19775,running,1,885882,43463,43134,329,76623
+Kildare North,1,martin mcguinness,Martin McGuinness,FALSE,SF,3796,running,1,885882,43463,43134,329,76623
+Kildare North,1,gay mitchell,Gay Mitchell,FALSE,FG,2364,running,1,885882,43463,43134,329,76623
+Kildare North,1,david norris,David Norris,FALSE,IND,3490,running,1,885882,43463,43134,329,76623
+Kildare North,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,896,eliminated,1,885882,43463,43134,329,76623
+Kildare North,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,43463,43134,329,76623
+Kildare North,2,sean gallagher,Seán Gallagher,FALSE,IND,12137,running,1,885882,43463,43134,329,76623
+Kildare North,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,20423,running,1,885882,43463,43134,329,76623
+Kildare North,2,martin mcguinness,Martin McGuinness,FALSE,SF,3957,running,1,885882,43463,43134,329,76623
+Kildare North,2,gay mitchell,Gay Mitchell,FALSE,FG,2651,running,1,885882,43463,43134,329,76623
+Kildare North,2,david norris,David Norris,FALSE,IND,3659,eliminated,1,885882,43463,43134,329,76623
+Kildare North,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,43463,43134,329,76623
+Kildare North,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,43463,43134,329,76623
+Kildare North,3,sean gallagher,Seán Gallagher,FALSE,IND,12781,running,1,885882,43463,43134,329,76623
+Kildare North,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,22439,running,1,885882,43463,43134,329,76623
+Kildare North,3,martin mcguinness,Martin McGuinness,FALSE,SF,4276,eliminated,1,885882,43463,43134,329,76623
+Kildare North,3,gay mitchell,Gay Mitchell,FALSE,FG,2919,eliminated,1,885882,43463,43134,329,76623
+Kildare North,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,43463,43134,329,76623
+Kildare North,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,43463,43134,329,76623
+Kildare North,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,43463,43134,329,76623
+Kildare North,4,sean gallagher,Seán Gallagher,FALSE,IND,14126,running,1,885882,43463,43134,329,76623
+Kildare North,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,26676,elected,1,885882,43463,43134,329,76623
+Kildare North,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,43463,43134,329,76623
+Kildare North,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,43463,43134,329,76623
+Kildare North,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,43463,43134,329,76623
+Kildare North,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,43463,43134,329,76623
+Kildare South,1,mary davis,Mary Davis,FALSE,IND,937,eliminated,1,885882,31295,30962,333,57933
+Kildare South,1,sean gallagher,Seán Gallagher,FALSE,IND,9733,running,1,885882,31295,30962,333,57933
+Kildare South,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,12447,running,1,885882,31295,30962,333,57933
+Kildare South,1,martin mcguinness,Martin McGuinness,FALSE,SF,3553,running,1,885882,31295,30962,333,57933
+Kildare South,1,gay mitchell,Gay Mitchell,FALSE,FG,1681,running,1,885882,31295,30962,333,57933
+Kildare South,1,david norris,David Norris,FALSE,IND,1966,running,1,885882,31295,30962,333,57933
+Kildare South,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,645,eliminated,1,885882,31295,30962,333,57933
+Kildare South,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,31295,30962,333,57933
+Kildare South,2,sean gallagher,Seán Gallagher,FALSE,IND,10142,running,1,885882,31295,30962,333,57933
+Kildare South,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,12939,running,1,885882,31295,30962,333,57933
+Kildare South,2,martin mcguinness,Martin McGuinness,FALSE,SF,3687,running,1,885882,31295,30962,333,57933
+Kildare South,2,gay mitchell,Gay Mitchell,FALSE,FG,1876,running,1,885882,31295,30962,333,57933
+Kildare South,2,david norris,David Norris,FALSE,IND,2089,eliminated,1,885882,31295,30962,333,57933
+Kildare South,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,31295,30962,333,57933
+Kildare South,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,31295,30962,333,57933
+Kildare South,3,sean gallagher,Seán Gallagher,FALSE,IND,10542,running,1,885882,31295,30962,333,57933
+Kildare South,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,13994,running,1,885882,31295,30962,333,57933
+Kildare South,3,martin mcguinness,Martin McGuinness,FALSE,SF,3894,eliminated,1,885882,31295,30962,333,57933
+Kildare South,3,gay mitchell,Gay Mitchell,FALSE,FG,2048,eliminated,1,885882,31295,30962,333,57933
+Kildare South,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,31295,30962,333,57933
+Kildare South,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,31295,30962,333,57933
+Kildare South,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,31295,30962,333,57933
+Kildare South,4,sean gallagher,Seán Gallagher,FALSE,IND,11785,running,1,885882,31295,30962,333,57933
+Kildare South,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,17147,elected,1,885882,31295,30962,333,57933
+Kildare South,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,31295,30962,333,57933
+Kildare South,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,31295,30962,333,57933
+Kildare South,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,31295,30962,333,57933
+Kildare South,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,31295,30962,333,57933
+Laois-Offaly,1,mary davis,Mary Davis,FALSE,IND,1181,eliminated,1,885882,59365,58848,517,107023
+Laois-Offaly,1,sean gallagher,Seán Gallagher,FALSE,IND,22115,running,1,885882,59365,58848,517,107023
+Laois-Offaly,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,18686,running,1,885882,59365,58848,517,107023
+Laois-Offaly,1,martin mcguinness,Martin McGuinness,FALSE,SF,7663,running,1,885882,59365,58848,517,107023
+Laois-Offaly,1,gay mitchell,Gay Mitchell,FALSE,FG,3891,running,1,885882,59365,58848,517,107023
+Laois-Offaly,1,david norris,David Norris,FALSE,IND,3547,running,1,885882,59365,58848,517,107023
+Laois-Offaly,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1765,eliminated,1,885882,59365,58848,517,107023
+Laois-Offaly,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,59365,58848,517,107023
+Laois-Offaly,2,sean gallagher,Seán Gallagher,FALSE,IND,22925,running,1,885882,59365,58848,517,107023
+Laois-Offaly,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,19438,running,1,885882,59365,58848,517,107023
+Laois-Offaly,2,martin mcguinness,Martin McGuinness,FALSE,SF,7942,running,1,885882,59365,58848,517,107023
+Laois-Offaly,2,gay mitchell,Gay Mitchell,FALSE,FG,4261,running,1,885882,59365,58848,517,107023
+Laois-Offaly,2,david norris,David Norris,FALSE,IND,3783,eliminated,1,885882,59365,58848,517,107023
+Laois-Offaly,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,59365,58848,517,107023
+Laois-Offaly,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,59365,58848,517,107023
+Laois-Offaly,3,sean gallagher,Seán Gallagher,FALSE,IND,23729,running,1,885882,59365,58848,517,107023
+Laois-Offaly,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,21213,running,1,885882,59365,58848,517,107023
+Laois-Offaly,3,martin mcguinness,Martin McGuinness,FALSE,SF,8380,eliminated,1,885882,59365,58848,517,107023
+Laois-Offaly,3,gay mitchell,Gay Mitchell,FALSE,FG,4569,eliminated,1,885882,59365,58848,517,107023
+Laois-Offaly,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,59365,58848,517,107023
+Laois-Offaly,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,59365,58848,517,107023
+Laois-Offaly,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,59365,58848,517,107023
+Laois-Offaly,4,sean gallagher,Seán Gallagher,FALSE,IND,26606,running,1,885882,59365,58848,517,107023
+Laois-Offaly,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,27821,elected,1,885882,59365,58848,517,107023
+Laois-Offaly,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,59365,58848,517,107023
+Laois-Offaly,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,59365,58848,517,107023
+Laois-Offaly,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,59365,58848,517,107023
+Laois-Offaly,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,59365,58848,517,107023
+Limerick,1,mary davis,Mary Davis,FALSE,IND,819,eliminated,1,885882,36876,36517,359,66345
+Limerick,1,sean gallagher,Seán Gallagher,FALSE,IND,12238,running,1,885882,36876,36517,359,66345
+Limerick,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,14134,running,1,885882,36876,36517,359,66345
+Limerick,1,martin mcguinness,Martin McGuinness,FALSE,SF,3854,running,1,885882,36876,36517,359,66345
+Limerick,1,gay mitchell,Gay Mitchell,FALSE,FG,2864,running,1,885882,36876,36517,359,66345
+Limerick,1,david norris,David Norris,FALSE,IND,1369,running,1,885882,36876,36517,359,66345
+Limerick,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1239,eliminated,1,885882,36876,36517,359,66345
+Limerick,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,36876,36517,359,66345
+Limerick,2,sean gallagher,Seán Gallagher,FALSE,IND,12753,running,1,885882,36876,36517,359,66345
+Limerick,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,14700,running,1,885882,36876,36517,359,66345
+Limerick,2,martin mcguinness,Martin McGuinness,FALSE,SF,4038,running,1,885882,36876,36517,359,66345
+Limerick,2,gay mitchell,Gay Mitchell,FALSE,FG,3166,running,1,885882,36876,36517,359,66345
+Limerick,2,david norris,David Norris,FALSE,IND,1494,eliminated,1,885882,36876,36517,359,66345
+Limerick,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,36876,36517,359,66345
+Limerick,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,36876,36517,359,66345
+Limerick,3,sean gallagher,Seán Gallagher,FALSE,IND,13055,running,1,885882,36876,36517,359,66345
+Limerick,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,15501,running,1,885882,36876,36517,359,66345
+Limerick,3,martin mcguinness,Martin McGuinness,FALSE,SF,4191,eliminated,1,885882,36876,36517,359,66345
+Limerick,3,gay mitchell,Gay Mitchell,FALSE,FG,3266,eliminated,1,885882,36876,36517,359,66345
+Limerick,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,36876,36517,359,66345
+Limerick,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,36876,36517,359,66345
+Limerick,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,36876,36517,359,66345
+Limerick,4,sean gallagher,Seán Gallagher,FALSE,IND,14468,running,1,885882,36876,36517,359,66345
+Limerick,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,19853,elected,1,885882,36876,36517,359,66345
+Limerick,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,36876,36517,359,66345
+Limerick,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,36876,36517,359,66345
+Limerick,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,36876,36517,359,66345
+Limerick,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,36876,36517,359,66345
+Limerick City,1,mary davis,Mary Davis,FALSE,IND,648,eliminated,1,885882,34725,34362,363,66421
+Limerick City,1,sean gallagher,Seán Gallagher,FALSE,IND,7643,running,1,885882,34725,34362,363,66421
+Limerick City,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,16935,running,1,885882,34725,34362,363,66421
+Limerick City,1,martin mcguinness,Martin McGuinness,FALSE,SF,4150,running,1,885882,34725,34362,363,66421
+Limerick City,1,gay mitchell,Gay Mitchell,FALSE,FG,1917,running,1,885882,34725,34362,363,66421
+Limerick City,1,david norris,David Norris,FALSE,IND,2065,running,1,885882,34725,34362,363,66421
+Limerick City,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1004,eliminated,1,885882,34725,34362,363,66421
+Limerick City,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,34725,34362,363,66421
+Limerick City,2,sean gallagher,Seán Gallagher,FALSE,IND,7998,running,1,885882,34725,34362,363,66421
+Limerick City,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,17439,running,1,885882,34725,34362,363,66421
+Limerick City,2,martin mcguinness,Martin McGuinness,FALSE,SF,4288,running,1,885882,34725,34362,363,66421
+Limerick City,2,gay mitchell,Gay Mitchell,FALSE,FG,2170,running,1,885882,34725,34362,363,66421
+Limerick City,2,david norris,David Norris,FALSE,IND,2202,eliminated,1,885882,34725,34362,363,66421
+Limerick City,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,34725,34362,363,66421
+Limerick City,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,34725,34362,363,66421
+Limerick City,3,sean gallagher,Seán Gallagher,FALSE,IND,8336,running,1,885882,34725,34362,363,66421
+Limerick City,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,18709,running,1,885882,34725,34362,363,66421
+Limerick City,3,martin mcguinness,Martin McGuinness,FALSE,SF,4509,eliminated,1,885882,34725,34362,363,66421
+Limerick City,3,gay mitchell,Gay Mitchell,FALSE,FG,2313,eliminated,1,885882,34725,34362,363,66421
+Limerick City,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,34725,34362,363,66421
+Limerick City,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,34725,34362,363,66421
+Limerick City,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,34725,34362,363,66421
+Limerick City,4,sean gallagher,Seán Gallagher,FALSE,IND,9426,running,1,885882,34725,34362,363,66421
+Limerick City,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,22720,elected,1,885882,34725,34362,363,66421
+Limerick City,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,34725,34362,363,66421
+Limerick City,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,34725,34362,363,66421
+Limerick City,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,34725,34362,363,66421
+Limerick City,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,34725,34362,363,66421
+Longford-Westmeath,1,mary davis,Mary Davis,FALSE,IND,945,eliminated,1,885882,45543,45059,484,85911
+Longford-Westmeath,1,sean gallagher,Seán Gallagher,FALSE,IND,15166,running,1,885882,45543,45059,484,85911
+Longford-Westmeath,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,15987,running,1,885882,45543,45059,484,85911
+Longford-Westmeath,1,martin mcguinness,Martin McGuinness,FALSE,SF,5885,running,1,885882,45543,45059,484,85911
+Longford-Westmeath,1,gay mitchell,Gay Mitchell,FALSE,FG,3372,running,1,885882,45543,45059,484,85911
+Longford-Westmeath,1,david norris,David Norris,FALSE,IND,2154,running,1,885882,45543,45059,484,85911
+Longford-Westmeath,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1550,eliminated,1,885882,45543,45059,484,85911
+Longford-Westmeath,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,45543,45059,484,85911
+Longford-Westmeath,2,sean gallagher,Seán Gallagher,FALSE,IND,15812,running,1,885882,45543,45059,484,85911
+Longford-Westmeath,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,16648,running,1,885882,45543,45059,484,85911
+Longford-Westmeath,2,martin mcguinness,Martin McGuinness,FALSE,SF,6166,running,1,885882,45543,45059,484,85911
+Longford-Westmeath,2,gay mitchell,Gay Mitchell,FALSE,FG,3723,running,1,885882,45543,45059,484,85911
+Longford-Westmeath,2,david norris,David Norris,FALSE,IND,2307,eliminated,1,885882,45543,45059,484,85911
+Longford-Westmeath,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,45543,45059,484,85911
+Longford-Westmeath,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,45543,45059,484,85911
+Longford-Westmeath,3,sean gallagher,Seán Gallagher,FALSE,IND,16174,running,1,885882,45543,45059,484,85911
+Longford-Westmeath,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,17828,running,1,885882,45543,45059,484,85911
+Longford-Westmeath,3,martin mcguinness,Martin McGuinness,FALSE,SF,6460,eliminated,1,885882,45543,45059,484,85911
+Longford-Westmeath,3,gay mitchell,Gay Mitchell,FALSE,FG,3906,eliminated,1,885882,45543,45059,484,85911
+Longford-Westmeath,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,45543,45059,484,85911
+Longford-Westmeath,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,45543,45059,484,85911
+Longford-Westmeath,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,45543,45059,484,85911
+Longford-Westmeath,4,sean gallagher,Seán Gallagher,FALSE,IND,18275,running,1,885882,45543,45059,484,85911
+Longford-Westmeath,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,23444,elected,1,885882,45543,45059,484,85911
+Longford-Westmeath,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,45543,45059,484,85911
+Longford-Westmeath,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,45543,45059,484,85911
+Longford-Westmeath,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,45543,45059,484,85911
+Longford-Westmeath,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,45543,45059,484,85911
+Louth,1,mary davis,Mary Davis,FALSE,IND,1316,eliminated,1,885882,58126,57453,673,102941
+Louth,1,sean gallagher,Seán Gallagher,FALSE,IND,17027,running,1,885882,58126,57453,673,102941
+Louth,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,20844,running,1,885882,58126,57453,673,102941
+Louth,1,martin mcguinness,Martin McGuinness,FALSE,SF,11499,running,1,885882,58126,57453,673,102941
+Louth,1,gay mitchell,Gay Mitchell,FALSE,FG,2359,running,1,885882,58126,57453,673,102941
+Louth,1,david norris,David Norris,FALSE,IND,3141,running,1,885882,58126,57453,673,102941
+Louth,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1267,eliminated,1,885882,58126,57453,673,102941
+Louth,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,58126,57453,673,102941
+Louth,2,sean gallagher,Seán Gallagher,FALSE,IND,17609,running,1,885882,58126,57453,673,102941
+Louth,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,21615,running,1,885882,58126,57453,673,102941
+Louth,2,martin mcguinness,Martin McGuinness,FALSE,SF,11801,running,1,885882,58126,57453,673,102941
+Louth,2,gay mitchell,Gay Mitchell,FALSE,FG,2666,running,1,885882,58126,57453,673,102941
+Louth,2,david norris,David Norris,FALSE,IND,3356,eliminated,1,885882,58126,57453,673,102941
+Louth,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,58126,57453,673,102941
+Louth,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,58126,57453,673,102941
+Louth,3,sean gallagher,Seán Gallagher,FALSE,IND,18152,running,1,885882,58126,57453,673,102941
+Louth,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,23399,running,1,885882,58126,57453,673,102941
+Louth,3,martin mcguinness,Martin McGuinness,FALSE,SF,12235,eliminated,1,885882,58126,57453,673,102941
+Louth,3,gay mitchell,Gay Mitchell,FALSE,FG,2891,eliminated,1,885882,58126,57453,673,102941
+Louth,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,58126,57453,673,102941
+Louth,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,58126,57453,673,102941
+Louth,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,58126,57453,673,102941
+Louth,4,sean gallagher,Seán Gallagher,FALSE,IND,21306,running,1,885882,58126,57453,673,102941
+Louth,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,30649,elected,1,885882,58126,57453,673,102941
+Louth,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,58126,57453,673,102941
+Louth,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,58126,57453,673,102941
+Louth,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,58126,57453,673,102941
+Louth,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,58126,57453,673,102941
+Mayo,1,mary davis,Mary Davis,FALSE,IND,4981,eliminated,1,885882,53627,53060,567,97714
+Mayo,1,sean gallagher,Seán Gallagher,FALSE,IND,13370,running,1,885882,53627,53060,567,97714
+Mayo,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,20329,running,1,885882,53627,53060,567,97714
+Mayo,1,martin mcguinness,Martin McGuinness,FALSE,SF,6300,running,1,885882,53627,53060,567,97714
+Mayo,1,gay mitchell,Gay Mitchell,FALSE,FG,4878,running,1,885882,53627,53060,567,97714
+Mayo,1,david norris,David Norris,FALSE,IND,1483,running,1,885882,53627,53060,567,97714
+Mayo,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1719,eliminated,1,885882,53627,53060,567,97714
+Mayo,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,53627,53060,567,97714
+Mayo,2,sean gallagher,Seán Gallagher,FALSE,IND,15125,running,1,885882,53627,53060,567,97714
+Mayo,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,22832,running,1,885882,53627,53060,567,97714
+Mayo,2,martin mcguinness,Martin McGuinness,FALSE,SF,6911,running,1,885882,53627,53060,567,97714
+Mayo,2,gay mitchell,Gay Mitchell,FALSE,FG,5744,running,1,885882,53627,53060,567,97714
+Mayo,2,david norris,David Norris,FALSE,IND,1711,eliminated,1,885882,53627,53060,567,97714
+Mayo,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,53627,53060,567,97714
+Mayo,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,53627,53060,567,97714
+Mayo,3,sean gallagher,Seán Gallagher,FALSE,IND,15394,running,1,885882,53627,53060,567,97714
+Mayo,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,23719,running,1,885882,53627,53060,567,97714
+Mayo,3,martin mcguinness,Martin McGuinness,FALSE,SF,7108,eliminated,1,885882,53627,53060,567,97714
+Mayo,3,gay mitchell,Gay Mitchell,FALSE,FG,5888,eliminated,1,885882,53627,53060,567,97714
+Mayo,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,53627,53060,567,97714
+Mayo,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,53627,53060,567,97714
+Mayo,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,53627,53060,567,97714
+Mayo,4,sean gallagher,Seán Gallagher,FALSE,IND,17564,running,1,885882,53627,53060,567,97714
+Mayo,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,31743,elected,1,885882,53627,53060,567,97714
+Mayo,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,53627,53060,567,97714
+Mayo,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,53627,53060,567,97714
+Mayo,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,53627,53060,567,97714
+Mayo,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,53627,53060,567,97714
+Meath East,1,mary davis,Mary Davis,FALSE,IND,995,eliminated,1,885882,35453,35144,309,65477
+Meath East,1,sean gallagher,Seán Gallagher,FALSE,IND,11300,running,1,885882,35453,35144,309,65477
+Meath East,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,13397,running,1,885882,35453,35144,309,65477
+Meath East,1,martin mcguinness,Martin McGuinness,FALSE,SF,4095,running,1,885882,35453,35144,309,65477
+Meath East,1,gay mitchell,Gay Mitchell,FALSE,FG,2199,running,1,885882,35453,35144,309,65477
+Meath East,1,david norris,David Norris,FALSE,IND,2340,running,1,885882,35453,35144,309,65477
+Meath East,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,818,eliminated,1,885882,35453,35144,309,65477
+Meath East,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,35453,35144,309,65477
+Meath East,2,sean gallagher,Seán Gallagher,FALSE,IND,11739,running,1,885882,35453,35144,309,65477
+Meath East,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,13934,running,1,885882,35453,35144,309,65477
+Meath East,2,martin mcguinness,Martin McGuinness,FALSE,SF,4229,running,1,885882,35453,35144,309,65477
+Meath East,2,gay mitchell,Gay Mitchell,FALSE,FG,2458,running,1,885882,35453,35144,309,65477
+Meath East,2,david norris,David Norris,FALSE,IND,2486,eliminated,1,885882,35453,35144,309,65477
+Meath East,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,35453,35144,309,65477
+Meath East,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,35453,35144,309,65477
+Meath East,3,sean gallagher,Seán Gallagher,FALSE,IND,12214,running,1,885882,35453,35144,309,65477
+Meath East,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,15226,running,1,885882,35453,35144,309,65477
+Meath East,3,martin mcguinness,Martin McGuinness,FALSE,SF,4479,eliminated,1,885882,35453,35144,309,65477
+Meath East,3,gay mitchell,Gay Mitchell,FALSE,FG,2654,eliminated,1,885882,35453,35144,309,65477
+Meath East,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,35453,35144,309,65477
+Meath East,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,35453,35144,309,65477
+Meath East,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,35453,35144,309,65477
+Meath East,4,sean gallagher,Seán Gallagher,FALSE,IND,13628,running,1,885882,35453,35144,309,65477
+Meath East,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,19226,elected,1,885882,35453,35144,309,65477
+Meath East,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,35453,35144,309,65477
+Meath East,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,35453,35144,309,65477
+Meath East,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,35453,35144,309,65477
+Meath East,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,35453,35144,309,65477
+Meath West,1,mary davis,Mary Davis,FALSE,IND,831,eliminated,1,885882,33071,32747,324,63111
+Meath West,1,sean gallagher,Seán Gallagher,FALSE,IND,10972,running,1,885882,33071,32747,324,63111
+Meath West,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,11280,running,1,885882,33071,32747,324,63111
+Meath West,1,martin mcguinness,Martin McGuinness,FALSE,SF,4865,running,1,885882,33071,32747,324,63111
+Meath West,1,gay mitchell,Gay Mitchell,FALSE,FG,1982,running,1,885882,33071,32747,324,63111
+Meath West,1,david norris,David Norris,FALSE,IND,1928,running,1,885882,33071,32747,324,63111
+Meath West,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,889,eliminated,1,885882,33071,32747,324,63111
+Meath West,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,33071,32747,324,63111
+Meath West,2,sean gallagher,Seán Gallagher,FALSE,IND,11402,running,1,885882,33071,32747,324,63111
+Meath West,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,11757,running,1,885882,33071,32747,324,63111
+Meath West,2,martin mcguinness,Martin McGuinness,FALSE,SF,5014,running,1,885882,33071,32747,324,63111
+Meath West,2,gay mitchell,Gay Mitchell,FALSE,FG,2233,running,1,885882,33071,32747,324,63111
+Meath West,2,david norris,David Norris,FALSE,IND,2069,eliminated,1,885882,33071,32747,324,63111
+Meath West,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,33071,32747,324,63111
+Meath West,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,33071,32747,324,63111
+Meath West,3,sean gallagher,Seán Gallagher,FALSE,IND,11775,running,1,885882,33071,32747,324,63111
+Meath West,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,12788,running,1,885882,33071,32747,324,63111
+Meath West,3,martin mcguinness,Martin McGuinness,FALSE,SF,5241,eliminated,1,885882,33071,32747,324,63111
+Meath West,3,gay mitchell,Gay Mitchell,FALSE,FG,2415,eliminated,1,885882,33071,32747,324,63111
+Meath West,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,33071,32747,324,63111
+Meath West,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,33071,32747,324,63111
+Meath West,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,33071,32747,324,63111
+Meath West,4,sean gallagher,Seán Gallagher,FALSE,IND,13358,running,1,885882,33071,32747,324,63111
+Meath West,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,16769,elected,1,885882,33071,32747,324,63111
+Meath West,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,33071,32747,324,63111
+Meath West,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,33071,32747,324,63111
+Meath West,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,33071,32747,324,63111
+Meath West,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,33071,32747,324,63111
+Roscommon-South Leitrim,1,mary davis,Mary Davis,FALSE,IND,1070,eliminated,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,1,sean gallagher,Seán Gallagher,FALSE,IND,13011,running,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,11480,running,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,1,martin mcguinness,Martin McGuinness,FALSE,SF,5286,running,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,1,gay mitchell,Gay Mitchell,FALSE,FG,2334,running,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,1,david norris,David Norris,FALSE,IND,1322,running,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1589,eliminated,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,2,sean gallagher,Seán Gallagher,FALSE,IND,13699,running,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,12190,running,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,2,martin mcguinness,Martin McGuinness,FALSE,SF,5589,running,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,2,gay mitchell,Gay Mitchell,FALSE,FG,2665,running,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,2,david norris,David Norris,FALSE,IND,1507,eliminated,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,3,sean gallagher,Seán Gallagher,FALSE,IND,13990,running,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,12911,running,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,3,martin mcguinness,Martin McGuinness,FALSE,SF,5807,eliminated,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,3,gay mitchell,Gay Mitchell,FALSE,FG,2759,eliminated,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,4,sean gallagher,Seán Gallagher,FALSE,IND,15937,running,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,17283,elected,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,36486,36092,394,60416
+Roscommon-South Leitrim,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,36486,36092,394,60416
+Sligo-North Leitrim,1,mary davis,Mary Davis,FALSE,IND,1112,eliminated,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,1,sean gallagher,Seán Gallagher,FALSE,IND,9943,running,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,12363,running,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,1,martin mcguinness,Martin McGuinness,FALSE,SF,5464,running,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,1,gay mitchell,Gay Mitchell,FALSE,FG,2360,running,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,1,david norris,David Norris,FALSE,IND,1349,running,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1299,eliminated,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,2,sean gallagher,Seán Gallagher,FALSE,IND,10597,running,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,13129,running,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,2,martin mcguinness,Martin McGuinness,FALSE,SF,5732,running,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,2,gay mitchell,Gay Mitchell,FALSE,FG,2660,running,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,2,david norris,David Norris,FALSE,IND,1455,eliminated,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,3,sean gallagher,Seán Gallagher,FALSE,IND,10826,running,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,13937,running,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,3,martin mcguinness,Martin McGuinness,FALSE,SF,5911,eliminated,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,3,gay mitchell,Gay Mitchell,FALSE,FG,2768,eliminated,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,4,sean gallagher,Seán Gallagher,FALSE,IND,12643,running,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,18531,elected,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,34251,33890,361,62152
+Sligo-North Leitrim,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,34251,33890,361,62152
+Tipperary North,1,mary davis,Mary Davis,FALSE,IND,890,eliminated,1,885882,38381,37942,439,62603
+Tipperary North,1,sean gallagher,Seán Gallagher,FALSE,IND,13491,running,1,885882,38381,37942,439,62603
+Tipperary North,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,13197,running,1,885882,38381,37942,439,62603
+Tipperary North,1,martin mcguinness,Martin McGuinness,FALSE,SF,4459,running,1,885882,38381,37942,439,62603
+Tipperary North,1,gay mitchell,Gay Mitchell,FALSE,FG,3121,running,1,885882,38381,37942,439,62603
+Tipperary North,1,david norris,David Norris,FALSE,IND,1385,running,1,885882,38381,37942,439,62603
+Tipperary North,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1399,eliminated,1,885882,38381,37942,439,62603
+Tipperary North,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,38381,37942,439,62603
+Tipperary North,2,sean gallagher,Seán Gallagher,FALSE,IND,14088,running,1,885882,38381,37942,439,62603
+Tipperary North,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,13824,running,1,885882,38381,37942,439,62603
+Tipperary North,2,martin mcguinness,Martin McGuinness,FALSE,SF,4639,running,1,885882,38381,37942,439,62603
+Tipperary North,2,gay mitchell,Gay Mitchell,FALSE,FG,3480,running,1,885882,38381,37942,439,62603
+Tipperary North,2,david norris,David Norris,FALSE,IND,1511,eliminated,1,885882,38381,37942,439,62603
+Tipperary North,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,38381,37942,439,62603
+Tipperary North,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,38381,37942,439,62603
+Tipperary North,3,sean gallagher,Seán Gallagher,FALSE,IND,14368,running,1,885882,38381,37942,439,62603
+Tipperary North,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,14592,running,1,885882,38381,37942,439,62603
+Tipperary North,3,martin mcguinness,Martin McGuinness,FALSE,SF,4794,eliminated,1,885882,38381,37942,439,62603
+Tipperary North,3,gay mitchell,Gay Mitchell,FALSE,FG,3610,eliminated,1,885882,38381,37942,439,62603
+Tipperary North,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,38381,37942,439,62603
+Tipperary North,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,38381,37942,439,62603
+Tipperary North,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,38381,37942,439,62603
+Tipperary North,4,sean gallagher,Seán Gallagher,FALSE,IND,16146,running,1,885882,38381,37942,439,62603
+Tipperary North,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,19264,elected,1,885882,38381,37942,439,62603
+Tipperary North,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,38381,37942,439,62603
+Tipperary North,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,38381,37942,439,62603
+Tipperary North,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,38381,37942,439,62603
+Tipperary North,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,38381,37942,439,62603
+Tipperary South,1,mary davis,Mary Davis,FALSE,IND,761,eliminated,1,885882,32618,32270,348,56295
+Tipperary South,1,sean gallagher,Seán Gallagher,FALSE,IND,11003,running,1,885882,32618,32270,348,56295
+Tipperary South,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,11411,running,1,885882,32618,32270,348,56295
+Tipperary South,1,martin mcguinness,Martin McGuinness,FALSE,SF,4188,running,1,885882,32618,32270,348,56295
+Tipperary South,1,gay mitchell,Gay Mitchell,FALSE,FG,2517,running,1,885882,32618,32270,348,56295
+Tipperary South,1,david norris,David Norris,FALSE,IND,1415,running,1,885882,32618,32270,348,56295
+Tipperary South,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,975,eliminated,1,885882,32618,32270,348,56295
+Tipperary South,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,32618,32270,348,56295
+Tipperary South,2,sean gallagher,Seán Gallagher,FALSE,IND,11441,running,1,885882,32618,32270,348,56295
+Tipperary South,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,11934,running,1,885882,32618,32270,348,56295
+Tipperary South,2,martin mcguinness,Martin McGuinness,FALSE,SF,4344,running,1,885882,32618,32270,348,56295
+Tipperary South,2,gay mitchell,Gay Mitchell,FALSE,FG,2747,running,1,885882,32618,32270,348,56295
+Tipperary South,2,david norris,David Norris,FALSE,IND,1533,eliminated,1,885882,32618,32270,348,56295
+Tipperary South,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,32618,32270,348,56295
+Tipperary South,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,32618,32270,348,56295
+Tipperary South,3,sean gallagher,Seán Gallagher,FALSE,IND,11733,running,1,885882,32618,32270,348,56295
+Tipperary South,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,12644,running,1,885882,32618,32270,348,56295
+Tipperary South,3,martin mcguinness,Martin McGuinness,FALSE,SF,4529,eliminated,1,885882,32618,32270,348,56295
+Tipperary South,3,gay mitchell,Gay Mitchell,FALSE,FG,2873,eliminated,1,885882,32618,32270,348,56295
+Tipperary South,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,32618,32270,348,56295
+Tipperary South,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,32618,32270,348,56295
+Tipperary South,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,32618,32270,348,56295
+Tipperary South,4,sean gallagher,Seán Gallagher,FALSE,IND,13187,running,1,885882,32618,32270,348,56295
+Tipperary South,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,16685,elected,1,885882,32618,32270,348,56295
+Tipperary South,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,32618,32270,348,56295
+Tipperary South,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,32618,32270,348,56295
+Tipperary South,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,32618,32270,348,56295
+Tipperary South,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,32618,32270,348,56295
+Waterford,1,mary davis,Mary Davis,FALSE,IND,918,eliminated,1,885882,42731,42260,471,78960
+Waterford,1,sean gallagher,Seán Gallagher,FALSE,IND,13107,running,1,885882,42731,42260,471,78960
+Waterford,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,16340,running,1,885882,42731,42260,471,78960
+Waterford,1,martin mcguinness,Martin McGuinness,FALSE,SF,5737,running,1,885882,42731,42260,471,78960
+Waterford,1,gay mitchell,Gay Mitchell,FALSE,FG,2489,running,1,885882,42731,42260,471,78960
+Waterford,1,david norris,David Norris,FALSE,IND,2451,running,1,885882,42731,42260,471,78960
+Waterford,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1218,eliminated,1,885882,42731,42260,471,78960
+Waterford,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,42731,42260,471,78960
+Waterford,2,sean gallagher,Seán Gallagher,FALSE,IND,13585,running,1,885882,42731,42260,471,78960
+Waterford,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,16969,running,1,885882,42731,42260,471,78960
+Waterford,2,martin mcguinness,Martin McGuinness,FALSE,SF,5928,running,1,885882,42731,42260,471,78960
+Waterford,2,gay mitchell,Gay Mitchell,FALSE,FG,2767,running,1,885882,42731,42260,471,78960
+Waterford,2,david norris,David Norris,FALSE,IND,2610,eliminated,1,885882,42731,42260,471,78960
+Waterford,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,42731,42260,471,78960
+Waterford,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,42731,42260,471,78960
+Waterford,3,sean gallagher,Seán Gallagher,FALSE,IND,14058,running,1,885882,42731,42260,471,78960
+Waterford,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,18279,running,1,885882,42731,42260,471,78960
+Waterford,3,martin mcguinness,Martin McGuinness,FALSE,SF,6269,eliminated,1,885882,42731,42260,471,78960
+Waterford,3,gay mitchell,Gay Mitchell,FALSE,FG,2946,eliminated,1,885882,42731,42260,471,78960
+Waterford,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,42731,42260,471,78960
+Waterford,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,42731,42260,471,78960
+Waterford,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,42731,42260,471,78960
+Waterford,4,sean gallagher,Seán Gallagher,FALSE,IND,15903,running,1,885882,42731,42260,471,78960
+Waterford,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,23060,elected,1,885882,42731,42260,471,78960
+Waterford,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,42731,42260,471,78960
+Waterford,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,42731,42260,471,78960
+Waterford,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,42731,42260,471,78960
+Waterford,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,42731,42260,471,78960
+Wexford,1,mary davis,Mary Davis,FALSE,IND,1462,eliminated,1,885882,58629,58002,627,108490
+Wexford,1,sean gallagher,Seán Gallagher,FALSE,IND,19685,running,1,885882,58629,58002,627,108490
+Wexford,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,21010,running,1,885882,58629,58002,627,108490
+Wexford,1,martin mcguinness,Martin McGuinness,FALSE,SF,8112,running,1,885882,58629,58002,627,108490
+Wexford,1,gay mitchell,Gay Mitchell,FALSE,FG,3459,running,1,885882,58629,58002,627,108490
+Wexford,1,david norris,David Norris,FALSE,IND,2797,running,1,885882,58629,58002,627,108490
+Wexford,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1477,eliminated,1,885882,58629,58002,627,108490
+Wexford,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,58629,58002,627,108490
+Wexford,2,sean gallagher,Seán Gallagher,FALSE,IND,20489,running,1,885882,58629,58002,627,108490
+Wexford,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,21769,running,1,885882,58629,58002,627,108490
+Wexford,2,martin mcguinness,Martin McGuinness,FALSE,SF,8354,running,1,885882,58629,58002,627,108490
+Wexford,2,gay mitchell,Gay Mitchell,FALSE,FG,3861,running,1,885882,58629,58002,627,108490
+Wexford,2,david norris,David Norris,FALSE,IND,2992,eliminated,1,885882,58629,58002,627,108490
+Wexford,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,58629,58002,627,108490
+Wexford,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,58629,58002,627,108490
+Wexford,3,sean gallagher,Seán Gallagher,FALSE,IND,21056,running,1,885882,58629,58002,627,108490
+Wexford,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,23243,running,1,885882,58629,58002,627,108490
+Wexford,3,martin mcguinness,Martin McGuinness,FALSE,SF,8683,eliminated,1,885882,58629,58002,627,108490
+Wexford,3,gay mitchell,Gay Mitchell,FALSE,FG,4101,eliminated,1,885882,58629,58002,627,108490
+Wexford,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,58629,58002,627,108490
+Wexford,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,58629,58002,627,108490
+Wexford,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,58629,58002,627,108490
+Wexford,4,sean gallagher,Seán Gallagher,FALSE,IND,23833,running,1,885882,58629,58002,627,108490
+Wexford,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,29757,elected,1,885882,58629,58002,627,108490
+Wexford,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,58629,58002,627,108490
+Wexford,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,58629,58002,627,108490
+Wexford,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,58629,58002,627,108490
+Wexford,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,58629,58002,627,108490
+Wicklow,1,mary davis,Mary Davis,FALSE,IND,1787,eliminated,1,885882,57915,57324,591,93812
+Wicklow,1,sean gallagher,Seán Gallagher,FALSE,IND,16299,running,1,885882,57915,57324,591,93812
+Wicklow,1,michaeld higgins,Michael D. Higgins,FALSE,LAB,23873,running,1,885882,57915,57324,591,93812
+Wicklow,1,martin mcguinness,Martin McGuinness,FALSE,SF,6644,running,1,885882,57915,57324,591,93812
+Wicklow,1,gay mitchell,Gay Mitchell,FALSE,FG,2736,running,1,885882,57915,57324,591,93812
+Wicklow,1,david norris,David Norris,FALSE,IND,4599,running,1,885882,57915,57324,591,93812
+Wicklow,1,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,1386,eliminated,1,885882,57915,57324,591,93812
+Wicklow,2,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,57915,57324,591,93812
+Wicklow,2,sean gallagher,Seán Gallagher,FALSE,IND,17091,running,1,885882,57915,57324,591,93812
+Wicklow,2,michaeld higgins,Michael D. Higgins,FALSE,LAB,24858,running,1,885882,57915,57324,591,93812
+Wicklow,2,martin mcguinness,Martin McGuinness,FALSE,SF,6920,running,1,885882,57915,57324,591,93812
+Wicklow,2,gay mitchell,Gay Mitchell,FALSE,FG,3182,running,1,885882,57915,57324,591,93812
+Wicklow,2,david norris,David Norris,FALSE,IND,4811,eliminated,1,885882,57915,57324,591,93812
+Wicklow,2,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,57915,57324,591,93812
+Wicklow,3,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,57915,57324,591,93812
+Wicklow,3,sean gallagher,Seán Gallagher,FALSE,IND,17882,running,1,885882,57915,57324,591,93812
+Wicklow,3,michaeld higgins,Michael D. Higgins,FALSE,LAB,27521,running,1,885882,57915,57324,591,93812
+Wicklow,3,martin mcguinness,Martin McGuinness,FALSE,SF,7374,eliminated,1,885882,57915,57324,591,93812
+Wicklow,3,gay mitchell,Gay Mitchell,FALSE,FG,3542,eliminated,1,885882,57915,57324,591,93812
+Wicklow,3,david norris,David Norris,FALSE,IND,,eliminated,1,885882,57915,57324,591,93812
+Wicklow,3,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,57915,57324,591,93812
+Wicklow,4,mary davis,Mary Davis,FALSE,IND,,eliminated,1,885882,57915,57324,591,93812
+Wicklow,4,sean gallagher,Seán Gallagher,FALSE,IND,20152,running,1,885882,57915,57324,591,93812
+Wicklow,4,michaeld higgins,Michael D. Higgins,FALSE,LAB,33241,elected,1,885882,57915,57324,591,93812
+Wicklow,4,martin mcguinness,Martin McGuinness,FALSE,SF,,eliminated,1,885882,57915,57324,591,93812
+Wicklow,4,gay mitchell,Gay Mitchell,FALSE,FG,,eliminated,1,885882,57915,57324,591,93812
+Wicklow,4,david norris,David Norris,FALSE,IND,,eliminated,1,885882,57915,57324,591,93812
+Wicklow,4,dana rosemaryscallon,Dana Rosemary Scallon,FALSE,IND,,eliminated,1,885882,57915,57324,591,93812

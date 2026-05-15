@@ -129,7 +129,7 @@ style={{
 width: "260px",
 flexShrink: 0,
 borderRight: "1px solid rgba(255,255,255,0.05)",
-background: "var(--background)",
+background: "var(--sidebar-bg)",
 backdropFilter: "blur(12px)",
 padding: "14px 12px",
 overflowY: "auto",
@@ -291,26 +291,23 @@ transform: active
   : "translateX(0)"
 }}
 onMouseEnter={(e) => {
+  if (active) return;
 
-if (active) return;
+  e.currentTarget.style.background =
+    "var(--glass-hover)";
 
-e.currentTarget.style.background =
-  "var(--glass-hover)";
-
-e.currentTarget.style.border =
-  "1px solid var(--glass-border)";
-
+  e.currentTarget.style.border =
+    "1px solid var(--glass-border)";
 }}
+
 onMouseLeave={(e) => {
+  if (active) return;
 
-if (active) return;
+  e.currentTarget.style.background =
+    "var(--glass-bg)";
 
-e.currentTarget.style.background =
-  "rgba(255,255,255,0.015)";
-
-e.currentTarget.style.border =
-  "1px solid transparent";
-
+  e.currentTarget.style.border =
+    "1px solid transparent";
 }}
 >
 
