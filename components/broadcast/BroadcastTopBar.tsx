@@ -1,5 +1,7 @@
 "use client";
 
+import { useState, useEffect } from "react";
+
 const PARTY_COLORS: Record<string,string> = {
   FF:"#66bb6a",
   FG:"#5c6bc0",
@@ -22,6 +24,51 @@ results
 scene:any;
 results:any;
 }){
+
+const [isFullscreen,setIsFullscreen]=
+useState(false);
+
+useEffect(()=>{
+
+const handler=()=>{
+
+setIsFullscreen(
+!!document.fullscreenElement
+);
+
+};
+
+document.addEventListener(
+"fullscreenchange",
+handler
+);
+
+return()=>{
+
+document.removeEventListener(
+"fullscreenchange",
+handler
+);
+
+};
+
+},[]);
+
+function toggleFullscreen(){
+
+if(!document.fullscreenElement){
+
+document.documentElement
+.requestFullscreen()
+.catch(()=>{});
+
+}else{
+
+document.exitFullscreen();
+
+}
+
+}
 
 const isNational=
 scene.type==="national";
@@ -181,7 +228,7 @@ style={{
 display:"flex",
 alignItems:"center",
 gap:"14px",
-zIndex:2,
+zIndex:2
 }}
 >
 
@@ -198,6 +245,75 @@ value={`${elected}/${seats}`}
 />
 
 )}
+
+<button
+onClick={toggleFullscreen}
+style={{
+
+height:"60px",
+padding:"0 18px",
+
+borderRadius:"14px",
+
+background: "rgba(255,255,255,.04)",
+
+border: "1px solid rgba(255,255,255,.08)",
+
+backdropFilter:
+"blur(12px)",
+
+boxShadow:
+"0 8px 24px rgba(0,0,0,.25)",
+
+color:"#fff",
+
+fontSize:"12px",
+fontWeight:800,
+
+letterSpacing:"1px",
+
+cursor:"pointer",
+
+transition:"all .25s ease"
+}}
+
+onMouseEnter={(e)=>{
+
+e.currentTarget.style.transform=
+"translateY(-1px)";
+
+}}
+
+onMouseLeave={(e)=>{
+
+e.currentTarget.style.transform=
+"translateY(0px)";
+
+}}
+>
+
+<div
+style={{
+display:"flex",
+flexDirection:"column",
+alignItems:"center",
+justifyContent:"center",
+gap:"2px"
+}}
+>
+
+<div
+style={{
+fontSize:"18px",
+lineHeight:1
+}}
+>
+{isFullscreen ? "⤢" : "⛶"}
+</div>
+
+</div>
+
+</button>
 
 </div>
 
