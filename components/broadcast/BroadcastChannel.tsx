@@ -5,196 +5,359 @@ import Map from "../Map";
 import NationalScene from "./NationalScene";
 import ConstituencyScene from "./ConstituencyScene";
 import BroadcastTopBar from "./BroadcastTopBar";
+import BroadcastTicker from "./BroadcastTicker";
+
+type ConstituencySceneType = {
+  type:"constituency";
+  name:string;
+};
+
+type NationalSceneType = {
+  type:"national";
+};
+
+type Scene =
+| NationalSceneType
+| ConstituencySceneType;
 
 export default function BroadcastChannel({
-  title,
-  year,
-  country,
-  type
-}: {
-  title: string;
-  year: number | string;
-  country: string;
-  type: string;
-}) {
+title,
+year,
+country,
+type
+}:{
+title:string;
+year:number|string;
+country:string;
+type:string;
+}){
 
-const [results, setResults] = useState<any>({});
-const [list, setList] = useState<any[]>([]);
-const [total, setTotal] = useState<any>(null);
-const [previousResults, setPreviousResults] = useState<any>({});
-const [sceneIndex, setSceneIndex] = useState<number>(0);
-const [onComplete, setOnComplete] = useState<any>(null);
-const [projection, setProjection] = useState<any>(null);
-const [officialResults, setOfficialResults] = useState<any>(null);
+const [results,setResults]=
+useState<Record<string,any>>({});
+
+const [list,setList]=
+useState<string[]>([]);
+
+const [
+previousResults,
+setPreviousResults
+]=
+useState<Record<string,any>>({});
+
+const [
+sceneIndex,
+setSceneIndex
+]=
+useState<number>(0);
 
 
-/* ===============================
-   CONSTITUENCIES WITH RESULTS
-=============================== */
+/* ==========================
+CONSTITUENCIES
+========================== */
 
-const constituenciesWithResults = useMemo(() => {
+const constituencies=
+useMemo(()=>{
 
-return list.filter(name => {
+return list.filter(name=>{
 
-const counts: any = results?.[name]?.counts;
+const counts=
+results?.[name]?.counts;
 
-if (!counts) return false;
-
-return Object.values(counts).some(
-(rows: any) => rows && rows.length > 0
+return(
+counts &&
+Object.keys(counts).length>0
 );
 
 });
 
-}, [list, results]);
+},[
+list,
+results
+]);
 
 
-/* ===============================
-   SCENES
-=============================== */
+/* ==========================
+SCENES
+========================== */
 
-const scenes: any = useMemo(() => {
+const scenes:Scene[]=
+useMemo(()=>{
 
-return [
-{ type: "national" },
-...constituenciesWithResults.map(name => ({
-type: "constituency",
+return[
+
+{
+type:"national"
+},
+
+...constituencies.map(
+(name):
+ConstituencySceneType=>({
+
+type:"constituency",
 name
-}))
+
+})
+)
+
 ];
 
-}, [constituenciesWithResults]);
+},[
+constituencies
+]);
 
 
-/* ===============================
-   SAFE INDEX
-=============================== */
+/* ==========================
+CURRENT SCENE
+========================== */
 
-const safeIndex =
-sceneIndex >= scenes.length
-? 0
-: sceneIndex;
+const scene:Scene=
 
-const scene =
-scenes[safeIndex] || { type: "national" };
+scenes.length
+
+? scenes[
+sceneIndex%
+scenes.length
+]
+
+: {
+type:"national"
+};
 
 
-/* ===============================
-   AUTO ROTATE
-=============================== */
+/* ==========================
+AUTOROTATE
+========================== */
 
-useEffect(() => {
+useEffect(()=>{
 
-if (!scenes.length) return;
+if(!scenes.length)
+return;
 
-const currentScene =
-scenes[safeIndex];
+const duration=
 
-const duration =
-currentScene?.type === "national"
-? 8000
-: 24000; // 4 slides × 6s
+scene.type==="national"
 
-const timer = setTimeout(() => {
+?12000
 
-setSceneIndex(prev =>
-(prev + 1) % scenes.length
+:36000;
+
+const timer=
+setTimeout(()=>{
+
+setSceneIndex(
+prev=>
+(prev+1)
+%
+scenes.length
 );
 
-}, duration);
+},duration);
 
-return () => clearTimeout(timer);
+return()=>clearTimeout(
+timer
+);
 
-}, [sceneIndex, scenes]);
+},[
+scene,
+scenes.length
+]);
 
 
-/* ===============================
-   RENDER
-=============================== */
+/* ==========================
+MAP SELECTED
+========================== */
 
-return (
+const selectedConstituency:
+
+{name:string}|null=
+
+scene.type===
+"constituency"
+
+?{
+name:
+scene.name
+}
+
+:null;
+
+
+/* ==========================
+RENDER
+========================== */
+
+return(
 
 <div
 style={{
-width: "100vw",
-height: "100vh",
-background: "#111",
-color: "#fff",
-overflow: "hidden",
-display: "flex",
-flexDirection: "column",
-position: "relative"
+
+height:"100vh",
+
+display:"flex",
+flexDirection:"column",
+
+background:"#101010",
+
+overflow:"hidden"
 }}
 >
 
-{/* HIDDEN MAP (DATA LOADER) */}
-
-<div
-style={{
-position: "absolute",
-width: 0,
-height: 0,
-overflow: "hidden"
-}}
->
-<Map
-election={{ country, type, year }}
-onLoadResults={setResults}
-onLoadList={setList}
-onLoadTotal={setTotal}
-onLoadPreviousResults={setPreviousResults}
-onLoadOfficialResults={setOfficialResults}
-selected={null}
-view="count"
+<BroadcastTopBar
+scene={scene}
 results={results}
-onSelect={() => {}}
-resetTrigger={0}
-count={1}
-onLoadProjection={setProjection}
 />
+
+<div
+style={{
+
+flex:1,
+
+minHeight:0,
+
+display:"grid",
+
+gridTemplateColumns:
+"58% 42%",
+
+overflow:"hidden"
+
+}}
+>
+
+{/* MAP */}
+
+<div
+style={{
+
+position:"relative",
+
+overflow:"hidden",
+
+borderRight:
+"1px solid rgba(255,255,255,.06)"
+}}
+>
+
+<div
+style={{
+
+position:"absolute",
+
+inset:0,
+
+background:
+"radial-gradient(circle at center, rgba(0,223,239,.08), transparent 70%)",
+
+pointerEvents:"none",
+
+zIndex:1
+}}
+/>
+
+<div
+style={{
+
+position:"relative",
+
+zIndex:2,
+
+height:"100%"
+}}
+>
+
+<Map
+election={{
+country,
+type,
+year
+}}
+
+selected={
+selectedConstituency
+}
+
+view="winner"
+
+results={results}
+
+onSelect={()=>{}}
+
+onLoadResults={
+setResults
+}
+
+onLoadList={
+setList
+}
+
+onLoadPreviousResults={
+setPreviousResults
+}
+
+onLoadTotal={()=>{}}
+
+onLoadOfficialResults={()=>{}}
+
+onLoadProjection={()=>{}}
+
+resetTrigger={0}
+
+count={1}
+/>
+
+</div>
+
 </div>
 
 
-{/* NATIONAL */}
+{/* STORY PANEL */}
 
-{scene?.type === "national" && (
+<div
+style={{
+
+flex:1,
+
+minHeight:0,
+
+overflow:"hidden",
+
+display:"flex",
+
+flexDirection:"column"
+}}
+>
+
+{scene.type==="national"
+
+? (
+
 <NationalScene
 title={title}
 results={results}
 />
-)}
 
+)
 
-{/* CONSTITUENCY */}
-
-{scene?.type === "constituency" && (
-
-<>
-
-{/* TOP BAR */}
-
-<BroadcastTopBar
-name={scene.name}
-results={results}
-/>
-
-
-{/* CONTENT */}
-
-<div style={{ flex: 1 }}>
+:(
 
 <ConstituencyScene
 name={scene.name}
 results={results}
-previousResults={previousResults}
-onComplete={onComplete}
+previousResults={
+previousResults
+}
 />
+
+)}
 
 </div>
 
-</>
+</div>
 
-)}
+
+<BroadcastTicker
+results={results}
+/>
 
 </div>
 

@@ -1,91 +1,265 @@
 "use client";
 
-const PARTY_COLORS: Record<string, string> = {
-  FF: "#66bb6a",
-  FG: "#5c6bc0",
-  SF: "#124940",
-  LAB: "#e53935",
-  GP: "#43a047",
-  SD: "#741d83",
-  PBPS: "#da1498",
-  AON: "#53660e",
-  INDIRL: "#9be736",
-  IND: "#7a7a7a"
+const PARTY_COLORS: Record<string,string> = {
+  FF:"#66bb6a",
+  FG:"#5c6bc0",
+  SF:"#124940",
+  LAB:"#e53935",
+  GP:"#43a047",
+  SD:"#741d83",
+  PBPS:"#da1498",
+  AON:"#53660e",
+  IFP:"#0b5a1c",
+  INDIRL:"#9be736",
+  IND:"#7a7a7a",
+  IPP:"#0e9775"
 };
 
-  export default function BroadcastTipBar({
-  name,
-  results,
-}: {
-  name: string;
-  results: any;
-}) {
+export default function BroadcastTopBar({
+scene,
+results
+}:{
+scene:any;
+results:any;
+}){
 
-/* Get First Count Data */
+const isNational=
+scene.type==="national";
 
-const data = results?.[name]?.counts?.[1] || [];
+const name=
+isNational
+?"National Overview"
+:scene.name;
 
-/* Calculate Leading Party */
+const counts=
+results?.[scene.name]?.counts;
 
-const totals: Record<string, number> = {};
+const count=
+counts
+?Math.max(
+...Object.keys(counts)
+.map(Number)
+)
+:1;
 
-data.forEach((c: any) => {
-const party = c.party || "IND";
-totals[party] = (totals[party] || 0) + (c.votes || 0);
-});
+const latest=
+counts?.[count]||[];
 
-const leader =
-Object.keys(totals).length
-? Object.entries(totals)
-.sort((a: any, b: any) => b[1] - a[1])[0][0]
-: null;
+const seats=
+latest?.[0]?.seats || "–";
 
-const seats = data?.[0]?.seats || "";
+const elected=
+latest.filter(
+(c:any)=>
+c.status==="elected"
+).length;
 
-/* Fallback Colour */
+const leader=
+latest.length
+?[...latest]
+.sort(
+(a:any,b:any)=>
+b.votes-a.votes
+)[0]
+:null;
 
-const background =
-leader && PARTY_COLORS[leader]
-? PARTY_COLORS[leader]
-: "#333";
+const accent=
+leader
+?PARTY_COLORS[
+leader.party
+] || "#00dfef"
+:"#00dfef";
 
-return (
+return(
 
 <div
 style={{
-height: "70px",
-background,
-display: "flex",
-alignItems: "center",
-justifyContent: "space-between",
-padding: "0 30px",
-fontWeight: "700",
-letterSpacing: "1px",
-transition: "background 0.6s ease"
+
+height:"82px",
+minHeight:"82px",
+flexShrink:0,
+
+padding:"0 34px",
+
+display:"flex",
+alignItems:"center",
+justifyContent:"space-between",
+
+background:`
+linear-gradient(
+90deg,
+rgba(15,15,15,.96),
+rgba(15,15,15,.85)
+)
+`,
+
+borderBottom:
+"1px solid rgba(255,255,255,.08)",
+
+backdropFilter:
+"blur(18px)",
+
+position:"relative",
+
+overflow:"hidden"
 }}
 >
 
-{/* LEFT — CONSTITUENCY */}
+{/* accent glow */}
 
 <div
 style={{
-fontSize: "26px",
-textTransform: "uppercase"
+position:"absolute",
+top:-50,
+right:-120,
+width:500,
+height:200,
+borderRadius:"50%",
+background:
+`radial-gradient(circle,
+${accent}33,
+transparent 70%)`,
+pointerEvents:"none"
+}}
+/>
+
+{/* LEFT */}
+
+<div
+style={{
+display:"flex",
+alignItems:"center",
+gap:"18px",
+zIndex:2
 }}
 >
-{name || ""}
+
+<div
+style={{
+display:"flex",
+alignItems:"center",
+gap:"8px"
+}}
+>
+
+<div
+style={{
+width:"11px",
+height:"11px",
+borderRadius:"50%",
+background:"#ff5252",
+animation:
+"blink 2s infinite",
+marginTop: "4px"
+}}
+/>
+
+</div>
+
+<div>
+
+<div
+style={{
+fontSize:"40px",
+fontWeight:800,
+letterSpacing:"-1px",
+lineHeight:1
+}}
+>
+{name}
+</div>
+
+</div>
+
 </div>
 
 
-{/* RIGHT — SEATS */}
+{/* RIGHT */}
 
 <div
 style={{
-fontSize: "20px",
-opacity: 0.9
+display:"flex",
+alignItems:"center",
+gap:"14px",
+zIndex:2,
 }}
 >
-{seats ? `${seats} SEATS` : ""}
+
+<Card
+label="LATEST COUNT"
+value={count}
+/>
+
+{!isNational && (
+
+<Card
+label="SEATS DECLARED"
+value={`${elected}/${seats}`}
+/>
+
+)}
+
+</div>
+
+</div>
+
+);
+
+}
+
+
+function Card({
+label,
+value
+}:{
+label:string;
+value:string|number;
+}){
+
+return(
+
+<div
+style={{
+
+minWidth:"90px",
+height:"60px",
+
+padding:"10px 16px",
+
+borderRadius:"14px",
+
+background:
+"rgba(255,255,255,.04)",
+
+border:
+"1px solid rgba(255,255,255,.08)",
+
+backdropFilter:
+"blur(12px)",
+
+boxShadow:
+"0 8px 24px rgba(0,0,0,.25)"
+}}
+>
+
+<div
+style={{
+fontSize:"10px",
+letterSpacing:"1.5px",
+opacity:.55
+}}
+>
+{label}
+</div>
+
+<div
+style={{
+fontSize:"20px",
+fontWeight:800,
+marginTop: "-4px"
+}}
+>
+{value}
 </div>
 
 </div>

@@ -2,585 +2,366 @@
 
 import { useState, useEffect } from "react";
 
-const PARTY_COLORS: Record<string, string> = {
-  FF: "#66bb6a",
-  FG: "#5c6bc0",
-  SF: "#124940",
-  LAB: "#e53935",
-  GP: "#43a047",
-  SD: "#741d83",
-  PBPS: "#da1498",
-  AON: "#53660e",
-  IFP: "#0b5a1c",
-  INDIRL: "#9be736",
-  IND: "#7a7a7a",
-  IPP: "#0e9775"
+const PARTY_COLORS: Record<string,string> = {
+  FF:"#66bb6a",
+  FG:"#5c6bc0",
+  SF:"#124940",
+  LAB:"#e53935",
+  GP:"#43a047",
+  SD:"#741d83",
+  PBPS:"#da1498",
+  AON:"#53660e",
+  IFP:"#0b5a1c",
+  INDIRL:"#9be736",
+  IND:"#7a7a7a",
+  IPP:"#0e9775"
 };
 
-  export default function ConstituencyScene({
+type CandidateStatus =
+  | "elected"
+  | "running"
+  | "eliminated";
+
+type CandidateRow = {
+  status: CandidateStatus;
+} & Record<string, any>;
+
+export default function ConstituencyScene({
   name,
   results,
-  previousResults,
-  onComplete
-}: {
-  name: any;
-  results: any;
-  previousResults: string;
-  onComplete: any;
+  previousResults
+}:{
+  name:string;
+  results:any;
+  previousResults:any;
 }) {
 
-const [step, setStep] = useState(0);
+const [step,setStep]=useState(0);
 
-const counts = results?.[name]?.counts || {};
-
-const hasCounts =
-Object.keys(counts).length > 0;
-
-/* STEP ROTATION */
-
-const steps: any = [
-"firstPreference",
-"swing",
-"firstCount",
-"latestCount"
+const steps=[
+  "party",
+  "swing",
+  "firstCount",
+  "latestCount"
 ];
 
-useEffect(() => {
+useEffect(()=>{
 
 setStep(0);
 
-const interval = setInterval(() => {
+const interval=setInterval(()=>{
 
-setStep(prev => {
+setStep(prev=>
+(prev+1)%steps.length
+);
 
-const next = prev + 1;
+},9000);
 
-if (next >= steps.length) {
-onComplete?.();
-return 0;
-}
+return ()=>clearInterval(interval);
 
-return next;
+},[name]);
 
-});
+const counts=
+results?.[name]?.counts||{};
 
-}, 6000);
+const firstCount=
+counts[1]||[];
 
-return () => clearInterval(interval);
-
-}, [name]);
-
-
-/* COUNT DATA */
-
-const firstCount = counts[1] || [];
-
-const latestCountNumber =
+const latestCountNumber=
 Object.keys(counts).length
-? Math.max(...Object.keys(counts).map(Number))
-: 1;
+?Math.max(
+...Object.keys(counts)
+.map(Number)
+)
+:1;
 
-const latestCount =
-counts[latestCountNumber] || [];
+const latestCount=
+counts[latestCountNumber]||[];
 
-const prevCount =
-counts[latestCountNumber - 1] || [];
+const hasCounts=
+firstCount.length>0;
 
 
 /* PARTY SHARE */
 
-const partyTotals: Record<string, number> = {};
+const totals:
+Record<string,number>={};
 
-firstCount.forEach((c: any) => {
-const party = c.party || "IND";
-partyTotals[party] =
-(partyTotals[party] || 0) + c.votes;
+firstCount.forEach((c:any)=>{
+
+const p=
+c.party||"IND";
+
+totals[p]=
+(totals[p]||0)
++
+(c.votes||0);
+
 });
 
-const totalVotes =
-Object.values(partyTotals)
+const totalVotes=
+Object.values(totals)
 .reduce((a,b)=>a+b,0);
 
-const partyShare =
-Object.entries(partyTotals)
+const partyShare=
+Object.entries(totals)
+
 .map(([party,votes])=>({
+
 party,
+
 percent:
 totalVotes
-? (votes/totalVotes)*100
+?(votes/totalVotes)*100
 :0
+
 }))
-.sort((a,b)=>b.percent-a.percent);
+
+.sort(
+(a,b)=>
+b.percent-a.percent
+);
 
 
 /* SWING */
 
-const previous: any =
-previousResults?.[name] || {};
+const previous:
+Record<string,any>=
+previousResults?.[name]
+?? {};
 
-const partySwing =
+const previousTotal=
+
+Object.values(previous)
+
+.reduce(
+(a:number,b:any)=>
+a+(b.votes||0),
+0
+);
+
+const swing=
+
 partyShare.map(p=>{
 
-const prevVotes =
-previous?.[p.party]?.votes || 0;
+const previousVotes=
 
-const prevTotal: any =
-Object.values(previous)
-.reduce((a: any,b: any)=>a+(b.votes||0),0);
+previous[p.party]
+?.votes||0;
 
-const prevPercent =
-prevTotal
-? (prevVotes/prevTotal)*100
+const previousPercent=
+
+previousTotal
+?(previousVotes/
+previousTotal)*100
 :0;
 
-return {
+return{
+
 ...p,
-swing:p.percent-prevPercent
+
+change:
+p.percent
+-
+previousPercent
+
 };
 
 });
 
 
-/* STATUS */
+function CandidateTable(
+data:any[]
+){
 
-function getStatus({
-candidate,
-prev,
-}: {
-candidate: any;
-prev: any;
-}) {
+const ordered:
+CandidateRow[]=
+[...data]
 
-if(candidate.status==="elected"){
-return "elected";
+.map((c:any)=>{
+
+let status:
+CandidateStatus=
+"running";
+
+if(
+c.status===
+"elected"
+){
+status=
+"elected";
 }
 
 if(
-candidate.status==="eliminated" &&
-prev?.find(
-(p: any) => p.name===candidate.name &&
-p.status==="eliminated"
-)
+c.status===
+"eliminated"
 ){
-return "eliminated";
+status=
+"eliminated";
 }
 
-return "running";
-
-}
-
-
-/* RENDER */
-
-return (
-
-<div
-style={{
-height:"100%",
-display:"flex",
-flexDirection:"column",
-padding:"30px",
-overflow:"hidden"
-}}
->
-
-
-{/* CONTENT AREA */}
-
-{!hasCounts && (
-<div
-style={{
-flex:1,
-display:"flex",
-alignItems:"center",
-justifyContent:"center",
-fontSize:"24px",
-opacity:0.6
-}}
->
-Awaiting count data…
-</div>
-)}
-
-<div
-style={{
-flex:1,
-display:"flex",
-flexDirection:"column",
-overflow:"hidden"
-}}
->
-
-
-{/* FIRST PREFERENCE */}
-
-{steps[step]==="firstPreference" && (
-
-<>
-
-<div
-style={{
-fontSize:"36px",
-fontWeight:"700",
-marginBottom:"20px"
-}}
->
-FIRST PREFERENCE
-</div>
-
-<div
-style={{
-flex:1,
-display:"flex",
-alignItems:"flex-end",
-gap:"30px"
-}}
->
-
-{(()=>{
-
-const max =
-Math.max(...partyShare.map(p=>p.percent));
-
-return partyShare.map(p=>{
-
-const height =
-max ? (p.percent/max)*100 : 0;
-
-return(
-
-<div
-key={p.party}
-style={{
-flex:1,
-display:"flex",
-flexDirection:"column",
-alignItems:"center",
-height:"100%",
-justifyContent:"flex-end"
-}}
->
-
-<div
-style={{
-fontSize:"24px",
-fontWeight:"700",
-marginBottom:"8px"
-}}
->
-{p.percent.toFixed(1)}%
-</div>
-
-<div
-style={{
-width:"100%",
-height:`${height}%`,
-background:PARTY_COLORS[p.party],
-borderRadius:"6px 6px 0 0"
-}}
-/>
-
-<div
-style={{
-marginTop:"12px",
-fontSize:"18px",
-fontWeight:"700"
-}}
->
-{p.party}
-</div>
-
-</div>
-
-);
-
-});
-
-})()}
-
-</div>
-
-</>
-
-)}
-
-
-{/* SWING */}
-
-{steps[step]==="swing" && (
-
-<>
-<div
-style={{
-fontSize:"36px",
-fontWeight:"700",
-marginBottom:"20px"
-}}
->
-SWING
-</div>
-
-<div
-style={{
-flex:1,
-display:"flex",
-gap:"30px"
-}}
->
-
-{(()=>{
-
-const max =
-Math.max(
-...partySwing.map(p=>Math.abs(p.swing))
-);
-
-return partySwing.map(p=>{
-
-const height =
-max ? (Math.abs(p.swing)/max)*50 : 0;
-
-return(
-
-<div
-key={p.party}
-style={{
-flex:1,
-display:"flex",
-flexDirection:"column",
-alignItems:"center"
-}}
->
-
-<div
-style={{
-fontSize:"22px",
-fontWeight:"700",
-marginBottom:"8px"
-}}
->
-{p.swing>0?"+":""}
-{p.swing.toFixed(1)}
-</div>
-
-<div
-style={{
-flex:1,
-width:"100%",
-position:"relative"
-}}
->
-
-<div
-style={{
-position:"absolute",
-top:"50%",
-left:0,
-right:0,
-height:"2px",
-background:"#555"
-}}
-/>
-
-<div
-style={{
-position:"absolute",
-left:0,
-right:0,
-background:PARTY_COLORS[p.party],
-height:`${height}%`,
-bottom:p.swing>0?"50%":"auto",
-top:p.swing<0?"50%":"auto"
-}}
-/>
-
-</div>
-
-<div
-style={{
-marginTop:"12px",
-fontSize:"18px",
-fontWeight:"700"
-}}
->
-{p.party}
-</div>
-
-</div>
-
-);
-
-});
-
-})()}
-
-</div>
-
-</>
-
-)}
-
-
-{/* CANDIDATES */}
-
-{(steps[step]==="firstCount" ||
-steps[step]==="latestCount") && (
-
-<>
-
-<div
-style={{
-fontSize:"36px",
-fontWeight:"700",
-marginBottom:"20px",
-flexShrink:0
-}}
->
-{steps[step]==="firstCount"
-?"FIRST COUNT"
-:"LATEST COUNT"}
-</div>
-
-{(() => {
-
-const data =
-steps[step]==="firstCount"
-? firstCount
-: latestCount;
-
-const candidates =
-data.map((c: any) => {
-
-const status =
-getStatus({
-  candidate: c,
-  prev:
-    steps[step] === "firstCount"
-      ? firstCount
-      : prevCount
-});
-
-return {
+return{
 ...c,
 status
 };
 
-});
+})
 
-const elected =
-candidates.filter((c: any)=>c.status==="elected");
+.sort((a,b)=>{
 
-const running =
-candidates.filter((c: any)=>c.status==="running");
-
-const eliminated =
-candidates.filter((c: any)=>c.status==="eliminated");
-
-const ordered = [
-...elected,
-...running,
-...eliminated
-];
-
-const rowHeight =
-`calc((100% - 20px) / ${ordered.length})`;
+const order = {
+  elected: 0,
+  running: 1,
+  eliminated: 2
+} satisfies Record<CandidateStatus, number>;
 
 return (
+  order[a.status as CandidateStatus] -
+  order[b.status as CandidateStatus]
+);
+
+})
+
+.sort(
+(a,b)=>
+b.votes-a.votes
+);
+
+return(
 
 <div
 style={{
-flex:1,
 display:"flex",
 flexDirection:"column",
 gap:"8px"
 }}
 >
 
-{ordered.map(c => (
+{ordered.map(c=>(
 
 <div
 key={c.id}
 style={{
-height: rowHeight,
-borderRadius: "10px",
-overflow: "hidden",
-display: "flex",
+
+display:"flex",
+alignItems:"center",
+
+padding:"18px",
+
+borderRadius:"20px",
+
+position:"relative",
+
+overflow:"hidden",
+
 background:
-c.status === "elected"
-? PARTY_COLORS[c.party]
-: "#2a2a2a",
-color:
-c.status === "elected"
-? "#fff"
-: "#fff",
+
+c.status==="elected"
+
+? `linear-gradient(
+90deg,
+${PARTY_COLORS[c.party]}33,
+${PARTY_COLORS[c.party]}15
+)`
+
+: `linear-gradient(
+180deg,
+rgba(255,255,255,.05),
+rgba(255,255,255,.02)
+)`,
+
+boxShadow:
+"0 12px 35px rgba(0,0,0,.25)",
+
+backdropFilter:
+"blur(18px)",
+
 opacity:
-c.status === "eliminated"
-? 0.5
-: 1
+c.status==="eliminated"
+?.35
+:1,
+
+filter:
+c.status==="eliminated"
+?"grayscale(.7)"
+:"none"
 }}
 >
 
-{/* ELECTED CHECK STRIP */}
+  {c.status==="elected" && (
 
-{c.status === "elected" && (
 <div
 style={{
-width: "36px",
-background: "#fff",
-display: "flex",
-alignItems: "center",
-justifyContent: "center"
+position:"absolute",
+left:0,
+top:0,
+bottom:0,
+width:"5px",
+
+background:
+PARTY_COLORS[c.party],
+
+boxShadow:
+`0 0 18px ${PARTY_COLORS[c.party]}`
+}}
+/>
+
+)}
+
+<div
+style={{
+width:"6px",
+height:"46px",
+marginRight:"14px",
+borderRadius:"6px",
+background:
+PARTY_COLORS[
+c.party
+]
+}}
+/>
+
+{c.status==="elected" && (
+
+<div
+style={{
+width:"46px",
+height:"46px",
+borderRadius:"50%",
+background:"#fff",
+display:"flex",
+alignItems:"center",
+justifyContent:"center",
+marginRight:"14px",
+flexShrink:0
 }}
 >
 
 <svg
-width="16"
-height="16"
+width="18"
+height="18"
 viewBox="0 0 16 16"
 fill="none"
 >
 <path
 d="M4 8.5L7 11.5L12 5"
-stroke={PARTY_COLORS[c.party]}
+stroke={
+PARTY_COLORS[c.party]
+}
 strokeWidth="2.8"
-strokeLinecap="square"
 />
 </svg>
 
 </div>
+
 )}
 
-{/* PARTY STRIP (non-elected only) */}
-
-{c.status !== "elected" && (
-<div
-style={{
-width: "12px",
-background: PARTY_COLORS[c.party]
-}}
-/>
-)}
-
-{/* CONTENT */}
+<div style={{flex:1}}>
 
 <div
 style={{
-flex: 1,
-padding: "0 18px",
-display: "flex",
-alignItems: "center",
-justifyContent: "space-between"
-}}
->
-
-{/* LEFT */}
-
-<div>
-
-<div
-style={{
-fontSize: "20px",
-fontWeight: "700"
+fontSize:"22px",
+fontWeight:700
 }}
 >
 {c.name}
@@ -588,8 +369,7 @@ fontWeight: "700"
 
 <div
 style={{
-opacity: c.status === "elected" ? 0.9 : 0.7,
-fontSize: "14px"
+opacity:.7
 }}
 >
 {c.party}
@@ -597,19 +377,16 @@ fontSize: "14px"
 
 </div>
 
-
-{/* RIGHT */}
-
 <div
 style={{
-textAlign: "right"
+textAlign:"right"
 }}
 >
 
 <div
 style={{
-fontSize: "22px",
-fontWeight: "700"
+fontSize:"24px",
+fontWeight:700
 }}
 >
 {c.votes.toLocaleString()}
@@ -617,13 +394,11 @@ fontWeight: "700"
 
 <div
 style={{
-fontSize: "12px",
-opacity: c.status === "elected" ? 0.9 : 0.7
+fontSize:"12px",
+opacity:.7
 }}
 >
-{c.status.toUpperCase()}
-</div>
-
+{c.status}
 </div>
 
 </div>
@@ -636,13 +411,340 @@ opacity: c.status === "elected" ? 0.9 : 0.7
 
 );
 
-})()}
+}
+
+return(
+
+<div
+style={{
+height:"100%",
+display:"flex",
+flexDirection:"column",
+padding:"40px 46px",
+position:"relative",
+overflow:"hidden"
+}}
+>
+
+{!hasCounts&&(
+
+<div
+style={{
+flex:1,
+display:"flex",
+alignItems:"center",
+justifyContent:"center",
+fontSize:"28px",
+opacity:.5
+}}
+>
+Awaiting results
+</div>
+
+)}
+
+{hasCounts&&(
+
+<>
+
+<div
+style={{
+display:"flex",
+alignItems:"center",
+justifyContent:"space-between",
+marginBottom:"32px"
+}}
+>
+
+<div>
+
+<div
+style={{
+fontSize:"11px",
+letterSpacing:"2px",
+textTransform:"uppercase",
+opacity:.55,
+marginBottom:"8px"
+}}
+>
+Live Results
+</div>
+
+<div
+style={{
+fontSize:"52px",
+fontWeight:800,
+lineHeight:1,
+letterSpacing:"-2px"
+}}
+>
+
+{steps[step]==="party" &&
+"Party Share"}
+
+{steps[step]==="swing" &&
+"Swing"}
+
+{steps[step]==="firstCount" &&
+"Count 1"}
+
+{steps[step]==="latestCount" &&
+`Count ${latestCountNumber}`}
+
+</div>
+
+</div>
+
+<div
+style={{
+padding:"10px 16px",
+borderRadius:"999px",
+background:"rgba(255,255,255,.05)",
+border:"1px solid rgba(255,255,255,.08)",
+backdropFilter:"blur(12px)",
+fontSize:"13px",
+fontWeight:700
+}}
+>
+{name}
+</div>
+
+</div>
+
+
+{/* PARTY SHARE */}
+
+{steps[step]==="party"&&(
+
+<div
+style={{
+display:"flex",
+flexDirection:"column",
+gap:"14px"
+}}
+>
+
+{partyShare.map(p=>(
+
+<div
+key={p.party}
+style={{
+display:"flex",
+alignItems:"center",
+gap:"16px",
+
+padding:"14px",
+
+borderRadius:"18px",
+
+background: `
+linear-gradient(
+90deg,
+rgba(255,255,255,.06),
+rgba(255,255,255,.03)
+)
+`,
+
+border:
+"1px solid rgba(255,255,255,.08)",
+
+backdropFilter:"blur(14px)",
+
+boxShadow:
+"0 10px 30px rgba(0,0,0,.25)"
+}}
+>
+
+<div
+style={{
+width:"60px",
+fontWeight:700,
+fontSize:"22px"
+}}
+>
+{p.party}
+</div>
+
+<div
+style={{
+flex:1,
+height:"32px",
+background:"rgba(255,255,255,.06)",
+overflow:"hidden",
+position:"relative"
+}}
+>
+
+<div
+style={{
+height:"100%",
+width:`${p.percent}%`,
+background:
+PARTY_COLORS[p.party],
+transition:"width .8s ease"
+}}
+/>
+
+</div>
+
+<div
+style={{
+width:"90px",
+textAlign:"right",
+fontSize:"24px",
+fontWeight:700
+}}
+>
+{p.percent.toFixed(1)}%
+</div>
+
+</div>
+
+))}
+
+</div>
+
+)}
+
+
+{/* SWING */}
+
+{steps[step]==="swing"&&(
+
+<div
+style={{
+display:"flex",
+flexDirection:"column",
+gap:"14px"
+}}
+>
+
+{swing.map(p=>{
+
+const width=
+Math.min(
+Math.abs(p.change)*8,
+50
+);
+
+return(
+
+<div
+key={p.party}
+style={{
+display:"flex",
+alignItems:"center",
+gap:"16px",
+
+padding:"14px",
+
+background: `
+linear-gradient(
+90deg,
+rgba(255,255,255,.06),
+rgba(255,255,255,.03)
+)
+`,
+
+border:
+"1px solid rgba(255,255,255,.08)",
+
+backdropFilter:"blur(14px)",
+
+boxShadow:
+"0 10px 30px rgba(0,0,0,.25)"
+}}
+>
+
+<div
+style={{
+width:"60px",
+fontWeight:700,
+fontSize:"22px"
+}}
+>
+{p.party}
+</div>
+
+<div
+style={{
+flex:1,
+height:"32px",
+position:"relative",
+background:
+"rgba(255,255,255,.04)",
+overflow:"hidden"
+}}
+>
+
+{/* centre line */}
+
+<div
+style={{
+position:"absolute",
+left:"50%",
+top:0,
+bottom:0,
+width:"2px",
+background:
+"rgba(255,255,255,.35)",
+zIndex:5
+}}
+/>
+
+<div
+style={{
+position:"absolute",
+height:"100%",
+width:`${width}%`,
+background:
+PARTY_COLORS[p.party],
+left:
+p.change>=0
+?"50%"
+:`${50-width}%`,
+}}
+/>
+
+</div>
+
+<div
+style={{
+width:"90px",
+textAlign:"right",
+fontSize:"24px",
+fontWeight:700,
+color:
+p.change>0
+?"#4caf50"
+:"#f44336"
+}}
+>
+
+{p.change>0?"+":""}
+{p.change.toFixed(1)}
+
+</div>
+
+</div>
+
+);
+
+})}
+
+</div>
+
+)}
+
+{steps[step]==="firstCount" &&
+CandidateTable(firstCount)}
+
+{steps[step]==="latestCount" &&
+CandidateTable(latestCount)}
 
 </>
 
 )}
-
-</div>
 
 </div>
 
