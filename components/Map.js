@@ -36,6 +36,8 @@ const PARTY_COLORS = {
   IFP: "#095f18",
   NP: "#052e1d",
   RTC: "#db2f2f",
+  SP: "#9c0e0e",
+  AAA: "#c7c414",
   RED: "#7a7a7a",
   Yes: "#0a1f94",
   No: "#d4950d"
