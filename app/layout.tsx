@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Inter } from "next/font/google";
 import Navbar from "../components/Navbar";
 import "./globals.css";
@@ -45,7 +46,7 @@ export default function RootLayout({
   return (
 <html
   lang="en"
-  className={`${inter.variable} ${averta.variable} h-full antialiased`}
+  className={`${inter.variable} ${averta.variable} dark h-full antialiased`}
   suppressHydrationWarning
 >
 <body
