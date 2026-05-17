@@ -25,6 +25,14 @@ const PARTY_COLORS: Record<string, string> = {
   INDU: "#d65f30",
 
   AP: "#fdd835",
+  CON: "#0a3f8f",
+  PUP: "#090ca8",
+  WP: "#580707",
+  UKIP: "#580454",
+  IFP: "#095f18",
+  NP: "#052e1d",
+  RTC: "#db2f2f",
+  RED: "#7a7a7a",
   Yes: "#0a1f94",
   No: "#d4950d"
 };

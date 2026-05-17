@@ -41,6 +41,10 @@ const aboutLinks = [
     label: "FAQs",
     href: "/about/faqs"
   },
+    {
+    label: "Methodology",
+    href: "/about/methodology"
+  },
   {
     label: "Disclaimer",
     href: "/about/disclaimer"

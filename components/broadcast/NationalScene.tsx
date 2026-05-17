@@ -1,14 +1,38 @@
 "use client";
 
 const PARTY_COLORS: Record<string,string> = {
-  FF:"#66bb6a",
-  FG:"#5c6bc0",
-  SF:"#124940",
-  LAB:"#e53935",
-  GP:"#43a047",
-  SD:"#741d83",
-  PBPS:"#da1498",
-  IND:"#7a7a7a"
+  FF: "#66bb6a",
+  FG: "#5c6bc0",
+  SF: "#124940",
+  LAB: "#e53935",
+  GP: "#43a047",
+  SD: "#741d83",
+  PBPS: "#da1498",
+  AON: "#53660e",
+  INDIRL: "#9be736",
+  I4C: "#e2a8a8",
+  IND: "#7a7a7a",
+  IPP: "#0e9775",
+  REN: "#d6960b",
+
+  SDLP: "#1a5c1d",
+  PBP: "#da1498",
+  INDN: "#0c4257",
+
+  DUP: "#dd5454",
+  UUP: "#3676c0",
+  TUV: "#0a244b",
+  INDU: "#d65f30",
+
+  AP: "#fdd835",
+  CON: "#0a3f8f",
+  PUP: "#090ca8",
+  WP: "#580707",
+  UKIP: "#580454",
+  IFP: "#095f18",
+  NP: "#052e1d",
+  RTC: "#db2f2f",
+  RED: "#7a7a7a"
 };
 
 export default function NationalScene({

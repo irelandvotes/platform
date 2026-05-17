@@ -1,0 +1,190 @@
+election,constituency,party,votes,seats
+2016,Belfast East,AP,10659,2
+2016,Belfast East,DUP,13643,2
+2016,Belfast East,GP,2183,
+2016,Belfast East,CCLA,517,
+2016,Belfast East,CON,477,
+2016,Belfast East,NILAB,78,
+2016,Belfast East,PUP,1772,
+2016,Belfast East,SDLP,141,
+2016,Belfast East,SF,946,
+2016,Belfast East,TUV,887,
+2016,Belfast East,UKIP,631,
+2016,Belfast East,UUP,4142,1
+2016,Belfast East,IND,1099,
+2016,Belfast North,AP,2569,
+2016,Belfast North,DUP,12783,3
+2016,Belfast North,GP,796,
+2016,Belfast North,NILAB,127,
+2016,Belfast North,PBP,1286,
+2016,Belfast North,PUP,1238,
+2016,Belfast North,SDLP,3866,1
+2016,Belfast North,SF,9704,1
+2016,Belfast North,TUV,644,
+2016,Belfast North,UKIP,751,
+2016,Belfast North,UUP,1972,
+2016,Belfast North,WP,476,
+2016,Belfast North,IND,362,
+2016,Belfast South,AP,6023,1
+2016,Belfast South,DUP,8081,1
+2016,Belfast South,GP,3521,1
+2016,Belfast South,CCLA,871,
+2016,Belfast South,CON,161,
+2016,Belfast South,NILAB,246,
+2016,Belfast South,PUP,430,
+2016,Belfast South,SDLP,7406,1
+2016,Belfast South,SF,5207,1
+2016,Belfast South,TUV,495,
+2016,Belfast South,UKIP,794,
+2016,Belfast South,UUP,2466,
+2016,Belfast South,WP,241,
+2016,Belfast South,IND,826,
+2016,Belfast West,AP,291,
+2016,Belfast West,DUP,3766,
+2016,Belfast West,GP,327,
+2016,Belfast West,PBP,8299,1
+2016,Belfast West,SDLP,2647,
+2016,Belfast West,SF,19752,4
+2016,Belfast West,UUP,654,
+2016,Belfast West,WP,532,
+2016,East Antrim,AP,4747,1
+2016,East Antrim,DUP,11701,3
+2016,East Antrim,GP,693,
+2016,East Antrim,CCLA,551,
+2016,East Antrim,PUP,455,
+2016,East Antrim,SDLP,1229,
+2016,East Antrim,SF,2633,
+2016,East Antrim,TUV,1643,
+2016,East Antrim,UKIP,2207,
+2016,East Antrim,UUP,6552,1
+2016,East Derry,AP,1257,
+2016,East Derry,DUP,12674,3
+2016,East Derry,GP,434,
+2016,East Derry,INDU,3270,
+2016,East Derry,CON,266,
+2016,East Derry,PUP,1256,
+2016,East Derry,SDLP,3265,1
+2016,East Derry,SF,7495,1
+2016,East Derry,TUV,1191,
+2016,East Derry,UKIP,274,
+2016,East Derry,UUP,2856,
+2016,East Derry,IND,61,
+2016,Fermanagh and South Tyrone,AP,539,
+2016,Fermanagh and South Tyrone,DUP,15403,2
+2016,Fermanagh and South Tyrone,GP,897,
+2016,Fermanagh and South Tyrone,NILAB,285,
+2016,Fermanagh and South Tyrone,SDLP,4014,1
+2016,Fermanagh and South Tyrone,SF,18847,2
+2016,Fermanagh and South Tyrone,TUV,1164,
+2016,Fermanagh and South Tyrone,UUP,6028,
+2016,Foyle,AP,238,
+2016,Foyle,CISTA,259,
+2016,Foyle,DUP,4737,1
+2016,Foyle,GP,157,
+2016,Foyle,CON,36,
+2016,Foyle,PBP,4176,
+2016,Foyle,SDLP,11897,2
+2016,Foyle,SF,11297,2
+2016,Foyle,UUP,1420,
+2016,Foyle,IND,5485,
+2016,Lagan Valley,AP,3707,1
+2016,Lagan Valley,DUP,18325,2
+2016,Lagan Valley,GP,1118,
+2016,Lagan Valley,CON,341,
+2016,Lagan Valley,NILAB,171,
+2016,Lagan Valley,SDLP,2899,
+2016,Lagan Valley,SF,1045,
+2016,Lagan Valley,TUV,1291,
+2016,Lagan Valley,UKIP,768,
+2016,Lagan Valley,UUP,8247,2
+2016,Lagan Valley,IND,941,
+2016,Mid Ulster,AP,471,
+2016,Mid Ulster,DUP,7393,1
+2016,Mid Ulster,GP,349,
+2016,Mid Ulster,SDLP,6209,1
+2016,Mid Ulster,SF,19015,2
+2016,Mid Ulster,TUV,1877,
+2016,Mid Ulster,UKIP,256,
+2016,Mid Ulster,UUP,4862,1
+2016,Mid Ulster,WP,316,
+2016,Newry and Armagh,AP,493,
+2016,Newry and Armagh,CISTA,1032,
+2016,Newry and Armagh,DUP,7980,1
+2016,Newry and Armagh,GP,335,
+2016,Newry and Armagh,SDLP,8704,1
+2016,Newry and Armagh,SF,19514,2
+2016,Newry and Armagh,UKIP,315,
+2016,Newry and Armagh,UUP,6745,1
+2016,Newry and Armagh,IND,2603,
+2016,North Antrim,AP,1318,
+2016,North Antrim,DUP,17655,3
+2016,North Antrim,GP,513,
+2016,North Antrim,CON,92,
+2016,North Antrim,NILAB,243,
+2016,North Antrim,SDLP,3093,
+2016,North Antrim,SF,5297,1
+2016,North Antrim,TUV,7354,1
+2016,North Antrim,UKIP,1027,
+2016,North Antrim,UUP,4406,
+2016,North Down,AP,5399,1
+2016,North Down,DUP,13446,2
+2016,North Down,GP,4109,1
+2016,North Down,CON,672,
+2016,North Down,NILAB,177,
+2016,North Down,SDLP,426,
+2016,North Down,SF,307,
+2016,North Down,TUV,610,
+2016,North Down,UKIP,681,
+2016,North Down,UUP,4987,1
+2016,North Down,IND,1415,
+2016,South Antrim,AP,3119,1
+2016,South Antrim,DUP,12188,2
+2016,South Antrim,GP,589,
+2016,South Antrim,CON,72,
+2016,South Antrim,SDLP,3366,
+2016,South Antrim,SF,4632,1
+2016,South Antrim,TUV,1318,
+2016,South Antrim,UKIP,574,
+2016,South Antrim,UUP,7792,1
+2016,South Antrim,IND,483,
+2016,South Down,AP,2200,
+2016,South Down,DUP,5033,1
+2016,South Down,GP,820,
+2016,South Down,SDLP,12911,1
+2016,South Down,SF,12756,2
+2016,South Down,TUV,2718,
+2016,South Down,UUP,3481,
+2016,South Down,IND,1156,1
+2016,Strangford,AP,3499,1
+2016,Strangford,DUP,14037,3
+2016,Strangford,GP,924,
+2016,Strangford,CON,314,
+2016,Strangford,SDLP,2724,
+2016,Strangford,SF,661,
+2016,Strangford,TUV,1407,
+2016,Strangford,UKIP,759,
+2016,Strangford,UUP,6367,1
+2016,Strangford,IND,1947,
+2016,Upper Bann,AP,1424,
+2016,Upper Bann,CISTA,672,
+2016,Upper Bann,DUP,14188,2
+2016,Upper Bann,GP,495,
+2016,Upper Bann,CON,79,
+2016,Upper Bann,NILAB,250,
+2016,Upper Bann,PUP,704,
+2016,Upper Bann,SDLP,4335,1
+2016,Upper Bann,SF,11373,1
+2016,Upper Bann,TUV,1177,
+2016,Upper Bann,UKIP,1072,
+2016,Upper Bann,UUP,9884,1
+2016,Upper Bann,IND,33,
+2016,West Tyrone,AP,494,
+2016,West Tyrone,AWP,224,
+2016,West Tyrone,CISTA,547,
+2016,West Tyrone,DUP,8534,1
+2016,West Tyrone,GP,458,
+2016,West Tyrone,CON,44,
+2016,West Tyrone,SDLP,4287,1
+2016,West Tyrone,SF,17204,2
+2016,West Tyrone,UUP,4441,
+2016,West Tyrone,IND,3486,1

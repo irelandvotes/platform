@@ -55,6 +55,14 @@ import {
   INDU: "#d65f30",
 
   AP: "#fdd835",
+  CON: "#0a3f8f",
+  PUP: "#090ca8",
+  WP: "#580707",
+  UKIP: "#580454",
+  IFP: "#095f18",
+  NP: "#052e1d",
+  RTC: "#db2f2f",
+  RED: "#7a7a7a"
 
 };
 
@@ -3575,13 +3583,19 @@ National Results
   }}
 >
 
-  {type === "dail" && Number(year) === 2024
-    ? "Seats (Notional Changes)"
-    : "Seats"}
+{(
+(type === "dail" && Number(year) === 2024) ||
+(type === "assembly" && Number(year) === 2017)
+)
+? "Seats (Notional Changes)"
+: "Seats"}
 
-  {type === "dail" && Number(year) === 2024 && (
+{(
+(type === "dail" && Number(year) === 2024) ||
+(type === "assembly" && Number(year) === 2017)
+) && (
     <span
-      title="Notional changes estimate how the new constituency boundaries would have translated previous election results into seats under the revised map. Because of this, some parties may appear to gain or lose seats even where an incumbent from an abolished or heavily redrawn constituency was re-elected in a successor constituency."
+      title="Notional changes estimate how previous election results would have translated under revised constituency boundaries or electoral arrangements. Because of this, some parties may appear to gain or lose seats even where incumbents were returned in successor constituencies. For more information on notional change methodology, see irelandvotes.com/about/methodology."
       style={{
         cursor: "help",
         opacity: 0.7,

@@ -1,0 +1,1669 @@
+constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,turnout,tvp,spoilt,electorate
+Belfast East,1,naomi long,Naomi Long,TRUE,AP,"7,610",elected,5,6727,40828,40357,471,64788
+Belfast East,1,joanne bunting,Joanne Bunting,TRUE,DUP,"6,007",running,5,6727,40828,40357,471,64788
+Belfast East,1,andy allen,Andy Allen,TRUE,UUP,"5,275",running,5,6727,40828,40357,471,64788
+Belfast East,1,chris lyttle,Chris Lyttle,TRUE,AP,"5,059",running,5,6727,40828,40357,471,64788
+Belfast East,1,robin newton,Robin Newton,TRUE,DUP,"4,729",running,5,6727,40828,40357,471,64788
+Belfast East,1,david douglas,David Douglas,FALSE,DUP,"4,431",running,5,6727,40828,40357,471,64788
+Belfast East,1,john kyle,John Kyle,FALSE,PUP,"2,658",running,5,6727,40828,40357,471,64788
+Belfast East,1,georgina milne,Georgina Milne,FALSE,GP,"1,447",running,5,6727,40828,40357,471,64788
+Belfast East,1,mairead odonnell,Mairéad O'Donnell,FALSE,SF,"1,173",running,5,6727,40828,40357,471,64788
+Belfast East,1,andrew girvin,Andrew Girvin,FALSE,TUV,917,running,5,6727,40828,40357,471,64788
+Belfast East,1,courtney robinson,Courtney Robinson,FALSE,CCLA,442,running,5,6727,40828,40357,471,64788
+Belfast East,1,sheila bodel,Sheila Bodel,FALSE,CON,275,running,5,6727,40828,40357,471,64788
+Belfast East,1,seamas de aoite,Séamas de Faoite,FALSE,SDLP,250,running,5,6727,40828,40357,471,64788
+Belfast East,1,jordy mckeag,Jordy McKeag,FALSE,IND,84,running,5,6727,40828,40357,471,64788
+Belfast East,2,naomi long,Naomi Long,TRUE,AP,,elected,5,6727,40828,40357,471,64788
+Belfast East,2,joanne bunting,Joanne Bunting,TRUE,DUP,"6,016.02",running,5,6727,40828,40357,471,64788
+Belfast East,2,andy allen,Andy Allen,TRUE,UUP,"5,313.17",running,5,6727,40828,40357,471,64788
+Belfast East,2,chris lyttle,Chris Lyttle,TRUE,AP,"5,760.03",running,5,6727,40828,40357,471,64788
+Belfast East,2,robin newton,Robin Newton,TRUE,DUP,"4,734.50",running,5,6727,40828,40357,471,64788
+Belfast East,2,david douglas,David Douglas,FALSE,DUP,"4,435.18",running,5,6727,40828,40357,471,64788
+Belfast East,2,john kyle,John Kyle,FALSE,PUP,"2,673.29",running,5,6727,40828,40357,471,64788
+Belfast East,2,georgina milne,Georgina Milne,FALSE,GP,"1,474.06",running,5,6727,40828,40357,471,64788
+Belfast East,2,mairead odonnell,Mairéad O'Donnell,FALSE,SF,"1,183.34",running,5,6727,40828,40357,471,64788
+Belfast East,2,andrew girvin,Andrew Girvin,FALSE,TUV,918.65,running,5,6727,40828,40357,471,64788
+Belfast East,2,courtney robinson,Courtney Robinson,FALSE,CCLA,449.48,running,5,6727,40828,40357,471,64788
+Belfast East,2,sheila bodel,Sheila Bodel,FALSE,CON,276.32,running,5,6727,40828,40357,471,64788
+Belfast East,2,seamas de aoite,Séamas de Faoite,FALSE,SDLP,260.45,running,5,6727,40828,40357,471,64788
+Belfast East,2,jordy mckeag,Jordy McKeag,FALSE,IND,85.43,eliminated,5,6727,40828,40357,471,64788
+Belfast East,3,naomi long,Naomi Long,TRUE,AP,,elected,5,6727,40828,40357,471,64788
+Belfast East,3,joanne bunting,Joanne Bunting,TRUE,DUP,"6,021.02",running,5,6727,40828,40357,471,64788
+Belfast East,3,andy allen,Andy Allen,TRUE,UUP,"5,323.39",running,5,6727,40828,40357,471,64788
+Belfast East,3,chris lyttle,Chris Lyttle,TRUE,AP,"5,780.25",running,5,6727,40828,40357,471,64788
+Belfast East,3,robin newton,Robin Newton,TRUE,DUP,"4,736.50",running,5,6727,40828,40357,471,64788
+Belfast East,3,david douglas,David Douglas,FALSE,DUP,"4,436.18",running,5,6727,40828,40357,471,64788
+Belfast East,3,john kyle,John Kyle,FALSE,PUP,"2,678.51",running,5,6727,40828,40357,471,64788
+Belfast East,3,georgina milne,Georgina Milne,FALSE,GP,"1,500.28",running,5,6727,40828,40357,471,64788
+Belfast East,3,mairead odonnell,Mairéad O'Donnell,FALSE,SF,"1,185.45",running,5,6727,40828,40357,471,64788
+Belfast East,3,andrew girvin,Andrew Girvin,FALSE,TUV,920.65,running,5,6727,40828,40357,471,64788
+Belfast East,3,courtney robinson,Courtney Robinson,FALSE,CCLA,456.48,running,5,6727,40828,40357,471,64788
+Belfast East,3,sheila bodel,Sheila Bodel,FALSE,CON,278.43,running,5,6727,40828,40357,471,64788
+Belfast East,3,seamas de aoite,Séamas de Faoite,FALSE,SDLP,260.56,eliminated,5,6727,40828,40357,471,64788
+Belfast East,3,jordy mckeag,Jordy McKeag,FALSE,IND,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,4,naomi long,Naomi Long,TRUE,AP,,elected,5,6727,40828,40357,471,64788
+Belfast East,4,joanne bunting,Joanne Bunting,TRUE,DUP,"6,026.13",running,5,6727,40828,40357,471,64788
+Belfast East,4,andy allen,Andy Allen,TRUE,UUP,"5,356.60",running,5,6727,40828,40357,471,64788
+Belfast East,4,chris lyttle,Chris Lyttle,TRUE,AP,"5,885.86",running,5,6727,40828,40357,471,64788
+Belfast East,4,robin newton,Robin Newton,TRUE,DUP,"4,739.50",running,5,6727,40828,40357,471,64788
+Belfast East,4,david douglas,David Douglas,FALSE,DUP,"4,440.18",running,5,6727,40828,40357,471,64788
+Belfast East,4,john kyle,John Kyle,FALSE,PUP,"2,685.73",running,5,6727,40828,40357,471,64788
+Belfast East,4,georgina milne,Georgina Milne,FALSE,GP,"1,539.49",running,5,6727,40828,40357,471,64788
+Belfast East,4,mairead odonnell,Mairéad O'Donnell,FALSE,SF,"1,216.66",running,5,6727,40828,40357,471,64788
+Belfast East,4,andrew girvin,Andrew Girvin,FALSE,TUV,924.76,running,5,6727,40828,40357,471,64788
+Belfast East,4,courtney robinson,Courtney Robinson,FALSE,CCLA,467.81,eliminated,5,6727,40828,40357,471,64788
+Belfast East,4,sheila bodel,Sheila Bodel,FALSE,CON,280.43,eliminated,5,6727,40828,40357,471,64788
+Belfast East,4,seamas de aoite,Séamas de Faoite,FALSE,SDLP,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,4,jordy mckeag,Jordy McKeag,FALSE,IND,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,5,naomi long,Naomi Long,TRUE,AP,,elected,5,6727,40828,40357,471,64788
+Belfast East,5,joanne bunting,Joanne Bunting,TRUE,DUP,"6,057.35",running,5,6727,40828,40357,471,64788
+Belfast East,5,andy allen,Andy Allen,TRUE,UUP,"5,498.59",running,5,6727,40828,40357,471,64788
+Belfast East,5,chris lyttle,Chris Lyttle,TRUE,AP,"6,032.81",running,5,6727,40828,40357,471,64788
+Belfast East,5,robin newton,Robin Newton,TRUE,DUP,"4,774.50",running,5,6727,40828,40357,471,64788
+Belfast East,5,david douglas,David Douglas,FALSE,DUP,"4,455.40",running,5,6727,40828,40357,471,64788
+Belfast East,5,john kyle,John Kyle,FALSE,PUP,"2,751.95",running,5,6727,40828,40357,471,64788
+Belfast East,5,georgina milne,Georgina Milne,FALSE,GP,"1,763.36",running,5,6727,40828,40357,471,64788
+Belfast East,5,mairead odonnell,Mairéad O'Donnell,FALSE,SF,"1,232.88",running,5,6727,40828,40357,471,64788
+Belfast East,5,andrew girvin,Andrew Girvin,FALSE,TUV,958.87,eliminated,5,6727,40828,40357,471,64788
+Belfast East,5,courtney robinson,Courtney Robinson,FALSE,CCLA,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,5,sheila bodel,Sheila Bodel,FALSE,CON,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,5,seamas de aoite,Séamas de Faoite,FALSE,SDLP,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,5,jordy mckeag,Jordy McKeag,FALSE,IND,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,6,naomi long,Naomi Long,TRUE,AP,,elected,5,6727,40828,40357,471,64788
+Belfast East,6,joanne bunting,Joanne Bunting,TRUE,DUP,"6,217.46",running,5,6727,40828,40357,471,64788
+Belfast East,6,andy allen,Andy Allen,TRUE,UUP,"5,767.92",running,5,6727,40828,40357,471,64788
+Belfast East,6,chris lyttle,Chris Lyttle,TRUE,AP,"6,072.14",running,5,6727,40828,40357,471,64788
+Belfast East,6,robin newton,Robin Newton,TRUE,DUP,"4,862.61",running,5,6727,40828,40357,471,64788
+Belfast East,6,david douglas,David Douglas,FALSE,DUP,"4,568.40",running,5,6727,40828,40357,471,64788
+Belfast East,6,john kyle,John Kyle,FALSE,PUP,"2,936.28",running,5,6727,40828,40357,471,64788
+Belfast East,6,georgina milne,Georgina Milne,FALSE,GP,"1,801.58",running,5,6727,40828,40357,471,64788
+Belfast East,6,mairead odonnell,Mairéad O'Donnell,FALSE,SF,"1,235.10",eliminated,5,6727,40828,40357,471,64788
+Belfast East,6,andrew girvin,Andrew Girvin,FALSE,TUV,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,6,courtney robinson,Courtney Robinson,FALSE,CCLA,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,6,sheila bodel,Sheila Bodel,FALSE,CON,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,6,seamas de aoite,Séamas de Faoite,FALSE,SDLP,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,6,jordy mckeag,Jordy McKeag,FALSE,IND,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,7,naomi long,Naomi Long,TRUE,AP,,elected,5,6727,40828,40357,471,64788
+Belfast East,7,joanne bunting,Joanne Bunting,TRUE,DUP,"6,228.46",running,5,6727,40828,40357,471,64788
+Belfast East,7,andy allen,Andy Allen,TRUE,UUP,"5,783.14",running,5,6727,40828,40357,471,64788
+Belfast East,7,chris lyttle,Chris Lyttle,TRUE,AP,"6,367.87",running,5,6727,40828,40357,471,64788
+Belfast East,7,robin newton,Robin Newton,TRUE,DUP,"4,865.61",running,5,6727,40828,40357,471,64788
+Belfast East,7,david douglas,David Douglas,FALSE,DUP,"4,572.40",running,5,6727,40828,40357,471,64788
+Belfast East,7,john kyle,John Kyle,FALSE,PUP,"2,950.28",running,5,6727,40828,40357,471,64788
+Belfast East,7,georgina milne,Georgina Milne,FALSE,GP,"2,080.65",eliminated,5,6727,40828,40357,471,64788
+Belfast East,7,mairead odonnell,Mairéad O'Donnell,FALSE,SF,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,7,andrew girvin,Andrew Girvin,FALSE,TUV,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,7,courtney robinson,Courtney Robinson,FALSE,CCLA,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,7,sheila bodel,Sheila Bodel,FALSE,CON,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,7,seamas de aoite,Séamas de Faoite,FALSE,SDLP,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,7,jordy mckeag,Jordy McKeag,FALSE,IND,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,8,naomi long,Naomi Long,TRUE,AP,,elected,5,6727,40828,40357,471,64788
+Belfast East,8,joanne bunting,Joanne Bunting,TRUE,DUP,"6,275.01",running,5,6727,40828,40357,471,64788
+Belfast East,8,andy allen,Andy Allen,TRUE,UUP,"6,048.62",running,5,6727,40828,40357,471,64788
+Belfast East,8,chris lyttle,Chris Lyttle,TRUE,AP,"7,268.87",elected,5,6727,40828,40357,471,64788
+Belfast East,8,robin newton,Robin Newton,TRUE,DUP,"4,890.72",running,5,6727,40828,40357,471,64788
+Belfast East,8,david douglas,David Douglas,FALSE,DUP,"4,599.73",running,5,6727,40828,40357,471,64788
+Belfast East,8,john kyle,John Kyle,FALSE,PUP,"3,148.79",eliminated,5,6727,40828,40357,471,64788
+Belfast East,8,georgina milne,Georgina Milne,FALSE,GP,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,8,mairead odonnell,Mairéad O'Donnell,FALSE,SF,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,8,andrew girvin,Andrew Girvin,FALSE,TUV,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,8,courtney robinson,Courtney Robinson,FALSE,CCLA,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,8,sheila bodel,Sheila Bodel,FALSE,CON,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,8,seamas de aoite,Séamas de Faoite,FALSE,SDLP,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,8,jordy mckeag,Jordy McKeag,FALSE,IND,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,9,naomi long,Naomi Long,TRUE,AP,,elected,5,6727,40828,40357,471,64788
+Belfast East,9,joanne bunting,Joanne Bunting,TRUE,DUP,"6,759.01",elected,5,6727,40828,40357,471,64788
+Belfast East,9,andy allen,Andy Allen,TRUE,UUP,"7,257.62",elected,5,6727,40828,40357,471,64788
+Belfast East,9,chris lyttle,Chris Lyttle,TRUE,AP,"7,268.87",elected,5,6727,40828,40357,471,64788
+Belfast East,9,robin newton,Robin Newton,TRUE,DUP,"5,268.26",running,5,6727,40828,40357,471,64788
+Belfast East,9,david douglas,David Douglas,FALSE,DUP,"4,995.25",running,5,6727,40828,40357,471,64788
+Belfast East,9,john kyle,John Kyle,FALSE,PUP,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,9,georgina milne,Georgina Milne,FALSE,GP,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,9,mairead odonnell,Mairéad O'Donnell,FALSE,SF,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,9,andrew girvin,Andrew Girvin,FALSE,TUV,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,9,courtney robinson,Courtney Robinson,FALSE,CCLA,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,9,sheila bodel,Sheila Bodel,FALSE,CON,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,9,seamas de aoite,Séamas de Faoite,FALSE,SDLP,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,9,jordy mckeag,Jordy McKeag,FALSE,IND,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,10,naomi long,Naomi Long,TRUE,AP,,elected,5,6727,40828,40357,471,64788
+Belfast East,10,joanne bunting,Joanne Bunting,TRUE,DUP,"6,759.01",elected,5,6727,40828,40357,471,64788
+Belfast East,10,andy allen,Andy Allen,TRUE,UUP,"7,257.62",elected,5,6727,40828,40357,471,64788
+Belfast East,10,chris lyttle,Chris Lyttle,TRUE,AP,,elected,5,6727,40828,40357,471,64788
+Belfast East,10,robin newton,Robin Newton,TRUE,DUP,"5,333.26",running,5,6727,40828,40357,471,64788
+Belfast East,10,david douglas,David Douglas,FALSE,DUP,"5,093.25",running,5,6727,40828,40357,471,64788
+Belfast East,10,john kyle,John Kyle,FALSE,PUP,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,10,georgina milne,Georgina Milne,FALSE,GP,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,10,mairead odonnell,Mairéad O'Donnell,FALSE,SF,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,10,andrew girvin,Andrew Girvin,FALSE,TUV,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,10,courtney robinson,Courtney Robinson,FALSE,CCLA,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,10,sheila bodel,Sheila Bodel,FALSE,CON,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,10,seamas de aoite,Séamas de Faoite,FALSE,SDLP,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,10,jordy mckeag,Jordy McKeag,FALSE,IND,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,11,naomi long,Naomi Long,TRUE,AP,,elected,5,6727,40828,40357,471,64788
+Belfast East,11,joanne bunting,Joanne Bunting,TRUE,DUP,"6,759.01",elected,5,6727,40828,40357,471,64788
+Belfast East,11,andy allen,Andy Allen,TRUE,UUP,,elected,5,6727,40828,40357,471,64788
+Belfast East,11,chris lyttle,Chris Lyttle,TRUE,AP,,elected,5,6727,40828,40357,471,64788
+Belfast East,11,robin newton,Robin Newton,TRUE,DUP,"5,541.65",elected,5,6727,40828,40357,471,64788
+Belfast East,11,david douglas,David Douglas,FALSE,DUP,"5,410.84",running,5,6727,40828,40357,471,64788
+Belfast East,11,john kyle,John Kyle,FALSE,PUP,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,11,georgina milne,Georgina Milne,FALSE,GP,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,11,mairead odonnell,Mairéad O'Donnell,FALSE,SF,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,11,andrew girvin,Andrew Girvin,FALSE,TUV,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,11,courtney robinson,Courtney Robinson,FALSE,CCLA,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,11,sheila bodel,Sheila Bodel,FALSE,CON,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,11,seamas de aoite,Séamas de Faoite,FALSE,SDLP,,eliminated,5,6727,40828,40357,471,64788
+Belfast East,11,jordy mckeag,Jordy McKeag,FALSE,IND,,eliminated,5,6727,40828,40357,471,64788
+Belfast North,1,gerry kelly,Gerry Kelly,TRUE,SF,"6,275",running,5,6915,42119,41486,633,68187
+Belfast North,1,caral nichuilin,Carál Ní Chuilín,TRUE,SF,"5,929",running,5,6915,42119,41486,633,68187
+Belfast North,1,nichola mallon,Nichola Mallon,TRUE,SDLP,"5,431",running,5,6915,42119,41486,633,68187
+Belfast North,1,paula bradley,Paula Bradley,TRUE,DUP,"4,835",running,5,6915,42119,41486,633,68187
+Belfast North,1,william humphrey,William Humphrey,TRUE,DUP,"4,418",running,5,6915,42119,41486,633,68187
+Belfast North,1,nelson mccausland,Nelson McCausland,TRUE,DUP,"4,056",running,5,6915,42119,41486,633,68187
+Belfast North,1,nuala mcallister,Nuala McAllister,FALSE,AP,"3,487",running,5,6915,42119,41486,633,68187
+Belfast North,1,robert foster,Robert Foster,FALSE,UUP,"2,418",running,5,6915,42119,41486,633,68187
+Belfast North,1,julieanne corrjohnston,Julie-Anne Corr-Johnston,FALSE,PUP,"2,053",running,5,6915,42119,41486,633,68187
+Belfast North,1,fiona ferguson,Fiona Ferguson,FALSE,PBP,"1,559",running,5,6915,42119,41486,633,68187
+Belfast North,1,mal ohara,Mal O'Hara,FALSE,GP,711,eliminated,5,6915,42119,41486,633,68187
+Belfast North,1,gemma weir,Gemma Weir,FALSE,WP,248,eliminated,5,6915,42119,41486,633,68187
+Belfast North,1,adam millar,Adam Millar,FALSE,IND,66,eliminated,5,6915,42119,41486,633,68187
+Belfast North,2,gerry kelly,Gerry Kelly,TRUE,SF,"6,329",running,5,6915,42119,41486,633,68187
+Belfast North,2,caral nichuilin,Carál Ní Chuilín,TRUE,SF,"5,983",running,5,6915,42119,41486,633,68187
+Belfast North,2,nichola mallon,Nichola Mallon,TRUE,SDLP,"5,573",running,5,6915,42119,41486,633,68187
+Belfast North,2,paula bradley,Paula Bradley,TRUE,DUP,"4,843",running,5,6915,42119,41486,633,68187
+Belfast North,2,william humphrey,William Humphrey,TRUE,DUP,"4,423",running,5,6915,42119,41486,633,68187
+Belfast North,2,nelson mccausland,Nelson McCausland,TRUE,DUP,"4,069",running,5,6915,42119,41486,633,68187
+Belfast North,2,nuala mcallister,Nuala McAllister,FALSE,AP,"3,799",running,5,6915,42119,41486,633,68187
+Belfast North,2,robert foster,Robert Foster,FALSE,UUP,"2,457",running,5,6915,42119,41486,633,68187
+Belfast North,2,julieanne corrjohnston,Julie-Anne Corr-Johnston,FALSE,PUP,"2,103",running,5,6915,42119,41486,633,68187
+Belfast North,2,fiona ferguson,Fiona Ferguson,FALSE,PBP,"1,849",eliminated,5,6915,42119,41486,633,68187
+Belfast North,2,mal ohara,Mal O'Hara,FALSE,GP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,2,gemma weir,Gemma Weir,FALSE,WP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,2,adam millar,Adam Millar,FALSE,IND,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,3,gerry kelly,Gerry Kelly,TRUE,SF,"6,572",running,5,6915,42119,41486,633,68187
+Belfast North,3,caral nichuilin,Carál Ní Chuilín,TRUE,SF,"6,151",running,5,6915,42119,41486,633,68187
+Belfast North,3,nichola mallon,Nichola Mallon,TRUE,SDLP,"6,076",running,5,6915,42119,41486,633,68187
+Belfast North,3,paula bradley,Paula Bradley,TRUE,DUP,"4,865",running,5,6915,42119,41486,633,68187
+Belfast North,3,william humphrey,William Humphrey,TRUE,DUP,"4,429",running,5,6915,42119,41486,633,68187
+Belfast North,3,nelson mccausland,Nelson McCausland,TRUE,DUP,"4,079",running,5,6915,42119,41486,633,68187
+Belfast North,3,nuala mcallister,Nuala McAllister,FALSE,AP,"4,354",running,5,6915,42119,41486,633,68187
+Belfast North,3,robert foster,Robert Foster,FALSE,UUP,"2,517",running,5,6915,42119,41486,633,68187
+Belfast North,3,julieanne corrjohnston,Julie-Anne Corr-Johnston,FALSE,PUP,"2,174",eliminated,5,6915,42119,41486,633,68187
+Belfast North,3,fiona ferguson,Fiona Ferguson,FALSE,PBP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,3,mal ohara,Mal O'Hara,FALSE,GP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,3,gemma weir,Gemma Weir,FALSE,WP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,3,adam millar,Adam Millar,FALSE,IND,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,4,gerry kelly,Gerry Kelly,TRUE,SF,"6,582",running,5,6915,42119,41486,633,68187
+Belfast North,4,caral nichuilin,Carál Ní Chuilín,TRUE,SF,"6,155",running,5,6915,42119,41486,633,68187
+Belfast North,4,nichola mallon,Nichola Mallon,TRUE,SDLP,"6,125",running,5,6915,42119,41486,633,68187
+Belfast North,4,paula bradley,Paula Bradley,TRUE,DUP,"5,236",running,5,6915,42119,41486,633,68187
+Belfast North,4,william humphrey,William Humphrey,TRUE,DUP,"4,937",running,5,6915,42119,41486,633,68187
+Belfast North,4,nelson mccausland,Nelson McCausland,TRUE,DUP,"4,372",running,5,6915,42119,41486,633,68187
+Belfast North,4,nuala mcallister,Nuala McAllister,FALSE,AP,"4,515",running,5,6915,42119,41486,633,68187
+Belfast North,4,robert foster,Robert Foster,FALSE,UUP,"3,141",eliminated,5,6915,42119,41486,633,68187
+Belfast North,4,julieanne corrjohnston,Julie-Anne Corr-Johnston,FALSE,PUP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,4,fiona ferguson,Fiona Ferguson,FALSE,PBP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,4,mal ohara,Mal O'Hara,FALSE,GP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,4,gemma weir,Gemma Weir,FALSE,WP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,4,adam millar,Adam Millar,FALSE,IND,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,5,gerry kelly,Gerry Kelly,TRUE,SF,"6,591",running,5,6915,42119,41486,633,68187
+Belfast North,5,caral nichuilin,Carál Ní Chuilín,TRUE,SF,"6,158",running,5,6915,42119,41486,633,68187
+Belfast North,5,nichola mallon,Nichola Mallon,TRUE,SDLP,"6,662",running,5,6915,42119,41486,633,68187
+Belfast North,5,paula bradley,Paula Bradley,TRUE,DUP,"6,002",running,5,6915,42119,41486,633,68187
+Belfast North,5,william humphrey,William Humphrey,TRUE,DUP,"5,260",running,5,6915,42119,41486,633,68187
+Belfast North,5,nelson mccausland,Nelson McCausland,TRUE,DUP,"4,709",eliminated,5,6915,42119,41486,633,68187
+Belfast North,5,nuala mcallister,Nuala McAllister,FALSE,AP,"5,257",running,5,6915,42119,41486,633,68187
+Belfast North,5,robert foster,Robert Foster,FALSE,UUP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,5,julieanne corrjohnston,Julie-Anne Corr-Johnston,FALSE,PUP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,5,fiona ferguson,Fiona Ferguson,FALSE,PBP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,5,mal ohara,Mal O'Hara,FALSE,GP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,5,gemma weir,Gemma Weir,FALSE,WP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,5,adam millar,Adam Millar,FALSE,IND,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,6,gerry kelly,Gerry Kelly,TRUE,SF,"6,593",running,5,6915,42119,41486,633,68187
+Belfast North,6,caral nichuilin,Carál Ní Chuilín,TRUE,SF,"6,158",running,5,6915,42119,41486,633,68187
+Belfast North,6,nichola mallon,Nichola Mallon,TRUE,SDLP,"6,692",running,5,6915,42119,41486,633,68187
+Belfast North,6,paula bradley,Paula Bradley,TRUE,DUP,"8,458",elected,5,6915,42119,41486,633,68187
+Belfast North,6,william humphrey,William Humphrey,TRUE,DUP,"7,276",elected,5,6915,42119,41486,633,68187
+Belfast North,6,nelson mccausland,Nelson McCausland,TRUE,DUP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,6,nuala mcallister,Nuala McAllister,FALSE,AP,"5,296",running,5,6915,42119,41486,633,68187
+Belfast North,6,robert foster,Robert Foster,FALSE,UUP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,6,julieanne corrjohnston,Julie-Anne Corr-Johnston,FALSE,PUP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,6,fiona ferguson,Fiona Ferguson,FALSE,PBP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,6,mal ohara,Mal O'Hara,FALSE,GP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,6,gemma weir,Gemma Weir,FALSE,WP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,6,adam millar,Adam Millar,FALSE,IND,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,7,gerry kelly,Gerry Kelly,TRUE,SF,"6,595",elected,5,6915,42119,41486,633,68187
+Belfast North,7,caral nichuilin,Carál Ní Chuilín,TRUE,SF,"6,164",elected,5,6915,42119,41486,633,68187
+Belfast North,7,nichola mallon,Nichola Mallon,TRUE,SDLP,"6,806",elected,5,6915,42119,41486,633,68187
+Belfast North,7,paula bradley,Paula Bradley,TRUE,DUP,,elected,5,6915,42119,41486,633,68187
+Belfast North,7,william humphrey,William Humphrey,TRUE,DUP,"7,276",elected,5,6915,42119,41486,633,68187
+Belfast North,7,nelson mccausland,Nelson McCausland,TRUE,DUP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,7,nuala mcallister,Nuala McAllister,FALSE,AP,"5,608",running,5,6915,42119,41486,633,68187
+Belfast North,7,robert foster,Robert Foster,FALSE,UUP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,7,julieanne corrjohnston,Julie-Anne Corr-Johnston,FALSE,PUP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,7,fiona ferguson,Fiona Ferguson,FALSE,PBP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,7,mal ohara,Mal O'Hara,FALSE,GP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,7,gemma weir,Gemma Weir,FALSE,WP,,eliminated,5,6915,42119,41486,633,68187
+Belfast North,7,adam millar,Adam Millar,FALSE,IND,,eliminated,5,6915,42119,41486,633,68187
+Belfast South,1,mairtín o muilleoir,Máirtín Ó Muilleoir,TRUE,SF,"7,610",elected,5,5247,37147,36723,424,68469
+Belfast South,1,claire hanna,Claire Hanna,TRUE,SDLP,"6,559",running,5,5247,37147,36723,424,68469
+Belfast South,1,paula bradshaw,Paula Bradshaw,TRUE,AP,"5,595",running,5,5247,37147,36723,424,68469
+Belfast South,1,christopher stalford,Christopher Stalford,TRUE,DUP,"4,529",running,5,5247,37147,36723,424,68469
+Belfast South,1,emma littlepengelly,Emma Little-Pengelly,TRUE,DUP,"4,446",running,5,5247,37147,36723,424,68469
+Belfast South,1,clare bailey,Clare Bailey,TRUE,GP,"4,247",running,5,5247,37147,36723,424,68469
+Belfast South,1,michael henderson,Michael Henderson,FALSE,UUP,"3,863",running,5,5247,37147,36723,424,68469
+Belfast South,1,emmet mcdonoughbrown,Emmet McDonough-Brown,FALSE,AP,"2,053",running,5,5247,37147,36723,424,68469
+Belfast South,1,naomh gallagher,Naomh Gallagher,FALSE,SDLP,"1,794",running,5,5247,37147,36723,424,68469
+Belfast South,1,padraigin mervyn,Pádraigín Mervyn,FALSE,PBP,760,running,5,5247,37147,36723,424,68469
+Belfast South,1,john hiddleston,John Hiddleston,FALSE,TUV,703,running,5,5247,37147,36723,424,68469
+Belfast South,1,sean burns,Seán Burns,FALSE,CCLA,531,running,5,5247,37147,36723,424,68469
+Belfast South,1,george jabbour,George Jabbour,FALSE,CON,200,running,5,5247,37147,36723,424,68469
+Belfast South,1,lily kerr,Lily Kerr,FALSE,WP,163,running,5,5247,37147,36723,424,68469
+Belfast South,2,mairtín o muilleoir,Máirtín Ó Muilleoir,TRUE,SF,,elected,5,5247,37147,36723,424,68469
+Belfast South,2,claire hanna,Claire Hanna,TRUE,SDLP,"6,756.28",running,5,5247,37147,36723,424,68469
+Belfast South,2,paula bradshaw,Paula Bradshaw,TRUE,AP,"5,632.26",running,5,5247,37147,36723,424,68469
+Belfast South,2,christopher stalford,Christopher Stalford,TRUE,DUP,"4,530.08",running,5,5247,37147,36723,424,68469
+Belfast South,2,emma littlepengelly,Emma Little-Pengelly,TRUE,DUP,"4,446.78",running,5,5247,37147,36723,424,68469
+Belfast South,2,clare bailey,Clare Bailey,TRUE,GP,"4,292.78",running,5,5247,37147,36723,424,68469
+Belfast South,2,michael henderson,Michael Henderson,FALSE,UUP,"3,866",running,5,5247,37147,36723,424,68469
+Belfast South,2,emmet mcdonoughbrown,Emmet McDonough-Brown,FALSE,AP,"2,080.96",running,5,5247,37147,36723,424,68469
+Belfast South,2,naomh gallagher,Naomh Gallagher,FALSE,SDLP,"1,855.86",running,5,5247,37147,36723,424,68469
+Belfast South,2,padraigin mervyn,Pádraigín Mervyn,FALSE,PBP,789.58,running,5,5247,37147,36723,424,68469
+Belfast South,2,john hiddleston,John Hiddleston,FALSE,TUV,703.36,running,5,5247,37147,36723,424,68469
+Belfast South,2,sean burns,Seán Burns,FALSE,CCLA,539.76,running,5,5247,37147,36723,424,68469
+Belfast South,2,george jabbour,George Jabbour,FALSE,CON,200.48,eliminated,5,5247,37147,36723,424,68469
+Belfast South,2,lily kerr,Lily Kerr,FALSE,WP,168.22,eliminated,5,5247,37147,36723,424,68469
+Belfast South,3,mairtín o muilleoir,Máirtín Ó Muilleoir,TRUE,SF,,elected,5,5247,37147,36723,424,68469
+Belfast South,3,claire hanna,Claire Hanna,TRUE,SDLP,"6,788.12",running,5,5247,37147,36723,424,68469
+Belfast South,3,paula bradshaw,Paula Bradshaw,TRUE,AP,"5,672.50",running,5,5247,37147,36723,424,68469
+Belfast South,3,christopher stalford,Christopher Stalford,TRUE,DUP,"4,551.08",running,5,5247,37147,36723,424,68469
+Belfast South,3,emma littlepengelly,Emma Little-Pengelly,TRUE,DUP,"4,468.84",running,5,5247,37147,36723,424,68469
+Belfast South,3,clare bailey,Clare Bailey,TRUE,GP,"4,341.74",running,5,5247,37147,36723,424,68469
+Belfast South,3,michael henderson,Michael Henderson,FALSE,UUP,"3,932.12",running,5,5247,37147,36723,424,68469
+Belfast South,3,emmet mcdonoughbrown,Emmet McDonough-Brown,FALSE,AP,"2,095.38",running,5,5247,37147,36723,424,68469
+Belfast South,3,naomh gallagher,Naomh Gallagher,FALSE,SDLP,"1,865.92",running,5,5247,37147,36723,424,68469
+Belfast South,3,padraigin mervyn,Pádraigín Mervyn,FALSE,PBP,828.72,running,5,5247,37147,36723,424,68469
+Belfast South,3,john hiddleston,John Hiddleston,FALSE,TUV,717.36,running,5,5247,37147,36723,424,68469
+Belfast South,3,sean burns,Seán Burns,FALSE,CCLA,566.42,eliminated,5,5247,37147,36723,424,68469
+Belfast South,3,george jabbour,George Jabbour,FALSE,CON,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,3,lily kerr,Lily Kerr,FALSE,WP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,4,mairtín o muilleoir,Máirtín Ó Muilleoir,TRUE,SF,,elected,5,5247,37147,36723,424,68469
+Belfast South,4,claire hanna,Claire Hanna,TRUE,SDLP,"6,839.56",running,5,5247,37147,36723,424,68469
+Belfast South,4,paula bradshaw,Paula Bradshaw,TRUE,AP,"5,740.40",running,5,5247,37147,36723,424,68469
+Belfast South,4,christopher stalford,Christopher Stalford,TRUE,DUP,"4,554.08",running,5,5247,37147,36723,424,68469
+Belfast South,4,emma littlepengelly,Emma Little-Pengelly,TRUE,DUP,"4,476.84",running,5,5247,37147,36723,424,68469
+Belfast South,4,clare bailey,Clare Bailey,TRUE,GP,"4,523.08",running,5,5247,37147,36723,424,68469
+Belfast South,4,michael henderson,Michael Henderson,FALSE,UUP,"3,955.12",running,5,5247,37147,36723,424,68469
+Belfast South,4,emmet mcdonoughbrown,Emmet McDonough-Brown,FALSE,AP,"2,118.92",running,5,5247,37147,36723,424,68469
+Belfast South,4,naomh gallagher,Naomh Gallagher,FALSE,SDLP,"1,893.42",running,5,5247,37147,36723,424,68469
+Belfast South,4,padraigin mervyn,Pádraigín Mervyn,FALSE,PBP,970.86,eliminated,5,5247,37147,36723,424,68469
+Belfast South,4,john hiddleston,John Hiddleston,FALSE,TUV,724.48,eliminated,5,5247,37147,36723,424,68469
+Belfast South,4,sean burns,Seán Burns,FALSE,CCLA,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,4,george jabbour,George Jabbour,FALSE,CON,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,4,lily kerr,Lily Kerr,FALSE,WP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,5,mairtín o muilleoir,Máirtín Ó Muilleoir,TRUE,SF,,elected,5,5247,37147,36723,424,68469
+Belfast South,5,claire hanna,Claire Hanna,TRUE,SDLP,"6,981.54",running,5,5247,37147,36723,424,68469
+Belfast South,5,paula bradshaw,Paula Bradshaw,TRUE,AP,"5,866.38",running,5,5247,37147,36723,424,68469
+Belfast South,5,christopher stalford,Christopher Stalford,TRUE,DUP,"4,704.08",running,5,5247,37147,36723,424,68469
+Belfast South,5,emma littlepengelly,Emma Little-Pengelly,TRUE,DUP,"4,655.90",running,5,5247,37147,36723,424,68469
+Belfast South,5,clare bailey,Clare Bailey,TRUE,GP,"5,073.96",running,5,5247,37147,36723,424,68469
+Belfast South,5,michael henderson,Michael Henderson,FALSE,UUP,"4,240.20",running,5,5247,37147,36723,424,68469
+Belfast South,5,emmet mcdonoughbrown,Emmet McDonough-Brown,FALSE,AP,"2,185.34",eliminated,5,5247,37147,36723,424,68469
+Belfast South,5,naomh gallagher,Naomh Gallagher,FALSE,SDLP,"1,962.22",eliminated,5,5247,37147,36723,424,68469
+Belfast South,5,padraigin mervyn,Pádraigín Mervyn,FALSE,PBP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,5,john hiddleston,John Hiddleston,FALSE,TUV,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,5,sean burns,Seán Burns,FALSE,CCLA,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,5,george jabbour,George Jabbour,FALSE,CON,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,5,lily kerr,Lily Kerr,FALSE,WP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,6,mairtín o muilleoir,Máirtín Ó Muilleoir,TRUE,SF,,elected,5,5247,37147,36723,424,68469
+Belfast South,6,claire hanna,Claire Hanna,TRUE,SDLP,"8,652.54",elected,5,5247,37147,36723,424,68469
+Belfast South,6,paula bradshaw,Paula Bradshaw,TRUE,AP,"7,690.38",elected,5,5247,37147,36723,424,68469
+Belfast South,6,christopher stalford,Christopher Stalford,TRUE,DUP,"4,715.26",running,5,5247,37147,36723,424,68469
+Belfast South,6,emma littlepengelly,Emma Little-Pengelly,TRUE,DUP,"4,676.26",running,5,5247,37147,36723,424,68469
+Belfast South,6,clare bailey,Clare Bailey,TRUE,GP,"5,450",running,5,5247,37147,36723,424,68469
+Belfast South,6,michael henderson,Michael Henderson,FALSE,UUP,"4,337.80",running,5,5247,37147,36723,424,68469
+Belfast South,6,emmet mcdonoughbrown,Emmet McDonough-Brown,FALSE,AP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,6,naomh gallagher,Naomh Gallagher,FALSE,SDLP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,6,padraigin mervyn,Pádraigín Mervyn,FALSE,PBP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,6,john hiddleston,John Hiddleston,FALSE,TUV,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,6,sean burns,Seán Burns,FALSE,CCLA,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,6,george jabbour,George Jabbour,FALSE,CON,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,6,lily kerr,Lily Kerr,FALSE,WP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,7,mairtín o muilleoir,Máirtín Ó Muilleoir,TRUE,SF,,elected,5,5247,37147,36723,424,68469
+Belfast South,7,claire hanna,Claire Hanna,TRUE,SDLP,,elected,5,5247,37147,36723,424,68469
+Belfast South,7,paula bradshaw,Paula Bradshaw,TRUE,AP,"7,690.38",elected,5,5247,37147,36723,424,68469
+Belfast South,7,christopher stalford,Christopher Stalford,TRUE,DUP,"4,726.26",running,5,5247,37147,36723,424,68469
+Belfast South,7,emma littlepengelly,Emma Little-Pengelly,TRUE,DUP,"4,695.26",running,5,5247,37147,36723,424,68469
+Belfast South,7,clare bailey,Clare Bailey,TRUE,GP,"6,344",running,5,5247,37147,36723,424,68469
+Belfast South,7,michael henderson,Michael Henderson,FALSE,UUP,"4,647.80",running,5,5247,37147,36723,424,68469
+Belfast South,7,emmet mcdonoughbrown,Emmet McDonough-Brown,FALSE,AP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,7,naomh gallagher,Naomh Gallagher,FALSE,SDLP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,7,padraigin mervyn,Pádraigín Mervyn,FALSE,PBP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,7,john hiddleston,John Hiddleston,FALSE,TUV,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,7,sean burns,Seán Burns,FALSE,CCLA,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,7,george jabbour,George Jabbour,FALSE,CON,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,7,lily kerr,Lily Kerr,FALSE,WP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,8,mairtín o muilleoir,Máirtín Ó Muilleoir,TRUE,SF,,elected,5,5247,37147,36723,424,68469
+Belfast South,8,claire hanna,Claire Hanna,TRUE,SDLP,,elected,5,5247,37147,36723,424,68469
+Belfast South,8,paula bradshaw,Paula Bradshaw,TRUE,AP,,elected,5,5247,37147,36723,424,68469
+Belfast South,8,christopher stalford,Christopher Stalford,TRUE,DUP,"4,728.50",running,5,5247,37147,36723,424,68469
+Belfast South,8,emma littlepengelly,Emma Little-Pengelly,TRUE,DUP,"4,703.26",eliminated,5,5247,37147,36723,424,68469
+Belfast South,8,clare bailey,Clare Bailey,TRUE,GP,"6,719.36",running,5,5247,37147,36723,424,68469
+Belfast South,8,michael henderson,Michael Henderson,FALSE,UUP,"4,761.40",running,5,5247,37147,36723,424,68469
+Belfast South,8,emmet mcdonoughbrown,Emmet McDonough-Brown,FALSE,AP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,8,naomh gallagher,Naomh Gallagher,FALSE,SDLP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,8,padraigin mervyn,Pádraigín Mervyn,FALSE,PBP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,8,john hiddleston,John Hiddleston,FALSE,TUV,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,8,sean burns,Seán Burns,FALSE,CCLA,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,8,george jabbour,George Jabbour,FALSE,CON,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,8,lily kerr,Lily Kerr,FALSE,WP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,9,mairtín o muilleoir,Máirtín Ó Muilleoir,TRUE,SF,,elected,5,5247,37147,36723,424,68469
+Belfast South,9,claire hanna,Claire Hanna,TRUE,SDLP,,elected,5,5247,37147,36723,424,68469
+Belfast South,9,paula bradshaw,Paula Bradshaw,TRUE,AP,,elected,5,5247,37147,36723,424,68469
+Belfast South,9,christopher stalford,Christopher Stalford,TRUE,DUP,"8,667.50",elected,5,5247,37147,36723,424,68469
+Belfast South,9,emma littlepengelly,Emma Little-Pengelly,TRUE,DUP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,9,clare bailey,Clare Bailey,TRUE,GP,"6,797.22",elected,5,5247,37147,36723,424,68469
+Belfast South,9,michael henderson,Michael Henderson,FALSE,UUP,"5,255.94",running,5,5247,37147,36723,424,68469
+Belfast South,9,emmet mcdonoughbrown,Emmet McDonough-Brown,FALSE,AP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,9,naomh gallagher,Naomh Gallagher,FALSE,SDLP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,9,padraigin mervyn,Pádraigín Mervyn,FALSE,PBP,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,9,john hiddleston,John Hiddleston,FALSE,TUV,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,9,sean burns,Seán Burns,FALSE,CCLA,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,9,george jabbour,George Jabbour,FALSE,CON,,eliminated,5,5247,37147,36723,424,68469
+Belfast South,9,lily kerr,Lily Kerr,FALSE,WP,,eliminated,5,5247,37147,36723,424,68469
+Belfast West,1,orlaithi flynn,Órlaithí Flynn,FALSE,SF,"6,918",elected,5,5182,36990,36268,722,63993
+Belfast West,1,gerry carroll,Gerry Carroll,TRUE,PBP,"4,903",running,5,5182,36990,36268,722,63993
+Belfast West,1,alex maskey,Alex Maskey,TRUE,SF,"6,346",running,5,5182,36990,36268,722,63993
+Belfast West,1,fra mccann,Fra McCann,TRUE,SF,"6,201",running,5,5182,36990,36268,722,63993
+Belfast West,1,pat sheehan,Pat Sheehan,TRUE,SF,"5,466",running,5,5182,36990,36268,722,63993
+Belfast West,1,frank mccoubrey,Frank McCoubrey,FALSE,DUP,"4,063",running,5,5182,36990,36268,722,63993
+Belfast West,1,alex attwood,Alex Attwood,TRUE,SDLP,"3,452",running,5,5182,36990,36268,722,63993
+Belfast West,1,michael collins,Michael Collins,FALSE,PBP,"1,096",eliminated,5,5182,36990,36268,722,63993
+Belfast West,1,sorcha eastwood,Sorcha Eastwood,FALSE,AP,747,eliminated,5,5182,36990,36268,722,63993
+Belfast West,1,fred rogers,Fred Rogers,FALSE,UUP,486,eliminated,5,5182,36990,36268,722,63993
+Belfast West,1,conor campbell,Conor Campbell,FALSE,WP,415,eliminated,5,5182,36990,36268,722,63993
+Belfast West,1,ellen murray,Ellen Murray,FALSE,GP,251,eliminated,5,5182,36990,36268,722,63993
+Belfast West,2,orlaithi flynn,Órlaithí Flynn,FALSE,SF,,elected,5,5182,36990,36268,722,63993
+Belfast West,2,gerry carroll,Gerry Carroll,TRUE,PBP,"6,514",running,5,5182,36990,36268,722,63993
+Belfast West,2,alex maskey,Alex Maskey,TRUE,SF,"6,451",running,5,5182,36990,36268,722,63993
+Belfast West,2,fra mccann,Fra McCann,TRUE,SF,"6,314",running,5,5182,36990,36268,722,63993
+Belfast West,2,pat sheehan,Pat Sheehan,TRUE,SF,"5,515",running,5,5182,36990,36268,722,63993
+Belfast West,2,frank mccoubrey,Frank McCoubrey,FALSE,DUP,"4,372",running,5,5182,36990,36268,722,63993
+Belfast West,2,alex attwood,Alex Attwood,TRUE,SDLP,"4,019",eliminated,5,5182,36990,36268,722,63993
+Belfast West,2,michael collins,Michael Collins,FALSE,PBP,,eliminated,5,5182,36990,36268,722,63993
+Belfast West,2,sorcha eastwood,Sorcha Eastwood,FALSE,AP,,eliminated,5,5182,36990,36268,722,63993
+Belfast West,2,fred rogers,Fred Rogers,FALSE,UUP,,eliminated,5,5182,36990,36268,722,63993
+Belfast West,2,conor campbell,Conor Campbell,FALSE,WP,,eliminated,5,5182,36990,36268,722,63993
+Belfast West,2,ellen murray,Ellen Murray,FALSE,GP,,eliminated,5,5182,36990,36268,722,63993
+Belfast West,3,orlaithi flynn,Órlaithí Flynn,FALSE,SF,,elected,5,5182,36990,36268,722,63993
+Belfast West,3,gerry carroll,Gerry Carroll,TRUE,PBP,"8,252",elected,5,5182,36990,36268,722,63993
+Belfast West,3,alex maskey,Alex Maskey,TRUE,SF,"7,036",elected,5,5182,36990,36268,722,63993
+Belfast West,3,fra mccann,Fra McCann,TRUE,SF,"6,636",running,5,5182,36990,36268,722,63993
+Belfast West,3,pat sheehan,Pat Sheehan,TRUE,SF,"5,739",running,5,5182,36990,36268,722,63993
+Belfast West,3,frank mccoubrey,Frank McCoubrey,FALSE,DUP,"4,490",running,5,5182,36990,36268,722,63993
+Belfast West,3,alex attwood,Alex Attwood,TRUE,SDLP,,eliminated,5,5182,36990,36268,722,63993
+Belfast West,3,michael collins,Michael Collins,FALSE,PBP,,eliminated,5,5182,36990,36268,722,63993
+Belfast West,3,sorcha eastwood,Sorcha Eastwood,FALSE,AP,,eliminated,5,5182,36990,36268,722,63993
+Belfast West,3,fred rogers,Fred Rogers,FALSE,UUP,,eliminated,5,5182,36990,36268,722,63993
+Belfast West,3,conor campbell,Conor Campbell,FALSE,WP,,eliminated,5,5182,36990,36268,722,63993
+Belfast West,3,ellen murray,Ellen Murray,FALSE,GP,,eliminated,5,5182,36990,36268,722,63993
+Belfast West,4,orlaithi flynn,Órlaithí Flynn,FALSE,SF,,elected,5,5182,36990,36268,722,63993
+Belfast West,4,gerry carroll,Gerry Carroll,TRUE,PBP,,elected,5,5182,36990,36268,722,63993
+Belfast West,4,alex maskey,Alex Maskey,TRUE,SF,"7,036",elected,5,5182,36990,36268,722,63993
+Belfast West,4,fra mccann,Fra McCann,TRUE,SF,"7,067",elected,5,5182,36990,36268,722,63993
+Belfast West,4,pat sheehan,Pat Sheehan,TRUE,SF,"5,903",elected,5,5182,36990,36268,722,63993
+Belfast West,4,frank mccoubrey,Frank McCoubrey,FALSE,DUP,"4,521",running,5,5182,36990,36268,722,63993
+Belfast West,4,alex attwood,Alex Attwood,TRUE,SDLP,,eliminated,5,5182,36990,36268,722,63993
+Belfast West,4,michael collins,Michael Collins,FALSE,PBP,,eliminated,5,5182,36990,36268,722,63993
+Belfast West,4,sorcha eastwood,Sorcha Eastwood,FALSE,AP,,eliminated,5,5182,36990,36268,722,63993
+Belfast West,4,fred rogers,Fred Rogers,FALSE,UUP,,eliminated,5,5182,36990,36268,722,63993
+Belfast West,4,conor campbell,Conor Campbell,FALSE,WP,,eliminated,5,5182,36990,36268,722,63993
+Belfast West,4,ellen murray,Ellen Murray,FALSE,GP,,eliminated,5,5182,36990,36268,722,63993
+East Antrim,1,david hilditch,David Hilditch,TRUE,DUP,"6,000",running,5,6238,37836,37424,412,62933
+East Antrim,1,roy beggsjr,Roy Beggs Jr,TRUE,UUP,"5,121",running,5,6238,37836,37424,412,62933
+East Antrim,1,stewart dickson,Stewart Dickson,TRUE,AP,"4,179",running,5,6238,37836,37424,412,62933
+East Antrim,1,gordon lyons,Gordon Lyons,TRUE,DUP,"3,851",running,5,6238,37836,37424,412,62933
+East Antrim,1,oliver mcmullan,Oliver McMullan,TRUE,SF,"3,701",running,5,6238,37836,37424,412,62933
+East Antrim,1,john stewart,John Stewart,FALSE,UUP,"3,377",running,5,6238,37836,37424,412,62933
+East Antrim,1,stephen ross,Stephen Ross,FALSE,DUP,"3,313",running,5,6238,37836,37424,412,62933
+East Antrim,1,danny donnelly,Danny Donnelly,FALSE,AP,"1,817",running,5,6238,37836,37424,412,62933
+East Antrim,1,ruth wilson,Ruth Wilson,FALSE,TUV,"1,534",running,5,6238,37836,37424,412,62933
+East Antrim,1,noel jordan,Noel Jordan,FALSE,UKIP,"1,579",running,5,6238,37836,37424,412,62933
+East Antrim,1,margaret annemckillop,Margaret Anne McKillop,FALSE,SDLP,"1,524",running,5,6238,37836,37424,412,62933
+East Antrim,1,dawn patterson,Dawn Patterson,FALSE,GP,777,eliminated,5,6238,37836,37424,412,62933
+East Antrim,1,conor sheridan,Conor Sheridan,FALSE,CCLA,393,eliminated,5,6238,37836,37424,412,62933
+East Antrim,1,alan dunlop,Alan Dunlop,FALSE,CON,152,eliminated,5,6238,37836,37424,412,62933
+East Antrim,1,ricky best,Ricky Best,FALSE,IND,106,eliminated,5,6238,37836,37424,412,62933
+East Antrim,2,david hilditch,David Hilditch,TRUE,DUP,"6,037",running,5,6238,37836,37424,412,62933
+East Antrim,2,roy beggsjr,Roy Beggs Jr,TRUE,UUP,"5,272",running,5,6238,37836,37424,412,62933
+East Antrim,2,stewart dickson,Stewart Dickson,TRUE,AP,"4,616",running,5,6238,37836,37424,412,62933
+East Antrim,2,gordon lyons,Gordon Lyons,TRUE,DUP,"3,869",running,5,6238,37836,37424,412,62933
+East Antrim,2,oliver mcmullan,Oliver McMullan,TRUE,SF,"3,750",running,5,6238,37836,37424,412,62933
+East Antrim,2,john stewart,John Stewart,FALSE,UUP,"3,479",running,5,6238,37836,37424,412,62933
+East Antrim,2,stephen ross,Stephen Ross,FALSE,DUP,"3,334",running,5,6238,37836,37424,412,62933
+East Antrim,2,danny donnelly,Danny Donnelly,FALSE,AP,"2,087",running,5,6238,37836,37424,412,62933
+East Antrim,2,ruth wilson,Ruth Wilson,FALSE,TUV,"1,587",eliminated,5,6238,37836,37424,412,62933
+East Antrim,2,noel jordan,Noel Jordan,FALSE,UKIP,"1,653",running,5,6238,37836,37424,412,62933
+East Antrim,2,margaret annemckillop,Margaret Anne McKillop,FALSE,SDLP,"1,633",running,5,6238,37836,37424,412,62933
+East Antrim,2,dawn patterson,Dawn Patterson,FALSE,GP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,2,conor sheridan,Conor Sheridan,FALSE,CCLA,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,2,alan dunlop,Alan Dunlop,FALSE,CON,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,2,ricky best,Ricky Best,FALSE,IND,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,3,david hilditch,David Hilditch,TRUE,DUP,"6,248",elected,5,6238,37836,37424,412,62933
+East Antrim,3,roy beggsjr,Roy Beggs Jr,TRUE,UUP,"5,589",running,5,6238,37836,37424,412,62933
+East Antrim,3,stewart dickson,Stewart Dickson,TRUE,AP,"4,658",running,5,6238,37836,37424,412,62933
+East Antrim,3,gordon lyons,Gordon Lyons,TRUE,DUP,"4,068",running,5,6238,37836,37424,412,62933
+East Antrim,3,oliver mcmullan,Oliver McMullan,TRUE,SF,"3,752",running,5,6238,37836,37424,412,62933
+East Antrim,3,john stewart,John Stewart,FALSE,UUP,"3,709",running,5,6238,37836,37424,412,62933
+East Antrim,3,stephen ross,Stephen Ross,FALSE,DUP,"3,527",running,5,6238,37836,37424,412,62933
+East Antrim,3,danny donnelly,Danny Donnelly,FALSE,AP,"2,105",running,5,6238,37836,37424,412,62933
+East Antrim,3,ruth wilson,Ruth Wilson,FALSE,TUV,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,3,noel jordan,Noel Jordan,FALSE,UKIP,"1,933",running,5,6238,37836,37424,412,62933
+East Antrim,3,margaret annemckillop,Margaret Anne McKillop,FALSE,SDLP,"1,653",eliminated,5,6238,37836,37424,412,62933
+East Antrim,3,dawn patterson,Dawn Patterson,FALSE,GP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,3,conor sheridan,Conor Sheridan,FALSE,CCLA,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,3,alan dunlop,Alan Dunlop,FALSE,CON,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,3,ricky best,Ricky Best,FALSE,IND,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,4,david hilditch,David Hilditch,TRUE,DUP,"6,248",elected,5,6238,37836,37424,412,62933
+East Antrim,4,roy beggsjr,Roy Beggs Jr,TRUE,UUP,"5,714",running,5,6238,37836,37424,412,62933
+East Antrim,4,stewart dickson,Stewart Dickson,TRUE,AP,"5,065",running,5,6238,37836,37424,412,62933
+East Antrim,4,gordon lyons,Gordon Lyons,TRUE,DUP,"4,078",running,5,6238,37836,37424,412,62933
+East Antrim,4,oliver mcmullan,Oliver McMullan,TRUE,SF,"4,278",running,5,6238,37836,37424,412,62933
+East Antrim,4,john stewart,John Stewart,FALSE,UUP,"3,788",running,5,6238,37836,37424,412,62933
+East Antrim,4,stephen ross,Stephen Ross,FALSE,DUP,"3,539",running,5,6238,37836,37424,412,62933
+East Antrim,4,danny donnelly,Danny Donnelly,FALSE,AP,"2,470",running,5,6238,37836,37424,412,62933
+East Antrim,4,ruth wilson,Ruth Wilson,FALSE,TUV,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,4,noel jordan,Noel Jordan,FALSE,UKIP,"1,955",eliminated,5,6238,37836,37424,412,62933
+East Antrim,4,margaret annemckillop,Margaret Anne McKillop,FALSE,SDLP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,4,dawn patterson,Dawn Patterson,FALSE,GP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,4,conor sheridan,Conor Sheridan,FALSE,CCLA,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,4,alan dunlop,Alan Dunlop,FALSE,CON,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,4,ricky best,Ricky Best,FALSE,IND,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,5,david hilditch,David Hilditch,TRUE,DUP,"6,248",elected,5,6238,37836,37424,412,62933
+East Antrim,5,roy beggsjr,Roy Beggs Jr,TRUE,UUP,"6,156",running,5,6238,37836,37424,412,62933
+East Antrim,5,stewart dickson,Stewart Dickson,TRUE,AP,"5,171",running,5,6238,37836,37424,412,62933
+East Antrim,5,gordon lyons,Gordon Lyons,TRUE,DUP,"4,473",running,5,6238,37836,37424,412,62933
+East Antrim,5,oliver mcmullan,Oliver McMullan,TRUE,SF,"4,292",running,5,6238,37836,37424,412,62933
+East Antrim,5,john stewart,John Stewart,FALSE,UUP,"4,131",running,5,6238,37836,37424,412,62933
+East Antrim,5,stephen ross,Stephen Ross,FALSE,DUP,"3,816",running,5,6238,37836,37424,412,62933
+East Antrim,5,danny donnelly,Danny Donnelly,FALSE,AP,"2,515",eliminated,5,6238,37836,37424,412,62933
+East Antrim,5,ruth wilson,Ruth Wilson,FALSE,TUV,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,5,noel jordan,Noel Jordan,FALSE,UKIP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,5,margaret annemckillop,Margaret Anne McKillop,FALSE,SDLP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,5,dawn patterson,Dawn Patterson,FALSE,GP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,5,conor sheridan,Conor Sheridan,FALSE,CCLA,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,5,alan dunlop,Alan Dunlop,FALSE,CON,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,5,ricky best,Ricky Best,FALSE,IND,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,6,david hilditch,David Hilditch,TRUE,DUP,"6,248",elected,5,6238,37836,37424,412,62933
+East Antrim,6,roy beggsjr,Roy Beggs Jr,TRUE,UUP,"6,324",elected,5,6238,37836,37424,412,62933
+East Antrim,6,stewart dickson,Stewart Dickson,TRUE,AP,"6,783",elected,5,6238,37836,37424,412,62933
+East Antrim,6,gordon lyons,Gordon Lyons,TRUE,DUP,"4,490",running,5,6238,37836,37424,412,62933
+East Antrim,6,oliver mcmullan,Oliver McMullan,TRUE,SF,"4,523",running,5,6238,37836,37424,412,62933
+East Antrim,6,john stewart,John Stewart,FALSE,UUP,"4,260",running,5,6238,37836,37424,412,62933
+East Antrim,6,stephen ross,Stephen Ross,FALSE,DUP,"3,825",running,5,6238,37836,37424,412,62933
+East Antrim,6,danny donnelly,Danny Donnelly,FALSE,AP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,6,ruth wilson,Ruth Wilson,FALSE,TUV,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,6,noel jordan,Noel Jordan,FALSE,UKIP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,6,margaret annemckillop,Margaret Anne McKillop,FALSE,SDLP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,6,dawn patterson,Dawn Patterson,FALSE,GP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,6,conor sheridan,Conor Sheridan,FALSE,CCLA,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,6,alan dunlop,Alan Dunlop,FALSE,CON,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,6,ricky best,Ricky Best,FALSE,IND,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,7,david hilditch,David Hilditch,TRUE,DUP,"6,248",elected,5,6238,37836,37424,412,62933
+East Antrim,7,roy beggsjr,Roy Beggs Jr,TRUE,UUP,"6,324",elected,5,6238,37836,37424,412,62933
+East Antrim,7,stewart dickson,Stewart Dickson,TRUE,AP,,elected,5,6238,37836,37424,412,62933
+East Antrim,7,gordon lyons,Gordon Lyons,TRUE,DUP,"4,513.94",running,5,6238,37836,37424,412,62933
+East Antrim,7,oliver mcmullan,Oliver McMullan,TRUE,SF,"4,690.58",running,5,6238,37836,37424,412,62933
+East Antrim,7,john stewart,John Stewart,FALSE,UUP,"4,599.72",running,5,6238,37836,37424,412,62933
+East Antrim,7,stephen ross,Stephen Ross,FALSE,DUP,"3,834.12",eliminated,5,6238,37836,37424,412,62933
+East Antrim,7,danny donnelly,Danny Donnelly,FALSE,AP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,7,ruth wilson,Ruth Wilson,FALSE,TUV,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,7,noel jordan,Noel Jordan,FALSE,UKIP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,7,margaret annemckillop,Margaret Anne McKillop,FALSE,SDLP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,7,dawn patterson,Dawn Patterson,FALSE,GP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,7,conor sheridan,Conor Sheridan,FALSE,CCLA,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,7,alan dunlop,Alan Dunlop,FALSE,CON,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,7,ricky best,Ricky Best,FALSE,IND,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,8,david hilditch,David Hilditch,TRUE,DUP,"6,248",elected,5,6238,37836,37424,412,62933
+East Antrim,8,roy beggsjr,Roy Beggs Jr,TRUE,UUP,"6,324",elected,5,6238,37836,37424,412,62933
+East Antrim,8,stewart dickson,Stewart Dickson,TRUE,AP,,elected,5,6238,37836,37424,412,62933
+East Antrim,8,gordon lyons,Gordon Lyons,TRUE,DUP,"7,553.94",elected,5,6238,37836,37424,412,62933
+East Antrim,8,oliver mcmullan,Oliver McMullan,TRUE,SF,"4,698.58",running,5,6238,37836,37424,412,62933
+East Antrim,8,john stewart,John Stewart,FALSE,UUP,"5,034.99",running,5,6238,37836,37424,412,62933
+East Antrim,8,stephen ross,Stephen Ross,FALSE,DUP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,8,danny donnelly,Danny Donnelly,FALSE,AP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,8,ruth wilson,Ruth Wilson,FALSE,TUV,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,8,noel jordan,Noel Jordan,FALSE,UKIP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,8,margaret annemckillop,Margaret Anne McKillop,FALSE,SDLP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,8,dawn patterson,Dawn Patterson,FALSE,GP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,8,conor sheridan,Conor Sheridan,FALSE,CCLA,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,8,alan dunlop,Alan Dunlop,FALSE,CON,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,8,ricky best,Ricky Best,FALSE,IND,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,9,david hilditch,David Hilditch,TRUE,DUP,"6,248",elected,5,6238,37836,37424,412,62933
+East Antrim,9,roy beggsjr,Roy Beggs Jr,TRUE,UUP,"6,324",elected,5,6238,37836,37424,412,62933
+East Antrim,9,stewart dickson,Stewart Dickson,TRUE,AP,,elected,5,6238,37836,37424,412,62933
+East Antrim,9,gordon lyons,Gordon Lyons,TRUE,DUP,,elected,5,6238,37836,37424,412,62933
+East Antrim,9,oliver mcmullan,Oliver McMullan,TRUE,SF,"4,700.77",running,5,6238,37836,37424,412,62933
+East Antrim,9,john stewart,John Stewart,FALSE,UUP,"6,343.88",elected,5,6238,37836,37424,412,62933
+East Antrim,9,stephen ross,Stephen Ross,FALSE,DUP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,9,danny donnelly,Danny Donnelly,FALSE,AP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,9,ruth wilson,Ruth Wilson,FALSE,TUV,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,9,noel jordan,Noel Jordan,FALSE,UKIP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,9,margaret annemckillop,Margaret Anne McKillop,FALSE,SDLP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,9,dawn patterson,Dawn Patterson,FALSE,GP,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,9,conor sheridan,Conor Sheridan,FALSE,CCLA,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,9,alan dunlop,Alan Dunlop,FALSE,CON,,eliminated,5,6238,37836,37424,412,62933
+East Antrim,9,ricky best,Ricky Best,FALSE,IND,,eliminated,5,6238,37836,37424,412,62933
+East Derry,1,caoimhe archibald,Caoimhe Archibald,TRUE,SF,"5,851",running,5,6979,42248,41873,375,67392
+East Derry,1,maurice bradley,Maurice Bradley,FALSE,DUP,"5,444",running,5,6979,42248,41873,375,67392
+East Derry,1,cathal ohoisin,Cathal Ó hOisín,FALSE,SF,"4,953",running,5,6979,42248,41873,375,67392
+East Derry,1,claire sugden,Claire Sugden,TRUE,INDU,"4,918",running,5,6979,42248,41873,375,67392
+East Derry,1,george robinson,George Robinson,TRUE,DUP,"4,715",running,5,6979,42248,41873,375,67392
+East Derry,1,adrian mcquillan,Adrian McQuillan,TRUE,DUP,"3,881",running,5,6979,42248,41873,375,67392
+East Derry,1,john dallat,John Dallat,FALSE,SDLP,"3,319",running,5,6979,42248,41873,375,67392
+East Derry,1,william mccandless,William McCandless,FALSE,UUP,"2,814",running,5,6979,42248,41873,375,67392
+East Derry,1,chris mccaw,Chris McCaw,FALSE,AP,"1,841",running,5,6979,42248,41873,375,67392
+East Derry,1,gerry mullan,Gerry Mullan,FALSE,INDN,"1,204",running,5,6979,42248,41873,375,67392
+East Derry,1,jordan armstrong,Jordan Armstrong,FALSE,TUV,"1,038",running,5,6979,42248,41873,375,67392
+East Derry,1,russell watton,Russell Watton,FALSE,PUP,879,running,5,6979,42248,41873,375,67392
+East Derry,1,gavin campbell,Gavin Campbell,FALSE,PBP,492,running,5,6979,42248,41873,375,67392
+East Derry,1,anthony flynn,Anthony Flynn,FALSE,GP,305,running,5,6979,42248,41873,375,67392
+East Derry,1,david harding,David Harding,FALSE,CON,219,eliminated,5,6979,42248,41873,375,67392
+East Derry,2,caoimhe archibald,Caoimhe Archibald,TRUE,SF,"5,854",running,5,6979,42248,41873,375,67392
+East Derry,2,maurice bradley,Maurice Bradley,FALSE,DUP,"5,462",running,5,6979,42248,41873,375,67392
+East Derry,2,cathal ohoisin,Cathal Ó hOisín,FALSE,SF,"4,954",running,5,6979,42248,41873,375,67392
+East Derry,2,claire sugden,Claire Sugden,TRUE,INDU,"4,990",running,5,6979,42248,41873,375,67392
+East Derry,2,george robinson,George Robinson,TRUE,DUP,"4,721",running,5,6979,42248,41873,375,67392
+East Derry,2,adrian mcquillan,Adrian McQuillan,TRUE,DUP,"3,887",running,5,6979,42248,41873,375,67392
+East Derry,2,john dallat,John Dallat,FALSE,SDLP,"3,325",running,5,6979,42248,41873,375,67392
+East Derry,2,william mccandless,William McCandless,FALSE,UUP,"2,866",running,5,6979,42248,41873,375,67392
+East Derry,2,chris mccaw,Chris McCaw,FALSE,AP,"1,872",running,5,6979,42248,41873,375,67392
+East Derry,2,gerry mullan,Gerry Mullan,FALSE,INDN,"1,206",running,5,6979,42248,41873,375,67392
+East Derry,2,jordan armstrong,Jordan Armstrong,FALSE,TUV,"1,048",running,5,6979,42248,41873,375,67392
+East Derry,2,russell watton,Russell Watton,FALSE,PUP,882,running,5,6979,42248,41873,375,67392
+East Derry,2,gavin campbell,Gavin Campbell,FALSE,PBP,494,eliminated,5,6979,42248,41873,375,67392
+East Derry,2,anthony flynn,Anthony Flynn,FALSE,GP,310,eliminated,5,6979,42248,41873,375,67392
+East Derry,2,david harding,David Harding,FALSE,CON,,eliminated,5,6979,42248,41873,375,67392
+East Derry,3,caoimhe archibald,Caoimhe Archibald,TRUE,SF,"5,934",running,5,6979,42248,41873,375,67392
+East Derry,3,maurice bradley,Maurice Bradley,FALSE,DUP,"5,473",running,5,6979,42248,41873,375,67392
+East Derry,3,cathal ohoisin,Cathal Ó hOisín,FALSE,SF,"4,979",running,5,6979,42248,41873,375,67392
+East Derry,3,claire sugden,Claire Sugden,TRUE,INDU,"5,102",running,5,6979,42248,41873,375,67392
+East Derry,3,george robinson,George Robinson,TRUE,DUP,"4,730",running,5,6979,42248,41873,375,67392
+East Derry,3,adrian mcquillan,Adrian McQuillan,TRUE,DUP,"3,890",running,5,6979,42248,41873,375,67392
+East Derry,3,john dallat,John Dallat,FALSE,SDLP,"3,440",running,5,6979,42248,41873,375,67392
+East Derry,3,william mccandless,William McCandless,FALSE,UUP,"2,899",running,5,6979,42248,41873,375,67392
+East Derry,3,chris mccaw,Chris McCaw,FALSE,AP,"2,150",running,5,6979,42248,41873,375,67392
+East Derry,3,gerry mullan,Gerry Mullan,FALSE,INDN,"1,290",running,5,6979,42248,41873,375,67392
+East Derry,3,jordan armstrong,Jordan Armstrong,FALSE,TUV,"1,056",running,5,6979,42248,41873,375,67392
+East Derry,3,russell watton,Russell Watton,FALSE,PUP,889,eliminated,5,6979,42248,41873,375,67392
+East Derry,3,gavin campbell,Gavin Campbell,FALSE,PBP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,3,anthony flynn,Anthony Flynn,FALSE,GP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,3,david harding,David Harding,FALSE,CON,,eliminated,5,6979,42248,41873,375,67392
+East Derry,4,caoimhe archibald,Caoimhe Archibald,TRUE,SF,"5,937",running,5,6979,42248,41873,375,67392
+East Derry,4,maurice bradley,Maurice Bradley,FALSE,DUP,"5,832",running,5,6979,42248,41873,375,67392
+East Derry,4,cathal ohoisin,Cathal Ó hOisín,FALSE,SF,"4,979",running,5,6979,42248,41873,375,67392
+East Derry,4,claire sugden,Claire Sugden,TRUE,INDU,"5,278",running,5,6979,42248,41873,375,67392
+East Derry,4,george robinson,George Robinson,TRUE,DUP,"4,781",running,5,6979,42248,41873,375,67392
+East Derry,4,adrian mcquillan,Adrian McQuillan,TRUE,DUP,"3,994",running,5,6979,42248,41873,375,67392
+East Derry,4,john dallat,John Dallat,FALSE,SDLP,"3,443",running,5,6979,42248,41873,375,67392
+East Derry,4,william mccandless,William McCandless,FALSE,UUP,"2,960",running,5,6979,42248,41873,375,67392
+East Derry,4,chris mccaw,Chris McCaw,FALSE,AP,"2,163",running,5,6979,42248,41873,375,67392
+East Derry,4,gerry mullan,Gerry Mullan,FALSE,INDN,"1,297",running,5,6979,42248,41873,375,67392
+East Derry,4,jordan armstrong,Jordan Armstrong,FALSE,TUV,"1,147",eliminated,5,6979,42248,41873,375,67392
+East Derry,4,russell watton,Russell Watton,FALSE,PUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,4,gavin campbell,Gavin Campbell,FALSE,PBP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,4,anthony flynn,Anthony Flynn,FALSE,GP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,4,david harding,David Harding,FALSE,CON,,eliminated,5,6979,42248,41873,375,67392
+East Derry,5,caoimhe archibald,Caoimhe Archibald,TRUE,SF,"5,940",running,5,6979,42248,41873,375,67392
+East Derry,5,maurice bradley,Maurice Bradley,FALSE,DUP,"6,127",running,5,6979,42248,41873,375,67392
+East Derry,5,cathal ohoisin,Cathal Ó hOisín,FALSE,SF,"4,980",running,5,6979,42248,41873,375,67392
+East Derry,5,claire sugden,Claire Sugden,TRUE,INDU,"5,437",running,5,6979,42248,41873,375,67392
+East Derry,5,george robinson,George Robinson,TRUE,DUP,"4,906",running,5,6979,42248,41873,375,67392
+East Derry,5,adrian mcquillan,Adrian McQuillan,TRUE,DUP,"4,135",running,5,6979,42248,41873,375,67392
+East Derry,5,john dallat,John Dallat,FALSE,SDLP,"3,459",running,5,6979,42248,41873,375,67392
+East Derry,5,william mccandless,William McCandless,FALSE,UUP,"3,268",running,5,6979,42248,41873,375,67392
+East Derry,5,chris mccaw,Chris McCaw,FALSE,AP,"2,190",running,5,6979,42248,41873,375,67392
+East Derry,5,gerry mullan,Gerry Mullan,FALSE,INDN,"1,314",eliminated,5,6979,42248,41873,375,67392
+East Derry,5,jordan armstrong,Jordan Armstrong,FALSE,TUV,,eliminated,5,6979,42248,41873,375,67392
+East Derry,5,russell watton,Russell Watton,FALSE,PUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,5,gavin campbell,Gavin Campbell,FALSE,PBP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,5,anthony flynn,Anthony Flynn,FALSE,GP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,5,david harding,David Harding,FALSE,CON,,eliminated,5,6979,42248,41873,375,67392
+East Derry,6,caoimhe archibald,Caoimhe Archibald,TRUE,SF,"6,166",running,5,6979,42248,41873,375,67392
+East Derry,6,maurice bradley,Maurice Bradley,FALSE,DUP,"6,132",running,5,6979,42248,41873,375,67392
+East Derry,6,cathal ohoisin,Cathal Ó hOisín,FALSE,SF,"5,155",running,5,6979,42248,41873,375,67392
+East Derry,6,claire sugden,Claire Sugden,TRUE,INDU,"5,707",running,5,6979,42248,41873,375,67392
+East Derry,6,george robinson,George Robinson,TRUE,DUP,"4,962",running,5,6979,42248,41873,375,67392
+East Derry,6,adrian mcquillan,Adrian McQuillan,TRUE,DUP,"4,142",running,5,6979,42248,41873,375,67392
+East Derry,6,john dallat,John Dallat,FALSE,SDLP,"3,725",running,5,6979,42248,41873,375,67392
+East Derry,6,william mccandless,William McCandless,FALSE,UUP,"3,288",running,5,6979,42248,41873,375,67392
+East Derry,6,chris mccaw,Chris McCaw,FALSE,AP,"2,327",eliminated,5,6979,42248,41873,375,67392
+East Derry,6,gerry mullan,Gerry Mullan,FALSE,INDN,,eliminated,5,6979,42248,41873,375,67392
+East Derry,6,jordan armstrong,Jordan Armstrong,FALSE,TUV,,eliminated,5,6979,42248,41873,375,67392
+East Derry,6,russell watton,Russell Watton,FALSE,PUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,6,gavin campbell,Gavin Campbell,FALSE,PBP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,6,anthony flynn,Anthony Flynn,FALSE,GP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,6,david harding,David Harding,FALSE,CON,,eliminated,5,6979,42248,41873,375,67392
+East Derry,7,caoimhe archibald,Caoimhe Archibald,TRUE,SF,"6,299",running,5,6979,42248,41873,375,67392
+East Derry,7,maurice bradley,Maurice Bradley,FALSE,DUP,"6,171",running,5,6979,42248,41873,375,67392
+East Derry,7,cathal ohoisin,Cathal Ó hOisín,FALSE,SF,"5,196",running,5,6979,42248,41873,375,67392
+East Derry,7,claire sugden,Claire Sugden,TRUE,INDU,"6,561",running,5,6979,42248,41873,375,67392
+East Derry,7,george robinson,George Robinson,TRUE,DUP,"4,993",running,5,6979,42248,41873,375,67392
+East Derry,7,adrian mcquillan,Adrian McQuillan,TRUE,DUP,"4,170",running,5,6979,42248,41873,375,67392
+East Derry,7,john dallat,John Dallat,FALSE,SDLP,"4,366",running,5,6979,42248,41873,375,67392
+East Derry,7,william mccandless,William McCandless,FALSE,UUP,"3,581",eliminated,5,6979,42248,41873,375,67392
+East Derry,7,chris mccaw,Chris McCaw,FALSE,AP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,7,gerry mullan,Gerry Mullan,FALSE,INDN,,eliminated,5,6979,42248,41873,375,67392
+East Derry,7,jordan armstrong,Jordan Armstrong,FALSE,TUV,,eliminated,5,6979,42248,41873,375,67392
+East Derry,7,russell watton,Russell Watton,FALSE,PUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,7,gavin campbell,Gavin Campbell,FALSE,PBP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,7,anthony flynn,Anthony Flynn,FALSE,GP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,7,david harding,David Harding,FALSE,CON,,eliminated,5,6979,42248,41873,375,67392
+East Derry,8,caoimhe archibald,Caoimhe Archibald,TRUE,SF,"6,311",running,5,6979,42248,41873,375,67392
+East Derry,8,maurice bradley,Maurice Bradley,FALSE,DUP,"6,739",running,5,6979,42248,41873,375,67392
+East Derry,8,cathal ohoisin,Cathal Ó hOisín,FALSE,SF,"5,202",running,5,6979,42248,41873,375,67392
+East Derry,8,claire sugden,Claire Sugden,TRUE,INDU,"7,555",elected,5,6979,42248,41873,375,67392
+East Derry,8,george robinson,George Robinson,TRUE,DUP,"5,335",running,5,6979,42248,41873,375,67392
+East Derry,8,adrian mcquillan,Adrian McQuillan,TRUE,DUP,"4,566",eliminated,5,6979,42248,41873,375,67392
+East Derry,8,john dallat,John Dallat,FALSE,SDLP,"5,143",running,5,6979,42248,41873,375,67392
+East Derry,8,william mccandless,William McCandless,FALSE,UUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,8,chris mccaw,Chris McCaw,FALSE,AP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,8,gerry mullan,Gerry Mullan,FALSE,INDN,,eliminated,5,6979,42248,41873,375,67392
+East Derry,8,jordan armstrong,Jordan Armstrong,FALSE,TUV,,eliminated,5,6979,42248,41873,375,67392
+East Derry,8,russell watton,Russell Watton,FALSE,PUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,8,gavin campbell,Gavin Campbell,FALSE,PBP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,8,anthony flynn,Anthony Flynn,FALSE,GP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,8,david harding,David Harding,FALSE,CON,,eliminated,5,6979,42248,41873,375,67392
+East Derry,9,caoimhe archibald,Caoimhe Archibald,TRUE,SF,"6,320",running,5,6979,42248,41873,375,67392
+East Derry,9,maurice bradley,Maurice Bradley,FALSE,DUP,"8,056",elected,5,6979,42248,41873,375,67392
+East Derry,9,cathal ohoisin,Cathal Ó hOisín,FALSE,SF,"5,211",running,5,6979,42248,41873,375,67392
+East Derry,9,claire sugden,Claire Sugden,TRUE,INDU,"7,555",elected,5,6979,42248,41873,375,67392
+East Derry,9,george robinson,George Robinson,TRUE,DUP,"7,801",elected,5,6979,42248,41873,375,67392
+East Derry,9,adrian mcquillan,Adrian McQuillan,TRUE,DUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,9,john dallat,John Dallat,FALSE,SDLP,"5,298",running,5,6979,42248,41873,375,67392
+East Derry,9,william mccandless,William McCandless,FALSE,UUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,9,chris mccaw,Chris McCaw,FALSE,AP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,9,gerry mullan,Gerry Mullan,FALSE,INDN,,eliminated,5,6979,42248,41873,375,67392
+East Derry,9,jordan armstrong,Jordan Armstrong,FALSE,TUV,,eliminated,5,6979,42248,41873,375,67392
+East Derry,9,russell watton,Russell Watton,FALSE,PUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,9,gavin campbell,Gavin Campbell,FALSE,PBP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,9,anthony flynn,Anthony Flynn,FALSE,GP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,9,david harding,David Harding,FALSE,CON,,eliminated,5,6979,42248,41873,375,67392
+East Derry,10,caoimhe archibald,Caoimhe Archibald,TRUE,SF,"6,320",running,5,6979,42248,41873,375,67392
+East Derry,10,maurice bradley,Maurice Bradley,FALSE,DUP,,elected,5,6979,42248,41873,375,67392
+East Derry,10,cathal ohoisin,Cathal Ó hOisín,FALSE,SF,"5,221",running,5,6979,42248,41873,375,67392
+East Derry,10,claire sugden,Claire Sugden,TRUE,INDU,"7,555",elected,5,6979,42248,41873,375,67392
+East Derry,10,george robinson,George Robinson,TRUE,DUP,"7,801",elected,5,6979,42248,41873,375,67392
+East Derry,10,adrian mcquillan,Adrian McQuillan,TRUE,DUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,10,john dallat,John Dallat,FALSE,SDLP,"5,443",running,5,6979,42248,41873,375,67392
+East Derry,10,william mccandless,William McCandless,FALSE,UUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,10,chris mccaw,Chris McCaw,FALSE,AP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,10,gerry mullan,Gerry Mullan,FALSE,INDN,,eliminated,5,6979,42248,41873,375,67392
+East Derry,10,jordan armstrong,Jordan Armstrong,FALSE,TUV,,eliminated,5,6979,42248,41873,375,67392
+East Derry,10,russell watton,Russell Watton,FALSE,PUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,10,gavin campbell,Gavin Campbell,FALSE,PBP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,10,anthony flynn,Anthony Flynn,FALSE,GP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,10,david harding,David Harding,FALSE,CON,,eliminated,5,6979,42248,41873,375,67392
+East Derry,11,caoimhe archibald,Caoimhe Archibald,TRUE,SF,"6,328",running,5,6979,42248,41873,375,67392
+East Derry,11,maurice bradley,Maurice Bradley,FALSE,DUP,,elected,5,6979,42248,41873,375,67392
+East Derry,11,cathal ohoisin,Cathal Ó hOisín,FALSE,SF,"5,236",running,5,6979,42248,41873,375,67392
+East Derry,11,claire sugden,Claire Sugden,TRUE,INDU,,elected,5,6979,42248,41873,375,67392
+East Derry,11,george robinson,George Robinson,TRUE,DUP,"7,801",elected,5,6979,42248,41873,375,67392
+East Derry,11,adrian mcquillan,Adrian McQuillan,TRUE,DUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,11,john dallat,John Dallat,FALSE,SDLP,"5,709",running,5,6979,42248,41873,375,67392
+East Derry,11,william mccandless,William McCandless,FALSE,UUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,11,chris mccaw,Chris McCaw,FALSE,AP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,11,gerry mullan,Gerry Mullan,FALSE,INDN,,eliminated,5,6979,42248,41873,375,67392
+East Derry,11,jordan armstrong,Jordan Armstrong,FALSE,TUV,,eliminated,5,6979,42248,41873,375,67392
+East Derry,11,russell watton,Russell Watton,FALSE,PUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,11,gavin campbell,Gavin Campbell,FALSE,PBP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,11,anthony flynn,Anthony Flynn,FALSE,GP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,11,david harding,David Harding,FALSE,CON,,eliminated,5,6979,42248,41873,375,67392
+East Derry,12,caoimhe archibald,Caoimhe Archibald,TRUE,SF,"6,330",elected,5,6979,42248,41873,375,67392
+East Derry,12,maurice bradley,Maurice Bradley,FALSE,DUP,,elected,5,6979,42248,41873,375,67392
+East Derry,12,cathal ohoisin,Cathal Ó hOisín,FALSE,SF,"5,238",running,5,6979,42248,41873,375,67392
+East Derry,12,claire sugden,Claire Sugden,TRUE,INDU,,elected,5,6979,42248,41873,375,67392
+East Derry,12,george robinson,George Robinson,TRUE,DUP,,elected,5,6979,42248,41873,375,67392
+East Derry,12,adrian mcquillan,Adrian McQuillan,TRUE,DUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,12,john dallat,John Dallat,FALSE,SDLP,"6,091",elected,5,6979,42248,41873,375,67392
+East Derry,12,william mccandless,William McCandless,FALSE,UUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,12,chris mccaw,Chris McCaw,FALSE,AP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,12,gerry mullan,Gerry Mullan,FALSE,INDN,,eliminated,5,6979,42248,41873,375,67392
+East Derry,12,jordan armstrong,Jordan Armstrong,FALSE,TUV,,eliminated,5,6979,42248,41873,375,67392
+East Derry,12,russell watton,Russell Watton,FALSE,PUP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,12,gavin campbell,Gavin Campbell,FALSE,PBP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,12,anthony flynn,Anthony Flynn,FALSE,GP,,eliminated,5,6979,42248,41873,375,67392
+East Derry,12,david harding,David Harding,FALSE,CON,,eliminated,5,6979,42248,41873,375,67392
+Fermanagh and South Tyrone,1,arlene foster,Arlene Foster,TRUE,DUP,"8,479",running,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,1,michelle gildernew,Michelle Gildernew,TRUE,SF,"7,987",running,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,1,jemma dolan,Jemma Dolan,FALSE,SF,"7,767",running,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,1,rosemary barton,Rosemary Barton,TRUE,UUP,"6,060",running,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,1,sean lynch,Seán Lynch,TRUE,SF,"6,254",running,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,1,maurice morrow,Maurice Morrow,TRUE,DUP,"7,102",running,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,1,richie mcphillips,Richie McPhillips,TRUE,SDLP,"5,134",running,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,1,noreen campbell,Noreen Campbell,FALSE,AP,"1,437",eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,1,alex elliott,Alex Elliott,FALSE,TUV,780,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,1,donal ocofaigh,Donal Ó Cófaigh,FALSE,CCLA,643,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,1,tanya jones,Tanya Jones,FALSE,GP,550,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,1,richard dunn,Richard Dunn,FALSE,CON,70,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,2,arlene foster,Arlene Foster,TRUE,DUP,"8,745",elected,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,2,michelle gildernew,Michelle Gildernew,TRUE,SF,"8,228",running,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,2,jemma dolan,Jemma Dolan,FALSE,SF,"8,023",running,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,2,rosemary barton,Rosemary Barton,TRUE,UUP,"6,863",running,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,2,sean lynch,Seán Lynch,TRUE,SF,"6,338",running,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,2,maurice morrow,Maurice Morrow,TRUE,DUP,"7,332",running,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,2,richie mcphillips,Richie McPhillips,TRUE,SDLP,"6,276",eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,2,noreen campbell,Noreen Campbell,FALSE,AP,,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,2,alex elliott,Alex Elliott,FALSE,TUV,,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,2,donal ocofaigh,Donal Ó Cófaigh,FALSE,CCLA,,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,2,tanya jones,Tanya Jones,FALSE,GP,,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,2,richard dunn,Richard Dunn,FALSE,CON,,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,3,arlene foster,Arlene Foster,TRUE,DUP,"8,745",elected,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,3,michelle gildernew,Michelle Gildernew,TRUE,SF,"9,385",elected,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,3,jemma dolan,Jemma Dolan,FALSE,SF,"8,928",elected,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,3,rosemary barton,Rosemary Barton,TRUE,UUP,"8,334",running,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,3,sean lynch,Seán Lynch,TRUE,SF,"7,174",running,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,3,maurice morrow,Maurice Morrow,TRUE,DUP,"7,405",running,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,3,richie mcphillips,Richie McPhillips,TRUE,SDLP,,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,3,noreen campbell,Noreen Campbell,FALSE,AP,,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,3,alex elliott,Alex Elliott,FALSE,TUV,,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,3,donal ocofaigh,Donal Ó Cófaigh,FALSE,CCLA,,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,3,tanya jones,Tanya Jones,FALSE,GP,,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,3,richard dunn,Richard Dunn,FALSE,CON,,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,4,arlene foster,Arlene Foster,TRUE,DUP,"8,745",elected,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,4,michelle gildernew,Michelle Gildernew,TRUE,SF,,elected,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,4,jemma dolan,Jemma Dolan,FALSE,SF,"8,928",elected,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,4,rosemary barton,Rosemary Barton,TRUE,UUP,"8,442",elected,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,4,sean lynch,Seán Lynch,TRUE,SF,"7,717",elected,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,4,maurice morrow,Maurice Morrow,TRUE,DUP,"7,411",running,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,4,richie mcphillips,Richie McPhillips,TRUE,SDLP,,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,4,noreen campbell,Noreen Campbell,FALSE,AP,,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,4,alex elliott,Alex Elliott,FALSE,TUV,,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,4,donal ocofaigh,Donal Ó Cófaigh,FALSE,CCLA,,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,4,tanya jones,Tanya Jones,FALSE,GP,,eliminated,5,8711,53075,52263,812,73100
+Fermanagh and South Tyrone,4,richard dunn,Richard Dunn,FALSE,CON,,eliminated,5,8711,53075,52263,812,73100
+Foyle,1,elisha mccallion,Elisha McCallion,FALSE,SF,"9,205",elected,5,7437,45317,44616,701,69718
+Foyle,1,colum eastwood,Colum Eastwood,TRUE,SDLP,"7,240",running,5,7437,45317,44616,701,69718
+Foyle,1,raymond mccartney,Raymond McCartney,TRUE,SF,"7,145",running,5,7437,45317,44616,701,69718
+Foyle,1,markh durkan,Mark H. Durkan,TRUE,SDLP,"6,948",running,5,7437,45317,44616,701,69718
+Foyle,1,gary middleton,Gary Middleton,TRUE,DUP,"5,975",running,5,7437,45317,44616,701,69718
+Foyle,1,eamonn mccann,Eamonn McCann,TRUE,PBP,"4,760",running,5,7437,45317,44616,701,69718
+Foyle,1,julia kee,Julia Kee,FALSE,UUP,"1,660",running,5,7437,45317,44616,701,69718
+Foyle,1,colm cavanagh,Colm Cavanagh,FALSE,AP,"1,124",running,5,7437,45317,44616,701,69718
+Foyle,1,shannon downey,Shannon Downey,FALSE,GP,242,running,5,7437,45317,44616,701,69718
+Foyle,1,john lindsay,John Lindsay,FALSE,CISTA,196,running,5,7437,45317,44616,701,69718
+Foyle,1,stuart canning,Stuart Canning,FALSE,CON,77,running,5,7437,45317,44616,701,69718
+Foyle,1,arthur mcguinness,Arthur McGuinness,FALSE,IND,44,running,5,7437,45317,44616,701,69718
+Foyle,2,elisha mccallion,Elisha McCallion,FALSE,SF,,elected,5,7437,45317,44616,701,69718
+Foyle,2,colum eastwood,Colum Eastwood,TRUE,SDLP,"7,332.53",running,5,7437,45317,44616,701,69718
+Foyle,2,raymond mccartney,Raymond McCartney,TRUE,SF,"8,608.76",elected,5,7437,45317,44616,701,69718
+Foyle,2,markh durkan,Mark H. Durkan,TRUE,SDLP,"7,023.05",running,5,7437,45317,44616,701,69718
+Foyle,2,gary middleton,Gary Middleton,TRUE,DUP,"5,975",running,5,7437,45317,44616,701,69718
+Foyle,2,eamonn mccann,Eamonn McCann,TRUE,PBP,"4,850.63",running,5,7437,45317,44616,701,69718
+Foyle,2,julia kee,Julia Kee,FALSE,UUP,"1,661.52",running,5,7437,45317,44616,701,69718
+Foyle,2,colm cavanagh,Colm Cavanagh,FALSE,AP,"1,132.93",running,5,7437,45317,44616,701,69718
+Foyle,2,shannon downey,Shannon Downey,FALSE,GP,244.09,running,5,7437,45317,44616,701,69718
+Foyle,2,john lindsay,John Lindsay,FALSE,CISTA,199.61,running,5,7437,45317,44616,701,69718
+Foyle,2,stuart canning,Stuart Canning,FALSE,CON,77.19,running,5,7437,45317,44616,701,69718
+Foyle,2,arthur mcguinness,Arthur McGuinness,FALSE,IND,44.57,running,5,7437,45317,44616,701,69718
+Foyle,3,elisha mccallion,Elisha McCallion,FALSE,SF,,elected,5,7437,45317,44616,701,69718
+Foyle,3,colum eastwood,Colum Eastwood,TRUE,SDLP,"7,595.30",elected,5,7437,45317,44616,701,69718
+Foyle,3,raymond mccartney,Raymond McCartney,TRUE,SF,,elected,5,7437,45317,44616,701,69718
+Foyle,3,markh durkan,Mark H. Durkan,TRUE,SDLP,"7,275.56",running,5,7437,45317,44616,701,69718
+Foyle,3,gary middleton,Gary Middleton,TRUE,DUP,"5,976.71",running,5,7437,45317,44616,701,69718
+Foyle,3,eamonn mccann,Eamonn McCann,TRUE,PBP,"5,086.80",running,5,7437,45317,44616,701,69718
+Foyle,3,julia kee,Julia Kee,FALSE,UUP,"1,668.93",running,5,7437,45317,44616,701,69718
+Foyle,3,colm cavanagh,Colm Cavanagh,FALSE,AP,"1,179.67",running,5,7437,45317,44616,701,69718
+Foyle,3,shannon downey,Shannon Downey,FALSE,GP,264.42,eliminated,5,7437,45317,44616,701,69718
+Foyle,3,john lindsay,John Lindsay,FALSE,CISTA,225.45,eliminated,5,7437,45317,44616,701,69718
+Foyle,3,stuart canning,Stuart Canning,FALSE,CON,78.9,eliminated,5,7437,45317,44616,701,69718
+Foyle,3,arthur mcguinness,Arthur McGuinness,FALSE,IND,56.35,eliminated,5,7437,45317,44616,701,69718
+Foyle,4,elisha mccallion,Elisha McCallion,FALSE,SF,,elected,5,7437,45317,44616,701,69718
+Foyle,4,colum eastwood,Colum Eastwood,TRUE,SDLP,"7,595.30",elected,5,7437,45317,44616,701,69718
+Foyle,4,raymond mccartney,Raymond McCartney,TRUE,SF,,elected,5,7437,45317,44616,701,69718
+Foyle,4,markh durkan,Mark H. Durkan,TRUE,SDLP,"7,380.68",running,5,7437,45317,44616,701,69718
+Foyle,4,gary middleton,Gary Middleton,TRUE,DUP,"6,008.09",running,5,7437,45317,44616,701,69718
+Foyle,4,eamonn mccann,Eamonn McCann,TRUE,PBP,"5,291.63",running,5,7437,45317,44616,701,69718
+Foyle,4,julia kee,Julia Kee,FALSE,UUP,"1,704.50",eliminated,5,7437,45317,44616,701,69718
+Foyle,4,colm cavanagh,Colm Cavanagh,FALSE,AP,"1,295.22",eliminated,5,7437,45317,44616,701,69718
+Foyle,4,shannon downey,Shannon Downey,FALSE,GP,,eliminated,5,7437,45317,44616,701,69718
+Foyle,4,john lindsay,John Lindsay,FALSE,CISTA,,eliminated,5,7437,45317,44616,701,69718
+Foyle,4,stuart canning,Stuart Canning,FALSE,CON,,eliminated,5,7437,45317,44616,701,69718
+Foyle,4,arthur mcguinness,Arthur McGuinness,FALSE,IND,,eliminated,5,7437,45317,44616,701,69718
+Foyle,5,elisha mccallion,Elisha McCallion,FALSE,SF,,elected,5,7437,45317,44616,701,69718
+Foyle,5,colum eastwood,Colum Eastwood,TRUE,SDLP,"7,595.30",elected,5,7437,45317,44616,701,69718
+Foyle,5,raymond mccartney,Raymond McCartney,TRUE,SF,,elected,5,7437,45317,44616,701,69718
+Foyle,5,markh durkan,Mark H. Durkan,TRUE,SDLP,"8,413.68",elected,5,7437,45317,44616,701,69718
+Foyle,5,gary middleton,Gary Middleton,TRUE,DUP,"6,902.37",running,5,7437,45317,44616,701,69718
+Foyle,5,eamonn mccann,Eamonn McCann,TRUE,PBP,"5,922.16",running,5,7437,45317,44616,701,69718
+Foyle,5,julia kee,Julia Kee,FALSE,UUP,,eliminated,5,7437,45317,44616,701,69718
+Foyle,5,colm cavanagh,Colm Cavanagh,FALSE,AP,,eliminated,5,7437,45317,44616,701,69718
+Foyle,5,shannon downey,Shannon Downey,FALSE,GP,,eliminated,5,7437,45317,44616,701,69718
+Foyle,5,john lindsay,John Lindsay,FALSE,CISTA,,eliminated,5,7437,45317,44616,701,69718
+Foyle,5,stuart canning,Stuart Canning,FALSE,CON,,eliminated,5,7437,45317,44616,701,69718
+Foyle,5,arthur mcguinness,Arthur McGuinness,FALSE,IND,,eliminated,5,7437,45317,44616,701,69718
+Foyle,6,elisha mccallion,Elisha McCallion,FALSE,SF,,elected,5,7437,45317,44616,701,69718
+Foyle,6,colum eastwood,Colum Eastwood,TRUE,SDLP,"7,595.30",elected,5,7437,45317,44616,701,69718
+Foyle,6,raymond mccartney,Raymond McCartney,TRUE,SF,,elected,5,7437,45317,44616,701,69718
+Foyle,6,markh durkan,Mark H. Durkan,TRUE,SDLP,,elected,5,7437,45317,44616,701,69718
+Foyle,6,gary middleton,Gary Middleton,TRUE,DUP,"7,036.37",elected,5,7437,45317,44616,701,69718
+Foyle,6,eamonn mccann,Eamonn McCann,TRUE,PBP,"6,373.16",running,5,7437,45317,44616,701,69718
+Foyle,6,julia kee,Julia Kee,FALSE,UUP,,eliminated,5,7437,45317,44616,701,69718
+Foyle,6,colm cavanagh,Colm Cavanagh,FALSE,AP,,eliminated,5,7437,45317,44616,701,69718
+Foyle,6,shannon downey,Shannon Downey,FALSE,GP,,eliminated,5,7437,45317,44616,701,69718
+Foyle,6,john lindsay,John Lindsay,FALSE,CISTA,,eliminated,5,7437,45317,44616,701,69718
+Foyle,6,stuart canning,Stuart Canning,FALSE,CON,,eliminated,5,7437,45317,44616,701,69718
+Foyle,6,arthur mcguinness,Arthur McGuinness,FALSE,IND,,eliminated,5,7437,45317,44616,701,69718
+Lagan Valley,1,paul givan,Paul Givan,TRUE,DUP,"8,035",elected,5,7512,45440,45069,371,72621
+Lagan Valley,1,robbie butler,Robbie Butler,TRUE,UUP,"6,846",running,5,7512,45440,45069,371,72621
+Lagan Valley,1,trevor lunn,Trevor Lunn,TRUE,AP,"6,105",running,5,7512,45440,45069,371,72621
+Lagan Valley,1,edwin poots,Edwin Poots,TRUE,DUP,"6,013",running,5,7512,45440,45069,371,72621
+Lagan Valley,1,brenda hale,Brenda Hale,TRUE,DUP,"4,566",running,5,7512,45440,45069,371,72621
+Lagan Valley,1,jenny palmer,Jenny Palmer,TRUE,UUP,"4,492",running,5,7512,45440,45069,371,72621
+Lagan Valley,1,pat catney,Pat Catney,FALSE,SDLP,"3,795",running,5,7512,45440,45069,371,72621
+Lagan Valley,1,peter doran,Peter Doran,FALSE,SF,"1,801",running,5,7512,45440,45069,371,72621
+Lagan Valley,1,samuel morrison,Samuel Morrison,FALSE,TUV,"1,389",running,5,7512,45440,45069,371,72621
+Lagan Valley,1,dan barriosoneill,Dan Barrios-O'Neill,FALSE,GP,912,running,5,7512,45440,45069,371,72621
+Lagan Valley,1,jonny orr,Jonny Orr,FALSE,IND,856,running,5,7512,45440,45069,371,72621
+Lagan Valley,1,matthew robinson,Matthew Robinson,FALSE,CON,183,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,1,keith gray,Keith Gray,FALSE,IND,76,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,2,paul givan,Paul Givan,TRUE,DUP,"8,035",elected,5,7512,45440,45069,371,72621
+Lagan Valley,2,robbie butler,Robbie Butler,TRUE,UUP,"6,880",running,5,7512,45440,45069,371,72621
+Lagan Valley,2,trevor lunn,Trevor Lunn,TRUE,AP,"6,131",running,5,7512,45440,45069,371,72621
+Lagan Valley,2,edwin poots,Edwin Poots,TRUE,DUP,"6,028",running,5,7512,45440,45069,371,72621
+Lagan Valley,2,brenda hale,Brenda Hale,TRUE,DUP,"4,584",running,5,7512,45440,45069,371,72621
+Lagan Valley,2,jenny palmer,Jenny Palmer,TRUE,UUP,"4,542",running,5,7512,45440,45069,371,72621
+Lagan Valley,2,pat catney,Pat Catney,FALSE,SDLP,"3,800",running,5,7512,45440,45069,371,72621
+Lagan Valley,2,peter doran,Peter Doran,FALSE,SF,"1,803",running,5,7512,45440,45069,371,72621
+Lagan Valley,2,samuel morrison,Samuel Morrison,FALSE,TUV,"1,406",running,5,7512,45440,45069,371,72621
+Lagan Valley,2,dan barriosoneill,Dan Barrios-O'Neill,FALSE,GP,933,running,5,7512,45440,45069,371,72621
+Lagan Valley,2,jonny orr,Jonny Orr,FALSE,IND,909,running,5,7512,45440,45069,371,72621
+Lagan Valley,2,matthew robinson,Matthew Robinson,FALSE,CON,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,2,keith gray,Keith Gray,FALSE,IND,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,3,paul givan,Paul Givan,TRUE,DUP,,elected,5,7512,45440,45069,371,72621
+Lagan Valley,3,robbie butler,Robbie Butler,TRUE,UUP,"6,909.58",running,5,7512,45440,45069,371,72621
+Lagan Valley,3,trevor lunn,Trevor Lunn,TRUE,AP,"6,135.74",running,5,7512,45440,45069,371,72621
+Lagan Valley,3,edwin poots,Edwin Poots,TRUE,DUP,"6,146.92",running,5,7512,45440,45069,371,72621
+Lagan Valley,3,brenda hale,Brenda Hale,TRUE,DUP,"4,890.90",running,5,7512,45440,45069,371,72621
+Lagan Valley,3,jenny palmer,Jenny Palmer,TRUE,UUP,"4,553.46",running,5,7512,45440,45069,371,72621
+Lagan Valley,3,pat catney,Pat Catney,FALSE,SDLP,"3,801.32",running,5,7512,45440,45069,371,72621
+Lagan Valley,3,peter doran,Peter Doran,FALSE,SF,"1,803.06",running,5,7512,45440,45069,371,72621
+Lagan Valley,3,samuel morrison,Samuel Morrison,FALSE,TUV,"1,411.88",running,5,7512,45440,45069,371,72621
+Lagan Valley,3,dan barriosoneill,Dan Barrios-O'Neill,FALSE,GP,933.36,running,5,7512,45440,45069,371,72621
+Lagan Valley,3,jonny orr,Jonny Orr,FALSE,IND,909.72,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,3,matthew robinson,Matthew Robinson,FALSE,CON,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,3,keith gray,Keith Gray,FALSE,IND,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,4,paul givan,Paul Givan,TRUE,DUP,,elected,5,7512,45440,45069,371,72621
+Lagan Valley,4,robbie butler,Robbie Butler,TRUE,UUP,"7,030.64",running,5,7512,45440,45069,371,72621
+Lagan Valley,4,trevor lunn,Trevor Lunn,TRUE,AP,"6,340.80",running,5,7512,45440,45069,371,72621
+Lagan Valley,4,edwin poots,Edwin Poots,TRUE,DUP,"6,167.04",running,5,7512,45440,45069,371,72621
+Lagan Valley,4,brenda hale,Brenda Hale,TRUE,DUP,"4,908.02",running,5,7512,45440,45069,371,72621
+Lagan Valley,4,jenny palmer,Jenny Palmer,TRUE,UUP,"4,672.58",running,5,7512,45440,45069,371,72621
+Lagan Valley,4,pat catney,Pat Catney,FALSE,SDLP,"3,859.38",running,5,7512,45440,45069,371,72621
+Lagan Valley,4,peter doran,Peter Doran,FALSE,SF,"1,829.12",running,5,7512,45440,45069,371,72621
+Lagan Valley,4,samuel morrison,Samuel Morrison,FALSE,TUV,"1,434",running,5,7512,45440,45069,371,72621
+Lagan Valley,4,dan barriosoneill,Dan Barrios-O'Neill,FALSE,GP,"1,217.36",eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,4,jonny orr,Jonny Orr,FALSE,IND,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,4,matthew robinson,Matthew Robinson,FALSE,CON,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,4,keith gray,Keith Gray,FALSE,IND,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,5,paul givan,Paul Givan,TRUE,DUP,,elected,5,7512,45440,45069,371,72621
+Lagan Valley,5,robbie butler,Robbie Butler,TRUE,UUP,"7,130.70",running,5,7512,45440,45069,371,72621
+Lagan Valley,5,trevor lunn,Trevor Lunn,TRUE,AP,"7,018.86",running,5,7512,45440,45069,371,72621
+Lagan Valley,5,edwin poots,Edwin Poots,TRUE,DUP,"6,185.04",running,5,7512,45440,45069,371,72621
+Lagan Valley,5,brenda hale,Brenda Hale,TRUE,DUP,"4,927.14",running,5,7512,45440,45069,371,72621
+Lagan Valley,5,jenny palmer,Jenny Palmer,TRUE,UUP,"4,736.70",running,5,7512,45440,45069,371,72621
+Lagan Valley,5,pat catney,Pat Catney,FALSE,SDLP,"4,021.38",running,5,7512,45440,45069,371,72621
+Lagan Valley,5,peter doran,Peter Doran,FALSE,SF,"1,877.12",eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,5,samuel morrison,Samuel Morrison,FALSE,TUV,"1,448",eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,5,dan barriosoneill,Dan Barrios-O'Neill,FALSE,GP,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,5,jonny orr,Jonny Orr,FALSE,IND,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,5,matthew robinson,Matthew Robinson,FALSE,CON,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,5,keith gray,Keith Gray,FALSE,IND,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,6,paul givan,Paul Givan,TRUE,DUP,,elected,5,7512,45440,45069,371,72621
+Lagan Valley,6,robbie butler,Robbie Butler,TRUE,UUP,"7,462.42",running,5,7512,45440,45069,371,72621
+Lagan Valley,6,trevor lunn,Trevor Lunn,TRUE,AP,"7,392.86",running,5,7512,45440,45069,371,72621
+Lagan Valley,6,edwin poots,Edwin Poots,TRUE,DUP,"6,472.48",running,5,7512,45440,45069,371,72621
+Lagan Valley,6,brenda hale,Brenda Hale,TRUE,DUP,"5,260.84",running,5,7512,45440,45069,371,72621
+Lagan Valley,6,jenny palmer,Jenny Palmer,TRUE,UUP,"5,094.72",eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,6,pat catney,Pat Catney,FALSE,SDLP,"5,383.50",running,5,7512,45440,45069,371,72621
+Lagan Valley,6,peter doran,Peter Doran,FALSE,SF,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,6,samuel morrison,Samuel Morrison,FALSE,TUV,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,6,dan barriosoneill,Dan Barrios-O'Neill,FALSE,GP,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,6,jonny orr,Jonny Orr,FALSE,IND,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,6,matthew robinson,Matthew Robinson,FALSE,CON,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,6,keith gray,Keith Gray,FALSE,IND,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,7,paul givan,Paul Givan,TRUE,DUP,,elected,5,7512,45440,45069,371,72621
+Lagan Valley,7,robbie butler,Robbie Butler,TRUE,UUP,"11,037.42",elected,5,7512,45440,45069,371,72621
+Lagan Valley,7,trevor lunn,Trevor Lunn,TRUE,AP,"7,656.86",elected,5,7512,45440,45069,371,72621
+Lagan Valley,7,edwin poots,Edwin Poots,TRUE,DUP,"6,820.82",running,5,7512,45440,45069,371,72621
+Lagan Valley,7,brenda hale,Brenda Hale,TRUE,DUP,"5,561.70",running,5,7512,45440,45069,371,72621
+Lagan Valley,7,jenny palmer,Jenny Palmer,TRUE,UUP,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,7,pat catney,Pat Catney,FALSE,SDLP,"5,692.92",running,5,7512,45440,45069,371,72621
+Lagan Valley,7,peter doran,Peter Doran,FALSE,SF,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,7,samuel morrison,Samuel Morrison,FALSE,TUV,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,7,dan barriosoneill,Dan Barrios-O'Neill,FALSE,GP,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,7,jonny orr,Jonny Orr,FALSE,IND,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,7,matthew robinson,Matthew Robinson,FALSE,CON,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,7,keith gray,Keith Gray,FALSE,IND,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,8,paul givan,Paul Givan,TRUE,DUP,,elected,5,7512,45440,45069,371,72621
+Lagan Valley,8,robbie butler,Robbie Butler,TRUE,UUP,,elected,5,7512,45440,45069,371,72621
+Lagan Valley,8,trevor lunn,Trevor Lunn,TRUE,AP,"7,656.86",elected,5,7512,45440,45069,371,72621
+Lagan Valley,8,edwin poots,Edwin Poots,TRUE,DUP,"7,401.82",elected,5,7512,45440,45069,371,72621
+Lagan Valley,8,brenda hale,Brenda Hale,TRUE,DUP,"6,415.70",running,5,7512,45440,45069,371,72621
+Lagan Valley,8,jenny palmer,Jenny Palmer,TRUE,UUP,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,8,pat catney,Pat Catney,FALSE,SDLP,"6,848.92",elected,5,7512,45440,45069,371,72621
+Lagan Valley,8,peter doran,Peter Doran,FALSE,SF,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,8,samuel morrison,Samuel Morrison,FALSE,TUV,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,8,dan barriosoneill,Dan Barrios-O'Neill,FALSE,GP,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,8,jonny orr,Jonny Orr,FALSE,IND,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,8,matthew robinson,Matthew Robinson,FALSE,CON,,eliminated,5,7512,45440,45069,371,72621
+Lagan Valley,8,keith gray,Keith Gray,FALSE,IND,,eliminated,5,7512,45440,45069,371,72621
+Mid Ulster,1,michelle oneill,Michelle O'Neill,TRUE,SF,"10,258",elected,5,8280,50853,49678,550,69396
+Mid Ulster,1,keith buchanan,Keith Buchanan,TRUE,DUP,"9,568",elected,5,8280,50853,49678,550,69396
+Mid Ulster,1,ian milne,Ian Milne,TRUE,SF,"8,143",running,5,8280,50853,49678,550,69396
+Mid Ulster,1,linda dillon,Linda Dillon,TRUE,SF,"7,806",running,5,8280,50853,49678,550,69396
+Mid Ulster,1,patsy mcglone,Patsy McGlone,TRUE,SDLP,"6,419",running,5,8280,50853,49678,550,69396
+Mid Ulster,1,sandra overend,Sandra Overend,TRUE,UUP,"4,516",running,5,8280,50853,49678,550,69396
+Mid Ulster,1,hannah loughrin,Hannah Loughrin,FALSE,TUV,"1,244",running,5,8280,50853,49678,550,69396
+Mid Ulster,1,fay watson,Fay Watson,FALSE,AP,"1,017",running,5,8280,50853,49678,550,69396
+Mid Ulster,1,hugh mccloy,Hugh McCloy,FALSE,IND,247,running,5,8280,50853,49678,550,69396
+Mid Ulster,1,stefan taylor,Stefan Taylor,FALSE,GP,243,running,5,8280,50853,49678,550,69396
+Mid Ulster,1,hugh scullion,Hugh Scullion,FALSE,WP,217,running,5,8280,50853,49678,550,69396
+Mid Ulster,2,michelle oneill,Michelle O'Neill,TRUE,SF,,elected,5,8280,50853,49678,550,69396
+Mid Ulster,2,keith buchanan,Keith Buchanan,TRUE,DUP,"9,568",elected,5,8280,50853,49678,550,69396
+Mid Ulster,2,ian milne,Ian Milne,TRUE,SF,"8,553.21",elected,5,8280,50853,49678,550,69396
+Mid Ulster,2,linda dillon,Linda Dillon,TRUE,SF,"9,032.64",elected,5,8280,50853,49678,550,69396
+Mid Ulster,2,patsy mcglone,Patsy McGlone,TRUE,SDLP,"6,683.67",running,5,8280,50853,49678,550,69396
+Mid Ulster,2,sandra overend,Sandra Overend,TRUE,UUP,"4,519.42",running,5,8280,50853,49678,550,69396
+Mid Ulster,2,hannah loughrin,Hannah Loughrin,FALSE,TUV,"1,245.90",running,5,8280,50853,49678,550,69396
+Mid Ulster,2,fay watson,Fay Watson,FALSE,AP,"1,030.11",running,5,8280,50853,49678,550,69396
+Mid Ulster,2,hugh mccloy,Hugh McCloy,FALSE,IND,253.84,running,5,8280,50853,49678,550,69396
+Mid Ulster,2,stefan taylor,Stefan Taylor,FALSE,GP,246.04,running,5,8280,50853,49678,550,69396
+Mid Ulster,2,hugh scullion,Hugh Scullion,FALSE,WP,221.37,running,5,8280,50853,49678,550,69396
+Mid Ulster,3,michelle oneill,Michelle O'Neill,TRUE,SF,,elected,5,8280,50853,49678,550,69396
+Mid Ulster,3,keith buchanan,Keith Buchanan,TRUE,DUP,,elected,5,8280,50853,49678,550,69396
+Mid Ulster,3,ian milne,Ian Milne,TRUE,SF,"8,553.21",elected,5,8280,50853,49678,550,69396
+Mid Ulster,3,linda dillon,Linda Dillon,TRUE,SF,"9,032.64",elected,5,8280,50853,49678,550,69396
+Mid Ulster,3,patsy mcglone,Patsy McGlone,TRUE,SDLP,"6,699.01",running,5,8280,50853,49678,550,69396
+Mid Ulster,3,sandra overend,Sandra Overend,TRUE,UUP,"5,260.03",running,5,8280,50853,49678,550,69396
+Mid Ulster,3,hannah loughrin,Hannah Loughrin,FALSE,TUV,"1,692.84",eliminated,5,8280,50853,49678,550,69396
+Mid Ulster,3,fay watson,Fay Watson,FALSE,AP,"1,036.61",eliminated,5,8280,50853,49678,550,69396
+Mid Ulster,3,hugh mccloy,Hugh McCloy,FALSE,IND,256.96,eliminated,5,8280,50853,49678,550,69396
+Mid Ulster,3,stefan taylor,Stefan Taylor,FALSE,GP,247.73,eliminated,5,8280,50853,49678,550,69396
+Mid Ulster,3,hugh scullion,Hugh Scullion,FALSE,WP,222.15,eliminated,5,8280,50853,49678,550,69396
+Mid Ulster,4,michelle oneill,Michelle O'Neill,TRUE,SF,,elected,5,8280,50853,49678,550,69396
+Mid Ulster,4,keith buchanan,Keith Buchanan,TRUE,DUP,,elected,5,8280,50853,49678,550,69396
+Mid Ulster,4,ian milne,Ian Milne,TRUE,SF,"8,553.21",elected,5,8280,50853,49678,550,69396
+Mid Ulster,4,linda dillon,Linda Dillon,TRUE,SF,"9,032.64",elected,5,8280,50853,49678,550,69396
+Mid Ulster,4,patsy mcglone,Patsy McGlone,TRUE,SDLP,"7,732.97",elected,5,8280,50853,49678,550,69396
+Mid Ulster,4,sandra overend,Sandra Overend,TRUE,UUP,"7,052.41",running,5,8280,50853,49678,550,69396
+Mid Ulster,4,hannah loughrin,Hannah Loughrin,FALSE,TUV,,eliminated,5,8280,50853,49678,550,69396
+Mid Ulster,4,fay watson,Fay Watson,FALSE,AP,,eliminated,5,8280,50853,49678,550,69396
+Mid Ulster,4,hugh mccloy,Hugh McCloy,FALSE,IND,,eliminated,5,8280,50853,49678,550,69396
+Mid Ulster,4,stefan taylor,Stefan Taylor,FALSE,GP,,eliminated,5,8280,50853,49678,550,69396
+Mid Ulster,4,hugh scullion,Hugh Scullion,FALSE,WP,,eliminated,5,8280,50853,49678,550,69396
+Newry and Armagh,1,william irwin,William Irwin,TRUE,DUP,"9,760",elected,5,9154,55625,54918,707,80140
+Newry and Armagh,1,cathal boylan,Cathal Boylan,TRUE,SF,"9,197",elected,5,9154,55625,54918,707,80140
+Newry and Armagh,1,justin mcnulty,Justin McNulty,TRUE,SDLP,"8,983",running,5,9154,55625,54918,707,80140
+Newry and Armagh,1,megan fearon,Megan Fearon,TRUE,SF,"8,881",running,5,9154,55625,54918,707,80140
+Newry and Armagh,1,conor murphy,Conor Murphy,TRUE,SF,"8,454",running,5,9154,55625,54918,707,80140
+Newry and Armagh,1,danny kennedy,Danny Kennedy,TRUE,UUP,"7,256",running,5,9154,55625,54918,707,80140
+Newry and Armagh,1,jackie coade,Jackie Coade,FALSE,AP,"1,418",eliminated,5,9154,55625,54918,707,80140
+Newry and Armagh,1,emmet crossan,Emmet Crossan,FALSE,CISTA,704,eliminated,5,9154,55625,54918,707,80140
+Newry and Armagh,1,rowan tunnicliffe,Rowan Tunnicliffe,FALSE,GP,265,eliminated,5,9154,55625,54918,707,80140
+Newry and Armagh,2,william irwin,William Irwin,TRUE,DUP,"9,760",elected,5,9154,55625,54918,707,80140
+Newry and Armagh,2,cathal boylan,Cathal Boylan,TRUE,SF,"9,197",elected,5,9154,55625,54918,707,80140
+Newry and Armagh,2,justin mcnulty,Justin McNulty,TRUE,SDLP,"10,085",elected,5,9154,55625,54918,707,80140
+Newry and Armagh,2,megan fearon,Megan Fearon,TRUE,SF,"9,175",elected,5,9154,55625,54918,707,80140
+Newry and Armagh,2,conor murphy,Conor Murphy,TRUE,SF,"8,681",running,5,9154,55625,54918,707,80140
+Newry and Armagh,2,danny kennedy,Danny Kennedy,TRUE,UUP,"7,675",running,5,9154,55625,54918,707,80140
+Newry and Armagh,2,jackie coade,Jackie Coade,FALSE,AP,,eliminated,5,9154,55625,54918,707,80140
+Newry and Armagh,2,emmet crossan,Emmet Crossan,FALSE,CISTA,,eliminated,5,9154,55625,54918,707,80140
+Newry and Armagh,2,rowan tunnicliffe,Rowan Tunnicliffe,FALSE,GP,,eliminated,5,9154,55625,54918,707,80140
+Newry and Armagh,3,william irwin,William Irwin,TRUE,DUP,"9,760",elected,5,9154,55625,54918,707,80140
+Newry and Armagh,3,cathal boylan,Cathal Boylan,TRUE,SF,"9,197",elected,5,9154,55625,54918,707,80140
+Newry and Armagh,3,justin mcnulty,Justin McNulty,TRUE,SDLP,,elected,5,9154,55625,54918,707,80140
+Newry and Armagh,3,megan fearon,Megan Fearon,TRUE,SF,"9,175",elected,5,9154,55625,54918,707,80140
+Newry and Armagh,3,conor murphy,Conor Murphy,TRUE,SF,"9,018",elected,5,9154,55625,54918,707,80140
+Newry and Armagh,3,danny kennedy,Danny Kennedy,TRUE,UUP,"7,939",running,5,9154,55625,54918,707,80140
+Newry and Armagh,3,jackie coade,Jackie Coade,FALSE,AP,,eliminated,5,9154,55625,54918,707,80140
+Newry and Armagh,3,emmet crossan,Emmet Crossan,FALSE,CISTA,,eliminated,5,9154,55625,54918,707,80140
+Newry and Armagh,3,rowan tunnicliffe,Rowan Tunnicliffe,FALSE,GP,,eliminated,5,9154,55625,54918,707,80140
+North Antrim,1,philip mcguigan,Philip McGuigan,FALSE,SF,"7,600",running,5,8016,48518,48094,424,76739
+North Antrim,1,robin swann,Robin Swann,TRUE,UUP,"6,022",running,5,8016,48518,48094,424,76739
+North Antrim,1,jim allister,Jim Allister,TRUE,TUV,"6,214",running,5,8016,48518,48094,424,76739
+North Antrim,1,paul frew,Paul Frew,TRUE,DUP,"6,975",running,5,8016,48518,48094,424,76739
+North Antrim,1,mervyn storey,Mervyn Storey,TRUE,DUP,"6,857",running,5,8016,48518,48094,424,76739
+North Antrim,1,phillip logan,Phillip Logan,TRUE,DUP,"5,708",running,5,8016,48518,48094,424,76739
+North Antrim,1,connor duncan,Connor Duncan,FALSE,SDLP,"3,519",running,5,8016,48518,48094,424,76739
+North Antrim,1,patricia o'ynn,Patricia O'Lynn,FALSE,AP,"2,616",running,5,8016,48518,48094,424,76739
+North Antrim,1,timothy gaston,Timothy Gaston,FALSE,TUV,"1,505",running,5,8016,48518,48094,424,76739
+North Antrim,1,mark bailey,Mark Bailey,FALSE,GP,530,running,5,8016,48518,48094,424,76739
+North Antrim,1,monica digney,Monica Digney,FALSE,INDN,435,running,5,8016,48518,48094,424,76739
+North Antrim,1,adam mcbride,Adam McBride,FALSE,IND,113,eliminated,5,8016,48518,48094,424,76739
+North Antrim,2,philip mcguigan,Philip McGuigan,FALSE,SF,"7,601",running,5,8016,48518,48094,424,76739
+North Antrim,2,robin swann,Robin Swann,TRUE,UUP,"6,032",running,5,8016,48518,48094,424,76739
+North Antrim,2,jim allister,Jim Allister,TRUE,TUV,"6,215",running,5,8016,48518,48094,424,76739
+North Antrim,2,paul frew,Paul Frew,TRUE,DUP,"6,977",running,5,8016,48518,48094,424,76739
+North Antrim,2,mervyn storey,Mervyn Storey,TRUE,DUP,"6,863",running,5,8016,48518,48094,424,76739
+North Antrim,2,phillip logan,Phillip Logan,TRUE,DUP,"5,709",running,5,8016,48518,48094,424,76739
+North Antrim,2,connor duncan,Connor Duncan,FALSE,SDLP,"3,527",running,5,8016,48518,48094,424,76739
+North Antrim,2,patricia o'ynn,Patricia O'Lynn,FALSE,AP,"2,655",running,5,8016,48518,48094,424,76739
+North Antrim,2,timothy gaston,Timothy Gaston,FALSE,TUV,"1,506",running,5,8016,48518,48094,424,76739
+North Antrim,2,mark bailey,Mark Bailey,FALSE,GP,547,running,5,8016,48518,48094,424,76739
+North Antrim,2,monica digney,Monica Digney,FALSE,INDN,454,eliminated,5,8016,48518,48094,424,76739
+North Antrim,2,adam mcbride,Adam McBride,FALSE,IND,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,3,philip mcguigan,Philip McGuigan,FALSE,SF,"7,729",running,5,8016,48518,48094,424,76739
+North Antrim,3,robin swann,Robin Swann,TRUE,UUP,"6,049",running,5,8016,48518,48094,424,76739
+North Antrim,3,jim allister,Jim Allister,TRUE,TUV,"6,229",running,5,8016,48518,48094,424,76739
+North Antrim,3,paul frew,Paul Frew,TRUE,DUP,"6,984",running,5,8016,48518,48094,424,76739
+North Antrim,3,mervyn storey,Mervyn Storey,TRUE,DUP,"6,868",running,5,8016,48518,48094,424,76739
+North Antrim,3,phillip logan,Phillip Logan,TRUE,DUP,"5,711",running,5,8016,48518,48094,424,76739
+North Antrim,3,connor duncan,Connor Duncan,FALSE,SDLP,"3,665",running,5,8016,48518,48094,424,76739
+North Antrim,3,patricia o'ynn,Patricia O'Lynn,FALSE,AP,"2,721",running,5,8016,48518,48094,424,76739
+North Antrim,3,timothy gaston,Timothy Gaston,FALSE,TUV,"1,509",eliminated,5,8016,48518,48094,424,76739
+North Antrim,3,mark bailey,Mark Bailey,FALSE,GP,580,eliminated,5,8016,48518,48094,424,76739
+North Antrim,3,monica digney,Monica Digney,FALSE,INDN,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,3,adam mcbride,Adam McBride,FALSE,IND,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,4,philip mcguigan,Philip McGuigan,FALSE,SF,"7,769",running,5,8016,48518,48094,424,76739
+North Antrim,4,robin swann,Robin Swann,TRUE,UUP,"6,127",running,5,8016,48518,48094,424,76739
+North Antrim,4,jim allister,Jim Allister,TRUE,TUV,"7,564",running,5,8016,48518,48094,424,76739
+North Antrim,4,paul frew,Paul Frew,TRUE,DUP,"7,055",running,5,8016,48518,48094,424,76739
+North Antrim,4,mervyn storey,Mervyn Storey,TRUE,DUP,"6,896",running,5,8016,48518,48094,424,76739
+North Antrim,4,phillip logan,Phillip Logan,TRUE,DUP,"5,776",running,5,8016,48518,48094,424,76739
+North Antrim,4,connor duncan,Connor Duncan,FALSE,SDLP,"3,759",running,5,8016,48518,48094,424,76739
+North Antrim,4,patricia o'ynn,Patricia O'Lynn,FALSE,AP,"3,030",eliminated,5,8016,48518,48094,424,76739
+North Antrim,4,timothy gaston,Timothy Gaston,FALSE,TUV,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,4,mark bailey,Mark Bailey,FALSE,GP,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,4,monica digney,Monica Digney,FALSE,INDN,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,4,adam mcbride,Adam McBride,FALSE,IND,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,5,philip mcguigan,Philip McGuigan,FALSE,SF,"7,960",running,5,8016,48518,48094,424,76739
+North Antrim,5,robin swann,Robin Swann,TRUE,UUP,"6,966",running,5,8016,48518,48094,424,76739
+North Antrim,5,jim allister,Jim Allister,TRUE,TUV,"7,679",running,5,8016,48518,48094,424,76739
+North Antrim,5,paul frew,Paul Frew,TRUE,DUP,"7,135",running,5,8016,48518,48094,424,76739
+North Antrim,5,mervyn storey,Mervyn Storey,TRUE,DUP,"6,965",running,5,8016,48518,48094,424,76739
+North Antrim,5,phillip logan,Phillip Logan,TRUE,DUP,"5,810",running,5,8016,48518,48094,424,76739
+North Antrim,5,connor duncan,Connor Duncan,FALSE,SDLP,"4,992",eliminated,5,8016,48518,48094,424,76739
+North Antrim,5,patricia o'ynn,Patricia O'Lynn,FALSE,AP,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,5,timothy gaston,Timothy Gaston,FALSE,TUV,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,5,mark bailey,Mark Bailey,FALSE,GP,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,5,monica digney,Monica Digney,FALSE,INDN,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,5,adam mcbride,Adam McBride,FALSE,IND,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,6,philip mcguigan,Philip McGuigan,FALSE,SF,"9,780",elected,5,8016,48518,48094,424,76739
+North Antrim,6,robin swann,Robin Swann,TRUE,UUP,"8,413",elected,5,8016,48518,48094,424,76739
+North Antrim,6,jim allister,Jim Allister,TRUE,TUV,"7,834",running,5,8016,48518,48094,424,76739
+North Antrim,6,paul frew,Paul Frew,TRUE,DUP,"7,199",running,5,8016,48518,48094,424,76739
+North Antrim,6,mervyn storey,Mervyn Storey,TRUE,DUP,"7,013",running,5,8016,48518,48094,424,76739
+North Antrim,6,phillip logan,Phillip Logan,TRUE,DUP,"5,840",running,5,8016,48518,48094,424,76739
+North Antrim,6,connor duncan,Connor Duncan,FALSE,SDLP,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,6,patricia o'ynn,Patricia O'Lynn,FALSE,AP,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,6,timothy gaston,Timothy Gaston,FALSE,TUV,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,6,mark bailey,Mark Bailey,FALSE,GP,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,6,monica digney,Monica Digney,FALSE,INDN,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,6,adam mcbride,Adam McBride,FALSE,IND,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,7,philip mcguigan,Philip McGuigan,FALSE,SF,,elected,5,8016,48518,48094,424,76739
+North Antrim,7,robin swann,Robin Swann,TRUE,UUP,"8,413",elected,5,8016,48518,48094,424,76739
+North Antrim,7,jim allister,Jim Allister,TRUE,TUV,"7,989",elected,5,8016,48518,48094,424,76739
+North Antrim,7,paul frew,Paul Frew,TRUE,DUP,"7,231",elected,5,8016,48518,48094,424,76739
+North Antrim,7,mervyn storey,Mervyn Storey,TRUE,DUP,"7,066",elected,5,8016,48518,48094,424,76739
+North Antrim,7,phillip logan,Phillip Logan,TRUE,DUP,"5,860",running,5,8016,48518,48094,424,76739
+North Antrim,7,connor duncan,Connor Duncan,FALSE,SDLP,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,7,patricia o'ynn,Patricia O'Lynn,FALSE,AP,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,7,timothy gaston,Timothy Gaston,FALSE,TUV,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,7,mark bailey,Mark Bailey,FALSE,GP,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,7,monica digney,Monica Digney,FALSE,INDN,,eliminated,5,8016,48518,48094,424,76739
+North Antrim,7,adam mcbride,Adam McBride,FALSE,IND,,eliminated,5,8016,48518,48094,424,76739
+North Down,1,alex easton,Alex Easton,TRUE,DUP,"8,034",elected,5,6290,38174,37739,435,64461
+North Down,1,alan chambers,Alan Chambers,TRUE,UUP,"7,151",elected,5,6290,38174,37739,435,64461
+North Down,1,stephen farry,Stephen Farry,TRUE,AP,"7,014",elected,5,6290,38174,37739,435,64461
+North Down,1,gordon dunne,Gordon Dunne,TRUE,DUP,"6,118",running,5,6290,38174,37739,435,64461
+North Down,1,steven agnew,Steven Agnew,TRUE,GP,"5,178",running,5,6290,38174,37739,435,64461
+North Down,1,william cudworth,William Cudworth,FALSE,UUP,964,running,5,6290,38174,37739,435,64461
+North Down,1,melanie kennedy,Melanie Kennedy,FALSE,IND,"1,246",running,5,6290,38174,37739,435,64461
+North Down,1,caoímhe mcneill,Caoímhe McNeill,FALSE,SDLP,679,running,5,6290,38174,37739,435,64461
+North Down,1,frank shivers,Frank Shivers,FALSE,CON,641,running,5,6290,38174,37739,435,64461
+North Down,1,kieran maxwell,Kieran Maxwell,FALSE,SF,591,running,5,6290,38174,37739,435,64461
+North Down,1,chris carter,Chris Carter,FALSE,IND,92,running,5,6290,38174,37739,435,64461
+North Down,1,gavan reynolds,Gavan Reynolds,FALSE,IND,31,running,5,6290,38174,37739,435,64461
+North Down,2,alex easton,Alex Easton,TRUE,DUP,,elected,5,6290,38174,37739,435,64461
+North Down,2,alan chambers,Alan Chambers,TRUE,UUP,"7,151",elected,5,6290,38174,37739,435,64461
+North Down,2,stephen farry,Stephen Farry,TRUE,AP,"7,014",elected,5,6290,38174,37739,435,64461
+North Down,2,gordon dunne,Gordon Dunne,TRUE,DUP,"7,678.68",elected,5,6290,38174,37739,435,64461
+North Down,2,steven agnew,Steven Agnew,TRUE,GP,"5,220.24",running,5,6290,38174,37739,435,64461
+North Down,2,william cudworth,William Cudworth,FALSE,UUP,"1,029.12",running,5,6290,38174,37739,435,64461
+North Down,2,melanie kennedy,Melanie Kennedy,FALSE,IND,"1,285.82",running,5,6290,38174,37739,435,64461
+North Down,2,caoímhe mcneill,Caoímhe McNeill,FALSE,SDLP,681.86,running,5,6290,38174,37739,435,64461
+North Down,2,frank shivers,Frank Shivers,FALSE,CON,654.2,running,5,6290,38174,37739,435,64461
+North Down,2,kieran maxwell,Kieran Maxwell,FALSE,SF,591.22,running,5,6290,38174,37739,435,64461
+North Down,2,chris carter,Chris Carter,FALSE,IND,94.2,running,5,6290,38174,37739,435,64461
+North Down,2,gavan reynolds,Gavan Reynolds,FALSE,IND,32.54,running,5,6290,38174,37739,435,64461
+North Down,3,alex easton,Alex Easton,TRUE,DUP,,elected,5,6290,38174,37739,435,64461
+North Down,3,alan chambers,Alan Chambers,TRUE,UUP,"7,151",elected,5,6290,38174,37739,435,64461
+North Down,3,stephen farry,Stephen Farry,TRUE,AP,"7,014",elected,5,6290,38174,37739,435,64461
+North Down,3,gordon dunne,Gordon Dunne,TRUE,DUP,,elected,5,6290,38174,37739,435,64461
+North Down,3,steven agnew,Steven Agnew,TRUE,GP,"5,320.78",running,5,6290,38174,37739,435,64461
+North Down,3,william cudworth,William Cudworth,FALSE,UUP,"1,881.62",running,5,6290,38174,37739,435,64461
+North Down,3,melanie kennedy,Melanie Kennedy,FALSE,IND,"1,371.62",running,5,6290,38174,37739,435,64461
+North Down,3,caoímhe mcneill,Caoímhe McNeill,FALSE,SDLP,686.26,running,5,6290,38174,37739,435,64461
+North Down,3,frank shivers,Frank Shivers,FALSE,CON,740.66,running,5,6290,38174,37739,435,64461
+North Down,3,kieran maxwell,Kieran Maxwell,FALSE,SF,591.88,running,5,6290,38174,37739,435,64461
+North Down,3,chris carter,Chris Carter,FALSE,IND,115.98,running,5,6290,38174,37739,435,64461
+North Down,3,gavan reynolds,Gavan Reynolds,FALSE,IND,37.38,running,5,6290,38174,37739,435,64461
+North Down,4,alex easton,Alex Easton,TRUE,DUP,,elected,5,6290,38174,37739,435,64461
+North Down,4,alan chambers,Alan Chambers,TRUE,UUP,,elected,5,6290,38174,37739,435,64461
+North Down,4,stephen farry,Stephen Farry,TRUE,AP,"7,014",elected,5,6290,38174,37739,435,64461
+North Down,4,gordon dunne,Gordon Dunne,TRUE,DUP,,elected,5,6290,38174,37739,435,64461
+North Down,4,steven agnew,Steven Agnew,TRUE,GP,"5,388.22",running,5,6290,38174,37739,435,64461
+North Down,4,william cudworth,William Cudworth,FALSE,UUP,"2,585.30",running,5,6290,38174,37739,435,64461
+North Down,4,melanie kennedy,Melanie Kennedy,FALSE,IND,"1,389.86",running,5,6290,38174,37739,435,64461
+North Down,4,caoímhe mcneill,Caoímhe McNeill,FALSE,SDLP,707.14,running,5,6290,38174,37739,435,64461
+North Down,4,frank shivers,Frank Shivers,FALSE,CON,756.14,running,5,6290,38174,37739,435,64461
+North Down,4,kieran maxwell,Kieran Maxwell,FALSE,SF,592.6,running,5,6290,38174,37739,435,64461
+North Down,4,chris carter,Chris Carter,FALSE,IND,119.1,running,5,6290,38174,37739,435,64461
+North Down,4,gavan reynolds,Gavan Reynolds,FALSE,IND,38.34,running,5,6290,38174,37739,435,64461
+North Down,5,alex easton,Alex Easton,TRUE,DUP,,elected,5,6290,38174,37739,435,64461
+North Down,5,alan chambers,Alan Chambers,TRUE,UUP,,elected,5,6290,38174,37739,435,64461
+North Down,5,stephen farry,Stephen Farry,TRUE,AP,,elected,5,6290,38174,37739,435,64461
+North Down,5,gordon dunne,Gordon Dunne,TRUE,DUP,,elected,5,6290,38174,37739,435,64461
+North Down,5,steven agnew,Steven Agnew,TRUE,GP,"5,782.32",running,5,6290,38174,37739,435,64461
+North Down,5,william cudworth,William Cudworth,FALSE,UUP,"2,690.50",running,5,6290,38174,37739,435,64461
+North Down,5,melanie kennedy,Melanie Kennedy,FALSE,IND,"1,429.86",running,5,6290,38174,37739,435,64461
+North Down,5,caoímhe mcneill,Caoímhe McNeill,FALSE,SDLP,800.54,running,5,6290,38174,37739,435,64461
+North Down,5,frank shivers,Frank Shivers,FALSE,CON,777.24,running,5,6290,38174,37739,435,64461
+North Down,5,kieran maxwell,Kieran Maxwell,FALSE,SF,604.5,eliminated,5,6290,38174,37739,435,64461
+North Down,5,chris carter,Chris Carter,FALSE,IND,126.7,eliminated,5,6290,38174,37739,435,64461
+North Down,5,gavan reynolds,Gavan Reynolds,FALSE,IND,40.44,eliminated,5,6290,38174,37739,435,64461
+North Down,6,alex easton,Alex Easton,TRUE,DUP,,elected,5,6290,38174,37739,435,64461
+North Down,6,alan chambers,Alan Chambers,TRUE,UUP,,elected,5,6290,38174,37739,435,64461
+North Down,6,stephen farry,Stephen Farry,TRUE,AP,,elected,5,6290,38174,37739,435,64461
+North Down,6,gordon dunne,Gordon Dunne,TRUE,DUP,,elected,5,6290,38174,37739,435,64461
+North Down,6,steven agnew,Steven Agnew,TRUE,GP,"5,979.96",running,5,6290,38174,37739,435,64461
+North Down,6,william cudworth,William Cudworth,FALSE,UUP,"2,726.22",running,5,6290,38174,37739,435,64461
+North Down,6,melanie kennedy,Melanie Kennedy,FALSE,IND,"1,503.96",running,5,6290,38174,37739,435,64461
+North Down,6,caoímhe mcneill,Caoímhe McNeill,FALSE,SDLP,"1,178",running,5,6290,38174,37739,435,64461
+North Down,6,frank shivers,Frank Shivers,FALSE,CON,801.88,eliminated,5,6290,38174,37739,435,64461
+North Down,6,kieran maxwell,Kieran Maxwell,FALSE,SF,,eliminated,5,6290,38174,37739,435,64461
+North Down,6,chris carter,Chris Carter,FALSE,IND,,eliminated,5,6290,38174,37739,435,64461
+North Down,6,gavan reynolds,Gavan Reynolds,FALSE,IND,,eliminated,5,6290,38174,37739,435,64461
+North Down,7,alex easton,Alex Easton,TRUE,DUP,,elected,5,6290,38174,37739,435,64461
+North Down,7,alan chambers,Alan Chambers,TRUE,UUP,,elected,5,6290,38174,37739,435,64461
+North Down,7,stephen farry,Stephen Farry,TRUE,AP,,elected,5,6290,38174,37739,435,64461
+North Down,7,gordon dunne,Gordon Dunne,TRUE,DUP,,elected,5,6290,38174,37739,435,64461
+North Down,7,steven agnew,Steven Agnew,TRUE,GP,"6,160.50",elected,5,6290,38174,37739,435,64461
+North Down,7,william cudworth,William Cudworth,FALSE,UUP,"3,058.06",running,5,6290,38174,37739,435,64461
+North Down,7,melanie kennedy,Melanie Kennedy,FALSE,IND,"1,596.88",running,5,6290,38174,37739,435,64461
+North Down,7,caoímhe mcneill,Caoímhe McNeill,FALSE,SDLP,"1,202.88",running,5,6290,38174,37739,435,64461
+North Down,7,frank shivers,Frank Shivers,FALSE,CON,,eliminated,5,6290,38174,37739,435,64461
+North Down,7,kieran maxwell,Kieran Maxwell,FALSE,SF,,eliminated,5,6290,38174,37739,435,64461
+North Down,7,chris carter,Chris Carter,FALSE,IND,,eliminated,5,6290,38174,37739,435,64461
+North Down,7,gavan reynolds,Gavan Reynolds,FALSE,IND,,eliminated,5,6290,38174,37739,435,64461
+South Antrim,1,declan kearney,Declan Kearney,TRUE,SF,"6,891",running,5,7058,42726,42344,382,68475
+South Antrim,1,steve aiken,Steve Aiken,TRUE,UUP,"6,287",running,5,7058,42726,42344,382,68475
+South Antrim,1,david ford,David Ford,TRUE,AP,"5,278",running,5,7058,42726,42344,382,68475
+South Antrim,1,paul girvan,Paul Girvan,TRUE,DUP,"5,152",running,5,7058,42726,42344,382,68475
+South Antrim,1,pam cameron,Pam Cameron,TRUE,DUP,"4,604",running,5,7058,42726,42344,382,68475
+South Antrim,1,trevor clarke,Trevor Clarke,TRUE,DUP,"4,522",running,5,7058,42726,42344,382,68475
+South Antrim,1,roisin lynch,Roisin Lynch,FALSE,SDLP,"4,024",running,5,7058,42726,42344,382,68475
+South Antrim,1,adrian cochranewatson,Adrian Cochrane-Watson,FALSE,UUP,"2,505",running,5,7058,42726,42344,382,68475
+South Antrim,1,richard cairns,Richard Cairns,FALSE,TUV,"1,353",running,5,7058,42726,42344,382,68475
+South Antrim,1,ivanka antova,Ivanka Antova,FALSE,PBP,530,running,5,7058,42726,42344,382,68475
+South Antrim,1,david mcmaster,David McMaster,FALSE,IND,503,running,5,7058,42726,42344,382,68475
+South Antrim,1,eleanor bailey,Eleanor Bailey,FALSE,GP,501,running,5,7058,42726,42344,382,68475
+South Antrim,1,mark logan,Mark Logan,FALSE,CON,194,eliminated,5,7058,42726,42344,382,68475
+South Antrim,2,declan kearney,Declan Kearney,TRUE,SF,"6,895",running,5,7058,42726,42344,382,68475
+South Antrim,2,steve aiken,Steve Aiken,TRUE,UUP,"6,326",running,5,7058,42726,42344,382,68475
+South Antrim,2,david ford,David Ford,TRUE,AP,"5,313",running,5,7058,42726,42344,382,68475
+South Antrim,2,paul girvan,Paul Girvan,TRUE,DUP,"5,164",running,5,7058,42726,42344,382,68475
+South Antrim,2,pam cameron,Pam Cameron,TRUE,DUP,"4,613",running,5,7058,42726,42344,382,68475
+South Antrim,2,trevor clarke,Trevor Clarke,TRUE,DUP,"4,540",running,5,7058,42726,42344,382,68475
+South Antrim,2,roisin lynch,Roisin Lynch,FALSE,SDLP,"4,035",running,5,7058,42726,42344,382,68475
+South Antrim,2,adrian cochranewatson,Adrian Cochrane-Watson,FALSE,UUP,"2,525",running,5,7058,42726,42344,382,68475
+South Antrim,2,richard cairns,Richard Cairns,FALSE,TUV,"1,369",running,5,7058,42726,42344,382,68475
+South Antrim,2,ivanka antova,Ivanka Antova,FALSE,PBP,535,running,5,7058,42726,42344,382,68475
+South Antrim,2,david mcmaster,David McMaster,FALSE,IND,517,running,5,7058,42726,42344,382,68475
+South Antrim,2,eleanor bailey,Eleanor Bailey,FALSE,GP,504,eliminated,5,7058,42726,42344,382,68475
+South Antrim,2,mark logan,Mark Logan,FALSE,CON,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,3,declan kearney,Declan Kearney,TRUE,SF,"6,925",running,5,7058,42726,42344,382,68475
+South Antrim,3,steve aiken,Steve Aiken,TRUE,UUP,"6,368",running,5,7058,42726,42344,382,68475
+South Antrim,3,david ford,David Ford,TRUE,AP,"5,494",running,5,7058,42726,42344,382,68475
+South Antrim,3,paul girvan,Paul Girvan,TRUE,DUP,"5,165",running,5,7058,42726,42344,382,68475
+South Antrim,3,pam cameron,Pam Cameron,TRUE,DUP,"4,624",running,5,7058,42726,42344,382,68475
+South Antrim,3,trevor clarke,Trevor Clarke,TRUE,DUP,"4,545",running,5,7058,42726,42344,382,68475
+South Antrim,3,roisin lynch,Roisin Lynch,FALSE,SDLP,"4,069",running,5,7058,42726,42344,382,68475
+South Antrim,3,adrian cochranewatson,Adrian Cochrane-Watson,FALSE,UUP,"2,531",running,5,7058,42726,42344,382,68475
+South Antrim,3,richard cairns,Richard Cairns,FALSE,TUV,"1,378",running,5,7058,42726,42344,382,68475
+South Antrim,3,ivanka antova,Ivanka Antova,FALSE,PBP,658,eliminated,5,7058,42726,42344,382,68475
+South Antrim,3,david mcmaster,David McMaster,FALSE,IND,563,eliminated,5,7058,42726,42344,382,68475
+South Antrim,3,eleanor bailey,Eleanor Bailey,FALSE,GP,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,3,mark logan,Mark Logan,FALSE,CON,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,4,declan kearney,Declan Kearney,TRUE,SF,"7,065",elected,5,7058,42726,42344,382,68475
+South Antrim,4,steve aiken,Steve Aiken,TRUE,UUP,"6,494",running,5,7058,42726,42344,382,68475
+South Antrim,4,david ford,David Ford,TRUE,AP,"5,990",running,5,7058,42726,42344,382,68475
+South Antrim,4,paul girvan,Paul Girvan,TRUE,DUP,"5,223",running,5,7058,42726,42344,382,68475
+South Antrim,4,pam cameron,Pam Cameron,TRUE,DUP,"4,644",running,5,7058,42726,42344,382,68475
+South Antrim,4,trevor clarke,Trevor Clarke,TRUE,DUP,"4,559",running,5,7058,42726,42344,382,68475
+South Antrim,4,roisin lynch,Roisin Lynch,FALSE,SDLP,"4,229",running,5,7058,42726,42344,382,68475
+South Antrim,4,adrian cochranewatson,Adrian Cochrane-Watson,FALSE,UUP,"2,583",eliminated,5,7058,42726,42344,382,68475
+South Antrim,4,richard cairns,Richard Cairns,FALSE,TUV,"1,409",eliminated,5,7058,42726,42344,382,68475
+South Antrim,4,ivanka antova,Ivanka Antova,FALSE,PBP,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,4,david mcmaster,David McMaster,FALSE,IND,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,4,eleanor bailey,Eleanor Bailey,FALSE,GP,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,4,mark logan,Mark Logan,FALSE,CON,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,5,declan kearney,Declan Kearney,TRUE,SF,"7,065",elected,5,7058,42726,42344,382,68475
+South Antrim,5,steve aiken,Steve Aiken,TRUE,UUP,"8,808",elected,5,7058,42726,42344,382,68475
+South Antrim,5,david ford,David Ford,TRUE,AP,"6,222",running,5,7058,42726,42344,382,68475
+South Antrim,5,paul girvan,Paul Girvan,TRUE,DUP,"5,576",running,5,7058,42726,42344,382,68475
+South Antrim,5,pam cameron,Pam Cameron,TRUE,DUP,"4,979",running,5,7058,42726,42344,382,68475
+South Antrim,5,trevor clarke,Trevor Clarke,TRUE,DUP,"4,995",running,5,7058,42726,42344,382,68475
+South Antrim,5,roisin lynch,Roisin Lynch,FALSE,SDLP,"4,360",running,5,7058,42726,42344,382,68475
+South Antrim,5,adrian cochranewatson,Adrian Cochrane-Watson,FALSE,UUP,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,5,richard cairns,Richard Cairns,FALSE,TUV,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,5,ivanka antova,Ivanka Antova,FALSE,PBP,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,5,david mcmaster,David McMaster,FALSE,IND,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,5,eleanor bailey,Eleanor Bailey,FALSE,GP,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,5,mark logan,Mark Logan,FALSE,CON,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,6,declan kearney,Declan Kearney,TRUE,SF,"7,065",elected,5,7058,42726,42344,382,68475
+South Antrim,6,steve aiken,Steve Aiken,TRUE,UUP,,elected,5,7058,42726,42344,382,68475
+South Antrim,6,david ford,David Ford,TRUE,AP,"6,768",running,5,7058,42726,42344,382,68475
+South Antrim,6,paul girvan,Paul Girvan,TRUE,DUP,"5,800",running,5,7058,42726,42344,382,68475
+South Antrim,6,pam cameron,Pam Cameron,TRUE,DUP,"5,357",running,5,7058,42726,42344,382,68475
+South Antrim,6,trevor clarke,Trevor Clarke,TRUE,DUP,"5,358",running,5,7058,42726,42344,382,68475
+South Antrim,6,roisin lynch,Roisin Lynch,FALSE,SDLP,"4,596",eliminated,5,7058,42726,42344,382,68475
+South Antrim,6,adrian cochranewatson,Adrian Cochrane-Watson,FALSE,UUP,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,6,richard cairns,Richard Cairns,FALSE,TUV,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,6,ivanka antova,Ivanka Antova,FALSE,PBP,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,6,david mcmaster,David McMaster,FALSE,IND,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,6,eleanor bailey,Eleanor Bailey,FALSE,GP,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,6,mark logan,Mark Logan,FALSE,CON,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,7,declan kearney,Declan Kearney,TRUE,SF,"7,065",elected,5,7058,42726,42344,382,68475
+South Antrim,7,steve aiken,Steve Aiken,TRUE,UUP,,elected,5,7058,42726,42344,382,68475
+South Antrim,7,david ford,David Ford,TRUE,AP,"9,862",elected,5,7058,42726,42344,382,68475
+South Antrim,7,paul girvan,Paul Girvan,TRUE,DUP,"5,873",running,5,7058,42726,42344,382,68475
+South Antrim,7,pam cameron,Pam Cameron,TRUE,DUP,"5,459",running,5,7058,42726,42344,382,68475
+South Antrim,7,trevor clarke,Trevor Clarke,TRUE,DUP,"5,445",running,5,7058,42726,42344,382,68475
+South Antrim,7,roisin lynch,Roisin Lynch,FALSE,SDLP,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,7,adrian cochranewatson,Adrian Cochrane-Watson,FALSE,UUP,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,7,richard cairns,Richard Cairns,FALSE,TUV,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,7,ivanka antova,Ivanka Antova,FALSE,PBP,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,7,david mcmaster,David McMaster,FALSE,IND,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,7,eleanor bailey,Eleanor Bailey,FALSE,GP,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,7,mark logan,Mark Logan,FALSE,CON,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,8,declan kearney,Declan Kearney,TRUE,SF,"7,065",elected,5,7058,42726,42344,382,68475
+South Antrim,8,steve aiken,Steve Aiken,TRUE,UUP,,elected,5,7058,42726,42344,382,68475
+South Antrim,8,david ford,David Ford,TRUE,AP,,elected,5,7058,42726,42344,382,68475
+South Antrim,8,paul girvan,Paul Girvan,TRUE,DUP,"5,970",elected,5,7058,42726,42344,382,68475
+South Antrim,8,pam cameron,Pam Cameron,TRUE,DUP,"5,679",elected,5,7058,42726,42344,382,68475
+South Antrim,8,trevor clarke,Trevor Clarke,TRUE,DUP,"5,527",running,5,7058,42726,42344,382,68475
+South Antrim,8,roisin lynch,Roisin Lynch,FALSE,SDLP,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,8,adrian cochranewatson,Adrian Cochrane-Watson,FALSE,UUP,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,8,richard cairns,Richard Cairns,FALSE,TUV,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,8,ivanka antova,Ivanka Antova,FALSE,PBP,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,8,david mcmaster,David McMaster,FALSE,IND,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,8,eleanor bailey,Eleanor Bailey,FALSE,GP,,eliminated,5,7058,42726,42344,382,68475
+South Antrim,8,mark logan,Mark Logan,FALSE,CON,,eliminated,5,7058,42726,42344,382,68475
+South Down,1,sinead ennis,Sinéad Ennis,FALSE,SF,"10,256",elected,5,8234,49932,49399,535,75415
+South Down,1,chris hazzard,Chris Hazzard,TRUE,SF,"8,827",elected,5,8234,49932,49399,535,75415
+South Down,1,sinead bradley,Sinéad Bradley,TRUE,SDLP,"7,323",running,5,8234,49932,49399,535,75415
+South Down,1,jim wells,Jim Wells,TRUE,DUP,"7,786",running,5,8234,49932,49399,535,75415
+South Down,1,colin mcgrath,Colin McGrath,TRUE,SDLP,"5,110",running,5,8234,49932,49399,535,75415
+South Down,1,patrick brown,Patrick Brown,FALSE,AP,"4,535",running,5,8234,49932,49399,535,75415
+South Down,1,harold mckee,Harold McKee,TRUE,UUP,"4,172",running,5,8234,49932,49399,535,75415
+South Down,1,lyle rea,Lyle Rea,FALSE,TUV,630,eliminated,5,8234,49932,49399,535,75415
+South Down,1,hannah george,Hannah George,FALSE,GP,483,eliminated,5,8234,49932,49399,535,75415
+South Down,1,patrick clarke,Patrick Clarke,FALSE,IND,192,eliminated,5,8234,49932,49399,535,75415
+South Down,1,gary hynds,Gary Hynds,FALSE,CON,85,eliminated,5,8234,49932,49399,535,75415
+South Down,2,sinead ennis,Sinéad Ennis,FALSE,SF,"10,256",elected,5,8234,49932,49399,535,75415
+South Down,2,chris hazzard,Chris Hazzard,TRUE,SF,"8,827",elected,5,8234,49932,49399,535,75415
+South Down,2,sinead bradley,Sinéad Bradley,TRUE,SDLP,"7,487",running,5,8234,49932,49399,535,75415
+South Down,2,jim wells,Jim Wells,TRUE,DUP,"8,088",running,5,8234,49932,49399,535,75415
+South Down,2,colin mcgrath,Colin McGrath,TRUE,SDLP,"5,202",running,5,8234,49932,49399,535,75415
+South Down,2,patrick brown,Patrick Brown,FALSE,AP,"4,883",running,5,8234,49932,49399,535,75415
+South Down,2,harold mckee,Harold McKee,TRUE,UUP,"4,509",running,5,8234,49932,49399,535,75415
+South Down,2,lyle rea,Lyle Rea,FALSE,TUV,,eliminated,5,8234,49932,49399,535,75415
+South Down,2,hannah george,Hannah George,FALSE,GP,,eliminated,5,8234,49932,49399,535,75415
+South Down,2,patrick clarke,Patrick Clarke,FALSE,IND,,eliminated,5,8234,49932,49399,535,75415
+South Down,2,gary hynds,Gary Hynds,FALSE,CON,,eliminated,5,8234,49932,49399,535,75415
+South Down,3,sinead ennis,Sinéad Ennis,FALSE,SF,,elected,5,8234,49932,49399,535,75415
+South Down,3,chris hazzard,Chris Hazzard,TRUE,SF,"8,827",elected,5,8234,49932,49399,535,75415
+South Down,3,sinead bradley,Sinéad Bradley,TRUE,SDLP,"8,906.12",elected,5,8234,49932,49399,535,75415
+South Down,3,jim wells,Jim Wells,TRUE,DUP,"8,091.36",running,5,8234,49932,49399,535,75415
+South Down,3,colin mcgrath,Colin McGrath,TRUE,SDLP,"5,512.80",running,5,8234,49932,49399,535,75415
+South Down,3,patrick brown,Patrick Brown,FALSE,AP,"5,101.64",running,5,8234,49932,49399,535,75415
+South Down,3,harold mckee,Harold McKee,TRUE,UUP,"4,522.44",running,5,8234,49932,49399,535,75415
+South Down,3,lyle rea,Lyle Rea,FALSE,TUV,,eliminated,5,8234,49932,49399,535,75415
+South Down,3,hannah george,Hannah George,FALSE,GP,,eliminated,5,8234,49932,49399,535,75415
+South Down,3,patrick clarke,Patrick Clarke,FALSE,IND,,eliminated,5,8234,49932,49399,535,75415
+South Down,3,gary hynds,Gary Hynds,FALSE,CON,,eliminated,5,8234,49932,49399,535,75415
+South Down,4,sinead ennis,Sinéad Ennis,FALSE,SF,,elected,5,8234,49932,49399,535,75415
+South Down,4,chris hazzard,Chris Hazzard,TRUE,SF,"8,827",elected,5,8234,49932,49399,535,75415
+South Down,4,sinead bradley,Sinéad Bradley,TRUE,SDLP,,elected,5,8234,49932,49399,535,75415
+South Down,4,jim wells,Jim Wells,TRUE,DUP,"8,091.64",running,5,8234,49932,49399,535,75415
+South Down,4,colin mcgrath,Colin McGrath,TRUE,SDLP,"6,043.68",running,5,8234,49932,49399,535,75415
+South Down,4,patrick brown,Patrick Brown,FALSE,AP,"5,194.88",running,5,8234,49932,49399,535,75415
+South Down,4,harold mckee,Harold McKee,TRUE,UUP,"4,527.76",running,5,8234,49932,49399,535,75415
+South Down,4,lyle rea,Lyle Rea,FALSE,TUV,,eliminated,5,8234,49932,49399,535,75415
+South Down,4,hannah george,Hannah George,FALSE,GP,,eliminated,5,8234,49932,49399,535,75415
+South Down,4,patrick clarke,Patrick Clarke,FALSE,IND,,eliminated,5,8234,49932,49399,535,75415
+South Down,4,gary hynds,Gary Hynds,FALSE,CON,,eliminated,5,8234,49932,49399,535,75415
+South Down,5,sinead ennis,Sinéad Ennis,FALSE,SF,,elected,5,8234,49932,49399,535,75415
+South Down,5,chris hazzard,Chris Hazzard,TRUE,SF,"8,827",elected,5,8234,49932,49399,535,75415
+South Down,5,sinead bradley,Sinéad Bradley,TRUE,SDLP,,elected,5,8234,49932,49399,535,75415
+South Down,5,jim wells,Jim Wells,TRUE,DUP,"10,821.64",elected,5,8234,49932,49399,535,75415
+South Down,5,colin mcgrath,Colin McGrath,TRUE,SDLP,"6,632.42",running,5,8234,49932,49399,535,75415
+South Down,5,patrick brown,Patrick Brown,FALSE,AP,"6,007.82",running,5,8234,49932,49399,535,75415
+South Down,5,harold mckee,Harold McKee,TRUE,UUP,,eliminated,5,8234,49932,49399,535,75415
+South Down,5,lyle rea,Lyle Rea,FALSE,TUV,,eliminated,5,8234,49932,49399,535,75415
+South Down,5,hannah george,Hannah George,FALSE,GP,,eliminated,5,8234,49932,49399,535,75415
+South Down,5,patrick clarke,Patrick Clarke,FALSE,IND,,eliminated,5,8234,49932,49399,535,75415
+South Down,5,gary hynds,Gary Hynds,FALSE,CON,,eliminated,5,8234,49932,49399,535,75415
+South Down,6,sinead ennis,Sinéad Ennis,FALSE,SF,,elected,5,8234,49932,49399,535,75415
+South Down,6,chris hazzard,Chris Hazzard,TRUE,SF,"8,827",elected,5,8234,49932,49399,535,75415
+South Down,6,sinead bradley,Sinéad Bradley,TRUE,SDLP,,elected,5,8234,49932,49399,535,75415
+South Down,6,jim wells,Jim Wells,TRUE,DUP,,elected,5,8234,49932,49399,535,75415
+South Down,6,colin mcgrath,Colin McGrath,TRUE,SDLP,"7,228.42",running,5,8234,49932,49399,535,75415
+South Down,6,patrick brown,Patrick Brown,FALSE,AP,"6,730.82",running,5,8234,49932,49399,535,75415
+South Down,6,harold mckee,Harold McKee,TRUE,UUP,,eliminated,5,8234,49932,49399,535,75415
+South Down,6,lyle rea,Lyle Rea,FALSE,TUV,,eliminated,5,8234,49932,49399,535,75415
+South Down,6,hannah george,Hannah George,FALSE,GP,,eliminated,5,8234,49932,49399,535,75415
+South Down,6,patrick clarke,Patrick Clarke,FALSE,IND,,eliminated,5,8234,49932,49399,535,75415
+South Down,6,gary hynds,Gary Hynds,FALSE,CON,,eliminated,5,8234,49932,49399,535,75415
+South Down,7,sinead ennis,Sinéad Ennis,FALSE,SF,,elected,5,8234,49932,49399,535,75415
+South Down,7,chris hazzard,Chris Hazzard,TRUE,SF,,elected,5,8234,49932,49399,535,75415
+South Down,7,sinead bradley,Sinéad Bradley,TRUE,SDLP,,elected,5,8234,49932,49399,535,75415
+South Down,7,jim wells,Jim Wells,TRUE,DUP,,elected,5,8234,49932,49399,535,75415
+South Down,7,colin mcgrath,Colin McGrath,TRUE,SDLP,"7,613.62",elected,5,8234,49932,49399,535,75415
+South Down,7,patrick brown,Patrick Brown,FALSE,AP,"6,874.66",running,5,8234,49932,49399,535,75415
+South Down,7,harold mckee,Harold McKee,TRUE,UUP,,eliminated,5,8234,49932,49399,535,75415
+South Down,7,lyle rea,Lyle Rea,FALSE,TUV,,eliminated,5,8234,49932,49399,535,75415
+South Down,7,hannah george,Hannah George,FALSE,GP,,eliminated,5,8234,49932,49399,535,75415
+South Down,7,patrick clarke,Patrick Clarke,FALSE,IND,,eliminated,5,8234,49932,49399,535,75415
+South Down,7,gary hynds,Gary Hynds,FALSE,CON,,eliminated,5,8234,49932,49399,535,75415
+Strangford,1,kellie armstrong,Kellie Armstrong,TRUE,AP,"5,813",running,5,6465,39239,38785,454,64393
+Strangford,1,simon hamilton,Simon Hamilton,TRUE,DUP,"6,221",running,5,6465,39239,38785,454,64393
+Strangford,1,michelle mcilveen,Michelle McIlveen,TRUE,DUP,"5,728",running,5,6465,39239,38785,454,64393
+Strangford,1,mike nesbitt,Mike Nesbitt,TRUE,UUP,"5,323",running,5,6465,39239,38785,454,64393
+Strangford,1,peter weir,Peter Weir,FALSE,DUP,"3,543",running,5,6465,39239,38785,454,64393
+Strangford,1,joe boyle,Joe Boyle,FALSE,SDLP,"3,045",running,5,6465,39239,38785,454,64393
+Strangford,1,philip smith,Philip Smith,TRUE,UUP,"2,453",running,5,6465,39239,38785,454,64393
+Strangford,1,jimmy menagh,Jimmy Menagh,FALSE,IND,"1,627",running,5,6465,39239,38785,454,64393
+Strangford,1,jonathan bell,Jonathan Bell,FALSE,IND,"1,479",running,5,6465,39239,38785,454,64393
+Strangford,1,stephen cooper,Stephen Cooper,FALSE,TUV,"1,330",running,5,6465,39239,38785,454,64393
+Strangford,1,dermot kennedy,Dermot Kennedy,FALSE,SF,"1,110",running,5,6465,39239,38785,454,64393
+Strangford,1,ricky bamford,Ricky Bamford,FALSE,GP,918,running,5,6465,39239,38785,454,64393
+Strangford,1,scott benton,Scott Benton,FALSE,CON,195,eliminated,5,6465,39239,38785,454,64393
+Strangford,2,kellie armstrong,Kellie Armstrong,TRUE,AP,"5,845",running,5,6465,39239,38785,454,64393
+Strangford,2,simon hamilton,Simon Hamilton,TRUE,DUP,"6,234",running,5,6465,39239,38785,454,64393
+Strangford,2,michelle mcilveen,Michelle McIlveen,TRUE,DUP,"5,737",running,5,6465,39239,38785,454,64393
+Strangford,2,mike nesbitt,Mike Nesbitt,TRUE,UUP,"5,362",running,5,6465,39239,38785,454,64393
+Strangford,2,peter weir,Peter Weir,FALSE,DUP,"3,552",running,5,6465,39239,38785,454,64393
+Strangford,2,joe boyle,Joe Boyle,FALSE,SDLP,"3,049",running,5,6465,39239,38785,454,64393
+Strangford,2,philip smith,Philip Smith,TRUE,UUP,"2,480",running,5,6465,39239,38785,454,64393
+Strangford,2,jimmy menagh,Jimmy Menagh,FALSE,IND,"1,634",running,5,6465,39239,38785,454,64393
+Strangford,2,jonathan bell,Jonathan Bell,FALSE,IND,"1,489",running,5,6465,39239,38785,454,64393
+Strangford,2,stephen cooper,Stephen Cooper,FALSE,TUV,"1,350",running,5,6465,39239,38785,454,64393
+Strangford,2,dermot kennedy,Dermot Kennedy,FALSE,SF,"1,110",running,5,6465,39239,38785,454,64393
+Strangford,2,ricky bamford,Ricky Bamford,FALSE,GP,930,eliminated,5,6465,39239,38785,454,64393
+Strangford,2,scott benton,Scott Benton,FALSE,CON,,eliminated,5,6465,39239,38785,454,64393
+Strangford,3,kellie armstrong,Kellie Armstrong,TRUE,AP,"6,372",running,5,6465,39239,38785,454,64393
+Strangford,3,simon hamilton,Simon Hamilton,TRUE,DUP,"6,259",running,5,6465,39239,38785,454,64393
+Strangford,3,michelle mcilveen,Michelle McIlveen,TRUE,DUP,"5,746",running,5,6465,39239,38785,454,64393
+Strangford,3,mike nesbitt,Mike Nesbitt,TRUE,UUP,"5,419",running,5,6465,39239,38785,454,64393
+Strangford,3,peter weir,Peter Weir,FALSE,DUP,"3,556",running,5,6465,39239,38785,454,64393
+Strangford,3,joe boyle,Joe Boyle,FALSE,SDLP,"3,120",running,5,6465,39239,38785,454,64393
+Strangford,3,philip smith,Philip Smith,TRUE,UUP,"2,507",running,5,6465,39239,38785,454,64393
+Strangford,3,jimmy menagh,Jimmy Menagh,FALSE,IND,"1,683",running,5,6465,39239,38785,454,64393
+Strangford,3,jonathan bell,Jonathan Bell,FALSE,IND,"1,549",running,5,6465,39239,38785,454,64393
+Strangford,3,stephen cooper,Stephen Cooper,FALSE,TUV,"1,370",running,5,6465,39239,38785,454,64393
+Strangford,3,dermot kennedy,Dermot Kennedy,FALSE,SF,"1,129",eliminated,5,6465,39239,38785,454,64393
+Strangford,3,ricky bamford,Ricky Bamford,FALSE,GP,,eliminated,5,6465,39239,38785,454,64393
+Strangford,3,scott benton,Scott Benton,FALSE,CON,,eliminated,5,6465,39239,38785,454,64393
+Strangford,4,kellie armstrong,Kellie Armstrong,TRUE,AP,"6,610",elected,5,6465,39239,38785,454,64393
+Strangford,4,simon hamilton,Simon Hamilton,TRUE,DUP,"6,262",running,5,6465,39239,38785,454,64393
+Strangford,4,michelle mcilveen,Michelle McIlveen,TRUE,DUP,"5,747",running,5,6465,39239,38785,454,64393
+Strangford,4,mike nesbitt,Mike Nesbitt,TRUE,UUP,"5,432",running,5,6465,39239,38785,454,64393
+Strangford,4,peter weir,Peter Weir,FALSE,DUP,"3,556",running,5,6465,39239,38785,454,64393
+Strangford,4,joe boyle,Joe Boyle,FALSE,SDLP,"3,878",running,5,6465,39239,38785,454,64393
+Strangford,4,philip smith,Philip Smith,TRUE,UUP,"2,507",running,5,6465,39239,38785,454,64393
+Strangford,4,jimmy menagh,Jimmy Menagh,FALSE,IND,"1,689",running,5,6465,39239,38785,454,64393
+Strangford,4,jonathan bell,Jonathan Bell,FALSE,IND,"1,578",running,5,6465,39239,38785,454,64393
+Strangford,4,stephen cooper,Stephen Cooper,FALSE,TUV,"1,373",eliminated,5,6465,39239,38785,454,64393
+Strangford,4,dermot kennedy,Dermot Kennedy,FALSE,SF,,eliminated,5,6465,39239,38785,454,64393
+Strangford,4,ricky bamford,Ricky Bamford,FALSE,GP,,eliminated,5,6465,39239,38785,454,64393
+Strangford,4,scott benton,Scott Benton,FALSE,CON,,eliminated,5,6465,39239,38785,454,64393
+Strangford,5,kellie armstrong,Kellie Armstrong,TRUE,AP,"6,610",elected,5,6465,39239,38785,454,64393
+Strangford,5,simon hamilton,Simon Hamilton,TRUE,DUP,"6,531",elected,5,6465,39239,38785,454,64393
+Strangford,5,michelle mcilveen,Michelle McIlveen,TRUE,DUP,"5,963",running,5,6465,39239,38785,454,64393
+Strangford,5,mike nesbitt,Mike Nesbitt,TRUE,UUP,"5,644",running,5,6465,39239,38785,454,64393
+Strangford,5,peter weir,Peter Weir,FALSE,DUP,"3,636",running,5,6465,39239,38785,454,64393
+Strangford,5,joe boyle,Joe Boyle,FALSE,SDLP,"3,900",running,5,6465,39239,38785,454,64393
+Strangford,5,philip smith,Philip Smith,TRUE,UUP,"2,648",running,5,6465,39239,38785,454,64393
+Strangford,5,jimmy menagh,Jimmy Menagh,FALSE,IND,"1,842",running,5,6465,39239,38785,454,64393
+Strangford,5,jonathan bell,Jonathan Bell,FALSE,IND,"1,782",running,5,6465,39239,38785,454,64393
+Strangford,5,stephen cooper,Stephen Cooper,FALSE,TUV,,eliminated,5,6465,39239,38785,454,64393
+Strangford,5,dermot kennedy,Dermot Kennedy,FALSE,SF,,eliminated,5,6465,39239,38785,454,64393
+Strangford,5,ricky bamford,Ricky Bamford,FALSE,GP,,eliminated,5,6465,39239,38785,454,64393
+Strangford,5,scott benton,Scott Benton,FALSE,CON,,eliminated,5,6465,39239,38785,454,64393
+Strangford,6,kellie armstrong,Kellie Armstrong,TRUE,AP,,elected,5,6465,39239,38785,454,64393
+Strangford,6,simon hamilton,Simon Hamilton,TRUE,DUP,"6,531",elected,5,6465,39239,38785,454,64393
+Strangford,6,michelle mcilveen,Michelle McIlveen,TRUE,DUP,"5,963.75",running,5,6465,39239,38785,454,64393
+Strangford,6,mike nesbitt,Mike Nesbitt,TRUE,UUP,"5,653",running,5,6465,39239,38785,454,64393
+Strangford,6,peter weir,Peter Weir,FALSE,DUP,"3,636",running,5,6465,39239,38785,454,64393
+Strangford,6,joe boyle,Joe Boyle,FALSE,SDLP,"4,020.75",running,5,6465,39239,38785,454,64393
+Strangford,6,philip smith,Philip Smith,TRUE,UUP,"2,648",running,5,6465,39239,38785,454,64393
+Strangford,6,jimmy menagh,Jimmy Menagh,FALSE,IND,"1,845",running,5,6465,39239,38785,454,64393
+Strangford,6,jonathan bell,Jonathan Bell,FALSE,IND,"1,791.75",running,5,6465,39239,38785,454,64393
+Strangford,6,stephen cooper,Stephen Cooper,FALSE,TUV,,eliminated,5,6465,39239,38785,454,64393
+Strangford,6,dermot kennedy,Dermot Kennedy,FALSE,SF,,eliminated,5,6465,39239,38785,454,64393
+Strangford,6,ricky bamford,Ricky Bamford,FALSE,GP,,eliminated,5,6465,39239,38785,454,64393
+Strangford,6,scott benton,Scott Benton,FALSE,CON,,eliminated,5,6465,39239,38785,454,64393
+Strangford,7,kellie armstrong,Kellie Armstrong,TRUE,AP,,elected,5,6465,39239,38785,454,64393
+Strangford,7,simon hamilton,Simon Hamilton,TRUE,DUP,,elected,5,6465,39239,38785,454,64393
+Strangford,7,michelle mcilveen,Michelle McIlveen,TRUE,DUP,"6,013.25",running,5,6465,39239,38785,454,64393
+Strangford,7,mike nesbitt,Mike Nesbitt,TRUE,UUP,"5,657",running,5,6465,39239,38785,454,64393
+Strangford,7,peter weir,Peter Weir,FALSE,DUP,"3,639.50",running,5,6465,39239,38785,454,64393
+Strangford,7,joe boyle,Joe Boyle,FALSE,SDLP,"4,021",running,5,6465,39239,38785,454,64393
+Strangford,7,philip smith,Philip Smith,TRUE,UUP,"2,651",running,5,6465,39239,38785,454,64393
+Strangford,7,jimmy menagh,Jimmy Menagh,FALSE,IND,"1,846.50",running,5,6465,39239,38785,454,64393
+Strangford,7,jonathan bell,Jonathan Bell,FALSE,IND,"1,794",eliminated,5,6465,39239,38785,454,64393
+Strangford,7,stephen cooper,Stephen Cooper,FALSE,TUV,,eliminated,5,6465,39239,38785,454,64393
+Strangford,7,dermot kennedy,Dermot Kennedy,FALSE,SF,,eliminated,5,6465,39239,38785,454,64393
+Strangford,7,ricky bamford,Ricky Bamford,FALSE,GP,,eliminated,5,6465,39239,38785,454,64393
+Strangford,7,scott benton,Scott Benton,FALSE,CON,,eliminated,5,6465,39239,38785,454,64393
+Strangford,8,kellie armstrong,Kellie Armstrong,TRUE,AP,,elected,5,6465,39239,38785,454,64393
+Strangford,8,simon hamilton,Simon Hamilton,TRUE,DUP,,elected,5,6465,39239,38785,454,64393
+Strangford,8,michelle mcilveen,Michelle McIlveen,TRUE,DUP,"6,330",running,5,6465,39239,38785,454,64393
+Strangford,8,mike nesbitt,Mike Nesbitt,TRUE,UUP,"6,112",running,5,6465,39239,38785,454,64393
+Strangford,8,peter weir,Peter Weir,FALSE,DUP,"3,877.75",running,5,6465,39239,38785,454,64393
+Strangford,8,joe boyle,Joe Boyle,FALSE,SDLP,"4,115",running,5,6465,39239,38785,454,64393
+Strangford,8,philip smith,Philip Smith,TRUE,UUP,"2,800",running,5,6465,39239,38785,454,64393
+Strangford,8,jimmy menagh,Jimmy Menagh,FALSE,IND,"2,189.75",eliminated,5,6465,39239,38785,454,64393
+Strangford,8,jonathan bell,Jonathan Bell,FALSE,IND,,eliminated,5,6465,39239,38785,454,64393
+Strangford,8,stephen cooper,Stephen Cooper,FALSE,TUV,,eliminated,5,6465,39239,38785,454,64393
+Strangford,8,dermot kennedy,Dermot Kennedy,FALSE,SF,,eliminated,5,6465,39239,38785,454,64393
+Strangford,8,ricky bamford,Ricky Bamford,FALSE,GP,,eliminated,5,6465,39239,38785,454,64393
+Strangford,8,scott benton,Scott Benton,FALSE,CON,,eliminated,5,6465,39239,38785,454,64393
+Strangford,9,kellie armstrong,Kellie Armstrong,TRUE,AP,,elected,5,6465,39239,38785,454,64393
+Strangford,9,simon hamilton,Simon Hamilton,TRUE,DUP,,elected,5,6465,39239,38785,454,64393
+Strangford,9,michelle mcilveen,Michelle McIlveen,TRUE,DUP,"6,762",elected,5,6465,39239,38785,454,64393
+Strangford,9,mike nesbitt,Mike Nesbitt,TRUE,UUP,"6,540",elected,5,6465,39239,38785,454,64393
+Strangford,9,peter weir,Peter Weir,FALSE,DUP,"4,191.25",running,5,6465,39239,38785,454,64393
+Strangford,9,joe boyle,Joe Boyle,FALSE,SDLP,"4,229.25",running,5,6465,39239,38785,454,64393
+Strangford,9,philip smith,Philip Smith,TRUE,UUP,"3,079.25",running,5,6465,39239,38785,454,64393
+Strangford,9,jimmy menagh,Jimmy Menagh,FALSE,IND,,eliminated,5,6465,39239,38785,454,64393
+Strangford,9,jonathan bell,Jonathan Bell,FALSE,IND,,eliminated,5,6465,39239,38785,454,64393
+Strangford,9,stephen cooper,Stephen Cooper,FALSE,TUV,,eliminated,5,6465,39239,38785,454,64393
+Strangford,9,dermot kennedy,Dermot Kennedy,FALSE,SF,,eliminated,5,6465,39239,38785,454,64393
+Strangford,9,ricky bamford,Ricky Bamford,FALSE,GP,,eliminated,5,6465,39239,38785,454,64393
+Strangford,9,scott benton,Scott Benton,FALSE,CON,,eliminated,5,6465,39239,38785,454,64393
+Strangford,10,kellie armstrong,Kellie Armstrong,TRUE,AP,,elected,5,6465,39239,38785,454,64393
+Strangford,10,simon hamilton,Simon Hamilton,TRUE,DUP,,elected,5,6465,39239,38785,454,64393
+Strangford,10,michelle mcilveen,Michelle McIlveen,TRUE,DUP,,elected,5,6465,39239,38785,454,64393
+Strangford,10,mike nesbitt,Mike Nesbitt,TRUE,UUP,"6,540",elected,5,6465,39239,38785,454,64393
+Strangford,10,peter weir,Peter Weir,FALSE,DUP,"5,101.50",running,5,6465,39239,38785,454,64393
+Strangford,10,joe boyle,Joe Boyle,FALSE,SDLP,"5,163.25",running,5,6465,39239,38785,454,64393
+Strangford,10,philip smith,Philip Smith,TRUE,UUP,,eliminated,5,6465,39239,38785,454,64393
+Strangford,10,jimmy menagh,Jimmy Menagh,FALSE,IND,,eliminated,5,6465,39239,38785,454,64393
+Strangford,10,jonathan bell,Jonathan Bell,FALSE,IND,,eliminated,5,6465,39239,38785,454,64393
+Strangford,10,stephen cooper,Stephen Cooper,FALSE,TUV,,eliminated,5,6465,39239,38785,454,64393
+Strangford,10,dermot kennedy,Dermot Kennedy,FALSE,SF,,eliminated,5,6465,39239,38785,454,64393
+Strangford,10,ricky bamford,Ricky Bamford,FALSE,GP,,eliminated,5,6465,39239,38785,454,64393
+Strangford,10,scott benton,Scott Benton,FALSE,CON,,eliminated,5,6465,39239,38785,454,64393
+Strangford,11,kellie armstrong,Kellie Armstrong,TRUE,AP,,elected,5,6465,39239,38785,454,64393
+Strangford,11,simon hamilton,Simon Hamilton,TRUE,DUP,,elected,5,6465,39239,38785,454,64393
+Strangford,11,michelle mcilveen,Michelle McIlveen,TRUE,DUP,,elected,5,6465,39239,38785,454,64393
+Strangford,11,mike nesbitt,Mike Nesbitt,TRUE,UUP,,elected,5,6465,39239,38785,454,64393
+Strangford,11,peter weir,Peter Weir,FALSE,DUP,"5,392.38",elected,5,6465,39239,38785,454,64393
+Strangford,11,joe boyle,Joe Boyle,FALSE,SDLP,"5,167.09",running,5,6465,39239,38785,454,64393
+Strangford,11,philip smith,Philip Smith,TRUE,UUP,,eliminated,5,6465,39239,38785,454,64393
+Strangford,11,jimmy menagh,Jimmy Menagh,FALSE,IND,,eliminated,5,6465,39239,38785,454,64393
+Strangford,11,jonathan bell,Jonathan Bell,FALSE,IND,,eliminated,5,6465,39239,38785,454,64393
+Strangford,11,stephen cooper,Stephen Cooper,FALSE,TUV,,eliminated,5,6465,39239,38785,454,64393
+Strangford,11,dermot kennedy,Dermot Kennedy,FALSE,SF,,eliminated,5,6465,39239,38785,454,64393
+Strangford,11,ricky bamford,Ricky Bamford,FALSE,GP,,eliminated,5,6465,39239,38785,454,64393
+Strangford,11,scott benton,Scott Benton,FALSE,CON,,eliminated,5,6465,39239,38785,454,64393
+Upper Bann,1,carla lockhart,Carla Lockhart,TRUE,DUP,"9,140",elected,5,8592,52174,51548,626,83431
+Upper Bann,1,jonathan buckley,Jonathan Buckley,FALSE,DUP,"7,745",running,5,8592,52174,51548,626,83431
+Upper Bann,1,doug beattie,Doug Beattie,TRUE,UUP,"5,467",running,5,8592,52174,51548,626,83431
+Upper Bann,1,john odowd,John O'Dowd,TRUE,SF,"8,220",running,5,8592,52174,51548,626,83431
+Upper Bann,1,dolores kelly,Dolores Kelly,FALSE,SDLP,"5,127",running,5,8592,52174,51548,626,83431
+Upper Bann,1,nuala toman,Nuala Toman,FALSE,SF,"6,108",running,5,8592,52174,51548,626,83431
+Upper Bann,1,joanne dobson,Jo-Anne Dobson,TRUE,UUP,"5,132",running,5,8592,52174,51548,626,83431
+Upper Bann,1,tara doyle,Tara Doyle,FALSE,AP,"2,720",running,5,8592,52174,51548,626,83431
+Upper Bann,1,roy ferguson,Roy Ferguson,FALSE,TUV,"1,035",eliminated,5,8592,52174,51548,626,83431
+Upper Bann,1,simon lee,Simon Lee,FALSE,GP,555,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,1,colin craig,Colin Craig,FALSE,WP,218,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,1,ian nichols,Ian Nichols,FALSE,CON,81,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,2,carla lockhart,Carla Lockhart,TRUE,DUP,"9,140",elected,5,8592,52174,51548,626,83431
+Upper Bann,2,jonathan buckley,Jonathan Buckley,FALSE,DUP,"8,238",running,5,8592,52174,51548,626,83431
+Upper Bann,2,doug beattie,Doug Beattie,TRUE,UUP,"5,755",running,5,8592,52174,51548,626,83431
+Upper Bann,2,john odowd,John O'Dowd,TRUE,SF,"8,298",running,5,8592,52174,51548,626,83431
+Upper Bann,2,dolores kelly,Dolores Kelly,FALSE,SDLP,"5,248",running,5,8592,52174,51548,626,83431
+Upper Bann,2,nuala toman,Nuala Toman,FALSE,SF,"6,169",running,5,8592,52174,51548,626,83431
+Upper Bann,2,joanne dobson,Jo-Anne Dobson,TRUE,UUP,"5,404",running,5,8592,52174,51548,626,83431
+Upper Bann,2,tara doyle,Tara Doyle,FALSE,AP,"3,097",eliminated,5,8592,52174,51548,626,83431
+Upper Bann,2,roy ferguson,Roy Ferguson,FALSE,TUV,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,2,simon lee,Simon Lee,FALSE,GP,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,2,colin craig,Colin Craig,FALSE,WP,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,2,ian nichols,Ian Nichols,FALSE,CON,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,3,carla lockhart,Carla Lockhart,TRUE,DUP,"9,140",elected,5,8592,52174,51548,626,83431
+Upper Bann,3,jonathan buckley,Jonathan Buckley,FALSE,DUP,"8,314",running,5,8592,52174,51548,626,83431
+Upper Bann,3,doug beattie,Doug Beattie,TRUE,UUP,"6,174",running,5,8592,52174,51548,626,83431
+Upper Bann,3,john odowd,John O'Dowd,TRUE,SF,"8,560",running,5,8592,52174,51548,626,83431
+Upper Bann,3,dolores kelly,Dolores Kelly,FALSE,SDLP,"6,509",running,5,8592,52174,51548,626,83431
+Upper Bann,3,nuala toman,Nuala Toman,FALSE,SF,"6,294",running,5,8592,52174,51548,626,83431
+Upper Bann,3,joanne dobson,Jo-Anne Dobson,TRUE,UUP,"5,910",running,5,8592,52174,51548,626,83431
+Upper Bann,3,tara doyle,Tara Doyle,FALSE,AP,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,3,roy ferguson,Roy Ferguson,FALSE,TUV,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,3,simon lee,Simon Lee,FALSE,GP,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,3,colin craig,Colin Craig,FALSE,WP,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,3,ian nichols,Ian Nichols,FALSE,CON,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,4,carla lockhart,Carla Lockhart,TRUE,DUP,,elected,5,8592,52174,51548,626,83431
+Upper Bann,4,jonathan buckley,Jonathan Buckley,FALSE,DUP,"8,764.84",elected,5,8592,52174,51548,626,83431
+Upper Bann,4,doug beattie,Doug Beattie,TRUE,UUP,"6,202.86",running,5,8592,52174,51548,626,83431
+Upper Bann,4,john odowd,John O'Dowd,TRUE,SF,"8,560",running,5,8592,52174,51548,626,83431
+Upper Bann,4,dolores kelly,Dolores Kelly,FALSE,SDLP,"6,511.76",running,5,8592,52174,51548,626,83431
+Upper Bann,4,nuala toman,Nuala Toman,FALSE,SF,"6,294.30",running,5,8592,52174,51548,626,83431
+Upper Bann,4,joanne dobson,Jo-Anne Dobson,TRUE,UUP,"5,969.58",eliminated,5,8592,52174,51548,626,83431
+Upper Bann,4,tara doyle,Tara Doyle,FALSE,AP,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,4,roy ferguson,Roy Ferguson,FALSE,TUV,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,4,simon lee,Simon Lee,FALSE,GP,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,4,colin craig,Colin Craig,FALSE,WP,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,4,ian nichols,Ian Nichols,FALSE,CON,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,5,carla lockhart,Carla Lockhart,TRUE,DUP,,elected,5,8592,52174,51548,626,83431
+Upper Bann,5,jonathan buckley,Jonathan Buckley,FALSE,DUP,"8,764.84",elected,5,8592,52174,51548,626,83431
+Upper Bann,5,doug beattie,Doug Beattie,TRUE,UUP,"10,728.86",elected,5,8592,52174,51548,626,83431
+Upper Bann,5,john odowd,John O'Dowd,TRUE,SF,"8,593.60",elected,5,8592,52174,51548,626,83431
+Upper Bann,5,dolores kelly,Dolores Kelly,FALSE,SDLP,"7,189.92",running,5,8592,52174,51548,626,83431
+Upper Bann,5,nuala toman,Nuala Toman,FALSE,SF,"6,316.60",running,5,8592,52174,51548,626,83431
+Upper Bann,5,joanne dobson,Jo-Anne Dobson,TRUE,UUP,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,5,tara doyle,Tara Doyle,FALSE,AP,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,5,roy ferguson,Roy Ferguson,FALSE,TUV,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,5,simon lee,Simon Lee,FALSE,GP,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,5,colin craig,Colin Craig,FALSE,WP,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,5,ian nichols,Ian Nichols,FALSE,CON,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,6,carla lockhart,Carla Lockhart,TRUE,DUP,,elected,5,8592,52174,51548,626,83431
+Upper Bann,6,jonathan buckley,Jonathan Buckley,FALSE,DUP,"8,764.84",elected,5,8592,52174,51548,626,83431
+Upper Bann,6,doug beattie,Doug Beattie,TRUE,UUP,,elected,5,8592,52174,51548,626,83431
+Upper Bann,6,john odowd,John O'Dowd,TRUE,SF,"8,593.60",elected,5,8592,52174,51548,626,83431
+Upper Bann,6,dolores kelly,Dolores Kelly,FALSE,SDLP,"9,053.92",elected,5,8592,52174,51548,626,83431
+Upper Bann,6,nuala toman,Nuala Toman,FALSE,SF,"6,341.60",running,5,8592,52174,51548,626,83431
+Upper Bann,6,joanne dobson,Jo-Anne Dobson,TRUE,UUP,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,6,tara doyle,Tara Doyle,FALSE,AP,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,6,roy ferguson,Roy Ferguson,FALSE,TUV,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,6,simon lee,Simon Lee,FALSE,GP,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,6,colin craig,Colin Craig,FALSE,WP,,eliminated,5,8592,52174,51548,626,83431
+Upper Bann,6,ian nichols,Ian Nichols,FALSE,CON,,eliminated,5,8592,52174,51548,626,83431
+West Tyrone,1,thomas buchanan,Thomas Buchanan,TRUE,DUP,"9,064",elected,5,7388,44907,44325,582,64258
+West Tyrone,1,michaela boyle,Michaela Boyle,TRUE,SF,"7,714",elected,5,7388,44907,44325,582,64258
+West Tyrone,1,barry mcelduff,Barry McElduff,TRUE,SF,"7,573",elected,5,7388,44907,44325,582,64258
+West Tyrone,1,daniel mccrossan,Daniel McCrossan,TRUE,SDLP,"6,283",running,5,7388,44907,44325,582,64258
+West Tyrone,1,declan mcaleer,Declan McAleer,TRUE,SF,"6,034",running,5,7388,44907,44325,582,64258
+West Tyrone,1,alicia clarke,Alicia Clarke,FALSE,UUP,"3,654",running,5,7388,44907,44325,582,64258
+West Tyrone,1,charlie chittick,Charlie Chittick,FALSE,TUV,851,running,5,7388,44907,44325,582,64258
+West Tyrone,1,stephen donnelly,Stephen Donnelly,FALSE,AP,"1,252",running,5,7388,44907,44325,582,64258
+West Tyrone,1,sorcha mcanespy,Sorcha McAnespy,FALSE,IND,864,running,5,7388,44907,44325,582,64258
+West Tyrone,1,ciaran mcclean,Ciaran McClean,FALSE,GP,412,running,5,7388,44907,44325,582,64258
+West Tyrone,1,barry brown,Barry Brown,FALSE,CISTA,373,running,5,7388,44907,44325,582,64258
+West Tyrone,1,corey french,Corey French,FALSE,IND,98,running,5,7388,44907,44325,582,64258
+West Tyrone,1,roisin mcmackin,Roisin McMackin,FALSE,IND,85,running,5,7388,44907,44325,582,64258
+West Tyrone,1,susananne white,Susan-Anne White,FALSE,IND,41,running,5,7388,44907,44325,582,64258
+West Tyrone,1,roger lomas,Roger Lomas,FALSE,CON,27,running,5,7388,44907,44325,582,64258
+West Tyrone,2,thomas buchanan,Thomas Buchanan,TRUE,DUP,,elected,5,7388,44907,44325,582,64258
+West Tyrone,2,michaela boyle,Michaela Boyle,TRUE,SF,"7,714",elected,5,7388,44907,44325,582,64258
+West Tyrone,2,barry mcelduff,Barry McElduff,TRUE,SF,"7,573",elected,5,7388,44907,44325,582,64258
+West Tyrone,2,daniel mccrossan,Daniel McCrossan,TRUE,SDLP,"6,300",running,5,7388,44907,44325,582,64258
+West Tyrone,2,declan mcaleer,Declan McAleer,TRUE,SF,"6,035",running,5,7388,44907,44325,582,64258
+West Tyrone,2,alicia clarke,Alicia Clarke,FALSE,UUP,"4,689",running,5,7388,44907,44325,582,64258
+West Tyrone,2,charlie chittick,Charlie Chittick,FALSE,TUV,"1,429",running,5,7388,44907,44325,582,64258
+West Tyrone,2,stephen donnelly,Stephen Donnelly,FALSE,AP,"1,260",running,5,7388,44907,44325,582,64258
+West Tyrone,2,sorcha mcanespy,Sorcha McAnespy,FALSE,IND,866,running,5,7388,44907,44325,582,64258
+West Tyrone,2,ciaran mcclean,Ciaran McClean,FALSE,GP,416,running,5,7388,44907,44325,582,64258
+West Tyrone,2,barry brown,Barry Brown,FALSE,CISTA,381,running,5,7388,44907,44325,582,64258
+West Tyrone,2,corey french,Corey French,FALSE,IND,99,running,5,7388,44907,44325,582,64258
+West Tyrone,2,roisin mcmackin,Roisin McMackin,FALSE,IND,86,running,5,7388,44907,44325,582,64258
+West Tyrone,2,susananne white,Susan-Anne White,FALSE,IND,45,running,5,7388,44907,44325,582,64258
+West Tyrone,2,roger lomas,Roger Lomas,FALSE,CON,32,running,5,7388,44907,44325,582,64258
+West Tyrone,3,thomas buchanan,Thomas Buchanan,TRUE,DUP,,elected,5,7388,44907,44325,582,64258
+West Tyrone,3,michaela boyle,Michaela Boyle,TRUE,SF,,elected,5,7388,44907,44325,582,64258
+West Tyrone,3,barry mcelduff,Barry McElduff,TRUE,SF,"7,573",elected,5,7388,44907,44325,582,64258
+West Tyrone,3,daniel mccrossan,Daniel McCrossan,TRUE,SDLP,"6,333",running,5,7388,44907,44325,582,64258
+West Tyrone,3,declan mcaleer,Declan McAleer,TRUE,SF,"6,289",running,5,7388,44907,44325,582,64258
+West Tyrone,3,alicia clarke,Alicia Clarke,FALSE,UUP,"4,689",running,5,7388,44907,44325,582,64258
+West Tyrone,3,charlie chittick,Charlie Chittick,FALSE,TUV,"1,429",running,5,7388,44907,44325,582,64258
+West Tyrone,3,stephen donnelly,Stephen Donnelly,FALSE,AP,"1,264",running,5,7388,44907,44325,582,64258
+West Tyrone,3,sorcha mcanespy,Sorcha McAnespy,FALSE,IND,871,running,5,7388,44907,44325,582,64258
+West Tyrone,3,ciaran mcclean,Ciaran McClean,FALSE,GP,417,running,5,7388,44907,44325,582,64258
+West Tyrone,3,barry brown,Barry Brown,FALSE,CISTA,384,running,5,7388,44907,44325,582,64258
+West Tyrone,3,corey french,Corey French,FALSE,IND,101,running,5,7388,44907,44325,582,64258
+West Tyrone,3,roisin mcmackin,Roisin McMackin,FALSE,IND,86,running,5,7388,44907,44325,582,64258
+West Tyrone,3,susananne white,Susan-Anne White,FALSE,IND,45,running,5,7388,44907,44325,582,64258
+West Tyrone,3,roger lomas,Roger Lomas,FALSE,CON,32,running,5,7388,44907,44325,582,64258
+West Tyrone,4,thomas buchanan,Thomas Buchanan,TRUE,DUP,,elected,5,7388,44907,44325,582,64258
+West Tyrone,4,michaela boyle,Michaela Boyle,TRUE,SF,,elected,5,7388,44907,44325,582,64258
+West Tyrone,4,barry mcelduff,Barry McElduff,TRUE,SF,,elected,5,7388,44907,44325,582,64258
+West Tyrone,4,daniel mccrossan,Daniel McCrossan,TRUE,SDLP,"6,343",running,5,7388,44907,44325,582,64258
+West Tyrone,4,declan mcaleer,Declan McAleer,TRUE,SF,"6,421",running,5,7388,44907,44325,582,64258
+West Tyrone,4,alicia clarke,Alicia Clarke,FALSE,UUP,"4,690",running,5,7388,44907,44325,582,64258
+West Tyrone,4,charlie chittick,Charlie Chittick,FALSE,TUV,"1,429",eliminated,5,7388,44907,44325,582,64258
+West Tyrone,4,stephen donnelly,Stephen Donnelly,FALSE,AP,"1,266",eliminated,5,7388,44907,44325,582,64258
+West Tyrone,4,sorcha mcanespy,Sorcha McAnespy,FALSE,IND,875,eliminated,5,7388,44907,44325,582,64258
+West Tyrone,4,ciaran mcclean,Ciaran McClean,FALSE,GP,418,eliminated,5,7388,44907,44325,582,64258
+West Tyrone,4,barry brown,Barry Brown,FALSE,CISTA,385,eliminated,5,7388,44907,44325,582,64258
+West Tyrone,4,corey french,Corey French,FALSE,IND,102,eliminated,5,7388,44907,44325,582,64258
+West Tyrone,4,roisin mcmackin,Roisin McMackin,FALSE,IND,86,eliminated,5,7388,44907,44325,582,64258
+West Tyrone,4,susananne white,Susan-Anne White,FALSE,IND,45,eliminated,5,7388,44907,44325,582,64258
+West Tyrone,4,roger lomas,Roger Lomas,FALSE,CON,32,eliminated,5,7388,44907,44325,582,64258
+West Tyrone,5,thomas buchanan,Thomas Buchanan,TRUE,DUP,,elected,5,7388,44907,44325,582,64258
+West Tyrone,5,michaela boyle,Michaela Boyle,TRUE,SF,,elected,5,7388,44907,44325,582,64258
+West Tyrone,5,barry mcelduff,Barry McElduff,TRUE,SF,,elected,5,7388,44907,44325,582,64258
+West Tyrone,5,daniel mccrossan,Daniel McCrossan,TRUE,SDLP,"7,682",elected,5,7388,44907,44325,582,64258
+West Tyrone,5,declan mcaleer,Declan McAleer,TRUE,SF,"7,035",elected,5,7388,44907,44325,582,64258
+West Tyrone,5,alicia clarke,Alicia Clarke,FALSE,UUP,"6,275",running,5,7388,44907,44325,582,64258
+West Tyrone,5,charlie chittick,Charlie Chittick,FALSE,TUV,,eliminated,5,7388,44907,44325,582,64258
+West Tyrone,5,stephen donnelly,Stephen Donnelly,FALSE,AP,,eliminated,5,7388,44907,44325,582,64258
+West Tyrone,5,sorcha mcanespy,Sorcha McAnespy,FALSE,IND,,eliminated,5,7388,44907,44325,582,64258
+West Tyrone,5,ciaran mcclean,Ciaran McClean,FALSE,GP,,eliminated,5,7388,44907,44325,582,64258
+West Tyrone,5,barry brown,Barry Brown,FALSE,CISTA,,eliminated,5,7388,44907,44325,582,64258
+West Tyrone,5,corey french,Corey French,FALSE,IND,,eliminated,5,7388,44907,44325,582,64258
+West Tyrone,5,roisin mcmackin,Roisin McMackin,FALSE,IND,,eliminated,5,7388,44907,44325,582,64258
+West Tyrone,5,susananne white,Susan-Anne White,FALSE,IND,,eliminated,5,7388,44907,44325,582,64258
+West Tyrone,5,roger lomas,Roger Lomas,FALSE,CON,,eliminated,5,7388,44907,44325,582,64258
