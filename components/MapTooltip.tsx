@@ -37,7 +37,9 @@ const PARTY_COLORS: Record<string, string> = {
   "AAA-PBP": "#c7c414",
   RED: "#7a7a7a",
   Yes: "#0a1f94",
-  No: "#d4950d"
+  No: "#d4950d",
+    Leave: "#0a1f94",
+  Remain: "#d4950d"
 };
 
 type Candidate = {

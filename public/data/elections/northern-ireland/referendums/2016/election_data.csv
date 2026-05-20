@@ -1,0 +1,37 @@
+constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,turnout,tvp,spoilt,electorate
+Belfast East,1,remain,Remain,FALSE,Remain,20728,elected,1,21323,42665,42646,19,64474
+Belfast East,1,leave,Leave,FALSE,Leave,21918,running,1,21323,42665,42646,19,64474
+Belfast North,1,remain,Remain,FALSE,Remain,20128,elected,1,19986,39998,39972,26,69692
+Belfast North,1,leave,Leave,FALSE,Leave,19844,running,1,19986,39998,39972,26,69692
+Belfast South,1,remain,Remain,FALSE,Remain,30960,elected,1,22278,44583,44556,27,66664
+Belfast South,1,leave,Leave,FALSE,Leave,13596,running,1,22278,44583,44556,27,66664
+Belfast West,1,remain,Remain,FALSE,Remain,23099,elected,1,15595,31209,31191,18,63883
+Belfast West,1,leave,Leave,FALSE,Leave,8092,running,1,15595,31209,31191,18,63883
+East Antrim,1,remain,Remain,FALSE,Remain,18616,elected,1,20772,41564,41545,19,63997
+East Antrim,1,leave,Leave,FALSE,Leave,22929,running,1,20772,41564,41545,19,63997
+East Derry,1,remain,Remain,FALSE,Remain,21098,elected,1,20276,40563,40553,10,67953
+East Derry,1,leave,Leave,FALSE,Leave,19455,running,1,20276,40563,40553,10,67953
+Fermanagh and South Tyrone,1,remain,Remain,FALSE,Remain,28200,elected,1,24079,48187,48158,29,71051
+Fermanagh and South Tyrone,1,leave,Leave,FALSE,Leave,19958,running,1,24079,48187,48158,29,71051
+Foyle,1,remain,Remain,FALSE,Remain,32064,elected,1,20484,40987,40969,18,71677
+Foyle,1,leave,Leave,FALSE,Leave,8905,running,1,20484,40987,40969,18,71677
+Lagan Valley,1,remain,Remain,FALSE,Remain,22710,elected,1,24207,48425,48414,11,73089
+Lagan Valley,1,leave,Leave,FALSE,Leave,25704,running,1,24207,48425,48414,11,73089
+Mid Ulster,1,remain,Remain,FALSE,Remain,25612,elected,1,21205,42431,42411,20,68927
+Mid Ulster,1,leave,Leave,FALSE,Leave,16799,running,1,21205,42431,42411,20,68927
+Newry and Armagh,1,remain,Remain,FALSE,Remain,31963,elected,1,25311,50644,50622,22,79211
+Newry and Armagh,1,leave,Leave,FALSE,Leave,18659,running,1,25311,50644,50622,22,79211
+North Antrim,1,remain,Remain,FALSE,Remain,18782,elected,1,24860,49740,49720,20,76913
+North Antrim,1,leave,Leave,FALSE,Leave,30938,running,1,24860,49740,49720,20,76913
+North Down,1,remain,Remain,FALSE,Remain,23131,elected,1,22088,44211,44177,34,65660
+North Down,1,leave,Leave,FALSE,Leave,21046,running,1,22088,44211,44177,34,65660
+South Antrim,1,remain,Remain,FALSE,Remain,21498,elected,1,21776,43563,43553,10,69015
+South Antrim,1,leave,Leave,FALSE,Leave,22055,running,1,21776,43563,43553,10,69015
+South Down,1,remain,Remain,FALSE,Remain,32076,elected,1,23850,47724,47701,23,76697
+South Down,1,leave,Leave,FALSE,Leave,15625,running,1,23850,47724,47701,23,76697
+Strangford,1,remain,Remain,FALSE,Remain,18727,elected,1,21055,42123,42110,13,65642
+Strangford,1,leave,Leave,FALSE,Leave,23383,running,1,21055,42123,42110,13,65642
+Upper Bann,1,remain,Remain,FALSE,Remain,24550,elected,1,25906,51845,51812,33,81469
+Upper Bann,1,leave,Leave,FALSE,Leave,27262,running,1,25906,51845,51812,33,81469
+West Tyrone,1,remain,Remain,FALSE,Remain,26765,elected,1,20019,40061,40039,22,64941
+West Tyrone,1,leave,Leave,FALSE,Leave,13274,running,1,20019,40061,40039,22,64941

@@ -40,7 +40,9 @@ const PARTY_COLORS = {
   AAA: "#c7c414",
   RED: "#7a7a7a",
   Yes: "#0a1f94",
-  No: "#d4950d"
+  No: "#d4950d",
+  Leave: "#0a1f94",
+  Remain: "#d4950d"
 };
 
 /* =============================
@@ -103,6 +105,32 @@ function getTintedScale(hex, value, min, max) {
   return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
 }
 
+function getPositiveReferendumVotes(first) {
+  return first
+    .filter(
+      c =>
+        c.party === "Yes" ||
+        c.party === "Leave"
+    )
+    .reduce(
+      (sum, c) => sum + (c.votes || 0),
+      0
+    );
+}
+
+function getNegativeReferendumVotes(first) {
+  return first
+    .filter(
+      c =>
+        c.party === "No" ||
+        c.party === "Remain"
+    )
+    .reduce(
+      (sum, c) => sum + (c.votes || 0),
+      0
+    );
+}
+
 function getReferendumMarginRange(results) {
   const margins = [];
 
@@ -110,8 +138,8 @@ function getReferendumMarginRange(results) {
     const first = c?.counts?.[1];
     if (!first) return;
 
-    const yes = first.find(x => x.party === "Yes")?.votes || 0;
-    const no = first.find(x => x.party === "No")?.votes || 0;
+const yes = getPositiveReferendumVotes(first);
+const no = getNegativeReferendumVotes(first);
 
     const total = yes + no;
     if (!total) return;
@@ -135,11 +163,8 @@ function getReferendumColor(counts, range) {
     return "transparent";
   }
 
-  const yes =
-    first.find(c => c.party === "Yes")?.votes || 0;
-
-  const no =
-    first.find(c => c.party === "No")?.votes || 0;
+const yes = getPositiveReferendumVotes(first);
+const no = getNegativeReferendumVotes(first);
 
   const total = yes + no;
 
@@ -338,101 +363,6 @@ function hexToRgb(hex) {
 function parseNumber(value) {
   if (!value) return 0;
   return Number(String(value).replace(/,/g, ""));
-}
-
-function ReferendumLegend({ range }) {
-  if (!range) return null;
-
-  const { min, max } = range;
-
-  // 👉 detect what actually exists in data
-  const hasYes = max > 0;
-  const hasNo = min < 0;
-
-  const format = (v) => `${(v * 100).toFixed(0)}%`;
-
-  // 👉 dynamic gradient
-  let gradient;
-
-  if (hasYes && hasNo) {
-    gradient =
-      "linear-gradient(to right, rgb(255,170,0), rgb(245,245,245), rgb(0,90,255))";
-  } else if (hasNo) {
-    gradient =
-      "linear-gradient(to right, rgb(255,170,0), rgb(245,245,245))";
-  } else {
-    gradient =
-      "linear-gradient(to right, rgb(245,245,245), rgb(0,90,255))";
-  }
-
-  return (
-    <div
-      style={{
-        position: "absolute",
-        bottom: "20px",
-        right: "20px",
-        zIndex: 1000,
-        padding: "10px 12px",
-        background: "var(--panel)",
-        border: "1px solid var(--border)",
-        borderRadius: "10px",
-        fontSize: "11px",
-        color: "var(--text)",
-        width: "200px"
-      }}
-    >
-
-      {/* TITLE */}
-      <div style={{ marginBottom: "6px", fontWeight: 600 }}>
-        {hasYes && hasNo
-          ? "Margin"
-          : hasNo
-          ? "No Majority"
-          : "Yes Majority"}
-      </div>
-
-      {/* GRADIENT */}
-      <div
-        style={{
-          height: "10px",
-          borderRadius: "6px",
-          marginBottom: "6px",
-          background: gradient
-        }}
-      />
-
-      {/* VALUE LABELS */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          fontSize: "10px",
-          opacity: 0.8
-        }}
-      >
-        {hasNo && <span>{format(min)}</span>}
-
-        {hasYes && hasNo && <span>0%</span>}
-
-        {hasYes && <span>{format(max)}</span>}
-      </div>
-
-      {/* SIDE LABELS */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginTop: "4px",
-          fontSize: "10px",
-          opacity: 0.6
-        }}
-      >
-        {hasNo && <span>No</span>}
-        {hasYes && <span style={{ marginLeft: "auto" }}>Yes</span>}
-      </div>
-
-    </div>
-  );
 }
 
 function parseConstituency(name) {
@@ -1576,17 +1506,15 @@ if (view === "party" || view === "winner") {
   const first = counts[1];
   if (!first?.length) return "transparent";
 
-  let yesVotes = 0;
-  let noVotes = 0;
+const yesVotes =
+  getPositiveReferendumVotes(first);
 
-  first.forEach((c) => {
-    if (c.party === "Yes") yesVotes += c.votes || 0;
-    if (c.party === "No") noVotes += c.votes || 0;
-  });
+const noVotes =
+  getNegativeReferendumVotes(first);
 
-  return yesVotes >= noVotes
-    ? PARTY_COLORS["Yes"]
-    : PARTY_COLORS["No"];
+return yesVotes >= noVotes
+  ? PARTY_COLORS["Yes"]
+  : PARTY_COLORS["No"];
 }
 
 if (view === "turnout") {
@@ -2085,10 +2013,6 @@ click: (e) => {
     });
   }}
 />
-)}
-
-{type?.startsWith("referendum") && (
-  <ReferendumLegend range={marginRange} />
 )}
 
 {type === "house-of-commons" &&

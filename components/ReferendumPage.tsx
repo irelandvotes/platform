@@ -35,7 +35,9 @@ import {
   IND: "#7a7a7a",
   IPP: "#0e9775",
   Yes: "#0a1f94",
-  No: "#d4950d"
+  No: "#d4950d",
+  Leave: "#0a1f94",
+  Remain: "#d4950d"
 };
 
 function AnimatedNumber({

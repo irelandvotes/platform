@@ -5,19 +5,13 @@ import path from "path";
 import { parse } from "csv-parse/sync";
 
 function parseCSVLine(line: string) {
-  try {
-    const records = parse(line, {
-      relax_quotes: true,
-      relax_column_count: true,
-      skip_empty_lines: true,
-      trim: true
-    });
+  const records = parse(line, {
+    relax_quotes: true,
+    skip_empty_lines: true,
+    trim: true
+  });
 
-    return records[0] || [];
-  } catch (err) {
-    console.error("Bad CSV line:", line);
-    return [];
-  }
+  return records[0] || [];
 }
 
 export type ElectionRow = {
@@ -577,6 +571,14 @@ function getInstitution(
       "referendums"
   ) {
     return "Constitutional Amendment";
+  }
+
+    if (
+    country === "northern-ireland" &&
+    category ===
+      "referendums"
+  ) {
+    return "Question";
   }
 
     if (
