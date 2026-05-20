@@ -62,6 +62,9 @@ import {
   IFP: "#095f18",
   NP: "#052e1d",
   RTC: "#db2f2f",
+  SP: "#9c0e0e",
+  AAA: "#c7c414",
+  "AAA-PBP": "#c7c414",
   RED: "#7a7a7a"
 
 };
@@ -3585,6 +3588,7 @@ National Results
 
 {(
 (type === "dail" && Number(year) === 2024) ||
+(type === "dail" && Number(year) === 2016) ||
 (type === "assembly" && Number(year) === 2017)
 )
 ? "Seats (Notional Changes)"
@@ -3592,6 +3596,7 @@ National Results
 
 {(
 (type === "dail" && Number(year) === 2024) ||
+(type === "dail" && Number(year) === 2016) ||
 (type === "assembly" && Number(year) === 2017)
 ) && (
     <span
