@@ -460,7 +460,11 @@ onClick={() => {
   onReset?.();
 
   // 👇 force map controller to run
-  window.dispatchEvent(new Event("map-reset"));
+if (typeof window !== "undefined") {
+  window.dispatchEvent(
+    new Event("map-reset")
+  );
+}
 }}
 style={{
   position: "absolute",
@@ -605,6 +609,15 @@ const zoomBoost = Math.min(
   2, // 👈 HARD LIMIT (prevents crazy jumps)
   Math.log2(1 / ratio)
 );
+
+if (
+  !map ||
+  !map.getContainer ||
+  !map._loaded ||
+  !map.getContainer()
+) {
+  return;
+}
 
 map.setZoom(map.getZoom() + zoomBoost * multiplier);
       }
@@ -947,7 +960,9 @@ const source =
 
 source.onopen = () => {
 
-window.liveConnected = true;
+if (typeof window !== "undefined") {
+  window.liveConnected = true;
+}
 
    console.log(
       "SSE CONNECTED"
@@ -1123,7 +1138,9 @@ grouped[constituency].counts[count].push({
 
         console.log("GROUPED:", grouped);
 
-        window.results = grouped;
+if (typeof window !== "undefined") {
+  window.results = grouped;
+}
 
 Object.keys(grouped).forEach((c) => {
   if (!grouped[c].seats) {
@@ -1134,7 +1151,8 @@ Object.keys(grouped).forEach((c) => {
 console.log("USING TALLY DATA");
 
 if (
-  !(window.liveConnected)
+  typeof window === "undefined" ||
+  !window.liveConnected
 ) {
 
   onLoadResults(grouped);
@@ -1254,7 +1272,9 @@ useEffect(() => {
 
       console.log("PREVIOUS RESULTS:", grouped);
 
-      window.previousResults = grouped;
+if (typeof window !== "undefined") {
+  window.previousResults = grouped;
+}
 
       setPreviousResults(grouped);
 
@@ -1861,10 +1881,6 @@ useEffect(() => {
     );
   };
 }, [isMobile]);
-
-  /* =============================
-     Map Render
-  ============================= */
 
 return (
   <div
