@@ -936,22 +936,10 @@ window.geoData = data; // 👈 add this
 
 useEffect(() => {
 
-console.log({
-   country,
-   type,
-   year,
-   slug
-});
-
   if (!slug) return;
 
 const liveURL =
 `/api/live-results/${country}/${type}/${year}/${slug}`;
-
-console.log(
-   "LIVE URL:",
-   liveURL
-);
 
 const source =
    new EventSource(
@@ -964,10 +952,6 @@ if (typeof window !== "undefined") {
   window.liveConnected = true;
 }
 
-   console.log(
-      "SSE CONNECTED"
-   );
-
 };
 
 source.onmessage = (event) => {
@@ -977,15 +961,6 @@ source.onmessage = (event) => {
          event.data
       );
 
-console.log(
-  "LIVE PAYLOAD",
-  JSON.stringify(
-    data,
-    null,
-    2
-  )
-);
-
     // Ignore empty/broken updates
     if (
       !data.results ||
@@ -993,17 +968,9 @@ console.log(
         .length === 0
     ) {
 
-      console.log(
-        "Ignoring empty live update"
-      );
-
       return;
 
     }
-
-     console.log(
-      "LIVE UPDATE RECEIVED"
-    );
 
     window.results =
       data.results;
@@ -1026,10 +993,6 @@ onLoadOfficialResults?.(
   };
 
   source.onerror = () => {
-
-    console.log(
-      "Live connection failed"
-    );
 
   };
 
@@ -1136,8 +1099,6 @@ grouped[constituency].counts[count].push({
 });
         });
 
-        console.log("GROUPED:", grouped);
-
 if (typeof window !== "undefined") {
   window.results = grouped;
 }
@@ -1220,17 +1181,11 @@ console.log("USING COUNT DATA");
         });
       });
 
-      console.log("OFFICIAL RESULTS:", grouped);
-
       if (onLoadOfficialResults) {
         onLoadOfficialResults(grouped);
       }
     })
 .catch(() => {
-
-   console.log(
-      "No official results available"
-   );
 
    if (onLoadOfficialResults) {
       onLoadOfficialResults({});
@@ -1269,8 +1224,6 @@ useEffect(() => {
           seats: Number(row.seats) || 0,
         };
       });
-
-      console.log("PREVIOUS RESULTS:", grouped);
 
 if (typeof window !== "undefined") {
   window.previousResults = grouped;
