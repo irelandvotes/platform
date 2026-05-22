@@ -1,5 +1,6 @@
 "use client";
 
+
 /* =============================
    Party Colours
 ============================= */
@@ -57,6 +58,7 @@ import { useMap } from "react-leaflet";
 import "./map.css";
 import { renderToString } from "react-dom/server";
 import MapTooltip from "./MapTooltip";
+
 
 /* =============================
    Dynamic Leaflet Imports (Next.js SSR Safe)
@@ -791,10 +793,16 @@ export default function Map({
   const isMobile =
   typeof window !== "undefined" &&
   window.innerWidth < 900;
-  const leafletRef = useRef(null);
-  const [previousResults, setPreviousResults] = useState([]);
-  const [officialResults, setOfficialResults] = useState(null);
-  const hasOfficialData = useRef(false);
+const leafletRef = useRef(null);
+const [previousResults, setPreviousResults] = useState([]);
+const [officialResults, setOfficialResults] = useState({});
+const [lastUpdated,
+setLastUpdated]
+=
+useState(null);
+const [loading,setLoading]
+=
+useState(true);
 const mobileTooltipRef = useRef(null);
 const country = election?.country || "ireland";
 const type = election?.type || "dail";
@@ -808,6 +816,19 @@ const dataPath = slug
   : `/data/elections/${country}/${type}/${year}`;
 
 const [isDark, setIsDark] = useState(true);
+
+async function loadAllData(){
+
+   setLoading(true);
+
+   await Promise.allSettled([
+      loadElectionData(),
+      loadOfficialData()
+   ]);
+
+   setLoading(false);
+
+}
 
 useEffect(() => {
   const panes = document.querySelectorAll(".leaflet-pane");
@@ -899,6 +920,116 @@ window.geoData = data; // 👈 add this
   /* =============================
      Load Election CSV Data
   ============================= */
+
+useEffect(() => {
+
+console.log({
+   country,
+   type,
+   year,
+   slug
+});
+
+  if (!slug) return;
+
+const liveURL =
+`/api/live-results/${country}/${type}/${year}/${slug}`;
+
+console.log(
+   "LIVE URL:",
+   liveURL
+);
+
+const source =
+   new EventSource(
+      liveURL
+   );
+
+source.onopen = () => {
+
+window.liveConnected = true;
+
+   console.log(
+      "SSE CONNECTED"
+   );
+
+};
+
+source.onmessage = (event) => {
+
+   const data =
+      JSON.parse(
+         event.data
+      );
+
+console.log(
+  "LIVE PAYLOAD",
+  JSON.stringify(
+    data,
+    null,
+    2
+  )
+);
+
+    // Ignore empty/broken updates
+    if (
+      !data.results ||
+      Object.keys(data.results)
+        .length === 0
+    ) {
+
+      console.log(
+        "Ignoring empty live update"
+      );
+
+      return;
+
+    }
+
+     console.log(
+      "LIVE UPDATE RECEIVED"
+    );
+
+    window.results =
+      data.results;
+
+    window.officialResults =
+      data.officialResults || {};
+
+onLoadResults?.(
+  structuredClone(
+    data.results
+  )
+);
+
+onLoadOfficialResults?.(
+  structuredClone(
+    data.officialResults || {}
+  )
+);
+
+  };
+
+  source.onerror = () => {
+
+    console.log(
+      "Live connection failed"
+    );
+
+  };
+
+  return () => {
+
+    source.close();
+
+  };
+
+},[
+  country,
+  type,
+  year,
+  slug
+]);
 
 useEffect(() => {
   fetch(`${dataPath}/projection.json`)
@@ -1000,12 +1131,19 @@ Object.keys(grouped).forEach((c) => {
   }
 });
 
-if (!hasOfficialData.current) {
-  console.log("USING TALLY DATA");
+console.log("USING TALLY DATA");
+
+if (
+  !(window.liveConnected)
+) {
 
   onLoadResults(grouped);
-  onLoadList(Object.keys(grouped));
+
 }
+
+onLoadList(
+  Object.keys(grouped)
+);
         
       });
   }, [dataPath]);
@@ -1018,7 +1156,6 @@ useEffect(() => {
     })
     .then((csv) => {
 
-hasOfficialData.current = true;
 console.log("USING COUNT DATA");
 
       const parsed = Papa.parse(csv, {
@@ -1072,7 +1209,15 @@ console.log("USING COUNT DATA");
       }
     })
 .catch(() => {
-  console.log("No official results available");
+
+   console.log(
+      "No official results available"
+   );
+
+   if (onLoadOfficialResults) {
+      onLoadOfficialResults({});
+   }
+
 });
 }, [dataPath]);
 

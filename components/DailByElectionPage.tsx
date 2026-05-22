@@ -224,10 +224,27 @@ const hasResults =
 
 const hasOfficial =
   officialResults &&
-  Object.keys(officialResults).length > 0;
+  Object.values(officialResults).some(
+    (c: any) =>
+      c?.counts &&
+      Object.values(c.counts).some(
+        (arr: any) =>
+          Array.isArray(arr) &&
+          arr.length > 0 &&
+          arr.some(
+            (candidate: any) =>
+              Number(candidate.votes) > 0
+          )
+      )
+  );
+
+const liveResults =
+  results;
 
 const displayResults =
-  hasOfficial ? officialResults : results;
+  hasOfficial
+    ? officialResults
+    : liveResults;
 
 function normalizeSlug(value: string) {
   return value
@@ -377,24 +394,87 @@ function aggregateNational(results: any) {
   const counts: Record<string, any[]> = {};
 
   Object.values(results).forEach((constituency: any) => {
-    Object.entries(constituency.counts || {}).forEach(([count, data]: [string, any]) => {
+    Object.entries(constituency.counts || {}).forEach(([rawCount, data]: [string, any]) => {
+
+  const count = Number(rawCount);
       if (!counts[count]) counts[count] = [];
 
       data.forEach((candidate: any) => {
-        const existing = counts[count].find(
-          c =>
-            c.name === candidate.name &&
-            c.party === candidate.party
-        );
+const existing = counts[count].find(
+  c =>
+    (c.name || c.candidate) ===
+    (candidate.name || candidate.candidate) &&
+    c.party === candidate.party
+);
 
-        if (existing) {
-          existing.votes += candidate.votes;
-        } else {
-          counts[count].push({ ...candidate });
-        }
+console.log(
+  "AGG CANDIDATE:",
+  candidate.name,
+  candidate.votes,
+  typeof candidate.votes
+);
+
+if (existing) {
+
+  existing.votes =
+    Number(existing.votes || 0) +
+    Number(candidate.votes || 0);
+
+} else {
+
+  counts[count].push({
+
+    id:
+      candidate.id,
+
+    imageId:
+      candidate.imageId,
+
+    name:
+      candidate.name ||
+      candidate.candidate,
+
+    party:
+      candidate.party,
+
+    votes:
+      Number(candidate.votes || 0),
+
+    status:
+      candidate.status,
+
+    incumbent:
+      candidate.incumbent,
+
+    seats:
+      candidate.seats,
+
+    quota:
+      candidate.quota,
+
+    electorate:
+      candidate.electorate,
+
+    turnout:
+      candidate.turnout,
+
+    tvp:
+      candidate.tvp,
+
+    spoilt:
+      candidate.spoilt
+
+  });
+
+}
       });
     });
   });
+
+console.log(
+  "NATIONAL COUNTS:",
+  counts
+);
 
   return { counts };
 }
@@ -1288,9 +1368,7 @@ const reportingPercent =
 const isOverall = current?.name === "Overall";
 
 const isTally =
-  !isOverall || // ALWAYS true for constituencies
-  !officialResults ||
-  Object.keys(officialResults).length === 0;
+  !isOverall || !hasOfficial;
 
 console.log(Object.keys(results));
 
