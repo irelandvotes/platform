@@ -177,26 +177,11 @@ export async function GET(
   const params =
     await context.params;
 
-  console.log(
-    "PARAMS:",
-    params
-  );
-
 const key =
 `${params.country}-${params.type}-${params.year}-${params.slug}`;
 
-  console.log(
-    "KEY:",
-    key
-  );
-
   const config =
     liveSheetMap[key];
-
-  console.log(
-    "CONFIG:",
-    config
-  );
 
   if (!config) {
 
@@ -231,10 +216,6 @@ const key =
 
                     if (!tallyURL) {
 
-                        console.log(
-                            "Missing tally URL"
-                        );
-
                         return;
 
                     }
@@ -250,11 +231,6 @@ const key =
                         officialURL
                     ) {
 
-console.log(
-   "OFFICIAL URL:",
-   officialURL
-);
-
                         try {
 
                             const countCSV =
@@ -267,18 +243,9 @@ console.log(
                                     countCSV
                                 );
 
-console.log(
-   "OFFICIAL PARSED:",
-   official
-);
-
                         }
 
                         catch {
-
-                            console.log(
-                                "No official sheet"
-                            );
 
                         }
 
@@ -327,11 +294,6 @@ try {
                 }
 
                 catch (err) {
-
-                    console.log(
-                        "Live stream error:",
-                        err
-                    );
 
                 }
 
