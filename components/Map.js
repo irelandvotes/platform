@@ -936,7 +936,11 @@ window.geoData = data; // 👈 add this
 
 useEffect(() => {
 
-  if (!slug) return;
+  if (typeof window === "undefined") {
+  return;
+}
+
+if (!slug) return;
 
 const liveURL =
 `/api/live-results/${country}/${type}/${year}/${slug}`;
