@@ -3410,7 +3410,7 @@ width:
 </div>
 
 )}
-{/* <Map
+<Map
 key="election_map"
   election={{
     country,
@@ -3445,7 +3445,7 @@ key="election_map"
   count={count}
   onLoadPreviousResults={setPreviousResults}
   onLoadProjection={setProjection}
-/> */}
+/>
       </div>
       </div>
 
