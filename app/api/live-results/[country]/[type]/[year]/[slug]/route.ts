@@ -1,5 +1,7 @@
 export const dynamic = "force-dynamic";
 
+export const runtime = "nodejs";
+
 import { liveSheetMap } from "@/lib/liveSheetMap";
 import Papa from "papaparse";
 
