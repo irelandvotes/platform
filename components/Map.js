@@ -934,7 +934,7 @@ window.geoData = data; // 👈 add this
      Load Election CSV Data
   ============================= */
 
-useEffect(() => {
+/* useEffect(() => {
 
   if (typeof window === "undefined") {
   return;
@@ -1011,7 +1011,7 @@ onLoadOfficialResults?.(
   type,
   year,
   slug
-]);
+]); */
 
 useEffect(() => {
   fetch(`${dataPath}/projection.json`)
