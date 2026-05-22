@@ -337,13 +337,13 @@ try {
 
             }
 
-            await push();
+const interval =
+    setInterval(
+        push,
+        10000
+    );
 
-            const interval =
-                setInterval(
-                    push,
-                    10000
-                );
+await push();
 
 const cleanup = () => {
 
