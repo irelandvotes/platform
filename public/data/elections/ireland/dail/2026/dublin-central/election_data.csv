@@ -1,1 +1,435 @@
-constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,turnout,tvp,spoilt,electorate
+,constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,tvp,spoilt,turnout,electorate
+TRUE,Arran Quay A,1,janice boylan,Janice Boylan,FALSE,SF,46,running,1,11943,331,,331,998
+,Arran Quay A,1,tony corrigan,Tony Corrigan,FALSE,IND,0,running,1,11943,331,,331,998
+,Arran Quay A,1,daniel ennis,Daniel Ennis,FALSE,SD,72,running,1,11943,331,,331,998
+,Arran Quay A,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,331,,331,998
+,Arran Quay A,1,mannix flynn,Mannix Flynn,FALSE,IND,3,running,1,11943,331,,331,998
+,Arran Quay A,1,janet horner,Janet Horner,FALSE,GP,48,running,1,11943,331,,331,998
+,Arran Quay A,1,gerry hutch,Gerry Hutch,FALSE,IND,20,running,1,11943,331,,331,998
+,Arran Quay A,1,ray mcadam,Ray McAdam,FALSE,FG,58,running,1,11943,331,,331,998
+,Arran Quay A,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,40,running,1,11943,331,,331,998
+,Arran Quay A,1,ruth odea,Ruth O'Dea,FALSE,LAB,21,running,1,11943,331,,331,998
+,Arran Quay A,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,331,,331,998
+,Arran Quay A,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,5,running,1,11943,331,,331,998
+,Arran Quay A,1,malachy steenson,Malachy Steenson,FALSE,IND,17,running,1,11943,331,,331,998
+,Arran Quay A,1,john stephens,John Stephens,FALSE,FF,1,running,1,11943,331,,331,998
+TRUE,Arran Quay B,1,janice boylan,Janice Boylan,FALSE,SF,91,running,1,11943,502,2,504,2084
+,Arran Quay B,1,tony corrigan,Tony Corrigan,FALSE,IND,2,running,1,11943,502,2,504,2084
+,Arran Quay B,1,daniel ennis,Daniel Ennis,FALSE,SD,92,running,1,11943,502,2,504,2084
+,Arran Quay B,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,502,2,504,2084
+,Arran Quay B,1,mannix flynn,Mannix Flynn,FALSE,IND,2,running,1,11943,502,2,504,2084
+,Arran Quay B,1,janet horner,Janet Horner,FALSE,GP,68,running,1,11943,502,2,504,2084
+,Arran Quay B,1,gerry hutch,Gerry Hutch,FALSE,IND,30,running,1,11943,502,2,504,2084
+,Arran Quay B,1,ray mcadam,Ray McAdam,FALSE,FG,60,running,1,11943,502,2,504,2084
+,Arran Quay B,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,79,running,1,11943,502,2,504,2084
+,Arran Quay B,1,ruth odea,Ruth O'Dea,FALSE,LAB,30,running,1,11943,502,2,504,2084
+,Arran Quay B,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,502,2,504,2084
+,Arran Quay B,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,7,running,1,11943,502,2,504,2084
+,Arran Quay B,1,malachy steenson,Malachy Steenson,FALSE,IND,26,running,1,11943,502,2,504,2084
+,Arran Quay B,1,john stephens,John Stephens,FALSE,FF,15,running,1,11943,502,2,504,2084
+TRUE,Arran Quay C,1,janice boylan,Janice Boylan,FALSE,SF,140,running,1,11943,667,6,673,2170
+,Arran Quay C,1,tony corrigan,Tony Corrigan,FALSE,IND,0,running,1,11943,667,6,673,2170
+,Arran Quay C,1,daniel ennis,Daniel Ennis,FALSE,SD,121,running,1,11943,667,6,673,2170
+,Arran Quay C,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,667,6,673,2170
+,Arran Quay C,1,mannix flynn,Mannix Flynn,FALSE,IND,3,running,1,11943,667,6,673,2170
+,Arran Quay C,1,janet horner,Janet Horner,FALSE,GP,85,running,1,11943,667,6,673,2170
+,Arran Quay C,1,gerry hutch,Gerry Hutch,FALSE,IND,85,running,1,11943,667,6,673,2170
+,Arran Quay C,1,ray mcadam,Ray McAdam,FALSE,FG,51,running,1,11943,667,6,673,2170
+,Arran Quay C,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,66,running,1,11943,667,6,673,2170
+,Arran Quay C,1,ruth odea,Ruth O'Dea,FALSE,LAB,29,running,1,11943,667,6,673,2170
+,Arran Quay C,1,john oleary,John O'Leary,FALSE,IND,1,running,1,11943,667,6,673,2170
+,Arran Quay C,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,14,running,1,11943,667,6,673,2170
+,Arran Quay C,1,malachy steenson,Malachy Steenson,FALSE,IND,65,running,1,11943,667,6,673,2170
+,Arran Quay C,1,john stephens,John Stephens,FALSE,FF,7,running,1,11943,667,6,673,2170
+TRUE,Arran Quay D,1,janice boylan,Janice Boylan,FALSE,SF,177,running,1,11943,673,3,676,2006
+,Arran Quay D,1,tony corrigan,Tony Corrigan,FALSE,IND,2,running,1,11943,673,3,676,2006
+,Arran Quay D,1,daniel ennis,Daniel Ennis,FALSE,SD,116,running,1,11943,673,3,676,2006
+,Arran Quay D,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,673,3,676,2006
+,Arran Quay D,1,mannix flynn,Mannix Flynn,FALSE,IND,2,running,1,11943,673,3,676,2006
+,Arran Quay D,1,janet horner,Janet Horner,FALSE,GP,83,running,1,11943,673,3,676,2006
+,Arran Quay D,1,gerry hutch,Gerry Hutch,FALSE,IND,49,running,1,11943,673,3,676,2006
+,Arran Quay D,1,ray mcadam,Ray McAdam,FALSE,FG,89,running,1,11943,673,3,676,2006
+,Arran Quay D,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,61,running,1,11943,673,3,676,2006
+,Arran Quay D,1,ruth odea,Ruth O'Dea,FALSE,LAB,24,running,1,11943,673,3,676,2006
+,Arran Quay D,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,673,3,676,2006
+,Arran Quay D,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,4,running,1,11943,673,3,676,2006
+,Arran Quay D,1,malachy steenson,Malachy Steenson,FALSE,IND,61,running,1,11943,673,3,676,2006
+,Arran Quay D,1,john stephens,John Stephens,FALSE,FF,5,running,1,11943,673,3,676,2006
+TRUE,Arran Quay E,1,janice boylan,Janice Boylan,FALSE,SF,140,running,1,11943,967,12,979,2319
+,Arran Quay E,1,tony corrigan,Tony Corrigan,FALSE,IND,2,running,1,11943,967,12,979,2319
+,Arran Quay E,1,daniel ennis,Daniel Ennis,FALSE,SD,190,running,1,11943,967,12,979,2319
+,Arran Quay E,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,967,12,979,2319
+,Arran Quay E,1,mannix flynn,Mannix Flynn,FALSE,IND,5,running,1,11943,967,12,979,2319
+,Arran Quay E,1,janet horner,Janet Horner,FALSE,GP,156,running,1,11943,967,12,979,2319
+,Arran Quay E,1,gerry hutch,Gerry Hutch,FALSE,IND,71,running,1,11943,967,12,979,2319
+,Arran Quay E,1,ray mcadam,Ray McAdam,FALSE,FG,158,running,1,11943,967,12,979,2319
+,Arran Quay E,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,106,running,1,11943,967,12,979,2319
+,Arran Quay E,1,ruth odea,Ruth O'Dea,FALSE,LAB,64,running,1,11943,967,12,979,2319
+,Arran Quay E,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,967,12,979,2319
+,Arran Quay E,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,10,running,1,11943,967,12,979,2319
+,Arran Quay E,1,malachy steenson,Malachy Steenson,FALSE,IND,41,running,1,11943,967,12,979,2319
+,Arran Quay E,1,john stephens,John Stephens,FALSE,FF,24,running,1,11943,967,12,979,2319
+TRUE,Ballybough A,1,janice boylan,Janice Boylan,FALSE,SF,175,running,1,11943,1157,1,1158,2647
+,Ballybough A,1,tony corrigan,Tony Corrigan,FALSE,IND,0,running,1,11943,1157,1,1158,2647
+,Ballybough A,1,daniel ennis,Daniel Ennis,FALSE,SD,254,running,1,11943,1157,1,1158,2647
+,Ballybough A,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,1157,1,1158,2647
+,Ballybough A,1,mannix flynn,Mannix Flynn,FALSE,IND,6,running,1,11943,1157,1,1158,2647
+,Ballybough A,1,janet horner,Janet Horner,FALSE,GP,86,running,1,11943,1157,1,1158,2647
+,Ballybough A,1,gerry hutch,Gerry Hutch,FALSE,IND,230,running,1,11943,1157,1,1158,2647
+,Ballybough A,1,ray mcadam,Ray McAdam,FALSE,FG,72,running,1,11943,1157,1,1158,2647
+,Ballybough A,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,72,running,1,11943,1157,1,1158,2647
+,Ballybough A,1,ruth odea,Ruth O'Dea,FALSE,LAB,29,running,1,11943,1157,1,1158,2647
+,Ballybough A,1,john oleary,John O'Leary,FALSE,IND,1,running,1,11943,1157,1,1158,2647
+,Ballybough A,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,11,running,1,11943,1157,1,1158,2647
+,Ballybough A,1,malachy steenson,Malachy Steenson,FALSE,IND,208,running,1,11943,1157,1,1158,2647
+,Ballybough A,1,john stephens,John Stephens,FALSE,FF,13,running,1,11943,1157,1,1158,2647
+TRUE,Ballybough B,1,janice boylan,Janice Boylan,FALSE,SF,92,running,1,11943,739,3,742,2147
+,Ballybough B,1,tony corrigan,Tony Corrigan,FALSE,IND,2,running,1,11943,739,3,742,2147
+,Ballybough B,1,daniel ennis,Daniel Ennis,FALSE,SD,142,running,1,11943,739,3,742,2147
+,Ballybough B,1,colm flood,Colm Flood,FALSE,IND,2,running,1,11943,739,3,742,2147
+,Ballybough B,1,mannix flynn,Mannix Flynn,FALSE,IND,6,running,1,11943,739,3,742,2147
+,Ballybough B,1,janet horner,Janet Horner,FALSE,GP,79,running,1,11943,739,3,742,2147
+,Ballybough B,1,gerry hutch,Gerry Hutch,FALSE,IND,101,running,1,11943,739,3,742,2147
+,Ballybough B,1,ray mcadam,Ray McAdam,FALSE,FG,73,running,1,11943,739,3,742,2147
+,Ballybough B,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,46,running,1,11943,739,3,742,2147
+,Ballybough B,1,ruth odea,Ruth O'Dea,FALSE,LAB,72,running,1,11943,739,3,742,2147
+,Ballybough B,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,739,3,742,2147
+,Ballybough B,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,22,running,1,11943,739,3,742,2147
+,Ballybough B,1,malachy steenson,Malachy Steenson,FALSE,IND,85,running,1,11943,739,3,742,2147
+,Ballybough B,1,john stephens,John Stephens,FALSE,FF,17,running,1,11943,739,3,742,2147
+TRUE,Botanic A,1,janice boylan,Janice Boylan,FALSE,SF,86,running,1,11943,1165,6,1171,2544
+,Botanic A,1,tony corrigan,Tony Corrigan,FALSE,IND,1,running,1,11943,1165,6,1171,2544
+,Botanic A,1,daniel ennis,Daniel Ennis,FALSE,SD,254,running,1,11943,1165,6,1171,2544
+,Botanic A,1,colm flood,Colm Flood,FALSE,IND,2,running,1,11943,1165,6,1171,2544
+,Botanic A,1,mannix flynn,Mannix Flynn,FALSE,IND,7,running,1,11943,1165,6,1171,2544
+,Botanic A,1,janet horner,Janet Horner,FALSE,GP,182,running,1,11943,1165,6,1171,2544
+,Botanic A,1,gerry hutch,Gerry Hutch,FALSE,IND,33,running,1,11943,1165,6,1171,2544
+,Botanic A,1,ray mcadam,Ray McAdam,FALSE,FG,202,running,1,11943,1165,6,1171,2544
+,Botanic A,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,66,running,1,11943,1165,6,1171,2544
+,Botanic A,1,ruth odea,Ruth O'Dea,FALSE,LAB,104,running,1,11943,1165,6,1171,2544
+,Botanic A,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,1165,6,1171,2544
+,Botanic A,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,47,running,1,11943,1165,6,1171,2544
+,Botanic A,1,malachy steenson,Malachy Steenson,FALSE,IND,47,running,1,11943,1165,6,1171,2544
+,Botanic A,1,john stephens,John Stephens,FALSE,FF,134,running,1,11943,1165,6,1171,2544
+TRUE,Botanic B,1,janice boylan,Janice Boylan,FALSE,SF,72,running,1,11943,1559,11,1570,2742
+,Botanic B,1,tony corrigan,Tony Corrigan,FALSE,IND,1,running,1,11943,1559,11,1570,2742
+,Botanic B,1,daniel ennis,Daniel Ennis,FALSE,SD,375,running,1,11943,1559,11,1570,2742
+,Botanic B,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,1559,11,1570,2742
+,Botanic B,1,mannix flynn,Mannix Flynn,FALSE,IND,6,running,1,11943,1559,11,1570,2742
+,Botanic B,1,janet horner,Janet Horner,FALSE,GP,300,running,1,11943,1559,11,1570,2742
+,Botanic B,1,gerry hutch,Gerry Hutch,FALSE,IND,38,running,1,11943,1559,11,1570,2742
+,Botanic B,1,ray mcadam,Ray McAdam,FALSE,FG,323,running,1,11943,1559,11,1570,2742
+,Botanic B,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,64,running,1,11943,1559,11,1570,2742
+,Botanic B,1,ruth odea,Ruth O'Dea,FALSE,LAB,143,running,1,11943,1559,11,1570,2742
+,Botanic B,1,john oleary,John O'Leary,FALSE,IND,1,running,1,11943,1559,11,1570,2742
+,Botanic B,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,33,running,1,11943,1559,11,1570,2742
+,Botanic B,1,malachy steenson,Malachy Steenson,FALSE,IND,44,running,1,11943,1559,11,1570,2742
+,Botanic B,1,john stephens,John Stephens,FALSE,FF,159,running,1,11943,1559,11,1570,2742
+TRUE,Botanic C,1,janice boylan,Janice Boylan,FALSE,SF,24,running,1,11943,325,,325,854
+,Botanic C,1,tony corrigan,Tony Corrigan,FALSE,IND,1,running,1,11943,325,,325,854
+,Botanic C,1,daniel ennis,Daniel Ennis,FALSE,SD,92,running,1,11943,325,,325,854
+,Botanic C,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,325,,325,854
+,Botanic C,1,mannix flynn,Mannix Flynn,FALSE,IND,4,running,1,11943,325,,325,854
+,Botanic C,1,janet horner,Janet Horner,FALSE,GP,61,running,1,11943,325,,325,854
+,Botanic C,1,gerry hutch,Gerry Hutch,FALSE,IND,7,running,1,11943,325,,325,854
+,Botanic C,1,ray mcadam,Ray McAdam,FALSE,FG,55,running,1,11943,325,,325,854
+,Botanic C,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,18,running,1,11943,325,,325,854
+,Botanic C,1,ruth odea,Ruth O'Dea,FALSE,LAB,29,running,1,11943,325,,325,854
+,Botanic C,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,325,,325,854
+,Botanic C,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,3,running,1,11943,325,,325,854
+,Botanic C,1,malachy steenson,Malachy Steenson,FALSE,IND,15,running,1,11943,325,,325,854
+,Botanic C,1,john stephens,John Stephens,FALSE,FF,16,running,1,11943,325,,325,854
+TRUE,Cabra East A,1,janice boylan,Janice Boylan,FALSE,SF,177,running,1,11943,1710,15,1725,3888
+,Cabra East A,1,tony corrigan,Tony Corrigan,FALSE,IND,0,running,1,11943,1710,15,1725,3888
+,Cabra East A,1,daniel ennis,Daniel Ennis,FALSE,SD,376,running,1,11943,1710,15,1725,3888
+,Cabra East A,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,1710,15,1725,3888
+,Cabra East A,1,mannix flynn,Mannix Flynn,FALSE,IND,11,running,1,11943,1710,15,1725,3888
+,Cabra East A,1,janet horner,Janet Horner,FALSE,GP,302,running,1,11943,1710,15,1725,3888
+,Cabra East A,1,gerry hutch,Gerry Hutch,FALSE,IND,94,running,1,11943,1710,15,1725,3888
+,Cabra East A,1,ray mcadam,Ray McAdam,FALSE,FG,225,running,1,11943,1710,15,1725,3888
+,Cabra East A,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,148,running,1,11943,1710,15,1725,3888
+,Cabra East A,1,ruth odea,Ruth O'Dea,FALSE,LAB,154,running,1,11943,1710,15,1725,3888
+,Cabra East A,1,john oleary,John O'Leary,FALSE,IND,8,running,1,11943,1710,15,1725,3888
+,Cabra East A,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,39,running,1,11943,1710,15,1725,3888
+,Cabra East A,1,malachy steenson,Malachy Steenson,FALSE,IND,80,running,1,11943,1710,15,1725,3888
+,Cabra East A,1,john stephens,John Stephens,FALSE,FF,96,running,1,11943,1710,15,1725,3888
+TRUE,Cabra East B,1,janice boylan,Janice Boylan,FALSE,SF,383,running,1,11943,1330,23,1353,2428
+,Cabra East B,1,tony corrigan,Tony Corrigan,FALSE,IND,1,running,1,11943,1330,23,1353,2428
+,Cabra East B,1,daniel ennis,Daniel Ennis,FALSE,SD,223,running,1,11943,1330,23,1353,2428
+,Cabra East B,1,colm flood,Colm Flood,FALSE,IND,2,running,1,11943,1330,23,1353,2428
+,Cabra East B,1,mannix flynn,Mannix Flynn,FALSE,IND,3,running,1,11943,1330,23,1353,2428
+,Cabra East B,1,janet horner,Janet Horner,FALSE,GP,122,running,1,11943,1330,23,1353,2428
+,Cabra East B,1,gerry hutch,Gerry Hutch,FALSE,IND,152,running,1,11943,1330,23,1353,2428
+,Cabra East B,1,ray mcadam,Ray McAdam,FALSE,FG,71,running,1,11943,1330,23,1353,2428
+,Cabra East B,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,94,running,1,11943,1330,23,1353,2428
+,Cabra East B,1,ruth odea,Ruth O'Dea,FALSE,LAB,64,running,1,11943,1330,23,1353,2428
+,Cabra East B,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,1330,23,1353,2428
+,Cabra East B,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,27,running,1,11943,1330,23,1353,2428
+,Cabra East B,1,malachy steenson,Malachy Steenson,FALSE,IND,141,running,1,11943,1330,23,1353,2428
+,Cabra East B,1,john stephens,John Stephens,FALSE,FF,47,running,1,11943,1330,23,1353,2428
+TRUE,Cabra East C,1,janice boylan,Janice Boylan,FALSE,SF,156,running,1,11943,929,9,938,2454
+,Cabra East C,1,tony corrigan,Tony Corrigan,FALSE,IND,0,running,1,11943,929,9,938,2454
+,Cabra East C,1,daniel ennis,Daniel Ennis,FALSE,SD,188,running,1,11943,929,9,938,2454
+,Cabra East C,1,colm flood,Colm Flood,FALSE,IND,1,running,1,11943,929,9,938,2454
+,Cabra East C,1,mannix flynn,Mannix Flynn,FALSE,IND,9,running,1,11943,929,9,938,2454
+,Cabra East C,1,janet horner,Janet Horner,FALSE,GP,145,running,1,11943,929,9,938,2454
+,Cabra East C,1,gerry hutch,Gerry Hutch,FALSE,IND,51,running,1,11943,929,9,938,2454
+,Cabra East C,1,ray mcadam,Ray McAdam,FALSE,FG,110,running,1,11943,929,9,938,2454
+,Cabra East C,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,62,running,1,11943,929,9,938,2454
+,Cabra East C,1,ruth odea,Ruth O'Dea,FALSE,LAB,61,running,1,11943,929,9,938,2454
+,Cabra East C,1,john oleary,John O'Leary,FALSE,IND,1,running,1,11943,929,9,938,2454
+,Cabra East C,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,25,running,1,11943,929,9,938,2454
+,Cabra East C,1,malachy steenson,Malachy Steenson,FALSE,IND,87,running,1,11943,929,9,938,2454
+,Cabra East C,1,john stephens,John Stephens,FALSE,FF,33,running,1,11943,929,9,938,2454
+TRUE,Cabra West A,1,janice boylan,Janice Boylan,FALSE,SF,269,running,1,11943,648,5,653,1304
+,Cabra West A,1,tony corrigan,Tony Corrigan,FALSE,IND,1,running,1,11943,648,5,653,1304
+,Cabra West A,1,daniel ennis,Daniel Ennis,FALSE,SD,80,running,1,11943,648,5,653,1304
+,Cabra West A,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,648,5,653,1304
+,Cabra West A,1,mannix flynn,Mannix Flynn,FALSE,IND,0,running,1,11943,648,5,653,1304
+,Cabra West A,1,janet horner,Janet Horner,FALSE,GP,25,running,1,11943,648,5,653,1304
+,Cabra West A,1,gerry hutch,Gerry Hutch,FALSE,IND,87,running,1,11943,648,5,653,1304
+,Cabra West A,1,ray mcadam,Ray McAdam,FALSE,FG,30,running,1,11943,648,5,653,1304
+,Cabra West A,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,28,running,1,11943,648,5,653,1304
+,Cabra West A,1,ruth odea,Ruth O'Dea,FALSE,LAB,11,running,1,11943,648,5,653,1304
+,Cabra West A,1,john oleary,John O'Leary,FALSE,IND,9,running,1,11943,648,5,653,1304
+,Cabra West A,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,5,running,1,11943,648,5,653,1304
+,Cabra West A,1,malachy steenson,Malachy Steenson,FALSE,IND,70,running,1,11943,648,5,653,1304
+,Cabra West A,1,john stephens,John Stephens,FALSE,FF,33,running,1,11943,648,5,653,1304
+TRUE,Cabra West B,1,janice boylan,Janice Boylan,FALSE,SF,407,running,1,11943,986,12,998,1993
+,Cabra West B,1,tony corrigan,Tony Corrigan,FALSE,IND,4,running,1,11943,986,12,998,1993
+,Cabra West B,1,daniel ennis,Daniel Ennis,FALSE,SD,98,running,1,11943,986,12,998,1993
+,Cabra West B,1,colm flood,Colm Flood,FALSE,IND,1,running,1,11943,986,12,998,1993
+,Cabra West B,1,mannix flynn,Mannix Flynn,FALSE,IND,4,running,1,11943,986,12,998,1993
+,Cabra West B,1,janet horner,Janet Horner,FALSE,GP,35,running,1,11943,986,12,998,1993
+,Cabra West B,1,gerry hutch,Gerry Hutch,FALSE,IND,172,running,1,11943,986,12,998,1993
+,Cabra West B,1,ray mcadam,Ray McAdam,FALSE,FG,40,running,1,11943,986,12,998,1993
+,Cabra West B,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,39,running,1,11943,986,12,998,1993
+,Cabra West B,1,ruth odea,Ruth O'Dea,FALSE,LAB,17,running,1,11943,986,12,998,1993
+,Cabra West B,1,john oleary,John O'Leary,FALSE,IND,1,running,1,11943,986,12,998,1993
+,Cabra West B,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,23,running,1,11943,986,12,998,1993
+,Cabra West B,1,malachy steenson,Malachy Steenson,FALSE,IND,117,running,1,11943,986,12,998,1993
+,Cabra West B,1,john stephens,John Stephens,FALSE,FF,28,running,1,11943,986,12,998,1993
+TRUE,Cabra West C,1,janice boylan,Janice Boylan,FALSE,SF,429,running,1,11943,1360,12,1372,3010
+,Cabra West C,1,tony corrigan,Tony Corrigan,FALSE,IND,2,running,1,11943,1360,12,1372,3010
+,Cabra West C,1,daniel ennis,Daniel Ennis,FALSE,SD,234,running,1,11943,1360,12,1372,3010
+,Cabra West C,1,colm flood,Colm Flood,FALSE,IND,2,running,1,11943,1360,12,1372,3010
+,Cabra West C,1,mannix flynn,Mannix Flynn,FALSE,IND,5,running,1,11943,1360,12,1372,3010
+,Cabra West C,1,janet horner,Janet Horner,FALSE,GP,91,running,1,11943,1360,12,1372,3010
+,Cabra West C,1,gerry hutch,Gerry Hutch,FALSE,IND,152,running,1,11943,1360,12,1372,3010
+,Cabra West C,1,ray mcadam,Ray McAdam,FALSE,FG,89,running,1,11943,1360,12,1372,3010
+,Cabra West C,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,99,running,1,11943,1360,12,1372,3010
+,Cabra West C,1,ruth odea,Ruth O'Dea,FALSE,LAB,59,running,1,11943,1360,12,1372,3010
+,Cabra West C,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,1360,12,1372,3010
+,Cabra West C,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,22,running,1,11943,1360,12,1372,3010
+,Cabra West C,1,malachy steenson,Malachy Steenson,FALSE,IND,122,running,1,11943,1360,12,1372,3010
+,Cabra West C,1,john stephens,John Stephens,FALSE,FF,54,running,1,11943,1360,12,1372,3010
+TRUE,Cabra West D,1,janice boylan,Janice Boylan,FALSE,SF,157,running,1,11943,638,0,638,1579
+,Cabra West D,1,tony corrigan,Tony Corrigan,FALSE,IND,1,running,1,11943,638,0,638,1579
+,Cabra West D,1,daniel ennis,Daniel Ennis,FALSE,SD,113,running,1,11943,638,0,638,1579
+,Cabra West D,1,colm flood,Colm Flood,FALSE,IND,1,running,1,11943,638,0,638,1579
+,Cabra West D,1,mannix flynn,Mannix Flynn,FALSE,IND,2,running,1,11943,638,0,638,1579
+,Cabra West D,1,janet horner,Janet Horner,FALSE,GP,56,running,1,11943,638,0,638,1579
+,Cabra West D,1,gerry hutch,Gerry Hutch,FALSE,IND,61,running,1,11943,638,0,638,1579
+,Cabra West D,1,ray mcadam,Ray McAdam,FALSE,FG,42,running,1,11943,638,0,638,1579
+,Cabra West D,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,40,running,1,11943,638,0,638,1579
+,Cabra West D,1,ruth odea,Ruth O'Dea,FALSE,LAB,53,running,1,11943,638,0,638,1579
+,Cabra West D,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,638,0,638,1579
+,Cabra West D,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,23,running,1,11943,638,0,638,1579
+,Cabra West D,1,malachy steenson,Malachy Steenson,FALSE,IND,51,running,1,11943,638,0,638,1579
+,Cabra West D,1,john stephens,John Stephens,FALSE,FF,38,running,1,11943,638,0,638,1579
+TRUE,Drumcondra South A,1,janice boylan,Janice Boylan,FALSE,SF,111,running,1,11943,1256,3,1259,1990
+,Drumcondra South A,1,tony corrigan,Tony Corrigan,FALSE,IND,2,running,1,11943,1256,3,1259,1990
+,Drumcondra South A,1,daniel ennis,Daniel Ennis,FALSE,SD,417,running,1,11943,1256,3,1259,1990
+,Drumcondra South A,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,1256,3,1259,1990
+,Drumcondra South A,1,mannix flynn,Mannix Flynn,FALSE,IND,13,running,1,11943,1256,3,1259,1990
+,Drumcondra South A,1,janet horner,Janet Horner,FALSE,GP,180,running,1,11943,1256,3,1259,1990
+,Drumcondra South A,1,gerry hutch,Gerry Hutch,FALSE,IND,47,running,1,11943,1256,3,1259,1990
+,Drumcondra South A,1,ray mcadam,Ray McAdam,FALSE,FG,187,running,1,11943,1256,3,1259,1990
+,Drumcondra South A,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,70,running,1,11943,1256,3,1259,1990
+,Drumcondra South A,1,ruth odea,Ruth O'Dea,FALSE,LAB,120,running,1,11943,1256,3,1259,1990
+,Drumcondra South A,1,john oleary,John O'Leary,FALSE,IND,1,running,1,11943,1256,3,1259,1990
+,Drumcondra South A,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,25,running,1,11943,1256,3,1259,1990
+,Drumcondra South A,1,malachy steenson,Malachy Steenson,FALSE,IND,38,running,1,11943,1256,3,1259,1990
+,Drumcondra South A,1,john stephens,John Stephens,FALSE,FF,45,running,1,11943,1256,3,1259,1990
+TRUE,Drumcondra South B,1,janice boylan,Janice Boylan,FALSE,SF,29,running,1,11943,272,1,273,733
+,Drumcondra South B,1,tony corrigan,Tony Corrigan,FALSE,IND,0,running,1,11943,272,1,273,733
+,Drumcondra South B,1,daniel ennis,Daniel Ennis,FALSE,SD,67,running,1,11943,272,1,273,733
+,Drumcondra South B,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,272,1,273,733
+,Drumcondra South B,1,mannix flynn,Mannix Flynn,FALSE,IND,4,running,1,11943,272,1,273,733
+,Drumcondra South B,1,janet horner,Janet Horner,FALSE,GP,28,running,1,11943,272,1,273,733
+,Drumcondra South B,1,gerry hutch,Gerry Hutch,FALSE,IND,19,running,1,11943,272,1,273,733
+,Drumcondra South B,1,ray mcadam,Ray McAdam,FALSE,FG,34,running,1,11943,272,1,273,733
+,Drumcondra South B,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,24,running,1,11943,272,1,273,733
+,Drumcondra South B,1,ruth odea,Ruth O'Dea,FALSE,LAB,12,running,1,11943,272,1,273,733
+,Drumcondra South B,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,272,1,273,733
+,Drumcondra South B,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,3,running,1,11943,272,1,273,733
+,Drumcondra South B,1,malachy steenson,Malachy Steenson,FALSE,IND,46,running,1,11943,272,1,273,733
+,Drumcondra South B,1,john stephens,John Stephens,FALSE,FF,6,running,1,11943,272,1,273,733
+TRUE,Drumcondra South C,1,janice boylan,Janice Boylan,FALSE,SF,78,running,1,11943,1082,8,1090,2088
+,Drumcondra South C,1,tony corrigan,Tony Corrigan,FALSE,IND,2,running,1,11943,1082,8,1090,2088
+,Drumcondra South C,1,daniel ennis,Daniel Ennis,FALSE,SD,271,running,1,11943,1082,8,1090,2088
+,Drumcondra South C,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,1082,8,1090,2088
+,Drumcondra South C,1,mannix flynn,Mannix Flynn,FALSE,IND,9,running,1,11943,1082,8,1090,2088
+,Drumcondra South C,1,janet horner,Janet Horner,FALSE,GP,190,running,1,11943,1082,8,1090,2088
+,Drumcondra South C,1,gerry hutch,Gerry Hutch,FALSE,IND,33,running,1,11943,1082,8,1090,2088
+,Drumcondra South C,1,ray mcadam,Ray McAdam,FALSE,FG,153,running,1,11943,1082,8,1090,2088
+,Drumcondra South C,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,70,running,1,11943,1082,8,1090,2088
+,Drumcondra South C,1,ruth odea,Ruth O'Dea,FALSE,LAB,109,running,1,11943,1082,8,1090,2088
+,Drumcondra South C,1,john oleary,John O'Leary,FALSE,IND,8,running,1,11943,1082,8,1090,2088
+,Drumcondra South C,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,24,running,1,11943,1082,8,1090,2088
+,Drumcondra South C,1,malachy steenson,Malachy Steenson,FALSE,IND,45,running,1,11943,1082,8,1090,2088
+,Drumcondra South C,1,john stephens,John Stephens,FALSE,FF,90,running,1,11943,1082,8,1090,2088
+TRUE,Inns Quay A,1,janice boylan,Janice Boylan,FALSE,SF,60,running,1,11943,423,0,423,1407
+,Inns Quay A,1,tony corrigan,Tony Corrigan,FALSE,IND,1,running,1,11943,423,0,423,1407
+,Inns Quay A,1,daniel ennis,Daniel Ennis,FALSE,SD,64,running,1,11943,423,0,423,1407
+,Inns Quay A,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,423,0,423,1407
+,Inns Quay A,1,mannix flynn,Mannix Flynn,FALSE,IND,3,running,1,11943,423,0,423,1407
+,Inns Quay A,1,janet horner,Janet Horner,FALSE,GP,80,running,1,11943,423,0,423,1407
+,Inns Quay A,1,gerry hutch,Gerry Hutch,FALSE,IND,29,running,1,11943,423,0,423,1407
+,Inns Quay A,1,ray mcadam,Ray McAdam,FALSE,FG,47,running,1,11943,423,0,423,1407
+,Inns Quay A,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,45,running,1,11943,423,0,423,1407
+,Inns Quay A,1,ruth odea,Ruth O'Dea,FALSE,LAB,18,running,1,11943,423,0,423,1407
+,Inns Quay A,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,423,0,423,1407
+,Inns Quay A,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,18,running,1,11943,423,0,423,1407
+,Inns Quay A,1,malachy steenson,Malachy Steenson,FALSE,IND,46,running,1,11943,423,0,423,1407
+,Inns Quay A,1,john stephens,John Stephens,FALSE,FF,12,running,1,11943,423,0,423,1407
+TRUE,Inns Quay B,1,janice boylan,Janice Boylan,FALSE,SF,56,running,1,11943,453,0,453,1348
+,Inns Quay B,1,tony corrigan,Tony Corrigan,FALSE,IND,0,running,1,11943,453,0,453,1348
+,Inns Quay B,1,daniel ennis,Daniel Ennis,FALSE,SD,103,running,1,11943,453,0,453,1348
+,Inns Quay B,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,453,0,453,1348
+,Inns Quay B,1,mannix flynn,Mannix Flynn,FALSE,IND,4,running,1,11943,453,0,453,1348
+,Inns Quay B,1,janet horner,Janet Horner,FALSE,GP,71,running,1,11943,453,0,453,1348
+,Inns Quay B,1,gerry hutch,Gerry Hutch,FALSE,IND,36,running,1,11943,453,0,453,1348
+,Inns Quay B,1,ray mcadam,Ray McAdam,FALSE,FG,34,running,1,11943,453,0,453,1348
+,Inns Quay B,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,45,running,1,11943,453,0,453,1348
+,Inns Quay B,1,ruth odea,Ruth O'Dea,FALSE,LAB,36,running,1,11943,453,0,453,1348
+,Inns Quay B,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,453,0,453,1348
+,Inns Quay B,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,16,running,1,11943,453,0,453,1348
+,Inns Quay B,1,malachy steenson,Malachy Steenson,FALSE,IND,38,running,1,11943,453,0,453,1348
+,Inns Quay B,1,john stephens,John Stephens,FALSE,FF,14,running,1,11943,453,0,453,1348
+TRUE,Inns Quay C,1,janice boylan,Janice Boylan,FALSE,SF,125,running,1,11943,429,8,437,1553
+,Inns Quay C,1,tony corrigan,Tony Corrigan,FALSE,IND,0,running,1,11943,429,8,437,1553
+,Inns Quay C,1,daniel ennis,Daniel Ennis,FALSE,SD,35,running,1,11943,429,8,437,1553
+,Inns Quay C,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,429,8,437,1553
+,Inns Quay C,1,mannix flynn,Mannix Flynn,FALSE,IND,4,running,1,11943,429,8,437,1553
+,Inns Quay C,1,janet horner,Janet Horner,FALSE,GP,26,running,1,11943,429,8,437,1553
+,Inns Quay C,1,gerry hutch,Gerry Hutch,FALSE,IND,77,running,1,11943,429,8,437,1553
+,Inns Quay C,1,ray mcadam,Ray McAdam,FALSE,FG,37,running,1,11943,429,8,437,1553
+,Inns Quay C,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,24,running,1,11943,429,8,437,1553
+,Inns Quay C,1,ruth odea,Ruth O'Dea,FALSE,LAB,16,running,1,11943,429,8,437,1553
+,Inns Quay C,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,429,8,437,1553
+,Inns Quay C,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,7,running,1,11943,429,8,437,1553
+,Inns Quay C,1,malachy steenson,Malachy Steenson,FALSE,IND,64,running,1,11943,429,8,437,1553
+,Inns Quay C,1,john stephens,John Stephens,FALSE,FF,14,running,1,11943,429,8,437,1553
+TRUE,Mountjoy A,1,janice boylan,Janice Boylan,FALSE,SF,90,running,1,11943,675,3,678,1977
+,Mountjoy A,1,tony corrigan,Tony Corrigan,FALSE,IND,1,running,1,11943,675,3,678,1977
+,Mountjoy A,1,daniel ennis,Daniel Ennis,FALSE,SD,58,running,1,11943,675,3,678,1977
+,Mountjoy A,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,675,3,678,1977
+,Mountjoy A,1,mannix flynn,Mannix Flynn,FALSE,IND,3,running,1,11943,675,3,678,1977
+,Mountjoy A,1,janet horner,Janet Horner,FALSE,GP,18,running,1,11943,675,3,678,1977
+,Mountjoy A,1,gerry hutch,Gerry Hutch,FALSE,IND,300,running,1,11943,675,3,678,1977
+,Mountjoy A,1,ray mcadam,Ray McAdam,FALSE,FG,25,running,1,11943,675,3,678,1977
+,Mountjoy A,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,20,running,1,11943,675,3,678,1977
+,Mountjoy A,1,ruth odea,Ruth O'Dea,FALSE,LAB,7,running,1,11943,675,3,678,1977
+,Mountjoy A,1,john oleary,John O'Leary,FALSE,IND,1,running,1,11943,675,3,678,1977
+,Mountjoy A,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,8,running,1,11943,675,3,678,1977
+,Mountjoy A,1,malachy steenson,Malachy Steenson,FALSE,IND,135,running,1,11943,675,3,678,1977
+,Mountjoy A,1,john stephens,John Stephens,FALSE,FF,9,running,1,11943,675,3,678,1977
+TRUE,Mountjoy B,1,janice boylan,Janice Boylan,FALSE,SF,45,running,1,11943,273,4,277,1190
+,Mountjoy B,1,tony corrigan,Tony Corrigan,FALSE,IND,0,running,1,11943,273,4,277,1190
+,Mountjoy B,1,daniel ennis,Daniel Ennis,FALSE,SD,22,running,1,11943,273,4,277,1190
+,Mountjoy B,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,273,4,277,1190
+,Mountjoy B,1,mannix flynn,Mannix Flynn,FALSE,IND,2,running,1,11943,273,4,277,1190
+,Mountjoy B,1,janet horner,Janet Horner,FALSE,GP,27,running,1,11943,273,4,277,1190
+,Mountjoy B,1,gerry hutch,Gerry Hutch,FALSE,IND,82,running,1,11943,273,4,277,1190
+,Mountjoy B,1,ray mcadam,Ray McAdam,FALSE,FG,26,running,1,11943,273,4,277,1190
+,Mountjoy B,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,18,running,1,11943,273,4,277,1190
+,Mountjoy B,1,ruth odea,Ruth O'Dea,FALSE,LAB,6,running,1,11943,273,4,277,1190
+,Mountjoy B,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,273,4,277,1190
+,Mountjoy B,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,6,running,1,11943,273,4,277,1190
+,Mountjoy B,1,malachy steenson,Malachy Steenson,FALSE,IND,37,running,1,11943,273,4,277,1190
+,Mountjoy B,1,john stephens,John Stephens,FALSE,FF,2,running,1,11943,273,4,277,1190
+TRUE,North City,1,janice boylan,Janice Boylan,FALSE,SF,12,running,1,11943,83,1,84,742
+,North City,1,tony corrigan,Tony Corrigan,FALSE,IND,0,running,1,11943,83,1,84,742
+,North City,1,daniel ennis,Daniel Ennis,FALSE,SD,15,running,1,11943,83,1,84,742
+,North City,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,83,1,84,742
+,North City,1,mannix flynn,Mannix Flynn,FALSE,IND,4,running,1,11943,83,1,84,742
+,North City,1,janet horner,Janet Horner,FALSE,GP,15,running,1,11943,83,1,84,742
+,North City,1,gerry hutch,Gerry Hutch,FALSE,IND,9,running,1,11943,83,1,84,742
+,North City,1,ray mcadam,Ray McAdam,FALSE,FG,3,running,1,11943,83,1,84,742
+,North City,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,10,running,1,11943,83,1,84,742
+,North City,1,ruth odea,Ruth O'Dea,FALSE,LAB,4,running,1,11943,83,1,84,742
+,North City,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,83,1,84,742
+,North City,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,3,running,1,11943,83,1,84,742
+,North City,1,malachy steenson,Malachy Steenson,FALSE,IND,8,running,1,11943,83,1,84,742
+,North City,1,john stephens,John Stephens,FALSE,FF,0,running,1,11943,83,1,84,742
+TRUE,North Dock A,1,janice boylan,Janice Boylan,FALSE,SF,44,running,1,11943,377,,377,753
+,North Dock A,1,tony corrigan,Tony Corrigan,FALSE,IND,0,running,1,11943,377,,377,753
+,North Dock A,1,daniel ennis,Daniel Ennis,FALSE,SD,155,running,1,11943,377,,377,753
+,North Dock A,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,377,,377,753
+,North Dock A,1,mannix flynn,Mannix Flynn,FALSE,IND,2,running,1,11943,377,,377,753
+,North Dock A,1,janet horner,Janet Horner,FALSE,GP,32,running,1,11943,377,,377,753
+,North Dock A,1,gerry hutch,Gerry Hutch,FALSE,IND,15,running,1,11943,377,,377,753
+,North Dock A,1,ray mcadam,Ray McAdam,FALSE,FG,24,running,1,11943,377,,377,753
+,North Dock A,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,16,running,1,11943,377,,377,753
+,North Dock A,1,ruth odea,Ruth O'Dea,FALSE,LAB,14,running,1,11943,377,,377,753
+,North Dock A,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,377,,377,753
+,North Dock A,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,4,running,1,11943,377,,377,753
+,North Dock A,1,malachy steenson,Malachy Steenson,FALSE,IND,64,running,1,11943,377,,377,753
+,North Dock A,1,john stephens,John Stephens,FALSE,FF,7,running,1,11943,377,,377,753
+TRUE,North Dock B,1,janice boylan,Janice Boylan,FALSE,SF,307,running,1,11943,1393,7,1400,3852
+,North Dock B,1,tony corrigan,Tony Corrigan,FALSE,IND,0,running,1,11943,1393,7,1400,3852
+,North Dock B,1,daniel ennis,Daniel Ennis,FALSE,SD,319,running,1,11943,1393,7,1400,3852
+,North Dock B,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,1393,7,1400,3852
+,North Dock B,1,mannix flynn,Mannix Flynn,FALSE,IND,13,running,1,11943,1393,7,1400,3852
+,North Dock B,1,janet horner,Janet Horner,FALSE,GP,98,running,1,11943,1393,7,1400,3852
+,North Dock B,1,gerry hutch,Gerry Hutch,FALSE,IND,222,running,1,11943,1393,7,1400,3852
+,North Dock B,1,ray mcadam,Ray McAdam,FALSE,FG,108,running,1,11943,1393,7,1400,3852
+,North Dock B,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,66,running,1,11943,1393,7,1400,3852
+,North Dock B,1,ruth odea,Ruth O'Dea,FALSE,LAB,41,running,1,11943,1393,7,1400,3852
+,North Dock B,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,1393,7,1400,3852
+,North Dock B,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,7,running,1,11943,1393,7,1400,3852
+,North Dock B,1,malachy steenson,Malachy Steenson,FALSE,IND,196,running,1,11943,1393,7,1400,3852
+,North Dock B,1,john stephens,John Stephens,FALSE,FF,16,running,1,11943,1393,7,1400,3852
+TRUE,North Dock C,1,janice boylan,Janice Boylan,FALSE,SF,126,running,1,11943,777,7,784,2263
+,North Dock C,1,tony corrigan,Tony Corrigan,FALSE,IND,0,running,1,11943,777,7,784,2263
+,North Dock C,1,daniel ennis,Daniel Ennis,FALSE,SD,87,running,1,11943,777,7,784,2263
+,North Dock C,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,777,7,784,2263
+,North Dock C,1,mannix flynn,Mannix Flynn,FALSE,IND,3,running,1,11943,777,7,784,2263
+,North Dock C,1,janet horner,Janet Horner,FALSE,GP,20,running,1,11943,777,7,784,2263
+,North Dock C,1,gerry hutch,Gerry Hutch,FALSE,IND,288,running,1,11943,777,7,784,2263
+,North Dock C,1,ray mcadam,Ray McAdam,FALSE,FG,32,running,1,11943,777,7,784,2263
+,North Dock C,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,25,running,1,11943,777,7,784,2263
+,North Dock C,1,ruth odea,Ruth O'Dea,FALSE,LAB,6,running,1,11943,777,7,784,2263
+,North Dock C,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,777,7,784,2263
+,North Dock C,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,12,running,1,11943,777,7,784,2263
+,North Dock C,1,malachy steenson,Malachy Steenson,FALSE,IND,167,running,1,11943,777,7,784,2263
+,North Dock C,1,john stephens,John Stephens,FALSE,FF,11,running,1,11943,777,7,784,2263
+TRUE,Rotunda A,1,janice boylan,Janice Boylan,FALSE,SF,132,running,1,11943,558,2,560,2404
+,Rotunda A,1,tony corrigan,Tony Corrigan,FALSE,IND,0,running,1,11943,558,2,560,2404
+,Rotunda A,1,daniel ennis,Daniel Ennis,FALSE,SD,41,running,1,11943,558,2,560,2404
+,Rotunda A,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,558,2,560,2404
+,Rotunda A,1,mannix flynn,Mannix Flynn,FALSE,IND,5,running,1,11943,558,2,560,2404
+,Rotunda A,1,janet horner,Janet Horner,FALSE,GP,40,running,1,11943,558,2,560,2404
+,Rotunda A,1,gerry hutch,Gerry Hutch,FALSE,IND,163,running,1,11943,558,2,560,2404
+,Rotunda A,1,ray mcadam,Ray McAdam,FALSE,FG,25,running,1,11943,558,2,560,2404
+,Rotunda A,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,23,running,1,11943,558,2,560,2404
+,Rotunda A,1,ruth odea,Ruth O'Dea,FALSE,LAB,24,running,1,11943,558,2,560,2404
+,Rotunda A,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,558,2,560,2404
+,Rotunda A,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,11,running,1,11943,558,2,560,2404
+,Rotunda A,1,malachy steenson,Malachy Steenson,FALSE,IND,73,running,1,11943,558,2,560,2404
+,Rotunda A,1,john stephens,John Stephens,FALSE,FF,21,running,1,11943,558,2,560,2404
+TRUE,Rotunda B,1,janice boylan,Janice Boylan,FALSE,SF,27,running,1,11943,147,3,150,879
+,Rotunda B,1,tony corrigan,Tony Corrigan,FALSE,IND,0,running,1,11943,147,3,150,879
+,Rotunda B,1,daniel ennis,Daniel Ennis,FALSE,SD,12,running,1,11943,147,3,150,879
+,Rotunda B,1,colm flood,Colm Flood,FALSE,IND,0,running,1,11943,147,3,150,879
+,Rotunda B,1,mannix flynn,Mannix Flynn,FALSE,IND,2,running,1,11943,147,3,150,879
+,Rotunda B,1,janet horner,Janet Horner,FALSE,GP,11,running,1,11943,147,3,150,879
+,Rotunda B,1,gerry hutch,Gerry Hutch,FALSE,IND,39,running,1,11943,147,3,150,879
+,Rotunda B,1,ray mcadam,Ray McAdam,FALSE,FG,6,running,1,11943,147,3,150,879
+,Rotunda B,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,6,running,1,11943,147,3,150,879
+,Rotunda B,1,ruth odea,Ruth O'Dea,FALSE,LAB,6,running,1,11943,147,3,150,879
+,Rotunda B,1,john oleary,John O'Leary,FALSE,IND,0,running,1,11943,147,3,150,879
+,Rotunda B,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,10,running,1,11943,147,3,150,879
+,Rotunda B,1,malachy steenson,Malachy Steenson,FALSE,IND,24,running,1,11943,147,3,150,879
+,Rotunda B,1,john stephens,John Stephens,FALSE,FF,4,running,1,11943,147,3,150,879
