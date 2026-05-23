@@ -182,12 +182,14 @@ export default function DailByElectionPage({
   country,
   type,
   slug,
+  officialPreviousResults,
 }: {
   title: string;
   year: number | string;
   country: string;
   type: string;
   slug: string;
+  officialPreviousResults: any;
 }) {
 // 👇 inside component
 
@@ -223,7 +225,7 @@ const hasResults =
   Object.keys(results || {}).length > 0;
 
 const hasOfficial =
-  officialResults &&
+  !!officialResults &&
   Object.values(officialResults).some(
     (c: any) =>
       c?.counts &&
@@ -567,8 +569,8 @@ const filtered = list.filter((name) =>
 
 const nationalResults = (() => {
 const dataset =
-  hasResults && Object.keys(results).length > 0
-    ? results
+  hasOfficial
+    ? officialResults
     : displayResults;
   const partySeats: Record<string, number> = {};
   const partyVotes: Record<string, number> = {};
@@ -622,28 +624,76 @@ const dataset =
   const previousPartySeats: Record<string, number> = {};
   const previousPartyVotes: Record<string, number> = {};
 
+const reportingConstituencies =
+  Object.keys(displayResults || {});
+
+const comparisonResults =
+  Object.fromEntries(
+
+    Object.entries(previousResults || {})
+      .filter(([name]) =>
+        reportingConstituencies.includes(name)
+      )
+
+  );
+
 const overallPrevious =
-  previousResults?.[title] ||
-  Object.values(previousResults || {})[0];
+  hasOfficial
+    ? officialPreviousResults
+    : comparisonResults;
+
+console.log(
+  "OFFICIAL SWITCH",
+  {
+    hasOfficial,
+    usingOfficial,
+    officialPreviousResults,
+    overallPrevious
+  }
+);
 
 if (overallPrevious) {
 
-  Object.entries(overallPrevious).forEach(
-    ([party, data]: [string, any]) => {
+if (hasOfficial) {
 
-      if (!previousPartySeats[party]) {
-        previousPartySeats[party] = 0;
-      }
+  Object.entries(overallPrevious)
+    .forEach(([party, data]: any) => {
 
-      if (!previousPartyVotes[party]) {
-        previousPartyVotes[party] = 0;
-      }
+      previousPartySeats[party] =
+        Number(data?.seats) || 0;
 
-      previousPartySeats[party] += data.seats || 0;
-      previousPartyVotes[party] += data.votes || 0;
+      previousPartyVotes[party] =
+        Number(data?.votes) || 0;
 
-    }
-  );
+    });
+
+} else {
+
+  Object.values(overallPrevious)
+    .forEach((constituency: any) => {
+
+      Object.entries(constituency)
+        .forEach(([party, data]: any) => {
+
+          if (!previousPartySeats[party]) {
+            previousPartySeats[party] = 0;
+          }
+
+          if (!previousPartyVotes[party]) {
+            previousPartyVotes[party] = 0;
+          }
+
+          previousPartySeats[party] +=
+            Number(data?.seats) || 0;
+
+          previousPartyVotes[party] +=
+            Number(data?.votes) || 0;
+
+        });
+
+    });
+
+}
 
 }
 
@@ -671,7 +721,10 @@ const parties = Object.keys(partyVotes).map((party) => {
       ? (previousVotes / previousTotalVotes) * 100
       : 0;
 
-  const voteChange = currentPercent - previousPercent;
+const voteChange =
+  totalVotes === 0
+    ? 0
+    : currentPercent - previousPercent;
 
 
   /* SEAT CHANGE CALCULATION */
