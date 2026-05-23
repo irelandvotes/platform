@@ -189,7 +189,7 @@ export default function DailByElectionPage({
   country: string;
   type: string;
   slug: string;
-  officialPreviousResults: any;
+  officialPreviousResults?: any;
 }) {
 // 👇 inside component
 
