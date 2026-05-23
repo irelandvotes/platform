@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/next"
 import { Inter } from "next/font/google";
 import Navbar from "../components/Navbar";
 import "./globals.css";
@@ -67,7 +67,7 @@ style={{
 
 {/* FOOTER */}
 <ConditionalFooter />
-
+<Analytics />
       </body>
     </html>
   );
