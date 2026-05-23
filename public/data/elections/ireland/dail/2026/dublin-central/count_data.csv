@@ -1,1 +1,127 @@
-,constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,tvp,spoilt,turnout,electorate
+constituency,count,candidate_id,candidate,incumbent,party,votes,status,seats,quota,turnout,tvp,spoilt,electorate
+Dublin Central,1,janice boylan,Janice Boylan,FALSE,SF,4348,running,1,12435,25045,24869,176,63658
+Dublin Central,1,tony corrigan,Tony Corrigan,FALSE,IND,30,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,1,daniel ennis,Daniel Ennis,FALSE,SD,4903,running,1,12435,25045,24869,176,63658
+Dublin Central,1,mannix flynn,Mannix Flynn,FALSE,IND,157,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,1,colm flood,Colm Flood,FALSE,IND,10,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,1,janet horner,Janet Horner,FALSE,GP,2907,running,1,12435,25045,24869,176,63658
+Dublin Central,1,gerry hutch,Gerry Hutch,FALSE,IND,2817,running,1,12435,25045,24869,176,63658
+Dublin Central,1,ray mcadam,Ray McAdam,FALSE,FG,2659,running,1,12435,25045,24869,176,63658
+Dublin Central,1,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,1681,running,1,12435,25045,24869,176,63658
+Dublin Central,1,ruth odea,Ruth O'Dea,FALSE,LAB,1454,running,1,12435,25045,24869,176,63658
+Dublin Central,1,john oleary,John O'Leary,FALSE,IND,7,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,1,iannoel smyth,Ian Noel Smyth,FALSE,AON,505,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,1,malachy steenson,Malachy Steenson,FALSE,IND,2342,running,1,12435,25045,24869,176,63658
+Dublin Central,1,john stephens,John Stephens,FALSE,FF,1049,running,1,12435,25045,24869,176,63658
+Dublin Central,2,janice boylan,Janice Boylan,FALSE,SF,4416,running,1,12435,25045,24869,176,63658
+Dublin Central,2,tony corrigan,Tony Corrigan,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,2,daniel ennis,Daniel Ennis,FALSE,SD,4954,running,1,12435,25045,24869,176,63658
+Dublin Central,2,mannix flynn,Mannix Flynn,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,2,colm flood,Colm Flood,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,2,janet horner,Janet Horner,FALSE,GP,2958,running,1,12435,25045,24869,176,63658
+Dublin Central,2,gerry hutch,Gerry Hutch,FALSE,IND,2872,running,1,12435,25045,24869,176,63658
+Dublin Central,2,ray mcadam,Ray McAdam,FALSE,FG,2724,running,1,12435,25045,24869,176,63658
+Dublin Central,2,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,1719,running,1,12435,25045,24869,176,63658
+Dublin Central,2,ruth odea,Ruth O'Dea,FALSE,LAB,1481,running,1,12435,25045,24869,176,63658
+Dublin Central,2,john oleary,John O'Leary,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,2,iannoel smyth,Ian Noel Smyth,FALSE,AON,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,2,malachy steenson,Malachy Steenson,FALSE,IND,2542,running,1,12435,25045,24869,176,63658
+Dublin Central,2,john stephens,John Stephens,FALSE,FF,1120,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,3,janice boylan,Janice Boylan,FALSE,SF,4484,running,1,12435,25045,24869,176,63658
+Dublin Central,3,tony corrigan,Tony Corrigan,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,3,daniel ennis,Daniel Ennis,FALSE,SD,5049,running,1,12435,25045,24869,176,63658
+Dublin Central,3,mannix flynn,Mannix Flynn,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,3,colm flood,Colm Flood,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,3,janet horner,Janet Horner,FALSE,GP,3052,running,1,12435,25045,24869,176,63658
+Dublin Central,3,gerry hutch,Gerry Hutch,FALSE,IND,2907,running,1,12435,25045,24869,176,63658
+Dublin Central,3,ray mcadam,Ray McAdam,FALSE,FG,3277,running,1,12435,25045,24869,176,63658
+Dublin Central,3,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,1744,running,1,12435,25045,24869,176,63658
+Dublin Central,3,ruth odea,Ruth O'Dea,FALSE,LAB,1568,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,3,john oleary,John O'Leary,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,3,iannoel smyth,Ian Noel Smyth,FALSE,AON,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,3,malachy steenson,Malachy Steenson,FALSE,IND,2596,running,1,12435,25045,24869,176,63658
+Dublin Central,3,john stephens,John Stephens,FALSE,FF,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,4,janice boylan,Janice Boylan,FALSE,SF,4587,running,1,12435,25045,24869,176,63658
+Dublin Central,4,tony corrigan,Tony Corrigan,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,4,daniel ennis,Daniel Ennis,FALSE,SD,5512,running,1,12435,25045,24869,176,63658
+Dublin Central,4,mannix flynn,Mannix Flynn,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,4,colm flood,Colm Flood,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,4,janet horner,Janet Horner,FALSE,GP,3632,running,1,12435,25045,24869,176,63658
+Dublin Central,4,gerry hutch,Gerry Hutch,FALSE,IND,2923,running,1,12435,25045,24869,176,63658
+Dublin Central,4,ray mcadam,Ray McAdam,FALSE,FG,3475,running,1,12435,25045,24869,176,63658
+Dublin Central,4,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,1853,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,4,ruth odea,Ruth O'Dea,FALSE,LAB,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,4,john oleary,John O'Leary,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,4,iannoel smyth,Ian Noel Smyth,FALSE,AON,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,4,malachy steenson,Malachy Steenson,FALSE,IND,2614,running,1,12435,25045,24869,176,63658
+Dublin Central,4,john stephens,John Stephens,FALSE,FF,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,5,janice boylan,Janice Boylan,FALSE,SF,5017,running,1,12435,25045,24869,176,63658
+Dublin Central,5,tony corrigan,Tony Corrigan,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,5,daniel ennis,Daniel Ennis,FALSE,SD,6383,running,1,12435,25045,24869,176,63658
+Dublin Central,5,mannix flynn,Mannix Flynn,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,5,colm flood,Colm Flood,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,5,janet horner,Janet Horner,FALSE,GP,4010,running,1,12435,25045,24869,176,63658
+Dublin Central,5,gerry hutch,Gerry Hutch,FALSE,IND,2959,running,1,12435,25045,24869,176,63658
+Dublin Central,5,ray mcadam,Ray McAdam,FALSE,FG,3500,running,1,12435,25045,24869,176,63658
+Dublin Central,5,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,5,ruth odea,Ruth O'Dea,FALSE,LAB,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,5,john oleary,John O'Leary,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,5,iannoel smyth,Ian Noel Smyth,FALSE,AON,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,5,malachy steenson,Malachy Steenson,FALSE,IND,2641,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,5,john stephens,John Stephens,FALSE,FF,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,6,janice boylan,Janice Boylan,FALSE,SF,5373,running,1,12435,25045,24869,176,63658
+Dublin Central,6,tony corrigan,Tony Corrigan,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,6,daniel ennis,Daniel Ennis,FALSE,SD,6509,running,1,12435,25045,24869,176,63658
+Dublin Central,6,mannix flynn,Mannix Flynn,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,6,colm flood,Colm Flood,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,6,janet horner,Janet Horner,FALSE,GP,4058,running,1,12435,25045,24869,176,63658
+Dublin Central,6,gerry hutch,Gerry Hutch,FALSE,IND,4349,running,1,12435,25045,24869,176,63658
+Dublin Central,6,ray mcadam,Ray McAdam,FALSE,FG,3614,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,6,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,6,ruth odea,Ruth O'Dea,FALSE,LAB,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,6,john oleary,John O'Leary,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,6,iannoel smyth,Ian Noel Smyth,FALSE,AON,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,6,malachy steenson,Malachy Steenson,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,6,john stephens,John Stephens,FALSE,FF,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,7,janice boylan,Janice Boylan,FALSE,SF,5569,running,1,12435,25045,24869,176,63658
+Dublin Central,7,tony corrigan,Tony Corrigan,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,7,daniel ennis,Daniel Ennis,FALSE,SD,7681,running,1,12435,25045,24869,176,63658
+Dublin Central,7,mannix flynn,Mannix Flynn,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,7,colm flood,Colm Flood,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,7,janet horner,Janet Horner,FALSE,GP,5272,running,1,12435,25045,24869,176,63658
+Dublin Central,7,gerry hutch,Gerry Hutch,FALSE,IND,4466,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,7,ray mcadam,Ray McAdam,FALSE,FG,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,7,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,7,ruth odea,Ruth O'Dea,FALSE,LAB,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,7,john oleary,John O'Leary,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,7,iannoel smyth,Ian Noel Smyth,FALSE,AON,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,7,malachy steenson,Malachy Steenson,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,7,john stephens,John Stephens,FALSE,FF,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,8,janice boylan,Janice Boylan,FALSE,SF,7210,running,1,12435,25045,24869,176,63658
+Dublin Central,8,tony corrigan,Tony Corrigan,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,8,daniel ennis,Daniel Ennis,FALSE,SD,8306,running,1,12435,25045,24869,176,63658
+Dublin Central,8,mannix flynn,Mannix Flynn,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,8,colm flood,Colm Flood,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,8,janet horner,Janet Horner,FALSE,GP,5452,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,8,gerry hutch,Gerry Hutch,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,8,ray mcadam,Ray McAdam,FALSE,FG,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,8,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,8,ruth odea,Ruth O'Dea,FALSE,LAB,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,8,john oleary,John O'Leary,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,8,iannoel smyth,Ian Noel Smyth,FALSE,AON,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,8,malachy steenson,Malachy Steenson,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,8,john stephens,John Stephens,FALSE,FF,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,9,janice boylan,Janice Boylan,FALSE,SF,7787,running,1,12435,25045,24869,176,63658
+Dublin Central,9,tony corrigan,Tony Corrigan,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,9,daniel ennis,Daniel Ennis,FALSE,SD,12050,elected,1,12435,25045,24869,176,63658
+Dublin Central,9,mannix flynn,Mannix Flynn,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,9,colm flood,Colm Flood,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,9,janet horner,Janet Horner,FALSE,GP,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,9,gerry hutch,Gerry Hutch,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,9,ray mcadam,Ray McAdam,FALSE,FG,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,9,eoghan oceannabhain,Eoghan Ó Ceannabháin,FALSE,PBPS,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,9,ruth odea,Ruth O'Dea,FALSE,LAB,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,9,john oleary,John O'Leary,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,9,iannoel smyth,Ian Noel Smyth,FALSE,AON,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,9,malachy steenson,Malachy Steenson,FALSE,IND,,eliminated,1,12435,25045,24869,176,63658
+Dublin Central,9,john stephens,John Stephens,FALSE,FF,,eliminated,1,12435,25045,24869,176,63658
