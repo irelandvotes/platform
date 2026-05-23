@@ -182,14 +182,12 @@ export default function DailByElectionPage({
   country,
   type,
   slug,
-  officialPreviousResults,
 }: {
   title: string;
   year: number | string;
   country: string;
   type: string;
   slug: string;
-  officialPreviousResults?: any;
 }) {
 // 👇 inside component
 
@@ -214,6 +212,10 @@ const [view, setView] = useState<string>(
 const [analysis, setAnalysis] = useState<string>("basic");
 
 const [previousResults, setPreviousResults] = useState<any>({});
+const [
+  officialPreviousResults,
+  setOfficialPreviousResults
+] = useState<any>({});
 const [mapView, setMapView] = useState<string>("winner");
 const [projection, setProjection] = useState<any>(null);
 const isFPTP = type === "house-of-commons";
@@ -568,6 +570,20 @@ const filtered = list.filter((name) =>
 );
 
 const nationalResults = (() => {
+
+if (
+  hasOfficial &&
+  Object.keys(officialPreviousResults || {}).length === 0
+) {
+  return {
+    parties: [],
+    seats: [],
+    constituenciesReporting: 0,
+    totalConstituencies: 0,
+    totalSeatsDeclared: 0
+  };
+}
+
 const dataset =
   hasOfficial
     ? officialResults
@@ -621,42 +637,13 @@ const dataset =
      PREVIOUS RESULTS (REPORTING ONLY)
   ============================= */
 
-  const previousPartySeats: Record<string, number> = {};
-  const previousPartyVotes: Record<string, number> = {};
-
-const reportingConstituencies =
-  Object.keys(displayResults || {});
-
-const comparisonResults =
-  Object.fromEntries(
-
-    Object.entries(previousResults || {})
-      .filter(([name]) =>
-        reportingConstituencies.includes(name)
-      )
-
-  );
-
-const overallPrevious =
-  hasOfficial
-    ? officialPreviousResults
-    : comparisonResults;
-
-console.log(
-  "OFFICIAL SWITCH",
-  {
-    hasOfficial,
-    usingOfficial,
-    officialPreviousResults,
-    overallPrevious
-  }
-);
-
-if (overallPrevious) {
+const previousPartySeats: Record<string, number> = {};
+const previousPartyVotes: Record<string, number> = {};
 
 if (hasOfficial) {
 
-  Object.entries(overallPrevious)
+  // OFFICIAL MODE
+  Object.entries(officialPreviousResults || {})
     .forEach(([party, data]: any) => {
 
       previousPartySeats[party] =
@@ -669,7 +656,20 @@ if (hasOfficial) {
 
 } else {
 
-  Object.values(overallPrevious)
+  // TALLY MODE (reporting constituencies only)
+
+  const reportingConstituencies =
+    Object.keys(displayResults || {});
+
+  const comparisonResults =
+    Object.fromEntries(
+      Object.entries(previousResults || {})
+        .filter(([name]) =>
+          reportingConstituencies.includes(name)
+        )
+    );
+
+  Object.values(comparisonResults)
     .forEach((constituency: any) => {
 
       Object.entries(constituency)
@@ -695,8 +695,6 @@ if (hasOfficial) {
 
 }
 
-}
-
 
   const previousTotalVotes = Object.values(previousPartyVotes)
     .reduce((a, b) => a + b, 0);
@@ -709,22 +707,49 @@ if (hasOfficial) {
 const parties = Object.keys(partyVotes).map((party) => {
 
   const currentVotes = partyVotes[party] || 0;
-  const previousVotes = previousPartyVotes[party] || 0;
+let previousVotes = 0;
 
-  const currentPercent =
-    totalVotes
-      ? (currentVotes / totalVotes) * 100
-      : 0;
+/* =============================
+   OVERALL + OFFICIAL MODE
+============================= */
 
-  const previousPercent =
-    previousTotalVotes
-      ? (previousVotes / previousTotalVotes) * 100
-      : 0;
+if (
+  hasOfficial &&
+  current?.name === "Overall"
+) {
+
+  previousVotes =
+    Number(
+      officialPreviousResults?.[party]?.votes || 0
+    );
+
+/* =============================
+   TALLY / CONSTITUENCY MODE
+============================= */
+
+} else {
+
+  previousVotes =
+    Number(
+      previousPartyVotes?.[party] || 0
+    );
+
+}
+
+const currentPercent =
+  totalVotes
+    ? (currentVotes / totalVotes) * 100
+    : 0;
+
+const previousPercent =
+  previousTotalVotes
+    ? (previousVotes / previousTotalVotes) * 100
+    : 0;
 
 const voteChange =
-  totalVotes === 0
-    ? 0
-    : currentPercent - previousPercent;
+  previousTotalVotes > 0
+    ? currentPercent - previousPercent
+    : 0;
 
 
   /* SEAT CHANGE CALCULATION */
@@ -3473,6 +3498,8 @@ key="election_map"
   }}
   selected={selected}
   onLoadOfficialResults={setOfficialResults}
+  onLoadOfficialPreviousResults={
+  setOfficialPreviousResults}
   view={mapView}
  onSelect={(item: any) => {
   setSelected(item);

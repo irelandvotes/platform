@@ -28,7 +28,7 @@ function useIsMobile() {
 const electionGroups = [
 
 {
-  title: "Upcoming",
+  title: "LIVE",
   pages: [
     {
       label: "Dublin Central 2026",

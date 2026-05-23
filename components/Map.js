@@ -798,6 +798,7 @@ export default function Map({
   results,
   count,
   onLoadPreviousResults,
+  onLoadOfficialPreviousResults,
   onLoadProjection
 }) {
   const [geoData, setGeoData] = useState(null);
@@ -1205,6 +1206,65 @@ console.log("USING COUNT DATA");
 /* =============================
    Load Previous Results CSV
 ============================= */
+
+useEffect(() => {
+  fetch(`${dataPath}/official_previous_results.csv`)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("no official previous results");
+      }
+
+      return res.text();
+    })
+    .then((csv) => {
+
+      const parsed = Papa.parse(csv, {
+        header: true,
+        skipEmptyLines: true,
+      }).data;
+
+const grouped = {};
+
+parsed.forEach((row) => {
+
+  const party = row.party?.trim();
+
+  if (!party) return;
+
+  if (!grouped[party]) {
+    grouped[party] = {
+      votes: 0,
+      seats: 0
+    };
+  }
+
+  grouped[party].votes +=
+    Number(row.votes || 0);
+
+  grouped[party].seats +=
+    Number(row.seats || 0);
+
+});
+
+
+      setOfficialPreviousResults(grouped);
+
+if (onLoadOfficialPreviousResults) {
+  onLoadOfficialPreviousResults(grouped);
+}
+
+      if (typeof window !== "undefined") {
+        window.officialPreviousResults = grouped;
+      }
+
+    })
+    .catch(() => {
+
+      setOfficialPreviousResults({});
+
+    });
+
+}, [dataPath]);
 
 useEffect(() => {
   fetch(`${dataPath}/previous_results.csv`)
