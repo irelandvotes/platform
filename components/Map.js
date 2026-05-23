@@ -798,7 +798,7 @@ export default function Map({
   results,
   count,
   onLoadPreviousResults,
-  onLoadOfficialPreviousResults,
+  onLoadOfficialPreviousResults = null,
   onLoadProjection
 }) {
   const [geoData, setGeoData] = useState(null);
