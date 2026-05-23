@@ -794,7 +794,6 @@ export default function Map({
   onLoadList,
   onLoadResults,
   onLoadOfficialResults,
-  onLoadOfficialPreviousResults,
   resetTrigger,
   results,
   count,
@@ -1206,52 +1205,6 @@ console.log("USING COUNT DATA");
 /* =============================
    Load Previous Results CSV
 ============================= */
-
-useEffect(() => {
-
-  fetch(
-    `${dataPath}/official_previous_results.csv`
-  )
-    .then((res) => res.text())
-    .then((csv) => {
-
-      const parsed = Papa.parse(csv, {
-        header: true,
-        skipEmptyLines: true,
-      }).data;
-
-      const grouped = {};
-
-      parsed.forEach((row) => {
-
-        const party =
-          row.party?.trim();
-
-        if (!party) return;
-
-        grouped[party] = {
-          votes:
-            Number(row.votes) || 0,
-
-          seats:
-            Number(row.seats) || 0
-        };
-
-      });
-
-      if (
-        onLoadOfficialPreviousResults
-      ) {
-
-        onLoadOfficialPreviousResults(
-          grouped
-        );
-
-      }
-
-    });
-
-}, [dataPath]);
 
 useEffect(() => {
   fetch(`${dataPath}/previous_results.csv`)
