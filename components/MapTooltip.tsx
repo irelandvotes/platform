@@ -826,19 +826,20 @@ function WinnerTooltip({
     );
   }
 
-const rows = [...first]
-  .sort((a, b) => b.votes - a.votes)
-  .slice(0, 5);
+const sorted = [...first]
+  .sort((a, b) => b.votes - a.votes);
 
-  const winner = rows[0];
+const rows = sorted.slice(0, 5);
 
-  const winnerColor =
-    PARTY_COLORS[winner?.party] || "#666";
+const winner = rows[0];
 
-  const totalVotes = rows.reduce(
-    (sum, candidate) => sum + candidate.votes,
-    0
-  );
+const winnerColor =
+  PARTY_COLORS[winner?.party] || "#666";
+
+const totalVotes = sorted.reduce(
+  (sum, candidate) => sum + candidate.votes,
+  0
+);
 
   return (
     <Card
