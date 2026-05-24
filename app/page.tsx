@@ -323,6 +323,22 @@ scrollBehavior: "smooth"
 >
 
 <RecentElection
+title="Dublin Central"
+type="By-Election"
+result="Daniel Ennis (SD) won the race"
+date="22 May 2026"
+link="/elections/ireland/dail/2026/dublin-central"
+/>
+
+<RecentElection
+title="Galway West"
+type="By-Election"
+result="Former TD Seán Kyne (FG) won the race"
+date="22 May 2026"
+link="/elections/ireland/dail/2026/galway-west"
+/>
+
+<RecentElection
 title="Presidential Election"
 type="President"
 result="Connolly won with 63.4% of the vote"
@@ -421,22 +437,6 @@ flexDirection: "column",
 gap: "12px"
 }}
 >
-
-<UpcomingRace
-title="Galway West By-Election"
-subtitle="Dáil Éireann"
-date="Friday 22 May 2026"
-targetDate="2026-05-22"
-link="/elections/ireland/dail/2026/galway-west"
-/>
-
-<UpcomingRace
-title="Dublin Central By-Election"
-subtitle="Dáil Éireann"
-date="Friday 22 May 2026"
-targetDate="2026-05-22"
-link="/elections/ireland/dail/2026/dublin-central"
-/>
 
 <UpcomingRace
 title="NI Assembly"
