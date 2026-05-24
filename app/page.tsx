@@ -441,7 +441,7 @@ gap: "12px"
 <UpcomingRace
 title="Cultural and Educational Panel By-Education"
 subtitle="Seanad Éireann"
-date="On or before 21 December 2026"
+date="Within 6 months of a notice of vacancy being issued"
 targetDate="2026-12-21"
 />
 
