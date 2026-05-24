@@ -439,8 +439,8 @@ gap: "12px"
 >
 
 <UpcomingRace
-title="Seanad By-Election"
-subtitle="Ireland"
+title="Cultural and Educational Panel By-Education"
+subtitle="Seanad Éireann"
 date="On or before 21 December 2026"
 targetDate="2026-12-21"
 />
