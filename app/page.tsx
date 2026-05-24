@@ -439,6 +439,13 @@ gap: "12px"
 >
 
 <UpcomingRace
+title="Seanad By-Election"
+subtitle="Ireland"
+date="On or before 21 December 2026"
+targetDate="2026-12-21"
+/>
+
+<UpcomingRace
 title="NI Assembly"
 subtitle="Assembly Election"
 date="On or before Thursday 6 May 2027"
