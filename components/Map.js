@@ -20,7 +20,7 @@ const PARTY_COLORS = {
   IPP: "#0e9775",
   REN: "#d6960b",
 
-  SDLP: "#1a5c1d",
+  SDLP: "#fd281b",
   PBP: "#da1498",
   INDN: "#0c4257",
 
