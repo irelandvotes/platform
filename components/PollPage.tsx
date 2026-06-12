@@ -1974,7 +1974,7 @@ isAnimationActive={false}
 type="monotone"
 dataKey="SDLP_range"
 stroke="none"
-fill="#1a5c1d"
+fill="#fd281b"
 fillOpacity={0.08}
 stackId="SDLP"
 connectNulls
@@ -2112,7 +2112,7 @@ tickFormatter={(value) => `${Math.round(value)}%`}
 {visible.DUP && (<Line type="monotone" dataKey="DUP_poll" stroke="none" dot={{ r: 2, fill: "#dd5454", fillOpacity: 0.35 }} activeDot={false}/> )}
 {visible.UUP && (<Line type="monotone" dataKey="UUP_poll" stroke="none" dot={{ r: 2, fill: "#3676c0", fillOpacity: 0.35 }} activeDot={false}/> )}
 {visible.TUV && (<Line type="monotone" dataKey="TUV_poll" stroke="none" dot={{ r: 2, fill: "#061730", fillOpacity: 0.35 }} activeDot={false}/> )}
-{visible.SDLP && (<Line type="monotone" dataKey="SDLP_poll" stroke="none" dot={{ r: 2, fill: "#1a5c1d", fillOpacity: 0.35 }} activeDot={false}/> )}
+{visible.SDLP && (<Line type="monotone" dataKey="SDLP_poll" stroke="none" dot={{ r: 2, fill: "#fd281b", fillOpacity: 0.35 }} activeDot={false}/> )}
 {visible.PBP && (<Line type="monotone" dataKey="PBP_poll" stroke="none" dot={{ r: 2, fill: "#da1498", fillOpacity: 0.35 }} activeDot={false}/> )}
 {visible.AP && (<Line type="monotone" dataKey="AP_poll" stroke="none" dot={{ r: 2, fill: "#fdd835", fillOpacity: 0.35 }} activeDot={false}/> )}
 
@@ -2132,7 +2132,7 @@ tickFormatter={(value) => `${Math.round(value)}%`}
 {visible.DUP && (<Line type="monotone" dataKey="DUP" stroke="#dd5454" dot={false} strokeWidth={3} connectNulls strokeOpacity={hovered && hovered !== "DUP" ? 0.15 : 1}/> )}
 {visible.UUP && (<Line type="monotone" dataKey="UUP" stroke="#3676c0" dot={false} strokeWidth={3} connectNulls strokeOpacity={hovered && hovered !== "UUP" ? 0.15 : 1}/> )}
 {visible.TUV && (<Line type="monotone" dataKey="TUV" stroke="#061730" dot={false} strokeWidth={3} connectNulls strokeOpacity={hovered && hovered !== "TUV" ? 0.15 : 1}/> )}
-{visible.SDLP && (<Line type="monotone" dataKey="SDLP" stroke="#1a5c1d" dot={false} strokeWidth={3} connectNulls strokeOpacity={hovered && hovered !== "SDLP" ? 0.15 : 1}/> )}
+{visible.SDLP && (<Line type="monotone" dataKey="SDLP" stroke="#fd281b" dot={false} strokeWidth={3} connectNulls strokeOpacity={hovered && hovered !== "SDLP" ? 0.15 : 1}/> )}
 {visible.PBP && (<Line type="monotone" dataKey="PBP" stroke="#da1498" dot={false} strokeWidth={3} connectNulls strokeOpacity={hovered && hovered !== "PBP" ? 0.15 : 1}/> )}
 {visible.AP && (<Line type="monotone" dataKey="AP" stroke="#fdd835" dot={false} strokeWidth={3} connectNulls strokeOpacity={hovered && hovered !== "AP" ? 0.15 : 1}/> )}
 
