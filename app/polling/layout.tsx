@@ -468,7 +468,7 @@ AON: "#53660e",
 INDIRL: "#9be736",
 IND: "#9e9e9e",
 
-SDLP: "#1a5c1d",
+SDLP: "#fd281b",
 PBP: "#da1498",
 
 DUP: "#dd5454",
