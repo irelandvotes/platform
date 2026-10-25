@@ -14,6 +14,31 @@ function parseCSVLine(line: string) {
   return records[0] || [];
 }
 
+// Election files are immutable within a deployed build. Keep parsed rows in
+// memory so the request-time hub render does not repeatedly read and parse the
+// same CSV for every constituency preview.
+const parsedCsvCache = new Map<string, string[][] | null>();
+
+function readParsedCsv(filePath: string): string[][] | null {
+  if (parsedCsvCache.has(filePath)) {
+    return parsedCsvCache.get(filePath) ?? null;
+  }
+
+  if (!fs.existsSync(filePath)) {
+    parsedCsvCache.set(filePath, null);
+    return null;
+  }
+
+  const rows = fs
+    .readFileSync(filePath, "utf8")
+    .split(/\r?\n/)
+    .filter(Boolean)
+    .map(parseCSVLine);
+
+  parsedCsvCache.set(filePath, rows);
+  return rows;
+}
+
 export type ElectionRow = {
   date: string;
   area: string;
@@ -36,6 +61,8 @@ leaders: {
     }[];
   } | null;
 };
+
+let cachedElectionRows: ElectionRow[] | null = null;
 
 type ElectionFolder = {
   country: string;
@@ -69,25 +96,13 @@ function safeReadDirs(folder: string) {
 function parseUniqueAreas(
   filePath: string
 ): string[] {
-  if (!fs.existsSync(filePath)) {
+  const rows = readParsedCsv(filePath);
+
+  if (!rows || rows.length < 2) {
     return [];
   }
 
-  const raw = fs.readFileSync(
-    filePath,
-    "utf8"
-  );
-
-  const lines = raw
-    .split(/\r?\n/)
-    .filter(Boolean);
-
-  if (lines.length < 2) {
-    return [];
-  }
-
-  const headers =
-    parseCSVLine(lines[0]);
+  const headers = rows[0];
 
   const constituencyIndex =
     headers.findIndex(
@@ -104,9 +119,8 @@ function parseUniqueAreas(
 
   const areas = new Set<string>();
 
-  for (let i = 1; i < lines.length; i++) {
-    const cols =
-      parseCSVLine(lines[i]);
+  for (let i = 1; i < rows.length; i++) {
+    const cols = rows[i];
 
     const area =
       cols[
@@ -128,25 +142,13 @@ function parseUniqueAreas(
 function parseOverallByElectionArea(
   filePath: string
 ): string | null {
-  if (!fs.existsSync(filePath)) {
+  const rows = readParsedCsv(filePath);
+
+  if (!rows || rows.length < 2) {
     return null;
   }
 
-  const raw = fs.readFileSync(
-    filePath,
-    "utf8"
-  );
-
-  const lines = raw
-    .split(/\r?\n/)
-    .filter(Boolean);
-
-  if (lines.length < 2) {
-    return null;
-  }
-
-  const headers =
-    parseCSVLine(lines[0]);
+  const headers = rows[0];
 
   const constituencyIndex =
     headers.findIndex(
@@ -161,8 +163,7 @@ function parseOverallByElectionArea(
     return null;
   }
 
-  const firstRow =
-    parseCSVLine(lines[1]);
+  const firstRow = rows[1];
 
   const area =
     firstRow[
@@ -188,25 +189,13 @@ function buildPreview(
     excludeConstituencies?: string[];
   }
 ) {
-  if (!fs.existsSync(filePath)) {
+  const data = readParsedCsv(filePath);
+
+  if (!data || data.length < 2) {
     return null;
   }
 
-  const raw = fs.readFileSync(
-    filePath,
-    "utf8"
-  );
-
-  const lines = raw
-    .split(/\r?\n/)
-    .filter(Boolean);
-
-  if (lines.length < 2) {
-    return null;
-  }
-
-  const headers =
-    parseCSVLine(lines[0]);
+  const headers = data[0];
 
   const index = (
     name: string
@@ -231,17 +220,13 @@ function buildPreview(
   const statusIndex =
     index("status");
 
-  const data = lines
-    .slice(1)
-    .map((line) =>
-      parseCSVLine(line)
-    );
+  const electionRows = data.slice(1);
 
 const excluded =
   options?.excludeConstituencies || [];
 
 const filteredData =
-  data.filter((row) => {
+  electionRows.filter((row) => {
 
     const constituency =
       row[
@@ -769,6 +754,10 @@ slugs.forEach((slug) => {
 =================================== */
 
 export function buildElectionRows(): ElectionRow[] {
+  if (cachedElectionRows) {
+    return cachedElectionRows;
+  }
+
   const elections =
     discoverElections();
 
@@ -902,9 +891,11 @@ buildPreview(
     }
   );
 
-  return rows.sort((a, b) =>
+  cachedElectionRows = rows.sort((a, b) =>
     b.date.localeCompare(
       a.date
     )
   );
+
+  return cachedElectionRows;
 }
