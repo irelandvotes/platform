@@ -2,14 +2,25 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import LogoutButton from "./LogoutButton";
 
-export default function Navbar() {
-const pathname = usePathname();
+type NavbarProps = {
+  user: {
+    name: string;
+    email: string;
+  } | null;
+};
+
+export default function Navbar({ user }: NavbarProps) {
+
+  const pathname = usePathname();
 
 const [theme, setTheme] = useState("dark");
 const [isMobile, setIsMobile] = useState(false);
 const [menuOpen, setMenuOpen] = useState(false);
+const [accountMenuOpen, setAccountMenuOpen] = useState(false);
+const accountMenuRef = useRef<HTMLDivElement>(null);
 
 useEffect(() => {
   const check = () => setIsMobile(window.innerWidth < 768);
@@ -29,6 +40,22 @@ useEffect(() => {
     "dark",
     initialTheme === "dark"
   );
+}, []);
+
+useEffect(() => {
+  function handleClickOutside(event: MouseEvent) {
+    if (
+      accountMenuRef.current &&
+      !accountMenuRef.current.contains(event.target as Node)
+    ) {
+      setAccountMenuOpen(false);
+    }
+  }
+
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () =>
+    document.removeEventListener("mousedown", handleClickOutside);
 }, []);
 
 const toggleTheme = () => {
@@ -198,6 +225,115 @@ filter: "var(--logo-filter)"
   {/* DESKTOP: full controls */}
   {!isMobile && (
     <>
+
+{user ? (
+<div
+  ref={accountMenuRef}
+  style={{
+    position: "relative",
+  }}
+>
+    <button
+      onClick={() => setAccountMenuOpen(!accountMenuOpen)}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "8px",
+        background: "transparent",
+        border: "none",
+        color: "var(--text)",
+        cursor: "pointer",
+        padding: "6px 4px",
+        fontSize: "14px",
+        fontWeight: 500,
+      }}
+    >
+      <UserIcon />
+
+      <span>Hi, {user.name}</span>
+
+      <ChevronIcon open={accountMenuOpen} />
+    </button>
+
+    {accountMenuOpen && (
+      <div
+style={{
+  position: "absolute",
+  top: "calc(100% + 12px)",
+  right: 0,
+  width: "260px",
+
+background: "color-mix(in srgb, var(--panel) 88%, transparent)",
+backdropFilter: "blur(18px)",
+WebkitBackdropFilter: "blur(18px)",
+
+border: "1px solid var(--border)",
+borderRadius: "10px",
+boxShadow:
+  "0 12px 40px rgba(0,0,0,.18)",
+
+  overflow: "hidden",
+  zIndex: 100000,
+  opacity: accountMenuOpen ? 1 : 0,
+transform: accountMenuOpen
+  ? "translateY(0)"
+  : "translateY(-8px)",
+transition: "all .18s ease",
+}}
+      >
+        <div
+  style={{
+    padding: "14px 16px",
+    borderBottom: "1px solid rgba(255,255,255,0.08)",
+  }}
+>
+  <div
+    style={{
+      fontSize: "12px",
+      color: "var(--text-muted)",
+      marginBottom: "4px",
+    }}
+  >
+    Signed in as
+  </div>
+
+  <div
+    style={{
+      fontSize: "14px",
+      fontWeight: 600,
+      color: "var(--text)",
+      wordBreak: "break-word",
+    }}
+  >
+    {user.email}
+  </div>
+</div>
+
+<Link
+  href="/account"
+style={{
+  display: "block",
+  padding: "12px 16px",
+  color: "var(--text)",
+  textDecoration: "none",
+  transition: "background .18s ease",
+}}
+>
+  My Account
+</Link>
+
+<LogoutButton />
+      </div>
+    )}
+  </div>
+) : (
+  <>
+    <Link href="/login" className={linkStyle("/login", true)}>
+      Log In
+    </Link>
+  </>
+)}
+
       {/* THEME TOGGLE */}
       <button
         onClick={toggleTheme}
@@ -339,6 +475,35 @@ zIndex: 10001
   </Link>
 </div>
 
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: 10,
+    padding: "18px 0",
+    marginTop: 12,
+    borderTop: "1px solid var(--border)",
+  }}
+>
+  {user ? (
+    <>
+      <div style={{ padding: "4px 12px 8px", color: "var(--text-muted)", fontSize: 13, overflowWrap: "anywhere" }}>
+        Signed in as<br /><strong style={{ color: "var(--text)" }}>{user.email}</strong>
+      </div>
+      <Link href="/account" onClick={() => setMenuOpen(false)} className={linkStyle("/account")}>
+        My Account
+      </Link>
+      <LogoutButton />
+    </>
+  ) : (
+    <>
+      <Link href="/login" onClick={() => setMenuOpen(false)} className={linkStyle("/login")}>
+        Log In
+      </Link>
+    </>
+  )}
+</div>
+
   {/* PUSH CONTENT DOWN */}
   <div style={{ flex: 1 }} />
 
@@ -409,4 +574,44 @@ zIndex: 10001
 
 );
 
+}
+
+function UserIcon() {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M20 21a8 8 0 0 0-16 0" />
+      <circle cx="12" cy="8" r="4" />
+    </svg>
+  );
+}
+
+function ChevronIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{
+        transform: open ? "rotate(180deg)" : "rotate(0deg)",
+        transition: "transform 0.2s ease",
+        opacity: 0.7,
+      }}
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
 }

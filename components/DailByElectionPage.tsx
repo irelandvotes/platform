@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, Fragment } from "react";
 import ElectionMetaPanel from "./ElectionMetaPanel";
+import ElectionBookmarkButton from "./ElectionBookmarkButton";
 import { buildCountTimeline } from "../utils/buildCountTimeline";
 import dynamic from "next/dynamic";
 import MapViewToggle from "./MapViewToggle";
@@ -1519,6 +1520,8 @@ return (
     {title}
   </div>
 </div>
+
+<ElectionBookmarkButton title={title} />
 
 </div>
 
