@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, Fragment } from "react";
 import ElectionMetaPanel from "./ElectionMetaPanel";
+import ElectionBookmarkButton from "./ElectionBookmarkButton";
 import dynamic from "next/dynamic";
 import MapViewToggle from "./MapViewToggle";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -1284,6 +1285,8 @@ return (
     {title}
   </div>
 </div>
+
+<ElectionBookmarkButton title={title} />
 
 </div>
 

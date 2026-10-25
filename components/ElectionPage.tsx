@@ -15,6 +15,7 @@ import {
 import CandidatePerformanceTable
 from "./CandidatePerformanceTable";
 import ElectionMetaPanel from "./ElectionMetaPanel";
+import ElectionBookmarkButton from "./ElectionBookmarkButton";
 import Map from "./Map";
 import MapViewToggle from "./MapViewToggle";
 import TransferFlow from "./TransferFlow";
@@ -1289,6 +1290,8 @@ return (
 
 
 {/* RIGHT SIDE */}
+<div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+<ElectionBookmarkButton title={title} />
 {!isFPTP && (
 <div
   style={{
@@ -1365,6 +1368,7 @@ Advanced
 
 </div>
 )}
+</div>
 
 </div>
 

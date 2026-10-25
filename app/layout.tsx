@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import "./globals.css";
 import ConditionalFooter from "../components/ConditionalFooter";
 import localFont from "next/font/local";
+import { createClient } from "@/lib/supabase/server";
 
 const averta = localFont({
   src: [
@@ -38,11 +39,17 @@ export const metadata: Metadata = {
   description: "Ireland's new political data hub",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   return (
 <html
   lang="en"
@@ -58,7 +65,19 @@ style={{
 >
 
         {/* NAVBAR */}
-        <Navbar />
+        <Navbar
+  user={
+    user
+      ? {
+          name:
+            user.user_metadata?.full_name ??
+            user.email?.split("@")[0] ??
+            "Account",
+          email: user.email ?? "",
+        }
+      : null
+  }
+/>
 
 {/* MAIN CONTENT */}
 <div className="flex-1 flex overflow-hidden">
