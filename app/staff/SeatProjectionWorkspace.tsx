@@ -20,6 +20,16 @@ type InterBlocTacticalVoting = {
   nonAlignedToUnionist: number;
 };
 
+type ProjectionSettings = {
+  support: Record<string, string>;
+  pollError: number;
+  localVariation: number;
+  previousResultWeight: number;
+  partyPresence: Record<string, string[]>;
+  tacticalVoting: Record<ProjectionBloc, number>;
+  interBlocTacticalVoting: InterBlocTacticalVoting;
+};
+
 type ProjectedConstituency = SeatProjectionData["constituencies"][number] & {
   projected: Array<{
     code: string;
@@ -69,6 +79,15 @@ function enteredTotalShare(values: Record<string, number>, partyCode: string) {
 
 function formatPoints(value: number) {
   return `${value >= 0 ? "+" : ""}${value.toFixed(1)} pts`;
+}
+
+function textColorForPartyColor(color: string) {
+  const hex = color.replace("#", "");
+  if (!/^[\da-f]{6}$/i.test(hex)) return "#172326";
+  const channels = [0, 2, 4].map((offset) => Number.parseInt(hex.slice(offset, offset + 2), 16) / 255);
+  const luminance = channels.map((channel) => channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4)
+    .reduce((sum, channel, index) => sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
+  return luminance > 0.42 ? "#172326" : "#ffffff";
 }
 
 function formatHistoricalShare(value: number | undefined) {
@@ -292,6 +311,7 @@ function localPartyProfile(
   const latestNationalRatio = nationalBlocShare > 0 ? (party.baselineShare / nationalBlocShare) * 100 : 0;
   const latestWithinBlocStrength = latestLocalRatio - latestNationalRatio;
   const historicalWithinBlocStrength = localWithinBlocStrength(party.code, party.bloc, constituency, data);
+  const historicalShareWeight = previousWeight / 100;
   const withinBlocSensitivity = Math.min(
     1.75,
     Math.max(0.25, 1 + ((historicalWithinBlocStrength - latestWithinBlocStrength) / 100) * (previousWeight / 100)),
@@ -303,6 +323,9 @@ function localPartyProfile(
     previousShare: previousShare ?? null,
     latestLocalRatio,
     latestNationalRatio,
+    latestWithinBlocStrength,
+    historicalWithinBlocStrength,
+    historicalShareWeight,
     withinBlocSensitivity,
   };
 }
@@ -317,6 +340,7 @@ export default function SeatProjectionWorkspace({ data }: Props) {
   const [partyPresence, setPartyPresence] = useState<Record<string, string[]>>(() => Object.fromEntries(
     data.constituencies.map((constituency) => [constituency.name, Object.keys(constituency.partyShares)]),
   ));
+  const [selectedConstituency, setSelectedConstituency] = useState("all");
   const [tacticalVoting, setTacticalVoting] = useState<Record<ProjectionBloc, number>>({
     Nationalist: 0,
     Unionist: 0,
@@ -328,12 +352,68 @@ export default function SeatProjectionWorkspace({ data }: Props) {
     unionistToNonAligned: 0,
     nonAlignedToUnionist: 0,
   });
+  const [appliedSettings, setAppliedSettings] = useState<ProjectionSettings>(() => ({
+    support: Object.fromEntries(data.parties.map((party) => [party.code, party.baselineShare.toFixed(1)])),
+    pollError: 2,
+    localVariation: 2,
+    previousResultWeight: 30,
+    partyPresence: Object.fromEntries(data.constituencies.map((constituency) => [constituency.name, Object.keys(constituency.partyShares)])),
+    tacticalVoting: { Nationalist: 0, Unionist: 0, "Non-aligned": 0 },
+    interBlocTacticalVoting: { nationalistToNonAligned: 0, nonAlignedToNationalist: 0, unionistToNonAligned: 0, nonAlignedToUnionist: 0 },
+  }));
   const [isExportingReport, setIsExportingReport] = useState(false);
   const [reportExportError, setReportExportError] = useState("");
+  const [hasRunProjection, setHasRunProjection] = useState(false);
+
+  const draftSettings: ProjectionSettings = {
+    support,
+    pollError,
+    localVariation,
+    previousResultWeight,
+    partyPresence,
+    tacticalVoting,
+    interBlocTacticalVoting,
+  };
+  const defaultSettings: ProjectionSettings = {
+    support: Object.fromEntries(data.parties.map((party) => [party.code, party.baselineShare.toFixed(1)])),
+    pollError: 2,
+    localVariation: 2,
+    previousResultWeight: 30,
+    partyPresence: Object.fromEntries(data.constituencies.map((constituency) => [constituency.name, Object.keys(constituency.partyShares)])),
+    tacticalVoting: { Nationalist: 0, Unionist: 0, "Non-aligned": 0 },
+    interBlocTacticalVoting: { nationalistToNonAligned: 0, nonAlignedToNationalist: 0, unionistToNonAligned: 0, nonAlignedToUnionist: 0 },
+  };
+  const isDefaultSettings = JSON.stringify(draftSettings) === JSON.stringify(defaultSettings);
+  const hasUnappliedChanges = JSON.stringify(draftSettings) !== JSON.stringify(appliedSettings);
+  const draftSupportValues = Object.fromEntries(data.parties.map((party) => [
+    party.code,
+    Math.min(100, Math.max(0, Number(support[party.code]) || 0)),
+  ]));
+  const draftEnteredTotal = Object.values(draftSupportValues).reduce((sum, value) => sum + value, 0);
+  const draftNormalizedSupport = Object.fromEntries(data.parties.map((party) => [
+    party.code,
+    draftEnteredTotal > 0 ? (draftSupportValues[party.code] / draftEnteredTotal) * 100 : party.baselineShare,
+  ]));
+  const draftInputBlocShares = normalizeBlocShares(
+    Object.fromEntries(PROJECTION_BLOCS.map((bloc) => [
+      bloc,
+      data.parties.reduce((sum, party) => sum + (party.bloc === bloc ? draftNormalizedSupport[party.code] : 0), 0),
+    ])) as Record<ProjectionBloc, number>,
+    data.baselineBlocShares,
+  );
 
   const projection = useMemo(() => {
+    const {
+      support: appliedSupport,
+      pollError: appliedPollError,
+      localVariation: appliedLocalVariation,
+      previousResultWeight: appliedPreviousResultWeight,
+      partyPresence: appliedPartyPresence,
+      tacticalVoting: appliedTacticalVoting,
+      interBlocTacticalVoting: appliedInterBlocTacticalVoting,
+    } = appliedSettings;
     const supportValues = Object.fromEntries(
-      data.parties.map((party) => [party.code, Math.min(100, Math.max(0, Number(support[party.code]) || 0))]),
+      data.parties.map((party) => [party.code, Math.min(100, Math.max(0, Number(appliedSupport[party.code]) || 0))]),
     );
     const enteredTotal = Object.values(supportValues).reduce((sum, value) => sum + value, 0);
     const normalizedSupport = Object.fromEntries(data.parties.map((party) => [
@@ -349,31 +429,40 @@ export default function SeatProjectionWorkspace({ data }: Props) {
     );
     const projectedSeats: Record<string, number> = Object.fromEntries(data.parties.map(({ code }) => [code, 0]));
     const pointEstimates = data.constituencies.map((constituency) => {
-      const includedParties = data.parties.filter((party) => partyPresence[constituency.name]?.includes(party.code));
+      const includedParties = data.parties.filter((party) => appliedPartyPresence[constituency.name]?.includes(party.code));
       const availableBlocs = new Set(includedParties.map((party) => party.bloc));
+      const projectedBlocBaseline = (bloc: ProjectionBloc) => {
+        if (constituency.blocShares[bloc] > 0) return constituency.blocShares[bloc];
+        return data.baselineBlocShares[bloc] * localBlocSwingMultiplier(constituency, bloc, data, appliedPreviousResultWeight);
+      };
       const blocShares = normalizeBlocShares(
         Object.fromEntries(PROJECTION_BLOCS.map((bloc) => [
           bloc,
           availableBlocs.has(bloc)
-            ? Math.max(0, constituency.blocShares[bloc]
+            ? Math.max(0, projectedBlocBaseline(bloc)
               + (inputBlocShares[bloc] - data.baselineBlocShares[bloc])
-                * localBlocSwingMultiplier(constituency, bloc, data, previousResultWeight))
+                * localBlocSwingMultiplier(constituency, bloc, data, appliedPreviousResultWeight))
             : 0,
         ])) as Record<ProjectionBloc, number>,
         Object.fromEntries(PROJECTION_BLOCS.map((bloc) => [bloc, availableBlocs.has(bloc) ? constituency.blocShares[bloc] : 0])) as Record<ProjectionBloc, number>,
       );
       const adjusted = includedParties.map((party) => {
-        const profile = localPartyProfile(party, constituency, data, previousResultWeight);
+        const profile = localPartyProfile(party, constituency, data, appliedPreviousResultWeight);
         const nationalBlocShare = inputBlocShares[party.bloc];
         const partyWithinBloc = nationalBlocShare > 0
           ? (normalizedSupport[party.code] / nationalBlocShare) * 100
           : data.baselineBlocShares[party.bloc] > 0
             ? (party.baselineShare / data.baselineBlocShares[party.bloc]) * 100
             : 0;
+        const historicalStartingRatio = profile.latestNationalRatio + profile.historicalWithinBlocStrength;
+        const localStartingRatio = profile.latestLocalRatio > 0
+          ? profile.latestLocalRatio
+          : profile.latestNationalRatio * (1 - profile.historicalShareWeight)
+            + historicalStartingRatio * profile.historicalShareWeight;
         return {
           code: party.code,
           bloc: party.bloc,
-          rawWithinBlocShare: Math.max(0, profile.latestLocalRatio
+          rawWithinBlocShare: Math.max(partyWithinBloc > 0 ? 0.1 : 0, localStartingRatio
             + (partyWithinBloc - profile.latestNationalRatio) * profile.withinBlocSensitivity),
           latestRelativeStrength: profile.latestRelativeStrength,
           previousRelativeStrength: profile.previousRelativeStrength,
@@ -404,16 +493,16 @@ export default function SeatProjectionWorkspace({ data }: Props) {
       for (const bloc of PROJECTION_BLOCS) {
         const blocParties = projectedWithPartyShares.filter((party) => party.bloc === bloc);
         const tacticalLeader = [...blocParties].sort((a, b) => b.share - a.share || a.code.localeCompare(b.code))[0];
-        if (!tacticalLeader || tacticalVoting[bloc] <= 0) continue;
+        if (!tacticalLeader || appliedTacticalVoting[bloc] <= 0) continue;
         const transfer = blocParties
           .filter((party) => party.code !== tacticalLeader.code)
-          .reduce((sum, party) => sum + party.withinBlocShare * tacticalVoting[bloc] / 100, 0);
+          .reduce((sum, party) => sum + party.withinBlocShare * appliedTacticalVoting[bloc] / 100, 0);
         blocParties.forEach((party) => {
           tacticalWithinBlocShares.set(
             party.code,
             party.code === tacticalLeader.code
               ? party.withinBlocShare + transfer
-              : party.withinBlocShare * (1 - tacticalVoting[bloc] / 100),
+              : party.withinBlocShare * (1 - appliedTacticalVoting[bloc] / 100),
           );
         });
       }
@@ -422,7 +511,7 @@ export default function SeatProjectionWorkspace({ data }: Props) {
           const withinBlocShare = tacticalWithinBlocShares.get(party.code) ?? party.withinBlocShare;
           return { ...party, withinBlocShare, share: blocShares[party.bloc] * withinBlocShare };
         });
-      const interBlocAdjusted = applyInterBlocTacticalVoting(blocShares, intraBlocProjected, interBlocTacticalVoting);
+      const interBlocAdjusted = applyInterBlocTacticalVoting(blocShares, intraBlocProjected, appliedInterBlocTacticalVoting);
       const projected = intraBlocProjected
         .map((party) => ({ ...party, share: interBlocAdjusted.partyShares[party.code] ?? 0 }))
         .sort((a, b) => b.share - a.share || a.code.localeCompare(b.code));
@@ -440,11 +529,11 @@ export default function SeatProjectionWorkspace({ data }: Props) {
     const seatSamples: Record<string, number[]> = Object.fromEntries(data.parties.map(({ code }) => [code, []]));
     const largestPartyCounts: Record<string, number> = Object.fromEntries(data.parties.map(({ code }) => [code, 0]));
     const iterations = SIMULATION_ITERATIONS;
-    const normal = createNormalGenerator(`${data.parties.map(({ code }) => `${code}:${support[code]}`).join("|")}|${pollError}|${localVariation}|${previousResultWeight}`);
+    const normal = createNormalGenerator(JSON.stringify(appliedSettings));
     for (let iteration = 0; iteration < iterations; iteration += 1) {
       const simulatedSeats: Record<string, number> = Object.fromEntries(data.parties.map(({ code }) => [code, 0]));
-      const noisyNationalist = Math.max(0, inputBlocShares.Nationalist + normal() * pollError);
-      const noisyUnionist = Math.max(0, inputBlocShares.Unionist + normal() * pollError);
+      const noisyNationalist = Math.max(0, inputBlocShares.Nationalist + normal() * appliedPollError);
+      const noisyUnionist = Math.max(0, inputBlocShares.Unionist + normal() * appliedPollError);
       const noisyBlocShares = normalizeBlocShares({
         Nationalist: noisyNationalist,
         Unionist: noisyUnionist,
@@ -454,16 +543,19 @@ export default function SeatProjectionWorkspace({ data }: Props) {
       for (const constituency of data.constituencies) {
         const point = pointEstimateByName.get(constituency.name);
         const availableBlocs = new Set(point?.projected.map((party) => party.bloc) ?? []);
+        const projectedBlocBaseline = (bloc: ProjectionBloc) => constituency.blocShares[bloc] > 0
+          ? constituency.blocShares[bloc]
+          : inputBlocShares[bloc] * localBlocSwingMultiplier(constituency, bloc, data, appliedPreviousResultWeight);
         const noisyLocalNationalist = availableBlocs.has("Nationalist") ? Math.max(0,
-          constituency.blocShares.Nationalist
-          + (noisyBlocShares.Nationalist - data.baselineBlocShares.Nationalist)
-            * localBlocSwingMultiplier(constituency, "Nationalist", data, previousResultWeight)
-          + normal() * localVariation) : 0;
+          projectedBlocBaseline("Nationalist")
+          + (noisyBlocShares.Nationalist - inputBlocShares.Nationalist)
+            * localBlocSwingMultiplier(constituency, "Nationalist", data, appliedPreviousResultWeight)
+          + normal() * appliedLocalVariation) : 0;
         const noisyLocalUnionist = availableBlocs.has("Unionist") ? Math.max(0,
-          constituency.blocShares.Unionist
-          + (noisyBlocShares.Unionist - data.baselineBlocShares.Unionist)
-            * localBlocSwingMultiplier(constituency, "Unionist", data, previousResultWeight)
-          + normal() * localVariation) : 0;
+          projectedBlocBaseline("Unionist")
+          + (noisyBlocShares.Unionist - inputBlocShares.Unionist)
+            * localBlocSwingMultiplier(constituency, "Unionist", data, appliedPreviousResultWeight)
+          + normal() * appliedLocalVariation) : 0;
         const localBlocShares = normalizeBlocShares({
           Nationalist: noisyLocalNationalist,
           Unionist: noisyLocalUnionist,
@@ -475,10 +567,10 @@ export default function SeatProjectionWorkspace({ data }: Props) {
             bloc: party.bloc,
             withinBlocShare: party.withinBlocShare,
           })),
-          localVariation,
+          appliedLocalVariation,
           normal,
         );
-        const interBlocAdjusted = applyInterBlocTacticalVoting(localBlocShares, simulatedWithinBlocParties, interBlocTacticalVoting);
+        const interBlocAdjusted = applyInterBlocTacticalVoting(localBlocShares, simulatedWithinBlocParties, appliedInterBlocTacticalVoting);
         const localVotes = (point?.projected ?? []).map((party) => ({
           code: party.code,
           value: interBlocAdjusted.partyShares[party.code] ?? 0,
@@ -520,15 +612,31 @@ export default function SeatProjectionWorkspace({ data }: Props) {
       }))
       .sort((a, b) => b.seats - a.seats || b.baselineSeats - a.baselineSeats || a.code.localeCompare(b.code));
     return { constituencies, standings, enteredTotal, iterations, inputBlocShares };
-  }, [data, interBlocTacticalVoting, localVariation, partyPresence, pollError, previousResultWeight, support, tacticalVoting]);
+  }, [data, appliedSettings]);
 
   const totalSeats = data.constituencies.reduce((sum, constituency) => sum + constituency.seats, 0);
 
   function resetToBaseline() {
     setSupport(Object.fromEntries(data.parties.map((party) => [party.code, party.baselineShare.toFixed(1)])));
+    setPollError(2);
+    setLocalVariation(2);
+    setPreviousResultWeight(30);
     setPartyPresence(Object.fromEntries(data.constituencies.map((constituency) => [constituency.name, Object.keys(constituency.partyShares)])));
     setTacticalVoting({ Nationalist: 0, Unionist: 0, "Non-aligned": 0 });
     setInterBlocTacticalVoting({ nationalistToNonAligned: 0, nonAlignedToNationalist: 0, unionistToNonAligned: 0, nonAlignedToUnionist: 0 });
+  }
+
+  function runProjection() {
+    setAppliedSettings({
+      support: { ...support },
+      pollError,
+      localVariation,
+      previousResultWeight,
+      partyPresence: Object.fromEntries(Object.entries(partyPresence).map(([name, parties]) => [name, [...parties]])),
+      tacticalVoting: { ...tacticalVoting },
+      interBlocTacticalVoting: { ...interBlocTacticalVoting },
+    });
+    setHasRunProjection(true);
   }
 
   async function downloadProjectionReport() {
@@ -552,14 +660,14 @@ export default function SeatProjectionWorkspace({ data }: Props) {
       const document = createElement(SeatProjectionPdf, {
         data,
         projection,
-        support,
+        support: appliedSettings.support,
         reportDate,
         logoSrc,
-        pollError,
-        localVariation,
-        previousResultWeight,
-        tacticalVoting,
-        interBlocTacticalVoting,
+        pollError: appliedSettings.pollError,
+        localVariation: appliedSettings.localVariation,
+        previousResultWeight: appliedSettings.previousResultWeight,
+        tacticalVoting: appliedSettings.tacticalVoting,
+        interBlocTacticalVoting: appliedSettings.interBlocTacticalVoting,
       });
       const pdfBlob = await pdf(document as unknown as Parameters<typeof pdf>[0]).toBlob();
       const objectUrl = URL.createObjectURL(pdfBlob);
@@ -578,27 +686,57 @@ export default function SeatProjectionWorkspace({ data }: Props) {
 
   return (
     <main className="staff-home-content staff-projection-page">
-      <div className="staff-graphics-heading staff-projection-heading">
-        <div>
-          <p className="staff-eyebrow">ELECTORAL MODELLING / EARLY VERSION</p>
-          <h1>Seat projection model</h1>
-          <p>Explore how a change in NI-wide party support could alter the Westminster constituency results.</p>
+      <section className="staff-projection-toolbar" aria-label="Projection dashboard toolbar">
+        <div className="staff-projection-topbar">
+        <div className="staff-projection-toolbar-tile staff-projection-toolbar-title">
+          <p className="staff-eyebrow">ELECTORAL MODELLING</p>
+          <h1>Seat projection</h1>
+          <small>NI House of Commons · FPTP</small>
         </div>
-        <div className="staff-projection-actions">
-          <span className="staff-format-badge">NI HOUSE OF COMMONS / FPTP</span>
-          <button type="button" className="staff-projection-report-button" onClick={downloadProjectionReport} disabled={isExportingReport}>
+
+        <div className="staff-projection-toolbar-tile staff-projection-toolbar-constituencies">
+          <span className="staff-projection-toolbar-label">Constituencies</span>
+          <strong>{data.constituencies.length}</strong>
+          <small>NI-wide</small>
+        </div>
+        <div className="staff-projection-toolbar-tile staff-projection-toolbar-seats">
+          <span className="staff-projection-toolbar-label">Seats</span>
+          <strong>{totalSeats}</strong>
+          <small>Single-member</small>
+        </div>
+        <div className="staff-projection-toolbar-tile staff-projection-toolbar-detail">
+          <span className="staff-projection-toolbar-label">Baseline</span>
+          <strong>Westminster 2024</strong>
+          <small>Northern Ireland</small>
+        </div>
+        <div className="staff-projection-toolbar-tile staff-projection-toolbar-detail">
+          <span className="staff-projection-toolbar-label">Method</span>
+          <strong>National swing</strong>
+          <small>Local strength + simulation</small>
+        </div>
+        <div className="staff-projection-actions staff-projection-toolbar-actions">
+          <button type="button" className="staff-projection-run-button staff-projection-toolbar-action-button" onClick={runProjection} disabled={!hasUnappliedChanges}>
+            <span className="staff-projection-toolbar-label">Scenario</span>
+            <svg className="staff-projection-action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10a6 6 0 0 1 10.2-4.2L16 7.5M16 4v3.5h-3.5M16 10a6 6 0 0 1-10.2 4.2L4 12.5M4 16v-3.5h3.5" /></svg>
+            <span>{hasRunProjection && !isDefaultSettings ? "Update projection" : "Run projection"}</span>
+            <small role="status" aria-live="polite">{hasUnappliedChanges ? (hasRunProjection ? "Scenario changed" : "Draft changed") : "Results up to date"}</small>
+          </button>
+          <button type="button" className="staff-projection-reset staff-projection-toolbar-action-button" onClick={resetToBaseline}>
+            <span className="staff-projection-toolbar-label">Inputs</span>
+            <svg className="staff-projection-action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 7.5A6 6 0 1 1 4 11M4.5 3.8v3.8h3.8" /></svg>
+            <span>Reset baseline</span>
+            <small>Restore default settings</small>
+          </button>
+          <button type="button" className="staff-projection-report-button staff-projection-toolbar-action-button" onClick={downloadProjectionReport} disabled={isExportingReport || hasUnappliedChanges} title={hasUnappliedChanges ? "Run the projection before downloading its report." : undefined}>
+            <span className="staff-projection-toolbar-label">Export</span>
+            <svg className="staff-projection-action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 2.8h5.2L15.5 7v10.2H6zM11 2.8V7h4.5M10.7 9.5v5m-2-2 2 2 2-2" /></svg>
             {isExportingReport ? "Preparing PDF…" : "Download full PDF report"}
+            <small>{hasUnappliedChanges ? "Run draft before export" : "Full branded report"}</small>
           </button>
         </div>
-      </div>
-      {reportExportError && <p className="staff-projection-export-error" role="alert">{reportExportError}</p>}
-
-      <section className="staff-projection-summary" aria-label="Projection summary">
-        <div><span>Constituencies</span><strong>{data.constituencies.length}</strong></div>
-        <div><span>Seats</span><strong>{totalSeats}</strong></div>
-        <div><span>Baseline</span><strong>{data.electionLabel}</strong></div>
-        <div><span>Method</span><strong>National swing + local strength</strong></div>
+        </div>
       </section>
+      {reportExportError && <p className="staff-projection-export-error" role="alert">{reportExportError}</p>}
 
       <div className="staff-projection-layout">
         <section className="staff-projection-input-card" aria-labelledby="projection-input-heading">
@@ -607,10 +745,9 @@ export default function SeatProjectionWorkspace({ data }: Props) {
               <p className="staff-eyebrow">SCENARIO INPUT</p>
               <h2 id="projection-input-heading">National party support</h2>
             </div>
-            <button type="button" className="staff-projection-reset" onClick={resetToBaseline}>Reset to baseline</button>
           </div>
           <p className="staff-projection-help">
-            Values start at each party&apos;s 2024 NI-wide first-preference share. Replace them with a poll or scenario to see the estimated constituency winners.
+            Values start at each party&apos;s 2024 NI-wide first-preference share. Edit the support or constituency field, then run the projection to update the results.
           </p>
           <div className="staff-projection-party-inputs">
             {data.parties.map((party) => (
@@ -632,22 +769,22 @@ export default function SeatProjectionWorkspace({ data }: Props) {
               </label>
             ))}
           </div>
-          <div className={`staff-projection-total${Math.abs(projection.enteredTotal - 100) > 0.15 ? " is-outside" : ""}`}>
-            <span>Total entered</span><strong>{projection.enteredTotal.toFixed(1)}%</strong>
+          <div className={`staff-projection-total${Math.abs(draftEnteredTotal - 100) > 0.15 ? " is-outside" : ""}`}>
+            <span>Draft total</span><strong>{draftEnteredTotal.toFixed(1)}%</strong>
           </div>
-          {Math.abs(projection.enteredTotal - 100) > 0.15 && (
+          {Math.abs(draftEnteredTotal - 100) > 0.15 && (
             <p className="staff-projection-note">The entered values do not total 100%. The model rescales each constituency&apos;s projected party shares to 100%.</p>
           )}
           <div className="staff-projection-bloc-summary" aria-label="Current support by political bloc">
             <div className="staff-projection-bloc-summary-heading">
               <strong>Support by bloc</strong>
-              <span>Current scenario</span>
+              <span>Draft scenario</span>
             </div>
             <div className="staff-projection-bloc-cards">
               {PROJECTION_BLOCS.map((bloc) => (
                 <div key={bloc}>
                   <span>{bloc}</span>
-                  <strong>{projection.inputBlocShares[bloc].toFixed(1)}%</strong>
+                  <strong>{draftInputBlocShares[bloc].toFixed(1)}%</strong>
                 </div>
               ))}
             </div>
@@ -703,10 +840,10 @@ export default function SeatProjectionWorkspace({ data }: Props) {
               <input type="range" min="0" max="8" step="0.5" value={localVariation} onChange={(event) => setLocalVariation(Number(event.target.value))} />
             </label>
             <label>
-              <span>Historical influence on local swings <strong>{previousResultWeight}%</strong></span>
+              <span>Historical influence on local strength <strong>{previousResultWeight}%</strong></span>
               <input type="range" min="0" max="100" step="5" value={previousResultWeight} onChange={(event) => setPreviousResultWeight(Number(event.target.value))} />
             </label>
-            <p>The unchanged scenario is anchored to the 2024 constituency results. Older Westminster and Assembly results adjust how each constituency responds when national support changes; the blend uses Westminster results from 2019, 2017 and 2015 for 75% of its weight, plus NI Assembly first preferences from 2022 and 2017 for 25%. Assembly results are a distinct local signal, not a direct Westminster equivalent.</p>
+            <p>Local party strength uses Westminster constituency-versus-national results from 2019, 2017 and 2015, with NI Assembly first preferences from 2022 and 2017 as a separate signal. If an included party has no 2024 constituency vote, its history seeds a starting share; existing 2024 local shares remain the anchor. Assembly results are not treated as direct Westminster equivalents.</p>
             <p className="staff-projection-simulation-note">The 10,000 runs give about ±1 percentage point of Monte Carlo error at 95% confidence for a 50% estimate. More runs would have diminishing returns; they do not make the model assumptions more accurate. Win chances use light smoothing, avoid displaying 0% or 100%, and are not yet calibrated against historical forecasts.</p>
           </div>
             </div>
@@ -714,30 +851,34 @@ export default function SeatProjectionWorkspace({ data }: Props) {
         </section>
 
         <div className="staff-projection-results">
-          <section className="staff-projection-result-card" aria-labelledby="projection-seats-heading">
+          {hasUnappliedChanges && <p className="staff-projection-pending-note" role="status">Showing the last run. Press <strong>{hasRunProjection && !isDefaultSettings ? "Update projection" : "Run projection"}</strong> to apply your draft settings.</p>}
+          <section className="staff-projection-result-card staff-projection-standings-card" aria-labelledby="projection-seats-heading">
             <div className="staff-projection-section-heading">
-              <div><p className="staff-eyebrow">ESTIMATED RESULT</p><h2 id="projection-seats-heading">Vote share and seats</h2></div>
+              <div><p className="staff-eyebrow">NI-WIDE RESULT</p><h2 id="projection-seats-heading">Estimated seat result</h2></div>
               <span className="staff-projection-baseline-label">Compared with 2024</span>
             </div>
             <div className="staff-projection-standings">
-              <div className="staff-projection-standing staff-projection-standing-head" aria-hidden="true">
-                <span>Party</span><span>Vote</span><span>Seat %</span><span>Seats</span><span>vs24</span>
-              </div>
               {projection.standings.map((party) => (
                 <div className="staff-projection-standing" key={party.code}>
-                  <div className="staff-projection-standing-label"><i style={{ backgroundColor: party.color }} /><strong>{party.code}</strong><span>{party.name}</span></div>
-                  <span className="staff-projection-vote-share">{party.projectedShare.toFixed(1)}%</span>
+                  <div className="staff-projection-standing-label">
+                    <i style={{ backgroundColor: party.color }} />
+                    <strong>{party.code}</strong>
+                    <span>{party.name}</span>
+                    <span className={`staff-projection-change${party.change === 0 ? " is-neutral" : party.change > 0 ? " is-gain" : " is-loss"}`}>
+                      {party.change > 0 ? `+${party.change}` : party.change}
+                    </span>
+                  </div>
+                  <div className="staff-projection-standing-metrics">
+                    <div className="staff-projection-standing-seatmetric"><strong style={{ backgroundColor: party.color, color: textColorForPartyColor(party.color) }}>{party.seats}</strong><small>Seats</small></div>
+                    <div className="staff-projection-standing-votemetric"><strong>{party.projectedShare.toFixed(1)}%</strong><small>Vote share</small></div>
+                  </div>
                   <div className="staff-projection-seat-track"><span style={{ width: `${(party.seats / totalSeats) * 100}%`, backgroundColor: party.color }} /></div>
-                  <strong className="staff-projection-seat-count">{party.seats}</strong>
-                  <span className={`staff-projection-change${party.change === 0 ? " is-neutral" : party.change > 0 ? " is-gain" : " is-loss"}`}>
-                    {party.change > 0 ? `+${party.change}` : party.change}
-                  </span>
                 </div>
               ))}
             </div>
           </section>
 
-          <section className="staff-projection-result-card" aria-labelledby="projection-map-heading">
+          <section className="staff-projection-result-card staff-projection-map-card" aria-labelledby="projection-map-heading">
             <div className="staff-projection-section-heading">
               <div><p className="staff-eyebrow">GEOGRAPHIC VIEW</p><h2 id="projection-map-heading">Projected winners by constituency</h2></div>
               <span className="staff-projection-baseline-label">Select a seat for details</span>
@@ -745,7 +886,7 @@ export default function SeatProjectionWorkspace({ data }: Props) {
             <ProjectionMap features={data.mapFeatures} constituencies={projection.constituencies} parties={data.parties} />
           </section>
 
-          <section className="staff-projection-result-card" aria-labelledby="projection-range-heading">
+          <section className="staff-projection-result-card staff-projection-range-card" aria-labelledby="projection-range-heading">
             <div className="staff-projection-section-heading">
               <div><p className="staff-eyebrow">SIMULATION</p><h2 id="projection-range-heading">Seat outcomes across {projection.iterations.toLocaleString()} runs</h2></div>
               <span className="staff-projection-baseline-label">Middle 80% range</span>
@@ -772,18 +913,25 @@ export default function SeatProjectionWorkspace({ data }: Props) {
             </div>
           </section>
 
-          <section className="staff-projection-result-card" aria-labelledby="projection-constituencies-heading">
+          <section className="staff-projection-result-card staff-projection-constituency-card" aria-labelledby="projection-constituencies-heading">
             <div className="staff-projection-section-heading">
               <div><p className="staff-eyebrow">CONSTITUENCY DETAIL</p><h2 id="projection-constituencies-heading">Projected winners</h2></div>
-              <span className="staff-projection-baseline-label">{data.constituencies.length} constituencies</span>
+              <label className="staff-projection-constituency-picker">
+                <span>View</span>
+                <select aria-label="Choose constituency view" value={selectedConstituency} onChange={(event) => setSelectedConstituency(event.target.value)}>
+                  <option value="all">All constituencies</option>
+                  {data.constituencies.map((constituency) => <option key={constituency.name} value={constituency.name}>{constituency.name}</option>)}
+                </select>
+              </label>
             </div>
-            <div className="staff-projection-constituency-list">
+            <div className={`staff-projection-constituency-list${selectedConstituency === "all" ? " is-all" : " is-single"}`}>
               {projection.constituencies.map((constituency) => {
+                if (selectedConstituency !== "all" && selectedConstituency !== constituency.name) return null;
                 const winner = data.parties.find((party) => party.code === constituency.winner);
                 const runnerUp = data.parties.find((party) => party.code === constituency.runnerUp);
                 return (
-                  <details className="staff-projection-constituency" key={constituency.name}>
-                    <summary>
+                  <div className="staff-projection-constituency" key={constituency.name}>
+                    <div className="staff-projection-constituency-summary">
                       <span className="staff-projection-constituency-name"><strong>{constituency.name}</strong><small>{constituency.seats} seat</small></span>
                       <span className="staff-projection-winner">
                         <span><i style={{ backgroundColor: winner?.color ?? "#7a8589" }} />{winner?.code ?? "-"}</span>
@@ -796,7 +944,8 @@ export default function SeatProjectionWorkspace({ data }: Props) {
                           return probability > 0 ? <i key={party.code} title={`${party.code}: ${probability.toFixed(1)}%`} style={{ width: `${probability}%`, backgroundColor: party.color }} /> : null;
                         })}
                       </span>
-                    </summary>
+                    </div>
+                    {selectedConstituency === constituency.name && (
                     <div className="staff-projection-constituency-detail">
                       <div className="staff-projection-runner">
                         <span>Next: {runnerUp?.code ?? "-"} ({constituency.projected[1]?.share.toFixed(1) ?? "0.0"}%)</span>
@@ -824,6 +973,7 @@ export default function SeatProjectionWorkspace({ data }: Props) {
                               : data.parties.map((party) => party.code),
                           }))}>{partyPresence[constituency.name]?.length === data.parties.length ? "Use 2024 field" : "Include all"}</button>
                         </div>
+                        <p className="staff-projection-candidate-help">An included party with no 2024 vote gets a starting share from national support and its local-versus-national record across Westminster 2019, 2017 and 2015. NI Assembly history provides a separate signal.</p>
                         <div className="staff-projection-candidate-list">
                           {data.parties.map((party) => {
                             const included = partyPresence[constituency.name]?.includes(party.code) ?? false;
@@ -844,22 +994,27 @@ export default function SeatProjectionWorkspace({ data }: Props) {
                       <div className="staff-projection-party-breakdown">
                         {constituency.projected.map((projectedParty) => {
                           const definition = data.parties.find((party) => party.code === projectedParty.code);
+                          const winChance = constituency.winProbability[projectedParty.code] ?? 0;
                           return (
                             <div key={projectedParty.code}>
                               <span><i style={{ backgroundColor: definition?.color ?? "#7a8589" }} />{projectedParty.code}</span>
                               <strong>{projectedParty.share.toFixed(1)}%</strong>
+                              <span className="staff-projection-party-chance" aria-label={`${winChance.toFixed(1)} percent estimated chance of winning`}>
+                                <i><b style={{ width: `${winChance}%`, backgroundColor: definition?.color ?? "#7a8589" }} /></i>
+                                <strong>{winChance.toFixed(1)}% win</strong>
+                              </span>
                               <small>
                                 2024: {(constituency.partyShares[projectedParty.code] ?? 0).toFixed(1)}% ({formatPoints(projectedParty.latestRelativeStrength)} vs NI)
                                 {` / Westminster local: 2019 ${formatHistoricalShare(constituency.historicalPartyShares["2019"][projectedParty.code])}, 2017 ${formatHistoricalShare(constituency.historicalPartyShares["2017"][projectedParty.code])}, 2015 ${formatHistoricalShare(constituency.historicalPartyShares["2015"][projectedParty.code])}`}
                                 {` / NI Assembly first preferences: 2017 ${(constituency.assemblyPartyShares["2017"][projectedParty.code] ?? 0).toFixed(1)}%, 2022 ${(constituency.assemblyPartyShares["2022"][projectedParty.code] ?? 0).toFixed(1)}%`}
-                                {` / ${(constituency.winProbability[projectedParty.code] ?? 0).toFixed(1)}% estimated win`}
                               </small>
                             </div>
                           );
                         })}
                       </div>
                     </div>
-                  </details>
+                    )}
+                  </div>
                 );
               })}
             </div>
@@ -871,7 +1026,7 @@ export default function SeatProjectionWorkspace({ data }: Props) {
         <span className="staff-projection-info-mark" aria-hidden="true">i</span>
         <div>
           <strong>How this early model works</strong>
-          <p>The unchanged scenario is anchored to 2024 constituency results. National support changes are applied to that baseline, with Westminster and Assembly history adjusting each constituency&apos;s swing sensitivity. The model groups parties as Nationalist, Unionist or Non-aligned and allocates each bloc&apos;s projected share among included parties using current support and constituency history. Party inclusion is configured per constituency; when a bloc has no included candidate, its projected share is redistributed among blocs with included parties. Tactical transfers can move support between Nationalist and Non-aligned, or Unionist and Non-aligned. Nationalist and Unionist support never transfer directly to one another. Within-bloc and inter-bloc tactical rates are scenario assumptions. Westminster history contributes 75% of the swing adjustment (2019, 2017 and 2015 weighted 50%, 30% and 20% within that source); NI Assembly first preferences contribute 25% (2022 and 2017 weighted 70% and 30%). Assembly results remain separate because they use a different electoral system. Belfast South history is used as a proxy for Belfast South and Mid Down because the boundaries changed. Simulations vary polling error at the bloc level and constituency uncertainty at both the bloc and party-within-bloc levels. These provisional win chances are not yet calibrated against historical forecasts.</p>
+          <p>The unchanged scenario is anchored to 2024 constituency results. National support changes are applied to that baseline, with Westminster and Assembly history adjusting each constituency&apos;s swing sensitivity. The model groups parties as Nationalist, Unionist or Non-aligned and allocates each bloc&apos;s projected share among included parties using current support and constituency history. For an included party with no 2024 local vote, its starting share is seeded from national support and its historical local-versus-national strength where available. Westminster evidence covers 2019, 2017 and 2015; NI Assembly first preferences from 2022 and 2017 remain a separate signal because they use a different electoral system. Party inclusion is configured per constituency; when a bloc has no included candidate, its projected share is redistributed among blocs with included parties. Tactical transfers can move support between Nationalist and Non-aligned, or Unionist and Non-aligned. Nationalist and Unionist support never transfer directly to one another. Within-bloc and inter-bloc tactical rates are scenario assumptions. Belfast South history is used as a proxy for Belfast South and Mid Down because the boundaries changed. Simulations vary polling error at the bloc level and constituency uncertainty at both the bloc and party-within-bloc levels. These provisional win chances are not yet calibrated against historical forecasts.</p>
         </div>
       </aside>
 
