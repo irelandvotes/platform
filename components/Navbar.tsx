@@ -72,7 +72,7 @@ const toggleTheme = () => {
   );
 };
 
-if (pathname.startsWith("/broadcast")) {
+if (pathname.startsWith("/broadcast") || pathname.startsWith("/staff")) {
   return null;
 }
 

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 export default function ConditionalFooter() {
   const pathname = usePathname();
 
-  if (pathname.startsWith("/broadcast")) {
+  if (pathname.startsWith("/broadcast") || pathname.startsWith("/staff")) {
     return null;
   }
 
