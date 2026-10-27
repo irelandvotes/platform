@@ -1,0 +1,65 @@
+{
+  "calibrationTargets": [
+    "2015",
+    "2017",
+    "2019"
+  ],
+  "validationTarget": "2024",
+  "parameters": {
+    "blocHistoryScale": 1,
+    "blocSwingWeight": 0,
+    "partyHistoryScale": 0.5,
+    "partySwingWeight": 0
+  },
+  "candidateAwareParameters": {
+    "blocHistoryScale": 1,
+    "blocSwingWeight": 0,
+    "partyHistoryScale": 0.5,
+    "partySwingWeight": 0,
+    "incumbentLogEffect": 0
+  },
+  "marginCalibratedParameters": {
+    "blocHistoryScale": 2,
+    "blocSwingWeight": 0,
+    "partyHistoryScale": 0.5,
+    "partySwingWeight": 0
+  },
+  "partyRatioPooledParameters": {
+    "blocHistoryScale": 1,
+    "blocSwingWeight": 0,
+    "partyHistoryScale": 0.5,
+    "partySwingWeight": 0,
+    "partyRatioPriorStrength": 0,
+    "partyFamilyShrinkage": 0,
+    "partyCoverageExponent": 1.5
+  },
+  "contestantRatioParameters": {
+    "blocHistoryScale": 1,
+    "blocSwingWeight": 0,
+    "partyHistoryScale": 0,
+    "partySwingWeight": 60,
+    "contestantConditionalRatios": true,
+    "partyRatioPriorStrength": 0,
+    "partyFamilyShrinkage": 0,
+    "partyCoverageExponent": 0
+  },
+  "candidateContinuityParameters": {
+    "blocHistoryScale": 1,
+    "blocSwingWeight": 0,
+    "partyHistoryScale": 0.5,
+    "partySwingWeight": 0,
+    "partyRatioPriorStrength": 0,
+    "partyFamilyShrinkage": 0,
+    "partyCoverageExponent": 0.5,
+    "candidateContinuityScale": 3
+  },
+  "calibrationScores": {
+    "blocMae": 2.808709375638983,
+    "partyMaeAfterBlocCalibration": 2.4743405403578627,
+    "partyMaeWithIncumbency": 2.4743405403578627,
+    "marginMae": 6.743434236146183,
+    "withinBlocMaeWithRatioPooling": 5.31917065418591,
+    "withinBlocMaeWithContestantNationalDenominator": 5.840931513474694,
+    "withinBlocMaeWithCandidateContinuity": 5.32197673132042
+  }
+}

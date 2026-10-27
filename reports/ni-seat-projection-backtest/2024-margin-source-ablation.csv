@@ -1,0 +1,21 @@
+removed_source,constituency,full_winner,full_mean_margin_pp,without_source_winner,without_source_mean_margin_pp,margin_change_pp,full_margin_error_pp,without_source_margin_error_pp,absolute_error_change_pp
+2015 Westminster,Lagan Valley,DUP,13.794,DUP,14.115,0.321,19.823,20.144,0.321
+2015 Westminster,South Antrim,UUP,2.266,UUP,2.847,0.581,-15.241,-14.660,-0.581
+2015 Westminster,East Derry,DUP,11.961,DUP,11.639,-0.321,11.527,11.206,-0.321
+2015 Westminster,Upper Bann,DUP,5.538,DUP,6.107,0.569,-10.100,-9.531,-0.569
+2015 Westminster,East Antrim,DUP,10.700,DUP,11.469,0.769,7.409,8.178,0.769
+2017 Westminster,Lagan Valley,DUP,13.794,DUP,12.290,-1.505,19.823,18.319,-1.505
+2017 Westminster,South Antrim,UUP,2.266,DUP,0.634,-1.632,-15.241,18.142,2.900
+2017 Westminster,East Derry,DUP,11.961,DUP,12.565,0.604,11.527,12.131,0.604
+2017 Westminster,Upper Bann,DUP,5.538,DUP,5.944,0.406,-10.100,-9.694,-0.406
+2017 Westminster,East Antrim,DUP,10.700,DUP,9.433,-1.267,7.409,6.142,-1.267
+2017 Assembly,Lagan Valley,DUP,13.794,DUP,13.628,-0.167,19.823,19.657,-0.167
+2017 Assembly,South Antrim,UUP,2.266,UUP,3.016,0.750,-15.241,-14.491,-0.750
+2017 Assembly,East Derry,DUP,11.961,DUP,12.007,0.046,11.527,11.573,0.046
+2017 Assembly,Upper Bann,DUP,5.538,DUP,5.783,0.245,-10.100,-9.855,-0.245
+2017 Assembly,East Antrim,DUP,10.700,DUP,11.255,0.554,7.409,7.963,0.554
+2022 Assembly,Lagan Valley,DUP,13.794,DUP,12.702,-1.092,19.823,18.731,-1.092
+2022 Assembly,South Antrim,UUP,2.266,UUP,4.312,2.046,-15.241,-13.195,-2.046
+2022 Assembly,East Derry,DUP,11.961,DUP,12.039,0.078,11.527,11.605,0.078
+2022 Assembly,Upper Bann,DUP,5.538,DUP,5.862,0.324,-10.100,-9.777,-0.324
+2022 Assembly,East Antrim,DUP,10.700,DUP,11.110,0.410,7.409,7.818,0.410
