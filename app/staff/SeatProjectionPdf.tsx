@@ -9,7 +9,7 @@ import {
   Text,
   View,
 } from "@react-pdf/renderer";
-import type { SeatProjectionData, SeatProjectionConstituency } from "@/lib/staff/seatProjectionData";
+import type { SeatProjectionBaseline, SeatProjectionConstituency } from "@/lib/staff/seatProjectionData";
 import { PROJECTION_BLOCS, type ProjectionBloc } from "@/lib/staff/projectionBlocs";
 
 Font.register({
@@ -54,7 +54,7 @@ type InterBlocTacticalVoting = {
 };
 
 export type SeatProjectionPdfProps = {
-  data: SeatProjectionData;
+  data: SeatProjectionBaseline;
   projection: ProjectionReport;
   support: Record<string, string>;
   reportDate: string;
@@ -179,13 +179,15 @@ function ReportTable({
   );
 }
 
-function blocShare(shares: Record<string, number>, bloc: ProjectionBloc, data: SeatProjectionData) {
+function blocShare(shares: Record<string, number>, bloc: ProjectionBloc, data: SeatProjectionBaseline) {
   return data.parties.reduce((sum, party) => sum + (party.bloc === bloc ? shares[party.code] ?? 0 : 0), 0);
 }
 
 export default function SeatProjectionPdf(props: SeatProjectionPdfProps) {
   const { data, projection, support, reportDate, logoSrc, pollError, localVariation, previousResultWeight, tacticalVoting, interBlocTacticalVoting } = props;
   const totalSeats = projection.constituencies.reduce((sum, constituency) => sum + constituency.seats, 0);
+  const westminsterYears = (["2019", "2017", "2015"] as const).filter((year) => Number(year) < Number(data.baselineYear));
+  const assemblyYears = ["2022", "2017"] as const;
   const activeCodes = new Set(projection.constituencies.flatMap((constituency) => constituency.projected.map((party) => party.code)));
   const partyByCode = new Map(data.parties.map((party) => [party.code, party]));
   const seatRows = projection.standings.map((party) => [
@@ -219,14 +221,14 @@ export default function SeatProjectionPdf(props: SeatProjectionPdfProps) {
         <Header logoSrc={logoSrc} section="01 · Executive summary" /><Footer reportDate={reportDate} />
         <Text style={styles.eyebrow}>01 / EXECUTIVE SUMMARY</Text>
         <Text style={styles.title}>National projection</Text>
-        <Text style={styles.body}>The scenario inputs below are normalized to 100% for constituency projections. Point seats show the direct projection; the ranges summarize variation across simulations.</Text>
+        <Text style={styles.body}>The scenario inputs below are normalized to 100% for constituency projections. Modal seats assign each constituency to the party that wins the most simulations; ranges summarize the spread across simulations.</Text>
         <View style={styles.metricRow}>
           <View style={styles.metric}><Text style={styles.metricLabel}>BASELINE ELECTION</Text><Text style={styles.metricValue}>{data.electionLabel}</Text></View>
           <View style={styles.metric}><Text style={styles.metricLabel}>SEATS IN SCOPE</Text><Text style={styles.metricValue}>{totalSeats}</Text></View>
           <View style={styles.metric}><Text style={styles.metricLabel}>MODEL RUNS</Text><Text style={styles.metricValue}>{projection.iterations.toLocaleString()}</Text></View>
         </View>
         <Text style={styles.subheading}>Party outlook</Text>
-        <ReportTable headers={["Party", "Vote share", "Point seats", "Median", "Middle 80%", "Most seats"]} widths={["31%", "15%", "14%", "12%", "15%", "13%"]} rows={seatRows} />
+        <ReportTable headers={["Party", "Vote share", "Modal seats", "Median", "Middle 80%", "Most seats"]} widths={["31%", "15%", "14%", "12%", "15%", "13%"]} rows={seatRows} />
         <Text style={styles.subheading}>Scenario inputs</Text>
         <View style={styles.inputGrid}>{data.parties.map((party) => <View key={party.code} style={styles.inputChip}><Text style={styles.inputLabel}>{party.code}</Text><Text style={styles.inputValue}>{(Number(support[party.code]) || 0).toFixed(1)}%</Text></View>)}</View>
         <Text style={styles.subheading}>Projected geography</Text>
@@ -247,11 +249,14 @@ export default function SeatProjectionPdf(props: SeatProjectionPdfProps) {
         <Text style={styles.title}>How to read this scenario</Text>
         <Text style={styles.body}>This report models how national support, constituency history, candidate availability and tactical assumptions combine to produce seat level estimates. It should be read as a transparent scenario, not a point prediction of voter behaviour.</Text>
         <Text style={styles.subheading}>Projection method</Text>
-        <Text style={styles.body}>National party support is grouped into Nationalist, Unionist and Non-aligned blocs. Nationalist and Unionist movement is modelled independently; the Non-aligned bloc absorbs the balancing change. Constituency bloc strength blends current local-versus-national differences with historical differences. Party support is then allocated within each bloc using national support and constituency-specific historical strength. When an included party has no 2024 local vote, its starting share uses scenario national support and historical local-versus-national performance, with a small positive floor when national support is non-zero.</Text>
+        <Text style={styles.body}>National party support is grouped into Nationalist, Unionist and Non-aligned blocs. Constituency bloc composition uses weighted local-to-national history. In simulations, Nationalist and Unionist are projected separately, and Non-aligned is the remaining local share. This is a simplifying assumption that can affect Alliance projections. Constituency bloc composition is modelled separately from party performance. For each historic cycle, the party&apos;s share of its local bloc is divided by its share of the national bloc; the weighted mean of these ratios is the party&apos;s local performance multiplier. A source election&apos;s ratio is additionally weighted by the square root of the share of constituencies where that party contested, reducing the influence of ratios based on a limited candidate slate.</Text>
+        <Text style={styles.body}>Where comparable history exists, the full weighted ratio sets local party strength whether or not the party contested the {data.baselineYear} baseline constituency. In the 2019 backtest, the 2019 Westminster local-to-national ratio is included at its configured weight when the party contested, alongside earlier Westminster and NI Assembly results. If no local history exists, a recorded baseline result is used; otherwise the multiplier defaults to 1. If national baseline support is zero, the historical ratio is applied to the scenario support entered. Scenario changes then move party support proportionally to national within-bloc support. The historical influence setting affects swing response only. A recorded zero-vote baseline remains zero.</Text>
+        <Text style={styles.body}>Constituency bloc composition is estimated with a weighted local-to-national ratio across the baseline Westminster result and available earlier Westminster and NI Assembly results. The current 2024 mode retains the observed constituency bloc shares.</Text>
         <Text style={styles.subheading}>Candidate availability and tactical voting</Text>
         <Text style={styles.body}>Only parties included as contesting a constituency can win it. If a bloc has no included party in a constituency, its share is redistributed across blocs that do have an included party. Within-bloc consolidation moves the configured share from other included parties to the strongest projected party in that bloc. Inter-bloc tactical movement is allowed between Nationalist and Non-aligned, and between Unionist and Non-aligned. Direct Nationalist–Unionist transfers are excluded. These settings are scenario assumptions and do not model individual voter behaviour or local candidate appeal.</Text>
+        <Text style={styles.body}>Inter-bloc tactical transfers are activated only when the destination bloc&apos;s leading candidate is the close runner-up within the model&apos;s uncertainty band. The configured transfer rate is otherwise inactive in that constituency or simulation.</Text>
         <Text style={styles.subheading}>Historical local signal</Text>
-        <Text style={styles.body}>The latest Westminster result remains the anchor for parties with a recorded 2024 local vote. Constituency-versus-national results from Westminster 2019, 2017 and 2015 inform local strength and swing response; Westminster contributes 75% of the swing adjustment, weighted 50%, 30% and 20% within that source. NI Assembly first-preference results from 2022 and 2017 contribute the remaining 25%, weighted 70% and 30%. For an included party without a 2024 local vote, historical local-versus-national strength adjusts its national-support starting share. Assembly results are treated as a separate signal because the electoral system differs from Westminster first-past-the-post. Belfast South history is used as a proxy for Belfast South and Mid Down because of boundary changes.</Text>
+        <Text style={styles.body}>The {data.baselineYear} Westminster result anchors parties with a recorded local vote. Earlier constituency-versus-national Westminster results ({westminsterYears.join(", ") || "none available"}) inform local strength and swing response; the baseline year is excluded from that historical party-ratio series. NI Assembly first-preference results ({assemblyYears.join(", ") || "none available"}) provide a separate signal because the electoral system differs from Westminster first-past-the-post. The 2019 baseline scenario defaults national support to actual 2024 NI-wide shares as an oracle diagnostic; this uses held-out national information and is not a blind forecast. 2024 constituency results are held out for scoring. Belfast South history is used as a proxy for Belfast South and Mid Down because of boundary changes.</Text>
         <Text style={styles.subheading}>Simulation and uncertainty</Text>
         <Text style={styles.body}>The model runs {projection.iterations.toLocaleString()} simulations. Polling uncertainty ({pollError.toFixed(1)} points) is applied independently to Nationalist and Unionist national support. Constituency variation ({localVariation.toFixed(1)} points) is applied to local bloc estimates and party shares within each bloc. Seat ranges show the middle 80% of simulations. Win chances use light smoothing and are not yet calibrated against historical forecasts.</Text>
         <Text style={styles.subheading}>Settings used in this report</Text>
@@ -262,6 +267,7 @@ export default function SeatProjectionPdf(props: SeatProjectionPdfProps) {
       {projection.constituencies.map((constituency, index) => {
         const winner = partyByCode.get(constituency.winner);
         const runnerUp = partyByCode.get(constituency.runnerUp);
+        const runnerUpProjection = constituency.projected.find((party) => party.code === constituency.runnerUp);
         const currentRows = constituency.projected.map((party) => {
           const definition = partyByCode.get(party.code);
           return [
@@ -285,10 +291,24 @@ export default function SeatProjectionPdf(props: SeatProjectionPdfProps) {
           `${constituency.blocShares[bloc].toFixed(1)}%`,
           `${blocShare(constituency.historicalPartyShares["2019"], bloc, data).toFixed(1)}%`,
           `${blocShare(constituency.historicalPartyShares["2017"], bloc, data).toFixed(1)}%`,
+          `${blocShare(constituency.historicalPartyShares["2015"], bloc, data).toFixed(1)}%`,
           `${blocShare(constituency.assemblyPartyShares["2017"], bloc, data).toFixed(1)}%`,
           `${blocShare(constituency.assemblyPartyShares["2022"], bloc, data).toFixed(1)}%`,
           `${tacticalVoting[bloc]}%`,
         ]);
+        const historicalColumnIndexes = [
+          0,
+          ...westminsterYears.map((year) => ({ "2019": 1, "2017": 2, "2015": 3 })[year]),
+          ...assemblyYears.map((year) => ({ "2022": 4, "2017": 5 })[year]),
+        ];
+        const baselineBlocColumnIndexes = [
+          0, 1, 2,
+          ...westminsterYears.map((year) => ({ "2019": 3, "2017": 4, "2015": 5 })[year]),
+          ...assemblyYears.map((year) => ({ "2022": 7, "2017": 6 })[year]),
+          8,
+        ];
+        const displayedHistoricalRows = historicalRows.map((row) => historicalColumnIndexes.map((column) => row[column]));
+        const displayedBlocRows = blocRows.map((row) => baselineBlocColumnIndexes.map((column) => row[column]));
         return (
           <Page key={constituency.name} size="A4" style={styles.page}>
             <Header logoSrc={logoSrc} section={`03 · Constituency ${String(index + 1).padStart(2, "0")}`} /><Footer reportDate={reportDate} />
@@ -300,21 +320,21 @@ export default function SeatProjectionPdf(props: SeatProjectionPdfProps) {
               <Text style={styles.winnerChance}>{winner ? `${(constituency.winProbability[constituency.winner] ?? 0).toFixed(1)}% estimated win chance` : "No candidate selected"}</Text>
             </View>
             <View style={styles.seatMetrics}>
-              <View style={styles.seatMetric}><Text style={styles.seatMetricLabel}>Projected lead</Text><Text style={styles.seatMetricValue}>{constituency.margin.toFixed(1)} pts</Text></View>
-              <View style={styles.seatMetric}><Text style={styles.seatMetricLabel}>Runner-up</Text><Text style={styles.seatMetricValue}>{runnerUp?.code ?? "—"} · {constituency.projected[1]?.share.toFixed(1) ?? "0.0"}%</Text></View>
+              <View style={styles.seatMetric}><Text style={styles.seatMetricLabel}>{constituency.margin >= 0 ? "Point-estimate lead" : "Point-estimate deficit"}</Text><Text style={styles.seatMetricValue}>{Math.abs(constituency.margin).toFixed(1)} pts</Text></View>
+              <View style={styles.seatMetric}><Text style={styles.seatMetricLabel}>Next by point estimate</Text><Text style={styles.seatMetricValue}>{runnerUp?.code ?? "—"} · {runnerUpProjection?.share.toFixed(1) ?? "0.0"}%</Text></View>
               <View style={styles.seatMetric}><Text style={styles.seatMetricLabel}>Candidates included</Text><Text style={styles.seatMetricValue}>{constituency.projected.length}</Text></View>
             </View>
             <View style={styles.sectionBlock}>
               <Text style={[styles.subheading, styles.compactHeading]}>Current scenario</Text>
-              <ReportTable compact headers={["Party", "Projected vote", "Win chance", "2024 Westminster"]} widths={["40%", "20%", "20%", "20%"]} rows={currentRows} />
+              <ReportTable compact headers={["Party", "Projected vote", "Win chance", `${data.baselineYear} Westminster`]} widths={["40%", "20%", "20%", "20%"]} rows={currentRows} />
             </View>
             <View style={styles.sectionBlock}>
               <Text style={[styles.subheading, styles.compactHeading]}>Historical party results</Text>
-              <ReportTable compact headers={["Party", "2019 HOC", "2017 HOC", "2015 HOC", "2022 Assembly", "2017 Assembly"]} widths={["24%", "14%", "14%", "14%", "17%", "17%"]} rows={historicalRows} />
+              <ReportTable compact headers={["Party", ...westminsterYears.map((year) => `${year} HOC`), ...assemblyYears.map((year) => `${year} Assembly`)]} widths={displayedHistoricalRows[0]?.map((_, column) => `${column === 0 ? 24 : 76 / (displayedHistoricalRows[0]?.length - 1 || 1)}%`) ?? []} rows={displayedHistoricalRows} />
             </View>
             <View style={styles.sectionBlock}>
               <Text style={[styles.subheading, styles.compactHeading]}>Bloc fundamentals</Text>
-              <ReportTable compact headers={["Bloc", "Projected", "2024 HOC", "2019 HOC", "2017 HOC", "2017 Assy", "2022 Assy", "Tactical"]} widths={["19%", "12%", "12%", "12%", "12%", "12%", "12%", "9%"]} rows={blocRows} />
+              <ReportTable compact headers={["Bloc", "Projected", `${data.baselineYear} HOC`, ...westminsterYears.map((year) => `${year} HOC`), ...assemblyYears.map((year) => `${year} Assy`), "Tactical"]} widths={displayedBlocRows[0]?.map((_, column) => `${column === 0 ? 19 : 81 / (displayedBlocRows[0]?.length - 1 || 1)}%`) ?? []} rows={displayedBlocRows} />
             </View>
             <Text style={styles.body}>Historical Westminster local-versus-national results and NI Assembly first preferences inform within-bloc strength. Parties not included in this scenario are omitted and cannot win this constituency. Tactical consolidation is applied only within the configured bloc; the inter-bloc settings are described in the methodology section.</Text>
           </Page>

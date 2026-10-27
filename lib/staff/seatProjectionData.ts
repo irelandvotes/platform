@@ -24,6 +24,7 @@ export type SeatProjectionConstituency = {
   name: string;
   seats: number;
   votes: number;
+  contestantCodes: string[];
   partyShares: Record<string, number>;
   previousPartyShares: Record<string, number>;
   historicalPartyShares: Record<WestminsterProjectionYear, Record<string, number>>;
@@ -35,7 +36,8 @@ export type SeatProjectionConstituency = {
 
 export type SeatProjectionMapFeature = { name: string; path: string };
 
-export type SeatProjectionData = {
+export type SeatProjectionBaseline = {
+  baselineYear: "2019" | "2024";
   electionLabel: string;
   previousElectionLabel: string;
   previousNationalShares: Record<string, number>;
@@ -48,15 +50,24 @@ export type SeatProjectionData = {
   mapFeatures: SeatProjectionMapFeature[];
 };
 
+export type SeatProjectionData = SeatProjectionBaseline & {
+  backtestBaseline: SeatProjectionBaseline;
+  heldOut2024: {
+    constituencies: Array<{ name: string; seats: number; winner: string }>;
+    parties: Array<{ code: string; seats: number }>;
+  };
+};
+
 type GeoFeature = {
   properties: { ENG_NAME_VALUE?: string };
   geometry: { type: "Polygon" | "MultiPolygon"; coordinates: number[][][] | number[][][][] };
 };
 
-let mapFeatureCache: SeatProjectionMapFeature[] | null = null;
+const mapFeatureCache = new Map<string, SeatProjectionMapFeature[]>();
 
-function projectBoundaryFeatures(filePath: string): SeatProjectionMapFeature[] {
-  if (mapFeatureCache) return mapFeatureCache;
+export function projectBoundaryFeatures(filePath: string): SeatProjectionMapFeature[] {
+  const cached = mapFeatureCache.get(filePath);
+  if (cached) return cached;
   const collection = JSON.parse(fs.readFileSync(filePath, "utf8")) as { features: GeoFeature[] };
   const rings = collection.features.map((feature) => {
     const polygons = feature.geometry.type === "Polygon"
@@ -99,7 +110,7 @@ function projectBoundaryFeatures(filePath: string): SeatProjectionMapFeature[] {
   const scale = Math.min((width - padding * 2) / (maxX - minX), (height - padding * 2) / (maxY - minY));
   const offsetX = (width - (maxX - minX) * scale) / 2;
   const offsetY = (height - (maxY - minY) * scale) / 2;
-  mapFeatureCache = projected.map((feature) => ({
+  const features = projected.map((feature) => ({
     name: feature.name,
     path: feature.rings.map((ring) => {
       const points = ring.map(([x, y]) => [
@@ -119,7 +130,8 @@ function projectBoundaryFeatures(filePath: string): SeatProjectionMapFeature[] {
       return simplified.map(([x, y], index) => `${index === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`).join(" ") + " Z";
     }).join(" "),
   }));
-  return mapFeatureCache;
+  mapFeatureCache.set(filePath, features);
+  return features;
 }
 
 type ConstituencyAccumulator = {
@@ -296,6 +308,7 @@ export function loadNiWestminsterProjectionData(): SeatProjectionData {
         name,
         seats: result.seats,
         votes,
+        contestantCodes: Object.keys(partyShares),
         partyShares,
         previousPartyShares,
         historicalPartyShares,
@@ -351,8 +364,8 @@ export function loadNiWestminsterProjectionData(): SeatProjectionData {
     Object.entries(previousNationalShares).reduce((sum, [party, share]) => sum + (getProjectionBloc(party) === bloc ? share : 0), 0),
   ])) as Record<ProjectionBloc, number>;
   const mapFeatures = projectBoundaryFeatures(path.join(electionDirectory, "boundaries.geojson"));
-
-  return {
+  const currentBaseline: SeatProjectionBaseline = {
+    baselineYear: "2024",
     electionLabel: "Northern Ireland House of Commons 2024",
     previousElectionLabel: "2019 result reallocated to 2024 boundaries",
     previousNationalShares,
@@ -363,5 +376,77 @@ export function loadNiWestminsterProjectionData(): SeatProjectionData {
     constituencies,
     parties,
     mapFeatures,
+  };
+  const backtestConstituencies: SeatProjectionConstituency[] = constituencies.map((constituency) => {
+    const partyShares = constituency.historicalPartyShares["2019"];
+    const baselineWinner = Object.entries(partyShares).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0] ?? "";
+    const blocShares = Object.fromEntries(PROJECTION_BLOCS.map((bloc) => [
+      bloc,
+      Object.entries(partyShares).reduce((sum, [party, share]) => sum + (getProjectionBloc(party) === bloc ? share : 0), 0),
+    ])) as Record<ProjectionBloc, number>;
+    return {
+      ...constituency,
+      votes: 100,
+      partyShares,
+      previousPartyShares: constituency.historicalPartyShares["2017"],
+      blocShares,
+      previousBlocShares: Object.fromEntries(PROJECTION_BLOCS.map((bloc) => [
+        bloc,
+        Object.entries(constituency.historicalPartyShares["2017"]).reduce(
+          (sum, [party, share]) => sum + (getProjectionBloc(party) === bloc ? share : 0),
+          0,
+        ),
+      ])) as Record<ProjectionBloc, number>,
+      baselineWinner,
+    };
+  });
+  const backtestBaselineSeats: Record<string, number> = {};
+  backtestConstituencies.forEach(({ baselineWinner, seats }) => {
+    backtestBaselineSeats[baselineWinner] = (backtestBaselineSeats[baselineWinner] ?? 0) + seats;
+  });
+  const backtestNationalShares = historicalNationalShares["2019"];
+  const backtestPartyCodes = new Set([
+    ...Object.keys(backtestNationalShares),
+    ...constituencies.flatMap((constituency) => constituency.contestantCodes),
+    ...backtestConstituencies.flatMap((constituency) => [...Object.keys(constituency.partyShares), constituency.baselineWinner]),
+  ]);
+  const backtestParties = [...backtestPartyCodes]
+    .map((code) => ({
+      code,
+      name: PARTY_BY_CODE[code]?.name ?? code,
+      color: PARTY_BY_CODE[code]?.color ?? "#7a8589",
+      baselineShare: backtestNationalShares[code] ?? 0,
+      baselineSeats: backtestBaselineSeats[code] ?? 0,
+      bloc: getProjectionBloc(code),
+    }))
+    .sort((a, b) => b.baselineShare - a.baselineShare || a.code.localeCompare(b.code));
+  const backtestBaselineBlocShares = Object.fromEntries(PROJECTION_BLOCS.map((bloc) => [
+    bloc,
+    backtestParties.reduce((sum, party) => sum + (party.bloc === bloc ? party.baselineShare : 0), 0),
+  ])) as Record<ProjectionBloc, number>;
+  const backtestPreviousNationalShares = historicalNationalShares["2017"];
+  const backtestPreviousNationalBlocShares = Object.fromEntries(PROJECTION_BLOCS.map((bloc) => [
+    bloc,
+    Object.entries(backtestPreviousNationalShares).reduce((sum, [party, share]) => sum + (getProjectionBloc(party) === bloc ? share : 0), 0),
+  ])) as Record<ProjectionBloc, number>;
+  const backtestBaseline: SeatProjectionBaseline = {
+    ...currentBaseline,
+    baselineYear: "2019",
+    electionLabel: "Northern Ireland House of Commons 2019 (reallocated to 2024 constituencies)",
+    previousElectionLabel: "2017 result",
+    previousNationalShares: backtestPreviousNationalShares,
+    baselineBlocShares: backtestBaselineBlocShares,
+    previousNationalBlocShares: backtestPreviousNationalBlocShares,
+    constituencies: backtestConstituencies,
+    parties: backtestParties,
+  };
+
+  return {
+    ...currentBaseline,
+    backtestBaseline,
+    heldOut2024: {
+      constituencies: constituencies.map(({ name, seats, baselineWinner }) => ({ name, seats, winner: baselineWinner })),
+      parties: parties.map(({ code, baselineSeats }) => ({ code, seats: baselineSeats })),
+    },
   };
 }

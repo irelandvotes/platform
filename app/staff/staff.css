@@ -1547,6 +1547,7 @@
 .staff-projection-winner { margin-top: 0; }
 .staff-projection-winner > span { display: flex; align-items: center; gap: 6px; color: #39464a; font-size: 10px; font-weight: 700; }
 .staff-projection-winner > strong { color: #20292c; font-size: 11px; }
+.staff-projection-winner > strong small { display: block; margin-top: 2px; color: #7b878b; font-size: 7px; font-weight: 500; text-align: right; }
 .staff-projection-win-chance { grid-column: 2; grid-row: 2; align-self: center; padding-right: 17px; color: #007d88; font-size: 9px; font-weight: 700; white-space: nowrap; }
 .staff-projection-win-bar { display: flex; grid-column: 1 / 3; grid-row: 3; height: 5px; overflow: hidden; border-radius: 4px; background: #eef1f2; }
 .staff-projection-win-bar i { height: 100%; }
@@ -1557,6 +1558,7 @@
 .staff-projection-party-breakdown > div > span:first-child { display: flex; align-items: center; gap: 5px; color: #465459; font-size: 9px; font-weight: 700; }
 .staff-projection-party-breakdown i { width: 7px; height: 7px; border-radius: 2px; }
 .staff-projection-party-breakdown strong { color: #30393c; font-size: 9px; text-align: right; }
+.staff-projection-party-breakdown .staff-projection-simulated-share small { display: block; margin-top: 2px; color: #7b878b; font-size: 7px; font-weight: 400; white-space: nowrap; }
 .staff-projection-party-breakdown small { color: #7b878b; font-size: 8px; text-align: right; }
 .staff-projection-method-note { display: flex; max-width: 1260px; gap: 11px; margin: 16px auto 0; padding: 15px 17px; border: 1px solid #cbe8ea; border-radius: 9px; background: #f1fbfc; }
 .staff-projection-info-mark { display: grid; width: 19px; height: 19px; flex: 0 0 19px; place-items: center; border-radius: 50%; color: #006b75; background: #d4f4f6; font-size: 11px; font-weight: 700; }
@@ -1710,7 +1712,7 @@
 .staff-projection-toolbar .staff-projection-topbar { display: contents; }
 .staff-projection-toolbar-title {
   order: 0;
-  flex: 0 0 190px;
+  flex: 0 0 230px;
   min-height: 44px;
   justify-content: center;
   gap: 4px;
@@ -1724,6 +1726,76 @@
 .staff-projection-toolbar-title .staff-eyebrow { color: #70d7df; font-size: 8px; letter-spacing: .12em; }
 .staff-projection-toolbar-title h1 { margin: 0; font-size: 17px; letter-spacing: -.025em; line-height: 1.1; }
 .staff-projection-toolbar-title small { color: #b5c2c5; font-size: 8px; }
+.staff-projection-model-picker { display: grid; width: 100%; gap: 3px; min-width: 0; }
+.staff-projection-model-picker .staff-projection-toolbar-label { color: #b8c7ca; font-size: 7px; }
+.staff-projection-model-picker select { width: 100%; max-width: 220px; min-width: 0; min-height: 25px; padding: 3px 20px 3px 7px; border: 1px solid #53666b; border-radius: 5px; color: #f4f8f8; background: #26383c; font: inherit; font-size: 9px; }
+.staff-projection-model-picker option { color: #172326; background: #fff; }
+
+.staff-nia-page { max-width: none; margin: 0 auto; }
+.staff-nia-action-main { display: flex; align-items: center; gap: 7px; }
+.staff-nia-action-main .staff-projection-action-icon { width: 14px; height: 14px; flex: 0 0 14px; }
+.staff-nia-layout { width: 100%; max-width: none; grid-template-columns: minmax(265px, 292px) minmax(0, 1fr); align-items: start; gap: 12px; margin: 0; }
+.staff-nia-controls { position: sticky; top: 84px; display: grid; min-width: 0; max-height: calc(100vh - 98px); gap: 12px; overflow-y: auto; scrollbar-width: thin; }
+.staff-nia-results { display: grid; min-width: 0; grid-template-columns: repeat(12, minmax(0, 1fr)); align-content: start; gap: 12px; }
+.staff-nia-controls .staff-projection-input-card,
+.staff-nia-results .staff-projection-result-card { position: static; }
+.staff-nia-constituency-picker { margin: 14px 0 8px; }
+.staff-nia-candidate-counts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+.staff-nia-candidate-counts label { display: grid; min-width: 0; gap: 4px; padding: 7px; border: 1px solid #e3e8e9; border-radius: 6px; background: #fbfcfc; }
+.staff-nia-candidate-counts label > span { display: flex; align-items: center; gap: 6px; color: #455257; font-size: 10px; font-weight: 700; }
+.staff-nia-candidate-counts i,
+.staff-nia-seat-row i,
+.staff-nia-party-result > div:first-child i { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; }
+.staff-nia-candidate-counts select { width: 100%; min-width: 0; min-height: 30px; padding: 4px 5px; border: 1px solid #d8dfe1; border-radius: 5px; color: #283337; background: #fff; font: inherit; font-size: 10px; }
+.staff-nia-seat-table { display: grid; margin-top: 12px; }
+.staff-nia-seat-row { display: grid; grid-template-columns: minmax(0, 1fr) 78px 52px 82px; align-items: center; gap: 8px; padding: 9px 8px; border-bottom: 1px solid #e7ebec; }
+.staff-nia-seat-row > span:first-child { display: flex; min-width: 0; align-items: center; gap: 8px; color: #344145; font-size: 12px; font-weight: 650; }
+.staff-nia-seat-row strong { color: #172326; font-size: 18px; font-variant-numeric: tabular-nums; text-align: right; }
+.staff-nia-seat-row strong small { display: block; margin-top: 2px; color: #748287; font-size: 8px; font-weight: 600; }
+.staff-nia-seat-row small { color: #6d797e; font-size: 11px; font-variant-numeric: tabular-nums; text-align: right; }
+.staff-nia-seat-head { padding-top: 0; color: #829095; font-size: 9px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.staff-nia-seat-head span:not(:first-child) { text-align: right; }
+.staff-nia-empty { display: grid; min-height: 132px; align-content: center; gap: 6px; padding: 18px; color: #788589; text-align: center; }
+.staff-nia-empty strong { color: #344145; font-size: 14px; }
+.staff-nia-empty span { font-size: 11px; line-height: 1.5; }
+.staff-nia-constituency-results > .staff-projection-section-heading > span { color: #687479; font-size: 10px; }
+.staff-nia-party-results { display: grid; gap: 8px; margin-top: 12px; }
+.staff-nia-party-result { display: grid; grid-template-columns: minmax(100px, 1fr) 120px 105px 105px; align-items: center; gap: 10px; padding: 10px; border: 1px solid #e0e6e8; border-radius: 7px; background: #fbfcfc; }
+.staff-nia-party-result > div:first-child { display: flex; align-items: center; gap: 7px; color: #303b3f; font-size: 12px; }
+.staff-nia-party-result > strong { color: #172326; font-size: 16px; font-variant-numeric: tabular-nums; text-align: right; }
+.staff-nia-party-result > strong small,
+.staff-nia-party-result > span small { display: block; margin-top: 3px; color: #7a878b; font-size: 8px; font-weight: 500; }
+.staff-nia-party-result > span { color: #007d88; font-size: 12px; font-weight: 700; text-align: right; }
+.staff-nia-candidate-probabilities { display: grid; grid-column: 1 / -1; gap: 4px; padding-top: 7px; border-top: 1px solid #e8edef; }
+.staff-nia-candidate-probabilities span { display: flex; justify-content: space-between; gap: 10px; color: #69767b; font-size: 9px; }
+.staff-nia-candidate-probabilities b { color: #364448; font-variant-numeric: tabular-nums; }
+.staff-nia-count-path,
+.staff-nia-methodology { margin-top: 12px; padding: 12px; border: 1px solid #dbe2e4; border-radius: 7px; background: #f8fafb; }
+.staff-nia-count-path summary,
+.staff-nia-methodology summary { color: #263438; font-size: 11px; font-weight: 700; cursor: pointer; }
+.staff-nia-count-path > p,
+.staff-nia-methodology p { color: #667479; font-size: 10px; line-height: 1.55; }
+.staff-nia-stage-table { display: grid; overflow-x: auto; }
+.staff-nia-stage-row { display: grid; grid-template-columns: 48px 120px minmax(180px, 1fr) 90px 125px; gap: 8px; align-items: center; min-width: 560px; padding: 7px; border-bottom: 1px solid #e4e9ea; color: #58666b; font-size: 9px; }
+.staff-nia-stage-row span:nth-child(4),
+.staff-nia-stage-row span:nth-child(5) { text-align: right; font-variant-numeric: tabular-nums; }
+.staff-nia-stage-head { color: #819095; font-size: 8px; font-weight: 700; text-transform: uppercase; }
+.staff-nia-methodology { max-width: 1600px; margin: 14px auto 0; }
+.staff-nia-methodology > div { max-width: 1100px; }
+@media (max-width: 1050px) {
+  .staff-nia-layout { grid-template-columns: minmax(245px, 280px) minmax(0, 1fr); gap: 10px; }
+  .staff-nia-party-result { grid-template-columns: minmax(90px, 1fr) repeat(3, 85px); gap: 6px; }
+}
+@media (max-width: 760px) {
+  .staff-nia-layout { grid-template-columns: 1fr; }
+  .staff-nia-controls { position: static; max-height: none; overflow: visible; }
+  .staff-nia-party-result { grid-template-columns: minmax(75px, 1fr) repeat(3, minmax(66px, 75px)); gap: 5px; padding: 8px 6px; }
+  .staff-nia-party-result > strong { font-size: 13px; }
+  .staff-nia-party-result > div:first-child { font-size: 10px; }
+  .staff-nia-seat-row { grid-template-columns: minmax(0, 1fr) 58px 42px 66px; gap: 4px; padding-right: 3px; padding-left: 3px; }
+  .staff-nia-seat-row > span:first-child { gap: 5px; font-size: 10px; }
+  .staff-nia-seat-row strong { font-size: 15px; }
+}
 .staff-projection-toolbar-tile:not(.staff-projection-toolbar-title) {
   min-height: 42px;
   justify-content: center;
@@ -1825,7 +1897,7 @@
 .staff-projection-pending-note { border-radius: 6px; }
 
 @media (max-width: 1200px) {
-  .staff-projection-toolbar-title { flex-basis: 165px; }
+  .staff-projection-toolbar-title { flex-basis: 205px; }
   .staff-projection-toolbar-constituencies { flex-basis: 86px; }
   .staff-projection-toolbar-seats { flex-basis: 65px; }
   .staff-projection-toolbar-tile.staff-projection-toolbar-detail { flex-basis: 122px; }
@@ -1848,6 +1920,7 @@
   .staff-projection-page { padding: 10px; }
   .staff-projection-toolbar { gap: 9px 0; padding: 10px; }
   .staff-projection-toolbar-title { flex: 1 0 100%; min-height: 44px; padding: 0 0 8px; border-right: 0; border-bottom: 1px solid #415157; }
+  .staff-projection-model-picker { width: min(100%, 320px); }
   .staff-projection-toolbar-tile:not(.staff-projection-toolbar-title) { flex: 1 1 24%; min-width: 70px; padding: 0 7px; }
   .staff-projection-toolbar-detail { border-right: 0 !important; }
   .staff-projection-toolbar .staff-projection-toolbar-actions { flex-wrap: wrap; }
@@ -2030,6 +2103,59 @@
 .staff-projection-party-chance > i { display: block; overflow: hidden; width: 54px; height: 5px; flex: 0 0 54px; border-radius: 5px; background: #e8edef; }
 .staff-projection-party-chance > i > b { display: block; height: 100%; border-radius: inherit; }
 .staff-projection-party-chance > strong { color: #59666a; font-size: 9px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.staff-projection-mode-picker { display: grid; width: 100%; gap: 4px; min-width: 0; }
+.staff-projection-mode-picker select { width: 100%; max-width: 100%; min-width: 0; min-height: 31px; box-sizing: border-box; padding: 4px 8px; border: 1px solid #53666b; border-radius: 5px; color: #f4f8f8; background: #26383c; font: inherit; font-size: 11px; }
+.staff-projection-mode-picker option { color: #172326; background: #fff; }
+.staff-projection-backtest-card { grid-column: 1 / -1; padding: 16px 18px; border: 1px solid #b8dfe2; border-radius: 9px; background: linear-gradient(120deg, #f4fbfb, #fff 72%); }
+.staff-projection-backtest-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.staff-projection-backtest-heading h2 { margin: 0; color: #172326; font-size: 17px; }
+.staff-projection-backtest-heading > strong { color: #007f89; font-size: 24px; font-variant-numeric: tabular-nums; }
+.staff-projection-backtest-heading > strong small { margin-left: 7px; color: #607176; font-size: 10px; font-weight: 500; }
+.staff-projection-backtest-card > p { max-width: 980px; margin: 10px 0 13px; color: #526368; font-size: 11px; line-height: 1.55; }
+.staff-projection-backtest-margin-summary { display: grid; grid-template-columns: repeat(4, minmax(112px, max-content)) minmax(220px, 1fr); align-items: center; gap: 8px 16px; margin: 0 0 13px; padding: 10px 12px; border: 1px solid #d9e9ea; border-radius: 6px; background: #f8fbfb; }
+.staff-projection-backtest-margin-summary > div { display: grid; gap: 2px; }
+.staff-projection-backtest-margin-summary small { color: #68797e; font-size: 9px; }
+.staff-projection-backtest-margin-summary strong { color: #172326; font-size: 16px; font-variant-numeric: tabular-nums; }
+.staff-projection-backtest-margin-summary p { margin: 0; color: #607176; font-size: 10px; line-height: 1.45; }
+.staff-projection-backtest-details { margin: 0 0 13px; border: 1px solid #d9e9ea; border-radius: 6px; background: #fff; }
+.staff-projection-backtest-details > summary { padding: 10px 12px; color: #176d73; cursor: pointer; font-size: 11px; font-weight: 700; }
+.staff-projection-backtest-table-wrap { overflow-x: auto; border-top: 1px solid #e4eded; }
+.staff-projection-backtest-table-wrap table { width: 100%; min-width: 880px; border-collapse: collapse; color: #35464a; font-size: 10px; font-variant-numeric: tabular-nums; }
+.staff-projection-backtest-table-wrap th,
+.staff-projection-backtest-table-wrap td { padding: 8px 9px; border-bottom: 1px solid #e9efef; text-align: left; vertical-align: middle; white-space: nowrap; }
+.staff-projection-backtest-table-wrap thead th { color: #66787d; background: #f7fafa; font-size: 9px; font-weight: 700; }
+.staff-projection-backtest-table-wrap tbody th { color: #172326; font-weight: 700; }
+.staff-projection-backtest-table-wrap tbody tr:last-child th,
+.staff-projection-backtest-table-wrap tbody tr:last-child td { border-bottom: 0; }
+.staff-projection-backtest-table-wrap td strong { color: #172326; }
+.staff-projection-backtest-party-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 6px 14px; }
+.staff-projection-backtest-party-list > div { display: grid; grid-template-columns: minmax(52px, 1fr) auto 48px auto 62px 38px; align-items: center; gap: 5px; padding: 7px 8px; border: 1px solid #e0ebec; border-radius: 5px; background: #fff; }
+.staff-projection-backtest-party-list > div > span { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; }
+.staff-projection-backtest-party-list > div > span i { width: 8px; height: 8px; border-radius: 50%; }
+.staff-projection-backtest-party-list > div > strong,
+.staff-projection-backtest-party-list > div > b { font-size: 14px; font-variant-numeric: tabular-nums; }
+.staff-projection-backtest-party-list > div > small { color: #758388; font-size: 9px; }
+.staff-projection-backtest-party-list > div > em { justify-self: end; color: #536267; font-size: 10px; font-style: normal; font-weight: 700; }
+.staff-projection-backtest-party-list > div > em.is-gain { color: #16825d; }
+.staff-projection-backtest-party-list > div > em.is-loss { color: #bb4b4b; }
+.staff-projection-backtest-actual { color: #586a6f; font-size: 10px; font-weight: 650; }
+@media (max-width: 1200px) {
+  .staff-projection-toolbar { flex-wrap: wrap; }
+  .staff-projection-toolbar-tile.staff-projection-toolbar-detail:has(.staff-projection-mode-picker) { flex: 0 1 190px; min-width: 170px; }
+  .staff-projection-toolbar .staff-projection-toolbar-actions { flex: 1 0 100%; justify-content: flex-end; margin-left: 0; padding: 8px 0 0; border-top: 1px solid #415157; }
+}
+@media (max-width: 720px) {
+  .staff-projection-toolbar-tile.staff-projection-toolbar-detail:has(.staff-projection-mode-picker) { flex: 1 1 24%; min-width: 150px; }
+  .staff-projection-toolbar .staff-projection-toolbar-actions { justify-content: flex-start; }
+  .staff-projection-mode-picker select { max-width: 100%; }
+  .staff-projection-backtest-card { padding: 12px; }
+  .staff-projection-backtest-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .staff-projection-backtest-margin-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .staff-projection-backtest-margin-summary p { grid-column: 1 / -1; }
+  .staff-projection-backtest-party-list { grid-template-columns: minmax(0, 1fr); }
+  .staff-projection-constituency-summary .staff-projection-backtest-actual { grid-column: 1 / -1; }
+}
 @media (max-width: 720px) {
   .staff-projection-constituency-detail {
     grid-template-areas: "runner" "parties" "candidates" "blocs";
@@ -2041,4 +2167,174 @@
   .staff-projection-constituency-detail > .staff-projection-bloc-breakdown { grid-column: 1; }
   .staff-projection-constituency-detail .staff-projection-party-breakdown > div { grid-template-columns: 55px 55px minmax(0, 1fr); gap: 7px; }
   .staff-projection-constituency-detail .staff-projection-party-breakdown > div > small { grid-column: 1 / -1; }
+}
+
+/* Assembly projection parity: map, seat ranges, and readable constituency drilldown */
+.staff-nia-standings-card,
+.staff-nia-constituency-results,
+.staff-nia-results > .staff-projection-pending-note { grid-column: 1 / -1; }
+.staff-nia-map-card { grid-column: span 5; }
+.staff-nia-range-card { grid-column: span 7; }
+.staff-nia-map-card .staff-projection-section-heading > span { color: #778589; font-size: 9px; }
+.staff-nia-map-card .staff-projection-map-wrap { max-width: 680px; }
+.staff-nia-map-card .staff-projection-map { max-height: 500px; }
+.staff-nia-map-card .staff-projection-map-hint { margin: 0; }
+.staff-nia-range-row { grid-template-columns: 46px minmax(80px, 1fr) 70px 105px; }
+.staff-nia-range-row .staff-projection-range-value { white-space: nowrap; }
+.staff-nia-range-row .staff-projection-leader-chance { white-space: nowrap; }
+.staff-nia-constituency-summary { width: 100%; border: 0; color: inherit; background: transparent; font: inherit; text-align: left; cursor: pointer; }
+.staff-nia-constituency-summary:hover { background: #f1f6f7; }
+.staff-nia-constituency-summary:focus-visible { position: relative; z-index: 1; outline: 2px solid #008995; outline-offset: -2px; }
+.staff-nia-constituency-topline { color: #647277; font-size: 10px; font-variant-numeric: tabular-nums; }
+.staff-nia-constituency-summary .staff-projection-winner > strong small { display: block; margin-top: 2px; color: #899497; font-size: 8px; font-weight: 500; text-align: right; }
+.staff-nia-constituency-list.is-single .staff-nia-constituency-summary { background: #f8fafb; }
+.staff-nia-constituency .staff-projection-constituency-detail { display: block; }
+.staff-nia-party-result > strong small { text-align: right; }
+.staff-nia-methodology { margin-bottom: 24px; }
+.staff-nia-transfer-audit > p { max-width: 1100px; color: #667479; font-size: 10px; line-height: 1.5; }
+.staff-nia-transfer-table-wrap { overflow-x: auto; margin-top: 10px; }
+.staff-nia-transfer-table { width: 100%; min-width: 620px; border-collapse: collapse; color: #49575c; font-size: 10px; }
+.staff-nia-transfer-table th,
+.staff-nia-transfer-table td { padding: 8px 10px; border-bottom: 1px solid #e1e7e9; text-align: left; vertical-align: top; }
+.staff-nia-transfer-table thead th { color: #7e8b90; font-size: 8px; letter-spacing: .06em; text-transform: uppercase; }
+.staff-nia-transfer-table tbody th { color: #253337; font-size: 10px; }
+.staff-nia-transfer-table small { color: #7b878b; font-size: 8px; white-space: nowrap; }
+@media (max-width: 1000px) {
+  .staff-nia-map-card,
+  .staff-nia-range-card { grid-column: 1 / -1; }
+  .staff-nia-range-row { grid-template-columns: 42px minmax(60px, 1fr) 64px 94px; gap: 7px; }
+}
+@media (max-width: 720px) {
+  .staff-nia-layout { grid-template-columns: minmax(0, 1fr); }
+  .staff-nia-results { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .staff-nia-results > * { grid-column: 1 / -1; }
+  .staff-nia-map-card .staff-projection-map { width: min(100%, 320px); }
+  .staff-nia-range-row { grid-template-columns: 38px minmax(44px, 1fr) 60px; gap: 6px; }
+  .staff-nia-range-row .staff-projection-leader-chance { grid-column: 2 / -1; text-align: right; }
+  .staff-nia-constituency-summary { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; padding: 8px; }
+  .staff-nia-constituency-summary .staff-projection-constituency-name { grid-column: 1; grid-row: 1; }
+  .staff-nia-constituency-summary .staff-projection-winner { grid-column: 2; grid-row: 1; }
+  .staff-nia-constituency-summary .staff-nia-constituency-topline { grid-column: 1; grid-row: 2; }
+  .staff-nia-constituency-summary .staff-projection-win-bar { grid-column: 2; grid-row: 2; min-width: 80px; }
+}
+
+.staff-nia-seat-chance-list { display: grid; gap: 0; margin: 10px 0 0; padding: 0; border: 1px solid #e2e8ea; border-radius: 7px; background: #fff; list-style: none; }
+.staff-nia-seat-chance-item { display: grid; grid-template-columns: 30px minmax(150px, 1fr) minmax(180px, 1.1fr) 90px minmax(110px, 150px); align-items: center; gap: 12px; min-height: 48px; padding: 8px 12px; border-bottom: 1px solid #e8edef; }
+.staff-nia-seat-chance-item:last-child { border-bottom: 0; }
+.staff-nia-seat-chance-rank { color: #879398; font-size: 11px; font-variant-numeric: tabular-nums; }
+.staff-nia-seat-chance-party { display: flex; align-items: center; min-width: 0; gap: 6px; color: #334146; }
+.staff-nia-seat-chance-party > i { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; }
+.staff-nia-seat-chance-party > strong { font-size: 11px; }
+.staff-nia-seat-chance-party > small { overflow: hidden; color: #7e8b90; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+.staff-nia-seat-chance-label { color: #56666b; font-size: 9px; }
+.staff-nia-seat-chance-share { color: #718085; font-size: 9px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.staff-nia-seat-chance-value { display: grid; grid-template-columns: 48px minmax(45px, 1fr); align-items: center; gap: 8px; color: #263438; font-variant-numeric: tabular-nums; }
+.staff-nia-seat-chance-value > strong { font-size: 12px; text-align: right; }
+.staff-nia-seat-chance-value > i { display: block; height: 5px; overflow: hidden; border-radius: 99px; background: #e8edef; }
+.staff-nia-seat-chance-value > i > b { display: block; height: 100%; border-radius: inherit; }
+.staff-nia-seat-chance-item.is-candidate { background: #f8fafb; }
+.staff-nia-seat-chance-item.is-candidate .staff-nia-seat-chance-party > strong { font-size: 10px; }
+.staff-nia-seat-chance-item.is-candidate .staff-nia-seat-chance-share { display: grid; gap: 2px; }
+.staff-nia-seat-chance-item.is-candidate .staff-nia-seat-chance-share small { color: #7b898e; font-size: 9px; }
+.staff-nia-party-share { margin: 10px 0 12px; padding: 12px; border: 1px solid #e2e8ea; border-radius: 7px; background: #fff; }
+.staff-nia-party-share h3 { margin: 0; color: #263438; font-size: 12px; font-weight: 700; }
+.staff-nia-party-share > p { margin: 5px 0 10px; color: #718085; font-size: 10px; line-height: 1.4; }
+.staff-nia-party-share-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 6px; }
+.staff-nia-party-share-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 5px 10px; min-width: 0; padding: 8px 9px; border: 1px solid #edf0f1; border-radius: 5px; background: #fbfcfc; }
+.staff-nia-party-share-label { display: flex; align-items: center; min-width: 0; gap: 6px; color: #344247; }
+.staff-nia-party-share-label > i { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; }
+.staff-nia-party-share-label > strong { font-size: 10px; }
+.staff-nia-party-share-label > small { overflow: hidden; color: #7b898e; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+.staff-nia-party-share-mean { color: #263438; font-size: 12px; font-variant-numeric: tabular-nums; }
+.staff-nia-party-share-range { grid-column: 1 / -1; color: #718085; font-size: 9px; font-variant-numeric: tabular-nums; }
+.staff-nia-party-share-bar { display: block; grid-column: 1 / -1; height: 4px; overflow: hidden; border-radius: 99px; background: #e8edef; }
+.staff-nia-party-share-bar > b { display: block; height: 100%; border-radius: inherit; }
+.staff-nia-topfive-bar { gap: 2px; height: 8px; background: transparent; }
+.staff-nia-topfive-bar > i { width: auto; min-width: 0; flex: 1 1 0; border-radius: 2px; }
+.staff-nia-candidate-audit { margin-top: 12px; padding: 12px; border: 1px solid #e2e8ea; border-radius: 7px; background: #f8fafb; }
+.staff-nia-candidate-audit h3 { margin: 0; color: #263438; font-size: 12px; font-weight: 700; }
+.staff-nia-candidate-audit > p { margin: 8px 0 10px; color: #718085; font-size: 11px; line-height: 1.5; }
+.staff-nia-candidate-audit-list { display: grid; border: 1px solid #e2e8ea; border-radius: 6px; background: #fff; }
+.staff-nia-candidate-audit-row { display: grid; grid-template-columns: 9px minmax(140px, 1fr) minmax(130px, .8fr) 110px; align-items: center; gap: 9px; min-height: 38px; padding: 6px 10px; border-bottom: 1px solid #edf0f1; color: #344247; font-size: 11px; }
+.staff-nia-candidate-audit-row:last-child { border-bottom: 0; }
+.staff-nia-candidate-audit-row > i { width: 8px; height: 8px; border-radius: 50%; }
+.staff-nia-candidate-audit-row > span, .staff-nia-candidate-audit-row > b { font-variant-numeric: tabular-nums; }
+.staff-nia-candidate-audit-row small { color: #7b898e; }
+.staff-nia-candidate-audit-row > b { color: #405156; text-align: right; }
+.staff-nia-candidate-audit h4 { margin: 14px 0 7px; color: #344247; font-size: 11px; }
+.staff-nia-count-audit-wrap { overflow-x: auto; border: 1px solid #e2e8ea; border-radius: 6px; background: #fff; }
+.staff-nia-count-audit { width: max-content; min-width: 100%; border-collapse: collapse; color: #455257; font-size: 10px; font-variant-numeric: tabular-nums; }
+.staff-nia-count-audit th, .staff-nia-count-audit td { min-width: 90px; padding: 8px 10px; border-right: 1px solid #edf0f1; border-bottom: 1px solid #edf0f1; text-align: right; white-space: nowrap; }
+.staff-nia-count-audit thead th { color: #526166; font-size: 9px; font-weight: 700; vertical-align: top; }
+.staff-nia-count-audit thead th > span, .staff-nia-count-audit thead th > small { display: block; }
+.staff-nia-count-audit thead th > small { max-width: 150px; margin-top: 4px; color: #829095; font-size: 8px; font-weight: 500; white-space: normal; }
+.staff-nia-count-audit .staff-nia-count-candidate { position: sticky; left: 0; z-index: 1; min-width: 155px; max-width: 190px; background: #f8fafb; text-align: left; }
+.staff-nia-count-audit thead .staff-nia-count-candidate { z-index: 2; }
+.staff-nia-count-audit tbody th > i { display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; }
+.staff-nia-count-audit tbody th > small { display: block; margin: 3px 0 0 13px; color: #7b898e; font-size: 8px; }
+.staff-nia-count-audit td { color: #344247; }
+.staff-nia-count-audit td > small { display: block; margin-top: 3px; color: #78868b; font-size: 8px; }
+.staff-nia-count-audit td > small.is-gain { color: #267a53; }
+.staff-nia-count-audit td > small.is-loss { color: #a34c4c; }
+
+/* Compact party headline tiles shared by the HOC and Assembly dashboards */
+.staff-projection-standings { grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); align-items: stretch; gap: 8px; margin-top: 10px; border-top: 0; }
+.staff-projection-standings .staff-projection-standing,
+.staff-projection-standings .staff-projection-standing:nth-child(n) {
+  display: flex;
+  min-height: 78px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid rgba(23, 35, 38, .08);
+  border-left: 4px solid;
+  border-radius: 7px;
+}
+.staff-projection-standings .staff-projection-standing-label { min-width: 0; gap: 0; }
+.staff-projection-standings .staff-projection-standing-label > strong { width: auto; flex: 1 1 auto; overflow: visible; color: #273438; font-size: 11px; line-height: 1.25; white-space: normal; }
+.staff-projection-standings .staff-projection-standing-metrics { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.staff-projection-standings .staff-projection-standing-metrics > div { display: flex; min-width: 0; align-items: center; gap: 6px; }
+.staff-projection-standings .staff-projection-standing-seatmetric > strong { width: 34px; height: 30px; flex-basis: 34px; border-radius: 6px; font-size: 15px; }
+.staff-projection-standings .staff-projection-standing-votemetric > strong { color: #293639; font-size: 13px; }
+.staff-projection-standings .staff-projection-standing-metrics small { color: #657378; font-size: 8px; }
+.staff-projection-standings .staff-projection-standing:nth-child(5n),
+.staff-projection-standings .staff-projection-standing:nth-child(4n),
+.staff-projection-standings .staff-projection-standing:nth-child(3n) { border-right: 1px solid rgba(23, 35, 38, .08); }
+.staff-projection-standings .staff-projection-standing:nth-child(n + 4),
+.staff-projection-standings .staff-projection-standing:nth-child(n + 5),
+.staff-projection-standings .staff-projection-standing:nth-child(n + 6) { border-top: 1px solid rgba(23, 35, 38, .08); }
+
+/* Preserve equal-height map and range cards; let range rows use the shared height. */
+.staff-projection-range-card,
+.staff-nia-range-card { display: flex; flex-direction: column; align-self: stretch; height: auto; }
+.staff-projection-range-card .staff-projection-range-legend,
+.staff-nia-range-card .staff-projection-range-legend { margin: 7px 0; }
+.staff-projection-range-card .staff-projection-range-list,
+.staff-nia-range-card .staff-projection-range-list { flex: 1 1 auto; align-content: space-between; gap: 5px; }
+.staff-projection-range-card .staff-projection-range-row,
+.staff-nia-range-card .staff-projection-range-row { min-height: 22px; }
+.staff-projection-range-axis { display: flex; justify-content: space-between; margin: 0 113px 3px 54px; color: #849195; font-size: 8px; font-variant-numeric: tabular-nums; }
+.staff-nia-range-axis { margin-right: 205px; margin-left: 56px; }
+@media (max-width: 1000px) {
+  .staff-projection-range-axis { margin-right: 101px; margin-left: 47px; }
+  .staff-nia-range-axis { margin-right: 172px; margin-left: 49px; }
+}
+@media (max-width: 720px) {
+  .staff-projection-range-axis { margin-right: 92px; margin-left: 43px; }
+  .staff-nia-range-axis { margin-right: 66px; margin-left: 44px; }
+}
+.staff-nia-count-audit tbody tr:last-child th, .staff-nia-count-audit tbody tr:last-child td { border-bottom: 0; }
+@media (max-width: 760px) {
+  .staff-nia-seat-chance-item { grid-template-columns: 22px minmax(0, 1fr) 100px; gap: 7px; padding: 9px; }
+  .staff-nia-seat-chance-label { grid-column: 2; grid-row: 2; }
+  .staff-nia-seat-chance-share { grid-column: 2; grid-row: 3; }
+  .staff-nia-seat-chance-value { grid-column: 3; grid-row: 1 / span 3; grid-template-columns: 48px 1fr; }
+  .staff-nia-candidate-audit-row { grid-template-columns: 8px minmax(0, 1fr) auto; gap: 6px; font-size: 10px; }
+  .staff-nia-candidate-audit-row > span { grid-column: 2; }
+  .staff-nia-candidate-audit-row > b { grid-column: 3; grid-row: 1 / span 2; font-size: 10px; }
+}
+@media (max-width: 420px) {
+  .staff-nia-seat-chance-item { grid-template-columns: 18px minmax(0, 1fr) 82px; gap: 5px; padding: 8px 6px; }
+  .staff-nia-seat-chance-value { grid-template-columns: 42px 1fr; gap: 5px; }
 }

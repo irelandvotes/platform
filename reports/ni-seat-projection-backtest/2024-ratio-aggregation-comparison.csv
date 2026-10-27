@@ -1,0 +1,19 @@
+constituency,arithmetic_winner,arithmetic_mean_margin_pp,arithmetic_margin_error_pp,geometric_winner,geometric_mean_margin_pp,geometric_margin_error_pp,actual_winner,actual_margin_for_call_pp
+Belfast East,AP,1.312,7.578,AP,1.455,7.721,DUP,-6.266
+Belfast North,SF,7.681,-6.192,SF,10.009,-3.864,SF,13.873
+Belfast South and Mid Down,SDLP,24.985,-3.771,SDLP,23.068,-5.688,SDLP,28.755
+Belfast West,SF,43.280,3.120,SF,44.811,4.650,SF,40.161
+East Antrim,DUP,10.700,7.409,DUP,10.193,6.901,DUP,3.292
+East Derry,DUP,11.961,11.527,DUP,12.032,11.598,DUP,0.434
+Fermanagh and South Tyrone,SF,3.306,-5.643,SF,3.556,-5.393,SF,8.949
+Foyle,SDLP,7.530,-3.331,SDLP,8.271,-2.589,SDLP,10.861
+Lagan Valley,DUP,13.794,19.823,DUP,14.111,20.139,AP,-6.029
+Mid Ulster,SF,35.044,2.206,SF,34.804,1.966,SF,32.837
+Newry and Armagh,SF,30.385,-3.338,SF,30.485,-3.238,SF,33.723
+North Antrim,TUV,3.729,2.636,DUP,2.416,3.509,TUV,-1.093
+North Down,INDU,20.235,3.363,INDU,19.212,2.339,INDU,16.872
+South Antrim,UUP,2.266,-15.241,UUP,1.902,-15.605,UUP,17.507
+South Down,SF,12.346,-8.166,SF,12.396,-8.115,SF,20.511
+Strangford,DUP,14.082,0.895,DUP,12.585,-0.602,DUP,13.187
+Upper Bann,DUP,5.538,-10.100,DUP,5.780,-9.858,DUP,15.638
+West Tyrone,SF,31.205,-5.223,SF,31.087,-5.340,SF,36.428

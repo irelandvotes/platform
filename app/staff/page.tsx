@@ -51,7 +51,7 @@ export default async function StaffPage() {
               <p className="staff-eyebrow">WORKSPACE</p>
               <h2 id="staff-tools-heading">Tools</h2>
             </div>
-            <span>2 available</span>
+            <span>3 available</span>
           </div>
 
           <div className="staff-tool-cards">
@@ -68,6 +68,17 @@ export default async function StaffPage() {
 
             <article className="staff-tool-card staff-tool-card-live">
               <div className="staff-tool-card-icon" aria-hidden="true">02</div>
+              <div className="staff-tool-card-copy">
+                <span className="staff-tool-status">EARLY MODEL</span>
+                <h3>NI Assembly projection</h3>
+                <p>Explore Assembly scenarios using constituency first preferences and simulated STV counts.</p>
+                <div className="staff-tool-tags"><span>NI Assembly</span><span>STV</span></div>
+                <Link href="/staff/tools/ni-assembly-projection">Open early model <span aria-hidden="true">-&gt;</span></Link>
+              </div>
+            </article>
+
+            <article className="staff-tool-card staff-tool-card-live">
+              <div className="staff-tool-card-icon" aria-hidden="true">03</div>
               <div className="staff-tool-card-copy">
                 <span className="staff-tool-status">EARLY MODEL</span>
                 <h3>Seat projection model</h3>

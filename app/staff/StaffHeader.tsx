@@ -8,7 +8,8 @@ export default function StaffHeader({ userName }: { userName: string }) {
   const pathname = usePathname();
   const onStaffHome = pathname === "/staff";
   const onPollingTool = pathname.startsWith("/staff/tools/polling");
-  const onSeatProjection = pathname.startsWith("/staff/tools/seat-projection");
+  const onSeatProjection = pathname.startsWith("/staff/tools/seat-projection")
+    || pathname.startsWith("/staff/tools/ni-assembly-projection");
 
   return (
     <header className="staff-topbar">
