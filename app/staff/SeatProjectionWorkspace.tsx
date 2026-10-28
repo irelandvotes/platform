@@ -1374,7 +1374,7 @@ export default function SeatProjectionWorkspace({ data, supportPresets }: Props)
 
           <section className="staff-projection-result-card staff-projection-map-card" aria-labelledby="projection-map-heading">
             <div className="staff-projection-section-heading">
-              <div><p className="staff-eyebrow">GEOGRAPHIC VIEW</p><h2 id="projection-map-heading">Projected winners by constituency</h2></div>
+              <div><p className="staff-eyebrow">GEOGRAPHIC VIEW</p><h2 id="projection-map-heading">Highest mean vote share by constituency</h2></div>
               <span className="staff-projection-baseline-label">Select a seat for details</span>
             </div>
             <ProjectionMap features={modelData.mapFeatures} constituencies={projection.constituencies} parties={modelData.parties} />
