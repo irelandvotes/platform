@@ -1,5 +1,18 @@
 import type { NiAssemblyCandidate, NiAssemblyProjectionData } from "./niAssemblyProjectionData";
-import { getProjectionBloc, PROJECTION_BLOCS } from "./projectionBlocs";
+import { getProjectionBloc, PROJECTION_BLOCS, type ProjectionBloc } from "./projectionBlocs";
+
+type OutcomeProbability = { outcome: number; probability: number };
+type BlocOutcome = {
+  code: ProjectionBloc;
+  share: number;
+  shareStandardDeviation: number;
+  baselineShare: number;
+  shareChange: number;
+  expectedSeats: number;
+  seatStandardDeviation: number;
+  baselineSeats: number;
+  seatCountProbabilities: OutcomeProbability[];
+};
 
 export type NiAssemblySettings = {
   support: Record<string, number>;
@@ -36,19 +49,27 @@ export type NiAssemblyProjectionResult = {
     parties: Array<{
       code: string;
       firstPreferenceShare: number;
+      firstPreferenceStandardDeviation: number;
+      baselineShare: number;
+      shareChange: number;
       firstPreferenceLow: number;
       firstPreferenceHigh: number;
       expectedSeats: number;
+      seatStandardDeviation: number;
+      baselineSeats: number;
+      seatCountProbabilities: OutcomeProbability[];
       anySeatProbability: number;
       seatThresholdProbabilities: Array<number | null>;
       candidates: Array<{ name: string; meanFirstPreferences: number; electionProbability: number }>;
     }>;
     topFiveSeatsByParty: Record<string, number>;
+    blocOutcomes: BlocOutcome[];
     meanCount: NiAssemblyCountStage[];
     leadingParty: string;
     leadingPartyProbability: Record<string, number>;
   }>;
-  standings: Array<{ code: string; expectedSeats: number; topFiveSeats: number; medianSeats: number; lowSeats: number; highSeats: number; baselineSeats: number; largestPartyProbability: number }>;
+  blocStandings: BlocOutcome[];
+  standings: Array<{ code: string; expectedSeats: number; seatStandardDeviation: number; seatCountProbabilities: OutcomeProbability[]; topFiveSeats: number; medianSeats: number; lowSeats: number; highSeats: number; baselineSeats: number; seatChange: number; projectedShare: number; shareStandardDeviation: number; baselineShare: number; shareChange: number; largestPartyProbability: number }>;
 };
 
 function makeRandom(seedText: string) {
@@ -84,6 +105,19 @@ function normalize(values: Record<string, number>) {
   return Object.fromEntries(Object.entries(positive).map(([code, value]) => [code, value / total]));
 }
 
+function standardDeviation(values: number[]) {
+  if (!values.length) return 0;
+  const mean = values.reduce((sum, value) => sum + value, 0) / values.length;
+  return Math.sqrt(values.reduce((sum, value) => sum + (value - mean) ** 2, 0) / values.length);
+}
+
+function outcomeProbabilities(values: number[], maximum: number): OutcomeProbability[] {
+  return Array.from({ length: maximum + 1 }, (_, outcome) => ({
+    outcome,
+    probability: values.length ? values.filter((value) => value === outcome).length / values.length * 100 : 0,
+  }));
+}
+
 function standardNormalDensity(value: number) {
   return Math.exp(-0.5 * value * value) / Math.sqrt(2 * Math.PI);
 }
@@ -112,9 +146,9 @@ function positiveNormalLocationForMean(mean: number, standardDeviation: number) 
 }
 
 const LOCAL_NATIONAL_CYCLES = [
-  { year: "2022" as const, weight: 0.45 },
-  { year: "2017" as const, weight: 0.20 },
-  { year: "2024 HOC" as const, weight: 0.35 },
+  { year: "2022" as const, weight: 0.55 },
+  { year: "2017" as const, weight: 0.30 },
+  { year: "2024 HOC" as const, weight: 0.15 },
 ];
 
 function localBlocRatio(data: NiAssemblyProjectionData, constituencyName: string, bloc: string) {
@@ -319,10 +353,13 @@ export function runNiAssemblyProjection(data: NiAssemblyProjectionData, settings
     const partyFirstPrefs = Object.fromEntries(includedCodes.map((code) => [code, 0]));
     const partyFirstPrefSamples = Object.fromEntries(includedCodes.map((code) => [code, [] as number[]]));
     const partySeatSums = Object.fromEntries(includedCodes.map((code) => [code, 0]));
+    const partySeatSamples = Object.fromEntries(includedCodes.map((code) => [code, [] as number[]]));
     const partyAnySeat = Object.fromEntries(includedCodes.map((code) => [code, 0]));
     const partySeatThresholdCounts = Object.fromEntries(includedCodes.map((code) => [code, Array(constituency.seats).fill(0) as number[]]));
     const partyLeadingCount = Object.fromEntries(includedCodes.map((code) => [code, 0]));
     const activeBlocs = PROJECTION_BLOCS.filter((bloc) => includedCodes.some((code) => getProjectionBloc(code) === bloc));
+    const blocSeatSamples = Object.fromEntries(PROJECTION_BLOCS.map((bloc) => [bloc, [] as number[]])) as Record<ProjectionBloc, number[]>;
+    const blocShareSamples = Object.fromEntries(PROJECTION_BLOCS.map((bloc) => [bloc, [] as number[]])) as Record<ProjectionBloc, number[]>;
     const candidateDefinitions = createCandidateDefinitions(data, constituency.name, counts);
     const candidateStats = new Map(candidateDefinitions.map((candidate) => [candidate.id, { firstPreferenceSum: 0, electedCount: 0 }]));
     const countAggregates = new Map<number, {
@@ -371,6 +408,12 @@ export function runNiAssemblyProjection(data: NiAssemblyProjectionData, settings
         }
       }
       const count = runStvCount(candidateDefinitions, candidateFirstPreferences, constituency.seats, constituency.validVotes, data.transfers);
+      const seatsByBloc = Object.fromEntries(PROJECTION_BLOCS.map((bloc) => [bloc, 0])) as Record<ProjectionBloc, number>;
+      for (const [code, seats] of count.electedByParty) seatsByBloc[getProjectionBloc(code)] += seats;
+      for (const bloc of PROJECTION_BLOCS) {
+        blocSeatSamples[bloc].push(seatsByBloc[bloc]);
+        blocShareSamples[bloc].push(includedCodes.reduce((sum, code) => sum + (getProjectionBloc(code) === bloc ? (localShares[code] ?? 0) * 100 : 0), 0));
+      }
       for (const stage of count.stages) {
         const aggregate = countAggregates.get(stage.count) ?? {
           pathCount: 0,
@@ -407,6 +450,7 @@ export function runNiAssemblyProjection(data: NiAssemblyProjectionData, settings
       for (const code of includedCodes) {
         const seats = count.electedByParty.get(code) ?? 0;
         partySeatSums[code] = (partySeatSums[code] ?? 0) + seats;
+        partySeatSamples[code].push(seats);
         seatTotalsByIteration.get(code)![iteration] += seats;
         if (seats > 0) partyAnySeat[code] += 1;
         for (let thresholdIndex = 0; thresholdIndex < seats; thresholdIndex += 1) {
@@ -444,12 +488,25 @@ export function runNiAssemblyProjection(data: NiAssemblyProjectionData, settings
       };
     });
 
-    const parties = includedCodes.map((code) => ({
+    const parties = includedCodes.map((code) => {
+      const baselineVotes = constituency.firstPreferencesByParty[code] ?? 0;
+      const baselineShare = constituency.validVotes > 0 ? baselineVotes / constituency.validVotes * 100 : 0;
+      const finalCount = constituency.countHistory[constituency.countHistory.length - 1]?.candidates ?? [];
+      const baselineSeats = finalCount.filter((candidate) => candidate.party === code && candidate.status === "elected").length;
+      const shareSamples = partyFirstPrefSamples[code];
+      const seatSamples = partySeatSamples[code];
+      return {
       code,
       firstPreferenceShare: (partyFirstPrefs[code] ?? 0) / settings.iterations,
-      firstPreferenceLow: quantile(partyFirstPrefSamples[code], 0.1),
-      firstPreferenceHigh: quantile(partyFirstPrefSamples[code], 0.9),
+      firstPreferenceStandardDeviation: standardDeviation(shareSamples),
+      baselineShare,
+      shareChange: (partyFirstPrefs[code] ?? 0) / settings.iterations - baselineShare,
+      firstPreferenceLow: quantile(shareSamples, 0.1),
+      firstPreferenceHigh: quantile(shareSamples, 0.9),
       expectedSeats: (partySeatSums[code] ?? 0) / settings.iterations,
+      seatStandardDeviation: standardDeviation(seatSamples),
+      baselineSeats,
+      seatCountProbabilities: outcomeProbabilities(seatSamples, constituency.seats),
       anySeatProbability: (partyAnySeat[code] ?? 0) / settings.iterations * 100,
       seatThresholdProbabilities: partySeatThresholdCounts[code].map((count, index, counts) => {
         const priorSeatCount = index === 0 ? settings.iterations : counts[index - 1] ?? 0;
@@ -463,7 +520,29 @@ export function runNiAssemblyProjection(data: NiAssemblyProjectionData, settings
           electionProbability: stats.electedCount / settings.iterations * 100,
         };
       }),
-    })).sort((a, b) => b.expectedSeats - a.expectedSeats || b.firstPreferenceShare - a.firstPreferenceShare);
+    }; }).sort((a, b) => b.expectedSeats - a.expectedSeats || b.firstPreferenceShare - a.firstPreferenceShare);
+    const blocOutcomes = PROJECTION_BLOCS.map((bloc) => {
+      const baselineShare = constituency.validVotes > 0
+        ? Object.entries(constituency.firstPreferencesByParty).reduce((sum, [code, votes]) => sum + (getProjectionBloc(code) === bloc ? votes / constituency.validVotes * 100 : 0), 0)
+        : 0;
+      const baselineSeats = (constituency.countHistory[constituency.countHistory.length - 1]?.candidates ?? [])
+        .filter((candidate) => candidate.status === "elected" && getProjectionBloc(candidate.party) === bloc).length;
+      const shares = blocShareSamples[bloc];
+      const seatSamples = blocSeatSamples[bloc];
+      const share = shares.reduce((sum, value) => sum + value, 0) / Math.max(1, shares.length);
+      const expectedSeats = seatSamples.reduce((sum, value) => sum + value, 0) / Math.max(1, seatSamples.length);
+      return {
+        code: bloc,
+        share,
+        shareStandardDeviation: standardDeviation(shares),
+        baselineShare,
+        shareChange: share - baselineShare,
+        expectedSeats,
+        seatStandardDeviation: standardDeviation(seatSamples),
+        baselineSeats,
+        seatCountProbabilities: outcomeProbabilities(seatSamples, constituency.seats),
+      };
+    });
     const topFiveSeatsByParty = Object.fromEntries(includedCodes.map((code) => [code, 0]));
     parties.flatMap((party) => party.candidates.map((candidate) => ({ party: party.code, candidate })))
       .sort((a, b) => b.candidate.electionProbability - a.candidate.electionProbability
@@ -480,6 +559,7 @@ export function runNiAssemblyProjection(data: NiAssemblyProjectionData, settings
       validVotes: constituency.validVotes,
       parties,
       topFiveSeatsByParty,
+      blocOutcomes,
       meanCount,
       leadingParty: [...includedCodes].sort((a, b) => partyLeadingCount[b] - partyLeadingCount[a]
         || (partySeatSums[b] ?? 0) - (partySeatSums[a] ?? 0)
@@ -495,20 +575,55 @@ export function runNiAssemblyProjection(data: NiAssemblyProjectionData, settings
     const leaders = samples.filter(([, seats]) => seats === maximum);
     leaders.forEach(([code]) => { largestPartyCounts[code] += 1 / Math.max(1, leaders.length); });
   }
+  const blocSeatSamples = Object.fromEntries(PROJECTION_BLOCS.map((bloc) => [bloc, Array.from({ length: settings.iterations }, (_, iteration) =>
+    partyCodes.reduce((sum, code) => sum + (getProjectionBloc(code) === bloc ? seatTotalsByIteration.get(code)![iteration] : 0), 0),
+  )])) as Record<ProjectionBloc, number[]>;
+  const blocShareSamples = Object.fromEntries(PROJECTION_BLOCS.map((bloc) => [bloc, nationalSamples.map((sample) =>
+    partyCodes.reduce((sum, code) => sum + (getProjectionBloc(code) === bloc ? (sample[code] ?? 0) * 100 : 0), 0),
+  )])) as Record<ProjectionBloc, number[]>;
+  const blocStandings = PROJECTION_BLOCS.map((bloc) => {
+    const baselineShare = Object.entries(data.nationalShareByYear["2022"]).reduce((sum, [code, share]) => sum + (getProjectionBloc(code) === bloc ? share : 0), 0);
+    const baselineSeats = data.parties.filter((party) => getProjectionBloc(party.code) === bloc).reduce((sum, party) => sum + party.baselineSeats, 0);
+    const shares = blocShareSamples[bloc];
+    const seats = blocSeatSamples[bloc];
+    const meanShare = shares.reduce((sum, value) => sum + value, 0) / Math.max(1, shares.length);
+    return {
+      code: bloc,
+      share: meanShare,
+      shareStandardDeviation: standardDeviation(shares),
+      baselineShare,
+      shareChange: meanShare - baselineShare,
+      expectedSeats: seats.reduce((sum, value) => sum + value, 0) / Math.max(1, seats.length),
+      seatStandardDeviation: standardDeviation(seats),
+      baselineSeats,
+      seatCountProbabilities: outcomeProbabilities(seats, data.seats),
+    };
+  });
   const standings = partyCodes.map((code) => {
     const samples = seatTotalsByIteration.get(code) ?? [];
     const expectedSeats = samples.reduce((sum, value) => sum + value, 0) / Math.max(1, samples.length);
     const topFiveSeats = constituencyResults.reduce((sum, constituency) => sum + (constituency.topFiveSeatsByParty[code] ?? 0), 0);
+    const shareSamples = nationalSamples.map((sample) => (sample[code] ?? 0) * 100);
+    const projectedShare = shareSamples.reduce((sum, value) => sum + value, 0) / Math.max(1, shareSamples.length);
+    const baselineShare = data.nationalShareByYear["2022"][code] ?? 0;
+    const baselineSeats = data.parties.find((party) => party.code === code)?.baselineSeats ?? 0;
     return {
       code,
       expectedSeats,
+      seatStandardDeviation: standardDeviation(samples),
+      seatCountProbabilities: outcomeProbabilities(samples, data.seats),
       topFiveSeats,
       medianSeats: quantile(samples, 0.5),
       lowSeats: quantile(samples, 0.1),
       highSeats: quantile(samples, 0.9),
-      baselineSeats: data.parties.find((party) => party.code === code)?.baselineSeats ?? 0,
+      baselineSeats,
+      seatChange: expectedSeats - baselineSeats,
+      projectedShare,
+      shareStandardDeviation: standardDeviation(shareSamples),
+      baselineShare,
+      shareChange: projectedShare - baselineShare,
       largestPartyProbability: largestPartyCounts[code] / settings.iterations * 100,
     };
   }).sort((a, b) => b.expectedSeats - a.expectedSeats || a.code.localeCompare(b.code));
-  return { iterations: settings.iterations, constituencies: constituencyResults, standings };
+  return { iterations: settings.iterations, constituencies: constituencyResults, standings, blocStandings };
 }

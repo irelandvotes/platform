@@ -1,14 +1,18 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { createElement, useEffect, useMemo, useState } from "react";
 import ProjectionModelSwitcher from "./ProjectionModelSwitcher";
+import ProjectionScenarioManager from "./ProjectionScenarioManager";
+import ProjectionDistributionCharts, { type DistributionSeries, type DistributionScope } from "./ProjectionDistributionCharts";
+import type { ProjectionScenarioPreset } from "./ProjectionScenarioManager";
+import type { ProjectionSupportPresets } from "@/lib/staff/projectionSupportPresets";
 import NiAssemblyProjectionMap from "./NiAssemblyProjectionMap";
 import { runNiAssemblyProjection, type NiAssemblyProjectionResult, type NiAssemblySettings } from "@/lib/staff/niAssemblyProjection";
 import type { NiAssemblyProjectionData } from "@/lib/staff/niAssemblyProjectionData";
 
-type Props = { data: NiAssemblyProjectionData };
+type Props = { data: NiAssemblyProjectionData; supportPresets: ProjectionSupportPresets };
 const ITERATIONS = 10_000;
-const PROJECTION_MODEL_REVISION = "candidate-probability-top-five-mean-count-sparse-history-v5";
+const PROJECTION_MODEL_REVISION = "candidate-probability-top-five-mean-count-sparse-history-v7";
 
 function defaultCandidateCounts(data: NiAssemblyProjectionData) {
   return Object.fromEntries(data.constituencies.map((constituency) => {
@@ -33,7 +37,7 @@ function textColorForPartyColor(color: string) {
   return luminance > 0.42 ? "#172326" : "#ffffff";
 }
 
-export default function NiAssemblyProjectionWorkspace({ data }: Props) {
+export default function NiAssemblyProjectionWorkspace({ data, supportPresets }: Props) {
   const [support, setSupport] = useState(() => Object.fromEntries(data.parties.map((party) => [party.code, party.baselineShare.toFixed(1)])));
   const [candidateCounts, setCandidateCounts] = useState(() => defaultCandidateCounts(data));
   const [pollingUncertainty, setPollingUncertainty] = useState(2);
@@ -43,6 +47,17 @@ export default function NiAssemblyProjectionWorkspace({ data }: Props) {
   const [projection, setProjection] = useState<NiAssemblyProjectionResult | null>(null);
   const [appliedSignature, setAppliedSignature] = useState("");
   const [isRunning, setIsRunning] = useState(false);
+  const [isExportingReport, setIsExportingReport] = useState(false);
+  const [reportExportError, setReportExportError] = useState("");
+  const [generatedReport, setGeneratedReport] = useState<{ url: string; filename: string } | null>(null);
+  useEffect(() => {
+    if (!generatedReport) return;
+    const timeout = window.setTimeout(() => setGeneratedReport(null), 10 * 60 * 1000);
+    return () => {
+      window.clearTimeout(timeout);
+      URL.revokeObjectURL(generatedReport.url);
+    };
+  }, [generatedReport]);
 
   const draftSettings = useMemo<NiAssemblySettings>(() => ({
     support: Object.fromEntries(data.parties.map((party) => [party.code, Math.max(0, Number(support[party.code]) || 0)])),
@@ -51,11 +66,52 @@ export default function NiAssemblyProjectionWorkspace({ data }: Props) {
     localVariation,
     iterations: ITERATIONS,
   }), [data.parties, support, candidateCounts, pollingUncertainty, localVariation]);
+  const presetBase: NiAssemblySettings = {
+    support: Object.fromEntries(data.parties.map((party) => [party.code, party.baselineShare])),
+    candidateCounts: defaultCandidateCounts(data),
+    pollingUncertainty: 2,
+    localVariation: 2,
+    iterations: ITERATIONS,
+  };
+  const presetWithSupport = (supportValues: Record<string, number>) => ({
+    ...presetBase,
+    support: Object.fromEntries(data.parties.map((party) => [party.code, supportValues[party.code] ?? 0])),
+  });
+  const scenarioPresets: ProjectionScenarioPreset[] = [
+    { id: "last-election", label: "Last election result · 2022", settings: presetBase as unknown as Record<string, unknown> },
+    { id: "most-recent-poll", label: `Most recent NI poll · ${supportPresets.mostRecentPoll.date}`, settings: presetWithSupport(supportPresets.mostRecentPoll.support) as unknown as Record<string, unknown> },
+    { id: "polling-aggregate", label: `Ireland Votes polling aggregate · ${supportPresets.pollingAggregate.date}`, settings: presetWithSupport(supportPresets.pollingAggregate.support) as unknown as Record<string, unknown> },
+  ];
   const draftSignature = `${PROJECTION_MODEL_REVISION}:${JSON.stringify(draftSettings)}`;
   const hasChanges = projection === null || appliedSignature !== draftSignature;
   const rangeAxisMaximum = projection
     ? Math.max(5, Math.ceil(Math.max(...projection.standings.flatMap((party) => [party.highSeats, party.baselineSeats])) * 1.12 / 5) * 5)
     : data.seats;
+  const distributionScopes: DistributionScope[] = [{ key: "all", label: "NI-wide" }, ...data.constituencies.map((item) => ({ key: item.name, label: item.name }))];
+  const partyDistributionSeries: DistributionSeries[] = projection ? data.parties.map((party) => {
+    const standing = projection.standings.find((item) => item.code === party.code);
+    const byScope: DistributionSeries["byScope"] = {
+      all: { expected: standing?.expectedSeats ?? 0, standardDeviation: standing?.seatStandardDeviation ?? 0, baseline: standing?.baselineSeats ?? 0, probabilities: standing?.seatCountProbabilities ?? [] },
+    };
+    projection.constituencies.forEach((area) => {
+      const result = area.parties.find((item) => item.code === party.code);
+      const historicElected = data.constituencies.find((item) => item.name === area.name)?.countHistory.at(-1)?.candidates
+        .filter((candidate) => candidate.party === party.code && candidate.status === "elected").length ?? 0;
+      byScope[area.name] = { expected: result?.expectedSeats ?? 0, standardDeviation: result?.seatStandardDeviation ?? 0, baseline: result?.baselineSeats ?? historicElected, probabilities: result?.seatCountProbabilities ?? [{ outcome: 0, probability: 100 }] };
+    });
+    return { key: party.code, label: party.name, color: party.color, byScope };
+  }) : [];
+  const communityDistributionSeries: DistributionSeries[] = projection ? projection.blocStandings.map((bloc) => {
+    const byScope: DistributionSeries["byScope"] = {
+      all: { expected: bloc.expectedSeats, standardDeviation: bloc.seatStandardDeviation, baseline: bloc.baselineSeats, probabilities: bloc.seatCountProbabilities },
+    };
+    projection.constituencies.forEach((area) => {
+      const result = area.blocOutcomes.find((item) => item.code === bloc.code);
+      byScope[area.name] = { expected: result?.expectedSeats ?? 0, standardDeviation: result?.seatStandardDeviation ?? 0, baseline: result?.baselineSeats ?? 0, probabilities: result?.seatCountProbabilities ?? [] };
+    });
+    const color = bloc.code === "Nationalist" ? "#14765f" : bloc.code === "Unionist" ? "#436fa8" : "#d49b22";
+    return { key: bloc.code, label: bloc.code, color, byScope };
+  }) : [];
   const selectedData = data.constituencies.find((constituency) => constituency.name === selectedCandidateConstituency);
   const transferAuditRows = [
     { eventType: "surplus", partyProfiles: data.transfers.surplus, blocProfiles: data.transfers.surplusByBloc },
@@ -82,6 +138,56 @@ export default function NiAssemblyProjectionWorkspace({ data }: Props) {
     setLocalVariation(2);
     setProjection(null);
     setAppliedSignature("");
+  }
+
+  function applyScenario(saved: Record<string, unknown>) {
+    const next = saved as unknown as NiAssemblySettings;
+    if (!next.support || !next.candidateCounts) return;
+    setSupport(Object.fromEntries(data.parties.map((party) => [party.code, String(next.support[party.code] ?? 0)])));
+    setCandidateCounts(next.candidateCounts);
+    setPollingUncertainty(next.pollingUncertainty ?? 2);
+    setLocalVariation(next.localVariation ?? 2);
+  }
+
+  async function downloadProjectionReport() {
+    if (!projection || hasChanges) return;
+    setIsExportingReport(true);
+    setReportExportError("");
+    setGeneratedReport(null);
+    try {
+      const [{ pdf }, { default: NiAssemblyProjectionPdf }] = await Promise.all([
+        import("@react-pdf/renderer"),
+        import("./NiAssemblyProjectionPdf"),
+      ]);
+      const logoResponse = await fetch("/landscape.png");
+      if (!logoResponse.ok) throw new Error("Could not load Ireland Votes logo.");
+      const logoBlob = await logoResponse.blob();
+      const logo = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => typeof reader.result === "string" ? resolve(reader.result) : reject(new Error("Could not read logo."));
+        reader.onerror = () => reject(new Error("Could not read logo."));
+        reader.readAsDataURL(logoBlob);
+      });
+      const reportDate = new Date().toLocaleDateString("en-IE", { dateStyle: "long" });
+      const document = createElement(NiAssemblyProjectionPdf, { data, projection, logo, reportDate, settings: draftSettings });
+      const blob = await pdf(document as unknown as Parameters<typeof pdf>[0]).toBlob();
+      const url = URL.createObjectURL(blob);
+      const filename = `confidential-projection-report-${new Date().toISOString().slice(0, 10)}.pdf`;
+      setGeneratedReport({ url, filename });
+      const anchor = window.document.createElement("a");
+      anchor.href = url;
+      anchor.download = filename;
+      anchor.style.position = "fixed";
+      anchor.style.left = "-10000px";
+      window.document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+    } catch (error) {
+      console.error("NI Assembly projection PDF export failed", error);
+      setReportExportError(`The Assembly PDF could not be generated${error instanceof Error ? `: ${error.message}` : ". Please try again."}`);
+    } finally {
+      setIsExportingReport(false);
+    }
   }
 
   return (
@@ -115,9 +221,13 @@ export default function NiAssemblyProjectionWorkspace({ data }: Props) {
               <span className="staff-projection-toolbar-label">Inputs</span>
               <span className="staff-nia-action-main"><svg className="staff-projection-action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 7.5A6 6 0 1 1 4 11M4.5 3.8v3.8h3.8" /></svg>Reset baseline</span><small>Restore 2022 inputs</small>
             </button>
+            <button type="button" className="staff-projection-report-button staff-projection-toolbar-action-button" onClick={downloadProjectionReport} disabled={!projection || hasChanges || isExportingReport} title={hasChanges ? "Run the edited scenario before downloading its report." : undefined}>
+              <span className="staff-projection-toolbar-label">Export</span><svg className="staff-projection-action-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 2.8h5.2L15.5 7v10.2H6zM11 2.8V7h4.5M10.7 9.5v5m-2-2 2 2 2-2" /></svg>{isExportingReport ? "Preparing PDF…" : "Download PDF report"}<small>{projection && !hasChanges ? "Full branded report" : "Run projection first"}</small>
+            </button>
           </div>
         </div>
       </section>
+      <ProjectionScenarioManager model="nia" settings={draftSettings as unknown as Record<string, unknown>} presets={scenarioPresets} onApply={applyScenario} />
 
       <div className="staff-projection-layout staff-nia-layout">
         <aside className="staff-nia-controls">
@@ -157,6 +267,8 @@ export default function NiAssemblyProjectionWorkspace({ data }: Props) {
         </aside>
 
         <section className="staff-projection-results staff-nia-results">
+          {reportExportError && <p className="staff-projection-export-error" role="alert">{reportExportError}</p>}
+          {generatedReport && <p className="staff-projection-report-ready" role="status">Your PDF is ready. If the download did not start, <a href={generatedReport.url} download={generatedReport.filename}>download the report here</a>.</p>}
           {projection && hasChanges && <p className="staff-projection-pending-note" role="status">Showing the last run. Press <strong>Update projection</strong> to apply your draft settings.</p>}
           {projection && <>
             <section className="staff-projection-result-card staff-projection-standings-card staff-nia-standings-card" aria-labelledby="nia-seats-heading">
@@ -170,12 +282,22 @@ export default function NiAssemblyProjectionWorkspace({ data }: Props) {
                     <div className="staff-projection-standing-label"><strong>{party.name}</strong></div>
                     <div className="staff-projection-standing-metrics">
                       <div className="staff-projection-standing-seatmetric"><strong style={{ backgroundColor: party.color, color: textColorForPartyColor(party.color) }}>{row.topFiveSeats}</strong><small>Seats</small></div>
-                      <div className="staff-projection-standing-votemetric"><strong>{Number(support[row.code] ?? 0).toFixed(1)}%</strong><small>FPV</small></div>
+                      <div className="staff-projection-standing-votemetric"><strong>{row.projectedShare.toFixed(1)}%</strong><small>FPV · {row.shareChange >= 0 ? "+" : ""}{row.shareChange.toFixed(1)}pp</small></div>
                     </div>
+                    <small className={`staff-projection-change${row.seatChange > 0.05 ? " is-gain" : row.seatChange < -0.05 ? " is-loss" : ""}`}>Δ {row.seatChange >= 0 ? "+" : ""}{row.seatChange.toFixed(1)} seats vs 2022</small>
                   </div>;
                 })}
               </div>
             </section>
+
+            <section className="staff-projection-result-card staff-projection-bloc-outlook-card" aria-labelledby="nia-blocs-heading">
+              <div className="staff-projection-section-heading"><div><p className="staff-eyebrow">BLOC OUTLOOK</p><h2 id="nia-blocs-heading">First-preference support</h2></div><span>Change vs 2022</span></div>
+              <div className="staff-projection-bloc-outlook">{projection.blocStandings.map((bloc) => <article key={bloc.code}>
+                <header>{bloc.code}</header><div><span>FPV <strong>{bloc.share.toFixed(1)}%</strong></span><span>Δ <strong className={bloc.shareChange > 0.05 ? "staff-projection-change is-gain" : bloc.shareChange < -0.05 ? "staff-projection-change is-loss" : "staff-projection-change"}>{bloc.shareChange >= 0 ? "+" : ""}{bloc.shareChange.toFixed(1)}pp</strong></span><span>2022 <strong>{bloc.baselineShare.toFixed(1)}%</strong></span></div>
+              </article>)}</div>
+            </section>
+
+            <ProjectionDistributionCharts partySeries={partyDistributionSeries} communitySeries={communityDistributionSeries} scopes={distributionScopes} />
 
             <section className="staff-projection-result-card staff-nia-map-card" aria-labelledby="nia-map-heading">
               <div className="staff-projection-section-heading"><div><p className="staff-eyebrow">GEOGRAPHIC VIEW</p><h2 id="nia-map-heading">Mean vote-share leaders</h2></div><span>Party with highest simulated mean first-preference share</span></div>
@@ -191,7 +313,7 @@ export default function NiAssemblyProjectionWorkspace({ data }: Props) {
                 return <div className="staff-projection-range-row staff-nia-range-row" key={row.code} role="img" aria-label={`${party.name}: median ${row.medianSeats} seats, middle 80 percent range ${row.lowSeats} to ${row.highSeats}, 2022 baseline ${row.baselineSeats}, ${row.largestPartyProbability.toFixed(1)} percent chance of most seats`}>
                   <span className="staff-projection-range-name"><i style={{ backgroundColor: party.color }} />{party.code}</span>
                   <span className="staff-projection-range-track"><i className="staff-projection-range-baseline" style={{ left: `${row.baselineSeats / rangeAxisMaximum * 100}%` }} /><i className="staff-projection-range-band" style={{ left: `${row.lowSeats / rangeAxisMaximum * 100}%`, width: `${Math.max(0.4, (row.highSeats - row.lowSeats) / rangeAxisMaximum * 100)}%`, backgroundColor: party.color }} /><i className="staff-projection-range-median" style={{ left: `${row.medianSeats / rangeAxisMaximum * 100}%`, borderColor: party.color }} /></span>
-                  <span className="staff-projection-range-value">{row.medianSeats}<small> ({row.lowSeats}–{row.highSeats})</small></span>
+                  <span className="staff-projection-range-value">{row.medianSeats}<small> ({row.lowSeats}–{row.highSeats})</small><small>Δ {row.seatChange >= 0 ? "+" : ""}{row.seatChange.toFixed(1)}</small></span>
                   <span className="staff-projection-leader-chance">{row.largestPartyProbability.toFixed(1)}% most seats</span>
                 </div>;
               })}</div>
@@ -229,7 +351,6 @@ export default function NiAssemblyProjectionWorkspace({ data }: Props) {
                     <button type="button" className="staff-projection-constituency-summary staff-nia-constituency-summary" onClick={() => setSelectedConstituency((current) => current === constituency.name ? "all" : constituency.name)} aria-expanded={selectedConstituency === constituency.name}>
                       <span className="staff-projection-constituency-name"><strong>{constituency.name}</strong><small>{constituency.seats} seats · Droop quota {constituency.quota.toLocaleString()}</small></span>
                       <span className="staff-projection-winner"><span><i style={{ backgroundColor: leaderParty?.color ?? "#7a8589" }} />{constituency.leadingParty || "—"}</span><strong>{(constituency.leadingPartyProbability[constituency.leadingParty] ?? 0).toFixed(1)}%<small>chance to lead</small></strong></span>
-                      <span className="staff-nia-constituency-topline">{topFivePartyGroups.length ? `Top five: ${topFivePartyGroups.map(({ party, candidates }) => `${party.code} ${candidates.length}`).join(" | ")}` : "No projected candidates"}</span>
                       <span className="staff-projection-win-bar staff-nia-topfive-bar" role="img" aria-label={`Top-five candidate picks grouped by party: ${topFivePartyGroups.map(({ party, candidates }) => `${party.name} ${candidates.length}`).join(", ")}`}>
   {topFivePartyGroups.flatMap(({ party, candidates }) => candidates.map((candidate, index) => <i key={`${party.code}-${candidate.candidate.name}`} title={`${party.name} - ${candidate.candidate.name}: seat ${index + 1} in its party group; ${candidate.probability.toFixed(1)}% election probability`} style={{ backgroundColor: party.color }} />))}
 </span>
@@ -237,31 +358,38 @@ export default function NiAssemblyProjectionWorkspace({ data }: Props) {
                     {selectedConstituency === constituency.name && <div className="staff-projection-constituency-detail">
                       <section className="staff-nia-party-share" aria-label="Projected party vote shares">
                         <h3>Projected party first-preference share</h3>
-                        <p>Mean share across all {projection.iterations.toLocaleString()} simulations; the range shows the middle 80% of simulated outcomes.</p>
+                        <p>Simulated mean first-preference share and its 80% range. Changes compare with 2022 in this constituency.</p>
                         <div className="staff-nia-party-share-grid">
                           {[...constituency.parties].sort((a, b) => b.firstPreferenceShare - a.firstPreferenceShare).map((partyResult) => {
                             const party = data.parties.find((item) => item.code === partyResult.code);
                             return <div className="staff-nia-party-share-row" key={partyResult.code}>
                               <span className="staff-nia-party-share-label"><i style={{ backgroundColor: party?.color ?? "#7a8589" }} /><strong>{partyResult.code}</strong><small>{party?.name ?? partyResult.code}</small></span>
                               <strong className="staff-nia-party-share-mean">{partyResult.firstPreferenceShare.toFixed(1)}%</strong>
-                              <small className="staff-nia-party-share-range">80% range {partyResult.firstPreferenceLow.toFixed(1)}–{partyResult.firstPreferenceHigh.toFixed(1)}%</small>
+                              <small className="staff-nia-party-share-range">2022 {partyResult.baselineShare.toFixed(1)}% · {partyResult.shareChange >= 0 ? "+" : ""}{partyResult.shareChange.toFixed(1)}pp · 80% range {partyResult.firstPreferenceLow.toFixed(1)}–{partyResult.firstPreferenceHigh.toFixed(1)}%</small>
                               <i className="staff-nia-party-share-bar"><b style={{ width: `${Math.max(0, Math.min(100, partyResult.firstPreferenceShare))}%`, backgroundColor: party?.color ?? "#7a8589" }} /></i>
                             </div>;
                           })}
                         </div>
+                      </section>
+                      <section className="staff-nia-party-share" aria-label="Constituency bloc balance">
+                        <h3>Bloc support and seat outcomes</h3>
+                        <p>Projected bloc support and seat totals; changes compare with the constituency’s 2022 result.</p>
+                        <div className="staff-projection-constituency-blocs">{constituency.blocOutcomes.map((bloc) => <div key={bloc.code}>
+                          <strong>{bloc.code}</strong><strong>{bloc.share.toFixed(1)}%</strong>
+                          <small>Δ {bloc.shareChange >= 0 ? "+" : ""}{bloc.shareChange.toFixed(1)}pp · 2022 {bloc.baselineShare.toFixed(1)}%</small>
+                        </div>)}</div>
                       </section>
                       <p className="staff-projection-help">Candidates are ranked by their simulated probability of election. Candidate first-preference estimates below show how each party's projected vote is split across its candidate slate.</p>
 <ol className="staff-nia-seat-chance-list" aria-label="Candidates ranked by probability of election">
   {candidateRankings.map(({ partyResult, party, candidate, probability, key }, rank) => <li className="staff-nia-seat-chance-item is-candidate" key={key}>
     <span className="staff-nia-seat-chance-rank">{rank + 1}</span>
     <span className="staff-nia-seat-chance-party"><i style={{ backgroundColor: party.color }} /><strong>{candidate.name}</strong><small>{party.code} - {party.name}</small></span>
-    <span className="staff-nia-seat-chance-label">Chance of election</span>
     <span className="staff-nia-seat-chance-share">{Math.round(candidate.meanFirstPreferences).toLocaleString()} candidate FP <small>({(candidate.meanFirstPreferences / constituency.validVotes * 100).toFixed(1)}%)</small></span>
     <span className="staff-nia-seat-chance-value"><strong>{probability.toFixed(1)}%</strong><i><b style={{ width: probability + "%", backgroundColor: party.color }} /></i></span>
   </li>)}
 </ol>
-<section className="staff-nia-candidate-audit" aria-label="Illustrative STV count">
-  <h3>Illustrative STV count - every count shown</h3>
+<details className="staff-nia-candidate-audit">
+  <summary>Illustrative STV count · show every count</summary>
   <p>Each cell gives the mean candidate tally across the simulated paths that reached that count number. Because the order of eliminations and elections varies between simulations, each heading shows the most common event at that count and how often it occurred. Count 1 is the mean first-preference vote total across all simulations.</p>
   <div className="staff-nia-count-audit-wrap">
     <table className="staff-nia-count-audit">
@@ -280,7 +408,7 @@ export default function NiAssemblyProjectionWorkspace({ data }: Props) {
       })}</tbody>
     </table>
   </div>
-</section>
+</details>
                     </div>}
                   </article>;
                 })}
@@ -292,7 +420,7 @@ export default function NiAssemblyProjectionWorkspace({ data }: Props) {
 
       <details className="staff-nia-methodology">
         <summary>Method and data limitations</summary>
-        <div><p>The map and constituency names use the 2024 House of Commons boundaries, including Belfast South and Mid Down. Assembly count history is sourced from the 2017 and 2022 elections, contested on earlier boundaries. Constituency Assembly history cannot be exactly reassigned to the new lines from aggregate returns, so the boundary change is represented by a proxy rather than a ward-level reallocation.</p><p>The model uses a bloc-first local adjustment. It estimates local-to-national strength ratios separately for Nationalist, Unionist and Non-aligned support, then estimates each party’s relative performance within its bloc. The weighted historical sources are 2024 House of Commons results (35%), 2022 Assembly results (45%) and 2017 Assembly results (20%). Missing party history in a cycle contributes a neutral ratio of 1.0 instead of rescaling the available cycles, so one sparse result cannot carry the full historical weight. In each simulation, entered NI-wide party support is grouped into blocs; local bloc ratios adjust those totals, then within-bloc party ratios distribute local bloc support among parties contesting the constituency. The 2024 Westminster result supplies a current-boundary signal, with limited weight because it used a different election and electoral system. National polling uncertainty uses a non-negative, mean-preserving distribution so clipping small party shares at zero does not raise their simulated average.</p><p>Each simulation splits each party’s projected first preferences among generic candidate slots, using the 2022 within-party first-preference shares where available. It then runs a candidate-level STV count using the Droop quota: candidates reaching quota are elected and transfer their surplus; otherwise the lowest candidate is eliminated and their votes are transferred. The candidate labels are generic (for example, SF Candidate 1), not historical candidate names. Party-level destination and retention profiles for transfers come from identifiable count transitions in the 2017 and 2022 Assembly returns. These profiles include observed gains by continuing candidates of the same party, but the transfer records are inferred from aggregate count changes rather than ballot-level preferences. Ambiguous and exhausted transfers remain a significant source of uncertainty.</p><p>Available Assembly data: {data.transferDiagnostics.events} usable transfer-source events across {data.transferDiagnostics.transitions} adjacent count transitions from {data.transferDiagnostics.years.join(" and ")}; {data.transferDiagnostics.unusableTransitions} transitions had zero or multiple identifiable transfer-source events and were excluded from transfer fitting. The candidate-level simulation has not yet been backtested against a held-out full election.</p></div>
+        <div><p>The map and constituency names use the 2024 House of Commons boundaries, including Belfast South and Mid Down. Assembly count history is sourced from the 2017 and 2022 elections, contested on earlier boundaries. Constituency Assembly history cannot be exactly reassigned to the new lines from aggregate returns, so the boundary change is represented by a proxy rather than a ward-level reallocation.</p><p>The model uses a bloc-first local adjustment. It estimates local-to-national strength ratios separately for Nationalist, Unionist and Non-aligned support, then estimates each party’s relative performance within its bloc. Historical sources are weighted 55% for 2022 Assembly, 30% for 2017 Assembly, and 15% for 2024 House of Commons. Westminster has less influence because it uses a different election and electoral system. Missing party history in a cycle contributes a neutral ratio of 1.0 rather than rescaling the available cycles. In each simulation, entered NI-wide party support is grouped into blocs; local bloc ratios adjust those totals, then within-bloc party ratios distribute local bloc support among parties contesting the constituency. National polling uncertainty uses a non-negative, mean-preserving distribution so clipping small party shares at zero does not raise their simulated average.</p><p>Each simulation splits each party’s projected first preferences among generic candidate slots, using the 2022 within-party first-preference shares where available. It then runs a candidate-level STV count using the Droop quota: candidates reaching quota are elected and transfer their surplus; otherwise the lowest candidate is eliminated and their votes are transferred. The candidate labels are generic (for example, SF Candidate 1), not historical candidate names. Party-level destination and retention profiles for transfers come from identifiable count transitions in the 2017 and 2022 Assembly returns. These profiles include observed gains by continuing candidates of the same party, but the transfer records are inferred from aggregate count changes rather than ballot-level preferences. Ambiguous and exhausted transfers remain a significant source of uncertainty.</p><p>Available Assembly data: {data.transferDiagnostics.events} usable transfer-source events across {data.transferDiagnostics.transitions} adjacent count transitions from {data.transferDiagnostics.years.join(" and ")}; {data.transferDiagnostics.unusableTransitions} transitions had zero or multiple identifiable transfer-source events and were excluded from transfer fitting. The candidate-level simulation has not yet been backtested against a held-out full election.</p></div>
       </details>
       <details className="staff-nia-methodology staff-nia-transfer-audit">
         <summary>Observed transfer profiles · 2017 and 2022</summary>

@@ -1,345 +1,167 @@
-import {
-  Document,
-  Font,
-  Image,
-  Page,
-  Path,
-  StyleSheet,
-  Svg,
-  Text,
-  View,
-} from "@react-pdf/renderer";
+import { Fragment } from "react";
+import { Document, Page, Path, Svg, Text, View } from "@react-pdf/renderer";
 import type { SeatProjectionBaseline, SeatProjectionConstituency } from "@/lib/staff/seatProjectionData";
 import { PROJECTION_BLOCS, type ProjectionBloc } from "@/lib/staff/projectionBlocs";
+import { PDF_COLORS as C, PDF_STYLES as S, PdfAcronymIndex, PdfChrome, PdfClosingPage, PdfConstituencyHeading, PdfContentsPage, PdfCoverPage, PdfDistributionChart, PdfFrontMatterChrome, PdfNoticePage, PdfSectionDivider, PdfSectionIntro, PdfTable } from "./ProjectionPdfKit";
 
-Font.register({
-  family: "Averta",
-  fonts: [
-    { src: "/fonts/AvertaPdf-Regular.ttf", fontWeight: 400 },
-    { src: "/fonts/AvertaPdf-Semibold.ttf", fontWeight: 600 },
-    { src: "/fonts/AvertaPdf-Bold.ttf", fontWeight: 700 },
-  ],
-});
-
+type Probability = { outcome: number; probability: number };
 type ProjectedSeat = SeatProjectionConstituency & {
-  projected: Array<{ code: string; share: number }>;
-  winner: string;
-  runnerUp: string;
-  margin: number;
-  winProbability: Record<string, number>;
+  projected: Array<{ code: string; share: number; shareStandardDeviation: number; baselineShare: number; shareChange: number }>;
+  winner: string; runnerUp: string; margin: number; winProbability: Record<string, number>;
   projectedBlocShares: Record<ProjectionBloc, number>;
+  blocOutcomes: Array<{ code: ProjectionBloc; share: number; shareStandardDeviation: number; baselineShare: number; shareChange: number; expectedSeats: number; seatStandardDeviation: number; baselineSeats: number; seatCountProbabilities: Probability[] }>;
 };
-
-type ProjectionReport = {
-  constituencies: ProjectedSeat[];
-  iterations: number;
-  standings: Array<{
-    code: string;
-    name: string;
-    color: string;
-    projectedShare: number;
-    seats: number;
-    medianSeats: number;
-    lowSeats: number;
-    highSeats: number;
-    largestPartyProbability: number;
-  }>;
-};
-
-type InterBlocTacticalVoting = {
-  nationalistToNonAligned: number;
-  nonAlignedToNationalist: number;
-  unionistToNonAligned: number;
-  nonAlignedToUnionist: number;
-};
+type Standing = { code: string; name: string; color: string; projectedShare: number; seats: number; medianSeats: number; lowSeats: number; highSeats: number; largestPartyProbability: number; expectedSeats: number; seatStandardDeviation: number; seatChange: number; shareChange: number; projectedShareStandardDeviation: number; seatCountProbabilities: Probability[] };
+type ProjectionReport = { constituencies: ProjectedSeat[]; iterations: number; standings: Standing[]; blocStandings: Array<{ code: ProjectionBloc; share: number; shareStandardDeviation: number; baselineShare: number; shareChange: number; expectedSeats: number; seatStandardDeviation: number; baselineSeats: number; seatCountProbabilities: Probability[] }> };
+type InterBlocTacticalVoting = { nationalistToNonAligned: number; nonAlignedToNationalist: number; unionistToNonAligned: number; nonAlignedToUnionist: number };
 
 export type SeatProjectionPdfProps = {
-  data: SeatProjectionBaseline;
-  projection: ProjectionReport;
-  support: Record<string, string>;
-  reportDate: string;
-  logoSrc: string;
-  pollError: number;
-  localVariation: number;
-  previousResultWeight: number;
-  tacticalVoting: Record<ProjectionBloc, number>;
-  interBlocTacticalVoting: InterBlocTacticalVoting;
+  data: SeatProjectionBaseline; projection: ProjectionReport; support: Record<string, string>; reportDate: string; logoSrc: string;
+  pollError: number; localVariation: number; previousResultWeight: number;
+  tacticalVoting: Record<ProjectionBloc, number>; interBlocTacticalVoting: InterBlocTacticalVoting;
 };
 
-const colors = {
-  ink: "#172326",
-  ink2: "#26383c",
-  muted: "#607176",
-  faint: "#edf3f4",
-  line: "#d8e2e4",
-  cyan: "#00b9c7",
-  cyanPale: "#e8f8f9",
-  white: "#ffffff",
-};
-
-const styles = StyleSheet.create({
-  page: { paddingTop: 63, paddingBottom: 48, paddingHorizontal: 38, color: colors.ink, fontFamily: "Averta", fontSize: 9 },
-  header: { position: "absolute", top: 0, left: 0, right: 0, height: 45, paddingHorizontal: 38, backgroundColor: colors.ink, flexDirection: "row", alignItems: "center", justifyContent: "space-between" },
-  headerLogo: { width: 108, height: 32, objectFit: "contain", objectPosition: "left center" },
-  headerSection: { color: "#b9c9cb", fontSize: 7, letterSpacing: 1.1, textTransform: "uppercase" },
-  headerRule: { position: "absolute", top: 45, left: 0, right: 0, height: 3, backgroundColor: colors.cyan },
-  footer: { position: "absolute", left: 38, right: 38, bottom: 18, flexDirection: "row", justifyContent: "space-between", alignItems: "center", borderTopWidth: 1, borderTopColor: colors.line, paddingTop: 7 },
-  footerText: { color: "#7b898d", fontSize: 7, letterSpacing: 0.6 },
-  pageNumber: { color: colors.ink2, fontSize: 8, fontWeight: 700 },
-  eyebrow: { marginBottom: 5, color: "#008d98", fontSize: 7, fontWeight: 700, letterSpacing: 1.2, textTransform: "uppercase" },
-  title: { marginBottom: 7, color: colors.ink, fontSize: 25, fontWeight: 700, lineHeight: 1.08, letterSpacing: -0.6 },
-  subheading: { marginTop: 15, marginBottom: 6, color: colors.ink, fontSize: 11, fontWeight: 700 },
-  compactHeading: { marginTop: 6, marginBottom: 3, fontSize: 9 },
-  body: { color: colors.muted, fontSize: 8.3, lineHeight: 1.48 },
-  cover: { padding: 44, color: colors.white, backgroundColor: colors.ink, justifyContent: "space-between", fontFamily: "Averta" },
-  coverTop: { flexDirection: "row", justifyContent: "space-between", alignItems: "center" },
-  coverLogo: { width: 150, height: 52, objectFit: "contain", objectPosition: "left center" },
-  coverTag: { paddingVertical: 7, paddingHorizontal: 10, borderRadius: 12, color: "#9ce8eb", backgroundColor: "#26383c", fontSize: 7, fontWeight: 700, letterSpacing: 0.8 },
-  coverMain: { marginTop: 55 },
-  coverEyebrow: { marginBottom: 15, color: "#71dce1", fontSize: 8, fontWeight: 700, letterSpacing: 1.8, textTransform: "uppercase" },
-  coverTitle: { maxWidth: 480, color: colors.white, fontSize: 38, fontWeight: 700, lineHeight: 1.02, letterSpacing: -1.2 },
-  coverDeck: { maxWidth: 440, marginTop: 15, color: "#c5d1d3", fontSize: 12, lineHeight: 1.5 },
-  coverAccent: { width: 95, height: 4, marginTop: 24, backgroundColor: colors.cyan },
-  coverFacts: { flexDirection: "row", gap: 9, marginTop: 28 },
-  coverFact: { flexGrow: 1, flexBasis: 0, padding: 12, borderWidth: 1, borderColor: "#425256", borderRadius: 5, backgroundColor: "#202f32" },
-  coverFactLabel: { color: "#adbec0", fontSize: 7 },
-  coverFactValue: { marginTop: 5, color: colors.white, fontSize: 12, fontWeight: 700 },
-  coverBottom: { flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end", borderTopWidth: 1, borderTopColor: "#425256", paddingTop: 12 },
-  coverDisclaimer: { color: "#a7b8ba", fontSize: 8 },
-  coverDate: { color: "#d5e0e1", fontSize: 8 },
-  metricRow: { flexDirection: "row", gap: 7, marginTop: 10, marginBottom: 10 },
-  metric: { flexGrow: 1, flexBasis: 0, padding: 9, borderWidth: 1, borderColor: colors.line, borderRadius: 4, backgroundColor: "#f6f9fa" },
-  metricLabel: { color: colors.muted, fontSize: 7 },
-  metricValue: { marginTop: 4, color: colors.ink, fontSize: 13, fontWeight: 700 },
-  mapColumn: { width: "100%", alignItems: "center" },
-  map: { width: 150, height: 185 },
-  mapLegend: { flexDirection: "row", flexWrap: "wrap", justifyContent: "center", gap: 6, marginTop: 4 },
-  legendItem: { flexDirection: "row", alignItems: "center", gap: 3 },
-  legendDot: { width: 6, height: 6, borderRadius: 2 },
-  legendText: { color: colors.muted, fontSize: 6.5, fontWeight: 700 },
-  table: { width: "100%", marginTop: 5, borderWidth: 1, borderColor: colors.line, borderRadius: 3 },
-  tableRow: { minHeight: 20, flexDirection: "row", alignItems: "center", borderBottomWidth: 0.5, borderBottomColor: colors.line },
-  compactRow: { minHeight: 14 },
-  tableHead: { minHeight: 25, backgroundColor: colors.ink2 },
-  tableCell: { minWidth: 0, flexShrink: 1, paddingVertical: 3, paddingHorizontal: 4, color: colors.ink2, fontSize: 7 },
-  compactCell: { paddingVertical: 1.5, paddingHorizontal: 3, fontSize: 6.5 },
-  tableHeadCell: { color: colors.white, fontSize: 6.5, fontWeight: 700 },
-  tableParty: { flexDirection: "row", alignItems: "center", gap: 4 },
-  partyDot: { width: 6, height: 6, borderRadius: 2 },
-  inputGrid: { flexDirection: "row", flexWrap: "wrap", gap: 5, marginTop: 5 },
-  inputChip: { minWidth: 72, flexDirection: "row", justifyContent: "space-between", gap: 7, paddingVertical: 5, paddingHorizontal: 6, borderWidth: 1, borderColor: colors.line, borderRadius: 3, backgroundColor: colors.white },
-  inputLabel: { color: colors.muted, fontSize: 7 },
-  inputValue: { color: colors.ink, fontSize: 7, fontWeight: 700 },
-  note: { marginTop: 10, padding: 9, borderLeftWidth: 3, borderLeftColor: colors.cyan, backgroundColor: colors.cyanPale },
-  sectionBlock: { marginBottom: 4 },
-  winnerPanel: { marginTop: 8, paddingVertical: 11, paddingHorizontal: 13, borderLeftWidth: 4, borderRadius: 3, backgroundColor: colors.ink },
-  winnerLabel: { color: "#b8c8ca", fontSize: 7, textTransform: "uppercase", letterSpacing: 0.8 },
-  winnerName: { marginTop: 4, color: colors.white, fontSize: 19, fontWeight: 700 },
-  winnerChance: { marginTop: 4, color: "#70dce1", fontSize: 8, fontWeight: 700 },
-  seatMetrics: { flexDirection: "row", gap: 7, marginVertical: 5 },
-  seatMetric: { flexGrow: 1, flexBasis: 0, padding: 8, borderWidth: 1, borderColor: colors.line, borderRadius: 3, backgroundColor: "#f6f9fa" },
-  seatMetricLabel: { color: colors.muted, fontSize: 6.5, textTransform: "uppercase", letterSpacing: 0.5 },
-  seatMetricValue: { marginTop: 3, color: colors.ink, fontSize: 10, fontWeight: 700 },
-});
-
-function Header({ logoSrc, section }: { logoSrc: string; section: string }) {
-  return <><View fixed style={styles.header}><Image src={logoSrc} style={styles.headerLogo} /><Text style={styles.headerSection}>{section}</Text></View><View fixed style={styles.headerRule} /></>;
-}
-
-function Footer({ reportDate }: { reportDate: string }) {
-  return <View fixed style={styles.footer}><Text style={styles.footerText}>IRELAND VOTES · SCENARIO ESTIMATE · {reportDate}</Text><Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => `${pageNumber} / ${totalPages}`} /></View>;
-}
-
-function ReportTable({
-  headers,
-  rows,
-  widths,
-  compact = false,
-}: {
-  headers: string[];
-  rows: Array<Array<string | { text: string; color?: string }>>;
-  widths: string[];
-  compact?: boolean;
-}) {
-  return (
-    <View style={styles.table}>
-      <View style={[styles.tableRow, styles.tableHead]}>
-        {headers.map((header, index) => <Text key={header} style={[styles.tableCell, styles.tableHeadCell, compact ? styles.compactCell : {}, { width: widths[index] }]}>{header}</Text>)}
-      </View>
-      {rows.map((row, rowIndex) => (
-        <View key={rowIndex} wrap={false} style={[styles.tableRow, compact ? styles.compactRow : {}, rowIndex % 2 === 1 ? { backgroundColor: "#f5f8f9" } : {}]}>
-          {row.map((cell, cellIndex) => (
-            <View key={cellIndex} style={[styles.tableCell, compact ? styles.compactCell : {}, { width: widths[cellIndex] }]}>
-              {typeof cell === "string" ? <Text>{cell}</Text> : <View style={styles.tableParty}><View style={[styles.partyDot, { backgroundColor: cell.color ?? colors.cyan }]} /><Text>{cell.text}</Text></View>}
-            </View>
-          ))}
-        </View>
-      ))}
-    </View>
-  );
-}
-
-function blocShare(shares: Record<string, number>, bloc: ProjectionBloc, data: SeatProjectionBaseline) {
-  return data.parties.reduce((sum, party) => sum + (party.bloc === bloc ? shares[party.code] ?? 0 : 0), 0);
-}
-
-export default function SeatProjectionPdf(props: SeatProjectionPdfProps) {
-  const { data, projection, support, reportDate, logoSrc, pollError, localVariation, previousResultWeight, tacticalVoting, interBlocTacticalVoting } = props;
-  const totalSeats = projection.constituencies.reduce((sum, constituency) => sum + constituency.seats, 0);
-  const westminsterYears = (["2019", "2017", "2015"] as const).filter((year) => Number(year) < Number(data.baselineYear));
-  const assemblyYears = ["2022", "2017"] as const;
-  const activeCodes = new Set(projection.constituencies.flatMap((constituency) => constituency.projected.map((party) => party.code)));
+const blocColor: Record<ProjectionBloc, string> = { Nationalist: "#14765f", Unionist: "#436fa8", "Non-aligned": "#d49b22" };
+const pct = (value: number) => `${value.toFixed(1)}%`;
+const signed = (value: number, suffix = "pp") => `${value >= 0 ? "+" : ""}${value.toFixed(1)} ${suffix}`;
+const shownOutcomes = (items: Probability[]) => items.filter((item) => item.probability >= 0.1).map((item) => `${item.outcome}: ${item.probability.toFixed(1)}%`).join("  |  ") || "No material probability";
+const leadingOutcomes = (items: Probability[]) => items.slice().sort((a, b) => b.probability - a.probability).slice(0, 3).sort((a, b) => a.outcome - b.outcome).map((item) => `${item.outcome}: ${item.probability.toFixed(1)}%`).join("  |  ");
+const oneSeat = (probability: number): Probability[] => [{ outcome: 0, probability: 100 - probability }, { outcome: 1, probability }];
+export default function SeatProjectionPdf({ data, projection, support, reportDate, logoSrc, pollError, localVariation, previousResultWeight, tacticalVoting, interBlocTacticalVoting }: SeatProjectionPdfProps) {
   const partyByCode = new Map(data.parties.map((party) => [party.code, party]));
-  const seatRows = projection.standings.map((party) => [
-    { text: `${party.code} · ${party.name}`, color: party.color },
-    `${party.projectedShare.toFixed(1)}%`,
-    String(party.seats),
-    String(party.medianSeats),
-    `${party.lowSeats}–${party.highSeats}`,
-    `${party.largestPartyProbability.toFixed(1)}%`,
+  const totalSeats = projection.constituencies.reduce((sum, seat) => sum + seat.seats, 0);
+  const contestingSummary = data.parties.map((party) => ({ code: party.code, seats: projection.constituencies.filter((seat) => seat.contestantCodes.includes(party.code)).length })).filter((party) => party.seats > 0).map((party) => `${party.code} (${party.seats})`).join(", ");
+  const supportSummary = data.parties.filter((party) => Number(support[party.code]) > 0).map((party) => `${party.code} ${Number(support[party.code]).toFixed(1)}%`).join("  /  ") || "No positive party support entered";
+  const tacticalSummary = `Within blocs: Nationalist ${tacticalVoting.Nationalist}%, Unionist ${tacticalVoting.Unionist}%, Non-aligned ${tacticalVoting["Non-aligned"]}%. Across blocs: Nationalist to Non-aligned ${interBlocTacticalVoting.nationalistToNonAligned}%; Non-aligned to Nationalist ${interBlocTacticalVoting.nonAlignedToNationalist}%; Unionist to Non-aligned ${interBlocTacticalVoting.unionistToNonAligned}%; Non-aligned to Unionist ${interBlocTacticalVoting.nonAlignedToUnionist}%.`;
+  const inputRows = [
+    ["Selected baseline", `${data.electionLabel} (${data.baselineYear})`],
+    ["National party support", supportSummary],
+    ["Party slate", `${contestingSummary}. Defaults to the selected baseline's party slate; staff can edit inclusion by constituency.`],
+    ["Historical results", "Westminster 2019: 37.5%; 2017: 22.5%; 2015: 15%. Assembly 2022: 17.5%; 2017: 7.5%. Later data is excluded from historical inputs."],
+    ["Tactical settings", tacticalSummary],
+    ["Uncertainty and simulations", `Polling uncertainty ${pollError.toFixed(1)} points; local variation ${localVariation.toFixed(1)} points; historical swing influence ${previousResultWeight}%; ${projection.iterations.toLocaleString()} simulations.`],
+  ];
+  const assumptionRows = [
+    ["Candidate selection", "The last election's candidate slate is the starting point. Each included party has one candidate in a constituency. Named candidate effects and changes in candidate quality are not modelled; actual candidate selections can materially change the result."],
+    ["Local history", "Past constituency results are used as evidence of how local bloc and party support differs from national support. These patterns are assumed to remain informative after national support changes."],
+    ["Backtest interpretation", data.baselineYear === "2019" ? "If the scenario uses actual 2024 national shares, treat it as a diagnostic rather than a blind backtest. 2024 constituency outcomes are excluded from model fitting." : "The current 2024 mode uses observed 2024 constituency results as local baseline evidence."],
+    ["Tactical movement", "Nationalist and Unionist voters do not transfer directly to one another. Cross-bloc movement is allowed only between either of those blocs and Non-aligned, and only in close contests."],
+    ["Boundaries and data", "Historical Assembly and Westminster elections use different electoral systems and, in some cases, different boundaries. Older results are informative proxies rather than exact current-boundary returns."],
+  ];
+  const partyOutlook = projection.standings.filter((item) => {
+    const party = partyByCode.get(item.code);
+    return (party?.baselineShare ?? 0) > 1 || (party?.baselineSeats ?? 0) > 0 || item.seats > 0;
+  });
+  const partyCharts = partyOutlook.map((item) => ({ title: item.code, color: item.color, mean: item.expectedSeats, standardDeviation: item.seatStandardDeviation, baseline: partyByCode.get(item.code)?.baselineSeats ?? 0, outcomes: item.seatCountProbabilities, maxOutcome: Math.max(1, ...item.seatCountProbabilities.map((x) => x.outcome)), coloredHeader: true }));
+  const blocCharts = projection.blocStandings.map((item) => ({ title: `${item.code} bloc`, color: blocColor[item.code], mean: item.expectedSeats, standardDeviation: item.seatStandardDeviation, baseline: item.baselineSeats, outcomes: item.seatCountProbabilities, maxOutcome: totalSeats, coloredHeader: true }));
+  const chartPages = Math.ceil(partyCharts.length / 3);
+  const constituencySectionPage = 6 + chartPages;
+  const acronymIndexPage = constituencySectionPage + 1 + projection.constituencies.length * 2;
+  const contents = [
+    { number: "01", title: "Overall picture", page: 1, topics: [{ label: "National estimates and constituency map", page: 2 }] },
+    { number: "02", title: "Parties and blocs", page: 3, topics: [{ label: "Party and bloc seat outlook", page: 4 }, { label: "Party seat distributions", page: 5 }, { label: "Community seat distributions", page: 5 + chartPages }] },
+    { number: "03", title: "Constituencies", page: constituencySectionPage, topics: [], entries: projection.constituencies.map((item, index) => ({ label: item.name, page: constituencySectionPage + 1 + index * 2 })) },
+    { number: "04", title: "Party acronym index", page: acronymIndexPage, topics: [] },
+  ];
+  const partyRows = partyOutlook.map((item) => [
+    { text: item.code, color: item.color },
+    `${pct(item.projectedShare)}  +/- ${item.projectedShareStandardDeviation.toFixed(1)}pp`,
+    signed(item.shareChange),
+    `${item.expectedSeats.toFixed(1)} +/- ${item.seatStandardDeviation.toFixed(1)}`,
+    `${item.seats} modal  /  ${item.lowSeats}-${item.highSeats} middle 80%`,
+    leadingOutcomes(item.seatCountProbabilities),
+  ]);
+  const blocRows = projection.blocStandings.map((item) => [
+    { text: item.code, color: blocColor[item.code] }, `${pct(item.share)} +/- ${item.shareStandardDeviation.toFixed(1)}pp`, signed(item.shareChange),
+    `${item.expectedSeats.toFixed(1)} +/- ${item.seatStandardDeviation.toFixed(1)}`, `${item.baselineSeats} seats  /  ${pct(item.baselineShare)}`, leadingOutcomes(item.seatCountProbabilities),
   ]);
 
-  return (
-    <Document title="Ireland Votes · Northern Ireland Westminster seat projection" author="Ireland Votes" subject="Constituency seat projection scenario">
-      <Page size="A4" style={styles.cover}>
-        <View style={styles.coverTop}><Image src={logoSrc} style={styles.coverLogo} /><Text style={styles.coverTag}>ELECTORAL ANALYSIS</Text></View>
-        <View style={styles.coverMain}>
-          <Text style={styles.coverEyebrow}>Northern Ireland · Westminster</Text>
-          <Text style={styles.coverTitle}>Seat projection report</Text>
-          <Text style={styles.coverDeck}>A constituency-by-constituency scenario for projected vote share, seat outcomes and estimated win probabilities.</Text>
-          <View style={styles.coverAccent} />
-          <View style={styles.coverFacts}>
-            <View style={styles.coverFact}><Text style={styles.coverFactLabel}>CONSTITUENCIES</Text><Text style={styles.coverFactValue}>{data.constituencies.length}</Text></View>
-            <View style={styles.coverFact}><Text style={styles.coverFactLabel}>PROJECTED SEATS</Text><Text style={styles.coverFactValue}>{totalSeats}</Text></View>
-            <View style={styles.coverFact}><Text style={styles.coverFactLabel}>SIMULATION RUNS</Text><Text style={styles.coverFactValue}>{projection.iterations.toLocaleString()}</Text></View>
+  return <Document title="Confidential Projection Report" author="Ireland Votes" subject="Confidential constituency projection scenario">
+    <PdfCoverPage logo={logoSrc} date={reportDate} />
+    <PdfNoticePage logo={logoSrc} label="Confidentiality" eyebrow="DISTRIBUTION NOTICE" title="Confidential" accent={C.cyan} body={["This report contains confidential Ireland Votes analysis, model outputs, scenario settings and working estimates. It is prepared for the intended recipient and for internal Ireland Votes use only.", "Please do not forward, publish, quote, reproduce or otherwise share this report outside Ireland Votes unless Ireland Votes has expressly permitted that use. Do not treat its contents as public polling or an official forecast. The recipient is responsible for keeping copies and extracts secure.", "If you received this report in error, please do not use or distribute it. Contact Ireland Votes and delete the report and any copies. Questions about permitted use or attribution should be directed to Ireland Votes before circulation."]}/>
+    <Page size="A4" style={S.frontMatterPage}><PdfFrontMatterChrome logo={logoSrc} label="Methodology  /  II"/><Text style={S.title}>How constituency estimates are formed</Text>
+      <Text style={S.deck}>Each constituency estimate combines the national support scenario with a record of how parties and communities have performed locally. The model then applies the configured movement and uncertainty assumptions across repeated simulations.</Text>
+      <PdfSectionIntro number="01" title="National support and community structure"/><Text style={S.deck}>Party support is normalized to 100% and grouped into Nationalist, Unionist and Non-aligned blocs. The selected baseline determines which historical results are eligible. In current 2024 mode, observed constituency bloc composition anchors the local starting point. In 2019 backtest mode, local fundamentals use only elections available before the 2024 result.</Text>
+      <PdfSectionIntro number="02" title="Local electoral history"/><Text style={S.deck}>Historical results show how each bloc performed in a constituency relative to its NI-wide performance, and how each party performed locally within its bloc. These local-strength multipliers are combined across eligible cycles and applied to the scenario support; the model does not add a fixed number of points. Westminster evidence is weighted at 2019: 37.5%, 2017: 22.5% and 2015: 15%. Assembly evidence is weighted at 2022: 17.5% and 2017: 7.5%. The electoral systems remain distinct, and evidence is reduced where a party contested fewer constituencies.</Text>
+      <PdfSectionIntro number="03" title="Tactical movement and uncertainty"/><Text style={S.deck}>Configured tactical movement can consolidate support within a bloc. Cross-community movement is allowed between Nationalist and Non-aligned, or Unionist and Non-aligned, only when the receiving bloc is a close challenger. Nationalist and Unionist voters do not move directly between those blocs. Each run includes {projection.iterations.toLocaleString()} simulations. Polling uncertainty ({pollError.toFixed(1)} points), local variation ({localVariation.toFixed(1)} points) and historical swing influence ({previousResultWeight}%) vary the estimated outcomes. Expected seats are simulation means; modal seats record each constituency's most frequent winner. Standard deviations and seat-count distributions describe spread, while win probabilities remain conditional model outputs rather than calibrated real-world odds.</Text>
+    </Page>
+    <Page size="A4" style={S.frontMatterPage}><PdfFrontMatterChrome logo={logoSrc} label="Inputs and assumptions  /  III"/><Text style={S.title}>Inputs and assumptions</Text>
+      <PdfSectionIntro number="01" title="Inputs used in this run"/><PdfTable headers={["Input", "Value used"]} widths={["25%", "75%"]} rows={inputRows} justify />
+      <View style={{ marginTop: 16 }}><PdfSectionIntro number="02" title="Assumptions and limitations"/><PdfTable headers={["Assumption", "How it affects the estimate"]} widths={["25%", "75%"]} rows={assumptionRows} justify /></View>
+      <View style={{ marginTop: 16 }}><PdfSectionIntro number="03" title="Reading the estimates"/><Text style={S.deck}>This is a conditional scenario analysis, not an official forecast. Results depend on the support, historical evidence, tactical settings and candidate slate shown here. The last election's candidate selection is the starting baseline; future candidate selections, candidate quality, turnout, campaign events and voter behaviour may differ and materially change the result. Win probabilities and standard deviations describe the model's simulations and are not calibrated real-world odds or guarantees.</Text></View>
+      {data.baselineYear === "2019" && <Text style={[S.noteText, { marginTop: 8 }]}>Backtest note: using actual 2024 national shares is a held-out diagnostic, not a blind forecast. 2024 constituency outcomes remain excluded from model fitting.</Text>}
+    </Page>
+    <PdfContentsPage logo={logoSrc} sections={contents} />
+    <PdfSectionDivider logo={logoSrc} date={reportDate} number="01" title="Overall picture" deck="Headline seat estimates, geographic pattern and the scenario inputs behind this projection." />
+    <Page size="A4" style={S.page}><PdfChrome logo={logoSrc} label="01  /  OVERALL PICTURE" date={reportDate}/><Text style={S.title}>The overall picture</Text>
+      <View style={{ alignItems: "center", marginBottom: 5 }}><Svg width={145} height={180} viewBox="0 0 420 520">{data.mapFeatures.map((feature) => { const constituency = projection.constituencies.find((seat) => seat.name === feature.name); return <Path key={feature.name} d={feature.path} fill={partyByCode.get(constituency?.winner ?? "")?.color ?? "#dce5e7"} stroke="#ffffff" strokeWidth={2}/>; })}</Svg></View>
+      <PdfTable headers={["Party", "Mean FPV +/- SD", "Change", "Mean seats +/- SD", "Modal / range", "Most likely totals"]} widths={["17%", "16%", "10%", "16%", "16%", "25%"]} rows={partyRows} compact />
+      <View style={S.note}><Text style={S.noteText}>Scenario estimates are conditional on the inputs and assumptions shown in this report. Probabilities and standard deviations describe this model’s simulations; they are not calibrated guarantees of electoral outcomes.</Text></View>
+    </Page>
+
+    <PdfSectionDivider logo={logoSrc} date={reportDate} number="02" title="Parties and blocs" deck="How national support translates into seat outcomes, with probability distributions for parties and communities." />
+    <Page size="A4" style={S.page}><PdfChrome logo={logoSrc} label="02  /  PARTY AND BLOC OUTLOOK" date={reportDate}/><Text style={S.title}>Party and bloc outlook</Text>
+      <PdfSectionIntro number="01" title="Party seat movement" />
+      <PdfTable headers={["Party", "Mean FPV +/- SD", "Change vs baseline", "Mean seats +/- SD", "Modal / middle 80%", "Exact seat totals"]} widths={["17%", "16%", "14%", "16%", "16%", "21%"]} rows={partyRows} compact />
+      <View style={{ marginTop: 16 }}><PdfSectionIntro number="02" title="Bloc outlook" /></View>
+      <PdfTable headers={["Community", "Mean FPV +/- SD", "Change", "Mean seats +/- SD", "Baseline", "Most likely totals"]} widths={["16%", "18%", "12%", "18%", "16%", "20%"]} rows={blocRows} compact />
+      <View style={S.note}><Text style={S.noteText}>The party outlook includes parties above 1% in the baseline election, along with parties holding or projected to win seats. A standard deviation describes the spread of simulated outcomes; modal seats need not equal the mean.</Text></View>
+    </Page>
+    {Array.from({ length: chartPages }, (_, pageIndex) => <Page key={`national-party-distribution-${pageIndex}`} size="A4" style={S.page}><PdfChrome logo={logoSrc} label="02  /  PARTY DISTRIBUTIONS" date={reportDate}/><Text style={S.title}>Party distributions</Text>
+      <View style={{ gap: 12 }}>{partyCharts.slice(pageIndex * 3, pageIndex * 3 + 3).map((item, index) => <PdfDistributionChart key={`${item.title}-${index}`} {...item}/>)}</View>
+    </Page>)}
+    <Page size="A4" style={S.page}><PdfChrome logo={logoSrc} label="02  /  COMMUNITY DISTRIBUTIONS" date={reportDate}/><Text style={S.title}>Community distributions</Text><View style={{ gap: 12 }}>{blocCharts.map((item) => <PdfDistributionChart key={item.title} {...item}/>)}</View></Page>
+
+    <PdfSectionDivider logo={logoSrc} date={reportDate} number="03" title="Constituencies" deck="Projected vote shares, constituency fundamentals, bloc outlook and win probabilities for every seat." />
+    {projection.constituencies.map((constituency) => {
+      const shareLeaders = [...constituency.projected].sort((a, b) => b.share - a.share);
+      const topTwo = shareLeaders.slice(0, 2);
+      const otherParties = shareLeaders.slice(2);
+      const rows = constituency.projected.map((item) => {
+        const party = partyByCode.get(item.code);
+        return [{ text: item.code, color: party?.color }, `${pct(item.share)} +/- ${item.shareStandardDeviation.toFixed(1)}pp`, signed(item.shareChange), `${(constituency.winProbability[item.code] ?? 0).toFixed(1)}%`, `${(constituency.partyShares[item.code] ?? 0).toFixed(1)}%`];
+      });
+      const blocRowsLocal = constituency.blocOutcomes.map((item) => [{ text: item.code, color: blocColor[item.code] }, `${pct(item.share)} +/- ${item.shareStandardDeviation.toFixed(1)}pp`, signed(item.shareChange), `${item.expectedSeats.toFixed(2)} +/- ${item.seatStandardDeviation.toFixed(2)}`, shownOutcomes(item.seatCountProbabilities)]);
+      const historicalYears = ["2019", "2017", "2015"] as const;
+      const historyRows = constituency.projected.map((item) => [item.code, ...historicalYears.map((year) => constituency.historicalPartyShares[year][item.code] === undefined ? "—" : pct(constituency.historicalPartyShares[year][item.code])), ...(["2022", "2017"] as const).map((year) => pct(constituency.assemblyPartyShares[year][item.code] ?? 0))]);
+      return <Fragment key={constituency.name}>
+        <Page size="A4" style={S.page}>
+          <PdfChrome logo={logoSrc} label="03  /  CONSTITUENCIES" date={reportDate}/>
+          <PdfConstituencyHeading name={constituency.name} prominent />
+          <View style={{ marginTop: 8, marginBottom: 23, padding: 13, backgroundColor: C.ink }}>
+            <Text style={{ color: "#adbec0", fontSize: 6.5, letterSpacing: 0.9 }}>PROBABILITY OF WIN</Text>
+            <View style={{ marginTop: 8, flexDirection: "row", justifyContent: "space-between", alignItems: "stretch" }}>
+              {topTwo.map((party, index) => {
+                const probability = constituency.winProbability[party.code] ?? 0;
+                return <View key={party.code} style={{ width: "48%", alignItems: index === 0 ? "flex-start" : "flex-end", borderLeftWidth: index === 0 ? 3 : 0, borderRightWidth: index === 1 ? 3 : 0, borderLeftColor: partyByCode.get(party.code)?.color ?? C.cyan, borderRightColor: partyByCode.get(party.code)?.color ?? C.cyan, paddingLeft: index === 0 ? 8 : 0, paddingRight: index === 1 ? 8 : 0 }}>
+                  <Text style={{ color: C.white, fontSize: 18, fontWeight: 700, textAlign: index === 0 ? "left" : "right" }}>{party.code}</Text>
+                  <Text style={{ marginTop: 2, color: C.cyanLight, fontSize: 19, lineHeight: 1, fontWeight: 700 }}>{probability.toFixed(1)}%</Text>
+                  <Text style={{ marginTop: 3, color: "#b8c8ca", fontSize: 6.5 }}>{pct(party.share)} projected share</Text>
+                </View>;
+              })}
+            </View>
+            {otherParties.length > 0 && <Text style={{ marginTop: 8, color: "#c4d0d2", fontSize: 7, lineHeight: 1.4, textAlign: "center" }}>Other win chances: {otherParties.map((party) => `${party.code} ${(constituency.winProbability[party.code] ?? 0).toFixed(1)}%`).join("  ·  ")}</Text>}
+            <View style={{ height: 6, flexDirection: "row", overflow: "hidden", marginTop: 10, borderRadius: 2 }}>
+              {shareLeaders.filter((party) => party.share > 0).map((party) => <View key={party.code} style={{ width: `${party.share}%`, height: 6, backgroundColor: partyByCode.get(party.code)?.color ?? "#89999c" }} />)}
+            </View>
           </View>
-        </View>
-        <View style={styles.coverBottom}><Text style={styles.coverDisclaimer}>Scenario estimate · Not an official forecast</Text><Text style={styles.coverDate}>{reportDate}</Text></View>
-      </Page>
-
-      <Page size="A4" style={styles.page}>
-        <Header logoSrc={logoSrc} section="01 · Executive summary" /><Footer reportDate={reportDate} />
-        <Text style={styles.eyebrow}>01 / EXECUTIVE SUMMARY</Text>
-        <Text style={styles.title}>National projection</Text>
-        <Text style={styles.body}>The scenario inputs below are normalized to 100% for constituency projections. Modal seats assign each constituency to the party that wins the most simulations; ranges summarize the spread across simulations.</Text>
-        <View style={styles.metricRow}>
-          <View style={styles.metric}><Text style={styles.metricLabel}>BASELINE ELECTION</Text><Text style={styles.metricValue}>{data.electionLabel}</Text></View>
-          <View style={styles.metric}><Text style={styles.metricLabel}>SEATS IN SCOPE</Text><Text style={styles.metricValue}>{totalSeats}</Text></View>
-          <View style={styles.metric}><Text style={styles.metricLabel}>MODEL RUNS</Text><Text style={styles.metricValue}>{projection.iterations.toLocaleString()}</Text></View>
-        </View>
-        <Text style={styles.subheading}>Party outlook</Text>
-        <ReportTable headers={["Party", "Vote share", "Modal seats", "Median", "Middle 80%", "Most seats"]} widths={["31%", "15%", "14%", "12%", "15%", "13%"]} rows={seatRows} />
-        <Text style={styles.subheading}>Scenario inputs</Text>
-        <View style={styles.inputGrid}>{data.parties.map((party) => <View key={party.code} style={styles.inputChip}><Text style={styles.inputLabel}>{party.code}</Text><Text style={styles.inputValue}>{(Number(support[party.code]) || 0).toFixed(1)}%</Text></View>)}</View>
-        <Text style={styles.subheading}>Projected geography</Text>
-        <View style={styles.mapColumn}>
-          <Svg style={styles.map} viewBox="0 0 420 520">
-            {data.mapFeatures.map((feature) => {
-              const seat = projection.constituencies.find((item) => item.name === feature.name);
-              return <Path key={feature.name} d={feature.path} fill={partyByCode.get(seat?.winner ?? "")?.color ?? "#dbe2e4"} stroke="#ffffff" strokeWidth={2} />;
-            })}
-          </Svg>
-          <View style={styles.mapLegend}>{data.parties.filter((party) => activeCodes.has(party.code)).map((party) => <View key={party.code} style={styles.legendItem}><View style={[styles.legendDot, { backgroundColor: party.color }]} /><Text style={styles.legendText}>{party.code}</Text></View>)}</View>
-        </View>
-      </Page>
-
-      <Page size="A4" style={styles.page}>
-        <Header logoSrc={logoSrc} section="02 · Method and assumptions" /><Footer reportDate={reportDate} />
-        <Text style={styles.eyebrow}>02 / METHOD AND ASSUMPTIONS</Text>
-        <Text style={styles.title}>How to read this scenario</Text>
-        <Text style={styles.body}>This report models how national support, constituency history, candidate availability and tactical assumptions combine to produce seat level estimates. It should be read as a transparent scenario, not a point prediction of voter behaviour.</Text>
-        <Text style={styles.subheading}>Projection method</Text>
-        <Text style={styles.body}>National party support is grouped into Nationalist, Unionist and Non-aligned blocs. Constituency bloc composition uses weighted local-to-national history. In simulations, Nationalist and Unionist are projected separately, and Non-aligned is the remaining local share. This is a simplifying assumption that can affect Alliance projections. Constituency bloc composition is modelled separately from party performance. For each historic cycle, the party&apos;s share of its local bloc is divided by its share of the national bloc; the weighted mean of these ratios is the party&apos;s local performance multiplier. A source election&apos;s ratio is additionally weighted by the square root of the share of constituencies where that party contested, reducing the influence of ratios based on a limited candidate slate.</Text>
-        <Text style={styles.body}>Where comparable history exists, the full weighted ratio sets local party strength whether or not the party contested the {data.baselineYear} baseline constituency. In the 2019 backtest, the 2019 Westminster local-to-national ratio is included at its configured weight when the party contested, alongside earlier Westminster and NI Assembly results. If no local history exists, a recorded baseline result is used; otherwise the multiplier defaults to 1. If national baseline support is zero, the historical ratio is applied to the scenario support entered. Scenario changes then move party support proportionally to national within-bloc support. The historical influence setting affects swing response only. A recorded zero-vote baseline remains zero.</Text>
-        <Text style={styles.body}>Constituency bloc composition is estimated with a weighted local-to-national ratio across the baseline Westminster result and available earlier Westminster and NI Assembly results. The current 2024 mode retains the observed constituency bloc shares.</Text>
-        <Text style={styles.subheading}>Candidate availability and tactical voting</Text>
-        <Text style={styles.body}>Only parties included as contesting a constituency can win it. If a bloc has no included party in a constituency, its share is redistributed across blocs that do have an included party. Within-bloc consolidation moves the configured share from other included parties to the strongest projected party in that bloc. Inter-bloc tactical movement is allowed between Nationalist and Non-aligned, and between Unionist and Non-aligned. Direct Nationalist–Unionist transfers are excluded. These settings are scenario assumptions and do not model individual voter behaviour or local candidate appeal.</Text>
-        <Text style={styles.body}>Inter-bloc tactical transfers are activated only when the destination bloc&apos;s leading candidate is the close runner-up within the model&apos;s uncertainty band. The configured transfer rate is otherwise inactive in that constituency or simulation.</Text>
-        <Text style={styles.subheading}>Historical local signal</Text>
-        <Text style={styles.body}>The {data.baselineYear} Westminster result anchors parties with a recorded local vote. Earlier constituency-versus-national Westminster results ({westminsterYears.join(", ") || "none available"}) inform local strength and swing response; the baseline year is excluded from that historical party-ratio series. NI Assembly first-preference results ({assemblyYears.join(", ") || "none available"}) provide a separate signal because the electoral system differs from Westminster first-past-the-post. The 2019 baseline scenario defaults national support to actual 2024 NI-wide shares as an oracle diagnostic; this uses held-out national information and is not a blind forecast. 2024 constituency results are held out for scoring. Belfast South history is used as a proxy for Belfast South and Mid Down because of boundary changes.</Text>
-        <Text style={styles.subheading}>Simulation and uncertainty</Text>
-        <Text style={styles.body}>The model runs {projection.iterations.toLocaleString()} simulations. Polling uncertainty ({pollError.toFixed(1)} points) is applied independently to Nationalist and Unionist national support. Constituency variation ({localVariation.toFixed(1)} points) is applied to local bloc estimates and party shares within each bloc. Seat ranges show the middle 80% of simulations. Win chances use light smoothing and are not yet calibrated against historical forecasts.</Text>
-        <Text style={styles.subheading}>Settings used in this report</Text>
-        <Text style={styles.body}>Historical swing influence: {previousResultWeight}%. Within-bloc consolidation: Nationalist {tacticalVoting.Nationalist}%, Unionist {tacticalVoting.Unionist}%, Non-aligned {tacticalVoting["Non-aligned"]}%. Inter-bloc flows: Nationalist to Non-aligned {interBlocTacticalVoting.nationalistToNonAligned}%; Non-aligned to Nationalist {interBlocTacticalVoting.nonAlignedToNationalist}%; Unionist to Non-aligned {interBlocTacticalVoting.unionistToNonAligned}%; Non-aligned to Unionist {interBlocTacticalVoting.nonAlignedToUnionist}%. No direct Nationalist–Unionist transfers.</Text>
-        <View style={styles.note}><Text style={styles.body}>Interpretation note: estimated win chances describe outcomes within the model’s simulated scenarios. They do not account for every source of polling, candidate or campaign uncertainty.</Text></View>
-      </Page>
-
-      {projection.constituencies.map((constituency, index) => {
-        const winner = partyByCode.get(constituency.winner);
-        const runnerUp = partyByCode.get(constituency.runnerUp);
-        const runnerUpProjection = constituency.projected.find((party) => party.code === constituency.runnerUp);
-        const currentRows = constituency.projected.map((party) => {
-          const definition = partyByCode.get(party.code);
-          return [
-            { text: `${party.code} · ${definition?.name ?? party.code}`, color: definition?.color },
-            `${party.share.toFixed(1)}%`,
-            `${(constituency.winProbability[party.code] ?? 0).toFixed(1)}%`,
-            `${(constituency.partyShares[party.code] ?? 0).toFixed(1)}%`,
-          ];
-        });
-        const historicalRows = constituency.projected.map((party) => [
-          party.code,
-          constituency.historicalPartyShares["2019"][party.code] === undefined ? "—" : `${constituency.historicalPartyShares["2019"][party.code].toFixed(1)}%`,
-          constituency.historicalPartyShares["2017"][party.code] === undefined ? "—" : `${constituency.historicalPartyShares["2017"][party.code].toFixed(1)}%`,
-          constituency.historicalPartyShares["2015"][party.code] === undefined ? "—" : `${constituency.historicalPartyShares["2015"][party.code].toFixed(1)}%`,
-          `${(constituency.assemblyPartyShares["2022"][party.code] ?? 0).toFixed(1)}%`,
-          `${(constituency.assemblyPartyShares["2017"][party.code] ?? 0).toFixed(1)}%`,
-        ]);
-        const blocRows = PROJECTION_BLOCS.map((bloc) => [
-          bloc,
-          `${constituency.projectedBlocShares[bloc].toFixed(1)}%`,
-          `${constituency.blocShares[bloc].toFixed(1)}%`,
-          `${blocShare(constituency.historicalPartyShares["2019"], bloc, data).toFixed(1)}%`,
-          `${blocShare(constituency.historicalPartyShares["2017"], bloc, data).toFixed(1)}%`,
-          `${blocShare(constituency.historicalPartyShares["2015"], bloc, data).toFixed(1)}%`,
-          `${blocShare(constituency.assemblyPartyShares["2017"], bloc, data).toFixed(1)}%`,
-          `${blocShare(constituency.assemblyPartyShares["2022"], bloc, data).toFixed(1)}%`,
-          `${tacticalVoting[bloc]}%`,
-        ]);
-        const historicalColumnIndexes = [
-          0,
-          ...westminsterYears.map((year) => ({ "2019": 1, "2017": 2, "2015": 3 })[year]),
-          ...assemblyYears.map((year) => ({ "2022": 4, "2017": 5 })[year]),
-        ];
-        const baselineBlocColumnIndexes = [
-          0, 1, 2,
-          ...westminsterYears.map((year) => ({ "2019": 3, "2017": 4, "2015": 5 })[year]),
-          ...assemblyYears.map((year) => ({ "2022": 7, "2017": 6 })[year]),
-          8,
-        ];
-        const displayedHistoricalRows = historicalRows.map((row) => historicalColumnIndexes.map((column) => row[column]));
-        const displayedBlocRows = blocRows.map((row) => baselineBlocColumnIndexes.map((column) => row[column]));
-        return (
-          <Page key={constituency.name} size="A4" style={styles.page}>
-            <Header logoSrc={logoSrc} section={`03 · Constituency ${String(index + 1).padStart(2, "0")}`} /><Footer reportDate={reportDate} />
-            <Text style={styles.eyebrow}>03 / CONSTITUENCY PROJECTION · {String(index + 1).padStart(2, "0")} OF {projection.constituencies.length}</Text>
-            <Text style={styles.title}>{constituency.name}</Text>
-            <View style={[styles.winnerPanel, { borderLeftColor: winner?.color ?? colors.cyan }]}>
-              <Text style={styles.winnerLabel}>Projected winner</Text>
-              <Text style={styles.winnerName}>{winner?.name ?? "No included candidate"}</Text>
-              <Text style={styles.winnerChance}>{winner ? `${(constituency.winProbability[constituency.winner] ?? 0).toFixed(1)}% estimated win chance` : "No candidate selected"}</Text>
-            </View>
-            <View style={styles.seatMetrics}>
-              <View style={styles.seatMetric}><Text style={styles.seatMetricLabel}>{constituency.margin >= 0 ? "Point-estimate lead" : "Point-estimate deficit"}</Text><Text style={styles.seatMetricValue}>{Math.abs(constituency.margin).toFixed(1)} pts</Text></View>
-              <View style={styles.seatMetric}><Text style={styles.seatMetricLabel}>Next by point estimate</Text><Text style={styles.seatMetricValue}>{runnerUp?.code ?? "—"} · {runnerUpProjection?.share.toFixed(1) ?? "0.0"}%</Text></View>
-              <View style={styles.seatMetric}><Text style={styles.seatMetricLabel}>Candidates included</Text><Text style={styles.seatMetricValue}>{constituency.projected.length}</Text></View>
-            </View>
-            <View style={styles.sectionBlock}>
-              <Text style={[styles.subheading, styles.compactHeading]}>Current scenario</Text>
-              <ReportTable compact headers={["Party", "Projected vote", "Win chance", `${data.baselineYear} Westminster`]} widths={["40%", "20%", "20%", "20%"]} rows={currentRows} />
-            </View>
-            <View style={styles.sectionBlock}>
-              <Text style={[styles.subheading, styles.compactHeading]}>Historical party results</Text>
-              <ReportTable compact headers={["Party", ...westminsterYears.map((year) => `${year} HOC`), ...assemblyYears.map((year) => `${year} Assembly`)]} widths={displayedHistoricalRows[0]?.map((_, column) => `${column === 0 ? 24 : 76 / (displayedHistoricalRows[0]?.length - 1 || 1)}%`) ?? []} rows={displayedHistoricalRows} />
-            </View>
-            <View style={styles.sectionBlock}>
-              <Text style={[styles.subheading, styles.compactHeading]}>Bloc fundamentals</Text>
-              <ReportTable compact headers={["Bloc", "Projected", `${data.baselineYear} HOC`, ...westminsterYears.map((year) => `${year} HOC`), ...assemblyYears.map((year) => `${year} Assy`), "Tactical"]} widths={displayedBlocRows[0]?.map((_, column) => `${column === 0 ? 19 : 81 / (displayedBlocRows[0]?.length - 1 || 1)}%`) ?? []} rows={displayedBlocRows} />
-            </View>
-            <Text style={styles.body}>Historical Westminster local-versus-national results and NI Assembly first preferences inform within-bloc strength. Parties not included in this scenario are omitted and cannot win this constituency. Tactical consolidation is applied only within the configured bloc; the inter-bloc settings are described in the methodology section.</Text>
-          </Page>
-        );
-      })}
-    </Document>
-  );
+          <PdfSectionIntro number="01" title="Projected party vote" />
+          <PdfTable headers={["Party", "Mean share +/- SD", "Change", "Win probability", `${data.baselineYear} baseline`]} widths={["27%", "21%", "14%", "18%", "20%"]} rows={rows} compact />
+          <View style={{ marginTop: 16 }}><PdfSectionIntro number="02" title="Projected bloc outlook" /></View>
+          <PdfTable headers={["Bloc", "Mean share +/- SD", "Change", "Mean seats +/- SD", "Most likely totals"]} widths={["17%", "23%", "14%", "22%", "24%"]} rows={blocRowsLocal} compact />
+          <View style={[S.note, { marginTop: 10 }]}><Text style={S.noteText}>Parties not included as contesting cannot win this constituency. Bloc estimates summarize community-level support separately from party vote estimates.</Text></View>
+        </Page>
+        <Page size="A4" style={S.page}>
+          <PdfChrome logo={logoSrc} label="03  /  CONSTITUENCY HISTORY" date={reportDate}/>
+        <PdfConstituencyHeading name={constituency.name} />
+          <Text style={S.deck}>Historic constituency first-preference shares provide the local signal used by the projection. Westminster and Assembly results are shown separately.</Text>
+          <PdfSectionIntro number="03" title="Historical party results" />
+          <PdfTable headers={["Party", "2019 HOC", "2017 HOC", "2015 HOC", "2022 Assembly", "2017 Assembly"]} widths={["18%", "14%", "14%", "14%", "20%", "20%"]} rows={historyRows} />
+          <View style={S.note}><Text style={S.noteText}>Baseline winner: {constituency.baselineWinner}. Boundary changes mean that some older Westminster results do not align exactly with the current constituency map; the 2024 HOC data provides a current-boundary reference where available.</Text></View>
+        </Page>
+      </Fragment>;
+    })}
+    <PdfAcronymIndex logo={logoSrc} date={reportDate} entries={data.parties.map(({ code, name }) => ({ code, name })).sort((a, b) => a.code.localeCompare(b.code))}/>
+    <PdfClosingPage logo={logoSrc} date={reportDate} />
+  </Document>;
 }

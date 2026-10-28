@@ -1629,6 +1629,8 @@
 .staff-projection-toolbar .staff-projection-report-button.staff-projection-toolbar-action-button:hover:not(:disabled) { background: #354347; }
 .staff-projection-toolbar .staff-projection-report-button.staff-projection-toolbar-action-button:disabled { cursor: default; opacity: .58; }
 .staff-projection-export-error { margin: -4px 0 12px; color: #a52d37; font-size: 11px; }
+.staff-projection-report-ready { margin: -4px 0 12px; color: #31555a; font-size: 11px; }
+.staff-projection-report-ready a { color: #007f8a; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
 .staff-projection-advanced { margin-top: 14px; border: 1px solid #dce5e6; border-radius: 8px; background: #f8fafb; }
 .staff-projection-advanced > summary { position: relative; display: flex; min-height: 54px; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 38px 10px 12px; list-style: none; cursor: pointer; }
 .staff-projection-advanced > summary::-webkit-details-marker { display: none; }
@@ -1880,7 +1882,9 @@
 .staff-projection-results { grid-template-columns: repeat(12, minmax(0, 1fr)); align-content: start; gap: 12px; }
 .staff-projection-results > .staff-projection-pending-note,
 .staff-projection-standings-card,
-.staff-projection-constituency-card { grid-column: 1 / -1; }
+.staff-projection-constituency-card,
+.staff-projection-bloc-outlook-card,
+.staff-projection-distributions { grid-column: 1 / -1; }
 .staff-projection-map-card { grid-column: span 5; }
 .staff-projection-range-card { grid-column: span 7; }
 .staff-projection-result-card { min-width: 0; }
@@ -2325,6 +2329,43 @@
   .staff-nia-range-axis { margin-right: 66px; margin-left: 44px; }
 }
 .staff-nia-count-audit tbody tr:last-child th, .staff-nia-count-audit tbody tr:last-child td { border-bottom: 0; }
+
+.staff-projection-scenarios { margin: 12px 0; border: 1px solid #dce5e7; border-radius: 8px; background: #fff; }
+.staff-projection-scenarios > summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 14px; color: #273438; cursor: pointer; font-size: 12px; font-weight: 700; list-style-position: inside; }
+.staff-projection-scenarios > summary small { color: #728187; font-size: 10px; font-weight: 500; }
+.staff-projection-scenario-content { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 0 14px 13px; }
+.staff-projection-scenario-content > label { display: grid; gap: 5px; color: #657378; font-size: 10px; }
+.staff-projection-scenario-content input, .staff-projection-scenario-content select { width: 100%; min-height: 36px; padding: 7px 9px; border: 1px solid #d7e0e2; border-radius: 5px; background: #fff; color: #263438; font: inherit; }
+.staff-projection-scenario-actions { display: flex; flex-wrap: wrap; align-items: end; gap: 6px; }
+.staff-projection-scenario-actions button { min-height: 34px; padding: 6px 9px; border: 1px solid #d7e0e2; border-radius: 5px; background: #f8fafb; color: #273438; cursor: pointer; font-size: 10px; font-weight: 650; }
+.staff-projection-scenario-actions button:disabled { opacity: .45; cursor: not-allowed; }
+.staff-projection-scenario-actions button.is-delete { color: #9d4545; }
+.staff-projection-scenario-content > p { grid-column: 1 / -1; margin: 0; color: #78868b; font-size: 10px; line-height: 1.4; }
+.staff-projection-outcome-probabilities { display: flex; flex-wrap: wrap; gap: 5px; padding: 8px 10px; border-top: 1px solid #e9eef0; color: #59686d; font-size: 10px; font-variant-numeric: tabular-nums; }
+.staff-projection-outcome-probabilities > strong { width: 100%; color: #354449; font-size: 10px; }
+.staff-projection-outcome-probabilities > span { padding: 3px 5px; border-radius: 4px; background: #f1f5f6; }
+.staff-projection-probability-details > summary,
+.staff-projection-standing-probabilities > summary,
+.staff-projection-bloc-outlook article > details > summary,
+.staff-projection-bloc-breakdown details > summary { padding: 6px 9px; color: #637277; cursor: pointer; font-size: 9px; }
+.staff-projection-standing-probabilities { width: 100%; border-top: 1px solid rgba(23, 35, 38, .08); }
+.staff-projection-standing-probabilities .staff-projection-outcome-probabilities { border-top: 0; padding-top: 3px; }
+.staff-projection-range-value > small { display: block; color: #7a888d; font-size: 8px; white-space: nowrap; }
+.staff-projection-bloc-breakdown > div > details { grid-column: 1 / -1; }
+.staff-projection-bloc-outlook { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 10px 0; }
+.staff-projection-bloc-outlook article { overflow: hidden; border: 1px solid #e1e8ea; border-radius: 7px; background: #fff; }
+.staff-projection-bloc-outlook article > header { padding: 8px 10px; border-bottom: 1px solid #e9eef0; font-size: 11px; font-weight: 700; }
+.staff-projection-bloc-outlook article > div { display: flex; flex-wrap: wrap; gap: 5px 12px; padding: 8px 10px; color: #68767b; font-size: 10px; }
+.staff-projection-bloc-outlook article > div strong { color: #29383c; }
+.staff-projection-bloc-outlook .staff-projection-outcome-probabilities { padding: 7px 10px; }
+.staff-projection-change { font-size: 10px; font-variant-numeric: tabular-nums; }
+.staff-projection-change.is-gain { color: #267a53; }
+.staff-projection-change.is-loss { color: #a34c4c; }
+.staff-projection-constituency-blocs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; margin: 8px 0 12px; }
+.staff-projection-constituency-blocs > div { display: grid; grid-template-columns: 1fr auto; gap: 4px 8px; padding: 8px; border: 1px solid #e5ebed; border-radius: 5px; background: #fff; font-size: 10px; }
+.staff-projection-constituency-blocs > div > strong { font-variant-numeric: tabular-nums; }
+.staff-projection-constituency-blocs > div > small { grid-column: 1 / -1; color: #78868b; font-size: 9px; }
+@media (max-width: 700px) { .staff-projection-scenario-content { grid-template-columns: 1fr; } .staff-projection-bloc-outlook { grid-template-columns: 1fr; } .staff-projection-constituency-blocs { grid-template-columns: 1fr; } }
 @media (max-width: 760px) {
   .staff-nia-seat-chance-item { grid-template-columns: 22px minmax(0, 1fr) 100px; gap: 7px; padding: 9px; }
   .staff-nia-seat-chance-label { grid-column: 2; grid-row: 2; }
@@ -2337,4 +2378,178 @@
 @media (max-width: 420px) {
   .staff-nia-seat-chance-item { grid-template-columns: 18px minmax(0, 1fr) 82px; gap: 5px; padding: 8px 6px; }
   .staff-nia-seat-chance-value { grid-template-columns: 42px 1fr; gap: 5px; }
+}
+
+/* Shared scenario selector and seat-count distribution charts */
+.staff-projection-scenarios { display: block; margin: 0 0 14px; padding: 13px 15px; border-color: #d7e1e3; box-shadow: 0 8px 22px rgba(23, 35, 38, .045); }
+.staff-projection-scenario-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 9px; }
+.staff-projection-scenario-heading .staff-eyebrow { margin: 0 0 3px; }
+.staff-projection-scenario-heading h2 { margin: 0; color: #273438; font-size: 15px; }
+.staff-projection-scenario-heading > span { padding: 5px 8px; border-radius: 99px; background: #e8f6f6; color: #217078; font-size: 9px; font-weight: 700; }
+.staff-projection-scenarios .staff-projection-scenario-content { grid-template-columns: minmax(220px, 1.2fr) minmax(180px, .75fr) auto; align-items: end; padding: 0; }
+.staff-projection-scenarios .staff-projection-scenario-actions { grid-column: 1 / -1; }
+.staff-projection-scenarios .staff-projection-scenario-actions button.is-primary { border-color: #087f88; background: #087f88; color: #fff; }
+.staff-projection-scenarios .staff-projection-scenario-content > p { grid-column: 1 / -1; }
+.staff-projection-scenario-error { color: #a33e3e !important; }
+.staff-projection-distributions { margin-top: 14px; }
+.staff-projection-distribution-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 11px; }
+.staff-projection-distribution-card { min-width: 0; overflow: hidden; border: 1px solid #e0e8ea; border-radius: 8px; background: #fbfcfc; }
+.staff-projection-distribution-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 13px 8px; }
+.staff-projection-distribution-heading .staff-eyebrow { margin: 0 0 3px; font-size: 8px; }
+.staff-projection-distribution-heading h3 { margin: 0; color: #263438; font-size: 14px; }
+.staff-projection-distribution-heading > span { color: #718085; font-size: 9px; }
+.staff-projection-distribution-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 13px; }
+.staff-projection-distribution-controls label { display: grid; gap: 4px; color: #728085; font-size: 9px; }
+.staff-projection-distribution-controls select { width: 100%; min-width: 0; height: 32px; padding: 4px 7px; border: 1px solid #d7e1e3; border-radius: 5px; background: #fff; color: #263438; font: inherit; }
+.staff-projection-distribution-stats { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 13px; padding: 10px 13px 0; color: #718085; font-size: 9px; font-variant-numeric: tabular-nums; }
+.staff-projection-distribution-stats > strong { margin-right: auto; }
+.staff-projection-distribution-stats b { color: #273438; }
+.staff-projection-distribution-chart { display: block; width: 100%; height: auto; padding: 3px 8px 0; overflow: visible; }
+.staff-projection-distribution-gridline { stroke: #e6edef; stroke-width: 1; }
+.staff-projection-distribution-axis { stroke: #aebdc1; stroke-width: 1; }
+.staff-projection-distribution-axis-label { fill: #718085; font-size: 10px; font-family: Averta, Arial, sans-serif; }
+.staff-projection-distribution-bar { cursor: help; outline: none; }
+.staff-projection-distribution-bar:focus-visible > rect:first-of-type { stroke: #172326; stroke-width: 1.5; }
+.staff-projection-distribution-hitarea { fill: transparent; pointer-events: all; }
+.staff-projection-distribution-tooltip rect { fill: #172326; }
+.staff-projection-distribution-tooltip text { fill: #fff; font-size: 10px; font-family: Averta, Arial, sans-serif; font-weight: 600; }
+.staff-projection-distribution-caption { margin: 0; padding: 1px 13px 11px; color: #849195; font-size: 9px; line-height: 1.4; }
+@media (max-width: 800px) { .staff-projection-distribution-grid { grid-template-columns: 1fr; } }
+@media (max-width: 700px) { .staff-projection-scenarios .staff-projection-scenario-content { grid-template-columns: 1fr; } .staff-projection-scenarios .staff-projection-scenario-actions { grid-column: auto; } }
+
+/* Shared visual cleanup for the HOC and Assembly projection dashboards */
+.staff-projection-page { padding: 10px 16px 24px; background: #f2f5f6; }
+.staff-projection-toolbar { margin-bottom: 10px; }
+.staff-projection-layout { gap: 10px; }
+.staff-projection-results,
+.staff-nia-results { gap: 10px; }
+.staff-projection-input-card,
+.staff-projection-result-card { border-color: #dce4e6; border-radius: 9px; box-shadow: 0 2px 7px rgba(23, 35, 38, .035); }
+.staff-projection-section-heading { min-height: 28px; }
+.staff-projection-section-heading > span { flex: 0 0 auto; }
+.staff-projection-scenarios { padding: 11px 14px; border-color: #dce4e6; border-radius: 9px; box-shadow: 0 2px 7px rgba(23, 35, 38, .035); }
+.staff-projection-scenario-heading { margin-bottom: 8px; }
+.staff-projection-scenario-heading h2 { font-size: 14px; letter-spacing: -.015em; }
+.staff-projection-scenario-load-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 9px; }
+.staff-projection-scenario-choice { display: grid; min-width: 0; gap: 4px; color: #718085; font-size: 9px; }
+.staff-projection-scenario-choice select { width: 100%; min-width: 0; height: 36px; padding: 5px 9px; border: 1px solid #d7e1e3; border-radius: 6px; background: #fff; color: #263438; font: inherit; font-size: 11px; }
+.staff-projection-scenario-apply { min-height: 36px; padding: 0 13px; border: 1px solid #087f88; border-radius: 6px; background: #087f88; color: #fff; cursor: pointer; font: inherit; font-size: 10px; font-weight: 700; white-space: nowrap; }
+.staff-projection-scenario-apply:hover:not(:disabled) { background: #066d75; }
+.staff-projection-scenario-apply:disabled { opacity: .5; cursor: not-allowed; }
+.staff-projection-scenario-manage { margin-top: 7px; }
+.staff-projection-scenario-manage > summary { width: fit-content; color: #627277; cursor: pointer; font-size: 9px; list-style-position: inside; }
+.staff-projection-scenarios .staff-projection-scenario-content { display: grid; grid-template-columns: minmax(190px, .8fr) minmax(0, 1.5fr); align-items: end; gap: 8px; padding: 9px 0 1px; }
+.staff-projection-scenarios .staff-projection-scenario-actions { grid-column: auto; gap: 5px; }
+.staff-projection-scenarios .staff-projection-scenario-content > p { grid-column: 1 / -1; }
+.staff-projection-scenario-load-error { margin: 6px 0 0 !important; }
+.staff-projection-bloc-outlook { gap: 8px; margin: 8px 0 0; }
+.staff-projection-bloc-outlook article { border-color: #e4eaeb; background: #fbfcfc; }
+.staff-projection-bloc-outlook article > header { padding: 7px 9px; background: #f3f6f7; }
+.staff-projection-bloc-outlook article > div { gap: 5px 12px; padding: 7px 9px; }
+.staff-projection-bloc-outlook article > div span { white-space: nowrap; }
+.staff-projection-distributions { margin-top: 0; }
+.staff-projection-distribution-grid { gap: 9px; margin-top: 8px; }
+.staff-projection-distribution-card { background: #fff; }
+.staff-projection-constituency-list.is-all { margin-top: 5px; }
+.staff-projection-constituency-list .staff-projection-constituency { border-color: #edf1f2; }
+.staff-projection-constituency-list.is-all .staff-projection-constituency-summary { transition: background-color .14s ease; }
+.staff-projection-constituency-list.is-all .staff-projection-constituency-summary:hover { background: #f1f6f7; }
+.staff-projection-constituency-list.is-all .staff-projection-constituency-summary { min-height: 48px; }
+.staff-projection-constituency-detail { gap: 10px; padding: 11px; }
+.staff-nia-party-share { margin: 5px 0; padding: 10px; border-color: #e7edef; background: #fcfdfd; }
+.staff-nia-party-share h3 { font-size: 11px; }
+.staff-nia-party-share > p { margin: 4px 0 8px; color: #7b888d; font-size: 9px; }
+.staff-nia-seat-chance-list { margin-top: 7px; }
+.staff-nia-seat-chance-item { min-height: 43px; }
+.staff-nia-candidate-audit { margin-top: 10px; }
+.staff-nia-methodology { border-color: #e0e7e9; background: #f8fafb; }
+.staff-projection-method-note { margin-top: 10px; }
+@media (max-width: 800px) {
+  .staff-projection-page { padding: 9px 10px 18px; }
+  .staff-projection-scenarios .staff-projection-scenario-content { grid-template-columns: 1fr; }
+  .staff-projection-scenarios .staff-projection-scenario-actions { grid-column: 1 / -1; }
+  .staff-projection-bloc-outlook article > div { gap: 5px 10px; }
+}
+@media (max-width: 540px) {
+  .staff-projection-scenario-heading { align-items: flex-start; }
+  .staff-projection-scenario-heading > span { padding: 4px 6px; font-size: 8px; }
+  .staff-projection-scenario-load-row { grid-template-columns: minmax(0, 1fr); }
+  .staff-projection-scenario-apply { width: 100%; }
+  .staff-projection-section-heading { align-items: flex-start; }
+  .staff-projection-section-heading > span { flex: 0 1 48%; white-space: normal; text-align: right; }
+}
+
+/* Keep the election headlines and constituency drilldowns focused on the result. */
+.staff-projection-standings .staff-projection-standing { min-height: 68px; gap: 7px; padding: 8px 9px; }
+.staff-projection-standings .staff-projection-standing-metrics { justify-content: flex-start; gap: 9px; }
+.staff-projection-standings .staff-projection-standing-seatmetric,
+.staff-projection-standings .staff-projection-standing-votemetric { display: grid; grid-template-columns: auto; justify-items: start; gap: 3px; }
+.staff-projection-standings .staff-projection-standing-metrics small { color: #748186; font-size: 8px; font-variant-numeric: tabular-nums; text-transform: none; }
+.staff-projection-constituency-summary { grid-template-columns: minmax(160px, 1.1fr) minmax(115px, .9fr) minmax(105px, .75fr); gap: 10px; }
+.staff-projection-constituency-summary.has-backtest { grid-template-columns: minmax(145px, 1fr) minmax(110px, .8fr) minmax(105px, .75fr) minmax(90px, .55fr); }
+.staff-projection-constituency-summary .staff-projection-winner > strong small { text-transform: none; }
+.staff-projection-constituency-detail { gap: 8px; padding: 10px; }
+.staff-projection-runner { display: flex; flex-wrap: wrap; gap: 5px 16px; margin: 0; padding: 0 0 7px; border-bottom: 1px solid #e8edef; }
+.staff-projection-runner > span { color: #66757a; font-size: 10px; }
+.staff-projection-detail-disclosure { min-width: 0; border: 1px solid #e7edef; border-radius: 6px; background: #fafcfc; }
+.staff-projection-detail-disclosure > summary { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 10px; color: #536368; cursor: pointer; font-size: 10px; font-weight: 650; }
+.staff-projection-detail-disclosure > summary span { color: #78868b; font-size: 9px; font-weight: 500; }
+.staff-projection-detail-disclosure[open] { padding-bottom: 8px; }
+.staff-projection-detail-disclosure .staff-projection-bloc-breakdown { margin: 0 8px; }
+.staff-projection-detail-disclosure .staff-projection-candidate-control { margin: 0 8px; padding: 8px; }
+.staff-projection-constituency-detail > .staff-projection-runner { grid-area: runner; }
+.staff-projection-constituency-detail > .staff-projection-party-breakdown { grid-area: parties; }
+.staff-projection-constituency-detail > .staff-projection-detail-disclosure:not(.staff-projection-candidate-disclosure) { grid-area: blocs; }
+.staff-projection-constituency-detail > .staff-projection-candidate-disclosure { grid-area: candidates; }
+.staff-projection-party-breakdown { gap: 4px; }
+.staff-projection-party-breakdown-heading,
+.staff-projection-party-breakdown > div { display: grid; grid-template-columns: 76px 100px minmax(120px, 1fr) 52px; align-items: center; gap: 8px; }
+.staff-projection-party-breakdown-heading { padding: 0 7px 3px; color: #849196; font-size: 8px; font-weight: 650; }
+.staff-projection-party-breakdown-heading > span:nth-child(n + 2) { text-align: right; }
+.staff-projection-party-breakdown > div { padding: 6px 7px; border: 1px solid #edf1f2; border-radius: 5px; background: #fff; }
+.staff-projection-party-breakdown > div > span:first-child { font-size: 10px; }
+.staff-projection-party-breakdown strong { font-size: 10px; }
+.staff-projection-party-breakdown .staff-projection-simulated-share { font-size: 10px; }
+.staff-projection-party-breakdown .staff-projection-party-chance { gap: 7px; }
+.staff-projection-party-breakdown .staff-projection-party-chance > i { width: 58px; }
+.staff-projection-party-history { justify-self: end; color: #627176; font-size: 9px; }
+.staff-projection-party-history > summary { cursor: pointer; }
+.staff-projection-party-history[open] { grid-column: 1 / -1; justify-self: stretch; padding: 6px 7px 2px; border-top: 1px solid #edf1f2; }
+.staff-projection-party-history[open] > small { display: block; color: #718085; font-size: 9px; line-height: 1.5; text-align: left; white-space: normal; }
+.staff-nia-standings-card .staff-projection-standing { min-height: 67px; gap: 6px; }
+.staff-nia-standings-card .staff-projection-standing > .staff-projection-change { font-size: 8px; font-weight: 600; }
+.staff-nia-constituency-summary { grid-template-columns: minmax(180px, 1fr) minmax(130px, .7fr) minmax(160px, .75fr); }
+.staff-nia-constituency-summary .staff-nia-constituency-topline { display: none; }
+.staff-nia-constituency-summary .staff-nia-topfive-bar { grid-column: auto; grid-row: auto; }
+.staff-nia-constituency-detail { gap: 8px; padding: 9px; }
+.staff-nia-party-share-grid { gap: 5px; }
+.staff-nia-party-share-row { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 9px; padding: 6px 8px; border-color: #f0f3f4; }
+.staff-nia-party-share-range { font-size: 8px; }
+.staff-projection-constituency-blocs { gap: 5px; margin: 6px 0 8px; }
+.staff-projection-constituency-blocs > div { gap: 3px 6px; padding: 6px; }
+.staff-projection-constituency-blocs > div > small { font-size: 8px; }
+.staff-nia-seat-chance-item { grid-template-columns: 22px minmax(0, 1fr) minmax(100px, .7fr) minmax(110px, 140px); gap: 8px; min-height: 40px; padding: 6px 9px; }
+.staff-nia-seat-chance-value { grid-column: auto; grid-row: auto; }
+.staff-nia-candidate-audit { margin-top: 7px; padding: 0 9px; }
+.staff-nia-candidate-audit > summary { padding: 8px 0; color: #526267; cursor: pointer; font-size: 10px; font-weight: 650; }
+.staff-nia-candidate-audit[open] { padding-bottom: 9px; }
+.staff-nia-candidate-audit > p { margin: 0 0 8px; font-size: 9px; }
+@media (max-width: 1000px) {
+  .staff-projection-constituency-summary,
+  .staff-projection-constituency-summary.has-backtest { grid-template-columns: minmax(125px, 1fr) minmax(100px, .9fr) minmax(100px, .75fr); }
+  .staff-projection-constituency-summary.has-backtest .staff-projection-backtest-actual { grid-column: 1 / -1; }
+  .staff-projection-party-breakdown-heading,
+  .staff-projection-party-breakdown > div { grid-template-columns: 64px 82px minmax(100px, 1fr) 48px; gap: 6px; }
+}
+@media (max-width: 720px) {
+  .staff-projection-constituency-detail { grid-template-areas: "runner" "parties" "blocs" "candidates"; grid-template-columns: minmax(0, 1fr); }
+  .staff-projection-constituency-summary,
+  .staff-projection-constituency-summary.has-backtest { grid-template-columns: minmax(0, 1fr) auto; }
+  .staff-projection-constituency-summary.has-backtest .staff-projection-backtest-actual { grid-column: 1 / -1; }
+  .staff-projection-constituency-detail .staff-projection-party-breakdown-heading { display: none; }
+  .staff-projection-constituency-detail .staff-projection-party-breakdown > div { grid-template-columns: 56px minmax(70px, .8fr) minmax(95px, 1fr) 44px; }
+  .staff-nia-constituency-summary { grid-template-columns: minmax(0, 1fr) auto; }
+  .staff-nia-seat-chance-item { grid-template-columns: 20px minmax(0, 1fr) minmax(92px, auto); }
+  .staff-nia-seat-chance-share { grid-column: 2; grid-row: 2; }
+  .staff-nia-seat-chance-value { grid-column: 3; grid-row: 1 / span 2; }
 }
