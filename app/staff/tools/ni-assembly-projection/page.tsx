@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { getStaffContext } from "@/lib/staff/auth";
 import { loadNiAssemblyProjectionData } from "@/lib/staff/niAssemblyProjectionData";
+import { loadNiProjectionSupportPresets } from "@/lib/staff/projectionSupportPresets";
 import StaffHeader from "../../StaffHeader";
 import NiAssemblyProjectionWorkspace from "../../NiAssemblyProjectionWorkspace";
 import "../../staff.css";
@@ -21,10 +22,11 @@ export default async function NiAssemblyProjectionPage() {
 
   const userName = user.user_metadata?.full_name ?? user.email ?? "Staff";
   const data = loadNiAssemblyProjectionData();
+  const supportPresets = loadNiProjectionSupportPresets(data.parties.map((party) => party.code));
   return (
     <div className="staff-workspace">
       <StaffHeader userName={userName} />
-      <NiAssemblyProjectionWorkspace data={data} />
+      <NiAssemblyProjectionWorkspace data={data} supportPresets={supportPresets} />
     </div>
   );
 }

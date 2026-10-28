@@ -1,9 +1,13 @@
 "use client";
 
-import { createElement, useMemo, useState } from "react";
+import { createElement, useEffect, useMemo, useState } from "react";
 import { getProjectionBloc, PROJECTION_BLOCS, type ProjectionBloc } from "@/lib/staff/projectionBlocs";
 import ProjectionMap from "./ProjectionMap";
 import ProjectionModelSwitcher from "./ProjectionModelSwitcher";
+import ProjectionScenarioManager from "./ProjectionScenarioManager";
+import ProjectionDistributionCharts, { type DistributionSeries, type DistributionScope } from "./ProjectionDistributionCharts";
+import type { ProjectionScenarioPreset } from "./ProjectionScenarioManager";
+import type { ProjectionSupportPresets } from "@/lib/staff/projectionSupportPresets";
 import type {
   SeatProjectionData,
   SeatProjectionBaseline,
@@ -13,7 +17,7 @@ import type {
   WestminsterProjectionYear,
 } from "@/lib/staff/seatProjectionData";
 
-type Props = { data: SeatProjectionData };
+type Props = { data: SeatProjectionData; supportPresets: ProjectionSupportPresets };
 
 type InterBlocTacticalVoting = {
   nationalistToNonAligned: number;
@@ -55,6 +59,9 @@ type ProjectedConstituency = SeatProjectionData["constituencies"][number] & {
     code: string;
     bloc: ProjectionBloc;
     share: number;
+    shareStandardDeviation: number;
+    baselineShare: number;
+    shareChange: number;
     shareLow: number;
     shareHigh: number;
     withinBlocShare: number;
@@ -67,7 +74,11 @@ type ProjectedConstituency = SeatProjectionData["constituencies"][number] & {
   margin: number;
   winProbability: Record<string, number>;
   projectedBlocShares: Record<ProjectionBloc, number>;
+  blocOutcomes: Array<{ code: ProjectionBloc; share: number; shareStandardDeviation: number; baselineShare: number; shareChange: number; expectedSeats: number; seatStandardDeviation: number; baselineSeats: number; seatCountProbabilities: Array<{ outcome: number; probability: number }> }>;
 };
+
+type ProjectionOutcomeProbability = { outcome: number; probability: number };
+type ProjectionBlocSummary = { code: ProjectionBloc; share: number; shareStandardDeviation: number; baselineShare: number; shareChange: number; expectedSeats: number; seatStandardDeviation: number; baselineSeats: number; seatCountProbabilities: ProjectionOutcomeProbability[] };
 
 function createNormalGenerator(seedText: string) {
   let state = 2166136261;
@@ -126,6 +137,19 @@ function blocShareFromParties(shares: Record<string, number>, bloc: ProjectionBl
 function quantile(values: number[], fraction: number) {
   const index = Math.min(values.length - 1, Math.max(0, Math.floor((values.length - 1) * fraction)));
   return values[index] ?? 0;
+}
+
+function standardDeviation(values: number[]) {
+  if (!values.length) return 0;
+  const mean = values.reduce((sum, value) => sum + value, 0) / values.length;
+  return Math.sqrt(values.reduce((sum, value) => sum + (value - mean) ** 2, 0) / values.length);
+}
+
+function outcomeProbabilities(values: number[], maximum: number): ProjectionOutcomeProbability[] {
+  return Array.from({ length: maximum + 1 }, (_, outcome) => ({
+    outcome,
+    probability: values.length ? values.filter((value) => value === outcome).length / values.length * 100 : 0,
+  }));
 }
 
 function smoothedSimulationChance(wins: number, iterations: number, outcomes: number) {
@@ -480,7 +504,7 @@ function localPartyProfile(
   };
 }
 
-export default function SeatProjectionWorkspace({ data }: Props) {
+export default function SeatProjectionWorkspace({ data, supportPresets }: Props) {
   const [draftProjectionMode, setDraftProjectionMode] = useState<ProjectionMode>("current");
   const [appliedProjectionMode, setAppliedProjectionMode] = useState<ProjectionMode>("current");
   const [support, setSupport] = useState<Record<string, string>>(() =>
@@ -515,8 +539,18 @@ export default function SeatProjectionWorkspace({ data }: Props) {
   }));
   const [isExportingReport, setIsExportingReport] = useState(false);
   const [reportExportError, setReportExportError] = useState("");
+  const [generatedReport, setGeneratedReport] = useState<{ url: string; filename: string } | null>(null);
   const [hasRunProjection, setHasRunProjection] = useState(false);
+  useEffect(() => {
+    if (!generatedReport) return;
+    const timeout = window.setTimeout(() => setGeneratedReport(null), 10 * 60 * 1000);
+    return () => {
+      window.clearTimeout(timeout);
+      URL.revokeObjectURL(generatedReport.url);
+    };
+  }, [generatedReport]);
   const modelData = appliedProjectionMode === "backtest-2024" ? data.backtestBaseline : data;
+  const totalSeats = modelData.constituencies.reduce((sum, constituency) => sum + constituency.seats, 0);
   const draftData = draftProjectionMode === "backtest-2024" ? data.backtestBaseline : data;
   const historicalWestminsterYears = (["2019", "2017", "2015"] as const)
     .filter((year) => Number(year) < Number(modelData.baselineYear));
@@ -530,6 +564,19 @@ export default function SeatProjectionWorkspace({ data }: Props) {
     tacticalVoting,
     interBlocTacticalVoting,
   };
+  const presetDefaults = createDefaultProjectionSettings(draftData, draftData);
+  const withSupport = (supportValues: Record<string, number>) => ({
+    projectionMode: draftProjectionMode,
+    settings: {
+      ...presetDefaults,
+      support: Object.fromEntries(draftData.parties.map((party) => [party.code, String(supportValues[party.code] ?? 0)])),
+    },
+  });
+  const scenarioPresets: ProjectionScenarioPreset[] = [
+    { id: "last-election", label: `Last election result · ${draftData.baselineYear}`, settings: withSupport(Object.fromEntries(draftData.parties.map((party) => [party.code, party.baselineShare]))) },
+    { id: "most-recent-poll", label: `Most recent NI poll · ${supportPresets.mostRecentPoll.date}`, settings: withSupport(supportPresets.mostRecentPoll.support) },
+    { id: "polling-aggregate", label: `Ireland Votes polling aggregate · ${supportPresets.pollingAggregate.date}`, settings: withSupport(supportPresets.pollingAggregate.support) },
+  ];
   const defaultSettings = createDefaultProjectionSettings(draftData, draftProjectionMode === "backtest-2024" ? data : draftData);
   const isDefaultSettings = JSON.stringify(draftSettings) === JSON.stringify(defaultSettings);
   const hasUnappliedChanges = draftProjectionMode !== appliedProjectionMode || JSON.stringify(draftSettings) !== JSON.stringify(appliedSettings);
@@ -663,12 +710,25 @@ export default function SeatProjectionWorkspace({ data }: Props) {
     const blocShareSums: Record<string, Record<ProjectionBloc, number>> = Object.fromEntries(
       modelData.constituencies.map((constituency) => [constituency.name, { Nationalist: 0, Unionist: 0, "Non-aligned": 0 }]),
     );
+    const blocShareSamples: Record<string, Record<ProjectionBloc, number[]>> = Object.fromEntries(
+      modelData.constituencies.map((constituency) => [constituency.name, { Nationalist: [], Unionist: [], "Non-aligned": [] }]),
+    );
+    const constituencyBlocSeatSamples: Record<string, Record<ProjectionBloc, number[]>> = Object.fromEntries(
+      modelData.constituencies.map((constituency) => [constituency.name, { Nationalist: [], Unionist: [], "Non-aligned": [] }]),
+    );
     const seatSamples: Record<string, number[]> = Object.fromEntries(modelData.parties.map(({ code }) => [code, []]));
     const largestPartyCounts: Record<string, number> = Object.fromEntries(modelData.parties.map(({ code }) => [code, 0]));
+    const nationalPartyShareSamples: Record<string, number[]> = Object.fromEntries(modelData.parties.map(({ code }) => [code, []]));
+    const nationalBlocShareSamples: Record<ProjectionBloc, number[]> = { Nationalist: [], Unionist: [], "Non-aligned": [] };
+    const blocSeatSamples: Record<ProjectionBloc, number[]> = { Nationalist: [], Unionist: [], "Non-aligned": [] };
     const iterations = SIMULATION_ITERATIONS;
     const normal = createNormalGenerator(JSON.stringify(appliedSettings));
     for (let iteration = 0; iteration < iterations; iteration += 1) {
       const simulatedSeats: Record<string, number> = Object.fromEntries(modelData.parties.map(({ code }) => [code, 0]));
+      const simulatedBlocSeats: Record<ProjectionBloc, number> = { Nationalist: 0, Unionist: 0, "Non-aligned": 0 };
+      const simulatedPartyVotes: Record<string, number> = Object.fromEntries(modelData.parties.map(({ code }) => [code, 0]));
+      const simulatedBlocVotes: Record<ProjectionBloc, number> = { Nationalist: 0, Unionist: 0, "Non-aligned": 0 };
+      let simulatedValidVotes = 0;
       const noisyNationalist = Math.max(0, inputBlocShares.Nationalist + normal() * appliedPollError);
       const noisyUnionist = Math.max(0, inputBlocShares.Unionist + normal() * appliedPollError);
       const noisyBlocShares = normalizeBlocShares({
@@ -719,19 +779,35 @@ export default function SeatProjectionWorkspace({ data }: Props) {
         const interBlocAdjusted = applyInterBlocTacticalVoting(localBlocShares, tacticallyConsolidatedParties, appliedInterBlocTacticalVoting, tacticalCompetitivenessMargin);
         PROJECTION_BLOCS.forEach((bloc) => {
           blocShareSums[constituency.name][bloc] += interBlocAdjusted.blocShares[bloc];
+          blocShareSamples[constituency.name][bloc].push(interBlocAdjusted.blocShares[bloc]);
+          simulatedBlocVotes[bloc] += interBlocAdjusted.blocShares[bloc] * constituency.votes;
         });
         const localVotes = (point?.projected ?? []).map((party) => ({
           code: party.code,
           value: interBlocAdjusted.partyShares[party.code] ?? 0,
         }));
-        localVotes.forEach((party) => partyShareSamples[constituency.name][party.code].push(party.value));
+        localVotes.forEach((party) => {
+          partyShareSamples[constituency.name][party.code].push(party.value);
+          simulatedPartyVotes[party.code] += party.value * constituency.votes;
+        });
+        simulatedValidVotes += constituency.votes * 100;
         const localWinner = localVotes.sort((a, b) => b.value - a.value || a.code.localeCompare(b.code))[0]?.code;
         if (localWinner) {
           winCounts[constituency.name][localWinner] += 1;
           simulatedSeats[localWinner] += constituency.seats;
+          const winningBloc = getProjectionBloc(localWinner);
+          simulatedBlocSeats[winningBloc] += constituency.seats;
         }
+        PROJECTION_BLOCS.forEach((bloc) => constituencyBlocSeatSamples[constituency.name][bloc].push(
+          localWinner && getProjectionBloc(localWinner) === bloc ? constituency.seats : 0,
+        ));
       }
       modelData.parties.forEach(({ code }) => seatSamples[code].push(simulatedSeats[code]));
+      PROJECTION_BLOCS.forEach((bloc) => {
+        blocSeatSamples[bloc].push(simulatedBlocSeats[bloc]);
+        nationalBlocShareSamples[bloc].push(simulatedValidVotes > 0 ? simulatedBlocVotes[bloc] / simulatedValidVotes * 100 : 0);
+      });
+      modelData.parties.forEach(({ code }) => nationalPartyShareSamples[code].push(simulatedValidVotes > 0 ? simulatedPartyVotes[code] / simulatedValidVotes * 100 : 0));
       const highestSeatCount = Math.max(...Object.values(simulatedSeats));
       const leaders = Object.entries(simulatedSeats).filter(([, seats]) => seats === highestSeatCount);
       leaders.forEach(([code]) => { largestPartyCounts[code] += 1 / leaders.length; });
@@ -754,6 +830,9 @@ export default function SeatProjectionWorkspace({ data }: Props) {
         return {
           ...party,
           share,
+          shareStandardDeviation: standardDeviation(samples),
+          baselineShare: constituency.partyShares[party.code] ?? 0,
+          shareChange: share - (constituency.partyShares[party.code] ?? 0),
           shareLow: quantile(samples, 0.1),
           shareHigh: quantile(samples, 0.9),
         };
@@ -764,6 +843,25 @@ export default function SeatProjectionWorkspace({ data }: Props) {
         bloc,
         blocShareSums[constituency.name][bloc] / iterations,
       ])) as Record<ProjectionBloc, number>;
+      const blocOutcomes: ProjectionBlocSummary[] = PROJECTION_BLOCS.map((bloc) => {
+        const samples = blocShareSamples[constituency.name][bloc];
+        const share = blocShareSums[constituency.name][bloc] / iterations;
+        const baselineShare = constituency.blocShares[bloc];
+        const baselineSeats = constituency.seats * Number(getProjectionBloc(constituency.baselineWinner) === bloc);
+        const seatSamplesForBloc = constituencyBlocSeatSamples[constituency.name][bloc];
+        const expectedSeats = seatSamplesForBloc.reduce((sum, value) => sum + value, 0) / iterations;
+        return {
+          code: bloc,
+          share,
+          shareStandardDeviation: standardDeviation(samples),
+          baselineShare,
+          shareChange: share - baselineShare,
+          expectedSeats,
+          seatStandardDeviation: standardDeviation(seatSamplesForBloc),
+          baselineSeats,
+          seatCountProbabilities: outcomeProbabilities(seatSamplesForBloc, constituency.seats),
+        };
+      });
       simulationWinnerSeats[simulationWinner] = (simulationWinnerSeats[simulationWinner] ?? 0) + constituency.seats;
       return {
         ...constituency,
@@ -778,26 +876,83 @@ export default function SeatProjectionWorkspace({ data }: Props) {
             smoothedSimulationChance(winCounts[constituency.name][code], iterations, modelData.parties.length),
           ]),
         ),
+        blocOutcomes,
       };
     });
 
     const standings = modelData.parties
-      .map((party) => ({
+      .map((party) => {
+        const samples = seatSamples[party.code];
+        const nationalShareSamples = nationalPartyShareSamples[party.code];
+        const expectedSeats = samples.reduce((sum, value) => sum + value, 0) / iterations;
+        const projectedShare = nationalShareSamples.reduce((sum, value) => sum + value, 0) / iterations;
+        return {
         ...party,
-        projectedShare: enteredTotalShare(supportValues, party.code),
+        projectedShare,
+        projectedShareStandardDeviation: standardDeviation(nationalShareSamples),
+        shareChange: projectedShare - party.baselineShare,
         seats: simulationWinnerSeats[party.code] ?? 0,
+        expectedSeats,
+        seatStandardDeviation: standardDeviation(samples),
+        seatCountProbabilities: outcomeProbabilities(samples, totalSeats),
+        seatChange: expectedSeats - party.baselineSeats,
         change: (simulationWinnerSeats[party.code] ?? 0) - party.baselineSeats,
-        medianSeats: quantile(seatSamples[party.code], 0.5),
-        lowSeats: quantile(seatSamples[party.code], 0.1),
-        highSeats: quantile(seatSamples[party.code], 0.9),
+        medianSeats: quantile(samples, 0.5),
+        lowSeats: quantile(samples, 0.1),
+        highSeats: quantile(samples, 0.9),
         largestPartyProbability: smoothedSimulationChance(largestPartyCounts[party.code], iterations, modelData.parties.length),
-      }))
+      }; })
       .sort((a, b) => b.seats - a.seats || b.baselineSeats - a.baselineSeats || a.code.localeCompare(b.code));
-    return { constituencies, standings, enteredTotal, iterations, inputBlocShares };
+    const blocStandings: ProjectionBlocSummary[] = PROJECTION_BLOCS.map((bloc) => {
+      const shareSamples = nationalBlocShareSamples[bloc];
+      const seatResults = blocSeatSamples[bloc];
+      const share = shareSamples.reduce((sum, value) => sum + value, 0) / iterations;
+      const baselineShare = modelData.baselineBlocShares[bloc];
+      const baselineSeats = modelData.parties.filter((party) => party.bloc === bloc).reduce((sum, party) => sum + party.baselineSeats, 0);
+      return {
+        code: bloc,
+        share,
+        shareStandardDeviation: standardDeviation(shareSamples),
+        baselineShare,
+        shareChange: share - baselineShare,
+        expectedSeats: seatResults.reduce((sum, value) => sum + value, 0) / iterations,
+        seatStandardDeviation: standardDeviation(seatResults),
+        baselineSeats,
+        seatCountProbabilities: outcomeProbabilities(seatResults, totalSeats),
+      };
+    });
+    return { constituencies, standings, blocStandings, enteredTotal, iterations, inputBlocShares };
   }, [modelData, appliedSettings]);
 
-  const totalSeats = modelData.constituencies.reduce((sum, constituency) => sum + constituency.seats, 0);
   const rangeAxisMaximum = Math.max(5, Math.ceil(Math.max(...projection.standings.flatMap((party) => [party.highSeats, party.baselineSeats])) * 1.12 / 5) * 5);
+  const distributionScopes: DistributionScope[] = [{ key: "all", label: "NI-wide" }, ...modelData.constituencies.map((item) => ({ key: item.name, label: item.name }))];
+  const partyDistributionSeries: DistributionSeries[] = modelData.parties.map((party) => {
+    const standing = projection.standings.find((item) => item.code === party.code);
+    const byScope: DistributionSeries["byScope"] = {
+      all: { expected: standing?.expectedSeats ?? 0, standardDeviation: standing?.seatStandardDeviation ?? 0, baseline: party.baselineSeats, probabilities: standing?.seatCountProbabilities ?? [] },
+    };
+    projection.constituencies.forEach((area) => {
+      const probability = area.winProbability[party.code] ?? 0;
+      byScope[area.name] = {
+        expected: probability / 100,
+        standardDeviation: Math.sqrt((probability / 100) * (1 - probability / 100)),
+        baseline: Number(area.baselineWinner === party.code),
+        probabilities: [{ outcome: 0, probability: 100 - probability }, { outcome: 1, probability }],
+      };
+    });
+    return { key: party.code, label: party.name, color: party.color, byScope };
+  });
+  const communityDistributionSeries: DistributionSeries[] = PROJECTION_BLOCS.map((bloc) => {
+    const summary = projection.blocStandings.find((item) => item.code === bloc);
+    const byScope: DistributionSeries["byScope"] = {
+      all: { expected: summary?.expectedSeats ?? 0, standardDeviation: summary?.seatStandardDeviation ?? 0, baseline: summary?.baselineSeats ?? 0, probabilities: summary?.seatCountProbabilities ?? [] },
+    };
+    projection.constituencies.forEach((area) => {
+      const outcome = area.blocOutcomes.find((item) => item.code === bloc);
+      byScope[area.name] = { expected: outcome?.expectedSeats ?? 0, standardDeviation: outcome?.seatStandardDeviation ?? 0, baseline: outcome?.baselineSeats ?? 0, probabilities: outcome?.seatCountProbabilities ?? [] };
+    });
+    return { key: bloc, label: bloc, color: bloc === "Nationalist" ? "#14765f" : bloc === "Unionist" ? "#436fa8" : "#d49b22", byScope };
+  });
   const heldOut2024Winners = new Map(data.heldOut2024.constituencies.map((constituency) => [constituency.name, constituency.winner]));
   const heldOut2024Seats = new Map(data.heldOut2024.parties.map((party) => [party.code, party.seats]));
   const backtestScoreParties = [...new Set([...projection.standings.map((party) => party.code), ...heldOut2024Seats.keys()])]
@@ -891,6 +1046,20 @@ export default function SeatProjectionWorkspace({ data }: Props) {
     setInterBlocTacticalVoting(defaults.interBlocTacticalVoting);
   }
 
+  function applySavedScenario(saved: Record<string, unknown>) {
+    const mode = saved.projectionMode === "backtest-2024" ? "backtest-2024" : "current";
+    const settings = saved.settings as ProjectionSettings | undefined;
+    if (!settings?.support || !settings.partyPresence) return;
+    setDraftProjectionMode(mode);
+    setSupport(settings.support);
+    setPollError(settings.pollError);
+    setLocalVariation(settings.localVariation);
+    setPreviousResultWeight(settings.previousResultWeight);
+    setPartyPresence(settings.partyPresence);
+    setTacticalVoting(settings.tacticalVoting);
+    setInterBlocTacticalVoting(settings.interBlocTacticalVoting);
+  }
+
   function runProjection() {
     setAppliedProjectionMode(draftProjectionMode);
     setAppliedSettings({
@@ -908,12 +1077,13 @@ export default function SeatProjectionWorkspace({ data }: Props) {
   async function downloadProjectionReport() {
     setIsExportingReport(true);
     setReportExportError("");
+    setGeneratedReport(null);
     try {
       const [{ pdf }, { default: SeatProjectionPdf }] = await Promise.all([
         import("@react-pdf/renderer"),
         import("./SeatProjectionPdf"),
       ]);
-      const reportDate = new Date().toLocaleString("en-IE", { dateStyle: "long", timeStyle: "short" });
+      const reportDate = new Date().toLocaleDateString("en-IE", { dateStyle: "long" });
       const logoResponse = await fetch("/landscape.png");
       if (!logoResponse.ok) throw new Error("Could not load the Ireland Votes logo.");
       const logoBlob = await logoResponse.blob();
@@ -937,14 +1107,19 @@ export default function SeatProjectionWorkspace({ data }: Props) {
       });
       const pdfBlob = await pdf(document as unknown as Parameters<typeof pdf>[0]).toBlob();
       const objectUrl = URL.createObjectURL(pdfBlob);
+      const filename = `confidential-projection-report-${new Date().toISOString().slice(0, 10)}.pdf`;
+      setGeneratedReport({ url: objectUrl, filename });
       const anchor = window.document.createElement("a");
       anchor.href = objectUrl;
-      anchor.download = `ireland-votes-ni-seat-projection-${new Date().toISOString().slice(0, 10)}.pdf`;
+      anchor.download = filename;
+      anchor.style.position = "fixed";
+      anchor.style.left = "-10000px";
+      window.document.body.appendChild(anchor);
       anchor.click();
-      window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+      anchor.remove();
     } catch (error) {
       console.error("Projection PDF export failed", error);
-      setReportExportError("The PDF could not be generated. Please try again.");
+      setReportExportError(`The PDF could not be generated${error instanceof Error ? `: ${error.message}` : ". Please try again."}`);
     } finally {
       setIsExportingReport(false);
     }
@@ -1007,7 +1182,9 @@ export default function SeatProjectionWorkspace({ data }: Props) {
         </div>
         </div>
       </section>
+      <ProjectionScenarioManager model="hoc" settings={{ projectionMode: draftProjectionMode, settings: draftSettings }} presets={scenarioPresets} onApply={applySavedScenario} />
       {reportExportError && <p className="staff-projection-export-error" role="alert">{reportExportError}</p>}
+      {generatedReport && <p className="staff-projection-report-ready" role="status">Your PDF is ready. If the download did not start, <a href={generatedReport.url} download={generatedReport.filename}>download the report here</a>.</p>}
 
       <div className="staff-projection-layout">
         <section className="staff-projection-input-card" aria-labelledby="projection-input-heading">
@@ -1175,13 +1352,25 @@ export default function SeatProjectionWorkspace({ data }: Props) {
                 <div className="staff-projection-standing" key={party.code} style={{ backgroundColor: `color-mix(in srgb, ${party.color} 10%, white)`, borderLeftColor: party.color }}>
                   <div className="staff-projection-standing-label"><strong>{party.name}</strong></div>
                   <div className="staff-projection-standing-metrics">
-                    <div className="staff-projection-standing-seatmetric"><strong style={{ backgroundColor: party.color, color: textColorForPartyColor(party.color) }}>{party.seats}</strong><small>Seats</small></div>
-                    <div className="staff-projection-standing-votemetric"><strong>{party.projectedShare.toFixed(1)}%</strong><small>FPV</small></div>
+                    <div className="staff-projection-standing-seatmetric"><strong style={{ backgroundColor: party.color, color: textColorForPartyColor(party.color) }}>{party.seats}</strong><small>Seats · Δ {party.seatChange >= 0 ? "+" : ""}{party.seatChange.toFixed(1)}</small></div>
+                    <div className="staff-projection-standing-votemetric"><strong>{party.projectedShare.toFixed(1)}%</strong><small>FPV · Δ {party.shareChange >= 0 ? "+" : ""}{party.shareChange.toFixed(1)}pp</small></div>
                   </div>
                 </div>
               ))}
             </div>
           </section>
+
+          <section className="staff-projection-result-card staff-projection-bloc-outlook-card" aria-labelledby="projection-bloc-heading">
+            <div className="staff-projection-section-heading"><div><p className="staff-eyebrow">BLOC BALANCE</p><h2 id="projection-bloc-heading">First-preference support</h2></div><span className="staff-projection-baseline-label">Change vs {modelData.baselineYear}</span></div>
+            <div className="staff-projection-bloc-outlook">
+              {projection.blocStandings.map((bloc) => <article key={bloc.code}>
+                <header>{bloc.code}</header>
+                <div><span>FPV <strong>{bloc.share.toFixed(1)}%</strong></span><span>Δ <strong className={`staff-projection-change${bloc.shareChange > 0.05 ? " is-gain" : bloc.shareChange < -0.05 ? " is-loss" : ""}`}>{bloc.shareChange >= 0 ? "+" : ""}{bloc.shareChange.toFixed(1)}pp</strong></span><span>Baseline <strong>{bloc.baselineShare.toFixed(1)}%</strong></span></div>
+              </article>)}
+            </div>
+          </section>
+
+          <ProjectionDistributionCharts partySeries={partyDistributionSeries} communitySeries={communityDistributionSeries} scopes={distributionScopes} />
 
           <section className="staff-projection-result-card staff-projection-map-card" aria-labelledby="projection-map-heading">
             <div className="staff-projection-section-heading">
@@ -1212,7 +1401,7 @@ export default function SeatProjectionWorkspace({ data }: Props) {
                     <i className="staff-projection-range-band" style={{ left: `${(party.lowSeats / rangeAxisMaximum) * 100}%`, width: `${((party.highSeats - party.lowSeats) / rangeAxisMaximum) * 100}%`, backgroundColor: party.color }} />
                     <i className="staff-projection-range-median" style={{ left: `${(party.medianSeats / rangeAxisMaximum) * 100}%`, borderColor: party.color }} />
                   </span>
-                  <span className="staff-projection-range-value">{party.medianSeats} <small>({party.lowSeats}-{party.highSeats})</small></span>
+                  <span className="staff-projection-range-value">{party.medianSeats} <small>({party.lowSeats}-{party.highSeats})</small><small>Δ {party.seatChange >= 0 ? "+" : ""}{party.seatChange.toFixed(1)}</small></span>
                   <span className="staff-projection-leader-chance" title="Smoothed estimate of having the most seats across simulations">{party.largestPartyProbability.toFixed(1)}% most seats</span>
                 </div>
               ))}
@@ -1236,47 +1425,44 @@ export default function SeatProjectionWorkspace({ data }: Props) {
                 const winner = modelData.parties.find((party) => party.code === constituency.winner);
                 const runnerUp = modelData.parties.find((party) => party.code === constituency.runnerUp);
                 const winnerProjection = constituency.projected.find((party) => party.code === constituency.winner);
-                const runnerUpProjection = constituency.projected.find((party) => party.code === constituency.runnerUp);
                 const actual2024Winner = heldOut2024Winners.get(constituency.name);
                 const marginDiagnostic = backtestMarginErrorByConstituency.get(constituency.name);
                 return (
                   <div className="staff-projection-constituency" key={constituency.name}>
-                    <div className="staff-projection-constituency-summary">
+                    <div className={`staff-projection-constituency-summary${isBacktestApplied ? " has-backtest" : ""}`}>
                       <span className="staff-projection-constituency-name"><strong>{constituency.name}</strong><small>{constituency.seats} seat</small></span>
                       <span className="staff-projection-winner">
                         <span><i style={{ backgroundColor: winner?.color ?? "#7a8589" }} />{winner?.code ?? "-"}</span>
                         <strong aria-label={`${winnerProjection?.share.toFixed(1) ?? "0.0"}% mean simulated vote share`}>{winnerProjection?.share.toFixed(1) ?? "0.0"}%<small>mean share</small></strong>
                       </span>
-                      <span className="staff-projection-win-chance">{(constituency.winProbability[constituency.winner] ?? 0).toFixed(1)}% estimated win</span>
+                      <span className="staff-projection-win-chance">{(constituency.winProbability[constituency.winner] ?? 0).toFixed(1)}% win chance</span>
                       {isBacktestApplied && <span className="staff-projection-backtest-actual">2024: {actual2024Winner ?? "No result"}</span>}
-                      <span className="staff-projection-win-bar" role="img" aria-label={`Estimated win chances: ${modelData.parties.map((party) => `${party.code} ${(constituency.winProbability[party.code] ?? 0).toFixed(1)} percent`).join(", ")}`}>
-                        {modelData.parties.map((party) => {
-                          const probability = constituency.winProbability[party.code] ?? 0;
-                          return probability > 0 ? <i key={party.code} title={`${party.code}: ${probability.toFixed(1)}%`} style={{ width: `${probability}%`, backgroundColor: party.color }} /> : null;
-                        })}
-                      </span>
                     </div>
                     {selectedConstituency === constituency.name && (
                     <div className="staff-projection-constituency-detail">
                       <div className="staff-projection-runner">
-                        <span>Next by mean share: {runnerUp?.code ?? "-"} ({runnerUpProjection?.share.toFixed(1) ?? "0.0"}%)</span>
-                        <span>{constituency.margin >= 0 ? "Mean-share lead" : "Mean-share deficit"} {Math.abs(constituency.margin).toFixed(1)} pts</span>
-                        {isBacktestApplied && <span>2024 actual: {actual2024Winner ?? "No result"}</span>}
-                        {isBacktestApplied && marginDiagnostic && <span>Margin: model {marginDiagnostic.forecastMargin.toFixed(1)} pts · actual {marginDiagnostic.actualMargin.toFixed(1)} pts · error {marginDiagnostic.error > 0 ? "+" : ""}{marginDiagnostic.error.toFixed(1)} pts</span>}
+                        <span>Margin over {runnerUp?.code ?? "runner-up"}: {Math.abs(constituency.margin).toFixed(1)} pts</span>
+                        <span>{modelData.baselineYear}: {constituency.baselineWinner} → {constituency.winner}{constituency.winner === constituency.baselineWinner ? " · hold" : " · gain"}</span>
+                        {isBacktestApplied && marginDiagnostic && <span>Margin error: {marginDiagnostic.error > 0 ? "+" : ""}{marginDiagnostic.error.toFixed(1)} pts</span>}
                       </div>
-                      <div className="staff-projection-bloc-breakdown">
-                        <strong>Bloc support</strong>
+                      <details className="staff-projection-detail-disclosure">
+                        <summary>Bloc and historical signals</summary>
+                        <div className="staff-projection-bloc-breakdown">
+                        <strong>Bloc support and historical context</strong>
                         {PROJECTION_BLOCS.map((bloc) => (
                           <div key={bloc}>
                             <span>{bloc}</span>
-                            <b>{constituency.projectedBlocShares[bloc].toFixed(1)}%</b>
-                            <small>{modelData.baselineYear} Westminster {constituency.blocShares[bloc].toFixed(1)}%</small>
+                            <b>{constituency.blocOutcomes.find((item) => item.code === bloc)?.share.toFixed(1) ?? "0.0"}%</b>
+                            <small>Δ {constituency.blocOutcomes.find((item) => item.code === bloc)?.shareChange.toFixed(1) ?? "0.0"}pp · {modelData.baselineYear} Westminster {constituency.blocShares[bloc].toFixed(1)}%</small>
                             <small>Prior Westminster history: {historicalWestminsterYears.map((year) => `${year} ${blocShareFromParties(constituency.historicalPartyShares[year], bloc).toFixed(1)}%`).join(" / ") || "No prior Westminster results"}</small>
                             <small>NI Assembly first preferences: 2017 {blocShareFromParties(constituency.assemblyPartyShares["2017"], bloc).toFixed(1)}% / 2022 {blocShareFromParties(constituency.assemblyPartyShares["2022"], bloc).toFixed(1)}%</small>
                           </div>
                         ))}
-                      </div>
-                      <div className="staff-projection-candidate-control">
+                        </div>
+                      </details>
+                      <details className="staff-projection-detail-disclosure staff-projection-candidate-disclosure">
+                        <summary>Party participation <span>{(partyPresence[constituency.name] ?? []).length} included</span></summary>
+                        <div className="staff-projection-candidate-control">
                         <div className="staff-projection-candidate-heading">
                           <strong>Include parties contesting this seat</strong>
                           <button type="button" onClick={() => setPartyPresence((current) => ({
@@ -1309,27 +1495,32 @@ export default function SeatProjectionWorkspace({ data }: Props) {
                             );
                           })}
                         </div>
-                      </div>
+                        </div>
+                      </details>
                       <div className="staff-projection-party-breakdown">
+                        <div className="staff-projection-party-breakdown-heading"><span>Party</span><span>Mean share</span><span>Win chance</span><span>History</span></div>
                         {constituency.projected.map((projectedParty) => {
                           const definition = modelData.parties.find((party) => party.code === projectedParty.code);
                           const winChance = constituency.winProbability[projectedParty.code] ?? 0;
                           return (
                             <div key={projectedParty.code}>
                               <span><i style={{ backgroundColor: definition?.color ?? "#7a8589" }} />{projectedParty.code}</span>
-                              <strong className="staff-projection-simulated-share">{projectedParty.share.toFixed(1)}%<small>80% range {projectedParty.shareLow.toFixed(1)}–{projectedParty.shareHigh.toFixed(1)}%</small></strong>
+                              <strong className="staff-projection-simulated-share">{projectedParty.share.toFixed(1)}%<small>Δ {projectedParty.shareChange >= 0 ? "+" : ""}{projectedParty.shareChange.toFixed(1)}pp</small><small>80% range {projectedParty.shareLow.toFixed(1)}–{projectedParty.shareHigh.toFixed(1)}%</small></strong>
                               <span className="staff-projection-party-chance" aria-label={`${winChance.toFixed(1)} percent estimated chance of winning`}>
                                 <i><b style={{ width: `${winChance}%`, backgroundColor: definition?.color ?? "#7a8589" }} /></i>
                                 <strong>{winChance.toFixed(1)}% win</strong>
                               </span>
-                              <small>
+                              <details className="staff-projection-party-history">
+                                <summary>View</summary>
+                                <small>
                                 {modelData.baselineYear}: {projectedParty.hasBaselineResult
                                   ? `${(constituency.partyShares[projectedParty.code] ?? 0).toFixed(1)}% · observed local/national ratio ${projectedParty.baselineLocalNationalRatio.toFixed(2)}×`
                                   : "not contested"}
                                 {` / weighted historical local/national ratio: ${projectedParty.historicalWithinBlocRatio === null ? "no comparable history" : `${projectedParty.historicalWithinBlocRatio.toFixed(2)}×`}`}
                                 {` / Westminster local: ${historicalWestminsterYears.map((year) => `${year} ${formatHistoricalShare(constituency.historicalPartyShares[year][projectedParty.code])}`).join(", ") || "No prior Westminster results"}`}
                                 {` / NI Assembly first preferences: 2017 ${(constituency.assemblyPartyShares["2017"][projectedParty.code] ?? 0).toFixed(1)}%, 2022 ${(constituency.assemblyPartyShares["2022"][projectedParty.code] ?? 0).toFixed(1)}%`}
-                              </small>
+                                </small>
+                              </details>
                             </div>
                           );
                         })}

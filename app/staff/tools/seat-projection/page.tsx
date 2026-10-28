@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { getStaffContext } from "@/lib/staff/auth";
 import { loadNiWestminsterProjectionData } from "@/lib/staff/seatProjectionData";
+import { loadNiProjectionSupportPresets } from "@/lib/staff/projectionSupportPresets";
 import StaffHeader from "../../StaffHeader";
 import SeatProjectionWorkspace from "../../SeatProjectionWorkspace";
 import "../../staff.css";
@@ -27,11 +28,12 @@ export default async function SeatProjectionPage() {
 
   const userName = user.user_metadata?.full_name ?? user.email ?? "Staff";
   const data = loadNiWestminsterProjectionData();
+  const supportPresets = loadNiProjectionSupportPresets(data.parties.map((party) => party.code));
 
   return (
     <div className="staff-workspace">
       <StaffHeader userName={userName} />
-      <SeatProjectionWorkspace data={data} />
+      <SeatProjectionWorkspace data={data} supportPresets={supportPresets} />
     </div>
   );
 }
