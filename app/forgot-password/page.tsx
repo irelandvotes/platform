@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
+import { AUTH_REDIRECT_BASE_URL } from "@/lib/authRedirect";
 import "../login/login.css";
 
 export default function ForgotPasswordPage() {
@@ -24,8 +25,7 @@ export default function ForgotPasswordPage() {
     setMessage("");
 
     try {
-      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || window.location.origin;
-      const callbackUrl = new URL("/auth/callback", siteUrl);
+      const callbackUrl = new URL("/auth/callback", AUTH_REDIRECT_BASE_URL);
       callbackUrl.searchParams.set("next", "/reset-password");
 
       const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {

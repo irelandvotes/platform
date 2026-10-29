@@ -231,6 +231,26 @@
   box-shadow: 0 0 22px rgba(0,223,239,.18);
 }
 
+.card-content button.auth-secondary-action {
+  width: auto;
+  margin: 12px 14px 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: #00dfef;
+  background: transparent;
+  box-shadow: none;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.card-content button.auth-secondary-action:hover:not(:disabled) {
+  transform: none;
+  box-shadow: none;
+  text-decoration: underline;
+}
+
 .divider {
   position: relative;
   text-align: center;
