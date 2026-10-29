@@ -82,7 +82,7 @@ export function PdfFrontMatterChrome({ logo, label }: { logo: string; label: str
       <Text style={{ color: "#d5e1e2", fontSize: 6.5, letterSpacing: 0.9 }}>{label.toUpperCase()}</Text>
     </View>
     <View fixed style={{ position: "absolute", bottom: 17, left: 38, right: 38, flexDirection: "row", justifyContent: "space-between", borderTopWidth: 1, borderTopColor: PDF_COLORS.line, paddingTop: 6 }}>
-      <Text style={PDF_STYLES.footerText}>IRELAND VOTES  /  CONFIDENTIAL</Text>
+      <Text style={PDF_STYLES.footerText}>IRELAND VOTES  /  CONFIDENTIAL PROJECTION REPORT</Text>
       <Text style={PDF_STYLES.pageNumber} render={({ pageNumber }) => romanNumeral(pageNumber - 1)} />
     </View>
   </>;
@@ -92,7 +92,7 @@ export function PdfChrome({ logo, label, date, pageOffset = 5 }: { logo: string;
   return <>
     <View fixed style={PDF_STYLES.header}><Image src="/projection-report-header-atmosphere.png" style={{ position: "absolute", top: 0, right: 0, width: 252, height: 42 }} /><Image src={logo} style={PDF_STYLES.headerLogo} /><Text style={PDF_STYLES.headerText}>{label}</Text></View>
     <View fixed style={PDF_STYLES.footer}>
-      <Text style={PDF_STYLES.footerText}>IRELAND VOTES  /  CONFIDENTIAL SCENARIO  /  {date}</Text>
+      <Text style={PDF_STYLES.footerText}>IRELAND VOTES  /  CONFIDENTIAL PROJECTION REPORT  /  {date}</Text>
       <Text style={PDF_STYLES.pageNumber} render={({ pageNumber, totalPages }) => `${pageNumber - pageOffset} / ${totalPages - pageOffset - 1}`} />
     </View>
   </>;
@@ -111,7 +111,7 @@ export function PdfSectionDivider({ logo, date, number, title, pageOffset = 5 }:
       <Text style={{ maxWidth: 430, color: PDF_COLORS.white, fontSize: 34, fontWeight: 700, lineHeight: 1.04 }}>{title}</Text>
     </View>
     <View style={{ flexDirection: "row", justifyContent: "space-between", borderTopWidth: 1, borderTopColor: "#43575b", paddingTop: 10 }}>
-      <Text style={{ color: "#aebfc1", fontSize: 7 }}>IRELAND VOTES  /  {date}</Text><Text style={{ color: "#aebfc1", fontSize: 7 }} render={({ pageNumber, totalPages }) => `${pageNumber - pageOffset} / ${totalPages - pageOffset - 1}`} />
+      <Text style={{ color: "#aebfc1", fontSize: 7 }}>IRELAND VOTES  /  CONFIDENTIAL PROJECTION REPORT  /  {date}</Text><Text style={{ color: "#aebfc1", fontSize: 7 }} render={({ pageNumber, totalPages }) => `${pageNumber - pageOffset} / ${totalPages - pageOffset - 1}`} />
     </View>
   </Page>;
 }
@@ -219,11 +219,13 @@ export function PdfDistributionChart({ title, color, mean, standardDeviation, ba
   const yMax = Math.max(10, Math.ceil(maxProbability / 10) * 10);
   const slot = (width - left - right) / (safeMaxOutcome + 1);
   const bars = Array.from({ length: safeMaxOutcome + 1 }, (_, outcome) => {
-    const probability = safeOutcomes.find((item) => item.outcome === outcome)?.probability ?? 0;
+    const probability = outcome === safeMaxOutcome
+      ? safeOutcomes.filter((item) => item.outcome >= safeMaxOutcome).reduce((sum, item) => sum + item.probability, 0)
+      : safeOutcomes.find((item) => item.outcome === outcome)?.probability ?? 0;
     const barHeight = Math.max(1.4, probability / yMax * plotHeight);
     return { outcome, probability, x: left + outcome * slot + Math.max(0.35, slot * 0.1), y: top + plotHeight - barHeight, width: Math.max(0.7, slot * 0.8), height: barHeight };
   });
-  const ticks = [0, Math.round(safeMaxOutcome / 2), safeMaxOutcome].filter((value, index, array) => array.indexOf(value) === index);
+  const ticks = Array.from({ length: safeMaxOutcome + 1 }, (_, value) => value);
   const gradientId = `chart-header-${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
   return <View wrap={false} style={{ width: "100%", minWidth: 0, padding: coloredHeader ? 0 : 7, borderWidth: 1, borderColor: PDF_COLORS.line, borderRadius: 4, backgroundColor: PDF_COLORS.white, overflow: "hidden" }}>
     {coloredHeader ? <>
@@ -254,7 +256,7 @@ export function PdfDistributionChart({ title, color, mean, standardDeviation, ba
         return <Text key={`probability-${ratio}`} x={left - 5} y={y + 2} fill={PDF_COLORS.muted} style={{ fontSize: 6 }} textAnchor="end">{`${Math.round(yMax * ratio)}%`}</Text>;
       })}
       {bars.map((bar) => <Rect key={bar.outcome} x={bar.x} y={bar.y} width={bar.width} height={bar.height} fill={color} opacity={bar.probability === 0 ? 0.22 : 0.86} />)}
-      {ticks.map((value) => <Text key={value} x={left + (value + 0.5) * slot} y={height - 14} fill={PDF_COLORS.muted} style={{ fontSize: 7 }} textAnchor="middle">{String(value)}</Text>)}
+      {ticks.map((value) => <Text key={value} x={left + (value + 0.5) * slot} y={height - 14} fill={PDF_COLORS.muted} style={{ fontSize: 4.5 }} textAnchor="middle">{value === safeMaxOutcome && safeOutcomes.some((item) => item.outcome > safeMaxOutcome) ? `${value}+` : String(value)}</Text>)}
       <Text x={(left + width - right) / 2} y={height - 2} fill={PDF_COLORS.muted} style={{ fontSize: 6 }} textAnchor="middle">SEATS</Text>
     </Svg>
     </View>
@@ -285,6 +287,42 @@ export function PdfSectionIntro({ number, title }: { number: string; title: stri
 
 export function PdfMetric({ label, value, color = PDF_COLORS.ink }: { label: string; value: string; color?: string }) {
   return <View style={PDF_STYLES.metric}><Text style={PDF_STYLES.metricLabel}>{label}</Text><Text style={[PDF_STYLES.metricValue, { color }]}>{value}</Text></View>;
+}
+
+export type PdfSeatOutcomeRow = { code: string; color: string; headlineSeats: number; voteShare: number; meanSeats: number; lowSeats: number; highSeats: number };
+export function PdfSeatHeadlineFigures({ rows, headlineNote }: { rows: PdfSeatOutcomeRow[]; headlineNote: string }) {
+  return <View style={{ marginTop: 4, marginBottom: 12 }}>
+    <Text style={{ marginBottom: 6, color: PDF_COLORS.muted, fontSize: 6.5, fontWeight: 700, letterSpacing: 0.8 }}>HEADLINE FIGURES</Text>
+    <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 5 }}>
+      {rows.map((row) => <View key={row.code} wrap={false} style={{ width: "23.5%", minHeight: 40, marginBottom: 2, paddingVertical: 5, paddingHorizontal: 7, borderLeftWidth: 2.5, borderLeftColor: row.color, backgroundColor: "#f2f6f7" }}>
+        <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}><Text style={{ color: PDF_COLORS.ink, fontSize: 8, fontWeight: 700 }}>{row.code}</Text><Text style={{ color: row.color, fontSize: 15, fontWeight: 700 }}>{Math.round(row.headlineSeats)}</Text></View>
+        <Text style={{ marginTop: 1, color: PDF_COLORS.muted, fontSize: 7.5 }}>{row.voteShare.toFixed(1)}% FPV</Text>
+      </View>)}
+    </View>
+    <View style={{ marginTop: 5, paddingVertical: 5, paddingHorizontal: 7, borderLeftWidth: 2.5, borderLeftColor: PDF_COLORS.cyan, backgroundColor: "#e9f7f8" }}><Text style={{ color: PDF_COLORS.muted, fontSize: 6.5, lineHeight: 1.35 }}>{headlineNote} The mean seat total is averaged across simulations and can differ from the headline.</Text></View>
+  </View>;
+}
+
+export function PdfSeatRangePanel({ rows, maxSeats }: { rows: PdfSeatOutcomeRow[]; maxSeats: number }) {
+  const safeMaximum = Math.max(1, Number.isFinite(maxSeats) ? maxSeats : 1);
+  const chartWidth = 260;
+  const chartX = (value: number) => Math.max(0, Math.min(chartWidth, value / safeMaximum * chartWidth));
+  return <View style={{ flexGrow: 1, minWidth: 0, padding: 9, borderWidth: 1, borderColor: PDF_COLORS.line, backgroundColor: "#ffffff", borderRadius: 4 }}>
+    <Text style={{ color: PDF_COLORS.ink, fontSize: 10, fontWeight: 700 }}>Simulated seat ranges</Text>
+    <Text style={{ marginTop: 2, marginBottom: 7, color: PDF_COLORS.muted, fontSize: 6.2 }}>Middle 80% interval · marker shows mean seats</Text>
+    {rows.map((row) => <View key={row.code} wrap={false} style={{ marginBottom: 4, paddingBottom: 3, borderBottomWidth: 0.5, borderBottomColor: PDF_COLORS.line }}>
+      <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+        <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}><View style={{ width: 6, height: 6, borderRadius: 2, backgroundColor: row.color }} /><Text style={{ color: PDF_COLORS.ink, fontSize: 7.2, fontWeight: 700 }}>{row.code}</Text></View>
+        <Text style={{ color: row.color, fontSize: 9.5, fontWeight: 700 }}>{row.lowSeats}–{row.highSeats}<Text style={{ color: PDF_COLORS.muted, fontSize: 6.5, fontWeight: 400 }}>  / mean {row.meanSeats.toFixed(1)}</Text></Text>
+      </View>
+      <Svg width="100%" height={13} viewBox={`0 0 ${chartWidth} 13`} style={{ marginTop: 1 }}>
+        <Line x1={0} y1={6.5} x2={chartWidth} y2={6.5} stroke="#e3e9ea" strokeWidth={3} />
+        <Rect x={chartX(row.lowSeats)} y={4} width={Math.max(2, chartX(row.highSeats) - chartX(row.lowSeats))} height={5} rx={2.5} fill={row.color} opacity={0.66} />
+        <Line x1={chartX(row.meanSeats)} y1={1} x2={chartX(row.meanSeats)} y2={12} stroke={row.color} strokeWidth={2} />
+      </Svg>
+    </View>)}
+    <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 1 }}><Text style={{ color: PDF_COLORS.muted, fontSize: 5.8 }}>0</Text><Text style={{ color: PDF_COLORS.muted, fontSize: 5.8 }}>{safeMaximum} seats</Text></View>
+  </View>;
 }
 
 export function PdfPartyLabel({ label, color }: { label: string; color: string }) {

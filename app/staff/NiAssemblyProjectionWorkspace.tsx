@@ -38,11 +38,12 @@ function textColorForPartyColor(color: string) {
 }
 
 export default function NiAssemblyProjectionWorkspace({ data, supportPresets }: Props) {
+  const constituencyOptions = [...data.constituencies].sort((a, b) => a.name.localeCompare(b.name, "en"));
   const [support, setSupport] = useState(() => Object.fromEntries(data.parties.map((party) => [party.code, party.baselineShare.toFixed(1)])));
   const [candidateCounts, setCandidateCounts] = useState(() => defaultCandidateCounts(data));
   const [pollingUncertainty, setPollingUncertainty] = useState(2);
   const [localVariation, setLocalVariation] = useState(2);
-  const [selectedCandidateConstituency, setSelectedCandidateConstituency] = useState(data.constituencies[0]?.name ?? "");
+  const [selectedCandidateConstituency, setSelectedCandidateConstituency] = useState(constituencyOptions[0]?.name ?? "");
   const [selectedConstituency, setSelectedConstituency] = useState("all");
   const [projection, setProjection] = useState<NiAssemblyProjectionResult | null>(null);
   const [appliedSignature, setAppliedSignature] = useState("");
@@ -254,7 +255,7 @@ export default function NiAssemblyProjectionWorkspace({ data, supportPresets }: 
 
           <section className="staff-projection-input-card staff-nia-slate-card">
             <div className="staff-projection-section-heading"><div><p className="staff-eyebrow">CANDIDATE SLATE</p><h2>Constituency candidates</h2></div></div>
-            <label className="staff-projection-mode-picker staff-nia-constituency-picker"><span className="staff-projection-toolbar-label">Constituency</span><select value={selectedCandidateConstituency} onChange={(event) => setSelectedCandidateConstituency(event.target.value)}>{data.constituencies.map((item) => <option key={item.name} value={item.name}>{item.name}</option>)}</select></label>
+            <label className="staff-projection-mode-picker staff-nia-constituency-picker"><span className="staff-projection-toolbar-label">Constituency</span><select value={selectedCandidateConstituency} onChange={(event) => setSelectedCandidateConstituency(event.target.value)}>{constituencyOptions.map((item) => <option key={item.name} value={item.name}>{item.name}</option>)}</select></label>
             <p className="staff-projection-help">Set how many candidates each party is expected to run. Counts default to the 2022 slate and cap its possible seats. Party first preferences are split across generic candidate slots using the historical within-party distribution where available.</p>
             <div className="staff-nia-candidate-counts">
               {data.parties.map((party) => (
@@ -278,8 +279,8 @@ export default function NiAssemblyProjectionWorkspace({ data, supportPresets }: 
               <div className="staff-projection-standings">
                 {projection.standings.filter((row) => row.topFiveSeats > 0 || row.baselineSeats > 0).map((row) => {
                   const party = data.parties.find((item) => item.code === row.code)!;
-                  return <div className="staff-projection-standing" key={row.code} style={{ backgroundColor: `color-mix(in srgb, ${party.color} 10%, white)`, borderLeftColor: party.color }}>
-                    <div className="staff-projection-standing-label"><strong>{party.name}</strong></div>
+                  return <div className="staff-projection-standing" key={row.code} aria-label={`${row.code}: ${row.topFiveSeats} seats, ${row.projectedShare.toFixed(1)}% first-preference share`} style={{ backgroundColor: `color-mix(in srgb, ${party.color} 10%, white)`, borderLeftColor: party.color }}>
+                    <div className="staff-projection-standing-label"><strong>{row.code}</strong></div>
                     <div className="staff-projection-standing-metrics">
                       <div className="staff-projection-standing-seatmetric"><strong style={{ backgroundColor: party.color, color: textColorForPartyColor(party.color) }}>{row.topFiveSeats}</strong><small>Seats</small></div>
                       <div className="staff-projection-standing-votemetric"><strong>{row.projectedShare.toFixed(1)}%</strong><small>FPV · {row.shareChange >= 0 ? "+" : ""}{row.shareChange.toFixed(1)}pp</small></div>
@@ -324,7 +325,7 @@ export default function NiAssemblyProjectionWorkspace({ data, supportPresets }: 
             <div className="staff-projection-section-heading">
               <div><p className="staff-eyebrow">CONSTITUENCY DETAIL</p><h2 id="nia-constituencies-heading">Projected outcomes</h2></div>
               <label className="staff-projection-constituency-picker"><span>View</span><select aria-label="Choose Assembly constituency view" value={selectedConstituency} onChange={(event) => setSelectedConstituency(event.target.value)}>
-                <option value="all">All constituencies</option>{data.constituencies.map((item) => <option key={item.name} value={item.name}>{item.name}</option>)}
+                <option value="all">All constituencies</option>{constituencyOptions.map((item) => <option key={item.name} value={item.name}>{item.name}</option>)}
               </select></label>
             </div>
             {!projection ? <div className="staff-nia-empty"><strong>Projection not run</strong><span>Run the model to see constituency win probabilities, vote-share ranges and STV results.</span></div> : (

@@ -1149,8 +1149,8 @@ export default function SeatProjectionWorkspace({ data, supportPresets }: Props)
           <label className="staff-projection-mode-picker">
             <span className="staff-projection-toolbar-label">Model baseline</span>
             <select aria-label="Choose model baseline" value={draftProjectionMode} onChange={(event) => changeProjectionMode(event.target.value as ProjectionMode)}>
-              <option value="current">Current projection · 2024 baseline</option>
               <option value="backtest-2024">Backtest 2024 · 2019 baseline</option>
+              <option value="current">Current projection · 2024 baseline</option>
             </select>
           </label>
           <small>{draftProjectionMode === "backtest-2024" ? "2024 result held out" : "Northern Ireland"}</small>
@@ -1349,8 +1349,8 @@ export default function SeatProjectionWorkspace({ data, supportPresets }: Props)
             </div>
             <div className="staff-projection-standings">
               {projection.standings.map((party) => (
-                <div className="staff-projection-standing" key={party.code} style={{ backgroundColor: `color-mix(in srgb, ${party.color} 10%, white)`, borderLeftColor: party.color }}>
-                  <div className="staff-projection-standing-label"><strong>{party.name}</strong></div>
+                <div className="staff-projection-standing" key={party.code} aria-label={`${party.code}: ${party.seats} seats, ${party.projectedShare.toFixed(1)}% first-preference share`} style={{ backgroundColor: `color-mix(in srgb, ${party.color} 10%, white)`, borderLeftColor: party.color }}>
+                  <div className="staff-projection-standing-label"><strong>{party.code}</strong></div>
                   <div className="staff-projection-standing-metrics">
                     <div className="staff-projection-standing-seatmetric"><strong style={{ backgroundColor: party.color, color: textColorForPartyColor(party.color) }}>{party.seats}</strong><small>Seats · Δ {party.seatChange >= 0 ? "+" : ""}{party.seatChange.toFixed(1)}</small></div>
                     <div className="staff-projection-standing-votemetric"><strong>{party.projectedShare.toFixed(1)}%</strong><small>FPV · Δ {party.shareChange >= 0 ? "+" : ""}{party.shareChange.toFixed(1)}pp</small></div>
@@ -1415,7 +1415,7 @@ export default function SeatProjectionWorkspace({ data, supportPresets }: Props)
                 <span>View</span>
                 <select aria-label="Choose constituency view" value={selectedConstituency} onChange={(event) => setSelectedConstituency(event.target.value)}>
                   <option value="all">All constituencies</option>
-                  {modelData.constituencies.map((constituency) => <option key={constituency.name} value={constituency.name}>{constituency.name}</option>)}
+                  {[...modelData.constituencies].sort((a, b) => a.name.localeCompare(b.name, "en")).map((constituency) => <option key={constituency.name} value={constituency.name}>{constituency.name}</option>)}
                 </select>
               </label>
             </div>

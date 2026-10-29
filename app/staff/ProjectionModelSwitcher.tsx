@@ -30,7 +30,7 @@ export default function ProjectionModelSwitcher({ current, enabled }: Props) {
           if (selected && enabledModels.has(selected.id)) router.push(selected.href);
         }}
       >
-        {MODELS.map((model) => {
+        {[...MODELS].sort((a, b) => a.label.localeCompare(b.label, "en")).map((model) => {
           const isEnabled = enabledModels.has(model.id);
           return (
             <option key={model.id} value={model.id} disabled={!isEnabled}>

@@ -123,11 +123,19 @@ export default function ProjectionDistributionCharts({
   communitySeries: DistributionSeries[];
   scopes: DistributionScope[];
 }) {
+  const orderedScopes = [...scopes].sort((a, b) => {
+    if (a.key === b.key) return 0;
+    if (a.key === "all") return -1;
+    if (b.key === "all") return 1;
+    return a.label.localeCompare(b.label, "en");
+  });
+  const orderedPartySeries = [...partySeries].sort((a, b) => a.label.localeCompare(b.label, "en"));
+  const orderedCommunitySeries = [...communitySeries].sort((a, b) => a.label.localeCompare(b.label, "en"));
   return <section className="staff-projection-result-card staff-projection-distributions" aria-label="Seat outcome probability distributions">
     <div className="staff-projection-section-heading"><div><p className="staff-eyebrow">SIMULATION DISTRIBUTIONS</p><h2>Seat outcome probabilities</h2></div><span>Exact totals across every simulation</span></div>
     <div className="staff-projection-distribution-grid">
-      <DistributionChart title="Party seat distribution" eyebrow="PARTY VIEW" series={partySeries} scopes={scopes} seriesLabel="Party" />
-      <DistributionChart title="Community seat distribution" eyebrow="COMMUNITY VIEW" series={communitySeries} scopes={scopes} seriesLabel="Community" />
+      <DistributionChart title="Party seat distribution" eyebrow="PARTY VIEW" series={orderedPartySeries} scopes={orderedScopes} seriesLabel="Party" />
+      <DistributionChart title="Community seat distribution" eyebrow="COMMUNITY VIEW" series={orderedCommunitySeries} scopes={orderedScopes} seriesLabel="Community" />
     </div>
   </section>;
 }

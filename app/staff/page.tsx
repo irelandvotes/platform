@@ -32,61 +32,31 @@ export default async function StaffPage() {
   return (
     <div className="staff-workspace">
       <StaffHeader userName={userName} />
-      <main className="staff-home-content staff-dashboard">
-        <section className="staff-home-hero staff-dashboard-hero">
-          <div>
-            <p className="staff-eyebrow">IRELAND VOTES / STAFF</p>
-            <h1>Staff workspace</h1>
-            <p>Polling analysis and publishing tools, gathered in one place.</p>
-          </div>
-          <div className="staff-dashboard-welcome">
-            <span>Signed in as</span>
-            <strong>{user.user_metadata?.full_name || user.email || "Staff"}</strong>
-          </div>
-        </section>
+      <main className="staff-home-content staff-launchpad">
+        <header className="staff-launchpad-welcome"><p className="staff-eyebrow">IRELAND VOTES / STAFF</p><h1>Welcome, {userName}</h1></header>
 
-        <section className="staff-home-section staff-dashboard-tools" aria-labelledby="staff-tools-heading">
-          <div className="staff-home-section-heading">
-            <div>
-              <p className="staff-eyebrow">WORKSPACE</p>
-              <h2 id="staff-tools-heading">Tools</h2>
-            </div>
-            <span>3 available</span>
-          </div>
-
-          <div className="staff-tool-cards">
-            <article className="staff-tool-card staff-tool-card-live">
-              <div className="staff-tool-card-icon" aria-hidden="true">01</div>
-              <div className="staff-tool-card-copy">
-                <span className="staff-tool-status">AVAILABLE</span>
-                <h3>Polling graphics</h3>
-                <p>Create polling graphics, prepare the house-template post and publish both to X from the editor.</p>
-                <div className="staff-tool-tags"><span>Graphic editor</span><span>X publishing</span></div>
-                <Link href="/staff/tools/polling-graphics">Open tool <span aria-hidden="true">-&gt;</span></Link>
+        <section className="staff-launchpad-section" aria-labelledby="staff-tools-heading">
+          <div className="staff-launchpad-section-heading"><h2 id="staff-tools-heading">Your tools</h2><span>01 — 02</span></div>
+          <div className="staff-launchpad-grid">
+            <Link className="staff-launchpad-card staff-launchpad-content-card" href="/staff/tools/polling-graphics">
+              <div className="staff-launchpad-card-top"><span>01 / CONTENT</span><span className="staff-launchpad-arrow" aria-hidden="true">↗</span></div>
+              <div className="staff-launchpad-content-art" aria-hidden="true">
+                <div className="staff-launchpad-art-brand">IRELAND<br />VOTES</div>
+                <div className="staff-launchpad-art-bars"><i /><i /><i /><i /><i /></div>
+                <div className="staff-launchpad-art-caption">POLLING GRAPHIC <span>2026</span></div>
               </div>
-            </article>
+              <div className="staff-launchpad-card-copy"><div><h3>Content</h3><p>Create polling graphics and prepare social posts in the Ireland Votes house style.</p></div><span className="staff-launchpad-card-cta">Open content studio <b aria-hidden="true">→</b></span></div>
+            </Link>
 
-            <article className="staff-tool-card staff-tool-card-live">
-              <div className="staff-tool-card-icon" aria-hidden="true">02</div>
-              <div className="staff-tool-card-copy">
-                <span className="staff-tool-status">EARLY MODEL</span>
-                <h3>NI Assembly projection</h3>
-                <p>Explore Assembly scenarios using constituency first preferences and simulated STV counts.</p>
-                <div className="staff-tool-tags"><span>NI Assembly</span><span>STV</span></div>
-                <Link href="/staff/tools/ni-assembly-projection">Open early model <span aria-hidden="true">-&gt;</span></Link>
+            <Link className="staff-launchpad-card staff-launchpad-model-card" href="/staff/tools/projection-model">
+              <div className="staff-launchpad-card-top"><span>02 / ANALYSIS</span><span className="staff-launchpad-arrow" aria-hidden="true">↗</span></div>
+              <div className="staff-launchpad-model-art" aria-hidden="true">
+                <div className="staff-launchpad-model-art-label">SEAT PROJECTION <span>LIVE MODEL</span></div>
+                <div className="staff-launchpad-model-chart"><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><b /></div>
+                <div className="staff-launchpad-model-axis"><span>SCENARIO</span><span>OUTCOME</span></div>
               </div>
-            </article>
-
-            <article className="staff-tool-card staff-tool-card-live">
-              <div className="staff-tool-card-icon" aria-hidden="true">03</div>
-              <div className="staff-tool-card-copy">
-                <span className="staff-tool-status">EARLY MODEL</span>
-                <h3>Seat projection model</h3>
-                <p>Explore how a change in NI-wide party support could alter the Westminster constituency results.</p>
-                <div className="staff-tool-tags"><span>NI Westminster</span><span>Uniform swing</span></div>
-                <Link href="/staff/tools/seat-projection">Open early model <span aria-hidden="true">-&gt;</span></Link>
-              </div>
-            </article>
+              <div className="staff-launchpad-card-copy"><div><h3>Projection model</h3><p>Explore Westminster and Assembly scenarios, constituency outcomes and uncertainty.</p></div><span className="staff-launchpad-card-cta">Open projection model <b aria-hidden="true">→</b></span></div>
+            </Link>
           </div>
         </section>
       </main>
