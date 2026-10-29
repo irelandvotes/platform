@@ -11,7 +11,7 @@ import {
 
 export const runtime = "nodejs";
 
-const MAX_PNG_BYTES = 4 * 1024 * 1024;
+const MAX_MEDIA_BYTES = 4 * 1024 * 1024;
 const MEDIA_CHUNK_BYTES = 1024 * 1024;
 
 type XErrorBody = {
@@ -54,8 +54,8 @@ export async function POST(request: Request) {
   }
 
   const contentLength = Number(request.headers.get("content-length") ?? 0);
-  if (contentLength > MAX_PNG_BYTES + 100_000) {
-    return NextResponse.json({ error: "The generated PNG is too large to publish from this tool." }, { status: 413 });
+  if (contentLength > MAX_MEDIA_BYTES + 100_000) {
+    return NextResponse.json({ error: "The generated graphic is too large to publish from this tool." }, { status: 413 });
   }
 
   const originalSession = await readXSession();
@@ -74,18 +74,19 @@ export async function POST(request: Request) {
     if (typeof text !== "string" || !text.trim() || text.length > 4000) {
       return jsonWithSession({ error: "Add post text before publishing." }, 400, session, originalSession);
     }
-    if (!(image instanceof File) || image.type !== "image/png" || image.size === 0 || image.size > MAX_PNG_BYTES) {
-      return jsonWithSession({ error: "The polling graphic must be a PNG smaller than 4 MB." }, 400, session, originalSession);
+    if (!(image instanceof File) || !["image/png", "image/gif"].includes(image.type) || image.size === 0 || image.size > MAX_MEDIA_BYTES) {
+      return jsonWithSession({ error: "The graphic must be a PNG or GIF smaller than 4 MB." }, 400, session, originalSession);
     }
 
+    const isGif = image.type === "image/gif";
     const imageBytes = Buffer.from(await image.arrayBuffer());
     const authorization = { Authorization: `Bearer ${session.accessToken}` };
     const initializeResponse = await fetch("https://api.x.com/2/media/upload/initialize", {
       method: "POST",
       headers: { ...authorization, "Content-Type": "application/json" },
       body: JSON.stringify({
-        media_type: "image/png",
-        media_category: "tweet_image",
+        media_type: image.type,
+        media_category: isGif ? "tweet_gif" : "tweet_image",
         total_bytes: imageBytes.byteLength,
       }),
       cache: "no-store",

@@ -26,10 +26,22 @@ export type LatestPollSnapshot = {
   }>;
 };
 
+export type GraphicTemplateKey = "polling" | "breaking-news" | "on-this-day" | "election-results" | "explainer";
+export type ElectionArchiveCandidate = { name: string; party: string; votes: number; share: number; status: string };
+export type ElectionArchiveArea = {
+  name: string;
+  seats: number | null;
+  turnout: number | null;
+  candidates: ElectionArchiveCandidate[];
+  parties: Array<{ code: string; votes: number; share: number; elected: number }>;
+};
+export type ElectionArchiveEntry = { id: string; label: string; date: string | null; areas: ElectionArchiveArea[] };
+
 export type PollingGraphicOptions = {
   pollsters: string[];
   commissioners: string[];
   elections: ElectionComparison[];
+  electionArchive: ElectionArchiveEntry[];
   latestPolls: {
     dail: LatestPollSnapshot | null;
     niAssembly: LatestPollSnapshot | null;
