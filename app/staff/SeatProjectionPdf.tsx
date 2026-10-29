@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Document, Page, Path, Svg, Text, View } from "@react-pdf/renderer";
 import type { SeatProjectionBaseline, SeatProjectionConstituency } from "@/lib/staff/seatProjectionData";
 import { PROJECTION_BLOCS, type ProjectionBloc } from "@/lib/staff/projectionBlocs";
-import { PDF_COLORS as C, PDF_STYLES as S, PdfAcronymIndex, PdfChrome, PdfClosingPage, PdfConstituencyHeading, PdfContentsPage, PdfCoverPage, PdfDistributionChart, PdfFrontMatterChrome, PdfNoticePage, PdfSectionDivider, PdfSectionIntro, PdfTable } from "./ProjectionPdfKit";
+import { PDF_COLORS as C, PDF_STYLES as S, PdfAcronymIndex, PdfChrome, PdfClosingPage, PdfConstituencyHeading, PdfContentsPage, PdfCoverPage, PdfDistributionChart, PdfFrontMatterChrome, PdfNoticePage, PdfSeatHeadlineFigures, PdfSeatRangePanel, PdfSectionDivider, PdfSectionIntro, PdfTable } from "./ProjectionPdfKit";
 
 type Probability = { outcome: number; probability: number };
 type ProjectedSeat = SeatProjectionConstituency & {
@@ -25,7 +25,6 @@ const blocColor: Record<ProjectionBloc, string> = { Nationalist: "#14765f", Unio
 const pct = (value: number) => `${value.toFixed(1)}%`;
 const signed = (value: number, suffix = "pp") => `${value >= 0 ? "+" : ""}${value.toFixed(1)} ${suffix}`;
 const shownOutcomes = (items: Probability[]) => items.filter((item) => item.probability >= 0.1).map((item) => `${item.outcome}: ${item.probability.toFixed(1)}%`).join("  |  ") || "No material probability";
-const leadingOutcomes = (items: Probability[]) => items.slice().sort((a, b) => b.probability - a.probability).slice(0, 3).sort((a, b) => a.outcome - b.outcome).map((item) => `${item.outcome}: ${item.probability.toFixed(1)}%`).join("  |  ");
 const oneSeat = (probability: number): Probability[] => [{ outcome: 0, probability: 100 - probability }, { outcome: 1, probability }];
 export default function SeatProjectionPdf({ data, projection, support, reportDate, logoSrc, pollError, localVariation, previousResultWeight, tacticalVoting, interBlocTacticalVoting }: SeatProjectionPdfProps) {
   const partyByCode = new Map(data.parties.map((party) => [party.code, party]));
@@ -52,8 +51,8 @@ export default function SeatProjectionPdf({ data, projection, support, reportDat
     const party = partyByCode.get(item.code);
     return (party?.baselineShare ?? 0) > 1 || (party?.baselineSeats ?? 0) > 0 || item.seats > 0;
   });
-  const partyCharts = partyOutlook.map((item) => ({ title: item.code, color: item.color, mean: item.expectedSeats, standardDeviation: item.seatStandardDeviation, baseline: partyByCode.get(item.code)?.baselineSeats ?? 0, outcomes: item.seatCountProbabilities, maxOutcome: Math.max(1, ...item.seatCountProbabilities.map((x) => x.outcome)), coloredHeader: true }));
-  const blocCharts = projection.blocStandings.map((item) => ({ title: `${item.code} bloc`, color: blocColor[item.code], mean: item.expectedSeats, standardDeviation: item.seatStandardDeviation, baseline: item.baselineSeats, outcomes: item.seatCountProbabilities, maxOutcome: totalSeats, coloredHeader: true }));
+  const partyCharts = partyOutlook.map((item) => ({ title: item.code, color: item.color, mean: item.expectedSeats, standardDeviation: item.seatStandardDeviation, baseline: partyByCode.get(item.code)?.baselineSeats ?? 0, outcomes: item.seatCountProbabilities, maxOutcome: 18, coloredHeader: true }));
+  const blocCharts = projection.blocStandings.map((item) => ({ title: `${item.code} bloc`, color: blocColor[item.code], mean: item.expectedSeats, standardDeviation: item.seatStandardDeviation, baseline: item.baselineSeats, outcomes: item.seatCountProbabilities, maxOutcome: 18, coloredHeader: true }));
   const chartPages = Math.ceil(partyCharts.length / 3);
   const constituencySectionPage = 6 + chartPages;
   const acronymIndexPage = constituencySectionPage + 1 + projection.constituencies.length * 2;
@@ -69,12 +68,12 @@ export default function SeatProjectionPdf({ data, projection, support, reportDat
     signed(item.shareChange),
     `${item.expectedSeats.toFixed(1)} +/- ${item.seatStandardDeviation.toFixed(1)}`,
     `${item.seats} modal  /  ${item.lowSeats}-${item.highSeats} middle 80%`,
-    leadingOutcomes(item.seatCountProbabilities),
   ]);
   const blocRows = projection.blocStandings.map((item) => [
     { text: item.code, color: blocColor[item.code] }, `${pct(item.share)} +/- ${item.shareStandardDeviation.toFixed(1)}pp`, signed(item.shareChange),
-    `${item.expectedSeats.toFixed(1)} +/- ${item.seatStandardDeviation.toFixed(1)}`, `${item.baselineSeats} seats  /  ${pct(item.baselineShare)}`, leadingOutcomes(item.seatCountProbabilities),
+    `${item.expectedSeats.toFixed(1)} +/- ${item.seatStandardDeviation.toFixed(1)}`, `${item.baselineSeats} seats  /  ${pct(item.baselineShare)}`,
   ]);
+  const overallSeatRows = partyOutlook.map((item) => ({ code: item.code, color: item.color, headlineSeats: item.seats, voteShare: item.projectedShare, meanSeats: item.expectedSeats, lowSeats: item.lowSeats, highSeats: item.highSeats }));
 
   return <Document title="Confidential Projection Report" author="Ireland Votes" subject="Confidential constituency projection scenario">
     <PdfCoverPage logo={logoSrc} date={reportDate} />
@@ -94,17 +93,19 @@ export default function SeatProjectionPdf({ data, projection, support, reportDat
     <PdfContentsPage logo={logoSrc} sections={contents} />
     <PdfSectionDivider logo={logoSrc} date={reportDate} number="01" title="Overall picture" deck="Headline seat estimates, geographic pattern and the scenario inputs behind this projection." />
     <Page size="A4" style={S.page}><PdfChrome logo={logoSrc} label="01  /  OVERALL PICTURE" date={reportDate}/><Text style={S.title}>The overall picture</Text>
-      <View style={{ alignItems: "center", marginBottom: 5 }}><Svg width={145} height={180} viewBox="0 0 420 520">{data.mapFeatures.map((feature) => { const constituency = projection.constituencies.find((seat) => seat.name === feature.name); const shareLeader = constituency?.projected.filter((party) => party.share > 0).sort((a, b) => b.share - a.share)[0]; return <Path key={feature.name} d={feature.path} fill={partyByCode.get(shareLeader?.code ?? "")?.color ?? "#dce5e7"} stroke="#ffffff" strokeWidth={2}/>; })}</Svg><Text style={{ marginTop: 2, color: C.muted, fontSize: 6.5 }}>Shaded by the party with the highest mean projected vote share in each constituency.</Text></View>
-      <PdfTable headers={["Party", "Mean FPV +/- SD", "Change", "Mean seats +/- SD", "Modal / range", "Most likely totals"]} widths={["17%", "16%", "10%", "16%", "16%", "25%"]} rows={partyRows} compact />
-      <View style={S.note}><Text style={S.noteText}>Scenario estimates are conditional on the inputs and assumptions shown in this report. Probabilities and standard deviations describe this model’s simulations; they are not calibrated guarantees of electoral outcomes.</Text></View>
+      <PdfSeatHeadlineFigures rows={overallSeatRows} headlineNote="Headline seats sum the party with the highest win probability in each constituency." />
+      <View style={{ flexDirection: "row", alignItems: "flex-start", gap: 8 }}>
+        <View style={{ width: "36%", alignItems: "center", paddingTop: 10 }}><Text style={{ alignSelf: "flex-start", marginBottom: 4, color: C.ink, fontSize: 9, fontWeight: 700 }}>Probability map</Text><Svg width={175} height={235} viewBox="0 0 420 520">{data.mapFeatures.map((feature) => { const constituency = projection.constituencies.find((seat) => seat.name === feature.name); const likelyWinner = constituency ? Object.entries(constituency.winProbability).sort((a, b) => b[1] - a[1])[0]?.[0] : undefined; return <Path key={feature.name} d={feature.path} fill={partyByCode.get(likelyWinner ?? "")?.color ?? "#dce5e7"} stroke="#ffffff" strokeWidth={2}/>; })}</Svg><Text style={{ marginTop: 4, color: C.muted, fontSize: 6.2, textAlign: "center" }}>Each seat is shaded for its highest-probability winner.</Text></View>
+        <View style={{ width: "62%" }}><PdfSeatRangePanel rows={overallSeatRows} maxSeats={totalSeats} /></View>
+      </View>
     </Page>
 
     <PdfSectionDivider logo={logoSrc} date={reportDate} number="02" title="Parties and blocs" deck="How national support translates into seat outcomes, with probability distributions for parties and communities." />
     <Page size="A4" style={S.page}><PdfChrome logo={logoSrc} label="02  /  PARTY AND BLOC OUTLOOK" date={reportDate}/><Text style={S.title}>Party and bloc outlook</Text>
       <PdfSectionIntro number="01" title="Party seat movement" />
-      <PdfTable headers={["Party", "Mean FPV +/- SD", "Change vs baseline", "Mean seats +/- SD", "Modal / middle 80%", "Exact seat totals"]} widths={["17%", "16%", "14%", "16%", "16%", "21%"]} rows={partyRows} compact />
+      <PdfTable headers={["Party", "Mean FPV +/- SD", "Change vs baseline", "Mean seats +/- SD", "Modal / middle 80%"]} widths={["19%", "19%", "18%", "21%", "22%"]} rows={partyRows} compact />
       <View style={{ marginTop: 16 }}><PdfSectionIntro number="02" title="Bloc outlook" /></View>
-      <PdfTable headers={["Community", "Mean FPV +/- SD", "Change", "Mean seats +/- SD", "Baseline", "Most likely totals"]} widths={["16%", "18%", "12%", "18%", "16%", "20%"]} rows={blocRows} compact />
+      <PdfTable headers={["Community", "Mean FPV +/- SD", "Change", "Mean seats +/- SD", "Baseline"]} widths={["20%", "21%", "14%", "23%", "22%"]} rows={blocRows} compact />
       <View style={S.note}><Text style={S.noteText}>The party outlook includes parties above 1% in the baseline election, along with parties holding or projected to win seats. A standard deviation describes the spread of simulated outcomes; modal seats need not equal the mean.</Text></View>
     </Page>
     {Array.from({ length: chartPages }, (_, pageIndex) => <Page key={`national-party-distribution-${pageIndex}`} size="A4" style={S.page}><PdfChrome logo={logoSrc} label="02  /  PARTY DISTRIBUTIONS" date={reportDate}/><Text style={S.title}>Party distributions</Text>

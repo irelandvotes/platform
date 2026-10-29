@@ -8,7 +8,8 @@ export default function StaffHeader({ userName }: { userName: string }) {
   const pathname = usePathname();
   const onStaffHome = pathname === "/staff";
   const onPollingTool = pathname.startsWith("/staff/tools/polling");
-  const onSeatProjection = pathname.startsWith("/staff/tools/seat-projection")
+  const onProjectionModel = pathname.startsWith("/staff/tools/projection-model")
+    || pathname.startsWith("/staff/tools/seat-projection")
     || pathname.startsWith("/staff/tools/ni-assembly-projection");
 
   return (
@@ -19,8 +20,8 @@ export default function StaffHeader({ userName }: { userName: string }) {
       </Link>
       <nav className="staff-topbar-nav" aria-label="Staff navigation">
         <Link className={onStaffHome ? "active" : ""} href="/staff">Home</Link>
-        <Link className={onPollingTool ? "active" : ""} href="/staff/tools/polling-graphics">Polling graphics</Link>
-        <Link className={onSeatProjection ? "active" : ""} href="/staff/tools/seat-projection">Seat projection</Link>
+        <Link className={onPollingTool ? "active" : ""} href="/staff/tools/polling-graphics">Content</Link>
+        <Link className={onProjectionModel ? "active" : ""} href="/staff/tools/projection-model">Projection model</Link>
       </nav>
       <div className="staff-topbar-actions">
         <span>{userName}</span>

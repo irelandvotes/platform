@@ -102,8 +102,8 @@ export default function ProjectionScenarioManager({
           const scenario = scenarios.find((item) => item.id === event.target.value);
           setName(scenario?.name ?? "");
         }}>
-          <optgroup label="Starting scenarios">{presets.map((preset) => <option key={preset.id} value={`preset:${preset.id}`}>{preset.label}</option>)}</optgroup>
-          <optgroup label="Shared custom scenarios">{scenarios.map((scenario) => <option key={scenario.id} value={scenario.id}>{scenario.name}</option>)}</optgroup>
+          <optgroup label="Starting scenarios">{[...presets].sort((a, b) => a.label.localeCompare(b.label, "en")).map((preset) => <option key={preset.id} value={`preset:${preset.id}`}>{preset.label}</option>)}</optgroup>
+          <optgroup label="Shared custom scenarios">{[...scenarios].sort((a, b) => a.name.localeCompare(b.name, "en")).map((scenario) => <option key={scenario.id} value={scenario.id}>{scenario.name}</option>)}</optgroup>
         </select></label>
         <button type="button" className="staff-projection-scenario-apply" onClick={applySelected} disabled={busy || (!selectedPreset && !selectedScenario)}>Apply to inputs</button>
       </div>
