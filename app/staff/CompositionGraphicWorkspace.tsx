@@ -3,12 +3,32 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import type { CompositionParty, CompositionTemplate } from "@/lib/staff/compositionData";
+import { SEAT_DIGIT_GLYPHS } from "@/app/staff/seatDigitGlyphs";
 
 type ChangeKind = "By-election" | "Affiliation change" | "Custom adjustment";
 type SeatChange = { id: number; kind: ChangeKind; from: string; to: string; seats: number; constituency: string; note: string };
 const GRAPHIC_WIDTH = 1920;
 const GRAPHIC_HEIGHT = 1080;
 const VACANT_COLOR = "#9ba6a8";
+
+function SeatNumber({ value, x, centerY, fontSize }: { value: number; x: number; centerY: number; fontSize: number }) {
+  const digits = String(value).split("").map((digit) => SEAT_DIGIT_GLYPHS[digit as keyof typeof SEAT_DIGIT_GLYPHS]);
+  const scale = fontSize / 1000;
+  const tracking = -27.6;
+  const width = digits.reduce((sum, digit) => sum + digit.advance, 0) + Math.max(0, digits.length - 1) * tracking;
+  const minY = Math.min(...digits.map((digit) => digit.minY));
+  const maxY = Math.max(...digits.map((digit) => digit.maxY));
+  const baselineY = centerY + ((minY + maxY) / 2) * scale;
+  let cursor = -width / 2;
+
+  return <g fill="#f2f6f6" transform={`translate(${x} ${baselineY}) scale(${scale} ${-scale})`}>
+    {digits.map((digit, index) => {
+      const offset = cursor;
+      cursor += digit.advance + (index < digits.length - 1 ? tracking : 0);
+      return <path key={`${value}-${index}`} d={digit.path} transform={`translate(${offset} 0)`} />;
+    })}
+  </g>;
+}
 
 function slug(value: string) {
   return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "composition";
@@ -569,7 +589,7 @@ export default function CompositionGraphicWorkspace({ templates }: { templates: 
                 const displayName = item.code === "UUP" ? "Ulster Unionist" : item.code === "DUP" ? "Democratic Unionist" : item.code === "TUV" ? "Traditional Unionist Voice" : item.code === "SDLP" ? "Social Democratic & Labour" : item.name;
                 return <g key={item.code}>
                   <text x="98" y={rowCenterY} fill={item.color} fontSize={rowTextSize} fontWeight="700" textAnchor="start" dominantBaseline="central" letterSpacing="-1.2144">{displayName}</text>
-                  <text x="635" y={numberCenterY} fill="#f2f6f6" fontSize={seatTextSize} fontWeight="700" textAnchor="middle" dominantBaseline="central">{item.seats}</text>
+                  <SeatNumber value={item.seats} x={635} centerY={numberCenterY + 4} fontSize={seatTextSize} />
                   {seatDelta !== 0 && <g>
                     <circle cx={deltaIconCenterX} cy={deltaCenterY} r="10" fill="#ffffff" stroke={item.color} strokeWidth="1.5" />
                     <path d={deltaArrowPath} fill={item.color} />
