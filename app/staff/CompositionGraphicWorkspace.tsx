@@ -197,6 +197,7 @@ export default function CompositionGraphicWorkspace({ templates }: { templates: 
   const [changeSeats, setChangeSeats] = useState("1");
   const [changeConstituency, setChangeConstituency] = useState("");
   const [changeNote, setChangeNote] = useState("");
+  const [previewFontsReady, setPreviewFontsReady] = useState(false);
   const [exporting, setExporting] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
   const [tweetDraft, setTweetDraft] = useState("");
@@ -289,6 +290,11 @@ export default function CompositionGraphicWorkspace({ templates }: { templates: 
   async function createPngBlob(): Promise<Blob> {
     const svg = svgRef.current;
     if (!svg) throw new Error("The composition preview is not ready.");
+    await Promise.all([
+      document.fonts.load("700 110px AvertaExport"),
+      document.fonts.load("700 36px AvertaExport"),
+      document.fonts.load("700 16px AvertaExport"),
+    ]);
     await document.fonts.ready;
     const fontFiles = ["AvertaDemo-Regular.otf", "AvertaDemo-Semibold.otf", "AvertaDemo-Bold.otf"];
     const embeddedFonts = await Promise.all(fontFiles.map(async (filename) => {
@@ -386,6 +392,18 @@ export default function CompositionGraphicWorkspace({ templates }: { templates: 
     return [title, `${selected.label}${formattedDate ? ` · ${formattedDate}` : ""}`, "", ...partyLines, changesSummary ? "" : null, changesSummary ? `Changes: ${changesSummary}` : null, "", "Ireland Votes"].filter((line): line is string => line !== null).join("\n");
   }, [baselineByCode, changesSummary, date, selected.label, selected.totalSeats, sortedParties, title, totalCurrentSeats]);
 
+  useEffect(() => {
+    let active = true;
+    Promise.all([
+      document.fonts.load("700 110px AvertaExport"),
+      document.fonts.load("700 36px AvertaExport"),
+      document.fonts.load("700 16px AvertaExport"),
+    ])
+      .then(() => document.fonts.ready)
+      .then(() => { if (active) setPreviewFontsReady(true); })
+      .catch(() => { if (active) setPreviewFontsReady(true); });
+    return () => { active = false; };
+  }, []);
   useEffect(() => { setTweetDraft(postText); }, [postText]);
   useEffect(() => {
     if (!postOpen) return;
@@ -500,7 +518,7 @@ export default function CompositionGraphicWorkspace({ templates }: { templates: 
             <label>To<select value={toParty} onChange={(event) => setToParty(event.target.value)}>{sortedParties.map((item) => <option key={item.code} value={item.code}>{item.code} · {item.name}</option>)}</select></label>
             <label>Seats<input type="number" min="1" max={selected.totalSeats} value={changeSeats} onChange={(event) => setChangeSeats(event.target.value)} /></label>
             {selected.mode === "map" && <label className="composition-field-wide">Constituency<select value={changeConstituency} onChange={(event) => setChangeConstituency(event.target.value)}><option value="">No map location</option>{(selected.constituencies ?? []).map((item) => <option key={item.name} value={item.name}>{item.name}</option>)}</select></label>}
-            <label className="composition-field-wide">Change note<input value={changeNote} onChange={(event) => setChangeNote(event.target.value)} placeholder="Optional note for the graphic (e.g. by-election result)" maxLength={80} /></label>
+            <label className="composition-field-wide">Change note<input value={changeNote} onChange={(event) => setChangeNote(event.target.value)} placeholder="Optional note for the graphic (e.g. by-election result)" /></label>
             <button className="composition-apply-change" type="submit">Apply seat change <span aria-hidden="true">→</span></button>
           </form>
           {changes.length > 0 && <ol className="composition-change-log">{[...changes].reverse().map((change) => <li key={change.id}><div><strong>{change.kind}</strong><span>{change.from || "—"} → {change.to} · {change.seats} seat{change.seats === 1 ? "" : "s"}{change.constituency ? ` · ${change.constituency}` : ""}</span>{change.note && <small>{change.note}</small>}</div><button type="button" onClick={() => undoChange(change)} aria-label="Undo seat change">Undo</button></li>)}</ol>}
@@ -510,7 +528,7 @@ export default function CompositionGraphicWorkspace({ templates }: { templates: 
         <div className="composition-preview-panel">
           <div className="composition-preview-topline"><div><span>LIVE PREVIEW</span><span>16:9 SOCIAL GRAPHIC</span></div><span className={seatDifference === 0 ? "composition-total-ok" : "composition-total-warning"}>{seatDifference === 0 ? "TOTALS BALANCED" : `${seatDifference > 0 ? "+" : ""}${seatDifference} FROM CHAMBER TOTAL`}</span></div>
           <div className="composition-canvas-wrap">
-            <svg ref={svgRef} className="composition-svg" xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${GRAPHIC_WIDTH} ${GRAPHIC_HEIGHT}`} role="img" aria-label={`${title}, ${totalCurrentSeats} seats`} letterSpacing="-0.0276em">
+            <svg ref={svgRef} className="composition-svg" style={{ visibility: previewFontsReady ? "visible" : "hidden" }} xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${GRAPHIC_WIDTH} ${GRAPHIC_HEIGHT}`} role="img" aria-label={`${title}, ${totalCurrentSeats} seats`} letterSpacing="-0.0276em">
               <defs>
                 <linearGradient id="composition-header-gradient" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stopColor="#11191b" /><stop offset=".64" stopColor="#15343a" /><stop offset="1" stopColor="#075e68" /></linearGradient>
                 <linearGradient id="composition-cyan-rule" x1="0" x2="1"><stop offset="0" stopColor="#00d7e6" /><stop offset="1" stopColor="#00a9b5" /></linearGradient>
