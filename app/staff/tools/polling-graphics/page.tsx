@@ -10,6 +10,7 @@ const graphicTemplates = [
   { number: "03", name: "#OnThisDay", detail: "Bring an election from the archive back to the timeline with its original figures.", href: "/staff/tools/polling-graphics/create/on-this-day", tag: "ARCHIVE" },
   { number: "04", name: "Election results", detail: "Build constituency result cards from the election data already on the site.", href: "/staff/tools/polling-graphics/create/election-results", tag: "RESULTS" },
   { number: "05", name: "Explainers & stats", detail: "Make clear, branded graphics for key figures and electoral explainers.", href: "/staff/tools/polling-graphics/create/explainer", tag: "EXPLAINER" },
+  { number: "06", name: "Parliament composition", detail: "Show party seat totals for Westminster, Stormont, the Dáil or Seanad, and update them as representation changes.", href: "/staff/tools/polling-graphics/create/composition", tag: "SEATS" },
 ];
 
 export default async function PollingGraphicsPage() {
@@ -67,7 +68,11 @@ export default async function PollingGraphicsPage() {
                 <div className="staff-launchpad-art-kicker">THE NUMBERS, EXPLAINED</div>
                 <div className="staff-launchpad-explainer-preview"><strong>42<span>%</span></strong><div><b>VOTE<br />SHARE</b><i /><i /><i /></div></div>
               </>}
-              <div className="staff-launchpad-art-caption">{template.tag} <span>4000 × 2000</span></div>
+              {template.number === "06" && <>
+                <div className="staff-launchpad-art-kicker">PARLIAMENT TRACKER <span>SEAT COMPOSITION</span></div>
+                <div className="staff-launchpad-composition-art"><div className="staff-launchpad-composition-rows"><i /><i /><i /><i /></div><div className="staff-launchpad-composition-map" /></div>
+              </>}
+              <div className="staff-launchpad-art-caption">{template.tag} <span>{template.number === "06" ? "3840 × 2160" : "4000 × 2000"}</span></div>
             </div>
             <div className="staff-launchpad-card-copy">
               <div><h2>{template.name}</h2><p>{template.detail}</p></div>
