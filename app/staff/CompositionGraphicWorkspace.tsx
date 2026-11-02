@@ -9,6 +9,8 @@ type ChangeKind = "By-election" | "Affiliation change" | "Custom adjustment";
 type SeatChange = { id: number; kind: ChangeKind; from: string; to: string; seats: number; constituency: string; note: string };
 const GRAPHIC_WIDTH = 1920;
 const GRAPHIC_HEIGHT = 1080;
+const STORY_WIDTH = 1080;
+const STORY_HEIGHT = 1920;
 const VACANT_COLOR = "#9ba6a8";
 
 function SeatNumber({ value, x, centerY, fontSize }: { value: number; x: number; centerY: number; fontSize: number }) {
@@ -39,6 +41,15 @@ function lightPartyColor(color: string) {
   if (!match) return color;
   const channels = [0, 2, 4].map((offset) => Number.parseInt(match[1].slice(offset, offset + 2), 16));
   return `#${channels.map((channel) => Math.round(channel + (255 - channel) * 0.62).toString(16).padStart(2, "0")).join("")}`;
+}
+
+function opaquePartyTint(color: string, background = "#f2f6f6", opacity = 0.14) {
+  const foregroundMatch = color.match(/^#([0-9a-f]{6})$/i);
+  const backgroundMatch = background.match(/^#([0-9a-f]{6})$/i);
+  if (!foregroundMatch || !backgroundMatch) return color;
+  const foreground = [0, 2, 4].map((offset) => Number.parseInt(foregroundMatch[1].slice(offset, offset + 2), 16));
+  const base = [0, 2, 4].map((offset) => Number.parseInt(backgroundMatch[1].slice(offset, offset + 2), 16));
+  return `#${foreground.map((channel, index) => Math.round(channel * opacity + base[index] * (1 - opacity)).toString(16).padStart(2, "0")).join("")}`;
 }
 
 function arrayBufferToBase64(buffer: ArrayBuffer) {
@@ -136,6 +147,33 @@ function chamberSeatPositions(total: number, tracks: GraphicPoint[][]) {
   return tracks.flatMap((track, index) => samplePath(track, allocations[index], sideWeight));
 }
 
+function compositionStorySeatLayout(dots: GraphicPoint[], chamberId: CompositionTemplate["id"], centerX: number, centerY: number) {
+  const dail = chamberId === "dail";
+  const assembly = chamberId === "assembly";
+  const scaled = dots.map(({ x, y }) => {
+    let point = { x, y };
+    if (dail) {
+      point = { x: 1260 + (x - 1260) * 1.83, y: 620 + (y - 620) * 1.83 };
+      const dx = point.x - 1516;
+      const dy = point.y - 620;
+      point = { x: 1516 + (dx + dy) * Math.SQRT1_2, y: 620 + (dy - dx) * Math.SQRT1_2 + 136.36 };
+    } else if (assembly) {
+      point = { x: 1400 + (x - 1400) * 1.254, y: 575 + (y - 575) * 1.254 };
+      const dx = point.x;
+      const dy = point.y;
+      point = { x: 1400 + (dx + dy) * Math.SQRT1_2 + 124.7, y: 575 + (dy - dx) * Math.SQRT1_2 + 81.9 };
+    }
+    return { x: 29 + 1260 + (point.x - 1260) * 1.1, y: 575 + (point.y - 575) * 1.1 };
+  });
+  const minX = Math.min(...scaled.map((point) => point.x));
+  const maxX = Math.max(...scaled.map((point) => point.x));
+  const minY = Math.min(...scaled.map((point) => point.y));
+  const maxY = Math.max(...scaled.map((point) => point.y));
+  const scale = Math.min(820 / Math.max(1, maxX - minX), 540 / Math.max(1, maxY - minY));
+  const radius = (dail ? 17.2 * 1.83 : assembly ? 27.6 * 1.254 : 13.2) * 1.1 * scale;
+  return scaled.map((point) => ({ x: centerX + (point.x - (minX + maxX) / 2) * scale, y: centerY + (point.y - (minY + maxY) / 2) * scale, radius }));
+}
+
 function pathData(points: GraphicPoint[]) {
   return points.map((point, index) => `${index === 0 ? "M" : "L"}${point.x.toFixed(1)} ${point.y.toFixed(1)}`).join(" ");
 }
@@ -178,6 +216,15 @@ function chamberSeatPartyAssignment(dots: GraphicPoint[], parties: CompositionPa
     ? (() => {
       const preferred = preferredCodes.map((code) => partyByCode.get(code)).filter((item): item is CompositionParty => Boolean(item));
       const remaining = orderedParties(parties).filter((item) => !preferredCodes.includes(item.code));
+      if (chamberId === "dail") {
+        const independents = orderedParties([...preferred, ...remaining].filter(isIndependentParty));
+        return [
+          ...preferred.filter((item) => item.code === "FF" || item.code === "FG"),
+          ...independents,
+          ...preferred.filter((item) => item.code !== "FF" && item.code !== "FG" && !isIndependentParty(item)),
+          ...remaining.filter((item) => !isIndependentParty(item)),
+        ];
+      }
       return [
         ...preferred.filter((item) => !isIndependentParty(item)),
         ...remaining.filter((item) => !isIndependentParty(item)),
@@ -217,6 +264,7 @@ export default function CompositionGraphicWorkspace({ templates }: { templates: 
   const [changeSeats, setChangeSeats] = useState("1");
   const [changeConstituency, setChangeConstituency] = useState("");
   const [changeNote, setChangeNote] = useState("");
+  const [graphicFormat, setGraphicFormat] = useState<"landscape" | "story">("landscape");
   const [previewFontsReady, setPreviewFontsReady] = useState(false);
   const [exporting, setExporting] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
@@ -323,6 +371,8 @@ export default function CompositionGraphicWorkspace({ templates }: { templates: 
       return arrayBufferToBase64(await response.arrayBuffer());
     }));
     const exportSvg = svg.cloneNode(true) as SVGSVGElement;
+    exportSvg.setAttribute("width", String(graphicFormat === "story" ? STORY_WIDTH : GRAPHIC_WIDTH));
+    exportSvg.setAttribute("height", String(graphicFormat === "story" ? STORY_HEIGHT : GRAPHIC_HEIGHT));
     exportSvg.setAttribute("font-family", "AvertaExport, Arial, sans-serif");
     const fontStyle = document.createElementNS("http://www.w3.org/2000/svg", "style");
     fontStyle.textContent = `@font-face{font-family:AvertaExport;src:url(data:font/otf;base64,${embeddedFonts[0]}) format('opentype');font-weight:400}@font-face{font-family:AvertaExport;src:url(data:font/otf;base64,${embeddedFonts[1]}) format('opentype');font-weight:600}@font-face{font-family:AvertaExport;src:url(data:font/otf;base64,${embeddedFonts[2]}) format('opentype');font-weight:700}`;
@@ -349,8 +399,8 @@ export default function CompositionGraphicWorkspace({ templates }: { templates: 
       image.src = url;
       await loaded;
       const canvas = document.createElement("canvas");
-      canvas.width = GRAPHIC_WIDTH * 2;
-      canvas.height = GRAPHIC_HEIGHT * 2;
+      canvas.width = graphicFormat === "story" ? STORY_WIDTH : GRAPHIC_WIDTH * 2;
+      canvas.height = graphicFormat === "story" ? STORY_HEIGHT : GRAPHIC_HEIGHT * 2;
       const context = canvas.getContext("2d");
       if (!context) throw new Error("Canvas rendering is unavailable.");
       context.drawImage(image, 0, 0, canvas.width, canvas.height);
@@ -368,7 +418,7 @@ export default function CompositionGraphicWorkspace({ templates }: { templates: 
       const downloadUrl = URL.createObjectURL(png);
       const anchor = document.createElement("a");
       anchor.href = downloadUrl;
-      anchor.download = `${slug(title)}-${slug(selected.label)}.png`;
+      anchor.download = `${slug(title)}-${slug(selected.label)}${graphicFormat === "story" ? "-instagram-story" : ""}.png`;
       anchor.click();
       URL.revokeObjectURL(downloadUrl);
       setStatusMessage("PNG downloaded.");
@@ -479,7 +529,7 @@ export default function CompositionGraphicWorkspace({ templates }: { templates: 
       const graphic = await fetch(postImage).then((response) => response.blob());
       const form = new FormData();
       form.set("text", tweetDraft);
-      form.set("graphic", graphic, `${slug(title)}-${slug(selected.label)}.png`);
+      form.set("graphic", graphic, `${slug(title)}-${slug(selected.label)}${graphicFormat === "story" ? "-instagram-story" : ""}.png`);
       const response = await fetch("/api/staff/x/post", { method: "POST", body: form });
       const result = await response.json() as { error?: string; postUrl?: string; posted?: boolean };
       if (!response.ok || !result.posted || !result.postUrl) throw new Error(result.error ?? "X could not publish this post.");
@@ -491,12 +541,67 @@ export default function CompositionGraphicWorkspace({ templates }: { templates: 
     }
   }
 
+  const emphasizedStoryChamber = selected.id === "dail" || selected.id === "assembly";
+  const storyChartCenterX = emphasizedStoryChamber ? 710 : 540;
+  const storyChartCenterY = selected.id === "assembly" ? 1650 : selected.id === "dail" ? 1750 : 1470;
+  const storyChartScale = selected.id === "assembly" ? 3.15 : 3.9375;
+  const storySeatLayout = useMemo(() => compositionStorySeatLayout(hemicycleDots, selected.id, storyChartCenterX, storyChartCenterY), [hemicycleDots, selected.id, storyChartCenterX, storyChartCenterY]);
+  const storyGraphic = <>
+    <rect width={STORY_WIDTH} height={STORY_HEIGHT} fill="#f2f6f6" />
+    <rect width={STORY_WIDTH} height="420" fill="url(#composition-header-gradient)" />
+    <rect width={STORY_WIDTH} height="8" fill="url(#composition-cyan-rule)" />
+    <image href={logoHref} x="58" y="188" width="300" height="104" preserveAspectRatio="xMinYMid meet" />
+    <text x="55" y="345" fill="#ffffff" fontSize={Math.max(25, Math.min(70, 960 / (Math.max(title.length, 1) * 0.55)))} fontWeight="700" letterSpacing="-1.1">{title}</text>
+    {selected.mode === "map" ? <g transform="translate(510 1550) scale(3.15) translate(-540 -1460) translate(330 1200)" opacity=".25">
+      {(selected.mapFeatures ?? []).map((feature) => {
+        const code = mapWinners.get(feature.name) ?? "";
+        const color = parties.find((item) => item.code === code)?.color ?? VACANT_COLOR;
+        return <path key={`story-map-${feature.name}`} d={feature.path} fill={color} stroke="#ffffff" strokeWidth="1.4"><title>{feature.name}: {code || "No party"}</title></path>;
+      })}
+    </g> : <g>
+      <g transform={emphasizedStoryChamber ? `translate(${storyChartCenterX} ${storyChartCenterY}) scale(${storyChartScale}) translate(${-storyChartCenterX} ${-storyChartCenterY})` : undefined} opacity={emphasizedStoryChamber ? 0.5 : undefined}>
+      <ellipse cx={storyChartCenterX} cy={storyChartCenterY} rx="430" ry="320" fill="url(#composition-content-glow)" opacity=".68" />
+      {storySeatLayout.map((dot, index) => <circle key={`story-chamber-${index}`} cx={dot.x} cy={dot.y} r={dot.radius} fill={lightPartyColor(seatsForDot[index]?.color ?? VACANT_COLOR)}><title>{seatsForDot[index]?.name}</title></circle>)}
+      </g>
+    </g>}
+    {sortedParties.map((item, index) => {
+      const rowStep = Math.min(105, 1260 / Math.max(sortedParties.length, 1));
+      const rowHeight = Math.max(42, rowStep - 10);
+      const x = 55;
+      const y = 485 + index * rowStep;
+      const name = item.code === "UUP" ? "Ulster Unionist" : item.code === "DUP" ? "Democratic Unionist" : item.code === "TUV" ? "Traditional Unionist Voice" : item.code === "SDLP" ? "Social Democratic & Labour" : item.name;
+      const nameSize = Math.min(46, Math.max(18, 690 / (Math.max(name.length, 1) * 0.55)));
+      const seatDelta = item.seats - (baselineByCode[item.code] ?? 0);
+      const deltaIconCenterX = 974;
+      const deltaCenterY = y + rowHeight - 24;
+      const deltaArrowPath = seatDelta > 0
+        ? `M${deltaIconCenterX} ${deltaCenterY - 8} L${deltaIconCenterX + 8} ${deltaCenterY} H${deltaIconCenterX + 4} V${deltaCenterY + 7} H${deltaIconCenterX - 4} V${deltaCenterY} H${deltaIconCenterX - 8} Z`
+        : `M${deltaIconCenterX} ${deltaCenterY + 8} L${deltaIconCenterX + 8} ${deltaCenterY} H${deltaIconCenterX + 4} V${deltaCenterY - 7} H${deltaIconCenterX - 4} V${deltaCenterY} H${deltaIconCenterX - 8} Z`;
+      return <g key={`story-${item.code}`}>
+        <rect x={x} y={y} width="970" height={rowHeight} rx="8" fill={opaquePartyTint(item.color)} />
+        <path d={`M755 ${y} H1017 Q1025 ${y} 1025 ${y + 8} V${y + rowHeight - 8} Q1025 ${y + rowHeight} 1017 ${y + rowHeight} H755Z`} fill={item.color} />
+        <text x={x + 24} y={y + rowHeight / 2} fill={item.color} fontSize={nameSize} fontWeight="700" dominantBaseline="central">{name}</text>
+        <defs><clipPath id={`story-seat-number-clip-${index}`}><rect x="755" y={y} width="270" height={rowHeight} /></clipPath></defs>
+        <g clipPath={`url(#story-seat-number-clip-${index})`}><SeatNumber value={item.seats} x={860} centerY={y + rowHeight / 2} fontSize={Math.min(180, rowHeight * 1.7)} /></g>
+        {seatDelta !== 0 && <g>
+          <circle cx={deltaIconCenterX} cy={deltaCenterY} r="13" fill="#ffffff" stroke={item.color} strokeWidth="2" />
+          <path d={deltaArrowPath} fill={item.color} />
+          <text x="993" y={deltaCenterY} fill="#ffffff" fontSize="17" fontWeight="700" textAnchor="start" dominantBaseline="central">{Math.abs(seatDelta)}</text>
+        </g>}
+      </g>;
+    })}
+    {changesSummary && <text x="58" y="1798" fill="#526367" fontSize="18"><tspan fontWeight="700">Changes:</tspan><tspan dx="8">{changesSummary}</tspan></text>}
+    <path d="M58 1834H1022" stroke="#d8e2e3" strokeWidth="2" />
+    <text x="58" y="1875" fill="#292d2e" fontSize="18" fontWeight="700">irelandvotes.com</text>
+  </>;
+
   return (
     <main className="composition-workspace">
       <section className="composition-toolbar" aria-label="Composition graphic controls">
         <div className="composition-toolbar-heading"><p className="staff-eyebrow">IRELAND VOTES / CONTENT STUDIO</p><h1>Parliament composition</h1><p>Show the balance of seats, with changes in party affiliation and representation reflected in the graphic.</p></div>
         <div className="composition-toolbar-actions">
           <label>Chamber<select value={templateId} onChange={(event) => selectTemplate(event.target.value as CompositionTemplate["id"])}>{templates.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label>
+          <label className="composition-format-control">Format<select value={graphicFormat} onChange={(event) => setGraphicFormat(event.target.value as "landscape" | "story")}><option value="landscape">Landscape</option><option value="story">Instagram Story</option></select></label>
           <button className="staff-generate-post-button" type="button" onClick={() => { void openPost(); }} disabled={preparingPost || exporting}>{preparingPost ? "Preparing post…" : "Generate post"}</button>
           <button className="composition-export-button" type="button" onClick={downloadPng} disabled={exporting}>{exporting ? "Preparing PNG…" : "↓ Download PNG"}</button>
         </div>
@@ -546,15 +651,16 @@ export default function CompositionGraphicWorkspace({ templates }: { templates: 
         </div>
 
         <div className="composition-preview-panel">
-          <div className="composition-preview-topline"><div><span>LIVE PREVIEW</span><span>16:9 SOCIAL GRAPHIC</span></div><span className={seatDifference === 0 ? "composition-total-ok" : "composition-total-warning"}>{seatDifference === 0 ? "TOTALS BALANCED" : `${seatDifference > 0 ? "+" : ""}${seatDifference} FROM CHAMBER TOTAL`}</span></div>
+          <div className="composition-preview-topline"><div><span>LIVE PREVIEW</span><span>{graphicFormat === "story" ? "9:16 INSTAGRAM STORY" : "16:9 SOCIAL GRAPHIC"}</span></div><span className={seatDifference === 0 ? "composition-total-ok" : "composition-total-warning"}>{seatDifference === 0 ? "TOTALS BALANCED" : `${seatDifference > 0 ? "+" : ""}${seatDifference} FROM CHAMBER TOTAL`}</span></div>
           <div className="composition-canvas-wrap">
-            <svg ref={svgRef} className="composition-svg" style={{ visibility: previewFontsReady ? "visible" : "hidden" }} xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${GRAPHIC_WIDTH} ${GRAPHIC_HEIGHT}`} role="img" aria-label={`${title}, ${totalCurrentSeats} seats`} letterSpacing="-0.0276em">
+            <svg ref={svgRef} className={`composition-svg${graphicFormat === "story" ? " is-story" : ""}`} style={{ visibility: previewFontsReady ? "visible" : "hidden" }} xmlns="http://www.w3.org/2000/svg" viewBox={graphicFormat === "story" ? `0 0 ${STORY_WIDTH} ${STORY_HEIGHT}` : `0 0 ${GRAPHIC_WIDTH} ${GRAPHIC_HEIGHT}`} role="img" aria-label={`${title}, ${totalCurrentSeats} seats`} letterSpacing="-0.0276em">
               <defs>
                 <linearGradient id="composition-header-gradient" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stopColor="#11191b" /><stop offset=".64" stopColor="#15343a" /><stop offset="1" stopColor="#075e68" /></linearGradient>
                 <linearGradient id="composition-cyan-rule" x1="0" x2="1"><stop offset="0" stopColor="#00d7e6" /><stop offset="1" stopColor="#00a9b5" /></linearGradient>
                 <radialGradient id="composition-content-glow" cx="50%" cy="48%" r="52%"><stop offset="0" stopColor="#bcebed" stopOpacity=".72" /><stop offset=".58" stopColor="#d9f2f3" stopOpacity=".42" /><stop offset="1" stopColor="#f2f6f6" stopOpacity="0" /></radialGradient>
                 <clipPath id="composition-content-clip"><rect y="160" width={GRAPHIC_WIDTH} height={GRAPHIC_HEIGHT - 160} /></clipPath>
               </defs>
+              {graphicFormat === "story" ? storyGraphic : <>
               <rect width={GRAPHIC_WIDTH} height={GRAPHIC_HEIGHT} fill="#f2f6f6" />
               <rect width={GRAPHIC_WIDTH} height="160" fill="url(#composition-header-gradient)" />
               <rect width={GRAPHIC_WIDTH} height="8" fill="url(#composition-cyan-rule)" />
@@ -625,9 +731,10 @@ export default function CompositionGraphicWorkspace({ templates }: { templates: 
               </g>
               {changesSummary && <text x="72" y="995" fill="#526367" fontSize={changesSummaryFontSize}><tspan fontWeight="700">Changes:</tspan><tspan dx="9">{changesSummary}</tspan></text>}
               <text x="72" y="1030" fill="#292d2e" fontFamily="AvertaExport,Arial,sans-serif" fontSize="15" fontWeight="700" letterSpacing="-0.0276em">irelandvotes.com</text>
+              </>}
             </svg>
           </div>
-          <div className="composition-preview-footer"><div><strong>{totalCurrentSeats}</strong><span>seats assigned</span><i /></div><div><strong>{changes.length}</strong><span>recorded changes</span><i /></div><p>Export opens at 3840 × 2160 for high-resolution social sharing.</p></div>
+          <div className="composition-preview-footer"><div><strong>{totalCurrentSeats}</strong><span>seats assigned</span><i /></div><div><strong>{changes.length}</strong><span>recorded changes</span><i /></div><p>{graphicFormat === "story" ? "Export opens at 1080 × 1920 for Instagram Stories." : "Export opens at 3840 × 2160 for high-resolution social sharing."}</p></div>
         </div>
       </section>
       {postOpen && <div className="staff-post-drawer-layer">
