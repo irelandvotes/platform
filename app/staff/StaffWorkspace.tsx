@@ -33,6 +33,9 @@ const INITIAL_POLL_VALUES: Record<string, number> = {
 
 const WIDTH = 2048;
 const HEIGHT = 1024;
+const STORY_WIDTH = 1080;
+const STORY_HEIGHT = 1920;
+const STORY_GUTTER = 72;
 const BASELINE = 904;
 const COMPARISON_TEMPLATES = [
   { id: "ireland/dail/2024", label: "Dáil Éireann", year: "2024", partyCodes: DEFAULT_POLLING_PARTY_CODES },
@@ -108,6 +111,11 @@ function formatPollNumber(value: number) {
   return Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
 }
 
+function isIndependentPollCategory(code: string) {
+  const normalized = code.trim().toUpperCase();
+  return normalized === "IND" || normalized === "INDN" || normalized === "INDU" || /^IND[-_]/.test(normalized);
+}
+
 function ensureSelectedOption(values: string[], selected: string) {
   return selected && !values.some((value) => value.toLowerCase() === selected.toLowerCase())
     ? [selected, ...values]
@@ -142,9 +150,12 @@ export default function StaffWorkspace({ options }: { options: PollingGraphicOpt
   const [pollsters, setPollsters] = useState(() => ensureSelectedOption(options.pollsters, initialPoll?.pollster ?? "Ireland Thinks"));
   const [commissioners, setCommissioners] = useState(() => ensureSelectedOption(options.commissioners, initialPoll?.commissioner ?? "The Sunday Independent"));
   const [comparisonId, setComparisonId] = useState(defaultComparison?.id ?? "");
+  const [graphicFormat, setGraphicFormat] = useState<"x" | "story">("x");
   const [parties, setParties] = useState<PartyResult[]>(
     initialPartyCodes.map((code) => ({ code, poll: initialPoll?.partyShares[code] ?? INITIAL_POLL_VALUES[code] ?? 0 })),
   );
+  const [draggedPartyCode, setDraggedPartyCode] = useState<string | null>(null);
+  const [dropTargetPartyCode, setDropTargetPartyCode] = useState<string | null>(null);
   const partyPollCache = useRef<Record<string, number>>({ ...INITIAL_POLL_VALUES, ...(initialPoll?.partyShares ?? {}) });
   const [partyCatalog, setPartyCatalog] = useState<PartyDefinition[]>(PARTY_CATALOG);
   const [addingSource, setAddingSource] = useState<AddableSource | null>(null);
@@ -240,13 +251,27 @@ export default function StaffWorkspace({ options }: { options: PollingGraphicOpt
     });
   }
   const graphicDate = formatGraphicDateRange(fieldworkStartDate, fieldworkDate);
+  const graphicSize = graphicFormat === "story"
+    ? { width: STORY_WIDTH, height: STORY_HEIGHT }
+    : { width: WIDTH, height: HEIGHT };
+  const exportSize = graphicFormat === "story"
+    ? { width: STORY_WIDTH, height: STORY_HEIGHT }
+    : { width: 4000, height: 2000 };
   const sourceLine = [pollster, commissioner].filter(Boolean).join(" & ");
   const tweetPartyValues = { ...(activePoll?.partyShares ?? {}) };
   parties.forEach((party) => { tweetPartyValues[party.code] = party.poll; });
   const preferredTweetOrder = comparisonId === "ireland/dail/2024"
     ? DAIL_TWEET_ORDER
     : activeTemplate?.partyCodes ?? parties.map((party) => party.code);
-  const tweetPartyOrder = [...preferredTweetOrder, ...parties.map((party) => party.code).filter((code) => !preferredTweetOrder.includes(code))];
+  const preferredTweetRank = new Map([...preferredTweetOrder, ...parties.map((party) => party.code)]
+    .map((code, index) => [code, index] as const));
+  const tweetPartyOrder = [...new Set([...preferredTweetOrder, ...parties.map((party) => party.code)])]
+    .sort((a, b) => {
+      const independentOrder = Number(isIndependentPollCategory(a)) - Number(isIndependentPollCategory(b));
+      if (independentOrder !== 0) return independentOrder;
+      const scoreOrder = (tweetPartyValues[b] ?? 0) - (tweetPartyValues[a] ?? 0);
+      return scoreOrder || (preferredTweetRank.get(a) ?? 0) - (preferredTweetRank.get(b) ?? 0);
+    });
   const tweetPartyLines = tweetPartyOrder.flatMap((code) => {
     const value = tweetPartyValues[code];
     if (value === undefined || value <= 0) return [];
@@ -314,6 +339,31 @@ export default function StaffWorkspace({ options }: { options: PollingGraphicOpt
     ]),
   );
   const barScale = Math.min(26, 565 / largestValue);
+  const storyChartTop = 720;
+  const storyChartHeight = 960;
+  const storyRowStep = storyChartHeight / Math.max(parties.length, 1);
+  const storyParties = [...parties].sort((a, b) => {
+    const independentOrder = Number(isIndependentPollCategory(a.code)) - Number(isIndependentPollCategory(b.code));
+    return independentOrder || b.poll - a.poll;
+  });
+  const storyPartyCodes = new Set(storyParties.map((party) => party.code));
+  const storyIndependentValues = Object.entries(tweetPartyValues).filter(([code]) => isIndependentPollCategory(code));
+  const storyOtherValues = Object.entries(tweetPartyValues).filter(([code]) =>
+    !isIndependentPollCategory(code) && !storyPartyCodes.has(code),
+  );
+  const storyAdditionalPollNote = [
+    storyIndependentValues.length > 0
+      ? `Independents are on ${formatPollNumber(storyIndependentValues.reduce((sum, [, value]) => sum + value, 0))}%`
+      : "",
+    storyOtherValues.length > 0
+      ? `Others ${formatPollNumber(storyOtherValues.reduce((sum, [, value]) => sum + value, 0))}%`
+      : "",
+  ].filter(Boolean).join("  ·  ");
+  const storyMaxShare = Math.max(
+    1,
+    ...storyParties.flatMap((party) => [party.poll, comparisonElection?.partyShares[party.code] ?? 0]),
+  );
+  const storyBarMaxWidth = 936 * 0.75;
 
   function updatePollValue(index: number, poll: number) {
     setParties((current) => current.map((party, i) => {
@@ -335,6 +385,18 @@ export default function StaffWorkspace({ options }: { options: PollingGraphicOpt
       partyPollCache.current[code] = party.poll;
       return { ...party, code };
     }));
+  }
+
+  function movePartyBefore(sourceCode: string, targetCode: string) {
+    setParties((current) => {
+      const sourceIndex = current.findIndex((party) => party.code === sourceCode);
+      const targetIndex = current.findIndex((party) => party.code === targetCode);
+      if (sourceIndex < 0 || targetIndex < 0 || sourceIndex === targetIndex) return current;
+      const next = [...current];
+      const [moved] = next.splice(sourceIndex, 1);
+      next.splice(targetIndex, 0, moved);
+      return next;
+    });
   }
 
   async function copyTweetText() {
@@ -389,8 +451,8 @@ export default function StaffWorkspace({ options }: { options: PollingGraphicOpt
     image.src = graphicPreviewUrl;
     await image.decode();
     const canvas = document.createElement("canvas");
-    canvas.width = 4000;
-    canvas.height = 2000;
+    canvas.width = exportSize.width;
+    canvas.height = exportSize.height;
     const context = canvas.getContext("2d");
     if (!context) throw new Error("PNG export is unavailable in this browser.");
     context.drawImage(image, 0, 0, canvas.width, canvas.height);
@@ -553,8 +615,8 @@ export default function StaffWorkspace({ options }: { options: PollingGraphicOpt
       const image = new Image();
       image.onload = () => {
         const canvas = document.createElement("canvas");
-        canvas.width = 4000;
-        canvas.height = 2000;
+        canvas.width = exportSize.width;
+        canvas.height = exportSize.height;
         const context = canvas.getContext("2d");
         if (!context) {
           URL.revokeObjectURL(imageUrl);
@@ -573,7 +635,7 @@ export default function StaffWorkspace({ options }: { options: PollingGraphicOpt
           const downloadUrl = URL.createObjectURL(blob);
           const anchor = document.createElement("a");
           anchor.href = downloadUrl;
-          anchor.download = "ireland-votes-polling-x.png";
+          anchor.download = `ireland-votes-polling-${graphicFormat === "story" ? "instagram-story" : "x"}.png`;
           anchor.click();
           URL.revokeObjectURL(downloadUrl);
           setExporting(false);
@@ -672,7 +734,7 @@ export default function StaffWorkspace({ options }: { options: PollingGraphicOpt
 
           <section className="staff-editor-section">
             <div className="staff-section-title-row">
-              <div><h2>Party results</h2><p>Choose a party and enter this poll&apos;s first-preference share.</p></div>
+              <div><h2>Party results</h2><p>Enter this poll&apos;s first-preference share. Drag rows to set the chart order.</p></div>
               <button type="button" className="staff-add-party" onClick={addPartyRow}>Add party</button>
             </div>
             {showNewPartyForm && (
@@ -696,7 +758,44 @@ export default function StaffWorkspace({ options }: { options: PollingGraphicOpt
                 const definition = partyCatalog.find((item) => item.code === party.code) ?? PARTY_BY_CODE[party.code];
                 const availableParties = partyCatalog.filter((item) => item.code === party.code || !parties.some((selected) => selected.code === item.code));
                 return (
-                  <div className="staff-party-editor" key={`${index}-${party.code}`}>
+                  <div
+                    className={`staff-party-editor${draggedPartyCode === party.code ? " is-dragging" : ""}${dropTargetPartyCode === party.code ? " is-drop-target" : ""}`}
+                    key={`${index}-${party.code}`}
+                    onDragOver={(event) => {
+                      event.preventDefault();
+                      event.dataTransfer.dropEffect = "move";
+                      setDropTargetPartyCode((current) => current === party.code ? current : party.code);
+                    }}
+                    onDrop={(event) => {
+                      event.preventDefault();
+                      const sourceCode = draggedPartyCode ?? event.dataTransfer.getData("text/plain");
+                      if (sourceCode) movePartyBefore(sourceCode, party.code);
+                      setDraggedPartyCode(null);
+                      setDropTargetPartyCode(null);
+                    }}
+                  >
+                    <button
+                      type="button"
+                      className="staff-party-drag-handle"
+                      aria-label={`Reorder ${definition?.name ?? party.code}; use the up and down arrow keys to move`}
+                      title="Drag to reorder; use up or down arrow keys when focused"
+                      draggable
+                      onDragStart={(event) => {
+                        setDraggedPartyCode(party.code);
+                        setDropTargetPartyCode(null);
+                        event.dataTransfer.effectAllowed = "move";
+                        event.dataTransfer.setData("text/plain", party.code);
+                      }}
+                      onDragEnd={() => { setDraggedPartyCode(null); setDropTargetPartyCode(null); }}
+                      onKeyDown={(event) => {
+                        if (event.key !== "ArrowUp" && event.key !== "ArrowDown") return;
+                        event.preventDefault();
+                        const target = parties[index + (event.key === "ArrowUp" ? -1 : 1)];
+                        if (target) movePartyBefore(party.code, target.code);
+                      }}
+                    >
+                      <span className="staff-party-drag-grip" aria-hidden="true">{Array.from({ length: 6 }, (_, dot) => <i key={dot} />)}</span>
+                    </button>
                     <label className="staff-party-choice">Party
                       <select value={party.code} onChange={(event) => updatePartyCode(index, event.target.value)}>
                         {availableParties.map((item) => <option key={item.code} value={item.code}>{item.code} &mdash; {item.name}</option>)}
@@ -715,16 +814,22 @@ export default function StaffWorkspace({ options }: { options: PollingGraphicOpt
 
         <section className="staff-preview-area">
           <div className="staff-preview-toolbar">
-            <div><p className="staff-eyebrow">TWITTER / X</p><h2>Live preview</h2></div>
+            <div><p className="staff-eyebrow">{graphicFormat === "story" ? "INSTAGRAM STORIES" : "TWITTER / X"}</p><h2>Live preview</h2></div>
+            <label className="staff-format-select">Format
+              <select value={graphicFormat} onChange={(event) => setGraphicFormat(event.target.value as "x" | "story")}>
+                <option value="x">X landscape · 2:1</option>
+                <option value="story">Instagram Story · 9:16</option>
+              </select>
+            </label>
             <button type="button" className="staff-generate-post-button" onClick={() => { void openSocialPost(); }}>
               Generate post
             </button>
             <button type="button" className="staff-download-button" onClick={downloadPng} disabled={exporting || parties.length === 0}>
-              {exporting ? "Preparing PNG..." : "Download PNG - 4000 x 2000"}
+              {exporting ? "Preparing PNG..." : `Download PNG · ${exportSize.width} × ${exportSize.height}`}
             </button>
           </div>
-          <div className="staff-preview-frame">
-            <svg ref={previewRef} className="poll-graphic-svg" xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${WIDTH} ${HEIGHT}`} role="img" aria-label={`${title} polling graphic preview`}>
+          <div className={`staff-preview-frame${graphicFormat === "story" ? " is-story" : ""}`}>
+            <svg ref={previewRef} className="poll-graphic-svg" xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${graphicSize.width} ${graphicSize.height}`} role="img" aria-label={`${title} polling graphic preview`}>
               <defs>
                 <linearGradient id="graphic-background" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0%" stopColor="#11191b" />
@@ -735,74 +840,147 @@ export default function StaffWorkspace({ options }: { options: PollingGraphicOpt
                   <stop offset="100%" stopColor="#00b9c7" stopOpacity="0" />
                 </radialGradient>
               </defs>
-              <rect width={WIDTH} height={HEIGHT} fill="url(#graphic-background)" />
-              <circle cx="1660" cy="400" r="430" fill="url(#graphic-aura)" />
-              <rect width={WIDTH} height="8" fill="#00b9c7" />
-              <g stroke="#d7eeee" strokeOpacity="0.09" strokeWidth="1">
-                <line x1="48" y1="465" x2="2000" y2="465" />
-                <line x1="48" y1="610" x2="2000" y2="610" />
-                <line x1="48" y1="755" x2="2000" y2="755" />
-              </g>
-              <line x1="48" y1={BASELINE} x2="2000" y2={BASELINE} stroke="#d7eeee" strokeOpacity="0.28" strokeWidth="1.5" />
-              <image href="/portrait.png" x="30" y="14" width="360" height="148" preserveAspectRatio="xMinYMid meet" />
-              <g fill="#f4f8f8" fontFamily="AvertaExport, Averta, Arial, sans-serif">
-                <text x={WIDTH / 2} y="89" textAnchor="middle" fontSize="72" fontWeight="700" letterSpacing="-4">{title}</text>
-                <text x={WIDTH / 2} y="123" textAnchor="middle" fontSize="19" fontWeight="400" letterSpacing="-0.5" fill="#d4e0e1">{subtitle}</text>
-                <text x={WIDTH / 2} y="145" textAnchor="middle" fontSize="16" letterSpacing="-0.3" fill="#91a3a5">&copy; 2026 Ireland Votes &mdash; www.irelandvotes.com</text>
-                <rect x={WIDTH / 2 - 24} y="160" width="48" height="2" rx="1" fill="#00b9c7" />
-              </g>
+              <rect width={graphicSize.width} height={graphicSize.height} fill="url(#graphic-background)" />
+              <circle
+                cx={graphicFormat === "story" ? 930 : 1660}
+                cy={graphicFormat === "story" ? 650 : 400}
+                r={graphicFormat === "story" ? 540 : 430}
+                fill="url(#graphic-aura)"
+              />
+              <rect width={graphicSize.width} height="8" fill="#00b9c7" />
 
-              <g transform="translate(0 5)" fontFamily="AvertaExport, Averta, Arial, sans-serif" fontSize="10" fill="#e2ebec">
-                <defs>
-                  <marker id="legend-arrow" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
-                    <path d="M0,0 L5,2.5 L0,5" fill="none" stroke="#9cabad" strokeWidth="1" />
-                  </marker>
-                </defs>
-                <text x="1815" y="34" textAnchor="end" letterSpacing="-0.6">Toradh an phobalbhreith seo</text>
-                <text x="1815" y="47" textAnchor="end" letterSpacing="-0.6">Result of this poll</text>
-                <path d="M1837 43 C1858 43 1890 45 1890 56" fill="none" stroke="#9cabad" strokeWidth="1" markerEnd="url(#legend-arrow)" />
-                <rect x="1860" y="62" width="70" height="30" fill="#f4f8f8" />
-                <rect x="1930" y="73" width="32" height="19" fill="#78888b" />
-                <text x="1900" y="118" textAnchor="end" letterSpacing="-0.6">Toradh toghch&aacute;n {comparisonElection?.label ?? ""}</text>
-                <text x="1900" y="131" textAnchor="end" letterSpacing="-0.6">{comparisonElection?.label ?? "Election"} election result</text>
-                <path d="M1908 121 C1930 121 1947 111 1947 99" fill="none" stroke="#9cabad" strokeWidth="1" markerEnd="url(#legend-arrow)" />
-              </g>
+              {graphicFormat === "story" ? (
+                <g fontFamily="AvertaExport, Averta, Arial, sans-serif">
+                  <image href="/portrait.png" x={STORY_GUTTER - 20} y="270" width="330" height="136" preserveAspectRatio="xMinYMid meet" />
+                  <text x="72" y="500" fill="#f4f8f8" fontSize={Math.min(72, Math.max(42, 930 / (title.length * 0.56)))} fontWeight="700" letterSpacing="-2.5">{title}</text>
+                  {sourceLine && <text x="72" y="572" fill="#d4e0e1" fontSize={Math.min(26, Math.max(17, 930 / (sourceLine.length * 0.54)))}>{sourceLine}</text>}
+                  <text x="72" y="613" fill="#91a3a5" fontSize="20">
+                    {graphicDate}{roundedSample ? ` · Sample ~${roundedSample.toLocaleString("en-IE")}` : ""}
+                  </text>
+                  <line x1="72" y1="643" x2="1008" y2="643" stroke="#d7eeee" strokeOpacity=".2" />
 
-              {parties.map((party, index) => {
-                const definition = partyCatalog.find((item) => item.code === party.code) ?? PARTY_BY_CODE[party.code];
-                const color = definition?.color ?? "#7a7a7a";
-                const comparison = comparisonElection?.partyShares[party.code] ?? 0;
-                const chartLeft = 48;
-                const chartWidth = 1952;
-                const slot = chartWidth / Math.max(parties.length, 1);
-                const pollWidth = Math.min(144, slot * 0.66);
-                const comparisonWidth = pollWidth * 0.32;
-                const pairWidth = pollWidth + comparisonWidth;
-                const x = chartLeft + slot * index + (slot - pairWidth) / 2;
-                const pollHeight = Math.max(0, party.poll) * barScale;
-                const comparisonHeight = Math.max(0, comparison) * barScale;
-                const label = party.code === "AP" ? "Alliance" : definition?.graphicName ?? definition?.name ?? party.code;
-                const labelFontSize = 40;
-                const labelFits = label.length * labelFontSize * 0.46 <= slot * 0.94;
-                const partyLabel = labelFits ? label : party.code;
-                const partyLabelFontSize = labelFits ? labelFontSize : Math.min(labelFontSize, Math.max(24, (slot * 0.92) / (partyLabel.length * 0.5)));
-                const affiliation = definition?.affiliation ?? "N/A";
-                const affiliationFontSize = Math.min(13, Math.max(8, (slot * 0.94) / (affiliation.length * 0.53)));
-                return (
-                  <g key={`${party.code}-${index}`} fontFamily="AvertaExport, Averta, Arial, sans-serif">
-                    <rect x={x} y={BASELINE - pollHeight} width={pollWidth} height={pollHeight} fill={color} />
-                    <rect x={x + pollWidth} y={BASELINE - comparisonHeight} width={comparisonWidth} height={comparisonHeight} fill={lighten(color)} />
-                    {party.poll > 0 && <text x={x + pollWidth / 2} y={BASELINE - pollHeight - 14} textAnchor="middle" fontSize="46" fontWeight="700" letterSpacing="-2" fontFamily="DIN Alternate, DIN, Bahnschrift, Arial Narrow, AvertaExport, Arial, sans-serif" fill="#f4f8f8">{party.poll.toFixed(1)}%</text>}
-                    {comparison > 0 && <text x={x + pollWidth + comparisonWidth / 2} y={BASELINE - comparisonHeight - 12} textAnchor="middle" fontSize="14" fontWeight="700" letterSpacing="-0.7" fontFamily="DIN Alternate, DIN, Bahnschrift, Arial Narrow, AvertaExport, Arial, sans-serif" fill="#b7c4c6">{comparison.toFixed(1)}%</text>}
-                    <text x={x + pairWidth / 2} y={BASELINE + 54} textAnchor="middle" fontSize={partyLabelFontSize} fontWeight="700" letterSpacing="-1.5" fill="#f4f8f8">{partyLabel}</text>
-                    <text x={x + pairWidth / 2} y={BASELINE + 84} textAnchor="middle" fontSize={affiliationFontSize} letterSpacing="-0.5" fill="#b7c4c6">{affiliation}</text>
+                  <rect x="72" y="670" width="24" height="8" fill="#00b9c7" />
+                  <text x="108" y="680" fill="#dce7e8" fontSize="15" fontWeight="700" letterSpacing=".5">THIS POLL</text>
+                  <rect x="276" y="670" width="24" height="8" fill="#718286" />
+                  <text x="312" y="680" fill="#aebdc0" fontSize="15">{comparisonElection?.label ?? "Last election"} result</text>
+                  <polygon points="566,665 566,683 582,674" fill="#b7c2c4" />
+                  <text x="594" y="680" fill="#aebdc0" fontSize="15">Change vs last poll</text>
+
+                  {storyParties.map((party, index) => {
+                    const definition = partyCatalog.find((item) => item.code === party.code) ?? PARTY_BY_CODE[party.code];
+                    const color = definition?.color ?? "#7a7a7a";
+                    const comparison = comparisonElection?.partyShares[party.code] ?? 0;
+                    const previousShare = matchingPriorPoll?.partyShares[party.code];
+                    const change = previousShare === undefined ? 0 : Math.round((party.poll - previousShare) * 10) / 10;
+                    const changeColor = change > 0 ? "#42d392" : change < 0 ? "#ff6262" : "#b7c2c4";
+                    const label = party.code === "AP" ? "Alliance" : definition?.graphicName ?? definition?.name ?? party.code;
+                    const rowY = storyChartTop + index * storyRowStep;
+                    const labelFontSize = Math.min(34, Math.max(19, storyRowStep * 0.34), 650 / Math.max(1, label.length * 0.53));
+                    const valueFontSize = Math.min(36, Math.max(25, storyRowStep * 0.45));
+                    const pollBarWidth = Math.max(0, party.poll) / storyMaxShare * storyBarMaxWidth;
+                    const comparisonBarWidth = Math.max(0, comparison) / storyMaxShare * storyBarMaxWidth;
+                    const valueText = `${formatPollNumber(party.poll)}%`;
+                    const changeMarkerX = 850;
+                    const labelY = rowY + storyRowStep * 0.3;
+                    const markerY = labelY - 11;
+                    const pollBarHeight = Math.min(24, storyRowStep * 0.3);
+                    const comparisonBarHeight = Math.min(6, storyRowStep * 0.065);
+                    const pollBarY = rowY + storyRowStep * 0.48;
+                    const comparisonBarY = rowY + storyRowStep * 0.83;
+                    return (
+                      <g key={`story-${party.code}`}>
+                        <text x="72" y={labelY} fill={color} fontSize={labelFontSize} fontWeight="700" letterSpacing="-0.8">{label}</text>
+                        <polygon
+                          points={change > 0
+                            ? `${changeMarkerX},${markerY - 9} ${changeMarkerX - 9},${markerY + 7} ${changeMarkerX + 9},${markerY + 7}`
+                            : change < 0
+                              ? `${changeMarkerX - 9},${markerY - 7} ${changeMarkerX + 9},${markerY - 7} ${changeMarkerX},${markerY + 9}`
+                              : `${changeMarkerX - 8},${markerY - 9} ${changeMarkerX - 8},${markerY + 9} ${changeMarkerX + 9},${markerY}`}
+                          fill={changeColor}
+                        />
+                        <text x="1008" y={labelY} textAnchor="end" fill="#f4f8f8" fontSize={valueFontSize} fontWeight="700" letterSpacing="-1">{valueText}</text>
+                        <rect x="72" y={pollBarY} width="936" height={pollBarHeight} fill="#263438" />
+                        <rect x="72" y={pollBarY} width={pollBarWidth} height={pollBarHeight} fill={color} />
+                        {comparison > 0 && <>
+                          <rect x="72" y={comparisonBarY} width="936" height={comparisonBarHeight} fill="#263438" />
+                          <rect x="72" y={comparisonBarY} width={comparisonBarWidth} height={comparisonBarHeight} fill={lighten(color)} />
+                        </>}
+                      </g>
+                    );
+                  })}
+                  {storyAdditionalPollNote && <text x="72" y="1738" fill="#a7b5b8" fontSize="15">{storyAdditionalPollNote}</text>}
+                  <text x="72" y="1780" fill="#a7b5b8" fontSize="17" fontWeight="600" letterSpacing="-.2">irelandvotes.com</text>
+                  <rect x="72" y="1805" width="76" height="4" fill="#00b9c7" />
+                </g>
+              ) : (
+                <>
+                  <g stroke="#d7eeee" strokeOpacity="0.09" strokeWidth="1">
+                    <line x1="48" y1="465" x2="2000" y2="465" />
+                    <line x1="48" y1="610" x2="2000" y2="610" />
+                    <line x1="48" y1="755" x2="2000" y2="755" />
                   </g>
-                );
-              })}
+                  <line x1="48" y1={BASELINE} x2="2000" y2={BASELINE} stroke="#d7eeee" strokeOpacity="0.28" strokeWidth="1.5" />
+                  <image href="/portrait.png" x="30" y="14" width="360" height="148" preserveAspectRatio="xMinYMid meet" />
+                  <g fill="#f4f8f8" fontFamily="AvertaExport, Averta, Arial, sans-serif">
+                    <text x={WIDTH / 2} y="89" textAnchor="middle" fontSize="72" fontWeight="700" letterSpacing="-4">{title}</text>
+                    <text x={WIDTH / 2} y="123" textAnchor="middle" fontSize="19" fontWeight="400" letterSpacing="-0.5" fill="#d4e0e1">{subtitle}</text>
+                    <text x={WIDTH / 2} y="145" textAnchor="middle" fontSize="16" letterSpacing="-0.3" fill="#91a3a5">&copy; 2026 Ireland Votes &mdash; www.irelandvotes.com</text>
+                    <rect x={WIDTH / 2 - 24} y="160" width="48" height="2" rx="1" fill="#00b9c7" />
+                  </g>
+
+                  <g transform="translate(0 5)" fontFamily="AvertaExport, Averta, Arial, sans-serif" fontSize="10" fill="#e2ebec">
+                    <defs>
+                      <marker id="legend-arrow" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+                        <path d="M0,0 L5,2.5 L0,5" fill="none" stroke="#9cabad" strokeWidth="1" />
+                      </marker>
+                    </defs>
+                    <text x="1815" y="34" textAnchor="end" letterSpacing="-0.6">Toradh an phobalbhreith seo</text>
+                    <text x="1815" y="47" textAnchor="end" letterSpacing="-0.6">Result of this poll</text>
+                    <path d="M1837 43 C1858 43 1890 45 1890 56" fill="none" stroke="#9cabad" strokeWidth="1" markerEnd="url(#legend-arrow)" />
+                    <rect x="1860" y="62" width="70" height="30" fill="#f4f8f8" />
+                    <rect x="1930" y="73" width="32" height="19" fill="#78888b" />
+                    <text x="1900" y="118" textAnchor="end" letterSpacing="-0.6">Toradh toghch&aacute;n {comparisonElection?.label ?? ""}</text>
+                    <text x="1900" y="131" textAnchor="end" letterSpacing="-0.6">{comparisonElection?.label ?? "Election"} election result</text>
+                    <path d="M1908 121 C1930 121 1947 111 1947 99" fill="none" stroke="#9cabad" strokeWidth="1" markerEnd="url(#legend-arrow)" />
+                  </g>
+
+                  {parties.map((party, index) => {
+                    const definition = partyCatalog.find((item) => item.code === party.code) ?? PARTY_BY_CODE[party.code];
+                    const color = definition?.color ?? "#7a7a7a";
+                    const comparison = comparisonElection?.partyShares[party.code] ?? 0;
+                    const chartLeft = 48;
+                    const chartWidth = 1952;
+                    const slot = chartWidth / Math.max(parties.length, 1);
+                    const pollWidth = Math.min(144, slot * 0.66);
+                    const comparisonWidth = pollWidth * 0.32;
+                    const pairWidth = pollWidth + comparisonWidth;
+                    const x = chartLeft + slot * index + (slot - pairWidth) / 2;
+                    const pollHeight = Math.max(0, party.poll) * barScale;
+                    const comparisonHeight = Math.max(0, comparison) * barScale;
+                    const label = party.code === "AP" ? "Alliance" : definition?.graphicName ?? definition?.name ?? party.code;
+                    const labelFontSize = 40;
+                    const labelFits = label.length * labelFontSize * 0.46 <= slot * 0.94;
+                    const partyLabel = labelFits ? label : party.code;
+                    const partyLabelFontSize = labelFits ? labelFontSize : Math.min(labelFontSize, Math.max(24, (slot * 0.92) / (partyLabel.length * 0.5)));
+                    const affiliation = definition?.affiliation ?? "N/A";
+                    const affiliationFontSize = Math.min(13, Math.max(8, (slot * 0.94) / (affiliation.length * 0.53)));
+                    return (
+                      <g key={`${party.code}-${index}`} fontFamily="AvertaExport, Averta, Arial, sans-serif">
+                        <rect x={x} y={BASELINE - pollHeight} width={pollWidth} height={pollHeight} fill={color} />
+                        <rect x={x + pollWidth} y={BASELINE - comparisonHeight} width={comparisonWidth} height={comparisonHeight} fill={lighten(color)} />
+                        {party.poll > 0 && <text x={x + pollWidth / 2} y={BASELINE - pollHeight - 14} textAnchor="middle" fontSize="46" fontWeight="700" letterSpacing="-2" fontFamily="DIN Alternate, DIN, Bahnschrift, Arial Narrow, AvertaExport, Arial, sans-serif" fill="#f4f8f8">{party.poll.toFixed(1)}%</text>}
+                        {comparison > 0 && <text x={x + pollWidth + comparisonWidth / 2} y={BASELINE - comparisonHeight - 12} textAnchor="middle" fontSize="14" fontWeight="700" letterSpacing="-0.7" fontFamily="DIN Alternate, DIN, Bahnschrift, Arial Narrow, AvertaExport, Arial, sans-serif" fill="#b7c4c6">{comparison.toFixed(1)}%</text>}
+                        <text x={x + pairWidth / 2} y={BASELINE + 54} textAnchor="middle" fontSize={partyLabelFontSize} fontWeight="700" letterSpacing="-1.5" fill="#f4f8f8">{partyLabel}</text>
+                        <text x={x + pairWidth / 2} y={BASELINE + 84} textAnchor="middle" fontSize={affiliationFontSize} letterSpacing="-0.5" fill="#b7c4c6">{affiliation}</text>
+                      </g>
+                    );
+                  })}
+                </>
+              )}
             </svg>
           </div>
           {exportError && <p className="staff-form-error" role="alert">{exportError}</p>}
-          <p className="staff-export-note">Dark background &middot; 2:1 format &middot; High-resolution PNG export</p>
+          <p className="staff-export-note">Dark Ireland Votes styling &middot; {graphicFormat === "story" ? "9:16 Instagram Story" : "2:1 X post"} &middot; {exportSize.width} × {exportSize.height} PNG</p>
         </section>
       </div>
       {postPanelOpen && (

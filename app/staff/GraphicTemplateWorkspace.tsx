@@ -13,6 +13,8 @@ const DEFAULT_HEADLINES: Record<GraphicTemplateKey, string> = {
   "election-results": "Election results", explainer: "The numbers behind the story",
 };
 const BREAKING_FLASH_LINES = ["BREAK", "ING"];
+const STORY_WIDTH = 1080;
+const STORY_HEIGHT = 1920;
 const dateLabel = (value: string | null) => value ? new Intl.DateTimeFormat("en-IE", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${value}T00:00:00Z`)) : "Election archive";
 function lines(value: string, max = 28, limit = 3) {
   const words = value.trim().split(/\s+/).filter(Boolean);
@@ -57,6 +59,15 @@ function fitBreakingSummary(value: string, width: number, height: number) {
     wrapped[maxLines - 1] = `${wrapped[maxLines - 1].slice(0, -1).trimEnd()}…`;
   }
   return { lines: wrapped, fontSize, lineHeight };
+}
+
+function fitBreakingStorySummary(value: string, width: number, height: number) {
+  for (let fontSize = 124; fontSize >= 40; fontSize -= 1) {
+    const wrapped = wrapWords(value, Math.max(10, Math.floor(width / (fontSize * 0.54))));
+    const lineHeight = Math.round(fontSize * 1.12);
+    if (wrapped.length * lineHeight <= height) return { lines: wrapped, fontSize, lineHeight };
+  }
+  return { lines: wrapWords(value, Math.max(10, Math.floor(width / 22))), fontSize: 40, lineHeight: 45 };
 }
 
 type GifFrame = { x: number; y: number; width: number; height: number; pixels: Uint8ClampedArray; delay: number };
@@ -217,6 +228,7 @@ export default function GraphicTemplateWorkspace({ template, elections }: Props)
   const [electionId, setElectionId] = useState(firstElection?.id ?? "");
   const [areaName, setAreaName] = useState(firstElection?.areas[0]?.name ?? "");
   const [breakingMode, setBreakingMode] = useState<"static" | "animated">(template === "breaking-news" ? "animated" : "static");
+  const [breakingFormat, setBreakingFormat] = useState<"x" | "story">("x");
   const [breakingTypedCharacters, setBreakingTypedCharacters] = useState(0);
   const [tweetDraft, setTweetDraft] = useState("");
   const [exporting, setExporting] = useState(false);
@@ -237,10 +249,18 @@ export default function GraphicTemplateWorkspace({ template, elections }: Props)
   const topParties = useMemo(() => area?.parties.slice(0, 6) ?? [], [area]);
   const topCandidates = useMemo(() => area?.candidates.slice(0, 5) ?? [], [area]);
   const isBreakingGraphic = template === "breaking-news";
+  const isBreakingStory = isBreakingGraphic && breakingMode === "static" && breakingFormat === "story";
+  const graphicWidth = isBreakingStory ? STORY_WIDTH : 2048;
+  const graphicHeight = isBreakingStory ? STORY_HEIGHT : 1024;
   const titleLines = useMemo(() => lines(headline || DEFAULT_HEADLINES[template], isBreakingGraphic ? 34 : template === "explainer" ? 27 : 25, isBreakingGraphic ? 2 : 3), [headline, template, isBreakingGraphic]);
   const breakingAccentY = isBreakingGraphic ? 270 + Math.max(0, titleLines.length - 1) * 90 + 50 : 636;
   const breakingSummaryY = isBreakingGraphic ? breakingAccentY + 215 : 680;
   const breakingSummaryLayout = useMemo(() => fitBreakingSummary(summary, 1880, Math.max(90, 935 - breakingSummaryY)), [summary, breakingSummaryY]);
+  const storyHeadlineFontSize = Math.min(150, Math.max(44, 936 / (Math.max(...titleLines.map((line) => line.length), 1) * 0.56)));
+  const storyHeadlineY = 550;
+  const storyAccentY = storyHeadlineY + Math.max(0, titleLines.length - 1) * storyHeadlineFontSize * 1.08 + 68;
+  const storySummaryY = storyAccentY + 170;
+  const storySummaryLayout = useMemo(() => fitBreakingStorySummary(summary, 936, Math.max(160, 1650 - storySummaryY)), [summary, storySummaryY]);
   const contentLines = isBreakingGraphic
     ? breakingSummaryLayout.lines
     : lines(summary, template === "explainer" ? 44 : 35, 4);
@@ -321,7 +341,7 @@ export default function GraphicTemplateWorkspace({ template, elections }: Props)
     try {
       image.src = objectUrl;
       await image.decode();
-      const canvas = document.createElement("canvas"); canvas.width = 4000; canvas.height = 2000;
+      const canvas = document.createElement("canvas"); canvas.width = isBreakingStory ? STORY_WIDTH : 4000; canvas.height = isBreakingStory ? STORY_HEIGHT : 2000;
       const context = canvas.getContext("2d");
       if (!context) throw new Error("PNG export is unavailable in this browser.");
       context.drawImage(image, 0, 0, canvas.width, canvas.height);
@@ -373,7 +393,7 @@ export default function GraphicTemplateWorkspace({ template, elections }: Props)
     try {
       const animated = template === "breaking-news" && breakingMode === "animated";
       const blob = animated ? await makeGif() : await makePng(); const url = URL.createObjectURL(blob); const anchor = document.createElement("a");
-      anchor.href = url; anchor.download = `ireland-votes-${template}.${animated ? "gif" : "png"}`; anchor.click(); URL.revokeObjectURL(url);
+      anchor.href = url; anchor.download = `ireland-votes-${template}${isBreakingStory ? "-instagram-story" : ""}.${animated ? "gif" : "png"}`; anchor.click(); URL.revokeObjectURL(url);
     } catch (cause) { setError(cause instanceof Error ? cause.message : "The graphic could not be exported."); }
     finally { setExporting(false); }
   }
@@ -394,7 +414,7 @@ export default function GraphicTemplateWorkspace({ template, elections }: Props)
       if (!postImage) throw new Error("Prepare the graphic preview first.");
       const responseBlob = await fetch(postImage).then((response) => response.blob());
       const animated = template === "breaking-news" && breakingMode === "animated";
-      const form = new FormData(); form.set("text", tweetDraft); form.set("graphic", responseBlob, `ireland-votes-${template}.${animated ? "gif" : "png"}`);
+      const form = new FormData(); form.set("text", tweetDraft); form.set("graphic", responseBlob, `ireland-votes-${template}${isBreakingStory ? "-instagram-story" : ""}.${animated ? "gif" : "png"}`);
       const response = await fetch("/api/staff/x/post", { method: "POST", body: form });
       const result = await response.json() as { error?: string; postUrl?: string; posted?: boolean };
       if (!response.ok || !result.posted || !result.postUrl) throw new Error(result.error ?? "X could not publish this post.");
@@ -418,7 +438,7 @@ export default function GraphicTemplateWorkspace({ template, elections }: Props)
       <aside className="staff-editor">
         <div className="staff-tool-heading"><p className="staff-eyebrow">IRELAND VOTES / CONTENT</p><h1>{TITLES[template]}</h1><p>Build a branded social graphic and prepare its post copy.</p></div>
         <section className="staff-editor-section"><h2>Graphic content</h2>
-          {template === "breaking-news" && <fieldset className="staff-breaking-mode"><legend>Format</legend><div role="group" aria-label="Breaking news graphic format"><button type="button" aria-pressed={breakingMode === "static"} onClick={() => setBreakingMode("static")}>Static</button><button type="button" aria-pressed={breakingMode === "animated"} onClick={() => setBreakingMode("animated")}>Animated GIF</button></div><p>The animated GIF is a looping generic BREAKING flash with the Ireland Votes logo. Use the static format for the story summary and source.</p></fieldset>}
+          {template === "breaking-news" && <fieldset className="staff-breaking-mode"><legend>Format</legend><div role="group" aria-label="Breaking news graphic format"><button type="button" aria-pressed={breakingMode === "static"} onClick={() => setBreakingMode("static")}>Static</button><button type="button" aria-pressed={breakingMode === "animated"} onClick={() => setBreakingMode("animated")}>Animated GIF</button></div><p>The GIF remains a looping generic BREAKING flash. The static PNG can use landscape or Instagram Story dimensions.</p></fieldset>}
           <label>Headline<input value={headline} onChange={(event) => setHeadline(event.target.value)} maxLength={100} /></label>
           <label>{template === "explainer" ? "Explanation" : template === "breaking-news" ? "Summary" : "Context / caption"}<textarea rows={4} value={summary} onChange={(event) => setSummary(event.target.value)} placeholder="Add the key detail for the graphic" /></label>
           {isBreakingGraphic && <p className="staff-field-note">The summary automatically scales to the available space while using the full width.</p>}
@@ -440,11 +460,13 @@ export default function GraphicTemplateWorkspace({ template, elections }: Props)
         {error && <p className="staff-form-error" role="alert">{error}</p>}
       </aside>
       <section className="staff-preview-area">
-        <div className="staff-preview-toolbar"><div><p className="staff-eyebrow">{template === "breaking-news" && breakingMode === "animated" ? "ANIMATED GIF · LOOPING" : "4000 × 2000"}</p><h2>Live preview</h2></div><button type="button" className="staff-generate-post-button" onClick={() => { void openPost(); }} disabled={preparingPost}>{preparingPost ? "Preparing post…" : "Generate post"}</button><button type="button" className="staff-download-button" onClick={() => { void download(); }} disabled={exporting}>{exporting ? "Preparing file…" : template === "breaking-news" && breakingMode === "animated" ? "Download GIF" : "Download PNG"}</button></div>
-        <div className="staff-preview-frame">
-          <svg ref={previewRef} className="poll-graphic-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 1024" role="img" aria-label={`${TITLES[template]} graphic preview`}>
+        <div className="staff-preview-toolbar"><div><p className="staff-eyebrow">{template === "breaking-news" && breakingMode === "animated" ? "ANIMATED GIF · LOOPING" : isBreakingStory ? "INSTAGRAM STORY · 9:16" : "4000 × 2000"}</p><h2>Live preview</h2></div>{template === "breaking-news" && breakingMode === "static" && <label className="staff-format-select">Format<select value={breakingFormat} onChange={(event) => setBreakingFormat(event.target.value as "x" | "story")}><option value="x">X landscape · 2:1</option><option value="story">Instagram Story · 9:16</option></select></label>}<button type="button" className="staff-generate-post-button" onClick={() => { void openPost(); }} disabled={preparingPost}>{preparingPost ? "Preparing post…" : "Generate post"}</button><button type="button" className="staff-download-button" onClick={() => { void download(); }} disabled={exporting}>{exporting ? "Preparing file…" : template === "breaking-news" && breakingMode === "animated" ? "Download GIF" : isBreakingStory ? "Download Story PNG" : "Download PNG"}</button></div>
+        <div className={`staff-preview-frame${isBreakingStory ? " is-story" : ""}`}>
+          <svg ref={previewRef} className="poll-graphic-svg" xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${graphicWidth} ${graphicHeight}`} role="img" aria-label={`${TITLES[template]} graphic preview`}>
             <defs><linearGradient id="studio-bg" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#101719"/><stop offset="1" stopColor="#243337"/></linearGradient><linearGradient id="studio-aqua" x1="0" y1="0" x2="1" y2="1"><stop stopColor={isBreakingGraphic ? "#f4a3aa" : "#00d7e6"} stopOpacity=".46"/><stop offset="1" stopColor={isBreakingGraphic ? "#a93d47" : "#008b97"} stopOpacity="0"/></linearGradient><radialGradient id="studio-glow"><stop stopColor={isBreakingGraphic ? "#e65d69" : "#00c7d4"} stopOpacity=".29"/><stop offset="1" stopColor={isBreakingGraphic ? "#e65d69" : "#00c7d4"} stopOpacity="0"/></radialGradient></defs>
             {isBreakingGraphic && breakingMode === "animated" && <style data-motion-style>{`@keyframes ivFlashRise{0%{transform:translateY(150px)}100%{transform:translateY(0)}}[data-breaking-flash-word]{animation:ivFlashRise .32s cubic-bezier(.2,.75,.25,1) both}@media(prefers-reduced-motion:reduce){[data-breaking-flash-word]{animation:none}}`}</style>}
+            {isBreakingStory && <g fontFamily="AvertaExport, Averta, Arial, sans-serif"><rect width="1080" height="1920" fill="url(#studio-bg)"/><circle cx="950" cy="880" r="760" fill="url(#studio-glow)"/><path d="M0 0H1080V1500L0 420Z" fill="url(#studio-aqua)" opacity=".38"/><image data-asset="logo" data-breaking-reveal="brand" href="/portrait.png" x="52" y="260" width="330" height="136" preserveAspectRatio="xMinYMid meet"/>{textLines(titleLines, 72, storyHeadlineY, storyHeadlineFontSize, storyHeadlineFontSize * 1.08, "#f4a3aa", 700)}<rect x="72" y={storyAccentY} width="280" height="7" rx="3.5" fill="#f4a3aa"/>{textLines(storySummaryLayout.lines, 72, storySummaryY, storySummaryLayout.fontSize, storySummaryLayout.lineHeight, "#f6f8f8", 600)}<g>{source && <text x="72" y="1740" fill="#f4a3aa" fontSize={Math.min(24, Math.max(12, 640 / ((source.length + 9) * 0.58)))} fontWeight="600">SOURCE  /  {source}</text>}<text x="1008" y="1740" textAnchor="end" fill="#a4b5b7" fontSize="20">{dateLabel(preparedDate)}</text></g><text x="72" y="1815" fill="#a4b5b7" fontSize="17" fontWeight="600">irelandvotes.com</text></g>}
+            {!isBreakingStory && <>
             <rect width="2048" height="1024" fill="url(#studio-bg)"/><circle cx="1690" cy="460" r="650" fill="url(#studio-glow)"/><path d="M1170 0h878v1024h-120z" fill="url(#studio-aqua)" opacity=".38"/>{!isBreakingGraphic && <path d="M0 905h2048" stroke="#d9eef0" strokeOpacity=".18"/>}<image data-asset="logo" data-breaking-reveal="brand" href="/portrait.png" x="72" y="48" width="310" height="126" preserveAspectRatio="xMinYMid meet"/>
             {!isBreakingGraphic && <text x="82" y="224" fill="#00d7e6" fontFamily="AvertaExport,Arial,sans-serif" fontSize="28" fontWeight="700" letterSpacing="5">{template === "on-this-day" ? "FROM THE ARCHIVE" : template === "election-results" ? "ELECTION RESULTS" : "IRELAND VOTES / EXPLAINER"}</text>}
             <g data-motion-headline={isBreakingGraphic ? "true" : undefined} data-breaking-reveal={isBreakingGraphic ? "headline" : undefined}>{textLines(titleLines, 82, isBreakingGraphic ? 285 : 340, isBreakingGraphic ? 82 : template === "explainer" ? 78 : 96, isBreakingGraphic ? 90 : 110, isBreakingGraphic ? "#f4a3aa" : "#f6f8f8", 700)}</g>
@@ -464,9 +486,10 @@ export default function GraphicTemplateWorkspace({ template, elections }: Props)
             {template === "explainer" && source && <text x="1040" y="832" fill="#acbec0" fontFamily="AvertaExport,Arial,sans-serif" fontSize="23">SOURCE  /  {source}</text>}
             {!isBreakingGraphic && <><text x="84" y="970" fill="#a4b5b7" fontFamily="AvertaExport,Arial,sans-serif" fontSize="20" letterSpacing="1">IRELAND VOTES</text><text x="1960" y="970" textAnchor="end" fill="#a4b5b7" fontFamily="AvertaExport,Arial,sans-serif" fontSize="20">{dateLabel(preparedDate)}</text></>}
             {isBreakingGraphic && breakingMode === "animated" && <g data-breaking-flash="true" pointerEvents="none"><rect width="2048" height="1024" fill="#d84654"/><g data-breaking-flash-word="true" fill="#fff2f3" fontFamily="AvertaExport,Arial,sans-serif" fontSize="700" fontWeight="700" letterSpacing="-18" textAnchor="start" style={{ transformOrigin: "center" }}><text x="-112" y="470">{BREAKING_FLASH_LINES[0].slice(0, breakingTypedCharacters)}</text><text x="-112" y="1040">{BREAKING_FLASH_LINES[1].slice(0, Math.max(0, breakingTypedCharacters - BREAKING_FLASH_LINES[0].length))}</text></g><image href="/portrait.png" x="1690" y="875" width="280" height="114" preserveAspectRatio="xMaxYMax meet"/></g>}
+            </>}
           </svg>
         </div>
-        <p className="staff-export-note">Ireland Votes brand fonts embedded · {template === "breaking-news" && breakingMode === "animated" ? "Looping animated GIF · 1200 × 600" : "High-resolution PNG · 2:1 social format"}</p>
+        <p className="staff-export-note">Ireland Votes brand fonts embedded · {template === "breaking-news" && breakingMode === "animated" ? "Looping animated GIF · 1200 × 600" : isBreakingStory ? "Instagram Story PNG · 1080 × 1920" : "High-resolution PNG · 2:1 social format"}</p>
       </section>
     </div>
     {postOpen && <div className="staff-post-drawer-layer"><button type="button" className="staff-post-drawer-backdrop" aria-label="Close post generator" onClick={() => setPostOpen(false)}/><aside className="staff-post-drawer" role="dialog" aria-modal="true" aria-labelledby="generic-post-title"><header className="staff-post-drawer-header"><div><p className="staff-eyebrow">SOCIAL MEDIA</p><h2 id="generic-post-title">Generate post</h2></div><button type="button" className="staff-post-drawer-close" onClick={() => setPostOpen(false)}>Close</button></header><div className="staff-post-drawer-content"><div className="staff-post-platform"><span className="staff-post-platform-icon">X</span><div><strong>Twitter / X</strong><span>{TITLES[template]} template</span></div></div><div className={`staff-x-connection${xStatus.connected ? " is-connected" : ""}`}>{xStatus.loading ? <span>Checking X connection…</span> : xStatus.connected ? <span><strong>Connected</strong> as @{xStatus.username}</span> : xStatus.configured ? <><span>Connect the Ireland Votes account to publish.</span><a href="/api/staff/x/connect">Connect X account</a></> : <span>X publishing is not configured on this server.</span>}</div><label className="staff-post-copy-label" htmlFor="generic-post-copy">Post text <span>{Array.from(tweetDraft).length} characters</span></label><textarea id="generic-post-copy" className="staff-tweet-draft" value={tweetDraft} onChange={(event) => setTweetDraft(event.target.value)}/><article className="staff-x-post-preview"><div className="staff-x-post-author"><span className="staff-x-post-avatar">IV</span><span><strong>Ireland Votes</strong><small>Polling &amp; electoral analysis</small></span><b>X</b></div><p className="staff-x-post-text">{tweetDraft}</p>{postImage && <img className="staff-x-post-image" src={postImage} alt={`${TITLES[template]} graphic attached to post`}/>}</article>{postError && <p className="staff-post-error" role="alert">{postError}</p>}{postedUrl && <p className="staff-post-success" role="status">Published. <a href={postedUrl} target="_blank" rel="noreferrer">View post on X</a></p>}</div><footer className="staff-post-drawer-footer"><span className="staff-post-copy-status">{copyStatus}</span><button type="button" className="staff-copy-tweet-button" onClick={() => { void copyPost(); }}>Copy post</button><button type="button" className="staff-post-now-button" disabled={!xStatus.connected || xStatus.loading || publishing || Boolean(postedUrl)} onClick={() => { void publish(); }}>{publishing ? "Publishing…" : postedUrl ? "Published" : "Post to X"}</button></footer></aside></div>}
