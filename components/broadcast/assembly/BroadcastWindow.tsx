@@ -22,7 +22,7 @@ export function openBroadcastWindow() {
   return popup;
 }
 
-export default function BroadcastWindow({ popup, onClose, children }: { popup: Window; onClose: () => void; children: ReactNode }) {
+export default function BroadcastWindow({ popup, onClose, children, light = false }: { popup: Window; onClose: () => void; children: ReactNode; light?: boolean }) {
   const [scale, setScale] = useState(0);
   const [fullscreen, setFullscreen] = useState(false);
   const [error, setError] = useState("");
@@ -45,7 +45,7 @@ export default function BroadcastWindow({ popup, onClose, children }: { popup: W
   }
   if (popup.closed) return null;
   return createPortal(<div className={styles.externalOutput}>
-    <div className={styles.frame} style={{ width: 1920 * scale, height: 1080 * scale }}><div className={styles.output} style={{ transform: `scale(${scale})` }}>{children}</div></div>
+    <div className={styles.frame} style={{ width: 1920 * scale, height: 1080 * scale }}><div className={`${styles.output} ${light ? styles.lightOutput : ""}`} style={{ transform: `scale(${scale})` }}>{children}</div></div>
     {!fullscreen && <div className={styles.outputWindowTools}><button onClick={enterFullscreen}>Enter fullscreen</button>{error && <span role="status">{error}</span>}</div>}
   </div>, popup.document.body);
 }

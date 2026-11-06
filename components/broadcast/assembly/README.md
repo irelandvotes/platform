@@ -74,4 +74,39 @@ at each frame instead of stretching a cached drawing. The map component is
 memoized so candidate-page changes do not rebuild it. Verify this rendering and
 lifecycle logic with `node scripts/test-broadcast-map-lifecycle.mjs`.
 
+## Broadcast lettering
+
+All visible programme text is rendered as Averta SVG glyph paths through
+`outlineBroadcastText`, including dynamic names, numbers, accents, the clock,
+headers, panel content, lower thirds and alerts. The test desk retains ordinary
+text controls. The local Regular/Semibold/Bold OTFs supply the generated outlines;
+no text raster images or runtime font rasterisation are used for programme
+lettering. Accessible text labels are retained. CSS sizes, weights, tracking and
+tabular numerals drive the vector layout, including the external output window.
+
+Regenerate `lib/broadcast/avertaGlyphs.json` with
+`node scripts/generate-broadcast-glyphs.mjs` (uses the installed fontkit package).
+Run `node scripts/test-broadcast-outlines.mjs` to check glyph coverage and markup.
+
+## Overall-results rotation
+
+Once first preferences are received, the main overall content cycles every 12
+seconds through vote share/change, seats/confirmed change, and Assembly at this
+hour. It also runs in Complete mode. Pause overall rotation holds this sequence
+independently of replay and lower-third controls. Count announcements interrupt
+the overall view, and rotation resumes afterwards. Lower thirds are unaffected.
+
+The assembly view uses four rounded horseshoe tracks based on the composition
+graphic and exactly 90 dimensional SVG seat blocks. Only current elected
+candidates receive party colours; outstanding seats remain neutral. The chart
+uses actual party codes rather than merging small parties into Other. Its seat
+geometry and partial/final allocation are covered by the replay checks.
+
+After the party chamber, a second 12-second chamber view groups confirmed wins
+as Nationalist, Non-aligned and Unionist. This uses the 2022 Assembly designation
+groups, with Other labelled Non-aligned (including PBP), rather than projection
+model blocs. Source: https://www.niassembly.gov.uk/assembly-business/minutes-of-proceedings/session-2022-2023/13-may-2022/
+Seat positions stay fixed; group colours, sequential labels and highlights change.
+Unfilled seats remain neutral. Final designation totals are 35 / 18 / 37.
+
 Verify with `node scripts/test-broadcast-replay.mjs`.
