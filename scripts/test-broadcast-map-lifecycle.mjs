@@ -42,6 +42,7 @@ function harness() {
       if (name === "react") return react;
       if (name === "react/jsx-runtime") return { jsx: () => null, jsxs: () => null };
       if (name === "leaflet") return leaflet;
+      if (name === "./OutlinedText") return { outlineBroadcastText: node => node };
       if (name.includes("mapRendering")) return { animateMapView, simplifyBoundaries };
       return {};
     },

@@ -1,20 +1,15 @@
 import styles from "./assembly.module.css";
 
-const horizontal = Array.from({ length: 25 }, (_, i) => {
-  const y = i * 80 - 240;
-  return `M -400 ${y} C 200 ${y - 180}, 650 ${y + 200}, 1150 ${y} S 2050 ${y - 200}, 2800 ${y + 100}`;
-});
-const vertical = Array.from({ length: 35 }, (_, i) => {
-  const x = i * 100 - 500;
-  return `M ${x} -400 C ${x - 160} 150, ${x + 180} 500, ${x} 850 S ${x - 180} 1450, ${x + 60} 1900`;
+const waves = Array.from({ length: 7 }, (_, i) => {
+  const y = i * 200 - 200;
+  return `M -500 ${y} C 100 ${y - 260}, 550 ${y + 320}, 1200 ${y + 40} S 2250 ${y - 240}, 2900 ${y + 120} L 2900 ${y + 225} C 2250 ${y - 135}, 1850 ${y + 325}, 1200 ${y + 145} S 100 ${y - 155}, -500 ${y + 105} Z`;
 });
 
 export default function FlowingBackdrop() {
   return <div className={styles.flowingBackdrop} aria-hidden="true">
     <svg viewBox="0 0 2400 1400" preserveAspectRatio="xMidYMid slice">
-      <g className={styles.flowingMesh} fill="none" stroke="#67d4ce" strokeWidth="1.5">
-        {horizontal.map((d, i) => <path key={`h${i}`} d={d} />)}
-        {vertical.map((d, i) => <path key={`v${i}`} d={d} />)}
+      <g className={styles.flowingWaves}>
+        {waves.map((d, i) => <path key={i} d={d} fill={i % 2 ? "#00a9b5" : "#88e5d7"} fillOpacity={i % 2 ? .24 : .18} />)}
       </g>
     </svg>
   </div>;

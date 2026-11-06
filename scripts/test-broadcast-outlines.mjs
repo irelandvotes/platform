@@ -1,0 +1,32 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import vm from "node:vm";
+import { createRequire } from "node:module";
+import ts from "typescript";
+import React from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import Papa from "papaparse";
+const require = createRequire(import.meta.url);
+const fonts = JSON.parse(fs.readFileSync("lib/broadcast/avertaGlyphs.json", "utf8"));
+const rows = Papa.parse(fs.readFileSync("public/data/elections/northern-ireland/assembly/2022/election_data.csv", "utf8"), { header: true, skipEmptyLines: true }).data;
+const text = rows.map(row => `${row.candidate} ${row.constituency}`).join(" ") + " ELECTION ALERT #Assembly22 0123456789.%+−—↑↓→";
+for (const weight of [400, 600, 700]) for (const character of new Set(text)) {
+  if (/\s/.test(character)) continue;
+  assert.ok(fonts[weight].glyphs[character], `${weight}: missing outline for ${character}`);
+}
+const source = fs.readFileSync("components/broadcast/assembly/OutlinedText.tsx", "utf8");
+const compiled = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020, jsx: ts.JsxEmit.ReactJSX, esModuleInterop: true } });
+const sandbox = { exports: {}, require(name) { return name.includes("avertaGlyphs") ? fonts : require(name); } };
+vm.runInNewContext(compiled.outputText, sandbox);
+const { OutlinedText, outlineBroadcastText } = sandbox.exports;
+const markup = renderToStaticMarkup(React.createElement(OutlinedText, { text: "Sinn Féin 27" }));
+assert.ok(markup.includes("<path"));
+assert.ok(!markup.includes("<text"), "Visible lettering consists of vector paths");
+assert.ok(markup.includes('aria-label="Sinn Féin 27"'), "Text retains an accessible label");
+const tree = outlineBroadcastText(React.createElement("strong", { className: "test" }, "Naomi Long", React.createElement("small", null, "Incumbent")));
+const treeMarkup = renderToStaticMarkup(React.createElement(React.Fragment, null, tree));
+assert.ok(treeMarkup.includes('class="test"'));
+assert.ok(treeMarkup.includes('aria-label="Naomi Long"'));
+assert.ok(treeMarkup.includes('aria-label="Incumbent"'));
+assert.ok(!treeMarkup.includes("<text"));
+console.log("Broadcast outlines passed: three font weights, all candidate/constituency names, accented characters, figures, nested text and accessible labels.");

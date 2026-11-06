@@ -15,8 +15,8 @@ export type Story = {
 export function coverageFrames(update: CountUpdate) {
   return [
     { kind: "intro", page: 0, duration: 2400 },
-    ...(update.count === 1 ? [{ kind: "parties", page: 0, duration: 12000 }] : []),
-    ...Array.from({ length: Math.ceil(update.candidates.length / 8) }, (_, page) => ({ kind: "candidates", page, duration: 7000 })),
+    ...(update.count === 1 ? [{ kind: "parties", page: 0, duration: 6000 }, { kind: "parties", page: 1, duration: 6000 }] : []),
+    ...Array.from({ length: Math.ceil(update.candidates.length / 6) }, (_, page) => ({ kind: "candidates", page, duration: 7000 })),
   ];
 }
 export function coverageDuration(update: CountUpdate) {
@@ -41,6 +41,14 @@ export function nextConstituencyCount(updates: CountUpdate[], data: BroadcastSta
 }
 
 export const nationalPartyCodes = ["SF", "DUP", "AP", "UUP", "SDLP", "TUV", "PBP", "OTHER"];
+export function candidateField(updates: CountUpdate[]) {
+  const candidates = new Map<string, { constituency: string; party: string }>();
+  for (const update of updates) {
+    if (update.count !== 1) continue;
+    for (const candidate of update.candidates) candidates.set(`${update.constituency}:${candidate.id}`, { constituency: update.constituency, party: candidate.party });
+  }
+  return [...candidates.values()];
+}
 export function nationalSummary(data: BroadcastState, baseline: CountUpdate[] | null) {
   const reporting = Object.keys(data.first);
   const votes: Record<string, number> = {}, oldVotes: Record<string, number> = {};

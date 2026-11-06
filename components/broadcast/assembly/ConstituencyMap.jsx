@@ -1,5 +1,7 @@
 "use client";
 
+import { outlineBroadcastText } from "./OutlinedText";
+
 import { memo, useEffect, useRef, useState } from "react";
 import { animateMapView, simplifyBoundaries } from "@/lib/broadcast/mapRendering.mjs";
 import L from "leaflet";
@@ -22,7 +24,7 @@ function ConstituencyMap({ name, focus }) {
       .then(response => { if (!response.ok) throw new Error(); return response.json(); })
       .then(geo => {
         if (controller.signal.aborted || mapRef.current !== map) return;
-        const layers = L.geoJSON(simplifyBoundaries(geo), { interactive: false, style: { color: "#8197a8", weight: 1.2, fillColor: "#253f50", fillOpacity: 1 } }).addTo(map);
+        const layers = L.geoJSON(simplifyBoundaries(geo), { interactive: false, style: { color: "#8197a8", weight: 1.2, fillColor: "#253f50", fillOpacity: .6 } }).addTo(map);
         layersRef.current = layers;
         map.fitBounds(layers.getBounds(), { paddingTopLeft: [80, 90], paddingBottomRight: [1040, 300], animate: false });
         setReady(true);
@@ -45,7 +47,7 @@ function ConstituencyMap({ name, focus }) {
     let selected;
     layers.eachLayer(layer => {
       const match = layer.feature.properties.ENG_NAME_VALUE === name;
-      layer.setStyle({ fillColor: match ? "#67d4ce" : "#253f50", color: match ? "#e3fffc" : "#8197a8", weight: match ? 2.5 : 1.2 });
+      layer.setStyle({ fillColor: match ? "#67d4ce" : "#253f50", fillOpacity: match ? .78 : .6, color: match ? "#e3fffc" : "#8197a8", weight: match ? 2.5 : 1.2 });
       if (match) selected = layer;
     });
     if (selected) selected.bringToFront();
@@ -70,6 +72,6 @@ function ConstituencyMap({ name, focus }) {
     }
     return () => { window.clearTimeout(zoomTimer); cancelZoom?.(); if (mapRef.current === map) map.stop(); };
   }, [ready, name, focus]);
-  return <div className={styles.coverageMapFrame}><div ref={container} className={styles.coverageMap} aria-label={`Constituency map: ${name}`} />{locator && <svg className={styles.mapLocator} aria-hidden="true"><circle cx={locator.x} cy={locator.y} r={locator.radius} pathLength="1" /></svg>}<span className={styles.mapCaption}>{error || (focus ? name : "Northern Ireland · 18 constituencies")}</span></div>;
+  return outlineBroadcastText(<div className={styles.coverageMapFrame}><div ref={container} className={styles.coverageMap} aria-label={`Constituency map: ${name}`} />{locator && <svg className={styles.mapLocator} aria-hidden="true"><circle cx={locator.x} cy={locator.y} r={locator.radius} pathLength="1" /></svg>}<span className={styles.mapCaption}>{error || (focus ? name : "Northern Ireland · 18 constituencies")}</span></div>);
 }
 export default memo(ConstituencyMap);
