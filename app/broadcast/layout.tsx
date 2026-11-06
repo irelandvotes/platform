@@ -1,20 +1,3 @@
-export default function BroadcastLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html>
-      <body
-        style={{
-          margin: 0,
-          padding: 0,
-          background: "#111",
-          overflow: "hidden"
-        }}
-      >
-        {children}
-      </body>
-    </html>
-  );
+export default function BroadcastLayout({ children }: { children: React.ReactNode }) {
+  return <div style={{ width: "100%", height: "100%", overflow: "auto", background: "#101820" }}>{children}</div>;
 }
